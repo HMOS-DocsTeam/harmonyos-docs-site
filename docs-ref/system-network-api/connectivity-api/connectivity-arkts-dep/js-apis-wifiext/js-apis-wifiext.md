@@ -1,0 +1,176 @@
+---
+title: "@ohos.wifiext (WLAN扩展接口)"
+sidebar_position: 4
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-wifiext
+kit: 系统
+last_updated: "2026-04-22"
+slug: js-apis-wifiext
+---
+
+# @ohos.wifiext (WLAN扩展接口)
+
+该模块主要提供WLAN扩展接口，供非通用类型产品使用。
+
+![](../../../../images/b53dc2c5/note_3.0-zh-cn.png) 
+
+本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。
+
+该文档中的接口只供非通用类型产品使用，如路由器等，对于常规类型产品，不应该使用这些接口。
+
+从API Version 9开始，该接口不再维护，推荐使用[@ohos.wifiManagerExt（WLAN扩展接口）](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext)等相关接口。
+
+## 导入模块
+
+```
+import wifiext from '@ohos.wifiext';
+```
+
+## wifiext.enableHotspot(deprecated)
+
+enableHotspot(): boolean;
+
+使能WLAN热点。
+
+![](../../../../images/8503ddd7/note_3.0-zh-cn.png) 
+
+从API version 8开始支持，从API version 9开始废弃。建议使用[wifiManagerExt.enableHotspot](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext#wifimanagerextenablehotspotdeprecated)替代。
+
+****需要权限：**** ohos.permission.MANAGE\_WIFI\_HOTSPOT\_EXT
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 操作结果， true: 成功， false: 失败。 |
+
+## wifiext.disableHotspot(deprecated)
+
+disableHotspot(): boolean;
+
+去使能WLAN热点。
+
+![](../../../../images/e3910147/note_3.0-zh-cn.png) 
+
+从API version 8开始支持，从API version 9开始废弃。建议使用[wifiManagerExt.disableHotspot](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext#wifimanagerextdisablehotspotdeprecated)替代。
+
+****需要权限：**** ohos.permission.MANAGE\_WIFI\_HOTSPOT\_EXT
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 操作结果， true: 成功， false: 失败。 |
+
+## wifiext.getSupportedPowerModel(deprecated)
+
+getSupportedPowerModel(): Promise&lt;Array&lt;PowerModel&gt;>
+
+获取支持的功率模式。使用Promise异步回调。
+
+![](../../../../images/4b69b7b2/note_3.0-zh-cn.png) 
+
+从API version 8开始支持，从API version 9开始废弃。建议使用[wifiManagerExt.getSupportedPowerModel](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext#wifimanagerextgetsupportedpowermode)替代。
+
+****需要权限：**** ohos.permission.GET\_WIFI\_INFO
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;Array&lt;[PowerModel](#powermodel)&gt;&gt; | Promise对象。表示功率模式。 |
+
+## PowerModel
+
+表示功率模式的枚举。
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+| 名称 | 值 | 说明 |
+| --- | --- | --- |
+| SLEEPING | 0 | 睡眠模式。 |
+| GENERAL | 1 | 常规模式。 |
+| THROUGH\_WALL | 2 | 穿墙模式。 |
+
+## wifiext.getSupportedPowerModel
+
+getSupportedPowerModel(callback: AsyncCallback&lt;Array&lt;PowerModel&gt;>): void
+
+获取支持的功率模式。使用callback异步回调。
+
+****需要权限：**** ohos.permission.GET\_WIFI\_INFO
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | AsyncCallback&lt;Array&lt;[PowerModel](#powermodel)&gt;&gt; | 是 | 回调函数。当操作成功时，err为0，data表示支持的功率模式。如果err为非0，表示处理出现错误。 |
+
+## wifiext.getPowerModel(deprecated)
+
+getPowerModel(): Promise&lt;PowerModel&gt;
+
+获取功率模式，使用Promise异步回调。
+
+![](../../../../images/b626b609/note_3.0-zh-cn.png) 
+
+从API version 8开始支持，从API version 9开始废弃。建议使用[wifiManagerExt.getSupportedPowerModel](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext#wifimanagerextgetpowermode)替代。
+
+****需要权限：**** ohos.permission.GET\_WIFI\_INFO
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| Promise&lt;[PowerModel](#powermodel)&gt; | Promise对象。表示功率模式。 |
+
+## wifiext.getPowerModel(deprecated)
+
+getPowerModel(callback: AsyncCallback&lt;PowerModel&gt;): void
+
+获取功率模式。使用callback异步回调。
+
+![](../../../../images/b43fce4d/note_3.0-zh-cn.png) 
+
+从API version 8开始支持，从API version 9开始废弃。建议使用[wifiManagerExt.getSupportedPowerModel](/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext#wifimanagerextgetpowermode-1)替代。
+
+****需要权限：**** ohos.permission.GET\_WIFI\_INFO
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| callback | AsyncCallback&lt;[PowerModel](#powermodel)&gt; | 是 | 回调函数。当操作成功时，err为0，data表示功率模式。如果err为非0，表示处理出现错误。 |
+
+## wifiext.setPowerModel
+
+setPowerModel(model: PowerModel) : boolean;
+
+设置功率模式。
+
+****需要权限：**** ohos.permission.MANAGE\_WIFI\_HOTSPOT\_EXT
+
+****系统能力：**** SystemCapability.Communication.WiFi.AP.Extension
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| model | [PowerModel](#powermodel) | 是 | 功率模式。 |
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| boolean | 操作结果， true: 成功， false: 失败。 |

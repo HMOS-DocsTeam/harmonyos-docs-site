@@ -1,0 +1,24 @@
+---
+title: "OH_BatteryInfo"
+sidebar_position: 4
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-oh-batteryinfo
+kit: 系统
+last_updated: "2026-04-22"
+slug: capi-oh-batteryinfo
+---
+
+# OH\_BatteryInfo
+
+## 概述
+
+提供BatteryInfo模块的电池相关信息的能力。
+
+****系统能力：**** SystemCapability.PowerManager.BatteryManager.Core
+
+****起始版本：**** 13
+
+## 文件汇总
+
+| 名称 | 描述 |
+| --- | --- |
+| [ohbattery\_info.h](/ref/system-basicfun-api/basic-services-api/basic-services-c/basic-services-headerfile/capi-ohbattery-info-h/capi-ohbattery-info-h) | 声明电池API以获取当前电池容量和电源类型的信息，定义电池相应常见事件。 |

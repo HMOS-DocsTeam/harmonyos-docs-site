@@ -1,0 +1,51 @@
+---
+title: "Rcp_OnStatusCodeReceiveCallback"
+sidebar_position: 53
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/_rcp___on_status_code_callback
+kit: 系统
+last_updated: "2026-04-22"
+slug: x_rcp___on_status_code_callback
+---
+
+# Rcp\_OnStatusCodeReceiveCallback
+
+## 概述
+
+响应的状态码接收回调函数。可以通过[HMS\_Rcp\_SetRequestOnStatusCodeReceiveCallback](/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-module/remote-communication-overview/remote-communication-overview#hms_rcp_setrequestonstatuscodereceivecallback)为请求设置相应回调函数。
+
+****起始版本：**** 6.0.1(21)
+
+****相关模块：**** [RemoteCommunication](/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-module/remote-communication-overview/remote-communication-overview)
+
+****所在头文件：**** [rcp.h](/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-headerfile/rcp_8h/rcp_8h)
+
+## 汇总
+
+### 成员变量
+
+| 名称 | 描述 |
+| --- | --- |
+| [Rcp\_OnStatusCodeReceiveCallbackFunc](/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-module/remote-communication-overview/remote-communication-overview#rcp_onstatuscodereceivecallbackfunc) | 请求过程中接收响应状态码的回调函数。 |
+| void \*[usrObject](#usrobject) | 用户定义的对象，在回调函数中使用。 |
+
+## 结构体成员变量说明
+
+### callback
+
+```
+Rcp_OnStatusCodeReceiveCallbackFunc Rcp_OnStatusCodeReceiveCallback::callback
+```
+
+****描述****
+
+响应状态码接收回调函数。
+
+### usrObject
+
+```
+void* Rcp_OnStatusCodeReceiveCallback::usrObject
+```
+
+****描述****
+
+用户定义的对象，在回调函数中使用。

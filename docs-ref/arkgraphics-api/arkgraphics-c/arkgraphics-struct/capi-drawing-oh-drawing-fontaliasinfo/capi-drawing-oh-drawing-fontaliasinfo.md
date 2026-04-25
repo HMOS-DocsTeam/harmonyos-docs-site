@@ -1,0 +1,33 @@
+---
+title: "OH_Drawing_FontAliasInfo"
+sidebar_position: 22
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-fontaliasinfo
+kit: 图形
+last_updated: "2026-04-22"
+slug: capi-drawing-oh-drawing-fontaliasinfo
+---
+
+# OH\_Drawing\_FontAliasInfo
+
+```
+typedef struct OH_Drawing_FontAliasInfo {...} OH_Drawing_FontAliasInfo
+```
+
+## 概述
+
+别名字体信息结构体。
+
+****起始版本：**** 12
+
+****相关模块：**** [Drawing](/ref/arkgraphics-api/arkgraphics-c/arkgraphics-module/capi-drawing/capi-drawing)
+
+****所在头文件：**** [drawing\_text\_typography.h](/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-typography-h/capi-drawing-text-typography-h)
+
+## 汇总
+
+### 成员变量
+
+| 名称 | 描述 |
+| --- | --- |
+| char\* familyName | 字体家族名。 |
+| int weight | 字体字重值，当字重值大于0时，表示此字体集只包含所指定weight的字体，当字重值等于0时，表示此字体集包含所有字体。 |

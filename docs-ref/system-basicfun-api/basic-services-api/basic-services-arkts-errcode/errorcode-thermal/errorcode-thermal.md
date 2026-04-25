@@ -1,0 +1,40 @@
+---
+title: "热管理错误码"
+sidebar_position: 5
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/errorcode-thermal
+kit: 系统
+last_updated: "2026-04-22"
+slug: errorcode-thermal
+---
+
+# 热管理错误码
+
+![](../../../../images/9d95d814/note_3.0-zh-cn.png) 
+
+以下仅介绍本模块特有错误码，通用错误码请参考[通用错误码说明文档](/ref/errorcode-universal/errorcode-universal)。
+
+## 4800101 连接服务失败
+
+****错误信息****
+
+Failed to connect to the service.
+
+****错误描述****
+
+操作失败，连接系统服务发生异常。
+
+****可能原因****
+
+1. 系统服务停止运行。
+2. 系统服务内部通讯发生异常。
+
+****处理步骤****
+
+检查系统服务是否正常运行。
+
+1. 在控制台中输入如下命令，查看当前的系统服务列表。
+
+   ```
+   > hdc shell hidumper -ls
+   ```
+2. 查看系统服务列表中是否包含ThermalService系统服务。

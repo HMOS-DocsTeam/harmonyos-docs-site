@@ -1,0 +1,33 @@
+---
+title: "原型注册接口(OP_ADD)"
+sidebar_position: 1
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-prototype-api-registration
+kit: ai
+last_updated: "2026-04-22"
+---
+
+# 原型注册接口(OP\_ADD)
+
+## 函数功能
+
+注册算子的原型定义。
+
+## 函数原型
+
+```
+OP_ADD(opType)
+```
+
+## 参数说明
+
+| 参数 | 输入/输出 | 说明 |
+| --- | --- | --- |
+| opType | 输入 | 算子类型名称。 |
+
+## 返回值
+
+无
+
+## 约束说明
+
+无

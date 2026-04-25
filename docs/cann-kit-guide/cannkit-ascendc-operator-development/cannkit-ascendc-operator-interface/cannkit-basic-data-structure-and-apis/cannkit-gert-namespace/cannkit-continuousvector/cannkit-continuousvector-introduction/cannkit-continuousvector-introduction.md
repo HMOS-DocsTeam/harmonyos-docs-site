@@ -1,0 +1,13 @@
+---
+title: "简介"
+sidebar_position: 1
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-continuousvector-introduction
+kit: ai
+last_updated: "2026-04-22"
+---
+
+# 简介
+
+本类是一个POD类，在内存中开辟一块连续的空间用于存储描述信息以及实际内存数据。
+
+本类的描述信息包括：用于存放数据的内存空间的总容量capacity\_、当前内存空间的数据量size\_。

@@ -1,0 +1,11 @@
+---
+title: "简介"
+sidebar_position: 1
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-typedcontinuousvector-introduction
+kit: ai
+last_updated: "2026-04-22"
+---
+
+# 简介
+
+本类继承自ContinuousVector类，与ContinuousVector类不同的是MutableData和GetData返回的是指定类型的地址，而不是void \*。因此称为Typed。

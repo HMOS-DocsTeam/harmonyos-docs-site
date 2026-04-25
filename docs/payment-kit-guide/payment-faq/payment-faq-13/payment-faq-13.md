@@ -1,0 +1,11 @@
+---
+title: "预下单一段时间后再支付，能否有接口查到prepayId？"
+sidebar_position: 12
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/payment-faq-13
+kit: app-services
+last_updated: "2026-04-22"
+---
+
+# 预下单一段时间后再支付，能否有接口查到prepayId？
+
+prepayId有效期为10分钟。目前没有提供可以查询****prepayId****的接口。

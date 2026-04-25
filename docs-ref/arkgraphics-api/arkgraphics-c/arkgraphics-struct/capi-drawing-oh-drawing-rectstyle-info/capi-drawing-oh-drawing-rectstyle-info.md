@@ -1,0 +1,36 @@
+---
+title: "OH_Drawing_RectStyle_Info"
+sidebar_position: 31
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/capi-drawing-oh-drawing-rectstyle-info
+kit: 图形
+last_updated: "2026-04-22"
+slug: capi-drawing-oh-drawing-rectstyle-info
+---
+
+# OH\_Drawing\_RectStyle\_Info
+
+```
+typedef struct {...} OH_Drawing_RectStyle_Info
+```
+
+## 概述
+
+定义矩形框样式结构体。
+
+****起始版本：**** 12
+
+****相关模块：**** [Drawing](/ref/arkgraphics-api/arkgraphics-c/arkgraphics-module/capi-drawing/capi-drawing)
+
+****所在头文件：**** [drawing\_types.h](/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-types-h/capi-drawing-types-h)
+
+## 汇总
+
+### 成员变量
+
+| 名称 | 描述 |
+| --- | --- |
+| uint32\_t color | 矩形框的颜色。 |
+| double leftTopRadius | 矩形框的左上半径。 |
+| double rightTopRadius | 矩形框的右上半径。 |
+| double rightBottomRadius | 矩形框的右下半径。 |
+| double leftBottomRadius | 矩形框的左下半径。 |

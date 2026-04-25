@@ -1,0 +1,36 @@
+---
+title: "结构体"
+sidebar_position: 2
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/onlineauthentication_capi_struct
+kit: 系统
+last_updated: "2026-04-20"
+slug: onlineauthentication_capi_struct
+---
+
+# 结构体
+
+- ****[AuthenticationExtensionsClientOutputs](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_authentication_extensions_client_outputs/x_authentication_extensions_client_outputs)****
+- ****[FIDO2\_AttestationFormatsArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___attestation_formats_array/x_f_i_d_o2___attestation_formats_array)****
+- ****[FIDO2\_AuthenticatorAttestationResponse](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_attestation_response/x_f_i_d_o2___authenticator_attestation_response)****
+- ****[FIDO2\_AuthenticatorMetadata](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_metadata/x_f_i_d_o2___authenticator_metadata)****
+- ****[FIDO2\_AuthenticatorMetadataArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_metadata_array/x_f_i_d_o2___authenticator_metadata_array)****
+- ****[FIDO2\_AuthenticatorResponse](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_response/x_f_i_d_o2___authenticator_response)****
+- ****[FIDO2\_AuthenticatorSelectionCriteria](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_selection_criteria/x_f_i_d_o2___authenticator_selection_criteria)****
+- ****[FIDO2\_AuthenticatorTransportArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___authenticator_transport_array/x_f_i_d_o2___authenticator_transport_array)****
+- ****[FIDO2\_Capability](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___capability/x_f_i_d_o2___capability)****
+- ****[FIDO2\_CapabilityArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___capability_array/x_f_i_d_o2___capability_array)****
+- ****[FIDO2\_CredentialCreationOptionArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___credential_creation_option_array/x_f_i_d_o2___credential_creation_option_array)****
+- ****[FIDO2\_CredentialCreationOptions](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___credential_creation_options/x_f_i_d_o2___credential_creation_options)****
+- ****[FIDO2\_CredentialRequestOptions](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___credential_request_options/x_f_i_d_o2___credential_request_options)****
+- ****[FIDO2\_PublicKeyAssertionCredential](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_assertion_credential/x_f_i_d_o2___public_key_assertion_credential)****
+- ****[FIDO2\_PublicKeyAttestationCredential](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_attestation_credential/x_f_i_d_o2___public_key_attestation_credential)****
+- ****[FIDO2\_PublicKeyCredentialCreationOptions](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_creation_options/x_f_i_d_o2___public_key_credential_creation_options)****
+- ****[FIDO2\_PublicKeyCredentialDescriptor](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_descriptor/x_f_i_d_o2___public_key_credential_descriptor)****
+- ****[FIDO2\_PublicKeyCredentialDescriptorArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_descriptor_array/x_f_i_d_o2___public_key_credential_descriptor_array)****
+- ****[FIDO2\_PublicKeyCredentialHintArray](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_hint_array/x_f_i_d_o2___public_key_credential_hint_array)****
+- ****[FIDO2\_PublicKeyCredentialParameters](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_parameters/x_f_i_d_o2___public_key_credential_parameters)****
+- ****[FIDO2\_PublicKeyCredentialRequestOptions](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_request_options/x_f_i_d_o2___public_key_credential_request_options)****
+- ****[FIDO2\_PublicKeyCredentialRpEntity](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_rp_entity/x_f_i_d_o2___public_key_credential_rp_entity)****
+- ****[FIDO2\_PublicKeyCredentialUserEntity](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___public_key_credential_user_entity/x_f_i_d_o2___public_key_credential_user_entity)****
+- ****[FIDO2\_TokenBinding](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_f_i_d_o2___token_binding/x_f_i_d_o2___token_binding)****
+- ****[Uint8Buff](/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_headerandstruct/onlineauthentication_capi_struct/x_uint8_buff/x_uint8_buff)****

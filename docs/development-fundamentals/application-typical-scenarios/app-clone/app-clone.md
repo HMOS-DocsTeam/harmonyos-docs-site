@@ -1,0 +1,60 @@
+---
+title: "创建应用分身"
+sidebar_position: 2
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/app-clone
+kit: getting-started
+last_updated: "2026-04-22"
+---
+
+# 创建应用分身
+
+应用分身能在一个设备上安装多个相同的应用，实现多个账号同时登录并独立运行。主要应用场景有社交账号双开、游戏大小号双开等，无需账号切换，从而省去频繁登录的繁琐。
+
+创建应用分身之后，桌面上会出现多个相同图标的应用，其中带有下角标的应用图标表示分身应用。
+
+主应用与分身应用之间的关系如下：
+
+- 主应用和分身应用共享同一个应用。例如，当主应用更新/升级时，主应用与分身应用都会同步更新，包括应用的图标（icon）和名称（label）、应用的新特性等。
+- 主应用和分身应用，其对应的使能和相关配置都是独立的，数据也是彼此隔离。
+- 主应用被卸载时，所有分身应用也会同步卸载。卸载分身应用时，不会影响主应用。
+
+以下图片展示了应用分身的效果：
+
+![](../../../images/b315292d/zh-cn_image_0000002552957478.png)
+
+## 约束与限制
+
+输入法应用配置分身无效，无法创建应用分身。
+
+## 应用分身的开发步骤
+
+1. 配置应用分身的方法。
+
+   在工程项目中对AppScope/app.json5配置文件配置[multiAppMode](/development-fundamentals/application-configuration-file-stage/app-configuration-file#multiappmode标签)字段。具体配置如下：
+
+   ```
+   {
+     "app": {
+       // ...
+       "multiAppMode": {
+         "multiAppModeType": "appClone",
+         "maxCount": 2
+       }
+     }
+   }
+   ```
+2. 创建分身应用。
+
+   - 首先将已配置好的工程编译打包安装到设备上。
+
+     ![](../../../images/fef89825/zh-cn_image_0000002583477479.png)
+   - 然后打开设置>系统>应用分身，点击“创建分身”。
+
+     ![](../../../images/701c5fd1/zh-cn_image_0000002552797830.png)
+
+     ![](../../../images/66c3b7cc/zh-cn_image_0000002583437525.png)
+   - 返回桌面，检查创建是否成功。
+
+     ![](../../../images/e72c19b5/zh-cn_image_0000002552957478.png)
+
+     图中的三个应用的进程、运行、数据、通知等，都是彼此独立的。

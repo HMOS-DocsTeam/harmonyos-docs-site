@@ -1,0 +1,39 @@
+---
+title: "GetNodeName"
+sidebar_position: 12
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/cannkit-getnodename
+kit: ai
+last_updated: "2026-04-22"
+---
+
+# GetNodeName
+
+## 函数功能
+
+获取算子的名称。
+
+## 函数原型
+
+```
+const char *GetNodeName() const
+```
+
+## 参数说明
+
+无
+
+## 返回值
+
+算子的名称。
+
+## 约束说明
+
+无
+
+## 调用示例
+
+```
+// 假设已存在KernelContext *context
+auto extend_context = reinterpret_cast<ExtendedKernelContext *>(context);
+auto node_name = extend_context->GetNodeName();
+```

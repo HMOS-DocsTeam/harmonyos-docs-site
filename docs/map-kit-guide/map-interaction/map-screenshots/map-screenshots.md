@@ -1,0 +1,95 @@
+---
+title: "地图截图"
+sidebar_position: 5
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/map-screenshots
+kit: app-services
+last_updated: "2026-04-22"
+---
+
+# 地图截图
+
+本章节将向您介绍如何实现地图截图功能。
+
+地图截图指对当前屏幕显示区域进行截屏，支持对地图、覆盖物、Logo进行屏幕截图。
+
+![](../../../images/ae9dc03b/zh-cn_image_0000002583479027.jpg "点击放大")
+
+## 接口说明
+
+以下是地图截图相关接口，以下功能主要由[snapshot](/ref/map-api/map-arkts/map-map/map-map-mapcomponentcontroller/map-map-mapcomponentcontroller#snapshot)提供，更多接口及使用方法请参见[接口文档](/ref/map-api/map-arkts/map-map/map-map-mapcomponentcontroller/map-map-mapcomponentcontroller#snapshot)。
+
+| 接口名 | 描述 |
+| --- | --- |
+| [snapshot](/ref/map-api/map-arkts/map-map/map-map-mapcomponentcontroller/map-map-mapcomponentcontroller#snapshot)(): Promise&lt;[image.PixelMap](/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap)&gt; | 地图截图。 |
+
+## 开发步骤
+
+1. 导入相关模块。
+
+   ```
+   import { MapComponent, mapCommon, map } from '@kit.MapKit';
+   import { AsyncCallback } from '@kit.BasicServicesKit';
+   import { image } from '@kit.ImageKit';
+   ```
+2. 调用[snapshot](/ref/map-api/map-arkts/map-map/map-map-mapcomponentcontroller/map-map-mapcomponentcontroller#snapshot)方法对当前屏幕进行截图。
+
+   ```
+   @Entry
+   @Component
+   struct HuaweiMapDemo {
+     private mapOptions?: mapCommon.MapOptions;
+     private callback?: AsyncCallback<map.MapComponentController>;
+     private mapController?: map.MapComponentController;
+     @State image?: image.PixelMap = undefined;
+
+     aboutToAppear(): void {
+       // 地图初始化参数，设置地图中心点坐标及层级
+       this.mapOptions = {
+         position: {
+           target: {
+             latitude: 39.9,
+             longitude: 116.4
+           },
+           zoom: 10
+         }
+       };
+
+       // 地图初始化的回调
+       this.callback = async (err, mapController) => {
+         if (!err) {
+           // 获取地图的控制器类，用来操作地图
+           this.mapController = mapController;
+         } else {
+           console.error(`Failed to initialize the map, code is：${err.code}, message is ${err.message}`);
+         }
+       };
+     }
+
+     build() {
+       Stack() {
+         Column() {
+           MapComponent({ mapOptions: this.mapOptions, mapCallback: this.callback })
+             .width('100%')
+             .height('50%');
+
+           Scroll(new Scroller()) {
+             Column() {
+               Image(this.image)
+                 .objectFit(ImageFit.Auto)
+                 .border({ width: 1, color: Color.Red }).width("100%")
+               Button("获取截图")
+                 .margin({ left: 10 })
+                 .fontSize(12)
+                 .onClick(async () => {
+                   if (this.mapController) {
+                     let pixelMap = await this.mapController.snapshot();
+                     this.image = pixelMap;
+                   }
+                 });
+             }
+           }.width('70%').height("50%")
+         }.width('100%')
+       }.height('100%')
+     }
+   }
+   ```

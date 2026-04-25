@@ -1,0 +1,48 @@
+---
+title: "取消动态订阅公共事件"
+sidebar_position: 3
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/common-event-unsubscription
+kit: system/basic-services
+last_updated: "2026-04-22"
+---
+
+# 取消动态订阅公共事件
+
+## 场景介绍
+
+动态订阅者完成业务需求后，应主动取消订阅。通过调用[unsubscribe()](/ref/system-basicfun-api/basic-services-api/basic-services-arkts/process-thread-communi-arkts/js-apis-commoneventmanager/js-apis-commoneventmanager#commoneventmanagerunsubscribe)方法，取消订阅事件。
+
+## 接口说明
+
+| 接口名 | 接口描述 |
+| --- | --- |
+| [unsubscribe](/ref/system-basicfun-api/basic-services-api/basic-services-arkts/process-thread-communi-arkts/js-apis-commoneventmanager/js-apis-commoneventmanager#commoneventmanagerunsubscribe)(subscriber: CommonEventSubscriber, callback?: AsyncCallback&lt;void&gt;) | 取消订阅公共事件。 |
+
+## 开发步骤
+
+1. 导入模块。
+
+   ```
+   import { BusinessError, commonEventManager } from '@kit.BasicServicesKit';
+   import { hilog } from '@kit.PerformanceAnalysisKit';
+
+   const TAG: string = 'ProcessModel';
+   const DOMAIN_NUMBER: number = 0xFF00;
+   ```
+2. 根据[动态订阅公共事件](/system-basicfun/basic-services-kit/app-events/common-event-communication/common-event-subscription)章节的步骤来订阅某个事件。
+3. 调用CommonEvent中的[unsubscribe()](/ref/system-basicfun-api/basic-services-api/basic-services-arkts/process-thread-communi-arkts/js-apis-commoneventmanager/js-apis-commoneventmanager#commoneventmanagerunsubscribe)方法取消订阅某事件。
+
+   ```
+   // subscriberCustom为订阅事件时创建的订阅者对象
+   if (subscriberCustom !== null) {
+     commonEventManager.unsubscribe(subscriberCustom, (err: BusinessError) => {
+       if (err) {
+         hilog.error(DOMAIN_NUMBER, TAG,
+           `Failed to unsubscribe. code is ${err.code}, message is ${err.message}`);
+       } else {
+         hilog.info(DOMAIN_NUMBER, TAG, `Succeeded in unsubscribing.`);
+         subscriberCustom = null;
+       }
+     })
+   }
+   ```

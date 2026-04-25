@@ -1,0 +1,47 @@
+---
+title: "ProcessRunningInfo"
+sidebar_position: 20
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/js-apis-inner-application-processrunninginfo
+kit: 应用框架
+last_updated: "2026-04-22"
+slug: js-apis-inner-application-processrunninginfo
+---
+
+# ProcessRunningInfo
+
+运行进程信息，可以通过appManager中[getProcessRunningInfos](/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-application-appmanager/js-apis-application-appmanager#appmanagergetprocessrunninginfosdeprecated)方法来获取运行进程信息。
+
+![](../../../../../images/bb1219ee/note_3.0-zh-cn.png) 
+
+- 本模块接口从API version 9 开始废弃，建议使用[ProcessInformation9+](/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-processinformation/js-apis-inner-application-processinformation)替代。
+- 本模块首批接口从API version 8 开始支持。
+
+## 导入模块
+
+```
+import appManager from '@ohos.application.appManager';
+```
+
+## 属性
+
+****系统能力****：SystemCapability.Ability.AbilityRuntime.Mission
+
+| 名称 | 类型 | 只读 | 可选 | 说明 |
+| --- | --- | --- | --- | --- |
+| pid | number | 否 | 否 | 进程ID。 |
+| uid | number | 否 | 否 | 应用程序的UID。 |
+| processName | string | 否 | 否 | 进程名称。 |
+| bundleNames | Array&lt;string&gt; | 否 | 否 | 进程中所有运行的Bundle名称。 |
+
+****示例：****
+
+```
+import appManager from '@ohos.application.appManager';
+import { BusinessError } from '@ohos.base';
+
+appManager.getProcessRunningInfos().then((data) => {
+    console.info(`success: ${JSON.stringify(data)}`);
+}).catch((error: BusinessError) => {
+    console.error(`failed: ${JSON.stringify(error)}`);
+});
+```

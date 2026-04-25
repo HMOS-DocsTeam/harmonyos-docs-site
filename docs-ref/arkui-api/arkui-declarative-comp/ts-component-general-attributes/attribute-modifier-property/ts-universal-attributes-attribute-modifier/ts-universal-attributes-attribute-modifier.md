@@ -1,0 +1,569 @@
+---
+title: "动态属性设置"
+sidebar_position: 1
+original_url: https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-universal-attributes-attribute-modifier
+kit: 应用框架
+last_updated: "2026-04-22"
+slug: ts-universal-attributes-attribute-modifier
+---
+
+# 动态属性设置
+
+动态设置组件的属性，支持开发者在属性设置时使用if/else语法，且根据需要使用多态样式设置属性。
+
+![](../../../../../images/123ec725/note_3.0-zh-cn.png) 
+
+- 从API version 11开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。
+- 在attributeModifier中设置的属性尽量不要与其他方法设置的属性相同，避免在页面刷新时attributeModifier不生效。
+- 对于仅需根据条件设置组件单一属性的简单场景，可以使用[三目表达式](/arkui/arkts-ui-development/arkts-ui-paradigm-basic-syntax/arkts-declarative-ui-description#配置属性)（如.width(isFullScreen ? 200 : 100)）。
+- 从API version 20开始，attributeModifier支持自定义组件。
+
+## attributeModifier
+
+attributeModifier(modifier: AttributeModifier&lt;T&gt;): T
+
+动态设置组件的属性方法。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| modifier | [AttributeModifier&lt;T&gt;](#attributemodifiert) | 是 | 在当前组件上，动态设置属性方法，支持使用if/else语法。  modifier：属性修改器，开发者需要自定义class实现AttributeModifier接口。 |
+
+****返回值：****
+
+| 类型 | 说明 |
+| --- | --- |
+| T | 返回当前组件。 |
+
+## AttributeModifier&lt;T&gt;
+
+开发者需要自定义class实现AttributeModifier接口。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+![](../../../../../images/c1d70cd7/note_3.0-zh-cn.png) 
+
+在以下回调函数中，当对instance对象的同一个属性重复设置相同的值或对象时，不会触发该属性的更新。
+
+### applyNormalAttribute
+
+applyNormalAttribute?(instance: T): void
+
+组件普通状态时的样式。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| instance | T | 是 | 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button)组件的[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)，[Text](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text)组件的[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)等。 |
+
+### applyPressedAttribute
+
+applyPressedAttribute?(instance: T): void
+
+组件按压状态的样式。参考[示例2（组件绑定Modifier实现按压态效果）](#示例2组件绑定modifier实现按压态效果)、[示例8（自定义组件绑定Modifier实现按压态效果）](#示例8自定义组件绑定modifier实现按压态效果)。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| instance | T | 是 | 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button)组件的[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)，[Text](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text)组件的[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)等。 |
+
+### applyFocusedAttribute
+
+applyFocusedAttribute?(instance: T): void
+
+组件获焦状态的样式。参考[示例5（组件绑定Modifier获焦样式）](#示例5组件绑定modifier获焦样式)。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| instance | T | 是 | 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button)组件的[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)，[Text](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text)组件的[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)等。 |
+
+### applyDisabledAttribute
+
+applyDisabledAttribute?(instance: T): void
+
+组件禁用状态的样式。参考[示例6（组件绑定modifier禁用状态的样式）](#示例6组件绑定modifier禁用状态的样式)。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| instance | T | 是 | 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button)组件的[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)，[Text](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text)组件的[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)等。 |
+
+### applySelectedAttribute
+
+applySelectedAttribute?(instance: T): void
+
+组件选中状态的样式。
+
+开发者可根据需要自定义实现这些方法，通过传入的参数识别组件类型，对instance设置属性，支持使用if/else语法进行动态设置。参考[示例7（组件绑定modifier选中状态样式）](#示例7组件绑定modifier选中状态样式)。
+
+****元服务API：**** 从API version 12开始，该接口支持在元服务中使用。
+
+****系统能力：**** SystemCapability.ArkUI.ArkUI.Full
+
+****参数：****
+
+| 参数名 | 类型 | 必填 | 说明 |
+| --- | --- | --- | --- |
+| instance | T | 是 | 组件的属性类，用来标识进行属性设置的组件的类型，比如[Button](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button)组件的[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)，[Text](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text)组件的[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)等。 |
+
+****instance参数支持范围：****
+
+[AlphabetIndexerAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer#属性)、[BadgeAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-badge/ts-container-badge#属性)、[BlankAttribute](/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank#属性)、[ButtonAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#属性)、[CalendarPickerAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-calendarpicker/ts-basic-components-calendarpicker#属性)、[CanvasAttribute](/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas#属性)、[CheckboxAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-checkbox/ts-basic-components-checkbox#属性)、[CheckboxGroupAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-checkboxgroup/ts-basic-components-checkboxgroup#属性)、[CircleAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle#属性)、[ColumnAttribute](/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-column/ts-container-column#属性)、[ColumnSplitAttribute](/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-columnsplit/ts-container-columnsplit#属性)、[CommonAttribute](https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes)、[CounterAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-counter/ts-container-counter#属性)、[DataPanelAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-datapanel/ts-basic-components-datapanel#属性)、[DatePickerAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-datepicker/ts-basic-components-datepicker#属性)、[DividerAttribute](/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-divider/ts-basic-components-divider#属性)、[EllipseAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-ellipse/ts-drawing-components-ellipse#属性)、[FlexAttribute](/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex#属性)、[FlowItemAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-flowitem/ts-container-flowitem#属性)、[FormLinkAttribute](/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink#属性)、[GaugeAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-gauge/ts-basic-components-gauge#属性)、[GridAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-grid/ts-container-grid#属性)、[GridColAttribute](/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridcol/ts-container-gridcol#属性)、[GridItemAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-griditem/ts-container-griditem#属性)、[GridRowAttribute](/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow#属性)、[HyperlinkAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-container-hyperlink/ts-container-hyperlink#属性)、[IndicatorComponentAttribute](/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator#属性)、[ImageAttribute](/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image#属性)、[ImageAnimatorAttribute](/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-imageanimator/ts-basic-components-imageanimator#属性)、[ImageSpanAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-imagespan/ts-basic-components-imagespan#属性)、[ContainerSpanAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-containerspan/ts-basic-components-containerspan#属性)、[LineAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-line/ts-drawing-components-line#属性)、[ListAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#属性)、[ListItemAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-listitem/ts-container-listitem#属性)、[ListItemGroupAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-listitemgroup/ts-container-listitemgroup#属性)、[LoadingProgressAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-loadingprogress/ts-basic-components-loadingprogress#属性)、[MarqueeAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-marquee/ts-basic-components-marquee#属性)、[MenuAttribute](/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu#属性)、[MenuItemAttribute](/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menuitem/ts-basic-components-menuitem#属性)、[MenuItemGroupAttribute](/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menuitemgroup/ts-basic-components-menuitemgroup)、[NavDestinationAttribute](/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navdestination/ts-basic-components-navdestination#属性)、[NavigationAttribute](/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navigation/ts-basic-components-navigation#属性)、[NavigatorAttribute](/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-navigator/ts-container-navigator#属性)、[NavRouterAttribute](/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-basic-components-navrouter/ts-basic-components-navrouter#属性)、[PanelAttribute](/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-panel/ts-container-panel#属性)、[PathAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-path/ts-drawing-components-path#属性)、[PatternLockAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-patternlock/ts-basic-components-patternlock#属性)、[PolygonAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-polygon/ts-drawing-components-polygon#属性)、[PolylineAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-polyline/ts-drawing-components-polyline#属性)、[ProgressAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-progress/ts-basic-components-progress#属性)、[QRCodeAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-qrcode/ts-basic-components-qrcode#属性)、[RadioAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-radio/ts-basic-components-radio#属性)、[RatingAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-rating/ts-basic-components-rating#属性)、[RectAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-rect/ts-drawing-components-rect#属性)、[RefreshAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-refresh/ts-container-refresh#属性)、[RelativeContainerAttribute](/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-relativecontainer/ts-container-relativecontainer#属性)、[RichEditorAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-richeditor/ts-basic-components-richeditor#属性)、[RichTextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-richtext/ts-basic-components-richtext#属性)、[RowAttribute](/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-row/ts-container-row#属性)、[RowSplitAttribute](/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-rowsplit/ts-container-rowsplit#属性)、[ScrollAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#属性)、[ScrollBarAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-basic-components-scrollbar/ts-basic-components-scrollbar#属性)、[SearchAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-search/ts-basic-components-search#属性)、[SelectAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select#属性)、[ShapeAttribute](/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-shape/ts-drawing-components-shape#属性)、[SideBarContainerAttribute](/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-sidebarcontainer/ts-container-sidebarcontainer#属性)、[SliderAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-slider/ts-basic-components-slider#属性)、[SpanAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-span/ts-basic-components-span#属性)、[SymbolSpanAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-symbolspan/ts-basic-components-symbolspan#属性)、[StackAttribute](/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-stack/ts-container-stack#属性)、[StepperAttribute](/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-basic-components-stepper/ts-basic-components-stepper#属性)、[StepperItemAttribute](/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-basic-components-stepperitem/ts-basic-components-stepperitem#属性)、[SwiperAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-swiper/ts-container-swiper#属性)、[SymbolGlyphAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-symbolglyph/ts-basic-components-symbolglyph#属性)、[TabContentAttribute](/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-container-tabcontent/ts-container-tabcontent#属性)、[TabsAttribute](/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-container-tabs/ts-container-tabs#属性)、[TextAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text#属性)、[TextAreaAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-textarea/ts-basic-components-textarea#属性)、[TextClockAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-textclock/ts-basic-components-textclock#属性)、[TextInputAttribute](/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-textinput/ts-basic-components-textinput#属性)、[TextPickerAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-textpicker/ts-basic-components-textpicker#属性)、[TextTimerAttribute](/ref/arkui-api/arkui-declarative-comp/information-display/ts-basic-components-texttimer/ts-basic-components-texttimer#属性)、[TimePickerAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-timepicker/ts-basic-components-timepicker#属性)、[ToggleAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-toggle/ts-basic-components-toggle#属性)、[VideoAttribute](/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-media-components-video/ts-media-components-video#属性)、[WaterFlowAttribute](/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-waterflow/ts-container-waterflow#属性)、[XComponentAttribute](/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent#属性)、[ParticleAttribute](/ref/arkui-api/arkui-declarative-comp/animation/ts-particle-animation/ts-particle-animation#属性)、[UIPickerComponentAttribute](/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-container-ui-picker-component/ts-container-ui-picker-component#属性)22+。
+
+![](../../../../../images/5dec91b7/note_3.0-zh-cn.png) 
+
+- StepperAttribute从API version 22开始废弃，建议使用SwiperAttribute替代。
+- StepperItemAttribute从API version 22开始废弃，建议使用SwiperAttribute替代。
+- NavigatorAttribute从API version 20开始废弃，建议使用NavigationAttribute替代。
+- NavRouterAttribute从API version 20开始废弃，建议使用NavigationAttribute替代。
+- PanelAttribute从API version 20开始废弃，推荐使用通用属性bindSheet。
+
+****属性支持范围：****
+
+1. 不支持入参或者返回值为[CustomBuilder](/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#custombuilder8)的属性。
+2. 不支持入参为[modifier](/arkui/arkts-ui-development/arkts-user-defined-capabilities/arkts-modifier/arkts-user-defined-modifier)类型的属性，具体为以下属性方法：[attributeModifier](#attributemodifier)，[drawModifier](/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-draw-modifier/ts-universal-attributes-draw-modifier)和[gestureModifier](/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-gesture-modifier/ts-universal-attributes-gesture-modifier)。
+3. 不支持[animation](/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty)属性。
+4. 不支持[gesture](/arkui/arkts-ui-development/arkts-interaction-development-guide-overview/rkts-interaction-development-guide-support-gesture/arkts-gesture-events-binding)类型的属性。
+5. 不支持[stateStyles](/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/ts-universal-attributes-polymorphic-style/ts-universal-attributes-polymorphic-style)属性。
+6. 不支持已废弃属性。
+
+不支持或者未实现的属性在使用时会抛出"Method not implemented."、"is not callable"、"Builder is not supported."等异常信息。具体Modifier支持范围可参考[属性或事件对attributemodifier的支持情况](/arkui/arkts-ui-development/arkts-user-defined-capabilities/arkts-modifier/arkts-user-defined-extension-attributemodifier#属性或事件对attributemodifier的支持情况)。
+
+## 自定义Modifier
+
+从API version 12开始，开发者可使用自定义Modifier构建组件并配置属性，通过此自定义的Modifier可调用所封装组件的属性和样式接口。
+
+****自定义Modifier支持范围：****
+
+CommonModifier、ColumnModifier、ColumnSplitModifier、RowModifier、RowSplitModifier、SideBarContainerModifier、BlankModifier、DividerModifier、GridColModifier、GridRowModifier、NavDestinationModifier、NavigatorModifier、StackModifier、NavigationModifier、NavRouterModifier、StepperItemModifier、StepperModifier20+、TabsModifier、GridModifier、GridItemModifier、ListModifier、ListItemModifier、ListItemGroupModifier、ScrollModifier、SwiperModifier、WaterFlowModifier、ButtonModifier、CounterModifier、TextPickerModifier、TimePickerModifier、ToggleModifier、CalendarPickerModifier、CheckboxModifier、CheckboxGroupModifier、DatePickerModifier、RadioModifier、RatingModifier、SelectModifier、SliderModifier、PatternLockModifier、SpanModifier、SymbolSpanModifier、ContainerSpanModifier、RichEditorModifier、RefreshModifier、SearchModifier、TextAreaModifier、TextModifier、TextInputModifier、ImageSpanModifier、ImageAnimatorModifier、ImageModifier、VideoModifier、DataPanelModifier、GaugeModifier、LoadingProgressModifier、MarqueeModifier、ProgressModifier、QRCodeModifier、TextClockModifier、TextTimerModifier、LineModifier、PathModifier、PolygonModifier、PolylineModifier、RectModifier、ShapeModifier、AlphabetIndexerModifier、FormComponentModifier、HyperlinkModifier、MenuModifier、MenuItemModifier、PanelModifier、SymbolGlyphModifier、ParticleModifier、UIPickerComponentModifier22+。
+
+未暴露的组件Modifier可以使用CommonModifier。
+
+![](../../../../../images/90034927/note_3.0-zh-cn.png) 
+
+- StepperModifier从API version 22开始废弃，建议使用SwiperModifier替代。
+- StepperItemModifier从API version 22开始废弃，建议使用SwiperModifier替代。
+- NavigatorModifier从API version 20开始废弃，建议使用NavigationModifier替代。
+- NavRouterModifier从API version 20开始废弃，建议使用NavigationModifier替代。
+- PanelModifier从API version 20开始废弃，推荐使用通用属性bindSheet。
+
+****注意事项****
+
+1. 设置自定义Modifier给一个组件，该组件对应属性生效。
+2. 自定义Modifier属性值变化，组件对应属性也会变化。自定义Modifier类型为基类，构造的对象为子类对象，使用时要通过as进行类型断言为子类。
+3. 一个自定义Modifier设置给两个组件，Modifier属性变化的时候对两个组件同时生效。
+4. 一个Modifier设置了属性A和属性B，再设置属性C和属性D，4个属性同时在组件上生效。
+5. 自定义Modifier不支持@State标注的状态数据的变化感知，见[示例3（自定义Modifier不支持感知@State装饰的状态数据变化）](#示例3自定义modifier不支持感知state装饰的状态数据变化)。
+6. 多次通过attributeModifier设置属性时，生效的属性为所有属性的并集，相同属性按照设置顺序生效。
+
+## 示例
+
+### 示例1（组件绑定Modifier切换背景颜色）
+
+该示例通过Button绑定Modifier实现了点击切换背景颜色的效果。
+
+```
+// xxx.ets
+// 设置Button组件属性的自定义AttributeModifier
+class MyButtonModifier implements AttributeModifier<ButtonAttribute> {
+  public isDark: boolean = false;
+
+  applyNormalAttribute(instance: ButtonAttribute): void {
+    if (this.isDark) {
+      instance.backgroundColor(Color.Black);
+    } else {
+      instance.backgroundColor(Color.Red);
+    }
+  }
+}
+
+@Entry
+@Component
+struct attributeDemo {
+  @State modifier: MyButtonModifier = new MyButtonModifier();
+
+  build() {
+    Row() {
+      Column() {
+        Button("Button")
+          .attributeModifier(this.modifier)
+          .onClick(() => {
+            this.modifier.isDark = !this.modifier.isDark;
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+![](../../../../../images/c6affa26/zh-cn_image_0000002552959572.gif)
+
+### 示例2（组件绑定Modifier实现按压态效果）
+
+该示例通过Button绑定Modifier实现了按压态的效果。如果配合状态管理V2使用，详情见：[Modifier与makeObserved](/arkui/arkts-ui-development/arkts-state-management/arkts-v1-v2-guide/arkts-state-management-v1-v2-migration-guide/arkts-v1-v2-migration-inner-object#modifier)。
+
+```
+// xxx.ets
+// 设置Button组件属性的自定义AttributeModifier
+class MyButtonModifier implements AttributeModifier<ButtonAttribute> {
+  applyNormalAttribute(instance: ButtonAttribute): void {
+    instance.backgroundColor(Color.Black);
+  }
+
+  applyPressedAttribute(instance: ButtonAttribute): void {
+    instance.backgroundColor(Color.Red);
+  }
+}
+
+@Entry
+@Component
+struct attributePressedDemo {
+  @State modifier: MyButtonModifier = new MyButtonModifier();
+
+  build() {
+    Row() {
+      Column() {
+        Button("Button")
+          .attributeModifier(this.modifier)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+![](../../../../../images/32f54b95/zh-cn_image_0000002552959572.gif)
+
+### 示例3（自定义Modifier不支持感知@State装饰的状态数据变化）
+
+该示例通过状态数据设置自定义Modifier的宽度，自定义Modifier不支持感知@State装饰的状态数据变化，点击按钮后宽度不发生改变。
+
+```
+import { CommonModifier } from "@kit.ArkUI";
+
+const TEST_TAG: string = "AttributeModifier";
+
+// 设置通用组件属性的自定义AttributeModifier
+class MyModifier extends CommonModifier {
+  applyNormalAttribute(instance: CommonAttribute): void {
+    super.applyNormalAttribute?.(instance);
+  }
+}
+
+@Component
+struct MyImage1 {
+  @Link modifier: CommonModifier;
+
+  build() {
+    Image($r("app.media.startIcon")).attributeModifier(this.modifier as MyModifier)
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  index: number = 0;
+  @State width1: number = 100;
+  @State height1: number = 100;
+  @State myModifier: CommonModifier = new MyModifier().width(this.width1).height(this.height1).margin(10);
+
+  build() {
+    Column() {
+      Button($r("app.string.EntryAbility_label"))
+        .margin(10)
+        .onClick(() => {
+          console.info(TEST_TAG, "onClick");
+          this.index++;
+          if (this.index % 2 === 1) {
+            this.width1 = 10;
+            console.info(TEST_TAG, "setGroup1");
+          } else {
+            this.height1 = 10;
+            console.info(TEST_TAG, "setGroup2");
+          }
+        })
+      MyImage1({ modifier: this.myModifier })
+    }
+    .width('100%')
+  }
+}
+```
+
+![](../../../../../images/15ef2e8c/zh-cn_image_0000002583479573.gif)
+
+### 示例4（Modifier和自定义Modifier的属性同时生效）
+
+该示例通过自定义Modifier设置了width和height，点击按钮时设置[borderStyle](/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#borderstyle)和[borderWidth](/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/layout-property/ts-universal-attributes-border/ts-universal-attributes-border#borderwidth)，点击后4个属性同时生效。
+
+```
+import { CommonModifier } from "@kit.ArkUI";
+
+const TEST_TAG: string = "AttributeModifier";
+
+// 设置通用组件属性的自定义AttributeModifier
+class MyModifier extends CommonModifier {
+  applyNormalAttribute(instance: CommonAttribute): void {
+    super.applyNormalAttribute?.(instance);
+  }
+
+  public setGroup1(): void {
+    this.borderStyle(BorderStyle.Dotted);
+    this.borderWidth(8);
+  }
+
+  public setGroup2(): void {
+    this.borderStyle(BorderStyle.Dashed);
+    this.borderWidth(8);
+  }
+}
+
+@Component
+struct MyImage1 {
+  @Link modifier: CommonModifier;
+
+  build() {
+    Image($r("app.media.startIcon")).attributeModifier(this.modifier as MyModifier)
+  }
+}
+
+@Entry
+@Component
+struct Index {
+  @State myModifier: CommonModifier = new MyModifier().width(100).height(100).margin(10);
+  index: number = 0;
+
+  build() {
+    Column() {
+      Button($r("app.string.EntryAbility_label"))
+        .margin(10)
+        .onClick(() => {
+          console.info(TEST_TAG, "onClick");
+          this.index++;
+          if (this.index % 2 === 1) {
+            (this.myModifier as MyModifier).setGroup1();
+            console.info(TEST_TAG, "setGroup1");
+          } else {
+            (this.myModifier as MyModifier).setGroup2();
+            console.info(TEST_TAG, "setGroup2");
+          }
+        })
+      MyImage1({ modifier: this.myModifier })
+    }
+    .width('100%')
+  }
+}
+```
+
+![](../../../../../images/0ce38103/zh-cn_image_0000002552799924.gif)
+
+### 示例5（组件绑定Modifier获焦样式）
+
+该示例通过Button绑定Modifier实现了组件在获得焦点时的样式效果。点击Button2后，Button会显示获得焦点后的样式。
+
+```
+// 设置Button组件属性的自定义AttributeModifier
+class MyButtonModifier implements AttributeModifier<ButtonAttribute> {
+
+  applyNormalAttribute(instance: ButtonAttribute): void {
+    instance.backgroundColor(Color.Blue);
+  }
+  applyFocusedAttribute(instance: ButtonAttribute): void {
+    instance.backgroundColor(Color.Green);
+  }
+}
+
+@Entry
+@Component
+struct attributeDemo {
+  @State modifier: MyButtonModifier = new MyButtonModifier();
+  @State isDisable: boolean = true;
+
+  build() {
+    Row() {
+      Column() {
+        Button("Button")
+          .attributeModifier(this.modifier)
+          .enabled(this.isDisable)
+          .id("app")
+        Divider().vertical(false).strokeWidth(15).color(Color.Transparent)
+        Button("Button2")
+          .onClick(() => {
+            this.getUIContext().getFocusController().activate(true);
+            this.getUIContext().getFocusController().requestFocus("app");
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+![](../../../../../images/98a4a69d/zh-cn_image_0000002583439619.gif)
+
+### 示例6（组件绑定Modifier禁用状态的样式）
+
+该示例通过Button绑定Modifier实现了组件禁用时的样式效果。点击Button2后，Button会显示禁用状态的样式。
+
+```
+// 设置Button组件属性的自定义AttributeModifier
+class MyButtonModifier implements AttributeModifier<ButtonAttribute> {
+  applyDisabledAttribute(instance: ButtonAttribute): void {
+    instance.width(200);
+  }
+}
+
+@Entry
+@Component
+struct attributeDemo {
+  @State modifier: MyButtonModifier = new MyButtonModifier();
+  @State isDisable: boolean = true;
+
+  build() {
+    Row() {
+      Column() {
+        Button("Button")
+          .attributeModifier(this.modifier)
+          .enabled(this.isDisable)
+        Divider().vertical(false).strokeWidth(15).color(Color.Transparent)
+        Button("Button2")
+          .onClick(() => {
+            this.isDisable = !this.isDisable;
+          })
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+![](../../../../../images/feab61c7/zh-cn_image_0000002552959574.gif)
+
+### 示例7（组件绑定Modifier选中状态样式）
+
+该示例通过Radio绑定Modifier实现了展示组件选中时样式的效果。
+
+```
+// 设置Radio组件属性的自定义AttributeModifier
+class MyRadioModifier implements AttributeModifier<RadioAttribute> {
+  applyNormalAttribute(instance: RadioAttribute): void {
+    instance.backgroundColor(Color.Blue);
+  }
+
+  applySelectedAttribute(instance: RadioAttribute): void {
+    instance.backgroundColor(Color.Red);
+    instance.borderWidth(2);
+  }
+}
+
+@Entry
+@Component
+struct attributeDemo {
+  @State modifier: MyRadioModifier = new MyRadioModifier();
+  @State value: boolean = false;
+  @State value2: boolean = false;
+
+  build() {
+    Row() {
+      Column() {
+        Radio({ value: 'Radio1', group: 'radioGroup1' })
+          .checked(this.value)
+          .height(50)
+          .width(50)
+          .borderWidth(0)
+          .borderRadius(30)
+          .onClick(() => {
+            this.value = !this.value;
+          })
+          .attributeModifier(this.modifier)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+```
+
+![](../../../../../images/06d1122f/zh-cn_image_0000002583479575.gif)
+
+### 示例8（自定义组件绑定Modifier实现按压态效果）
+
+该示例通过Common（自定义）绑定Modifier实现了按压态的效果。
+
+```
+// xxx.ets
+// 设置自定义组件属性的自定义AttributeModifier
+class CustomModifier implements AttributeModifier<CommonAttribute> {
+  applyNormalAttribute(instance: CommonAttribute): void {
+    instance.backgroundColor(Color.Blue)
+  }
+
+  applyPressedAttribute(instance: CommonAttribute): void {
+    instance.backgroundColor(Color.Gray)
+  }
+}
+
+@Entry
+@Component
+struct attributePressedDemo {
+  @State modifier: CustomModifier = new CustomModifier()
+
+  build() {
+    Row() {
+      Column() {
+        ChildComponent()
+          .attributeModifier(this.modifier)
+      }
+      .width('100%')
+    }
+    .height('100%')
+  }
+}
+
+// 自定义组件
+@Component
+struct ChildComponent {
+  build() {
+    Text("common")
+      .fontColor(Color.White)
+      .fontSize(28)
+      .textAlign(TextAlign.Center)
+      .width('35%')
+      .height('10%')
+  }
+}
+```
+
+![](../../../../../images/88cba78c/zh-cn_image_0000002552799926.gif)
