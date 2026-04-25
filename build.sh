@@ -5,7 +5,8 @@ echo "=== Step 1: Install dependencies ==="
 npm ci
 
 echo "=== Step 2: Install Python dependencies ==="
-pip3 install aiohttp beautifulsoup4 markdownify lxml 2>/dev/null || pip install aiohttp beautifulsoup4 markdownify lxml 2>/dev/null || true
+python3 -m pip install --upgrade pip 2>&1 | tail -1
+python3 -m pip install -r requirements.txt 2>&1 | tail -1
 
 echo "=== Step 3: Crawl guides docs ==="
 python3 scripts/crawler.py --catalog guides
