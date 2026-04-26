@@ -1,0 +1,707 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/restricted-permissions" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>受限开放权限 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="受限开放权限 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=申请方式 /><meta data-rh=true property=og:description content=申请方式 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/","name":"受限开放权限","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=程序访问控制 class=categoryLinkLabel_W154>程序访问控制</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=访问控制概述 class=linkLabel_WmDU>访问控制概述</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permission-mgmt-overview/><span title=应用权限管控 class=categoryLinkLabel_W154>应用权限管控</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permission-mgmt-overview/><span title=应用权限管控概述 class=linkLabel_WmDU>应用权限管控概述</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/request-app-permissions/determine-application-mode/><span title=申请应用权限 class=categoryLinkLabel_W154>申请应用权限</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-all/><span title=应用权限列表 class=categoryLinkLabel_W154>应用权限列表</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-all/><span title=开放权限（系统授权） class=linkLabel_WmDU>开放权限（系统授权）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-all-user/><span title=开放权限（用户授权） class=linkLabel_WmDU>开放权限（用户授权）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/restricted-permissions/><span title=受限开放权限 class=linkLabel_WmDU>受限开放权限</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-enterprise-apps/><span title=企业类应用可用权限 class=linkLabel_WmDU>企业类应用可用权限</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-mdm-apps/><span title=仅MDM应用可用权限 class=linkLabel_WmDU>仅MDM应用可用权限</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permission-group-list/><span title=应用权限组列表 class=linkLabel_WmDU>应用权限组列表</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/faqs-permissions-debug/><span title=抓包/调试权限常见问题 class=linkLabel_WmDU>抓包/调试权限常见问题</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/security-components/security-component-overview/><span title=使用安全控件 class=categoryLinkLabel_W154>使用安全控件</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/access-control/use-picker/><span title=使用系统Picker class=linkLabel_WmDU>使用系统Picker</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/passwordvault/passwordvault-overview/><span title=密码自动填充服务 class=categoryLinkLabel_W154>密码自动填充服务</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/code-protect/><span title=应用加密 class=linkLabel_WmDU>应用加密</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/asset-store-kit/asset-store-kit-overview/><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-architecture-kit-intro/><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/data-protection-kit/dlp/dlp-overview/><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/device-certificate-kit/device-certificate-kit-intro/><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/device-security-kit-guide/devicesecurity-introduction/><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/data-guard-kit-guide/dataguard-introduction/><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/online-authentication-kit-guide/onlineauthentication-introduction/><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/huks-kit/huks-overview/><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/user-authentication-kit/user-authentication-overview/><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>程序访问控制</span><li class=breadcrumbs__item><span class=breadcrumbs__link>应用权限管控</span><li class=breadcrumbs__item><span class=breadcrumbs__link>应用权限列表</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>受限开放权限</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>受限开放权限</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=申请方式>申请方式<a href=#申请方式 class=hash-link aria-label=申请方式的直接链接 title=申请方式的直接链接 translate=no>​</a></h2>
+<p>当前仅少量符合特殊场景的应用可在通过审批后，使用受限权限，其申请方式请参考：<a class="" href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/request-app-permissions/declare-permissions-in-acl>申请使用受限权限</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>如果应用涉及获取受限权限，在应用发布上架时，应用市场（AGC，AppGallery Connect）将根据应用的使用场景审核是否可以使用对应的受限权限。如不符合，应用的上架申请将被驳回，审核方式请见<a href=https://developer.huawei.com/consumer/cn/doc/app/agc-help-release-app-0000002271695230 target=_blank rel="noopener noreferrer" class="">发布HarmonyOS应用</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionsystem_float_window>ohos.permission.SYSTEM_FLOAT_WINDOW<a href=#ohospermissionsystem_float_window class=hash-link aria-label=ohos.permission.SYSTEM_FLOAT_WINDOW的直接链接 title=ohos.permission.SYSTEM_FLOAT_WINDOW的直接链接 translate=no>​</a></h2>
+<p>允许应用使用悬浮窗的能力。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">多人视频通话</li>
+<li class="">屏幕共享</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>应用基于悬浮窗提供的窗口界面，必须向用户提供退出窗口的方式。</p>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 在其他设备或场景下，使用“画中画”功能，使用方式请参考：<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/window-pipwindow target=_blank rel="noopener noreferrer" class="">画中画开发指导</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：7</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_contacts>ohos.permission.READ_CONTACTS<a href=#ohospermissionread_contacts class=hash-link aria-label=ohos.permission.READ_CONTACTS的直接链接 title=ohos.permission.READ_CONTACTS的直接链接 translate=no>​</a></h2>
+<p>允许应用读取联系人数据。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要克隆、备份或同步联系人信息。</p>
+<p>例如：</p>
+<ol>
+<li class="">应用需要批量读取本机通讯录数据，并同步到云端服务器。</li>
+<li class="">应用需要批量读取通讯录数据，在设备间进行同步或者克隆操作。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用“联系人Picker”访问联系人数据，使用方式请参考：<a class="" href=/harmonyos-docs-site/contacts-kit/contacts-intro#%E4%BD%BF%E7%94%A8picker%E9%80%89%E6%8B%A9%E8%81%94%E7%B3%BB%E4%BA%BA>使用Picker选择联系人</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：8</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionwrite_contacts>ohos.permission.WRITE_CONTACTS<a href=#ohospermissionwrite_contacts class=hash-link aria-label=ohos.permission.WRITE_CONTACTS的直接链接 title=ohos.permission.WRITE_CONTACTS的直接链接 translate=no>​</a></h2>
+<p>允许应用添加、移除或更改联系人数据。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要克隆、备份或同步联系人信息。</p>
+<p>例如：</p>
+<ol>
+<li class="">应用需要把从云端服务器读取的通讯录数据批量写入到本地通讯录。</li>
+<li class="">应用需要把从其他设备同步过来的通讯录数据批量写入通讯录。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 除以上特殊场景外，应用不能修改联系人数据，应引导用户到“联系人”应用中修改联系人数据。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：8</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_audio>ohos.permission.READ_AUDIO<a href=#ohospermissionread_audio class=hash-link aria-label=ohos.permission.READ_AUDIO的直接链接 title=ohos.permission.READ_AUDIO的直接链接 translate=no>​</a></h2>
+<p>允许读取用户公共目录的音频文件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要克隆、备份或同步音频类文件。</p>
+<p>例如：</p>
+<ol>
+<li class="">应用需要批量读取公共目录下的音频文件，并同步到云端服务器。</li>
+<li class="">应用需要批量读取公共目录下的音频文件，在设备间进行同步或者克隆操作。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用“AudioPicker”访问用户音频文件，使用方式请参考：<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/select-save-user-file/select-user-file#%E9%80%89%E6%8B%A9%E9%9F%B3%E9%A2%91%E7%B1%BB%E6%96%87%E4%BB%B6>选择音频类文件（FilePicker）</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionwrite_audio>ohos.permission.WRITE_AUDIO<a href=#ohospermissionwrite_audio class=hash-link aria-label=ohos.permission.WRITE_AUDIO的直接链接 title=ohos.permission.WRITE_AUDIO的直接链接 translate=no>​</a></h2>
+<p>允许修改用户公共目录的音频文件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要克隆、备份或同步音频类文件。</p>
+<p>例如：</p>
+<ol>
+<li class="">应用需要把从云端服务器读取的音频文件批量保存到本地公共目录。</li>
+<li class="">应用需要把从其他设备同步过来的音频文件批量保存到本地公共目录。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用“AudioPicker”保存用户音频文件，使用方式请参考：<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/select-save-user-file/save-user-file#%E4%BF%9D%E5%AD%98%E9%9F%B3%E9%A2%91%E7%B1%BB%E6%96%87%E4%BB%B6>保存音频类文件（FilePicker）</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_imagevideo>ohos.permission.READ_IMAGEVIDEO<a href=#ohospermissionread_imagevideo class=hash-link aria-label=ohos.permission.READ_IMAGEVIDEO的直接链接 title=ohos.permission.READ_IMAGEVIDEO的直接链接 translate=no>​</a></h2>
+<p>允许读取用户公共目录的图片或视频文件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要克隆、备份或同步图片/视频类文件。</p>
+<p>例如：</p>
+<ol>
+<li class="">应用需要批量读取媒体库的文件（图片、视频），并同步到云端服务器。</li>
+<li class="">应用需要批量读取媒体库的文件（图片、视频），在设备间进行同步或者克隆操作。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用“PhotoViewPicker”访问用户图片或视频，使用方式请参考：<a class="" href=/harmonyos-docs-site/medialibrary-kit/photoaccesshelper-photoviewpicker>使用Picker选择媒体库资源</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionwrite_imagevideo>ohos.permission.WRITE_IMAGEVIDEO<a href=#ohospermissionwrite_imagevideo class=hash-link aria-label=ohos.permission.WRITE_IMAGEVIDEO的直接链接 title=ohos.permission.WRITE_IMAGEVIDEO的直接链接 translate=no>​</a></h2>
+<p>允许修改用户公共目录的图片或视频文件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用需要克隆、备份或同步图片/视频类文件。</li>
+<li class="">应用内包含拍照和录制场景，且应用属于典型的拍照应用。</li>
+<li class="">无法使用安全控件或授权弹窗保存图片。</li>
+</ul>
+<p>例如：</p>
+<ol>
+<li class="">应用需要把从云端服务器读取的图片、视频文件批量保存到本地媒体库。</li>
+<li class="">应用需要把从其他设备同步过来的图片、视频文件批量保存到本地媒体库。</li>
+<li class="">应用作为典型拍照类应用，在拍照或录制视频后，需要将照片、视频直接存入本地媒体库。</li>
+<li class="">应用采用了如RN框架、QT框架等开源框架，无法使用安全控件。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参考：<a class="" href=/harmonyos-docs-site/medialibrary-kit/photoaccesshelper-savebutton>保存媒体库资源</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_write_desktop_directory>ohos.permission.READ_WRITE_DESKTOP_DIRECTORY<a href=#ohospermissionread_write_desktop_directory class=hash-link aria-label=ohos.permission.READ_WRITE_DESKTOP_DIRECTORY的直接链接 title=ohos.permission.READ_WRITE_DESKTOP_DIRECTORY的直接链接 translate=no>​</a></h2>
+<p>允许应用访问公共目录下Desktop目录及子目录。</p>
+<p>当前仅2in1设备和平板上的应用可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_ddk_usb>ohos.permission.ACCESS_DDK_USB<a href=#ohospermissionaccess_ddk_usb class=hash-link aria-label=ohos.permission.ACCESS_DDK_USB的直接链接 title=ohos.permission.ACCESS_DDK_USB的直接链接 translate=no>​</a></h2>
+<p>允许扩展外设驱动访问USB DDK接口开发USB总线扩展外设驱动。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">外接设备总线类型为USB总线，用于支持外接设备实现相应的功能，如外接指纹采集、打印机、身份证、指纹识别等外接设备。</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+</ul>
+<p>除上述场景外，应用不需要使用此权限保护的系统能力，不涉及申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_ddk_hid>ohos.permission.ACCESS_DDK_HID<a href=#ohospermissionaccess_ddk_hid class=hash-link aria-label=ohos.permission.ACCESS_DDK_HID的直接链接 title=ohos.permission.ACCESS_DDK_HID的直接链接 translate=no>​</a></h2>
+<p>允许扩展外设驱动访问HID DDK接口开发HID类扩展外设驱动。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">外接设备为人机交互外设（ HID外设），可支持外接设备与主机实现人机交互功能，如外接手写板、游戏手柄、键鼠等HID输入外设。</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+</ul>
+<p>除上述场景外，应用不需要使用此权限保护的系统能力，不涉及申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_pasteboard>ohos.permission.READ_PASTEBOARD<a href=#ohospermissionread_pasteboard class=hash-link aria-label=ohos.permission.READ_PASTEBOARD的直接链接 title=ohos.permission.READ_PASTEBOARD的直接链接 translate=no>​</a></h2>
+<p>允许应用读取剪贴板。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">
+<p>PC/2in1设备上的应用均可申请。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">在PC/2in1设备上，应用首次申请剪贴板权限时，不会向用户弹窗申请，系统将默认授予“允许”。但用户可以在“设置 > 隐私与安全”的页面中修改授权方式。</li>
+<li class="">同时，用户在PC/2in1设备的“设置”界面中，仅可选择“允许”或“禁止”两种授权选项；其他设备有“始终允许”、“每次使用询问”、“禁止”三种授权选项。</li>
+</ul>
+</li>
+<li class="">
+<p>其他设备只有符合以下场景可申请：</p>
+<ul>
+<li class="">银行卡号复制：银行类应用需要读取剪贴板中的银行卡号自动生成卡片。</li>
+<li class="">口令复制：应用需要读取剪贴板中特定格式口令，自动打开应用内对应页面。</li>
+<li class="">文档编辑类应用。</li>
+<li class="">输入法：系统级输入法需要读取剪贴板信息实现自动填充。应用内置输入法不能申请此权限。</li>
+<li class="">应用中使用了开源框架：由于不能使用粘贴控件，允许申请剪贴板权限。</li>
+</ul>
+</li>
+</ul>
+<p>例如，手机设备上运行的应用：</p>
+<ol>
+<li class="">某银行类应用，当用户复制银行卡号到剪贴板上时，用户打开该应用后，该应用需要读取剪贴板，判断是否是银行卡号后提醒用户是否需要进行转账等操作。</li>
+<li class="">打开应用后，应用需要读取剪贴板上数据，判断是否是应用内的特定口令数据，并自动打开相关页面。</li>
+<li class="">作为典型的文档编辑类应用，需在手机上使用该应用进行文档编辑操作。</li>
+<li class="">作为系统级输入法应用，需要读取剪切板上数据（如验证码），实现自动填充功能。</li>
+</ol>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用“粘贴控件”读取剪贴板数据，使用方式请参考：<a class="" href=/harmonyos-docs-site/system-security/access-control/security-components/pastebutton>使用粘贴控件</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionfile_access_persist>ohos.permission.FILE_ACCESS_PERSIST<a href=#ohospermissionfile_access_persist class=hash-link aria-label=ohos.permission.FILE_ACCESS_PERSIST的直接链接 title=ohos.permission.FILE_ACCESS_PERSIST的直接链接 translate=no>​</a></h2>
+<p>允许应用支持持久化访问文件Uri。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该权限级别发生变更，API 12后仍需采用<a class="" href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/request-app-permissions/declare-permissions-in-acl>受限权限申请方式</a>申请使用该权限。</p>
+<p><strong><strong>权限级别</strong></strong>：normal</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<p><strong><strong>变更信息：</strong></strong> 在API 11，权限等级为system_basic；从API 12开始，权限等级变更为normal，向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionintercept_input_event>ohos.permission.INTERCEPT_INPUT_EVENT<a href=#ohospermissionintercept_input_event class=hash-link aria-label=ohos.permission.INTERCEPT_INPUT_EVENT的直接链接 title=ohos.permission.INTERCEPT_INPUT_EVENT的直接链接 translate=no>​</a></h2>
+<p>允许应用拦截输入事件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用为云桌面或是远程登录客户端，需要在本地设备显示远端服务端的云电脑，或是显示远程电脑的画面。</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：11</p>
+<p><strong><strong>变更信息</strong></strong>：API 11，权限等级为system_core；从API 12开始，权限等级变更为system_basic，向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissioninput_monitoring>ohos.permission.INPUT_MONITORING<a href=#ohospermissioninput_monitoring class=hash-link aria-label=ohos.permission.INPUT_MONITORING的直接链接 title=ohos.permission.INPUT_MONITORING的直接链接 translate=no>​</a></h2>
+<p>允许应用监听输入事件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用需要录屏，且录屏过程中有显示键盘按键事件，或是显示鼠标指针效果/触摸效果的功能。</li>
+<li class="">应用需要共享桌面。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：7</p>
+<p><strong><strong>变更信息</strong></strong>：API 7-11，权限等级为system_core；从API 12开始，权限等级变更为system_basic，向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionshort_term_write_imagevideo>ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO<a href=#ohospermissionshort_term_write_imagevideo class=hash-link aria-label=ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO的直接链接 title=ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO的直接链接 translate=no>​</a></h2>
+<p>允许应用保存图片、视频到用户公共目录。</p>
+<p>应用获取此权限后，最长可获得30分钟的短时授权，来保存图片/视频。如果超过30分钟，将再次弹窗，需要用户再次确认。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用无法使用安全保存控件，例如H5网页应用等。</li>
+<li class="">存在连续多次保存图片/视频的场景，无法使用保存确认弹框，一次保存多个图片/视频。</li>
+</ul>
+<p><strong><strong>其他场景下的使用方案：</strong></strong> 使用安全控件或授权弹窗的方式，将用户指定的媒体资源保存到图库中，使用方式请参考：<a class="" href=/harmonyos-docs-site/medialibrary-kit/photoaccesshelper-savebutton>保存媒体库资源</a>。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：12</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_write_user_file>ohos.permission.READ_WRITE_USER_FILE<a href=#ohospermissionread_write_user_file class=hash-link aria-label=ohos.permission.READ_WRITE_USER_FILE的直接链接 title=ohos.permission.READ_WRITE_USER_FILE的直接链接 translate=no>​</a></h2>
+<p>允许应用访问并修改用户目录下的文件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用为IDE或其他开发调测工具，需要读写PC/2in1设备上的用户目录，如创建软链接，或通过命令行工具操作用户目录文件等。</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+<li class="">当前仅面向受邀应用开放，非受邀应用在应用市场（AGC）上无法申请该权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：13</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_write_usb_dev>ohos.permission.READ_WRITE_USB_DEV<a href=#ohospermissionread_write_usb_dev class=hash-link aria-label=ohos.permission.READ_WRITE_USB_DEV的直接链接 title=ohos.permission.READ_WRITE_USB_DEV的直接链接 translate=no>​</a></h2>
+<p>允许应用连接设备，并通过USB调试读写该设备。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用为IDE或其他开发调测工具，需要连接HarmonyOS设备进行开发调试，如查看该设备上的应用日志、进行性能分析等。</li>
+<li class="">当前仅PC/2in1设备应用可申请此权限。</li>
+<li class="">当前仅面向受邀应用开放，非受邀应用在应用市场（AGC）上无法申请该权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：13</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionget_wifi_peers_mac>ohos.permission.GET_WIFI_PEERS_MAC<a href=#ohospermissionget_wifi_peers_mac class=hash-link aria-label=ohos.permission.GET_WIFI_PEERS_MAC的直接链接 title=ohos.permission.GET_WIFI_PEERS_MAC的直接链接 translate=no>​</a></h2>
+<p>允许应用获取对端Wi-Fi设备的MAC地址。</p>
+<p>在获取Wi-Fi扫描结果时，如果需要获取对端设备的MAC地址，则需要申请该权限。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当用于智能家居设备、智能穿戴设备等IOT智能设备联网时，可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：8</p>
+<p><strong><strong>变更信息</strong></strong>：API 8-13，权限等级为system_core；从API 14开始，权限等级变更为system_basic，向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionset_telephony_esim_state_open>ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN<a href=#ohospermissionset_telephony_esim_state_open class=hash-link aria-label=ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN的直接链接 title=ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN的直接链接 translate=no>​</a></h2>
+<p>允许运营商应用添加eSIM配置文件。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：13</p>
+<p><strong><strong>变更信息</strong></strong>：在API 13，权限等级为normal；从API 14开始，权限等级变更为system_basic。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkerneldisable_code_memory_protection>ohos.permission.kernel.DISABLE_CODE_MEMORY_PROTECTION<a href=#ohospermissionkerneldisable_code_memory_protection class=hash-link aria-label=ohos.permission.kernel.DISABLE_CODE_MEMORY_PROTECTION的直接链接 title=ohos.permission.kernel.DISABLE_CODE_MEMORY_PROTECTION的直接链接 translate=no>​</a></h2>
+<p>允许应用禁用本应用的代码运行时完整性保护。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用需要在运行时修改指令内容。</li>
+<li class="">当前仅平板、PC/2in1设备应用可申请此权限。</li>
+<li class="">当前仅面向受邀应用开放，非受邀应用在应用市场（AGC）上无法申请该权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：14</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkernelallow_writable_code_memory>ohos.permission.kernel.ALLOW_WRITABLE_CODE_MEMORY<a href=#ohospermissionkernelallow_writable_code_memory class=hash-link aria-label=ohos.permission.kernel.ALLOW_WRITABLE_CODE_MEMORY的直接链接 title=ohos.permission.kernel.ALLOW_WRITABLE_CODE_MEMORY的直接链接 translate=no>​</a></h2>
+<p>允许应用申请可写可执行匿名内存。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">仅提供给应用开启自带引擎的即时编译能力，不允许用于热更新。</li>
+<li class="">申请该权限的应用需要主动适配坚盾模式，在该模式下无闪退。</li>
+<li class="">当前仅平板、PC/2in1设备应用可申请此权限。</li>
+<li class="">当前仅面向受邀应用开放，非受邀应用在应用市场（AGC）上无法申请该权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：14</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkernelallow_executable_fort_memory>ohos.permission.kernel.ALLOW_EXECUTABLE_FORT_MEMORY<a href=#ohospermissionkernelallow_executable_fort_memory class=hash-link aria-label=ohos.permission.kernel.ALLOW_EXECUTABLE_FORT_MEMORY的直接链接 title=ohos.permission.kernel.ALLOW_EXECUTABLE_FORT_MEMORY的直接链接 translate=no>​</a></h2>
+<p>允许系统JS引擎申请带MAP_FORT标识的匿名可执行内存。</p>
+<p>应用申请此权限后，系统引擎可申请带MAP_FORT的匿名可执行内存，做即时编译，提高与形式执行效率。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当前仅对游戏应用需要使用系统引擎实现高效游戏脚本解析的场景授予此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：14</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_pasteboard_app_share_option>ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION<a href=#ohospermissionmanage_pasteboard_app_share_option class=hash-link aria-label=ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION的直接链接 title=ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION的直接链接 translate=no>​</a></h2>
+<p>允许应用设置或移除剪贴板数据的可粘贴范围。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当应用需要自行设置或移除剪贴板数据的可粘贴范围时可申请。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：14</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_udmf_app_share_option>ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION<a href=#ohospermissionmanage_udmf_app_share_option class=hash-link aria-label=ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION的直接链接 title=ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION的直接链接 translate=no>​</a></h2>
+<p>允许应用设置或移除其使用UDMF支持的数据分享范围。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当应用需要自行设置或移除其使用UDMF支持的数据分享范围时可申请。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：14</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_disk_phy_info>ohos.permission.ACCESS_DISK_PHY_INFO<a href=#ohospermissionaccess_disk_phy_info class=hash-link aria-label=ohos.permission.ACCESS_DISK_PHY_INFO的直接链接 title=ohos.permission.ACCESS_DISK_PHY_INFO的直接链接 translate=no>​</a></h2>
+<p>允许应用获取硬盘的硬件信息。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅提供给金融证券类应用使用，用于证券、股票交易。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionpreload_file>ohos.permission.PRELOAD_FILE<a href=#ohospermissionpreload_file class=hash-link aria-label=ohos.permission.PRELOAD_FILE的直接链接 title=ohos.permission.PRELOAD_FILE的直接链接 translate=no>​</a></h2>
+<p>允许应用预加载文件以提升文件打开速度。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅当应用为文档编辑类应用可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionset_pac_url>ohos.permission.SET_PAC_URL<a href=#ohospermissionset_pac_url class=hash-link aria-label=ohos.permission.SET_PAC_URL的直接链接 title=ohos.permission.SET_PAC_URL的直接链接 translate=no>​</a></h2>
+<p>允许应用设置代理自动配置脚本地址。</p>
+<p>应用完成脚本地址配置后，其他应用可读取此脚本并进行解析，根据解析结果决定是否使用代理。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">企业应用需要设置内网代理管理企业流量。</li>
+<li class="">党政及国家机关、事业单位及其受信任的企业应用需要设置国密代理访问安全类网站。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionpersonal_manage_restrictions>ohos.permission.PERSONAL_MANAGE_RESTRICTIONS<a href=#ohospermissionpersonal_manage_restrictions class=hash-link aria-label=ohos.permission.PERSONAL_MANAGE_RESTRICTIONS的直接链接 title=ohos.permission.PERSONAL_MANAGE_RESTRICTIONS的直接链接 translate=no>​</a></h2>
+<p>允许设备管理应用管理个人设备限制策略。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅当应用为UAD（User as Developer）应用可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionstart_provisioning_message>ohos.permission.START_PROVISIONING_MESSAGE<a href=#ohospermissionstart_provisioning_message class=hash-link aria-label=ohos.permission.START_PROVISIONING_MESSAGE的直接链接 title=ohos.permission.START_PROVISIONING_MESSAGE的直接链接 translate=no>​</a></h2>
+<p>允许应用启动设备管理业务部署流程，将该应用激活为个人设备管理应用。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅当应用为UAD（User as Developer）应用可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionuse_fraud_call_log_picker>ohos.permission.USE_FRAUD_CALL_LOG_PICKER<a href=#ohospermissionuse_fraud_call_log_picker class=hash-link aria-label=ohos.permission.USE_FRAUD_CALL_LOG_PICKER的直接链接 title=ohos.permission.USE_FRAUD_CALL_LOG_PICKER的直接链接 translate=no>​</a></h2>
+<p>允许应用使用诈骗通话记录选择器，获取通话记录内容。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅提供给反诈类应用使用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionuse_fraud_messages_picker>ohos.permission.USE_FRAUD_MESSAGES_PICKER<a href=#ohospermissionuse_fraud_messages_picker class=hash-link aria-label=ohos.permission.USE_FRAUD_MESSAGES_PICKER的直接链接 title=ohos.permission.USE_FRAUD_MESSAGES_PICKER的直接链接 translate=no>​</a></h2>
+<p>允许应用使用诈骗短信选择器，获取短信内容。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅提供给反诈类应用使用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：15</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionpersistent_bluetooth_peers_mac>ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC<a href=#ohospermissionpersistent_bluetooth_peers_mac class=hash-link aria-label=ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC的直接链接 title=ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC的直接链接 translate=no>​</a></h2>
+<p>允许应用固化对端蓝牙设备MAC对应的虚拟地址。</p>
+<p>通过BLE扫描、BR扫描或连接监听获取到对端蓝牙设备MAC对应的虚拟地址，申请该权限且调用<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-access/js-apis-bluetooth-access#accessaddpersistentdeviceid16>access.addPersistentDeviceId</a>方法后，可保持该虚拟地址长时间存储，即使是开/关/重启蓝牙也不发生变化。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当应用通过蓝牙扫描功能连接智能家居、智能穿戴、智能出行等设备，以绑定用户使用的设备，用于显示设备的状态信息或控制设备时可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：16</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_virtual_screen>ohos.permission.ACCESS_VIRTUAL_SCREEN<a href=#ohospermissionaccess_virtual_screen class=hash-link aria-label=ohos.permission.ACCESS_VIRTUAL_SCREEN的直接链接 title=ohos.permission.ACCESS_VIRTUAL_SCREEN的直接链接 translate=no>​</a></h2>
+<p>允许应用管控虚拟屏。</p>
+<p>获得该权限的应用可以调用虚拟屏相关接口管理虚拟屏，包括创建虚拟屏，使虚拟屏，销毁虚拟屏等。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当应用连接车机，用于播放视频、使用地图导航等功能时可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：16</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_apn_setting>ohos.permission.MANAGE_APN_SETTING<a href=#ohospermissionmanage_apn_setting class=hash-link aria-label=ohos.permission.MANAGE_APN_SETTING的直接链接 title=ohos.permission.MANAGE_APN_SETTING的直接链接 translate=no>​</a></h2>
+<p>允许应用读取或设置APN信息。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当需要连接移动数据专网进行办公时可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：16</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionget_wifi_local_mac>ohos.permission.GET_WIFI_LOCAL_MAC<a href=#ohospermissionget_wifi_local_mac class=hash-link aria-label=ohos.permission.GET_WIFI_LOCAL_MAC的直接链接 title=ohos.permission.GET_WIFI_LOCAL_MAC的直接链接 translate=no>​</a></h2>
+<p>允许应用获取本机的Wi-Fi设备的MAC地址。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">证券交易：应用内进行证券交易，如股票、期货、债券交易等。适用设备：PC/2in1。</li>
+<li class="">网银交易及身份认证：应用内提供网上银行服务（如账户查询、转账汇款等），或为网银用户提供身份认证及签名验签工具。适用设备：PC/2in1。</li>
+<li class="">视频类应用，适用设备：TV。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：8</p>
+<p><strong><strong>变更信息</strong></strong>：API 8-15该权限仅向系统应用开放；从API 16开始，在PC/2in1设备上面向普通应用开放，在其余设备上仍仅面向系统应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkernelallow_use_jitfort_interface>ohos.permission.kernel.ALLOW_USE_JITFORT_INTERFACE<a href=#ohospermissionkernelallow_use_jitfort_interface class=hash-link aria-label=ohos.permission.kernel.ALLOW_USE_JITFORT_INTERFACE的直接链接 title=ohos.permission.kernel.ALLOW_USE_JITFORT_INTERFACE的直接链接 translate=no>​</a></h2>
+<p>允许应用调用JITFort接口更新MAP_FORT内存的内容。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用使用自己的脚本引擎，且需要开启即时编译优化性能。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：16</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionget_ethernet_local_mac>ohos.permission.GET_ETHERNET_LOCAL_MAC<a href=#ohospermissionget_ethernet_local_mac class=hash-link aria-label=ohos.permission.GET_ETHERNET_LOCAL_MAC的直接链接 title=ohos.permission.GET_ETHERNET_LOCAL_MAC的直接链接 translate=no>​</a></h2>
+<p>允许应用查询以太网当前MAC地址。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">证券交易：应用内进行证券交易，如股票、期货、债券交易等。适用设备：PC/2in1。</li>
+<li class="">网银交易及身份认证：应用内提供网上银行服务（如账户查询、转账汇款等），或为网银用户提供身份认证及签名验签工具。适用设备：PC/2in1。</li>
+<li class="">视频类应用，适用设备：TV。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：13</p>
+<p><strong><strong>变更信息</strong></strong>：API 13，该权限仅面向MDM应用开放；从API 14开始，开放范围从MDM应用变为更为企业普通应用；从API 16开始，在PC/2in1设备上面向普通应用开放，在其余设备上仍仅面向系统应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkerneldisable_gotplt_ro_protection>ohos.permission.kernel.DISABLE_GOTPLT_RO_PROTECTION<a href=#ohospermissionkerneldisable_gotplt_ro_protection class=hash-link aria-label=ohos.permission.kernel.DISABLE_GOTPLT_RO_PROTECTION的直接链接 title=ohos.permission.kernel.DISABLE_GOTPLT_RO_PROTECTION的直接链接 translate=no>​</a></h2>
+<p>允许应用关闭进程内.got.plt段的只读保护。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用功能所依赖的基础能力系统尚不支持，必须通过修改.got.plt表方式实现。在申请权限时需要明确说明系统不满足原因。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：17</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionuse_fraud_app_picker>ohos.permission.USE_FRAUD_APP_PICKER<a href=#ohospermissionuse_fraud_app_picker class=hash-link aria-label=ohos.permission.USE_FRAUD_APP_PICKER的直接链接 title=ohos.permission.USE_FRAUD_APP_PICKER的直接链接 translate=no>​</a></h2>
+<p>允许应用使用诈骗应用选择器，获取应用信息。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅提供给反诈类应用使用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：18</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_ddk_drivers>ohos.permission.ACCESS_DDK_DRIVERS<a href=#ohospermissionaccess_ddk_drivers class=hash-link aria-label=ohos.permission.ACCESS_DDK_DRIVERS的直接链接 title=ohos.permission.ACCESS_DDK_DRIVERS的直接链接 translate=no>​</a></h2>
+<p>允许扩展外设驱动客户端绑定到扩展外设驱动服务端。</p>
+<p>该权限针对扩展外设客户端绑定到扩展外设服务端权限校验，具体规则：</p>
+<ol>
+<li class="">外设扩展驱动客户端权限声明中的value字段中描述的目标扩展驱动服务端已上架或一并上架。</li>
+<li class="">被申请目标扩展驱动服务端对外提供能力与扩展外设驱动客户端业务诉求一致。</li>
+</ol>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>携带额外数据</strong></strong>：是，配置方法请见<a class="" href=/harmonyos-docs-site/system-hardware/driver-development-kit/development-of-basic-drivers/externaldevice-guidelines#%E5%BA%94%E7%94%A8%E7%AD%BE%E5%90%8D>Driver Development Kit开发指导</a>。</p>
+<p><strong><strong>起始版本</strong></strong>：18</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_ddk_scsi_peripheral>ohos.permission.ACCESS_DDK_SCSI_PERIPHERAL<a href=#ohospermissionaccess_ddk_scsi_peripheral class=hash-link aria-label=ohos.permission.ACCESS_DDK_SCSI_PERIPHERAL的直接链接 title=ohos.permission.ACCESS_DDK_SCSI_PERIPHERAL的直接链接 translate=no>​</a></h2>
+<p>允许扩展外设驱动访问SCSI DDK接口开发SCSI Peripheral扩展外设驱动。</p>
+<p>支持以下类型的外设扩展驱动开发：</p>
+<p>外设以USB总线接入主机，且满足：</p>
+<ol>
+<li class="">外设InterfaceClass为Mass Storage(0x08)、InterfaceSubClass为SCSI透明命令集(0x06)。</li>
+<li class="">外设能够以对操作系统透明的方式来模拟SCSI设备。</li>
+</ol>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：18</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkernelsupport_plugin>ohos.permission.kernel.SUPPORT_PLUGIN<a href=#ohospermissionkernelsupport_plugin class=hash-link aria-label=ohos.permission.kernel.SUPPORT_PLUGIN的直接链接 title=ohos.permission.kernel.SUPPORT_PLUGIN的直接链接 translate=no>​</a></h2>
+<p>允许主体应用安装插件。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应当有对应的插件机制，确保可以使用对应的插件，并符合插件市场的管理规定。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：19</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissioncustom_sandbox>ohos.permission.CUSTOM_SANDBOX<a href=#ohospermissioncustom_sandbox class=hash-link aria-label=ohos.permission.CUSTOM_SANDBOX的直接链接 title=ohos.permission.CUSTOM_SANDBOX的直接链接 translate=no>​</a></h2>
+<p>允许应用将沙箱类型改为动态沙箱。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">面向华为内部开发工具应用开放。</li>
+<li class="">当前仅面向受邀应用开放，非受邀应用在应用市场（AGC）上无法申请该权限。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：18</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_screen_time_guard>ohos.permission.MANAGE_SCREEN_TIME_GUARD<a href=#ohospermissionmanage_screen_time_guard class=hash-link aria-label=ohos.permission.MANAGE_SCREEN_TIME_GUARD的直接链接 title=ohos.permission.MANAGE_SCREEN_TIME_GUARD的直接链接 translate=no>​</a></h2>
+<p>允许应用调用屏幕时间守护相关接口，进行屏幕使用限制、应用访问控制、管控使用时间等操作。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ol>
+<li class="">个人用机时间管理：以专注、习惯养成、自律为目的，用于用户管理自己的设备、应用使用情况，限制应用和屏幕访问。</li>
+<li class="">他人用机时间管理：以守护、看护、关怀为目的，用于学校/家长/企业管理学生/孩子/员工的设备、应用使用情况，限制应用和屏幕访问。</li>
+</ol>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissioncustomize_save_button>ohos.permission.CUSTOMIZE_SAVE_BUTTON<a href=#ohospermissioncustomize_save_button class=hash-link aria-label=ohos.permission.CUSTOMIZE_SAVE_BUTTON的直接链接 title=ohos.permission.CUSTOMIZE_SAVE_BUTTON的直接链接 translate=no>​</a></h2>
+<p>允许应用自定义保存控件的图标和文本。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>使用保存控件提供的默认样式无法满足业务场景，应用需要自定义保存控件的图标和文本。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：General</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionget_ability_info>ohos.permission.GET_ABILITY_INFO<a href=#ohospermissionget_ability_info class=hash-link aria-label=ohos.permission.GET_ABILITY_INFO的直接链接 title=ohos.permission.GET_ABILITY_INFO的直接链接 translate=no>​</a></h2>
+<p>允许应用根据URI或者FileType查询Ability信息。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当前仅PC/2in1上的浏览器类应用可申请此权限。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_fido2_onlineauth>ohos.permission.ACCESS_FIDO2_ONLINEAUTH<a href=#ohospermissionaccess_fido2_onlineauth class=hash-link aria-label=ohos.permission.ACCESS_FIDO2_ONLINEAUTH的直接链接 title=ohos.permission.ACCESS_FIDO2_ONLINEAUTH的直接链接 translate=no>​</a></h2>
+<p>允许应用使用通行密钥服务的NDK。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用需要通过通行密钥服务完成网页免密认证。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionuse_float_ball>ohos.permission.USE_FLOAT_BALL<a href=#ohospermissionuse_float_ball class=hash-link aria-label=ohos.permission.USE_FLOAT_BALL的直接链接 title=ohos.permission.USE_FLOAT_BALL的直接链接 translate=no>​</a></h2>
+<p>允许应用使用全局闪控球的能力。</p>
+<p>获取该权限后，应用可实现跨应用交互，一步直达业务内以处理用户任务。</p>
+<p><strong><strong>申请条件：</strong></strong></p>
+<ol>
+<li class="">应用内需具备开启全局闪控球功能的独立开关，开关需默认关闭，需由用户主动开启。</li>
+<li class="">闪控球内呈现的内容及功能需与应用内实际功能匹配。</li>
+<li class="">闪控球展示的内容不可用于营销、广告、引导付费等场景。</li>
+</ol>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>须符合以下场景：</p>
+<ul>
+<li class="">题目搜索</li>
+<li class="">账单记录</li>
+<li class="">商品比价</li>
+<li class="">抢单</li>
+<li class="">翻译</li>
+<li class="">金融类应用的实时盯盘</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：Phone | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissiondlp_get_hide_status>ohos.permission.DLP_GET_HIDE_STATUS<a href=#ohospermissiondlp_get_hide_status class=hash-link aria-label=ohos.permission.DLP_GET_HIDE_STATUS的直接链接 title=ohos.permission.DLP_GET_HIDE_STATUS的直接链接 translate=no>​</a></h2>
+<p>允许应用使用信息隐藏接口，获取信息隐藏状态的能力。</p>
+<p>获取此权限后，应用可以获取当前屏幕窥视状态，即当前是机主一人注视屏幕，还是有他人偷窥机主屏幕。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: Phone</p>
+<p><strong><strong>起始版本</strong></strong>：18</p>
+<p><strong><strong>变更信息</strong></strong>：在API18-19，该权限面向系统应用开放；从API20开始，面向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_local_device_name>ohos.permission.READ_LOCAL_DEVICE_NAME<a href=#ohospermissionread_local_device_name class=hash-link aria-label=ohos.permission.READ_LOCAL_DEVICE_NAME的直接链接 title=ohos.permission.READ_LOCAL_DEVICE_NAME的直接链接 translate=no>​</a></h2>
+<p>允许应用获取本机的设备显示名。</p>
+<p>获取此权限后，应用可获取设置中“关于本机”页面的设备名称，否则只能获取设备出厂时的默认名称。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>仅当用户通过扫码跨设备登录时，可申请此权限用于应用内显示登录设备。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>: 系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>: 20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkeep_background_running_system>ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM<a href=#ohospermissionkeep_background_running_system class=hash-link aria-label=ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM的直接链接 title=ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM的直接链接 translate=no>​</a></h2>
+<p>允许应用申请特殊类型长时任务，如在手机上申请计算任务类型的长时任务。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>商家版应用实现自动接单功能。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：General</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionlinkturbo>ohos.permission.LINKTURBO<a href=#ohospermissionlinkturbo class=hash-link aria-label=ohos.permission.LINKTURBO的直接链接 title=ohos.permission.LINKTURBO的直接链接 translate=no>​</a></h2>
+<p>允许应用使用多网并发等网络加速能力。</p>
+<p>获取该权限后，应用可发起多网激活、监听、释放等相关操作，以实现多路径的传输。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">音视频通话和会议、游戏、在线教育、长短视频、直播等在弱网环境下多网络分流或冗余传输，增强网络抗抖动性，提升传输可靠性，让业务更流畅。</li>
+<li class="">其他支持场景，如应用和服务器支持多网并发，可使用多IP并发传输时可申请。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_net_trace_info>ohos.permission.ACCESS_NET_TRACE_INFO<a href=#ohospermissionaccess_net_trace_info class=hash-link aria-label=ohos.permission.ACCESS_NET_TRACE_INFO的直接链接 title=ohos.permission.ACCESS_NET_TRACE_INFO的直接链接 translate=no>​</a></h2>
+<p>允许应用使用网络探测和获取TraceRoute信息的维测能力，用于检测网络时延较大的可能故障原因。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>针对网络时延敏感的音视频通话和会议、游戏、在线教育、直播等网络应用场景，提供网络维测能力，用于检测网络链路质量或故障。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：General</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionread_whole_calendar>ohos.permission.READ_WHOLE_CALENDAR<a href=#ohospermissionread_whole_calendar class=hash-link aria-label=ohos.permission.READ_WHOLE_CALENDAR的直接链接 title=ohos.permission.READ_WHOLE_CALENDAR的直接链接 translate=no>​</a></h2>
+<p>允许应用读取所有的日历信息。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<p><strong><strong>变更信息</strong></strong>：在API 9-19，该权限面向系统应用开放；从API 20开始，面向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionwrite_whole_calendar>ohos.permission.WRITE_WHOLE_CALENDAR<a href=#ohospermissionwrite_whole_calendar class=hash-link aria-label=ohos.permission.WRITE_WHOLE_CALENDAR的直接链接 title=ohos.permission.WRITE_WHOLE_CALENDAR的直接链接 translate=no>​</a></h2>
+<p>允许应用添加、移除或更改所有的日历活动。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：用户授权（user_grant）</p>
+<p><strong><strong>起始版本</strong></strong>：9</p>
+<p><strong><strong>变更信息</strong></strong>：在API 9-19，该权限面向系统应用开放；从API 20开始，面向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionset_systemshare_applaunchtrustlist>ohos.permission.SET_SYSTEMSHARE_APPLAUNCHTRUSTLIST<a href=#ohospermissionset_systemshare_applaunchtrustlist class=hash-link aria-label=ohos.permission.SET_SYSTEMSHARE_APPLAUNCHTRUSTLIST的直接链接 title=ohos.permission.SET_SYSTEMSHARE_APPLAUNCHTRUSTLIST的直接链接 translate=no>​</a></h2>
+<p>允许应用配置系统分享的目标应用名单。</p>
+<p>获取该权限后，应用可控制系统分享的目标应用范围。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>企业应用：限制内部数据分享到企业集团信任的应用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：21</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionhook_key_event>ohos.permission.HOOK_KEY_EVENT<a href=#ohospermissionhook_key_event class=hash-link aria-label=ohos.permission.HOOK_KEY_EVENT的直接链接 title=ohos.permission.HOOK_KEY_EVENT的直接链接 translate=no>​</a></h2>
+<p>允许应用拦截键盘输入事件。</p>
+<p>获取该权限后，应用可以在按键事件分发到应用窗口前，将自定义的按键处理过程添加到系统的按键处理过程中。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">证券登录或交易：应用内进行证券登录或交易，如股票、期货、债券交易等。</li>
+<li class="">网银交易或身份认证：应用内提供网上银行服务（如网银登陆、转账汇款等），或为网银用户提供身份认证的密码控件工具。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：手动设置授权（manual_settings）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：21</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionweb_native_messaging>ohos.permission.WEB_NATIVE_MESSAGING<a href=#ohospermissionweb_native_messaging class=hash-link aria-label=ohos.permission.WEB_NATIVE_MESSAGING的直接链接 title=ohos.permission.WEB_NATIVE_MESSAGING的直接链接 translate=no>​</a></h2>
+<p>允许应用使用Web本地通信能力。</p>
+<p>应用获取此权限后，可以使用web本地通信能力，使浏览器扩展与本地应用进行通信。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用为浏览器类应用，用户需要通过输入网址访问网页、浏览互联网资源。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：21</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionsubscribe_notification>ohos.permission.SUBSCRIBE_NOTIFICATION<a href=#ohospermissionsubscribe_notification class=hash-link aria-label=ohos.permission.SUBSCRIBE_NOTIFICATION的直接链接 title=ohos.permission.SUBSCRIBE_NOTIFICATION的直接链接 translate=no>​</a></h2>
+<p>允许应用读取系统或者已安装应用发布的通知。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>支持展示通知的智能手表使用的穿戴应用。</p>
+<p>获取该权限后，可以读取系统或已安装应用发布的通知，然后通过蓝牙等短距离通信协议将这些通知转发至对应的手表，以展示通知消息。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：Phone | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>：22</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissioncustom_screen_recording>ohos.permission.CUSTOM_SCREEN_RECORDING<a href=#ohospermissioncustom_screen_recording class=hash-link aria-label=ohos.permission.CUSTOM_SCREEN_RECORDING的直接链接 title=ohos.permission.CUSTOM_SCREEN_RECORDING的直接链接 translate=no>​</a></h2>
+<p>允许应用无需弹窗录制屏幕。</p>
+<p>获取该权限后，应用在录制屏幕时不再每次弹出隐私告警弹窗。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用具有录屏功能，界面上有触发录屏的UI组件，触发后可录制系统画面。</li>
+<li class="">应用具有远程登录功能，可以在本地设备上显示远程设备的画面。</li>
+<li class="">应用具有共享桌面功能，共享时可将本设备画面共享给其他设备端显示。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：手动设置授权（manual_settings）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：22</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionallow_external_native_code>ohos.permission.ALLOW_EXTERNAL_NATIVE_CODE<a href=#ohospermissionallow_external_native_code class=hash-link aria-label=ohos.permission.ALLOW_EXTERNAL_NATIVE_CODE的直接链接 title=ohos.permission.ALLOW_EXTERNAL_NATIVE_CODE的直接链接 translate=no>​</a></h2>
+<p>允许应用使用外部native程序。</p>
+<p>包括加载外部动态链接库(so)、二进制文件(bin)等。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用为运行在PC/2in1上的工具类应用，如IDE、命令行工具等。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：23</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionget_ip_mac_info>ohos.permission.GET_IP_MAC_INFO<a href=#ohospermissionget_ip_mac_info class=hash-link aria-label=ohos.permission.GET_IP_MAC_INFO的直接链接 title=ohos.permission.GET_IP_MAC_INFO的直接链接 translate=no>​</a></h2>
+<p>允许应用获取网络设备的IP和MAC地址。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用获取网络设备的IP和MAC地址，用于网络连接或者识别，不支持用于设备定位。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：General</p>
+<p><strong><strong>起始版本</strong></strong>：22</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionatomicservicemanage_aging>ohos.permission.atomicService.MANAGE_AGING<a href=#ohospermissionatomicservicemanage_aging class=hash-link aria-label=ohos.permission.atomicService.MANAGE_AGING的直接链接 title=ohos.permission.atomicService.MANAGE_AGING的直接链接 translate=no>​</a></h2>
+<p>允许元服务申请差异化的老化策略。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>当HarmonyOS小游戏需要延迟老化时，可申请此权限。如HarmonyOS小游戏是单机小游戏，游戏数据需要缓存在本地。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>: 系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>: 23</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionaccess_user_full_disk>ohos.permission.ACCESS_USER_FULL_DISK<a href=#ohospermissionaccess_user_full_disk class=hash-link aria-label=ohos.permission.ACCESS_USER_FULL_DISK的直接链接 title=ohos.permission.ACCESS_USER_FULL_DISK的直接链接 translate=no>​</a></h2>
+<p>允许应用无需弹窗访问用户公共路径。</p>
+<p>获取该权限后，应用在用户授权后访问用户公共路径，每次访问不再额外弹窗提示。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">远程登录客户端类应用：可在本地设备上显示远程设备的画面。</li>
+<li class="">杀毒类应用：需要全盘扫描以查杀病毒。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：手动设置授权（manual_settings）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：22</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionkernelload_independent_library>ohos.permission.kernel.LOAD_INDEPENDENT_LIBRARY<a href=#ohospermissionkernelload_independent_library class=hash-link aria-label=ohos.permission.kernel.LOAD_INDEPENDENT_LIBRARY的直接链接 title=ohos.permission.kernel.LOAD_INDEPENDENT_LIBRARY的直接链接 translate=no>​</a></h2>
+<p>允许应用加载二进制证书签名的共享库。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>面向华为生态开发工具应用开放。</p>
+<p><strong><strong>风险说明：</strong></strong> 由于该权限允许加载未经审核的代码，可能会影响应用自身的安全，需开发者谨慎使用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>：20</p>
+<p><strong><strong>变更信息</strong></strong>：在API 20-21，该权限面向系统应用开放；从API 22开始，面向普通应用开放。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissioncrypto_extension_register>ohos.permission.CRYPTO_EXTENSION_REGISTER<a href=#ohospermissioncrypto_extension_register class=hash-link aria-label=ohos.permission.CRYPTO_EXTENSION_REGISTER的直接链接 title=ohos.permission.CRYPTO_EXTENSION_REGISTER的直接链接 translate=no>​</a></h2>
+<p>允许应用注册和注销crypto扩展。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">UKey厂商开发者。</li>
+<li class="">具有Ukey厂商合作资质证明的银行金融类应用。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>: 系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: PC/2in1</p>
+<p><strong><strong>起始版本</strong></strong>: 22</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_media_resources_for_public>ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC<a href=#ohospermissionmanage_media_resources_for_public class=hash-link aria-label=ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC的直接链接 title=ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC的直接链接 translate=no>​</a></h2>
+<p>允许应用获取和管理当前设备正在播放的媒体资源。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<p>应用为手表、IoT等外部设备配套的控制应用。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>: 系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: Phone | PC/2in1 | Tablet | TV | Car</p>
+<p><strong><strong>起始版本</strong></strong>: 23</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_call_for_devices>ohos.permission.MANAGE_CALL_FOR_DEVICES<a href=#ohospermissionmanage_call_for_devices class=hash-link aria-label=ohos.permission.MANAGE_CALL_FOR_DEVICES的直接链接 title=ohos.permission.MANAGE_CALL_FOR_DEVICES的直接链接 translate=no>​</a></h2>
+<p>允许应用管理通话状态。如获取来电号码、接听、拒接、挂断等.</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">申请当前权限的hap为三方穿戴类设备的配套应用。</li>
+<li class="">该hap应用有明确的获取通话状态、控制通话的应用场景。</li>
+</ul>
+<p><strong><strong>权限级别</strong></strong>: system_basic</p>
+<p><strong><strong>授权方式</strong></strong>: 系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>: Phone | PC/2in1 | Tablet</p>
+<p><strong><strong>起始版本</strong></strong>: 23</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ohospermissionmanage_bluetooth_advertiser_name>ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME<a href=#ohospermissionmanage_bluetooth_advertiser_name class=hash-link aria-label=ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME的直接链接 title=ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME的直接链接 translate=no>​</a></h2>
+<p>允许应用自定义BLE广播名称。</p>
+<p><strong><strong>可申请此权限的特殊场景与功能：</strong></strong></p>
+<ul>
+<li class="">应用需要发送携带自定义广播名称的BLE广播与周围设备进行通信。</li>
+</ul>
+<p>例如：</p>
+<p>应用发送携带自定义名称的BLE广播，周围设备扫描到该广播后，通过名称识别到是需要的设备，进而向该设备发起连接。</p>
+<p><strong><strong>权限级别</strong></strong>：system_basic</p>
+<p><strong><strong>授权方式</strong></strong>：系统授权（system_grant）</p>
+<p><strong><strong>支持设备</strong></strong>：General</p>
+<p><strong><strong>起始版本</strong></strong>：23</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-all-user/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>开放权限（用户授权）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-security/access-control/app-permission-mgmt/app-permissions/permissions-for-enterprise-apps/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>企业类应用可用权限</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#申请方式 class="table-of-contents__link toc-highlight">申请方式</a><li><a href=#ohospermissionsystem_float_window class="table-of-contents__link toc-highlight">ohos.permission.SYSTEM_FLOAT_WINDOW</a><li><a href=#ohospermissionread_contacts class="table-of-contents__link toc-highlight">ohos.permission.READ_CONTACTS</a><li><a href=#ohospermissionwrite_contacts class="table-of-contents__link toc-highlight">ohos.permission.WRITE_CONTACTS</a><li><a href=#ohospermissionread_audio class="table-of-contents__link toc-highlight">ohos.permission.READ_AUDIO</a><li><a href=#ohospermissionwrite_audio class="table-of-contents__link toc-highlight">ohos.permission.WRITE_AUDIO</a><li><a href=#ohospermissionread_imagevideo class="table-of-contents__link toc-highlight">ohos.permission.READ_IMAGEVIDEO</a><li><a href=#ohospermissionwrite_imagevideo class="table-of-contents__link toc-highlight">ohos.permission.WRITE_IMAGEVIDEO</a><li><a href=#ohospermissionread_write_desktop_directory class="table-of-contents__link toc-highlight">ohos.permission.READ_WRITE_DESKTOP_DIRECTORY</a><li><a href=#ohospermissionaccess_ddk_usb class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_DDK_USB</a><li><a href=#ohospermissionaccess_ddk_hid class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_DDK_HID</a><li><a href=#ohospermissionread_pasteboard class="table-of-contents__link toc-highlight">ohos.permission.READ_PASTEBOARD</a><li><a href=#ohospermissionfile_access_persist class="table-of-contents__link toc-highlight">ohos.permission.FILE_ACCESS_PERSIST</a><li><a href=#ohospermissionintercept_input_event class="table-of-contents__link toc-highlight">ohos.permission.INTERCEPT_INPUT_EVENT</a><li><a href=#ohospermissioninput_monitoring class="table-of-contents__link toc-highlight">ohos.permission.INPUT_MONITORING</a><li><a href=#ohospermissionshort_term_write_imagevideo class="table-of-contents__link toc-highlight">ohos.permission.SHORT_TERM_WRITE_IMAGEVIDEO</a><li><a href=#ohospermissionread_write_user_file class="table-of-contents__link toc-highlight">ohos.permission.READ_WRITE_USER_FILE</a><li><a href=#ohospermissionread_write_usb_dev class="table-of-contents__link toc-highlight">ohos.permission.READ_WRITE_USB_DEV</a><li><a href=#ohospermissionget_wifi_peers_mac class="table-of-contents__link toc-highlight">ohos.permission.GET_WIFI_PEERS_MAC</a><li><a href=#ohospermissionset_telephony_esim_state_open class="table-of-contents__link toc-highlight">ohos.permission.SET_TELEPHONY_ESIM_STATE_OPEN</a><li><a href=#ohospermissionkerneldisable_code_memory_protection class="table-of-contents__link toc-highlight">ohos.permission.kernel.DISABLE_CODE_MEMORY_PROTECTION</a><li><a href=#ohospermissionkernelallow_writable_code_memory class="table-of-contents__link toc-highlight">ohos.permission.kernel.ALLOW_WRITABLE_CODE_MEMORY</a><li><a href=#ohospermissionkernelallow_executable_fort_memory class="table-of-contents__link toc-highlight">ohos.permission.kernel.ALLOW_EXECUTABLE_FORT_MEMORY</a><li><a href=#ohospermissionmanage_pasteboard_app_share_option class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_PASTEBOARD_APP_SHARE_OPTION</a><li><a href=#ohospermissionmanage_udmf_app_share_option class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_UDMF_APP_SHARE_OPTION</a><li><a href=#ohospermissionaccess_disk_phy_info class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_DISK_PHY_INFO</a><li><a href=#ohospermissionpreload_file class="table-of-contents__link toc-highlight">ohos.permission.PRELOAD_FILE</a><li><a href=#ohospermissionset_pac_url class="table-of-contents__link toc-highlight">ohos.permission.SET_PAC_URL</a><li><a href=#ohospermissionpersonal_manage_restrictions class="table-of-contents__link toc-highlight">ohos.permission.PERSONAL_MANAGE_RESTRICTIONS</a><li><a href=#ohospermissionstart_provisioning_message class="table-of-contents__link toc-highlight">ohos.permission.START_PROVISIONING_MESSAGE</a><li><a href=#ohospermissionuse_fraud_call_log_picker class="table-of-contents__link toc-highlight">ohos.permission.USE_FRAUD_CALL_LOG_PICKER</a><li><a href=#ohospermissionuse_fraud_messages_picker class="table-of-contents__link toc-highlight">ohos.permission.USE_FRAUD_MESSAGES_PICKER</a><li><a href=#ohospermissionpersistent_bluetooth_peers_mac class="table-of-contents__link toc-highlight">ohos.permission.PERSISTENT_BLUETOOTH_PEERS_MAC</a><li><a href=#ohospermissionaccess_virtual_screen class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_VIRTUAL_SCREEN</a><li><a href=#ohospermissionmanage_apn_setting class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_APN_SETTING</a><li><a href=#ohospermissionget_wifi_local_mac class="table-of-contents__link toc-highlight">ohos.permission.GET_WIFI_LOCAL_MAC</a><li><a href=#ohospermissionkernelallow_use_jitfort_interface class="table-of-contents__link toc-highlight">ohos.permission.kernel.ALLOW_USE_JITFORT_INTERFACE</a><li><a href=#ohospermissionget_ethernet_local_mac class="table-of-contents__link toc-highlight">ohos.permission.GET_ETHERNET_LOCAL_MAC</a><li><a href=#ohospermissionkerneldisable_gotplt_ro_protection class="table-of-contents__link toc-highlight">ohos.permission.kernel.DISABLE_GOTPLT_RO_PROTECTION</a><li><a href=#ohospermissionuse_fraud_app_picker class="table-of-contents__link toc-highlight">ohos.permission.USE_FRAUD_APP_PICKER</a><li><a href=#ohospermissionaccess_ddk_drivers class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_DDK_DRIVERS</a><li><a href=#ohospermissionaccess_ddk_scsi_peripheral class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_DDK_SCSI_PERIPHERAL</a><li><a href=#ohospermissionkernelsupport_plugin class="table-of-contents__link toc-highlight">ohos.permission.kernel.SUPPORT_PLUGIN</a><li><a href=#ohospermissioncustom_sandbox class="table-of-contents__link toc-highlight">ohos.permission.CUSTOM_SANDBOX</a><li><a href=#ohospermissionmanage_screen_time_guard class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_SCREEN_TIME_GUARD</a><li><a href=#ohospermissioncustomize_save_button class="table-of-contents__link toc-highlight">ohos.permission.CUSTOMIZE_SAVE_BUTTON</a><li><a href=#ohospermissionget_ability_info class="table-of-contents__link toc-highlight">ohos.permission.GET_ABILITY_INFO</a><li><a href=#ohospermissionaccess_fido2_onlineauth class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_FIDO2_ONLINEAUTH</a><li><a href=#ohospermissionuse_float_ball class="table-of-contents__link toc-highlight">ohos.permission.USE_FLOAT_BALL</a><li><a href=#ohospermissiondlp_get_hide_status class="table-of-contents__link toc-highlight">ohos.permission.DLP_GET_HIDE_STATUS</a><li><a href=#ohospermissionread_local_device_name class="table-of-contents__link toc-highlight">ohos.permission.READ_LOCAL_DEVICE_NAME</a><li><a href=#ohospermissionkeep_background_running_system class="table-of-contents__link toc-highlight">ohos.permission.KEEP_BACKGROUND_RUNNING_SYSTEM</a><li><a href=#ohospermissionlinkturbo class="table-of-contents__link toc-highlight">ohos.permission.LINKTURBO</a><li><a href=#ohospermissionaccess_net_trace_info class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_NET_TRACE_INFO</a><li><a href=#ohospermissionread_whole_calendar class="table-of-contents__link toc-highlight">ohos.permission.READ_WHOLE_CALENDAR</a><li><a href=#ohospermissionwrite_whole_calendar class="table-of-contents__link toc-highlight">ohos.permission.WRITE_WHOLE_CALENDAR</a><li><a href=#ohospermissionset_systemshare_applaunchtrustlist class="table-of-contents__link toc-highlight">ohos.permission.SET_SYSTEMSHARE_APPLAUNCHTRUSTLIST</a><li><a href=#ohospermissionhook_key_event class="table-of-contents__link toc-highlight">ohos.permission.HOOK_KEY_EVENT</a><li><a href=#ohospermissionweb_native_messaging class="table-of-contents__link toc-highlight">ohos.permission.WEB_NATIVE_MESSAGING</a><li><a href=#ohospermissionsubscribe_notification class="table-of-contents__link toc-highlight">ohos.permission.SUBSCRIBE_NOTIFICATION</a><li><a href=#ohospermissioncustom_screen_recording class="table-of-contents__link toc-highlight">ohos.permission.CUSTOM_SCREEN_RECORDING</a><li><a href=#ohospermissionallow_external_native_code class="table-of-contents__link toc-highlight">ohos.permission.ALLOW_EXTERNAL_NATIVE_CODE</a><li><a href=#ohospermissionget_ip_mac_info class="table-of-contents__link toc-highlight">ohos.permission.GET_IP_MAC_INFO</a><li><a href=#ohospermissionatomicservicemanage_aging class="table-of-contents__link toc-highlight">ohos.permission.atomicService.MANAGE_AGING</a><li><a href=#ohospermissionaccess_user_full_disk class="table-of-contents__link toc-highlight">ohos.permission.ACCESS_USER_FULL_DISK</a><li><a href=#ohospermissionkernelload_independent_library class="table-of-contents__link toc-highlight">ohos.permission.kernel.LOAD_INDEPENDENT_LIBRARY</a><li><a href=#ohospermissioncrypto_extension_register class="table-of-contents__link toc-highlight">ohos.permission.CRYPTO_EXTENSION_REGISTER</a><li><a href=#ohospermissionmanage_media_resources_for_public class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_MEDIA_RESOURCES_FOR_PUBLIC</a><li><a href=#ohospermissionmanage_call_for_devices class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_CALL_FOR_DEVICES</a><li><a href=#ohospermissionmanage_bluetooth_advertiser_name class="table-of-contents__link toc-highlight">ohos.permission.MANAGE_BLUETOOTH_ADVERTISER_NAME</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

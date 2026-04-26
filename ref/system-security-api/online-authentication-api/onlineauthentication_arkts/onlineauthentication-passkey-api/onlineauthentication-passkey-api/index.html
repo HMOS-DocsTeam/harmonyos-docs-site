@@ -1,0 +1,1803 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>通行密钥 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="通行密钥 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块主要提供了以下能力： /><meta data-rh=true property=og:description content=本模块主要提供了以下能力： /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api","name":"通行密钥","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title=FIDO class=linkLabel_WmDU>FIDO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><span title=IFAA class=linkLabel_WmDU>IFAA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><span title=SOTER class=linkLabel_WmDU>SOTER</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api><span title=通行密钥 class=linkLabel_WmDU>通行密钥</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido><span title="ArkTS API错误码" class=categoryLinkLabel_W154>ArkTS API错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_module/passkey/passkey><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Online Authentication Kit（在线认证服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>通行密钥</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>通行密钥</h1></header>
+<p>本模块主要提供了以下能力：</p>
+<ul>
+<li class="">通行密钥注册：支持使用用户身份认证特征（如人脸、指纹、PIN码）作为平台认证器，在本设备上创建应用或网页的通行密钥。</li>
+<li class="">本地免密认证：支持使用用户身份认证特征（如人脸、指纹、PIN码）作为平台认证器，使用通行密钥在本设备上进行应用或网页的免密认证。</li>
+<li class="">跨设备扫码认证：支持使用已注册通行密钥的移动设备作为漫游认证器，使用跨设备扫码的方式，在其他设备上进行应用或网页的免密认证。</li>
+</ul>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { fido2 } from '@kit.OnlineAuthenticationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit'</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorattestationresponse>AuthenticatorAttestationResponse<a href=#authenticatorattestationresponse class=hash-link aria-label=AuthenticatorAttestationResponse的直接链接 title=AuthenticatorAttestationResponse的直接链接 translate=no>​</a></h2>
+<p>以Uint8Array格式表示的认证器证明响应。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>attestationObject<td>Uint8Array<td>是<td>否<td>声明对象。<tr><td>clientDataJson<td>Uint8Array<td>是<td>否<td>获取客户端数据，表示WebAuthn依赖方和客户端的上下文绑定，包含类型、挑战值及源等数据。<tr><td>publicKeyAlgorithm<td><a href=#algorithm class="">Algorithm</a><td>否<td>否<td>密码算法。<tr><td>publicKey<td>Uint8Array<td>否<td>是<td>publicKey凭证请求的选项。默认值为空。<tr><td>authenticatorData<td>Uint8Array<td>否<td>否<td>认证器数据。<tr><td>transports<td>string[]<td>否<td>否<td>定义身份认证器访问类型，取值范围为<a href=#authenticatortransport class="">AuthenticatorTransport</a>枚举。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorattestationresponsejson>AuthenticatorAttestationResponseJson<a href=#authenticatorattestationresponsejson class=hash-link aria-label=AuthenticatorAttestationResponseJson的直接链接 title=AuthenticatorAttestationResponseJson的直接链接 translate=no>​</a></h2>
+<p>认证器证明响应，JSON字符串的结构。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>clientDataJson<td>string<td>否<td>否<td>获取客户端数据，表示WebAuthn依赖方和客户端的上下文绑定，包含类型、挑战值及源等数据。长度限制0到4096。<tr><td>authenticatorData<td>string<td>否<td>否<td>认证器数据。长度限制0到4096。<tr><td>transports<td>Array&lt;string><td>否<td>否<td>定义身份认证器访问类型，取值范围为<a href=#authenticatortransport class="">AuthenticatorTransport</a>枚举。<tr><td>publicKey<td>string<td>否<td>是<td>publicKey凭证请求的选项。默认值为空。长度限制0到4096。<tr><td>publicKeyAlgorithm<td><a href=#algorithm class="">Algorithm</a><td>否<td>否<td>密码算法。<tr><td>attestationObject<td>string<td>否<td>否<td>声明对象。长度限制0到10000。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticationextensionsclientoutputsjson>AuthenticationExtensionsClientOutputsJson<a href=#authenticationextensionsclientoutputsjson class=hash-link aria-label=AuthenticationExtensionsClientOutputsJson的直接链接 title=AuthenticationExtensionsClientOutputsJson的直接链接 translate=no>​</a></h2>
+<p>当依赖方调用 create() 或 get() 时，处理依赖方请求的客户端扩展的结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorassertionresponsejson>AuthenticatorAssertionResponseJson<a href=#authenticatorassertionresponsejson class=hash-link aria-label=AuthenticatorAssertionResponseJson的直接链接 title=AuthenticatorAssertionResponseJson的直接链接 translate=no>​</a></h2>
+<p>认证器断言响应，JSON字符串的结构。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>clientDataJson<td>string<td>否<td>否<td>客户端数据。长度限制0到4096。<tr><td>authenticatorData<td>string<td>否<td>否<td>认证器数据。长度限制0到4096。<tr><td>signature<td>string<td>否<td>否<td>签名。长度限制0到4096。<tr><td>userHandle<td>string<td>否<td>是<td>用户句柄。默认值为空。长度限制0到4096。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorassertionresponse>AuthenticatorAssertionResponse<a href=#authenticatorassertionresponse class=hash-link aria-label=AuthenticatorAssertionResponse的直接链接 title=AuthenticatorAssertionResponse的直接链接 translate=no>​</a></h2>
+<p>认证器断言响应。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>authenticatorData<td>Uint8Array<td>是<td>否<td>认证器数据。<tr><td>signature<td>Uint8Array<td>是<td>否<td>签名。<tr><td>userHandle<td>Uint8Array<td>是<td>是<td>用户句柄。默认值为空。<tr><td>clientDataJson<td>Uint8Array<td>是<td>否<td>客户端数据。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticationextensionsclientoutputs>AuthenticationExtensionsClientOutputs<a href=#authenticationextensionsclientoutputs class=hash-link aria-label=AuthenticationExtensionsClientOutputs的直接链接 title=AuthenticationExtensionsClientOutputs的直接链接 translate=no>​</a></h2>
+<p>身份验证扩展。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeyattestationcredential>PublicKeyAttestationCredential<a href=#publickeyattestationcredential class=hash-link aria-label=PublicKeyAttestationCredential的直接链接 title=PublicKeyAttestationCredential的直接链接 translate=no>​</a></h2>
+<p>注册返回参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>rawId<td>Uint8Array<td>是<td>否<td>凭据唯一索引。<tr><td>response<td><a href=#authenticatorattestationresponse class="">AuthenticatorAttestationResponse</a><td>是<td>否<td>返回报文。<tr><td>authenticatorAttachment<td><a href=#authenticatorattachment class="">AuthenticatorAttachment</a><td>是<td>是<td>认证器信息（平台、漫游），默认值为platform。<tr><td>id<td>string<td>是<td>否<td>凭据ID（base64格式）。长度限制0到512。<tr><td>type<td>string<td>是<td>否<td>凭据类型。长度限制0到512。<tr><td>clientExtensionResults<td><a href=#authenticationextensionsclientoutputs class="">AuthenticationExtensionsClientOutputs</a><td>是<td>否<td>客户端扩展结果。<tr><td>registrationResponseJson<td><a href=#registrationresponsejson class="">RegistrationResponseJson</a><td>否<td>否<td>认证结果，JSON格式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=registrationresponsejson>RegistrationResponseJson<a href=#registrationresponsejson class=hash-link aria-label=RegistrationResponseJson的直接链接 title=RegistrationResponseJson的直接链接 translate=no>​</a></h2>
+<p>注册返回参数的JSON格式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>string<td>否<td>否<td>凭据的标识符。对于每种类型的凭据，标识符的要求都是不同的。长度限制0到512。<tr><td>rawId<td>string<td>否<td>否<td>原始凭据ID。长度限制0到512。<tr><td>response<td><a href=#authenticatorattestationresponsejson class="">AuthenticatorAttestationResponseJson</a><td>否<td>否<td>认证器证明响应。<tr><td>authenticatorAttachment<td>string<td>否<td>是<td>认证器信息（平台、漫游），默认值为platform。长度限制0到512。<tr><td>clientExtensionResults<td><a href=#authenticationextensionsclientoutputsjson class="">AuthenticationExtensionsClientOutputsJson</a><td>否<td>否<td>客户端扩展结果。当前版本不支持扩展，因此占位符始终为NULL，必须将clientExtensionResults键对应的值解析为{}。<tr><td>type<td>string<td>否<td>否<td>该属性返回对象的接口对象的插槽的值，它指定此对象所表示的凭据类型。长度限制0到512。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialrequestoptions>PublicKeyCredentialRequestOptions<a href=#publickeycredentialrequestoptions class=hash-link aria-label=PublicKeyCredentialRequestOptions的直接链接 title=PublicKeyCredentialRequestOptions的直接链接 translate=no>​</a></h2>
+<p>定义通行密钥认证请求参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>challenge<td>Uint8Array<td>否<td>否<td>获取挑战值。<tr><td>timeout<td>number<td>否<td>是<td>认证操作最长时间，单位为毫秒。默认值为300000ms。<tr><td>rpId<td>string<td>否<td>是<td>依赖方标识。默认值为空。长度限制0到512。<tr><td>allowCredentials<td>Array&lt;<a href=#publickeycredentialdescriptor class="">PublicKeyCredentialDescriptor</a>><td>否<td>是<td>认证凭据的附加参数列表。默认值为空。<tr><td>userVerification<td><a href=#userverificationrequirement class="">UserVerificationRequirement</a><td>否<td>是<td>用户认证需求枚举。默认值为preferred。<tr><td>hints<td>Array&lt;<a href=#publickeycredentialhint class="">PublicKeyCredentialHint</a>><td>否<td>是<td>认证方式指示。默认值为[]。<tr><td>extensions<td>Map&lt;string, Object><td>否<td>是<td>扩展名必须是表示Map&lt;string，Object> object的JSON字符串。默认值为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeyassertioncredential>PublicKeyAssertionCredential<a href=#publickeyassertioncredential class=hash-link aria-label=PublicKeyAssertionCredential的直接链接 title=PublicKeyAssertionCredential的直接链接 translate=no>​</a></h2>
+<p>认证返回参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>rawId<td>Uint8Array<td>是<td>否<td>凭据唯一索引。<tr><td>response<td><a href=#authenticatorassertionresponse class="">AuthenticatorAssertionResponse</a><td>是<td>否<td>返回报文。<tr><td>authenticatorAttachment<td><a href=#authenticatorattachment class="">AuthenticatorAttachment</a><td>是<td>是<td>认证器信息（平台、漫游），默认值为platform。<tr><td>id<td>string<td>是<td>否<td>凭据ID（base64格式）。长度限制0到512。<tr><td>type<td>string<td>是<td>否<td>凭据类型。长度限制0到512。<tr><td>clientExtensionResults<td><a href=#authenticationextensionsclientoutputs class="">AuthenticationExtensionsClientOutputs</a><td>否<td>否<td>客户端扩展结果。<tr><td>authenticationResponseJson<td><a href=#authenticationresponsejson class="">AuthenticationResponseJson</a><td>否<td>否<td>认证响应数据，格式为JSON字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticationresponsejson>AuthenticationResponseJson<a href=#authenticationresponsejson class=hash-link aria-label=AuthenticationResponseJson的直接链接 title=AuthenticationResponseJson的直接链接 translate=no>​</a></h2>
+<p>认证返回参数的JSON格式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>string<td>否<td>否<td>凭据的标识符，作为JSON字符串。对于每种类型的凭据，标识符的要求都是不同的。长度限制0到512。<tr><td>rawId<td>string<td>否<td>否<td>原始凭据Id，格式为JSON字符串。长度限制0到512。<tr><td>response<td><a href=#authenticatorassertionresponsejson class="">AuthenticatorAssertionResponseJson</a><td>否<td>否<td>认证器断言响应，JSON字符串的结构。<tr><td>authenticatorAttachment<td>string<td>否<td>是<td>认证器信息（平台、漫游），默认值为platform。长度限制0到512。<tr><td>clientExtensionResults<td><a href=#authenticationextensionsclientoutputsjson class="">AuthenticationExtensionsClientOutputsJson</a><td>否<td>否<td>客户端扩展结果。当前版本不支持扩展，因此占位符始终为NULL，必须将clientExtensionResults键对应的值解析为{}。<tr><td>type<td>string<td>否<td>否<td>该属性以JSON字符串形式返回对象的接口对象的插槽的值，该插槽指定此对象所表示的凭据类型。长度限制0到512。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=credentialmediationrequirement>CredentialMediationRequirement<a href=#credentialmediationrequirement class=hash-link aria-label=CredentialMediationRequirement的直接链接 title=CredentialMediationRequirement的直接链接 translate=no>​</a></h2>
+<p>用户介入要求的枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>SILENT<td>'silent'<td>禁止用户介入指定的操作。如果可以在不需要用户介入的情况下进行操作，则正常。 如果需要用户介入，则操作将返回null。<tr><td>OPTIONAL<td>'optional'<td>如果在没有用户介入的情况下，可以为给定的操作传递凭据，则正常传递。 如果需要用户介入，那么用户代理将让用户介入决策。<tr><td>CONDITIONAL<td>'conditional'<td>有条件的需要用户介入。对于认证场景，如果设备有凭据，则需要用户介入以选择凭据。对于注册场景，如果用户之前已同意创建凭据，可在无用户介入的情况下创建凭据。<tr><td>REQUIRED<td>'required'<td>在没有用户介入的情况下，用户代理将不会移交凭证。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=credentialcreationoptions>CredentialCreationOptions<a href=#credentialcreationoptions class=hash-link aria-label=CredentialCreationOptions的直接链接 title=CredentialCreationOptions的直接链接 translate=no>​</a></h2>
+<p>注册信息字典对象，包含原始的注册报文。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>mediation<td><a href=#credentialmediationrequirement class="">CredentialMediationRequirement</a><td>否<td>是<td>该操作是否需要用户参与，默认值为"optional"。<tr><td>publicKey<td><a href=#publickeycredentialcreationoptions class="">PublicKeyCredentialCreationOptions</a><td>否<td>否<td>FIDO2注册报文，包含challenge、rp、用户信息、认证器选择结果等信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=credentialrequestoptions>CredentialRequestOptions<a href=#credentialrequestoptions class=hash-link aria-label=CredentialRequestOptions的直接链接 title=CredentialRequestOptions的直接链接 translate=no>​</a></h2>
+<p>认证信息字典对象，包含原始的认证报文和是否需要用户参与选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>mediation<td><a href=#credentialmediationrequirement class="">CredentialMediationRequirement</a><td>否<td>是<td>该操作是否需要用户参与，默认值为"optional"。<tr><td>publicKey<td><a href=#publickeycredentialrequestoptions class="">PublicKeyCredentialRequestOptions</a><td>否<td>否<td>FIDO2认证报文，包含challenge、依赖方信息、用户信息、认证器选择结果等信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tokenbindingstatus>TokenBindingStatus<a href=#tokenbindingstatus class=hash-link aria-label=TokenBindingStatus的直接链接 title=TokenBindingStatus的直接链接 translate=no>​</a></h2>
+<p>TokenBinding协议的状态枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>PRESENT<td>'present'<td>正常通信时的状态。<tr><td>SUPPORTED<td>'supported'<td>支持令牌绑定，但通信尚不可用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tokenbinding>TokenBinding<a href=#tokenbinding class=hash-link aria-label=TokenBinding的直接链接 title=TokenBinding的直接链接 translate=no>​</a></h2>
+<p>Token binding协议，用于客户端与依赖方通信。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>status<td><a href=#tokenbindingstatus class="">TokenBindingStatus</a><td>否<td>否<td>TokenBinding协议中客户端的绑定状态。<tr><td>id<td>string<td>否<td>否<td>标识符。长度限制0到512。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestationconveyancepreference>AttestationConveyancePreference<a href=#attestationconveyancepreference class=hash-link aria-label=AttestationConveyancePreference的直接链接 title=AttestationConveyancePreference的直接链接 translate=no>​</a></h2>
+<p>供WebAuthn依赖方在生成凭据时参考的枚举值，用于指定凭据传递的首选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>NONE<td>'none'<td>依赖方对验证者证明不感兴趣，默认值为none。<tr><td>INDIRECT<td>'indirect'<td>间接依赖方倾向于提供可验证的证明声明文档，但允许客户决定如何获得这种证明声明。<tr><td>DIRECT<td>'direct'<td>直接依赖方希望接收验证者生成的证明声明。<tr><td>ENTERPRISE<td>'enterprise'<td>依赖方希望接收企业证明，企业证明是一个证明声明， 其中可能包括唯一标识认证者的信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=userverificationrequirement>UserVerificationRequirement<a href=#userverificationrequirement class=hash-link aria-label=UserVerificationRequirement的直接链接 title=UserVerificationRequirement的直接链接 translate=no>​</a></h2>
+<p>依赖方可能需要对某些操作进行用户鉴权（验证当前用户是否为用户）， 但不需要对其他操作进行验证。定义枚举类型是为了区分不同的需求级别。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>REQUIRED<td>'required'<td>需要进行用户验证。<tr><td>PREFERRED<td>'preferred'<td>在可能的情况下，依赖方优先处理操作的用户验证， 但如果响应没有设置用户验证标志，则不会失败。<tr><td>DISCOURAGED<td>'discouraged'<td>依赖方在操作过程中不希望使用用户鉴权。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=residentkeyrequirement>ResidentKeyRequirement<a href=#residentkeyrequirement class=hash-link aria-label=ResidentKeyRequirement的直接链接 title=ResidentKeyRequirement的直接链接 translate=no>​</a></h2>
+<p>标识是否需要可发现凭证的枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>DISCOURAGED<td>'discouraged'<td>依赖方更倾向于创建服务器端凭证，但也可以接受客户端可发现的凭证。客户端和认证器应尽可能创建服务器端凭证。<tr><td>PREFERRED<td>'preferred'<td>依赖方强烈倾向于创建客户端可发现的凭证，但也可以接受服务器端凭证。<tr><td>REQUIRED<td>'required'<td>依赖方需要客户端可发现的凭证。如果无法创建客户端可发现的凭证，客户端必须返回错误。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorattachment>AuthenticatorAttachment<a href=#authenticatorattachment class=hash-link aria-label=AuthenticatorAttachment的直接链接 title=AuthenticatorAttachment的直接链接 translate=no>​</a></h2>
+<p>认证器信息（平台、漫游），默认值为platform。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>PLATFORM<td>'platform'<td>平台认证器，例如PIN码、指纹、人脸等。<tr><td>CROSS_PLATFORM<td>'cross-platform'<td>跨平台认证器，即漫游认证器，包括蓝牙、NFC、USB等。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatorselectioncriteria>AuthenticatorSelectionCriteria<a href=#authenticatorselectioncriteria class=hash-link aria-label=AuthenticatorSelectionCriteria的直接链接 title=AuthenticatorSelectionCriteria的直接链接 translate=no>​</a></h2>
+<p>由webAuthn依赖方指定，与认证器有关。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>authenticatorAttachment<td><a href=#authenticatorattachment class="">AuthenticatorAttachment</a><td>否<td>是<td>认证器信息。默认值为platform。<tr><td>residentKey<td>string<td>否<td>是<td>常驻键。默认值为空。长度限制0到4096。<tr><td>requireResidentKey<td>boolean<td>否<td>是<td>是否需要常驻键，true代表需要常驻键，false代表不需要。默认值为false。<tr><td>userVerification<td><a href=#userverificationrequirement class="">UserVerificationRequirement</a><td>否<td>是<td>用户认证需求枚举。默认值为preferred。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatortransport>AuthenticatorTransport<a href=#authenticatortransport class=hash-link aria-label=AuthenticatorTransport的直接链接 title=AuthenticatorTransport的直接链接 translate=no>​</a></h2>
+<p>用于身份验证传输的枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>USB<td>'usb'<td>通用串行总线。<tr><td>NFC<td>'nfc'<td>近场通信。<tr><td>BLE<td>'ble'<td>蓝牙。<tr><td>SMART_CARD<td>'smart-card'<td>智能卡。<tr><td>HYBRID<td>'hybrid'<td>混合。<tr><td>INTERNAL<td>'internal'<td>设备内置。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialdescriptor>PublicKeyCredentialDescriptor<a href=#publickeycredentialdescriptor class=hash-link aria-label=PublicKeyCredentialDescriptor的直接链接 title=PublicKeyCredentialDescriptor的直接链接 translate=no>​</a></h2>
+<p>注册或验证凭据的参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#publickeycredentialtype class="">PublicKeyCredentialType</a><td>否<td>否<td>凭证类型。<tr><td>id<td>Uint8Array<td>否<td>否<td>凭据的标识符。<tr><td>transports<td>Array&lt;<a href=#authenticatortransport class="">AuthenticatorTransport</a>><td>否<td>是<td>定义身份认证器访问类型，取值范围为<a href=#authenticatortransport class="">AuthenticatorTransport</a>枚举，默认值为空列表。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=algorithm>Algorithm<a href=#algorithm class=hash-link aria-label=Algorithm的直接链接 title=Algorithm的直接链接 translate=no>​</a></h2>
+<p>算法枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>ES256<td>-7<td>ES256算法。<tr><td>ES384<td>-35<td>ES384算法。<tr><td>ES512<td>-36<td>ES512算法。<tr><td>RS256<td>-257<td>RS256算法。<tr><td>RS384<td>-258<td>RS384算法。<tr><td>RS512<td>-259<td>RS512算法。<tr><td>PS256<td>-37<td>PS256算法。<tr><td>PS384<td>-38<td>PS384算法。<tr><td>PS512<td>-39<td>PS512算法。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialhint>PublicKeyCredentialHint<a href=#publickeycredentialhint class=hash-link aria-label=PublicKeyCredentialHint的直接链接 title=PublicKeyCredentialHint的直接链接 translate=no>​</a></h2>
+<p>用于公共密钥凭据提示的枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SECURITY_KEY<td>'security-key'<td>安全密钥。<tr><td>CLIENT_DEVICE<td>'client-device'<td>客户端设备。<tr><td>HYBRID<td>'hybrid'<td>混合。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialtype>PublicKeyCredentialType<a href=#publickeycredentialtype class=hash-link aria-label=PublicKeyCredentialType的直接链接 title=PublicKeyCredentialType的直接链接 translate=no>​</a></h2>
+<p>用于公共密钥凭证类型的枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>PUBLIC_KEY<td>'public-key'<td>公共密钥。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialparameters>PublicKeyCredentialParameters<a href=#publickeycredentialparameters class=hash-link aria-label=PublicKeyCredentialParameters的直接链接 title=PublicKeyCredentialParameters的直接链接 translate=no>​</a></h2>
+<p>认证凭据的附加参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#publickeycredentialtype class="">PublicKeyCredentialType</a><td>否<td>否<td>凭证类型。<tr><td>alg<td><a href=#algorithm class="">Algorithm</a><td>否<td>否<td>算法。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialuserentity>PublicKeyCredentialUserEntity<a href=#publickeycredentialuserentity class=hash-link aria-label=PublicKeyCredentialUserEntity的直接链接 title=PublicKeyCredentialUserEntity的直接链接 translate=no>​</a></h2>
+<p>创建新凭据时提供其他用户账户属性。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>Uint8Array<td>否<td>否<td>凭据的标识符。长度限制0到64。<tr><td>displayName<td>string<td>否<td>否<td>前台显示的用户名。长度限制0到512。<tr><td>name<td>string<td>否<td>否<td>用户名。长度限制0到512。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialrpentity>PublicKeyCredentialRpEntity<a href=#publickeycredentialrpentity class=hash-link aria-label=PublicKeyCredentialRpEntity的直接链接 title=PublicKeyCredentialRpEntity的直接链接 translate=no>​</a></h2>
+<p>创建新凭据时依赖方的属性。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>string<td>否<td>是<td>凭据的标识符。默认值为空。长度限制0到512。<tr><td>name<td>string<td>否<td>否<td>用户名。长度限制0到512。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=publickeycredentialcreationoptions>PublicKeyCredentialCreationOptions<a href=#publickeycredentialcreationoptions class=hash-link aria-label=PublicKeyCredentialCreationOptions的直接链接 title=PublicKeyCredentialCreationOptions的直接链接 translate=no>​</a></h2>
+<p>创建新身份验证凭据的选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>rp<td><a href=#publickeycredentialrpentity class="">PublicKeyCredentialRpEntity</a><td>否<td>否<td>创建新凭证时依赖方属性。<tr><td>user<td><a href=#publickeycredentialuserentity class="">PublicKeyCredentialUserEntity</a><td>否<td>否<td>用户信息。<tr><td>challenge<td>Uint8Array<td>否<td>否<td>挑战值。长度限制16到512。<tr><td>pubKeyCredParams<td>Array&lt;<a href=#publickeycredentialparameters class="">PublicKeyCredentialParameters</a>><td>否<td>否<td>身份验证凭据的附加参数列表。<tr><td>timeout<td>number<td>否<td>是<td>超时时间。默认值为300000ms。限制300s到600s。<tr><td>excludeCredentials<td>Array&lt;<a href=#publickeycredentialdescriptor class="">PublicKeyCredentialDescriptor</a>><td>否<td>是<td>FIDO服务器已注册的凭据列表，默认值为空数组。<tr><td>authenticatorSelection<td><a href=#authenticatorselectioncriteria class="">AuthenticatorSelectionCriteria</a><td>否<td>是<td>身份认证器相关配置项。默认值为空。<tr><td>hints<td>Array&lt;<a href=#publickeycredentialhint class="">PublicKeyCredentialHint</a>><td>否<td>是<td>提示。默认值为空数组。<tr><td>attestation<td><a href=#attestationconveyancepreference class="">AttestationConveyancePreference</a><td>否<td>是<td>凭证首选项，默认值为“none”。<tr><td>attestationFormats<td>Array&lt;string><td>否<td>是<td>依赖方可以使用此可选成员来指定对认证器使用的验证声明格式的偏好，默认值为空数组。<tr><td>extensions<td>Map&lt;string, Object><td>否<td>是<td>扩展参数。默认值为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=uvm>Uvm<a href=#uvm class=hash-link aria-label=Uvm的直接链接 title=Uvm的直接链接 translate=no>​</a></h2>
+<p>平台认证器的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>UVM_FINGERPRINT<td>2<td>指纹。<tr><td>UVM_PIN<td>4<td>PIN码。<tr><td>UVM_FACE<td>16<td>人脸。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=clientcapability>ClientCapability<a href=#clientcapability class=hash-link aria-label=ClientCapability的直接链接 title=ClientCapability的直接链接 translate=no>​</a></h2>
+<p>当前设备支持的认证能力的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th><strong><strong>值</strong></strong><th>说明<tbody><tr><td>CONDITIONAL_CREATE<td>'conditionalCreate'<td>通行密钥注册。<tr><td>CONDITIONAL_GET<td>'conditionalGet'<td>通行密钥认证。<tr><td>HYBRID_TRANSPORT<td>'hybridTransport'<td>混合传输，表示支持多种传输方式。<tr><td>PASSKEY_PLATFORM_AUTHENTICATOR<td>'passkeyPlatformAuthenticator'<td>Passkey平台认证器。<tr><td>USER_VERIFYING_PLATFORM_AUTHENTICATOR<td>'userVerifyingPlatformAuthenticator'<td>用户认证平台认证器。<tr><td>RELATED_ORIGINS<td>'relatedOrigins'<td>支持相关源/域的凭据操作。<tr><td>SIGNAL_ALL_ACCEPTED_CREDENTIALS<td>'signalAllAcceptedCredentials'<td>发送所有接受的凭据。<tr><td>SIGNAL_CURRENT_USER_DETAILS<td>'signalCurrentUserDetails'<td>发送当前用户详细信息。<tr><td>SIGNAL_UNKNOWN_CREDENTIAL<td>'signalUnknownCredential'<td>发送未知凭据。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticatormetadata>AuthenticatorMetadata<a href=#authenticatormetadata class=hash-link aria-label=AuthenticatorMetadata的直接链接 title=AuthenticatorMetadata的直接链接 translate=no>​</a></h2>
+<p>认证器元数据。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>aaguid<td>string<td>是<td>否<td>认证器唯一标识。长度限制0到512。<tr><td>uvm<td><a href=#uvm class="">Uvm</a><td>是<td>否<td>支持的平台认证器类型，人脸、指纹、PIN码。<tr><td>isAvailable<td>boolean<td>是<td>否<td>true表示该认证器可用，false表示该认证器不可用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getclientcapabilities>getClientCapabilities<a href=#getclientcapabilities class=hash-link aria-label=getClientCapabilities的直接链接 title=getClientCapabilities的直接链接 translate=no>​</a></h2>
+<p>getClientCapabilities(context: common.Context): Promise&lt;Map&lt;ClientCapability, boolean>></p>
+<p>查询当前设备支持的客户端能力列表，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>当前Ability的上下文。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Map&lt;<a href=#clientcapability class="">ClientCapability</a>, boolean>><td>Promise对象，返回能力枚举的列表，用true和false代表支持或不支持。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-passkey/onlineauthentication-error-code-passkey>通行密钥服务错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1021300007<td>Unknown error.<tr><td>1021300011<td>Failed to connect to the service.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext1: UIContext = this.getUIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext: common.UIAbilityContext = this.uiContext1.getHostContext() as common.UIAbilityContext; // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let clientCapabilities: Map&lt;fido2.ClientCapability, boolean> =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      await fido2.getClientCapabilities(this.uiContext); // 获取客户端能力列表</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing getClientCapabilities.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call discover. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getplatformauthenticators>getPlatformAuthenticators<a href=#getplatformauthenticators class=hash-link aria-label=getPlatformAuthenticators的直接链接 title=getPlatformAuthenticators的直接链接 translate=no>​</a></h2>
+<p>getPlatformAuthenticators(context: common.Context): Promise&lt;Array&lt;AuthenticatorMetadata>></p>
+<p>查询当前支持的平台认证器能力列表（人脸、指纹、PIN码），使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>当前Ability的上下文。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;<a href=#authenticatormetadata class="">AuthenticatorMetadata</a>>><td>Promise对象，返回认证器元数据列表。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-passkey/onlineauthentication-error-code-passkey>通行密钥服务错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1021300007<td>Unknown error.<tr><td>1021300011<td>Failed to connect to the service.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext1: UIContext = this.getUIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext: common.UIAbilityContext = this.uiContext1.getHostContext() as common.UIAbilityContext; // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let platformAuthenticators: Array&lt;fido2.AuthenticatorMetadata> =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await fido2.getPlatformAuthenticators(this.uiContext); // 获取平台认证器信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing getPlatformAuthenticators.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call discover. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=register>register<a href=#register class=hash-link aria-label=register的直接链接 title=register的直接链接 translate=no>​</a></h2>
+<p>register(context: common.Context, options: CredentialCreationOptions, tokenBinding?: TokenBinding): Promise&lt;PublicKeyAttestationCredential></p>
+<p>进行通行密钥的注册，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>当前Ability的上下文。<tr><td>options<td><a href=#credentialcreationoptions class="">CredentialCreationOptions</a><td>是<td>注册报文选项。<tr><td>tokenBinding<td><a href=#tokenbinding class="">TokenBinding</a><td>否<td>通道参数，默认值为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#publickeyattestationcredential class="">PublicKeyAttestationCredential</a>><td>Promise对象，返回注册结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-passkey/onlineauthentication-error-code-passkey>通行密钥服务错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1021300001<td>The system does not support.<tr><td>1021300002<td>Invalid state.<tr><td>1021300003<td>System integrity check failed.<tr><td>1021300004<td>User abort.<tr><td>1021300005<td>Time out.<tr><td>1021300006<td>Encoding error.<tr><td>1021300007<td>Unknown error.<tr><td>1021300008<td>The constraint condition is incorrect.<tr><td>1021300009<td>Data error.<tr><td>1021300010<td>User Rejects.<tr><td>1021300011<td>Failed to connect to the service.<tr><td>1021300012<td>The number of credentials has reached the maximum limit.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext1: UIContext = this.getUIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext: common.UIAbilityContext = this.uiContext1.getHostContext() as common.UIAbilityContext; // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let credentialCreationOp: fido2.CredentialCreationOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    publicKey: pkOptions // pkOptions为从FIDO服务器获取的注册报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } // credentialCreationOp为应用组装的注册信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let publicKeyAttestationCredential: fido2.PublicKeyAttestationCredential =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await fido2.register(this.uiContext, credentialCreationOp); // 进行FIDO2注册</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing register.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call discover. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticate>authenticate<a href=#authenticate class=hash-link aria-label=authenticate的直接链接 title=authenticate的直接链接 translate=no>​</a></h2>
+<p>authenticate(context: common.Context, options: CredentialRequestOptions, tokenBinding?: TokenBinding): Promise&lt;PublicKeyAssertionCredential></p>
+<p>进行通行密钥的认证，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本6.0.0(20)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO2</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>当前Ability的上下文。<tr><td>options<td><a href=#credentialrequestoptions class="">CredentialRequestOptions</a><td>是<td>认证报文选项。<tr><td>tokenBinding<td><a href=#tokenbinding class="">TokenBinding</a><td>否<td>通道参数，默认值为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#publickeyassertioncredential class="">PublicKeyAssertionCredential</a>><td>Promise对象，返回认证结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-passkey/onlineauthentication-error-code-passkey>通行密钥服务错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1021300002<td>Invalid state.<tr><td>1021300003<td>System integrity check failed.<tr><td>1021300004<td>User abort.<tr><td>1021300005<td>Time out.<tr><td>1021300006<td>Encoding error.<tr><td>1021300007<td>Unknown error.<tr><td>1021300009<td>Data error.<tr><td>1021300010<td>User Rejects.<tr><td>1021300011<td>Failed to connect to the service.<tr><td>1021310001<td>Invalid CTAP command.<tr><td>1021310002<td>The command contains invalid parameters.<tr><td>1021310003<td>Invalid message or attribute length.<tr><td>1021310004<td>Invalid CBOR or unpredictable error.<tr><td>1021310005<td>Failed to parse the CBOR.<tr><td>1021310006<td>Not found valid credentials.<tr><td>1021310007<td>Not allowed.<tr><td>1021310008<td>User verification failed.<tr><td>1021310009<td>Other error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext1: UIContext = this.getUIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">uiContext: common.UIAbilityContext = this.uiContext1.getHostContext() as common.UIAbilityContext; // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let authCredentialRequestOptions: fido2.CredentialRequestOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    publicKey: authPub, // authPub为从FIDO服务器获取的认证报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mediation: "optional" as fido2.CredentialMediationRequirement //</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } // authCredentialRequestOptions为应用组装的认证信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let pkAssertionCredential: fido2.PublicKeyAssertionCredential =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await fido2.authenticate(this.uiContext, authCredentialRequestOptions); // 进行FIDO2认证</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing authenticate.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call discover. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>SOTER</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>FIDO</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#authenticatorattestationresponse class="table-of-contents__link toc-highlight">AuthenticatorAttestationResponse</a><li><a href=#authenticatorattestationresponsejson class="table-of-contents__link toc-highlight">AuthenticatorAttestationResponseJson</a><li><a href=#authenticationextensionsclientoutputsjson class="table-of-contents__link toc-highlight">AuthenticationExtensionsClientOutputsJson</a><li><a href=#authenticatorassertionresponsejson class="table-of-contents__link toc-highlight">AuthenticatorAssertionResponseJson</a><li><a href=#authenticatorassertionresponse class="table-of-contents__link toc-highlight">AuthenticatorAssertionResponse</a><li><a href=#authenticationextensionsclientoutputs class="table-of-contents__link toc-highlight">AuthenticationExtensionsClientOutputs</a><li><a href=#publickeyattestationcredential class="table-of-contents__link toc-highlight">PublicKeyAttestationCredential</a><li><a href=#registrationresponsejson class="table-of-contents__link toc-highlight">RegistrationResponseJson</a><li><a href=#publickeycredentialrequestoptions class="table-of-contents__link toc-highlight">PublicKeyCredentialRequestOptions</a><li><a href=#publickeyassertioncredential class="table-of-contents__link toc-highlight">PublicKeyAssertionCredential</a><li><a href=#authenticationresponsejson class="table-of-contents__link toc-highlight">AuthenticationResponseJson</a><li><a href=#credentialmediationrequirement class="table-of-contents__link toc-highlight">CredentialMediationRequirement</a><li><a href=#credentialcreationoptions class="table-of-contents__link toc-highlight">CredentialCreationOptions</a><li><a href=#credentialrequestoptions class="table-of-contents__link toc-highlight">CredentialRequestOptions</a><li><a href=#tokenbindingstatus class="table-of-contents__link toc-highlight">TokenBindingStatus</a><li><a href=#tokenbinding class="table-of-contents__link toc-highlight">TokenBinding</a><li><a href=#attestationconveyancepreference class="table-of-contents__link toc-highlight">AttestationConveyancePreference</a><li><a href=#userverificationrequirement class="table-of-contents__link toc-highlight">UserVerificationRequirement</a><li><a href=#residentkeyrequirement class="table-of-contents__link toc-highlight">ResidentKeyRequirement</a><li><a href=#authenticatorattachment class="table-of-contents__link toc-highlight">AuthenticatorAttachment</a><li><a href=#authenticatorselectioncriteria class="table-of-contents__link toc-highlight">AuthenticatorSelectionCriteria</a><li><a href=#authenticatortransport class="table-of-contents__link toc-highlight">AuthenticatorTransport</a><li><a href=#publickeycredentialdescriptor class="table-of-contents__link toc-highlight">PublicKeyCredentialDescriptor</a><li><a href=#algorithm class="table-of-contents__link toc-highlight">Algorithm</a><li><a href=#publickeycredentialhint class="table-of-contents__link toc-highlight">PublicKeyCredentialHint</a><li><a href=#publickeycredentialtype class="table-of-contents__link toc-highlight">PublicKeyCredentialType</a><li><a href=#publickeycredentialparameters class="table-of-contents__link toc-highlight">PublicKeyCredentialParameters</a><li><a href=#publickeycredentialuserentity class="table-of-contents__link toc-highlight">PublicKeyCredentialUserEntity</a><li><a href=#publickeycredentialrpentity class="table-of-contents__link toc-highlight">PublicKeyCredentialRpEntity</a><li><a href=#publickeycredentialcreationoptions class="table-of-contents__link toc-highlight">PublicKeyCredentialCreationOptions</a><li><a href=#uvm class="table-of-contents__link toc-highlight">Uvm</a><li><a href=#clientcapability class="table-of-contents__link toc-highlight">ClientCapability</a><li><a href=#authenticatormetadata class="table-of-contents__link toc-highlight">AuthenticatorMetadata</a><li><a href=#getclientcapabilities class="table-of-contents__link toc-highlight">getClientCapabilities</a><li><a href=#getplatformauthenticators class="table-of-contents__link toc-highlight">getPlatformAuthenticators</a><li><a href=#register class="table-of-contents__link toc-highlight">register</a><li><a href=#authenticate class="table-of-contents__link toc-highlight">authenticate</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

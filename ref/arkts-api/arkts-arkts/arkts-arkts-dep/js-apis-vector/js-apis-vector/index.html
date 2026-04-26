@@ -1,0 +1,996 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.util.Vector (线性容器Vector) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.util.Vector (线性容器Vector) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=Vector是一种线性数据结构，底层基于数组实现。当Vector的内存用尽时，会自动分配更大的连续内存区，将原先的元素复制到新的内存区，并释放旧的内存区。使用Vector能够高效快速地访问元素。 /><meta data-rh=true property=og:description content=Vector是一种线性数据结构，底层基于数组实现。当Vector的内存用尽时，会自动分配更大的连续内存区，将原先的元素复制到新的内存区，并释放旧的内存区。使用Vector能够高效快速地访问元素。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector","name":"@ohos.util.Vector (线性容器Vector)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title="@arkts.collections (ArkTS容器集)" class=categoryLinkLabel_W154>@arkts.collections (ArkTS容器集)</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-lang/js-apis-arkts-lang><span title="@arkts.lang (ArkTS语言基础能力)" class=linkLabel_WmDU>@arkts.lang (ArkTS语言基础能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-decimal/js-apis-arkts-decimal><span title="@arkts.math.Decimal (高精度数学库Decimal)" class=linkLabel_WmDU>@arkts.math.Decimal (高精度数学库Decimal)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-utils/arkts-apis-arkts-utils/arkts-apis-arkts-utils><span title="@arkts.utils (ArkTS工具库)" class=categoryLinkLabel_W154>@arkts.utils (ArkTS工具库)</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-buffer/js-apis-buffer><span title="@ohos.buffer (Buffer)" class=linkLabel_WmDU>@ohos.buffer (Buffer)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-convertxml/js-apis-convertxml><span title="@ohos.convertxml (xml转换JavaScript)" class=linkLabel_WmDU>@ohos.convertxml (xml转换JavaScript)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-fastbuffer/js-apis-fastbuffer><span title="@ohos.fastbuffer (FastBuffer)" class=linkLabel_WmDU>@ohos.fastbuffer (FastBuffer)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-process/js-apis-process><span title="@ohos.process (获取进程相关的信息)" class=linkLabel_WmDU>@ohos.process (获取进程相关的信息)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-taskpool/js-apis-taskpool><span title="@ohos.taskpool (启动任务池)" class=linkLabel_WmDU>@ohos.taskpool (启动任务池)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-uri/js-apis-uri><span title="@ohos.uri (URI字符串解析)" class=linkLabel_WmDU>@ohos.uri (URI字符串解析)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-url/js-apis-url><span title="@ohos.url (URL字符串解析)" class=linkLabel_WmDU>@ohos.url (URL字符串解析)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-util/js-apis-util><span title="@ohos.util (util工具函数)" class=linkLabel_WmDU>@ohos.util (util工具函数)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arraylist/js-apis-arraylist><span title="@ohos.util.ArrayList (线性容器ArrayList)" class=linkLabel_WmDU>@ohos.util.ArrayList (线性容器ArrayList)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-deque/js-apis-deque><span title="@ohos.util.Deque (线性容器Deque)" class=linkLabel_WmDU>@ohos.util.Deque (线性容器Deque)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-hashmap/js-apis-hashmap><span title="@ohos.util.HashMap (非线性容器HashMap)" class=linkLabel_WmDU>@ohos.util.HashMap (非线性容器HashMap)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-hashset/js-apis-hashset><span title="@ohos.util.HashSet (非线性容器HashSet)" class=linkLabel_WmDU>@ohos.util.HashSet (非线性容器HashSet)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-json/js-apis-json><span title="@ohos.util.json (JSON解析与生成)" class=linkLabel_WmDU>@ohos.util.json (JSON解析与生成)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-lightweightmap/js-apis-lightweightmap><span title="@ohos.util.LightWeightMap (非线性容器LightWeightMap)" class=linkLabel_WmDU>@ohos.util.LightWeightMap (非线性容器LightWeightMap)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-lightweightset/js-apis-lightweightset><span title="@ohos.util.LightWeightSet (非线性容器LightWeightSet)" class=linkLabel_WmDU>@ohos.util.LightWeightSet (非线性容器LightWeightSet)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-linkedlist/js-apis-linkedlist><span title="@ohos.util.LinkedList (线性容器LinkedList)" class=linkLabel_WmDU>@ohos.util.LinkedList (线性容器LinkedList)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-list/js-apis-list><span title="@ohos.util.List (线性容器List)" class=linkLabel_WmDU>@ohos.util.List (线性容器List)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-plainarray/js-apis-plainarray><span title="@ohos.util.PlainArray (非线性容器PlainArray)" class=linkLabel_WmDU>@ohos.util.PlainArray (非线性容器PlainArray)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-queue/js-apis-queue><span title="@ohos.util.Queue (线性容器Queue)" class=linkLabel_WmDU>@ohos.util.Queue (线性容器Queue)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-stack/js-apis-stack><span title="@ohos.util.Stack (线性容器Stack)" class=linkLabel_WmDU>@ohos.util.Stack (线性容器Stack)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-stream/js-apis-stream><span title="@ohos.util.stream (数据流基类stream)" class=linkLabel_WmDU>@ohos.util.stream (数据流基类stream)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-treemap/js-apis-treemap><span title="@ohos.util.TreeMap (非线性容器TreeMap)" class=linkLabel_WmDU>@ohos.util.TreeMap (非线性容器TreeMap)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-treeset/js-apis-treeset><span title="@ohos.util.TreeSet (非线性容器TreeSet)" class=linkLabel_WmDU>@ohos.util.TreeSet (非线性容器TreeSet)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-worker/js-apis-worker><span title="@ohos.worker (启动一个Worker)" class=linkLabel_WmDU>@ohos.worker (启动一个Worker)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-xml/js-apis-xml><span title="@ohos.xml (XML解析与生成)" class=linkLabel_WmDU>@ohos.xml (XML解析与生成)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/arkts-arkts-dep/js-apis-vector/js-apis-vector><span title="@ohos.util.Vector (线性容器Vector)" class=linkLabel_WmDU>@ohos.util.Vector (线性容器Vector)</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts-errcode/errorcode-utils/errorcode-utils><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS（方舟编程语言）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>已停止维护的接口</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.util.Vector (线性容器Vector)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.util.Vector (线性容器Vector)</h1></header>
+<p>Vector是一种线性数据结构，底层基于数组实现。当Vector的内存用尽时，会自动分配更大的连续内存区，将原先的元素复制到新的内存区，并释放旧的内存区。使用Vector能够高效快速地访问元素。</p>
+<p>Vector和<a class="" href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arraylist/js-apis-arraylist>ArrayList</a>相似，都是基于数组实现，但Vector提供了更多操作数组的接口。它们都可以动态调整容量，但Vector每次扩容增加1倍，ArrayList只扩容0.5倍。</p>
+<p><strong><strong>推荐使用场景：</strong></strong> 当数据量大时，一般使用Vector来存取数据。</p>
+<p>文档中存在泛型的使用，涉及以下泛型标记符：</p>
+<ul>
+<li class="">T：Type，类</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 8开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<p>API version 9开始，该接口不再维护，推荐使用接口<a class="" href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arraylist/js-apis-arraylist>'@ohos.util.ArrayList'</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Vector } from '@kit.ArkTS';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vector>Vector<a href=#vector class=hash-link aria-label=Vector的直接链接 title=Vector的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>length<td>number<td>是<td>否<td>Vector的元素个数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor>constructor<a href=#constructor class=hash-link aria-label=constructor的直接链接 title=constructor的直接链接 translate=no>​</a></h3>
+<p>constructor()</p>
+<p>Vector的构造函数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;string | number | Array&lt;number>> = new Vector();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=add>add<a href=#add class=hash-link aria-label=add的直接链接 title=add的直接链接 translate=no>​</a></h3>
+<p>add(element: T): boolean</p>
+<p>在Vector中尾部插入元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>添加进去的元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>插入成功返回true，失败返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">class C1 {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: string = ""</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  age: string = ""</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;string | number | C1 | Array&lt;number>> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.add("a");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result1 = vector.add(1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let b = [1, 2, 3];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result2 = vector.add(b);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let c: C1 = {name : "Jack", age : "13"};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result3 = vector.add(c);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=insert>insert<a href=#insert class=hash-link aria-label=insert的直接链接 title=insert的直接链接 translate=no>​</a></h3>
+<p>insert(element: T, index: number): void</p>
+<p>在长度范围内任意插入指定元素，并将其后续元素向右移动。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>被插入的元素。<tr><td>index<td>number<td>是<td>被插入的位置索引。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;string | number | Object | Array&lt;number>> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.insert("A", 0);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.insert(0, 1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.insert(true, 2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=has>has<a href=#has class=hash-link aria-label=has的直接链接 title=has的直接链接 translate=no>​</a></h3>
+<p>has(element: T): boolean</p>
+<p>判断此Vector中是否含有该指定元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>指定的元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>是否包含指定元素，true表示包含该元素，false表示不包含。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;string> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.has("squirrel");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add("squirrel");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result1 = vector.has("squirrel");</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getindexof>getIndexOf<a href=#getindexof class=hash-link aria-label=getIndexOf的直接链接 title=getIndexOf的直接链接 translate=no>​</a></h3>
+<p>getIndexOf(element: T): number</p>
+<p>返回指定元素第一次出现时的下标值，查找失败返回-1。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>指定的元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回指定元素第一次出现时的下标值，查找失败返回-1。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getIndexOf(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getlastindexof>getLastIndexOf<a href=#getlastindexof class=hash-link aria-label=getLastIndexOf的直接链接 title=getLastIndexOf的直接链接 translate=no>​</a></h3>
+<p>getLastIndexOf(element: T): number</p>
+<p>返回指定元素最后一次出现时的下标值，查找失败返回-1。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>指定元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回指定元素最后一次出现时的下标值，查找失败返回-1。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getLastIndexOf(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=removebyindex>removeByIndex<a href=#removebyindex class=hash-link aria-label=removeByIndex的直接链接 title=removeByIndex的直接链接 translate=no>​</a></h3>
+<p>removeByIndex(index: number): T</p>
+<p>根据元素的下标值查找元素，返回元素后将其删除，并将其后续元素向左移动。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>指定元素的下标值。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回被删除的元素。数组为空时返回undefined，下标越界时抛出异常。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.removeByIndex(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=remove>remove<a href=#remove class=hash-link aria-label=remove的直接链接 title=remove的直接链接 translate=no>​</a></h3>
+<p>remove(element: T): boolean</p>
+<p>删除查找到的第一个指定的元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>指定元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>删除成功返回true，否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.remove(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=removebyrange>removeByRange<a href=#removebyrange class=hash-link aria-label=removeByRange的直接链接 title=removeByRange的直接链接 translate=no>​</a></h3>
+<p>removeByRange(fromIndex: number, toIndex: number): void</p>
+<p>从一段范围内删除元素，包括起始值但不包括终止值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>fromIndex<td>number<td>是<td>起始下标。<tr><td>toIndex<td>number<td>是<td>终止下标。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.removeByRange(2,4);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=replaceallelements>replaceAllElements<a href=#replaceallelements class=hash-link aria-label=replaceAllElements的直接链接 title=replaceAllElements的直接链接 translate=no>​</a></h3>
+<p>replaceAllElements(callbackFn: (value: T, index?: number, vector?: Vector&lt;T>) => T, thisArg?: Object): void</p>
+<p>用户操作Vector中的元素，用操作后的元素替换原元素并返回操作后的元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callbackFn<td>function<td>是<td>回调函数。<tr><td>thisArg<td>Object<td>否<td>callbackfn被调用时用作this值，默认值为当前实例对象。</table>
+<p>callbackfn的参数说明：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>T<td>是<td>当前遍历到的元素。<tr><td>index<td>number<td>否<td>当前遍历到的下标值，默认值为0。<tr><td>vector<td>Vector&lt;T><td>否<td>当前调用replaceAllElements方法的实例对象，默认值为当前实例对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.replaceAllElements((value : number) : number => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 用户操作逻辑根据实际场景进行添加。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return value;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=foreach>forEach<a href=#foreach class=hash-link aria-label=forEach的直接链接 title=forEach的直接链接 translate=no>​</a></h3>
+<p>forEach(callbackFn: (value: T, index?: number, vector?: Vector&lt;T>) => void, thisArg?: Object): void</p>
+<p>通过回调函数来遍历Vector实例对象上的元素以及元素对应的下标。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callbackFn<td>function<td>是<td>回调函数。<tr><td>thisArg<td>Object<td>否<td>callbackfn被调用时用作this值，默认值为当前实例对象。</table>
+<p>callbackfn的参数说明：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>T<td>是<td>当前遍历到的元素。<tr><td>index<td>number<td>否<td>当前遍历到的下标值，默认值为0。<tr><td>vector<td>Vector&lt;T><td>否<td>当前调用forEach方法的实例对象，默认值为当前实例对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.forEach((value : number, index ?: number) : void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("value:" + value, "index:" + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sort>sort<a href=#sort class=hash-link aria-label=sort的直接链接 title=sort的直接链接 translate=no>​</a></h3>
+<p>sort(comparator?: (firstValue: T, secondValue: T) => number): void</p>
+<p>对Vector中的元素进行一个排序操作。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>comparator<td>function<td>否<td>回调函数，默认值为当前实例对象。</table>
+<p>comparator的参数说明：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>firstValue<td>T<td>是<td>前一项元素。<tr><td>secondValue<td>T<td>是<td>后一项元素。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.sort((a: number, b: number) => a - b);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.sort((a: number, b: number) => b - a);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.sort();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=subvector>subVector<a href=#subvector class=hash-link aria-label=subVector的直接链接 title=subVector的直接链接 translate=no>​</a></h3>
+<p>subVector(fromIndex: number, toIndex: number): Vector&lt;T></p>
+<p>根据下标截取Vector中的一段元素，并返回这一段vector实例，包括起始值但不包括终止值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>fromIndex<td>number<td>是<td>起始下标。<tr><td>toIndex<td>number<td>是<td>终止下标。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Vector&lt;T><td>返回Vector对象实例。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(6);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(8);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.subVector(0,4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result1 = vector.subVector(2,4);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clear>clear<a href=#clear class=hash-link aria-label=clear的直接链接 title=clear的直接链接 translate=no>​</a></h3>
+<p>clear(): void</p>
+<p>清除Vector中的所有元素，并把length置为0。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.clear();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clone>clone<a href=#clone class=hash-link aria-label=clone的直接链接 title=clone的直接链接 translate=no>​</a></h3>
+<p>clone(): Vector&lt;T></p>
+<p>克隆一个与Vector相同的实例，并返回克隆后的实例。修改克隆后的实例并不会影响原实例。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Vector&lt;T><td>返回Vector对象实例。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.clone();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcapacity>getCapacity<a href=#getcapacity class=hash-link aria-label=getCapacity的直接链接 title=getCapacity的直接链接 translate=no>​</a></h3>
+<p>getCapacity(): number</p>
+<p>获取当前实例的容量大小。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回Vector的容量大小。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getCapacity();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=converttoarray>convertToArray<a href=#converttoarray class=hash-link aria-label=convertToArray的直接链接 title=convertToArray的直接链接 translate=no>​</a></h3>
+<p>convertToArray(): Array&lt;T></p>
+<p>把当前Vector实例转换成数组，并返回转换后的数组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Array&lt;T><td>返回数组类型。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.convertToArray();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isempty>isEmpty<a href=#isempty class=hash-link aria-label=isEmpty的直接链接 title=isEmpty的直接链接 translate=no>​</a></h3>
+<p>isEmpty(): boolean</p>
+<p>判断该Vector是否为空。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>为空返回true，否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.isEmpty();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=increasecapacityto>increaseCapacityTo<a href=#increasecapacityto class=hash-link aria-label=increaseCapacityTo的直接链接 title=increaseCapacityTo的直接链接 translate=no>​</a></h3>
+<p>increaseCapacityTo(newCapacity: number): void</p>
+<p>如果传入的新容量大于或等于Vector中的元素个数，将容量变更为新容量。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>newCapacity<td>number<td>是<td>新容量。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.increaseCapacityTo(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.increaseCapacityTo(12);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=trimtocurrentlength>trimToCurrentLength<a href=#trimtocurrentlength class=hash-link aria-label=trimToCurrentLength的直接链接 title=trimToCurrentLength的直接链接 translate=no>​</a></h3>
+<p>trimToCurrentLength(): void</p>
+<p>把容量限制为当前的length大小。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.trimToCurrentLength();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=tostring>toString<a href=#tostring class=hash-link aria-label=toString的直接链接 title=toString的直接链接 translate=no>​</a></h3>
+<p>toString(): string</p>
+<p>用","将Vector实例中的元素按顺序拼接成字符串。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>返回对应的字符串。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.toString();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=copytoarray>copyToArray<a href=#copytoarray class=hash-link aria-label=copyToArray的直接链接 title=copyToArray的直接链接 translate=no>​</a></h3>
+<p>copyToArray(array: Array&lt;T>): void</p>
+<p>将Vector实例中的元素按照下标复制到指定数组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>array<td>Array&lt;T><td>是<td>指定数组。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getfirstelement>getFirstElement<a href=#getfirstelement class=hash-link aria-label=getFirstElement的直接链接 title=getFirstElement的直接链接 translate=no>​</a></h3>
+<p>getFirstElement(): T</p>
+<p>获取实例中的第一个元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回第一个元素。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getFirstElement();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getlastelement>getLastElement<a href=#getlastelement class=hash-link aria-label=getLastElement的直接链接 title=getLastElement的直接链接 translate=no>​</a></h3>
+<p>getLastElement(): T</p>
+<p>获取Vector实例中的最后一个元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回最后一个元素。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getLastElement();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getlastindexfrom>getLastIndexFrom<a href=#getlastindexfrom class=hash-link aria-label=getLastIndexFrom的直接链接 title=getLastIndexFrom的直接链接 translate=no>​</a></h3>
+<p>getLastIndexFrom(element: T, index: number): number</p>
+<p>从指定索引向后搜索，返回该元素的下标索引。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>要查找的元素。<tr><td>index<td>number<td>是<td>从指定索引开始搜索。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回该元素的下标，如果查找失败，则返回-1。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getLastIndexFrom(4,3);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getindexfrom>getIndexFrom<a href=#getindexfrom class=hash-link aria-label=getIndexFrom的直接链接 title=getIndexFrom的直接链接 translate=no>​</a></h3>
+<p>getIndexFrom(element: T, index: number): number</p>
+<p>从指定索引向前搜索，返回该元素的下标索引。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>element<td>T<td>是<td>要查找的元素。<tr><td>index<td>number<td>是<td>从指定索引开始搜索。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回该元素的下标，如果查找失败，则返回 -1。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.getIndexFrom(4, 3);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setlength>setLength<a href=#setlength class=hash-link aria-label=setLength的直接链接 title=setLength的直接链接 translate=no>​</a></h3>
+<p>setLength(newSize: number): void</p>
+<p>设置Vector实例的元素个数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>newSize<td>number<td>是<td>设置的新长度。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.setLength(8);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.setLength(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get>get<a href=#get class=hash-link aria-label=get的直接链接 title=get的直接链接 translate=no>​</a></h3>
+<p>get(index: number): T</p>
+<p>根据下标值获取Vector实例中的元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>查找的下标值。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回获取到的元素。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let result = vector.get(2);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=set>set<a href=#set class=hash-link aria-label=set的直接链接 title=set的直接链接 translate=no>​</a></h3>
+<p>set(index: number, element: T): T</p>
+<p>将此Vector中指定位置的元素替换为指定元素。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>查找的下标值。<tr><td>element<td>T<td>是<td>用来替换的元素。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回替换后的元素。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=symboliterator>[Symbol.iterator]<a href=#symboliterator class=hash-link aria-label=[Symbol.iterator]的直接链接 title=[Symbol.iterator]的直接链接 translate=no>​</a></h3>
+<p><a href="" class="">Symbol.iterator</a>: IterableIterator&lt;T></p>
+<p>返回一个迭代器，迭代器的每一项都是一个 JavaScript 对象，并返回该对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Utils.Lang</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>IterableIterator&lt;T><td>返回一个迭代器。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let vector : Vector&lt;number> = new Vector();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(5);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vector.add(4);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 使用方法一：</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let nums: Array&lt;number> =  vector.convertToArray()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">for (let item of nums) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("value:" + item);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 使用方法二：</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let iter = vector[Symbol.iterator]();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let temp: IteratorResult&lt;number> = iter.next().value;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">while(temp != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("value:" + temp);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  temp = iter.next().value;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-xml/js-apis-xml><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.xml (XML解析与生成)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts-errcode/errorcode-utils/errorcode-utils><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>语言基础类库错误码</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#vector class="table-of-contents__link toc-highlight">Vector</a><ul><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><li><a href=#constructor class="table-of-contents__link toc-highlight">constructor</a><li><a href=#add class="table-of-contents__link toc-highlight">add</a><li><a href=#insert class="table-of-contents__link toc-highlight">insert</a><li><a href=#has class="table-of-contents__link toc-highlight">has</a><li><a href=#getindexof class="table-of-contents__link toc-highlight">getIndexOf</a><li><a href=#getlastindexof class="table-of-contents__link toc-highlight">getLastIndexOf</a><li><a href=#removebyindex class="table-of-contents__link toc-highlight">removeByIndex</a><li><a href=#remove class="table-of-contents__link toc-highlight">remove</a><li><a href=#removebyrange class="table-of-contents__link toc-highlight">removeByRange</a><li><a href=#replaceallelements class="table-of-contents__link toc-highlight">replaceAllElements</a><li><a href=#foreach class="table-of-contents__link toc-highlight">forEach</a><li><a href=#sort class="table-of-contents__link toc-highlight">sort</a><li><a href=#subvector class="table-of-contents__link toc-highlight">subVector</a><li><a href=#clear class="table-of-contents__link toc-highlight">clear</a><li><a href=#clone class="table-of-contents__link toc-highlight">clone</a><li><a href=#getcapacity class="table-of-contents__link toc-highlight">getCapacity</a><li><a href=#converttoarray class="table-of-contents__link toc-highlight">convertToArray</a><li><a href=#isempty class="table-of-contents__link toc-highlight">isEmpty</a><li><a href=#increasecapacityto class="table-of-contents__link toc-highlight">increaseCapacityTo</a><li><a href=#trimtocurrentlength class="table-of-contents__link toc-highlight">trimToCurrentLength</a><li><a href=#tostring class="table-of-contents__link toc-highlight">toString</a><li><a href=#copytoarray class="table-of-contents__link toc-highlight">copyToArray</a><li><a href=#getfirstelement class="table-of-contents__link toc-highlight">getFirstElement</a><li><a href=#getlastelement class="table-of-contents__link toc-highlight">getLastElement</a><li><a href=#getlastindexfrom class="table-of-contents__link toc-highlight">getLastIndexFrom</a><li><a href=#getindexfrom class="table-of-contents__link toc-highlight">getIndexFrom</a><li><a href=#setlength class="table-of-contents__link toc-highlight">setLength</a><li><a href=#get class="table-of-contents__link toc-highlight">get</a><li><a href=#set class="table-of-contents__link toc-highlight">set</a><li><a href=#symboliterator class="table-of-contents__link toc-highlight">[Symbol.iterator]</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

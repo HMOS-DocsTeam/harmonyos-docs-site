@@ -1,0 +1,1319 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>手势公共接口 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="手势公共接口 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=为开发者提供手势相关的公共接口。 /><meta data-rh=true property=og:description content=为开发者提供手势相关的公共接口。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common","name":"手势公共接口","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=通用事件 class=categoryLinkLabel_W154>通用事件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id><span title=通用属性 class=categoryLinkLabel_W154>通用属性</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=手势处理 class=categoryLinkLabel_W154>手势处理</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=绑定手势 class=categoryLinkLabel_W154>绑定手势</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-tapgesture/ts-basic-gestures-tapgesture><span title=基础手势 class=categoryLinkLabel_W154>基础手势</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-combined-gestures/ts-combined-gestures><span title=组合手势 class=linkLabel_WmDU>组合手势</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge><span title=手势控制 class=categoryLinkLabel_W154>手势控制</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common><span title=手势公共接口 class=linkLabel_WmDU>手势公共接口</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><span title=行列与堆叠 class=categoryLinkLabel_W154>行列与堆叠</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow><span title=栅格与分栏 class=categoryLinkLabel_W154>栅格与分栏</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=滚动与滑动 class=categoryLinkLabel_W154>滚动与滑动</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><span title=导航与切换 class=categoryLinkLabel_W154>导航与切换</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=按钮与选择 class=categoryLinkLabel_W154>按钮与选择</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text><span title=文本与输入 class=categoryLinkLabel_W154>文本与输入</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image><span title=图片与视频 class=categoryLinkLabel_W154>图片与视频</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer><span title=信息展示 class=categoryLinkLabel_W154>信息展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank><span title=空白与分隔 class=categoryLinkLabel_W154>空白与分隔</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas><span title=画布绘制 class=categoryLinkLabel_W154>画布绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle><span title=图形绘制 class=categoryLinkLabel_W154>图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=渲染绘制 class=categoryLinkLabel_W154>渲染绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu><span title=菜单 class=categoryLinkLabel_W154>菜单</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title=动画 class=categoryLinkLabel_W154>动画</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box><span title=弹窗 class=categoryLinkLabel_W154>弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink><span title=卡片 class=categoryLinkLabel_W154>卡片</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-securitycomponent-attributes/ts-securitycomponent-attributes><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/themes/ts-container-with-theme/ts-container-with-theme><span title=主题 class=categoryLinkLabel_W154>主题</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/atomic-services/ohos-atomicservice-atomicservicenavigation/ohos-atomicservice-atomicservicenavigation><span title=AtomicService class=categoryLinkLabel_W154>AtomicService</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-placeholder-comp/ts-basic-components-nodecontainer/ts-basic-components-nodecontainer><span title=自定义占位组件 class=categoryLinkLabel_W154>自定义占位组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-lifecycle/ts-custom-component-lifecycle><span title=自定义组件 class=categoryLinkLabel_W154>自定义组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/component-preview/ts-universal-component-previewer/ts-universal-component-previewer><span title=组件预览 class=categoryLinkLabel_W154>组件预览</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-chip/ohos-arkui-advanced-chip><span title=系统预置UI组件库 class=categoryLinkLabel_W154>系统预置UI组件库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/state-management-and-rendering-control/ts-state-management/ts-state-management><span title=状态管理与渲染控制 class=categoryLinkLabel_W154>状态管理与渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/responsive-env-system-property/ts-env-system-property/ts-env-system-property><span title=响应式环境变量 class=categoryLinkLabel_W154>响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types><span title=公共定义 class=categoryLinkLabel_W154>公共定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-gridcontainer/ts-container-gridcontainer><span title=已停止维护的组件与接口 class=categoryLinkLabel_W154>已停止维护的组件与接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS组件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>手势处理</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>手势公共接口</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>手势公共接口</h1></header>
+<p>为开发者提供手势相关的公共接口。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gestureinterfacet11>GestureInterface&lt;T>11+<a href=#gestureinterfacet11 class=hash-link aria-label="GestureInterface<T>11+的直接链接" title="GestureInterface<T>11+的直接链接" translate=no>​</a></h2>
+<p>定义Gesture接口。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=tag11>tag11+<a href=#tag11 class=hash-link aria-label=tag11+的直接链接 title=tag11+的直接链接 translate=no>​</a></h3>
+<p>tag(tag: string): T</p>
+<p>设置手势的标志。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tag<td>string<td>是<td>手势的标志。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=allowedtypes14>allowedTypes14+<a href=#allowedtypes14 class=hash-link aria-label=allowedTypes14+的直接链接 title=allowedTypes14+的直接链接 translate=no>​</a></h3>
+<p>allowedTypes(types: Array&lt;SourceTool>): T</p>
+<p>设置手势响应的输入类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>types<td>Array&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings#sourcetool%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E9>SourceTool</a>><td>是<td>手势响应的输入类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前组件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollabletargetinfo12>ScrollableTargetInfo12+<a href=#scrollabletargetinfo12 class=hash-link aria-label=ScrollableTargetInfo12+的直接链接 title=ScrollableTargetInfo12+的直接链接 translate=no>​</a></h2>
+<p>手势识别器对应的滚动类容器组件的信息，继承于<a href=#eventtargetinfo12 class="">EventTargetInfo</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isbegin12>isBegin12+<a href=#isbegin12 class=hash-link aria-label=isBegin12+的直接链接 title=isBegin12+的直接链接 translate=no>​</a></h3>
+<p>isBegin(): boolean</p>
+<p>返回当前滚动类容器组件是否在顶部，如果为Swiper组件且在循环模式下返回false。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前滚动类容器组件是否在顶部。true表示组件在顶部，false表示组件不在顶部。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isend12>isEnd12+<a href=#isend12 class=hash-link aria-label=isEnd12+的直接链接 title=isEnd12+的直接链接 translate=no>​</a></h3>
+<p>isEnd(): boolean</p>
+<p>返回当前滚动类容器组件是否在底部，如果为Swiper组件且在循环模式下返回false。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前滚动类容器组件是否在底部。true表示组件在底部，false表示组件不在底部。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=eventtargetinfo12>EventTargetInfo12+<a href=#eventtargetinfo12 class=hash-link aria-label=EventTargetInfo12+的直接链接 title=EventTargetInfo12+的直接链接 translate=no>​</a></h2>
+<p>手势识别器对应组件的信息。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getid12>getId12+<a href=#getid12 class=hash-link aria-label=getId12+的直接链接 title=getId12+的直接链接 translate=no>​</a></h3>
+<p>getId(): string</p>
+<p>返回当前组件的组件标识。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>当前组件的<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id#id>组件标识</a>。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=touchrecognizer20>TouchRecognizer20+<a href=#touchrecognizer20 class=hash-link aria-label=TouchRecognizer20+的直接链接 title=TouchRecognizer20+的直接链接 translate=no>​</a></h2>
+<p>触摸识别器对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=geteventtargetinfo20>getEventTargetInfo20+<a href=#geteventtargetinfo20 class=hash-link aria-label=getEventTargetInfo20+的直接链接 title=getEventTargetInfo20+的直接链接 translate=no>​</a></h3>
+<p>getEventTargetInfo(): EventTargetInfo</p>
+<p>返回当前触摸识别器对应组件的信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#eventtargetinfo12 class="">EventTargetInfo</a><td>当前触摸识别器对应组件的信息。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=canceltouch20>cancelTouch20+<a href=#canceltouch20 class=hash-link aria-label=cancelTouch20+的直接链接 title=cancelTouch20+的直接链接 translate=no>​</a></h3>
+<p>cancelTouch(): void</p>
+<p>向当前触摸识别器发送触摸取消事件的信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturerecognizer12>GestureRecognizer12+<a href=#gesturerecognizer12 class=hash-link aria-label=GestureRecognizer12+的直接链接 title=GestureRecognizer12+的直接链接 translate=no>​</a></h2>
+<p>手势识别器对象。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gettag12>getTag12+<a href=#gettag12 class=hash-link aria-label=getTag12+的直接链接 title=getTag12+的直接链接 translate=no>​</a></h3>
+<p>getTag(): string</p>
+<p>返回当前手势识别器的tag。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>当前手势识别器的标志。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gettype12>getType12+<a href=#gettype12 class=hash-link aria-label=getType12+的直接链接 title=getType12+的直接链接 translate=no>​</a></h3>
+<p>getType(): GestureControl.GestureType</p>
+<p>返回当前手势识别器的类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#gesturetype11 class="">GestureControl.GestureType</a><td>当前手势识别器的类型。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isbuiltin12>isBuiltIn12+<a href=#isbuiltin12 class=hash-link aria-label=isBuiltIn12+的直接链接 title=isBuiltIn12+的直接链接 translate=no>​</a></h3>
+<p>isBuiltIn(): boolean</p>
+<p>返回当前手势识别器是否为系统内置手势。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前手势识别器是否为系统内置手势。true表示手势识别器为系统内置手势，false表示非系统内置手势。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setenabled12>setEnabled12+<a href=#setenabled12 class=hash-link aria-label=setEnabled12+的直接链接 title=setEnabled12+的直接链接 translate=no>​</a></h3>
+<p>setEnabled(isEnabled: boolean): void</p>
+<p>设置当前手势识别器的使能状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>isEnabled<td>boolean<td>是<td>手势识别器的使能状态。true表示当前手势识别器能够回调应用事件，false表示当前手势识别器不回调应用事件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isenabled12>isEnabled12+<a href=#isenabled12 class=hash-link aria-label=isEnabled12+的直接链接 title=isEnabled12+的直接链接 translate=no>​</a></h3>
+<p>isEnabled(): boolean</p>
+<p>返回当前手势识别器的使能状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前手势识别器的使能状态。true表示当前手势识别器能够回调应用事件，false表示当前手势识别器不回调应用事件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getstate12>getState12+<a href=#getstate12 class=hash-link aria-label=getState12+的直接链接 title=getState12+的直接链接 translate=no>​</a></h3>
+<p>getState(): GestureRecognizerState</p>
+<p>返回当前手势识别器的状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#gesturerecognizerstate12 class="">GestureRecognizerState</a><td>当前手势识别器的状态。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=geteventtargetinfo12>getEventTargetInfo12+<a href=#geteventtargetinfo12 class=hash-link aria-label=getEventTargetInfo12+的直接链接 title=getEventTargetInfo12+的直接链接 translate=no>​</a></h3>
+<p>getEventTargetInfo(): EventTargetInfo</p>
+<p>返回当前手势识别器对应组件的信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#eventtargetinfo12 class="">EventTargetInfo</a><td>当前手势识别器对应组件的信息。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isvalid12>isValid12+<a href=#isvalid12 class=hash-link aria-label=isValid12+的直接链接 title=isValid12+的直接链接 translate=no>​</a></h3>
+<p>isValid(): boolean;</p>
+<p>返回当前手势识别器是否有效。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前手势识别器是否有效。  当该识别器绑定的组件被析构或该识别器不在响应链上时返回false。  当该识别器绑定的组件未被析构且该识别器在响应链上时返回true。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getfingercount18>getFingerCount18+<a href=#getfingercount18 class=hash-link aria-label=getFingerCount18+的直接链接 title=getFingerCount18+的直接链接 translate=no>​</a></h3>
+<p>getFingerCount(): number</p>
+<p>返回预设手指识别数阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>预设手指识别数阈值。  取值范围：[1, 10], 整数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isfingercountlimit18>isFingerCountLimit18+<a href=#isfingercountlimit18 class=hash-link aria-label=isFingerCountLimit18+的直接链接 title=isFingerCountLimit18+的直接链接 translate=no>​</a></h3>
+<p>isFingerCountLimit(): boolean</p>
+<p>返回预设手势是否会检测触摸屏幕上手指识别数量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>预设手势是否会检测触摸屏幕上手指识别数量。当绑定手势事件且会检测触摸屏幕上手指的数量时，返回true。当绑定手势事件且不会检测触摸屏幕上手指的数量时，返回false。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=preventbegin20>preventBegin20+<a href=#preventbegin20 class=hash-link aria-label=preventBegin20+的直接链接 title=preventBegin20+的直接链接 translate=no>​</a></h3>
+<p>preventBegin(): void</p>
+<p>在手指全部抬起前阻止手势识别器参与当前手势识别。如果系统已确定该手势识别器的结果（无论成功与否），调用此接口将无效。此方法与GestureRecognizer.<a href=#setenabled12 class="">setEnabled</a>(isEnabled: boolean)不同，<a href=#setenabled12 class="">setEnabled</a>并不会阻止手势识别器对象参与手势识别过程，而只会影响手势对应的回调函数是否执行。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taprecognizer18>TapRecognizer18+<a href=#taprecognizer18 class=hash-link aria-label=TapRecognizer18+的直接链接 title=TapRecognizer18+的直接链接 translate=no>​</a></h2>
+<p>点击手势识别器对象，继承自<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gettapcount18>getTapCount18+<a href=#gettapcount18 class=hash-link aria-label=getTapCount18+的直接链接 title=getTapCount18+的直接链接 translate=no>​</a></h3>
+<p>getTapCount(): number</p>
+<p>返回预设点击手势识别器连续点击次数阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>预设点击手势识别器连续点击次数阈值。  取值范围：[0, +∞)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=longpressrecognizer18>LongPressRecognizer18+<a href=#longpressrecognizer18 class=hash-link aria-label=LongPressRecognizer18+的直接链接 title=LongPressRecognizer18+的直接链接 translate=no>​</a></h2>
+<p>长按手势识别器对象，继承于<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isrepeat18>isRepeat18+<a href=#isrepeat18 class=hash-link aria-label=isRepeat18+的直接链接 title=isRepeat18+的直接链接 translate=no>​</a></h3>
+<p>isRepeat(): boolean</p>
+<p>返回预设长按手势识别器是否连续触发事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>预设长按手势识别器是否连续触发事件回调。当绑定长按手势且不会连续触发回调时，返回false。当绑定长按手势且会连续触发回调时，返回true。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getduration18>getDuration18+<a href=#getduration18 class=hash-link aria-label=getDuration18+的直接链接 title=getDuration18+的直接链接 translate=no>​</a></h3>
+<p>getDuration(): number</p>
+<p>返回预设长按手势识别器触发长按最短时间阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回预设长按手势识别器触发长按最短时间阈值，单位为ms。  取值范围：[0, +∞)</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getallowablemovement22>getAllowableMovement22+<a href=#getallowablemovement22 class=hash-link aria-label=getAllowableMovement22+的直接链接 title=getAllowableMovement22+的直接链接 translate=no>​</a></h3>
+<p>getAllowableMovement(): number</p>
+<p>获取长按手势识别器识别的手势的最大移动距离。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>长按手势识别器识别的手势的最大移动距离，单位为px。  取值范围：(0, +∞)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=swiperecognizer18>SwipeRecognizer18+<a href=#swiperecognizer18 class=hash-link aria-label=SwipeRecognizer18+的直接链接 title=SwipeRecognizer18+的直接链接 translate=no>​</a></h2>
+<p>快滑手势识别器对象，继承于<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getvelocitythreshold18>getVelocityThreshold18+<a href=#getvelocitythreshold18 class=hash-link aria-label=getVelocityThreshold18+的直接链接 title=getVelocityThreshold18+的直接链接 translate=no>​</a></h3>
+<p>getVelocityThreshold(): number</p>
+<p>返回预设快滑手势识别器识别滑动最小速度阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>预设快滑手势识别器识别滑动最小速度阈值，单位为vp/s。  取值范围：[0, +∞)</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdirection18>getDirection18+<a href=#getdirection18 class=hash-link aria-label=getDirection18+的直接链接 title=getDirection18+的直接链接 translate=no>​</a></h3>
+<p>getDirection(): SwipeDirection</p>
+<p>返回预设快滑手势识别器触发快滑手势滑动方向。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-swipegesture/ts-basic-gestures-swipegesture#swipedirection%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>SwipeDirection</a><td>预设快滑手势识别器触发快滑手势滑动方向。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pinchrecognizer18>PinchRecognizer18+<a href=#pinchrecognizer18 class=hash-link aria-label=PinchRecognizer18+的直接链接 title=PinchRecognizer18+的直接链接 translate=no>​</a></h2>
+<p>捏合手势识别器对象，继承于<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdistance18>getDistance18+<a href=#getdistance18 class=hash-link aria-label=getDistance18+的直接链接 title=getDistance18+的直接链接 translate=no>​</a></h3>
+<p>getDistance(): number</p>
+<p>返回预设捏合手势识别器最小识别距离阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>预设捏合手势识别器最小识别距离阈值，单位为vp。  取值范围：[0, +∞)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rotationrecognizer18>RotationRecognizer18+<a href=#rotationrecognizer18 class=hash-link aria-label=RotationRecognizer18+的直接链接 title=RotationRecognizer18+的直接链接 translate=no>​</a></h2>
+<p>旋转手势识别器对象，继承于<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getangle18>getAngle18+<a href=#getangle18 class=hash-link aria-label=getAngle18+的直接链接 title=getAngle18+的直接链接 translate=no>​</a></h3>
+<p>getAngle(): number</p>
+<p>返回预设旋转手势识别器触发旋转手势最小改变度数阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>预设旋转手势识别器触发旋转手势最小改变度数阈值，单位为deg。  取值范围：[0, +∞)  <strong><strong>说明：</strong></strong>  当输入的改变度数的值小于等于0或大于360时，会被转化为默认值，默认值为1。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=panrecognizer12>PanRecognizer12+<a href=#panrecognizer12 class=hash-link aria-label=PanRecognizer12+的直接链接 title=PanRecognizer12+的直接链接 translate=no>​</a></h2>
+<p>滑动手势识别器对象，继承于<a href=#gesturerecognizer12 class="">GestureRecognizer</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getpangestureoptions12>getPanGestureOptions12+<a href=#getpangestureoptions12 class=hash-link aria-label=getPanGestureOptions12+的直接链接 title=getPanGestureOptions12+的直接链接 translate=no>​</a></h3>
+<p>getPanGestureOptions(): PanGestureOptions</p>
+<p>返回当前滑动手势识别器的属性。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture#pangestureoptions>PanGestureOptions</a><td>当前滑动手势识别器的属性。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdirection19>getDirection19+<a href=#getdirection19 class=hash-link aria-label=getDirection19+的直接链接 title=getDirection19+的直接链接 translate=no>​</a></h3>
+<p>getDirection(): PanDirection</p>
+<p>返回当前滑动手势识别器的识别方向。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture#pandirection%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>PanDirection</a><td>当前滑动手势识别器的识别方向。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdistance19>getDistance19+<a href=#getdistance19 class=hash-link aria-label=getDistance19+的直接链接 title=getDistance19+的直接链接 translate=no>​</a></h3>
+<p>getDistance(): number</p>
+<p>返回当前滑动手势识别器触发的最小滑动距离。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>当前滑动手势识别器触发的最小滑动距离。单位：vp</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdistancemap19>getDistanceMap19+<a href=#getdistancemap19 class=hash-link aria-label=getDistanceMap19+的直接链接 title=getDistanceMap19+的直接链接 translate=no>​</a></h3>
+<p>getDistanceMap(): Map&lt;SourceTool, number></p>
+<p>返回滑动手势识别器在不同输入源的情况下触发的最小滑动距离。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅支持对通过Pan手势初始化配置修改的设备类型进行阈值查询。对于默认滑动阈值，可通过查询<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings#sourcetool%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E9>SourceTool</a>.Unknown类型获取。其他未主动设置的类型则无法获取。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Map&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings#sourcetool%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E9>SourceTool</a>, number><td>不同输入源的滑动手势识别器触发的最小滑动距离。滑动距离的单位：vp</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturerecognizerstate12>GestureRecognizerState12+<a href=#gesturerecognizerstate12 class=hash-link aria-label=GestureRecognizerState12+的直接链接 title=GestureRecognizerState12+的直接链接 translate=no>​</a></h2>
+<p>定义手势识别器状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>READY<td>0<td>准备状态。<tr><td>DETECTING<td>1<td>检测状态。<tr><td>PENDING<td>2<td>等待状态。<tr><td>BLOCKED<td>3<td>阻塞状态。<tr><td>SUCCESSFUL<td>4<td>成功状态。<tr><td>FAILED<td>5<td>失败状态。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gestureevent对象说明>GestureEvent对象说明<a href=#gestureevent对象说明 class=hash-link aria-label=GestureEvent对象说明的直接链接 title=GestureEvent对象说明的直接链接 translate=no>​</a></h2>
+<p>定义手势的事件信息。继承自<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#baseevent8>BaseEvent</a>。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>repeat<td>boolean<td>否<td>否<td>是否为重复触发事件，用于LongPressGesture手势触发场景。true表示重复触发事件，false表示非重复触发事件。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>offsetX<td>number<td>否<td>否<td>手势事件相对于手指按下时的偏移量X，单位为vp，用于PanGesture手势触发场景，从左向右滑动offsetX为正，反之为负。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。  取值范围：(-∞, +∞)<tr><td>offsetY<td>number<td>否<td>否<td>手势事件相对于手指按下时的偏移量Y，单位为vp，用于PanGesture手势触发场景，从上向下滑动offsetY为正，反之为负。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。  取值范围：(-∞, +∞)<tr><td>angle<td>number<td>否<td>否<td>用于RotationGesture手势触发场景时，表示旋转角度。  用于SwipeGesture手势触发场景时，表示快滑手势的角度，即两根手指间的线段与水平方向的夹角变化的度数。  <strong><strong>说明：</strong></strong>  角度计算方式：快滑手势被识别到后，连接两根手指之间的线被识别为起始线条，随着手指的滑动，手指之间的线条会发生旋转，根据起始线条两端点和当前线条两端点的坐标，使用反正切函数分别计算其相对于水平方向的夹角，最后arctan2(cy2-cy1,cx2-cx1)-arctan2(y2-y1,x2-x1)为旋转的角度。以起始线条为坐标系，顺时针旋转为0到180度，逆时针旋转为-180到0度。  取值范围：[-180, +180]  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>scale<td>number<td>否<td>否<td>缩放比例，用于PinchGesture手势触发场景。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>pinchCenterX<td>number<td>否<td>否<td>捏合手势中心点相对于当前组件元素原始区域左上角的x轴坐标，单位为vp，用于PinchGesture手势触发场景。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>pinchCenterY<td>number<td>否<td>否<td>捏合手势中心点相对于当前组件元素原始区域左上角的y轴坐标，单位为vp，用于PinchGesture手势触发场景。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>speed8+<td>number<td>否<td>否<td>快滑手势速度，即所有手指相对当前组件元素原始区域滑动的平均速度，单位为vp/s，用于SwipeGesture手势触发场景。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>fingerList8+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common#fingerinfo8%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>FingerInfo</a>[]<td>否<td>否<td>输入源为触屏产生的手势，fingerList中会包含触发事件的所有触点信息；由鼠标发起的手势，fingerList中只会有一条记录；触摸板的事件大类与鼠标一致，所以由触摸板发起的手势，fingerList只会携带一条记录。  <strong><strong>说明：</strong></strong>  1. 手指索引编号与位置对应，即fingerList[index]的id为index。先按下且未参与当前手势触发的手指在fingerList中对应位置为空。  2. 当使用键盘或手柄触发手势时，不存在手指信息，fingerList为空。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>fingerInfos20+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common#fingerinfo8%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>FingerInfo</a>[]<td>否<td>是<td>由触屏产生的手势，fingerInfos中会包含触发事件的所有触点信息；由鼠标发起的手势，fingerInfos中只会有一条记录；触摸板的事件大类与鼠标一致，所以由触摸板发起的手势，fingerInfos只会携带一条记录。  <strong><strong>说明：</strong></strong>  fingerInfos只会记录参与触摸的有效手指信息，先按下但未参与当前手势触发的手指在fingerInfos中不会显示。默认值为空数组[]，返回空数组时，表示当前无有效触点信息。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。<tr><td>velocityX10+<td>number<td>否<td>否<td>用于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture>PanGesture</a>手势中，获取当前手势的x轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从左往右为正，反之为负。单位为vp/s。  取值范围：(-∞, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>velocityY10+<td>number<td>否<td>否<td>用于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture>PanGesture</a>手势中，获取当前手势的y轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从上往下为正，反之为负。单位为vp/s。  取值范围：(-∞, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>velocity10+<td>number<td>否<td>否<td>用于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture>PanGesture</a>手势中，获取当前手势的主方向速度。为xy轴方向速度的平方和的算术平方根。单位为vp/s。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>tapLocation20+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-tapgesture/ts-basic-gestures-tapgesture#eventlocationinfo20>EventLocationInfo</a><td>否<td>是<td>用于点击手势中，获取当前手势的坐标信息。在非点击手势中，tapLocation返回值为undefined。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturemask枚举说明>GestureMask枚举说明<a href=#gesturemask枚举说明 class=hash-link aria-label=GestureMask枚举说明的直接链接 title=GestureMask枚举说明的直接链接 translate=no>​</a></h2>
+<p>定义是否屏蔽子组件手势。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>Normal<td>-<td>不屏蔽子组件的手势，按照默认手势识别顺序进行识别。<tr><td>IgnoreInternal<td>-<td>屏蔽子组件的手势，包括子组件上系统内置的手势，如子组件为List组件时，内置的滑动手势同样会被屏蔽。 若父子组件区域存在部分重叠，则只会屏蔽父子组件重叠的部分。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturejudgeresult11>GestureJudgeResult11+<a href=#gesturejudgeresult11 class=hash-link aria-label=GestureJudgeResult11+的直接链接 title=GestureJudgeResult11+的直接链接 translate=no>​</a></h2>
+<p>定义手势竞争结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>CONTINUE<td>0<td>不影响系统手势判定流程。<tr><td>REJECT<td>1<td>手势判定结果为失败。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturetype11>GestureType11+<a href=#gesturetype11 class=hash-link aria-label=GestureType11+的直接链接 title=GestureType11+的直接链接 translate=no>​</a></h2>
+<p>定义手势类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TAP_GESTURE<td>0<td>点击手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>LONG_PRESS_GESTURE<td>1<td>长按手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>PAN_GESTURE<td>2<td>滑动手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>PINCH_GESTURE<td>3<td>捏合手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>SWIPE_GESTURE<td>4<td>快滑手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>ROTATION_GESTURE<td>5<td>旋转手势。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>DRAG<td>6<td>拖拽。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>CLICK<td>7<td>点击。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>BOX_SELECT_GESTURE23+<td>8<td>滚动类容器鼠标框选手势，是一种特殊的滑动手势，用于在滚动容器中通过鼠标拖拽创建选择区域，批量选择多个元素。  <strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。  <strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。<tr><td>WEB_SCROLL_GESTURE23+<td>9<td>Web组件滚动手势，是一种特殊的滑动手势，用于控制Web组件内的滚动行为。  <strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。  <strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。<tr><td>TEXT_FIELD_SELECT_GESTURE23+<td>10<td>文本选择手势，是一种特殊的滑动手势，用于在输入框组件中通过拖拽选择文本内容。  <strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。  <strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。<tr><td>CONTEXT_MENU_HOVER_GESTURE23+<td>11<td>上下文菜单悬停手势是一种特殊的长按手势，用于在长按过程中触发菜单的hoverScale动画效果（需启用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/popup-property/ts-universal-attributes-menu/ts-universal-attributes-menu#contextmenuanimationoptions11>ContextMenuAnimationOptions</a>的hoverScaleInterruption属性以支持该行为）。  <strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。  <strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gestureinfo11对象说明>GestureInfo11+对象说明<a href=#gestureinfo11对象说明 class=hash-link aria-label=GestureInfo11+对象说明的直接链接 title=GestureInfo11+对象说明的直接链接 translate=no>​</a></h2>
+<p>手势信息类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>tag<td>string<td>否<td>是<td>手势标志。  <strong><strong>说明：</strong></strong>  未设置事件标志tag属性时，tag不返回或返回undefined。<tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common#gesturetype11>GestureControl.GestureType</a><td>否<td>否<td>手势类型。  <strong><strong>说明：</strong></strong>  当手势为未暴露类型的系统内置手势事件时，type的值为-1。<tr><td>isSystemGesture<td>boolean<td>否<td>否<td>当前手势是否为组件自带手势。true表示是，false表示否。  默认值：false</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=fingerinfo8对象说明>FingerInfo8+对象说明<a href=#fingerinfo8对象说明 class=hash-link aria-label=FingerInfo8+对象说明的直接链接 title=FingerInfo8+对象说明的直接链接 translate=no>​</a></h2>
+<p>手指信息类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>number<td>否<td>否<td>手指的索引编号，由按下手指的数量决定，按下一根手指为0，之后每按下1根手指索引编号加一。  <strong><strong>说明：</strong></strong>  鼠标（索引编号为1001）、手写笔（索引编号为102）、鼠标滚轮（索引编号为0）、触摸板双指滑动（索引编号为0）的索引编号也会被转化为手指的索引编号。  取值范围：[0, 9)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>globalX<td>number<td>否<td>否<td>相对于应用窗口左上角的x轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>globalY<td>number<td>否<td>否<td>相对于应用窗口左上角的y轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>localX<td>number<td>否<td>否<td>相对于当前组件元素原始区域左上角的x轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>localY<td>number<td>否<td>否<td>相对于当前组件元素原始区域左上角的y轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>displayX12+<td>number<td>否<td>否<td>相对于屏幕左上角的x轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>displayY12+<td>number<td>否<td>否<td>相对于屏幕左上角的y轴坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>hand15+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#interactionhand15>InteractionHand</a><td>否<td>是<td>表示事件是由左手点击还是右手点击触发。  <strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。<tr><td>globalDisplayX20+<td>number<td>否<td>是<td>相对于全局屏幕的左上角的X坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。<tr><td>globalDisplayY20+<td>number<td>否<td>是<td>相对于全局屏幕的左上角的Y坐标，单位为vp。  取值范围：[0, +∞)  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gesturetype>GestureType<a href=#gesturetype class=hash-link aria-label=GestureType的直接链接 title=GestureType的直接链接 translate=no>​</a></h2>
+<p>type GestureType = TapGesture | LongPressGesture | PanGesture | PinchGesture | SwipeGesture | RotationGesture | GestureGroup</p>
+<p>定义手势类型。取值类型为下表类型中的并集。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-tapgesture/ts-basic-gestures-tapgesture>TapGesture</a><td>点击手势，支持单次点击、多次点击识别。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-longpressgesture/ts-basic-gestures-longpressgesture>LongPressGesture</a><td>长按手势。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pangesture/ts-basic-gestures-pangesture>PanGesture</a><td>滑动手势，当滑动的距离达到最小阈值时触发滑动手势事件，默认滑动阈值为5vp。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-pinchgesture/ts-basic-gestures-pinchgesture>PinchGesture</a><td>捏合手势。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-rotationgesture/ts-basic-gestures-rotationgesture>RotationGesture</a><td>旋转手势。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-swipegesture/ts-basic-gestures-swipegesture>SwipeGesture</a><td>快滑手势，滑动速度大于等于速度阈值时可识别成功，默认最小速度为100vp/s。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-combined-gestures/ts-combined-gestures>GestureGroup</a><td>手势识别组，多种手势组合为复合手势，支持连续识别、并行识别和互斥识别。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=basegestureevent11对象说明>BaseGestureEvent11+对象说明<a href=#basegestureevent11对象说明 class=hash-link aria-label=BaseGestureEvent11+对象说明的直接链接 title=BaseGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>基础手势事件类型。继承自<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#baseevent8>BaseEvent</a>。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>fingerList<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common#fingerinfo8%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>FingerInfo</a>[]<td>否<td>否<td>触发事件的所有手指信息。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>fingerInfos20+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/ts-gesture-common/ts-gesture-common#fingerinfo8%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>FingerInfo</a>[]<td>否<td>是<td>参与触发事件的所有有效触点信息。默认值为空数组[]，返回空数组时，表示当前无有效触点信息。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tapgestureevent11对象说明>TapGestureEvent11+对象说明<a href=#tapgestureevent11对象说明 class=hash-link aria-label=TapGestureEvent11+对象说明的直接链接 title=TapGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>tapLocation20+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/basic-gestures/ts-basic-gestures-tapgesture/ts-basic-gestures-tapgesture#eventlocationinfo20>EventLocationInfo</a><td>否<td>是<td>获取点击手势的坐标信息。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=longpressgestureevent11对象说明>LongPressGestureEvent11+对象说明<a href=#longpressgestureevent11对象说明 class=hash-link aria-label=LongPressGestureEvent11+对象说明的直接链接 title=LongPressGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>repeat<td>boolean<td>否<td>否<td>是否为重复触发事件。true表示为重复触发事件，false表示非重复触发事件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pangestureevent11对象说明>PanGestureEvent11+对象说明<a href=#pangestureevent11对象说明 class=hash-link aria-label=PanGestureEvent11+对象说明的直接链接 title=PanGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>offsetX<td>number<td>否<td>否<td>手势事件x轴相对当前组件元素原始区域的偏移量，单位为vp，从左向右滑动offsetX为正，反之为负。<tr><td>offsetY<td>number<td>否<td>否<td>手势事件y轴相对当前组件元素原始区域的偏移量，单位为vp，从上向下滑动offsetY为正，反之为负。<tr><td>velocityX<td>number<td>否<td>否<td>获取当前手势的x轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从左往右为正，反之为负。单位为vp/s。<tr><td>velocityY<td>number<td>否<td>否<td>获取当前手势的y轴方向速度。坐标轴原点为屏幕左上角，分正负方向速度，从上往下为正，反之为负。单位为vp/s。<tr><td>velocity<td>number<td>否<td>否<td>获取当前的主方向速度。为xy轴方向速度的平方和的算术平方根。单位为vp/s。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pinchgestureevent11对象说明>PinchGestureEvent11+对象说明<a href=#pinchgestureevent11对象说明 class=hash-link aria-label=PinchGestureEvent11+对象说明的直接链接 title=PinchGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>scale<td>number<td>否<td>否<td>缩放比例。<tr><td>pinchCenterX<td>number<td>否<td>否<td>捏合手势中心点相对于当前组件元素原始区域左上角x轴坐标，单位为vp。<tr><td>pinchCenterY<td>number<td>否<td>否<td>捏合手势中心点相对于当前组件元素原始区域左上角y轴坐标，单位为vp。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rotationgestureevent11对象说明>RotationGestureEvent11+对象说明<a href=#rotationgestureevent11对象说明 class=hash-link aria-label=RotationGestureEvent11+对象说明的直接链接 title=RotationGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>angle<td>number<td>否<td>否<td>表示旋转角度，单位为deg。  <strong><strong>说明：</strong></strong>  角度计算方式：当滑动手势被识别后，连接两根手指之间的线被识别为起始线条。随着手指的滑动，手指之间的线条会发生旋转。根据起始线条和当前线条两端点的坐标，使用反正切函数分别计算其相对于水平方向的夹角。  最终的旋转角度为：arctan2(cy2-cy1, cx2-cx1) - arctan2(y2-y1, x2-x1)  在起始线条为坐标系的情况下，顺时针旋转为0到180度，逆时针旋转为-180到0度。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=swipegestureevent11对象说明>SwipeGestureEvent11+对象说明<a href=#swipegestureevent11对象说明 class=hash-link aria-label=SwipeGestureEvent11+对象说明的直接链接 title=SwipeGestureEvent11+对象说明的直接链接 translate=no>​</a></h2>
+<p>继承自<a href=#basegestureevent11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">BaseGestureEvent</a>。可将该对象作为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-customize-judge/ts-gesture-customize-judge#ongesturejudgebegin>onGestureJudgeBegin</a>的event参数来传递。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>angle<td>number<td>否<td>否<td>表示快滑手势的角度，即两根手指间的线段与水平方向的夹角变化的度数，单位为deg。  <strong><strong>说明：</strong></strong>  角度计算方式：当快滑手势被识别后，连接两根手指之间的线被识别为起始线条。随着手指的滑动，手指之间的线条会发生旋转。根据起始线条和当前线条两端点的坐标，使用反正切函数分别计算其相对于水平方向的夹角。  最终的旋转角度为：arctan2(cy2-cy1, cx2-cx1) - arctan2(y2-y1, x2-x1)  在起始线条为坐标系的情况下，顺时针旋转为0到180度，逆时针旋转为-180到0度。<tr><td>speed<td>number<td>否<td>否<td>快滑手势速度，即所有手指相对当前组件元素原始区域滑动的平均速度，单位为vp/s。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-control/ts-gesture-blocking-enhancement/ts-gesture-blocking-enhancement><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>手势拦截增强</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>Flex</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#gestureinterfacet11 class="table-of-contents__link toc-highlight">GestureInterface&lt;T>11+</a><ul><li><a href=#tag11 class="table-of-contents__link toc-highlight">tag11+</a><li><a href=#allowedtypes14 class="table-of-contents__link toc-highlight">allowedTypes14+</a></ul><li><a href=#scrollabletargetinfo12 class="table-of-contents__link toc-highlight">ScrollableTargetInfo12+</a><ul><li><a href=#isbegin12 class="table-of-contents__link toc-highlight">isBegin12+</a><li><a href=#isend12 class="table-of-contents__link toc-highlight">isEnd12+</a></ul><li><a href=#eventtargetinfo12 class="table-of-contents__link toc-highlight">EventTargetInfo12+</a><ul><li><a href=#getid12 class="table-of-contents__link toc-highlight">getId12+</a></ul><li><a href=#touchrecognizer20 class="table-of-contents__link toc-highlight">TouchRecognizer20+</a><ul><li><a href=#geteventtargetinfo20 class="table-of-contents__link toc-highlight">getEventTargetInfo20+</a><li><a href=#canceltouch20 class="table-of-contents__link toc-highlight">cancelTouch20+</a></ul><li><a href=#gesturerecognizer12 class="table-of-contents__link toc-highlight">GestureRecognizer12+</a><ul><li><a href=#gettag12 class="table-of-contents__link toc-highlight">getTag12+</a><li><a href=#gettype12 class="table-of-contents__link toc-highlight">getType12+</a><li><a href=#isbuiltin12 class="table-of-contents__link toc-highlight">isBuiltIn12+</a><li><a href=#setenabled12 class="table-of-contents__link toc-highlight">setEnabled12+</a><li><a href=#isenabled12 class="table-of-contents__link toc-highlight">isEnabled12+</a><li><a href=#getstate12 class="table-of-contents__link toc-highlight">getState12+</a><li><a href=#geteventtargetinfo12 class="table-of-contents__link toc-highlight">getEventTargetInfo12+</a><li><a href=#isvalid12 class="table-of-contents__link toc-highlight">isValid12+</a><li><a href=#getfingercount18 class="table-of-contents__link toc-highlight">getFingerCount18+</a><li><a href=#isfingercountlimit18 class="table-of-contents__link toc-highlight">isFingerCountLimit18+</a><li><a href=#preventbegin20 class="table-of-contents__link toc-highlight">preventBegin20+</a></ul><li><a href=#taprecognizer18 class="table-of-contents__link toc-highlight">TapRecognizer18+</a><ul><li><a href=#gettapcount18 class="table-of-contents__link toc-highlight">getTapCount18+</a></ul><li><a href=#longpressrecognizer18 class="table-of-contents__link toc-highlight">LongPressRecognizer18+</a><ul><li><a href=#isrepeat18 class="table-of-contents__link toc-highlight">isRepeat18+</a><li><a href=#getduration18 class="table-of-contents__link toc-highlight">getDuration18+</a><li><a href=#getallowablemovement22 class="table-of-contents__link toc-highlight">getAllowableMovement22+</a></ul><li><a href=#swiperecognizer18 class="table-of-contents__link toc-highlight">SwipeRecognizer18+</a><ul><li><a href=#getvelocitythreshold18 class="table-of-contents__link toc-highlight">getVelocityThreshold18+</a><li><a href=#getdirection18 class="table-of-contents__link toc-highlight">getDirection18+</a></ul><li><a href=#pinchrecognizer18 class="table-of-contents__link toc-highlight">PinchRecognizer18+</a><ul><li><a href=#getdistance18 class="table-of-contents__link toc-highlight">getDistance18+</a></ul><li><a href=#rotationrecognizer18 class="table-of-contents__link toc-highlight">RotationRecognizer18+</a><ul><li><a href=#getangle18 class="table-of-contents__link toc-highlight">getAngle18+</a></ul><li><a href=#panrecognizer12 class="table-of-contents__link toc-highlight">PanRecognizer12+</a><ul><li><a href=#getpangestureoptions12 class="table-of-contents__link toc-highlight">getPanGestureOptions12+</a><li><a href=#getdirection19 class="table-of-contents__link toc-highlight">getDirection19+</a><li><a href=#getdistance19 class="table-of-contents__link toc-highlight">getDistance19+</a><li><a href=#getdistancemap19 class="table-of-contents__link toc-highlight">getDistanceMap19+</a></ul><li><a href=#gesturerecognizerstate12 class="table-of-contents__link toc-highlight">GestureRecognizerState12+</a><li><a href=#gestureevent对象说明 class="table-of-contents__link toc-highlight">GestureEvent对象说明</a><li><a href=#gesturemask枚举说明 class="table-of-contents__link toc-highlight">GestureMask枚举说明</a><li><a href=#gesturejudgeresult11 class="table-of-contents__link toc-highlight">GestureJudgeResult11+</a><li><a href=#gesturetype11 class="table-of-contents__link toc-highlight">GestureType11+</a><li><a href=#gestureinfo11对象说明 class="table-of-contents__link toc-highlight">GestureInfo11+对象说明</a><li><a href=#fingerinfo8对象说明 class="table-of-contents__link toc-highlight">FingerInfo8+对象说明</a><li><a href=#gesturetype class="table-of-contents__link toc-highlight">GestureType</a><li><a href=#basegestureevent11对象说明 class="table-of-contents__link toc-highlight">BaseGestureEvent11+对象说明</a><li><a href=#tapgestureevent11对象说明 class="table-of-contents__link toc-highlight">TapGestureEvent11+对象说明</a><li><a href=#longpressgestureevent11对象说明 class="table-of-contents__link toc-highlight">LongPressGestureEvent11+对象说明</a><li><a href=#pangestureevent11对象说明 class="table-of-contents__link toc-highlight">PanGestureEvent11+对象说明</a><li><a href=#pinchgestureevent11对象说明 class="table-of-contents__link toc-highlight">PinchGestureEvent11+对象说明</a><li><a href=#rotationgestureevent11对象说明 class="table-of-contents__link toc-highlight">RotationGestureEvent11+对象说明</a><li><a href=#swipegestureevent11对象说明 class="table-of-contents__link toc-highlight">SwipeGestureEvent11+对象说明</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

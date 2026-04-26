@@ -1,0 +1,1724 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.reminderAgentManager (后台代理提醒) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.reminderAgentManager (后台代理提醒) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供后台代理提醒的能力，即当应用被冻结或应用退出时，定时提醒功能将被系统服务代理。开发者可以调用本模块接口创建定时提醒，提醒类型支持倒计时、日历、闹钟三种。开发指导请参考代理提醒开发指南。 /><meta data-rh=true property=og:description content=本模块提供后台代理提醒的能力，即当应用被冻结或应用退出时，定时提醒功能将被系统服务代理。开发者可以调用本模块接口创建定时提醒，提醒类型支持倒计时、日历、闹钟三种。开发指导请参考代理提醒开发指南。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager","name":"@ohos.reminderAgentManager (后台代理提醒)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="@ohos.reminderAgentManager (后台代理提醒)" class=linkLabel_WmDU>@ohos.reminderAgentManager (后台代理提醒)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-resourceschedule-backgroundtaskmanager/js-apis-resourceschedule-backgroundtaskmanager><span title="@ohos.resourceschedule.backgroundTaskManager (后台任务管理)" class=linkLabel_WmDU>@ohos.resourceschedule.backgroundTaskManager (后台任务管理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-resourceschedule-workscheduler/js-apis-resourceschedule-workscheduler><span title="@ohos.resourceschedule.workScheduler (延迟任务调度)" class=linkLabel_WmDU>@ohos.resourceschedule.workScheduler (延迟任务调度)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-workschedulerextensionability/js-apis-workschedulerextensionability><span title="@ohos.WorkSchedulerExtensionAbility (延迟任务调度回调)" class=linkLabel_WmDU>@ohos.WorkSchedulerExtensionAbility (延迟任务调度回调)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-backgroundprocessmanager/js-apis-backgroundprocessmanager><span title="@ohos.resourceschedule.backgroundProcessManager (后台子进程管控)" class=linkLabel_WmDU>@ohos.resourceschedule.backgroundProcessManager (后台子进程管控)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/background-tasks-arkts-application/js-apis-workschedulerextensioncontext/js-apis-workschedulerextensioncontext><span title=application class=categoryLinkLabel_W154>application</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/background-tasks-arkts-dep/js-apis-backgroundtaskmanager/js-apis-backgroundtaskmanager><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-c/background-tasks-module/capi-backgroundprocessmanager/capi-backgroundprocessmanager><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-backgroundtaskmgr/errorcode-backgroundtaskmgr><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Background Tasks Kit（后台任务开发服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.reminderAgentManager (后台代理提醒)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.reminderAgentManager (后台代理提醒)</h1></header>
+<p>本模块提供后台代理提醒的能力，即当应用被冻结或应用退出时，定时提醒功能将被系统服务代理。开发者可以调用本模块接口创建定时提醒，提醒类型支持倒计时、日历、闹钟三种。开发指导请参考<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder>代理提醒开发指南</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerpublishreminder>reminderAgentManager.publishReminder<a href=#reminderagentmanagerpublishreminder class=hash-link aria-label=reminderAgentManager.publishReminder的直接链接 title=reminderAgentManager.publishReminder的直接链接 translate=no>​</a></h2>
+<p>publishReminder(reminderReq: ReminderRequest, callback: AsyncCallback&lt;number>): void</p>
+<p>发布后台代理提醒。使用callback异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口需要申请通知弹窗权限<a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager#notificationmanagerrequestenablenotification10>notificationManager.requestEnableNotification</a>后调用。</p>
+<p>为了防止代理提醒被滥用于广告、营销类提醒，影响用户体验，部分设备上代理提醒增加了管控机制。管控后的适配或申请权限的方法，请参考<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>约束与限制中的管控限制</a>。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.PUBLISH_AGENT_REMINDER</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderReq<td><a href=#reminderrequest class="">ReminderRequest</a><td>是<td>需要发布的代理提醒实例。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数，当代理提醒发布成功，err为undefined，data为当前发布提醒的id；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700001<td>Notification is not enabled.<tr><td>1700002<td>The number of reminders exceeds the limit.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let timer: reminderAgentManager.ReminderRequestTimer = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  reminderType: reminderAgentManager.ReminderType.REMINDER_TYPE_TIMER,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  triggerTimeInSeconds: 10</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.publishReminder(timer, (err: BusinessError, reminderId: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("callback, reminderId = " + reminderId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerpublishreminder-1>reminderAgentManager.publishReminder<a href=#reminderagentmanagerpublishreminder-1 class=hash-link aria-label=reminderAgentManager.publishReminder的直接链接 title=reminderAgentManager.publishReminder的直接链接 translate=no>​</a></h2>
+<p>publishReminder(reminderReq: ReminderRequest): Promise&lt;number></p>
+<p>发布后台代理提醒。使用Promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口需要申请通知弹窗权限<a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager#notificationmanagerrequestenablenotification10>notificationManager.requestEnableNotification</a>后调用。</p>
+<p>为了防止代理提醒被滥用于广告、营销类提醒，影响用户体验，部分设备上代理提醒增加了管控机制。管控后的适配或申请权限的方法，请参考<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>约束与限制中的管控限制</a>。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.PUBLISH_AGENT_REMINDER</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderReq<td><a href=#reminderrequest class="">ReminderRequest</a><td>是<td>需要发布的代理提醒实例。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;number><td>Promise对象，返回当前发布提醒的id。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700001<td>Notification is not enabled.<tr><td>1700002<td>The number of reminders exceeds the limit.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let timer: reminderAgentManager.ReminderRequestTimer = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  reminderType: reminderAgentManager.ReminderType.REMINDER_TYPE_TIMER,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  triggerTimeInSeconds: 10</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.publishReminder(timer).then((reminderId: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("promise, reminderId = " + reminderId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagercancelreminder>reminderAgentManager.cancelReminder<a href=#reminderagentmanagercancelreminder class=hash-link aria-label=reminderAgentManager.cancelReminder的直接链接 title=reminderAgentManager.cancelReminder的直接链接 translate=no>​</a></h2>
+<p>cancelReminder(reminderId: number, callback: AsyncCallback&lt;void>): void</p>
+<p>取消指定id的代理提醒。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要取消的代理提醒的id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，当取消代理提醒成功，err为undefined；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700003<td>The reminder does not exist.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.cancelReminder(reminderId, (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("cancelReminder callback");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagercancelreminder-1>reminderAgentManager.cancelReminder<a href=#reminderagentmanagercancelreminder-1 class=hash-link aria-label=reminderAgentManager.cancelReminder的直接链接 title=reminderAgentManager.cancelReminder的直接链接 translate=no>​</a></h2>
+<p>cancelReminder(reminderId: number): Promise&lt;void></p>
+<p>取消指定id的代理提醒。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要取消的代理提醒的id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700003<td>The reminder does not exist.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.cancelReminder(reminderId).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("cancelReminder promise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagergetvalidreminders>reminderAgentManager.getValidReminders<a href=#reminderagentmanagergetvalidreminders class=hash-link aria-label=reminderAgentManager.getValidReminders的直接链接 title=reminderAgentManager.getValidReminders的直接链接 translate=no>​</a></h2>
+<p>getValidReminders(callback: AsyncCallback&lt;Array&lt;ReminderRequest>>): void</p>
+<p>获取当前应用设置的所有<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>有效（未过期）的代理提醒</a>。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;<a href=#reminderrequest class="">ReminderRequest</a>>><td>是<td>回调函数，当查询代理提醒成功，err为undefined，data为当前应用设置的所有有效（未过期）的代理提醒；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.getValidReminders((err: BusinessError, reminders: Array&lt;reminderAgentManager.ReminderRequest>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("callback, getValidReminders length = " + reminders.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (let i = 0; i &lt; reminders.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders = " + reminders[i]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, reminderType = " + reminders[i].reminderType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      const actionButton = reminders[i].actionButton || [];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (let j = 0; j &lt; actionButton.length; j++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("getValidReminders, actionButton.title = " + actionButton[j]?.title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("getValidReminders, actionButton.type = " + actionButton[j]?.type);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, wantAgent.pkgName = " + reminders[i].wantAgent?.pkgName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, wantAgent.abilityName = " + reminders[i].wantAgent?.abilityName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, ringDuration = " + reminders[i].ringDuration);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, snoozeTimes = " + reminders[i].snoozeTimes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, timeInterval = " + reminders[i].timeInterval);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, title = " + reminders[i].title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, content = " + reminders[i].content);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, expiredContent = " + reminders[i].expiredContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, snoozeContent = " + reminders[i].snoozeContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, notificationId = " + reminders[i].notificationId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, slotType = " + reminders[i].slotType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagergetvalidreminders-1>reminderAgentManager.getValidReminders<a href=#reminderagentmanagergetvalidreminders-1 class=hash-link aria-label=reminderAgentManager.getValidReminders的直接链接 title=reminderAgentManager.getValidReminders的直接链接 translate=no>​</a></h2>
+<p>getValidReminders(): Promise&lt;Array&lt;ReminderRequest>></p>
+<p>获取当前应用设置的所有<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>有效（未过期）的代理提醒</a>。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;<a href=#reminderrequest class="">ReminderRequest</a>>><td>Promise对象，返回当前应用设置的所有有效（未过期）的代理提醒。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.getValidReminders().then((reminders: Array&lt;reminderAgentManager.ReminderRequest>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("promise, getValidReminders length = " + reminders.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i = 0; i &lt; reminders.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders = " + reminders[i]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, reminderType = " + reminders[i].reminderType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const actionButton = reminders[i].actionButton || [];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (let j = 0; j &lt; actionButton.length; j++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, actionButton.title = " + actionButton[j]?.title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getValidReminders, actionButton.type = " + actionButton[j]?.type);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, wantAgent.pkgName = " + reminders[i].wantAgent?.pkgName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, wantAgent.abilityName = " + reminders[i].wantAgent?.abilityName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, ringDuration = " + reminders[i].ringDuration);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, snoozeTimes = " + reminders[i].snoozeTimes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, timeInterval = " + reminders[i].timeInterval);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, title = " + reminders[i].title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, content = " + reminders[i].content);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, expiredContent = " + reminders[i].expiredContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, snoozeContent = " + reminders[i].snoozeContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, notificationId = " + reminders[i].notificationId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getValidReminders, slotType = " + reminders[i].slotType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagercancelallreminders>reminderAgentManager.cancelAllReminders<a href=#reminderagentmanagercancelallreminders class=hash-link aria-label=reminderAgentManager.cancelAllReminders的直接链接 title=reminderAgentManager.cancelAllReminders的直接链接 translate=no>​</a></h2>
+<p>cancelAllReminders(callback: AsyncCallback&lt;void>): void</p>
+<p>取消当前应用设置的所有代理提醒。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，当取消代理提醒成功，err为undefined；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.cancelAllReminders((err: BusinessError) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("cancelAllReminders callback")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagercancelallreminders-1>reminderAgentManager.cancelAllReminders<a href=#reminderagentmanagercancelallreminders-1 class=hash-link aria-label=reminderAgentManager.cancelAllReminders的直接链接 title=reminderAgentManager.cancelAllReminders的直接链接 translate=no>​</a></h2>
+<p>cancelAllReminders(): Promise&lt;void></p>
+<p>取消当前应用设置的所有代理提醒。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700004<td>The bundle name does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.cancelAllReminders().then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("cancelAllReminders promise")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanageraddnotificationslot>reminderAgentManager.addNotificationSlot<a href=#reminderagentmanageraddnotificationslot class=hash-link aria-label=reminderAgentManager.addNotificationSlot的直接链接 title=reminderAgentManager.addNotificationSlot的直接链接 translate=no>​</a></h2>
+<p>addNotificationSlot(slot: NotificationSlot, callback: AsyncCallback&lt;void>): void</p>
+<p>添加通知渠道。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>slot<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification/js-apis-inner-notification-notificationslot/js-apis-inner-notification-notificationslot#notificationslot-1>NotificationSlot</a><td>是<td>通知渠道实例，仅支持设置其notificationType属性。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，当添加NotificationSlot成功，err为undefined；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { notificationManager } from '@kit.NotificationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let mySlot: notificationManager.NotificationSlot = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  notificationType: notificationManager.SlotType.SOCIAL_COMMUNICATION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.addNotificationSlot(mySlot, (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("addNotificationSlot callback");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanageraddnotificationslot-1>reminderAgentManager.addNotificationSlot<a href=#reminderagentmanageraddnotificationslot-1 class=hash-link aria-label=reminderAgentManager.addNotificationSlot的直接链接 title=reminderAgentManager.addNotificationSlot的直接链接 translate=no>​</a></h2>
+<p>addNotificationSlot(slot: NotificationSlot): Promise&lt;void></p>
+<p>添加通知渠道。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>slot<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification/js-apis-inner-notification-notificationslot/js-apis-inner-notification-notificationslot#notificationslot-1>NotificationSlot</a><td>是<td>通知渠道实例，仅支持设置其notificationType属性。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { notificationManager } from '@kit.NotificationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let mySlot: notificationManager.NotificationSlot = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  notificationType: notificationManager.SlotType.SOCIAL_COMMUNICATION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.addNotificationSlot(mySlot).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("addNotificationSlot promise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerremovenotificationslot>reminderAgentManager.removeNotificationSlot<a href=#reminderagentmanagerremovenotificationslot class=hash-link aria-label=reminderAgentManager.removeNotificationSlot的直接链接 title=reminderAgentManager.removeNotificationSlot的直接链接 translate=no>​</a></h2>
+<p>removeNotificationSlot(slotType: notification.SlotType, callback: AsyncCallback&lt;void>): void</p>
+<p>删除指定的通知渠道类型，使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>slotType<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification-arkts-dep/js-apis-notification/js-apis-notification#slottype>notification.SlotType</a><td>是<td>通知渠道类型。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，当删除成功，err为undefined；否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { notificationManager } from '@kit.NotificationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT_INFORMATION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("callback err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("removeNotificationSlot callback");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerremovenotificationslot-1>reminderAgentManager.removeNotificationSlot<a href=#reminderagentmanagerremovenotificationslot-1 class=hash-link aria-label=reminderAgentManager.removeNotificationSlot的直接链接 title=reminderAgentManager.removeNotificationSlot的直接链接 translate=no>​</a></h2>
+<p>removeNotificationSlot(slotType: notification.SlotType): Promise&lt;void></p>
+<p>删除指定的通知渠道类型，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>slotType<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification-arkts-dep/js-apis-notification/js-apis-notification#slottype>notification.SlotType</a><td>是<td>通知渠道类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { notificationManager } from '@kit.NotificationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.removeNotificationSlot(notificationManager.SlotType.CONTENT_INFORMATION).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("removeNotificationSlot promise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagergetallvalidreminders12>reminderAgentManager.getAllValidReminders12+<a href=#reminderagentmanagergetallvalidreminders12 class=hash-link aria-label=reminderAgentManager.getAllValidReminders12+的直接链接 title=reminderAgentManager.getAllValidReminders12+的直接链接 translate=no>​</a></h2>
+<p>getAllValidReminders(): Promise&lt;Array&lt;ReminderInfo>></p>
+<p>获取当前应用设置的所有<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>有效（未过期）的代理提醒</a>。使用Promise异步回调。该接口调用需要申请ohos.permission.PUBLISH_AGENT_REMINDER权限。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;<a href=#reminderinfo12 class="">ReminderInfo</a>>><td>Promise对象，返回当前应用设置的所有有效（未过期）的代理提醒。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.getAllValidReminders().then((reminders: Array&lt;reminderAgentManager.ReminderInfo>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("promise, getAllValidReminders length = " + reminders.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i = 0; i &lt; reminders.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, reminderId = " + reminders[i].reminderId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, reminderType = " + reminders[i].reminderReq.reminderType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const actionButton = reminders[i].reminderReq.actionButton || [];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (let j = 0; j &lt; actionButton.length; j++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getAllValidReminders, actionButton.title = " + actionButton[j]?.title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getAllValidReminders, actionButton.type = " + actionButton[j]?.type);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, wantAgent.pkgName = " + reminders[i].reminderReq.wantAgent?.pkgName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, wantAgent.abilityName = " + reminders[i].reminderReq.wantAgent?.abilityName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, ringDuration = " + reminders[i].reminderReq.ringDuration);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, snoozeTimes = " + reminders[i].reminderReq.snoozeTimes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, timeInterval = " + reminders[i].reminderReq.timeInterval);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, title = " + reminders[i].reminderReq.title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, content = " + reminders[i].reminderReq.content);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, expiredContent = " + reminders[i].reminderReq.expiredContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, snoozeContent = " + reminders[i].reminderReq.snoozeContent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, notificationId = " + reminders[i].reminderReq.notificationId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getAllValidReminders, slotType = " + reminders[i].reminderReq.slotType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanageraddexcludedate12>reminderAgentManager.addExcludeDate12+<a href=#reminderagentmanageraddexcludedate12 class=hash-link aria-label=reminderAgentManager.addExcludeDate12+的直接链接 title=reminderAgentManager.addExcludeDate12+的直接链接 translate=no>​</a></h2>
+<p>addExcludeDate(reminderId: number, date: Date): Promise&lt;void></p>
+<p>为指定id的周期性的日历提醒，添加不提醒日期（如每天提醒的日历，设置周二不提醒）。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要添加不提醒日期的代理提醒id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。<tr><td>date<td>Date<td>是<td>不提醒的日期。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>If the input parameter is not valid parameter.<tr><td>1700003<td>The reminder does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let date = new Date();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.addExcludeDate(reminderId, date).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("addExcludeDate promise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerdeleteexcludedates12>reminderAgentManager.deleteExcludeDates12+<a href=#reminderagentmanagerdeleteexcludedates12 class=hash-link aria-label=reminderAgentManager.deleteExcludeDates12+的直接链接 title=reminderAgentManager.deleteExcludeDates12+的直接链接 translate=no>​</a></h2>
+<p>deleteExcludeDates(reminderId: number): Promise&lt;void></p>
+<p>为指定id的周期性的日历提醒，删除设置的所有不提醒日期。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要删除不提醒日期的代理提醒id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>1700003<td>The reminder does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.deleteExcludeDates(reminderId).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("deleteExcludeDates promise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagergetexcludedates12>reminderAgentManager.getExcludeDates12+<a href=#reminderagentmanagergetexcludedates12 class=hash-link aria-label=reminderAgentManager.getExcludeDates12+的直接链接 title=reminderAgentManager.getExcludeDates12+的直接链接 translate=no>​</a></h2>
+<p>getExcludeDates(reminderId: number): Promise&lt;Array&lt;Date>></p>
+<p>为指定id的周期性的日历提醒，查询设置的所有不提醒日期。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要查询不提醒日期的代理提醒id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;Date>><td>Promise对象。返回特定日历设置的所有不提醒日期。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>1700003<td>The reminder does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.getExcludeDates(reminderId).then((dates) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("getExcludeDates promise length: " + dates.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i = 0; i &lt; dates.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getExcludeDates promise date is: " + dates[i].toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerupdatereminder20>reminderAgentManager.updateReminder20+<a href=#reminderagentmanagerupdatereminder20 class=hash-link aria-label=reminderAgentManager.updateReminder20+的直接链接 title=reminderAgentManager.updateReminder20+的直接链接 translate=no>​</a></h2>
+<p>updateReminder(reminderId: number, reminderReq: ReminderRequest): Promise&lt;void></p>
+<p>更新指定id的代理提醒，使用Promise异步回调。仅<a class="" href=/harmonyos-docs-site/background-task-kit/agent-powered-reminder#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>有效（未过期）</a>、未显示在通知中心的代理提醒支持更新。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.PUBLISH_AGENT_REMINDER</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要更新的代理提醒的id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。<tr><td>reminderReq<td><a href=#reminderrequest class="">ReminderRequest</a><td>是<td>代理提醒对象实例，用于设置提醒类型、响铃时长等具体信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>1700003<td>The reminder does not exist.<tr><td>1700007<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let timer: reminderAgentManager.ReminderRequestTimer = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  reminderType: reminderAgentManager.ReminderType.REMINDER_TYPE_TIMER,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  triggerTimeInSeconds: 10</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.updateReminder(reminderId, timer).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("update reminder succeed");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagercancelreminderondisplay23>reminderAgentManager.cancelReminderOnDisplay23+<a href=#reminderagentmanagercancelreminderondisplay23 class=hash-link aria-label=reminderAgentManager.cancelReminderOnDisplay23+的直接链接 title=reminderAgentManager.cancelReminderOnDisplay23+的直接链接 translate=no>​</a></h2>
+<p>cancelReminderOnDisplay(reminderId: number): Promise&lt;void></p>
+<p>取消当前通知中心内显示的通知卡片，不取消代理提醒数据。例如：每天重复的提醒，该提醒正在通知中心内显示，该接口将通知从通知中心内取消，并且会按照设定的周期，在第二天再次提醒。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>reminderId<td>number<td>是<td>需要取消的代理提醒的id，代理提醒id会在<a href=#reminderagentmanagerpublishreminder class="">发布代理提醒</a>时作为返回值返回。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1700003<td>The reminder does not exist.<tr><td>1700007<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reminderId: number = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.cancelReminderOnDisplay(reminderId).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("cancel display reminder  succeed");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error("promise err code:" + err.code + " message:" + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagersubscribereminderstate23>reminderAgentManager.subscribeReminderState23+<a href=#reminderagentmanagersubscribereminderstate23 class=hash-link aria-label=reminderAgentManager.subscribeReminderState23+的直接链接 title=reminderAgentManager.subscribeReminderState23+的直接链接 translate=no>​</a></h2>
+<p>subscribeReminderState(callback: Callback&lt;Array&lt;ReminderState>>): Promise&lt;void></p>
+<p>订阅代理提醒状态。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.PUBLISH_AGENT_REMINDER</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;Array&lt;<a href=#reminderstate23 class="">ReminderState</a>>><td>是<td>回调函数，返回代理提醒状态信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>1700007<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function reminderStateCallback(states: Array&lt;reminderAgentManager.ReminderState>) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('length is : ' + states.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.subscribeReminderState(reminderStateCallback).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('subscribe succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('promise err code:' + err.code + ' message:' + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderagentmanagerunsubscribereminderstate23>reminderAgentManager.unsubscribeReminderState23+<a href=#reminderagentmanagerunsubscribereminderstate23 class=hash-link aria-label=reminderAgentManager.unsubscribeReminderState23+的直接链接 title=reminderAgentManager.unsubscribeReminderState23+的直接链接 translate=no>​</a></h2>
+<p>unsubscribeReminderState(callback?: Callback&lt;Array&lt;ReminderState>>): Promise&lt;void></p>
+<p>取消订阅代理提醒状态。使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;Array&lt;<a href=#reminderstate23 class="">ReminderState</a>>><td>否<td>回调函数。如果不传参数callback，则取消所有订阅。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts-errcode/errorcode-reminderagentmanager/errorcode-reminderagentmanager>reminderAgentManager错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1700007<td>If the input parameter is not valid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { reminderAgentManager } from '@kit.BackgroundTasksKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function reminderStateCallback(states: Array&lt;reminderAgentManager.ReminderState>) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('length is : ' + states.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">reminderAgentManager.unsubscribeReminderState(reminderStateCallback).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('unsubscribe succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('promise err code:' + err.code + ' message:' + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=actionbuttontype>ActionButtonType<a href=#actionbuttontype class=hash-link aria-label=ActionButtonType的直接链接 title=ActionButtonType的直接链接 translate=no>​</a></h2>
+<p>提醒上的按钮的类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>ACTION_BUTTON_TYPE_CLOSE<td>0<td>表示关闭提醒的按钮。<tr><td>ACTION_BUTTON_TYPE_SNOOZE<td>1<td>表示延时提醒的按钮，提醒次数和间隔通过<a href=#reminderrequest class="">ReminderRequest</a>中snoozeTimes和timeInterval设置。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=remindertype>ReminderType<a href=#remindertype class=hash-link aria-label=ReminderType的直接链接 title=ReminderType的直接链接 translate=no>​</a></h2>
+<p>提醒的类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>REMINDER_TYPE_TIMER<td>0<td>表示提醒类型：倒计时。<tr><td>REMINDER_TYPE_CALENDAR<td>1<td>表示提醒类型：日历。<tr><td>REMINDER_TYPE_ALARM<td>2<td>表示提醒类型：闹钟。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ringchannel20>RingChannel20+<a href=#ringchannel20 class=hash-link aria-label=RingChannel20+的直接链接 title=RingChannel20+的直接链接 translate=no>​</a></h2>
+<p>自定义提示音的音频播放通道。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>RING_CHANNEL_ALARM<td>0<td>闹钟通道。<tr><td>RING_CHANNEL_MEDIA<td>1<td>媒体通道。<tr><td>RING_CHANNEL_NOTIFICATION23+<td>2<td>通知通道。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=actionbutton>ActionButton<a href=#actionbutton class=hash-link aria-label=ActionButton的直接链接 title=ActionButton的直接链接 translate=no>​</a></h2>
+<p>弹出的提醒中按钮的类型和标题。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>否<td>否<td>按钮显示的标题。<tr><td>titleResource11+<td>string<td>否<td>是<td>标题的资源ID，用于切换系统语言后读取对应标题信息。<tr><td>type<td><a href=#actionbuttontype class="">ActionButtonType</a><td>否<td>否<td>按钮的类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=wantagent>WantAgent<a href=#wantagent class=hash-link aria-label=WantAgent的直接链接 title=WantAgent的直接链接 translate=no>​</a></h2>
+<p>跳转目标的ability信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pkgName<td>string<td>否<td>否<td>指明跳转目标的包名。<tr><td>abilityName<td>string<td>否<td>否<td>指明跳转目标的ability名称。<tr><td>parameters12+<td>Record&lt;string, Object><td>否<td>是<td>需要传递到目标的参数。<tr><td>uri12+<td>string<td>否<td>是<td>指明跳转目标的uri信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=maxscreenwantagent>MaxScreenWantAgent<a href=#maxscreenwantagent class=hash-link aria-label=MaxScreenWantAgent的直接链接 title=MaxScreenWantAgent的直接链接 translate=no>​</a></h2>
+<p>通知中心弹出提醒时，全屏显示自动拉起目标的ability信息。该接口为预留接口，暂不支持使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pkgName<td>string<td>否<td>否<td>指明提醒到达时自动拉起的目标包名（如果设备在使用中，则只弹出通知横幅框）。<tr><td>abilityName<td>string<td>否<td>否<td>指明提醒到达时自动拉起的目标ability名（如果设备在使用中，则只弹出通知横幅框）。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderrequest>ReminderRequest<a href=#reminderrequest class=hash-link aria-label=ReminderRequest的直接链接 title=ReminderRequest的直接链接 translate=no>​</a></h2>
+<p>代理提醒对象，用于设置提醒类型、响铃时长等具体信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>reminderType<td><a href=#remindertype class="">ReminderType</a><td>否<td>否<td>指明代理提醒类型。<tr><td>actionButton<td><a href=#actionbutton class="">[ActionButton?, ActionButton?, ActionButton?]</a><td>否<td>是<td>弹出的提醒通知中显示的按钮。  针对三方应用：最多支持两个按钮。  针对系统应用：从API version 10开始最多支持三个按钮，API version 10之前的版本最多支持两个按钮。<tr><td>wantAgent<td><a href=#wantagent class="">WantAgent</a><td>否<td>是<td>点击通知后需要跳转的目标ability信息。<tr><td>maxScreenWantAgent<td><a href=#maxscreenwantagent class="">MaxScreenWantAgent</a><td>否<td>是<td>提醒到达时，全屏显示自动拉起目标的ability信息。如果设备正在使用中，则弹出一个通知横幅框。  说明：该接口为预留接口，暂不支持使用。<tr><td>ringDuration<td>number<td>否<td>是<td>指明响铃时长。  单位：s，默认1s，范围：[0, 1800]。  值为0时：跟随系统设置中的通知铃声。  值大于0时：如果设置了<a href=#reminderrequest class="">ReminderRequest.customRingUri</a>，则在指定的通道<a href=#reminderrequest class="">ReminderRequest.ringChannel</a>上响铃。否则使用代理提醒默认的自定义提示音。<tr><td>snoozeTimes<td>number<td>否<td>是<td>指明延时提醒次数，默认0次（不适用于倒计时提醒类型）。<tr><td>timeInterval<td>number<td>否<td>是<td>执行延时提醒间隔。  单位：s，最少30s（不适用于倒计时提醒类型）。<tr><td>title<td>string<td>否<td>是<td>指明提醒标题。<tr><td>titleResourceId18+<td>number<td>否<td>是<td>指明提醒标题的资源ID，通过$r(资源名称).id方法获取。<tr><td>content<td>string<td>否<td>是<td>指明提醒内容。<tr><td>contentResourceId18+<td>number<td>否<td>是<td>指明提醒内容的资源ID，通过$r(资源名称).id方法获取。<tr><td>expiredContent<td>string<td>否<td>是<td>指明提醒过期后需要显示的内容。<tr><td>expiredContentResourceId18+<td>number<td>否<td>是<td>指明提醒过期后内容的资源ID，通过$r(资源名称).id方法获取。<tr><td>snoozeContent<td>string<td>否<td>是<td>指明延时提醒时需要显示的内容（不适用于倒计时提醒类型）。<tr><td>snoozeContentResourceId18+<td>number<td>否<td>是<td>指明延时提醒内容的资源ID，通过$r(资源名称).id方法获取。<tr><td>notificationId<td>number<td>否<td>是<td>指明提醒使用的通知的id号，需开发者传入，相同id号的提醒会覆盖，默认值为0。<tr><td>groupId11+<td>string<td>否<td>是<td>指明提醒使用相同的组id。相同组id中，一个提醒被点击不在提醒后，组内其他提醒也会被取消。<tr><td>slotType<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager#slottype>notification.SlotType</a><td>否<td>是<td>指明提醒的通道渠道类型。<tr><td>tapDismissed10+<td>boolean<td>否<td>是<td>通知是否自动清除，默认值为true，具体请参考<a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification/js-apis-inner-notification-notificationrequest/js-apis-inner-notification-notificationrequest#notificationrequest-1>NotificationRequest.tapDismissed</a>。  - true：点击通知消息或通知按钮后，自动删除当前通知。  - false：点击通知消息或通知按钮后，保留当前通知。<tr><td>autoDeletedTime10+<td>number<td>否<td>是<td>自动清除的时间。  数据格式：时间戳，单位：ms，具体请参考<a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/notification/js-apis-inner-notification-notificationrequest/js-apis-inner-notification-notificationrequest#notificationrequest-1>NotificationRequest.autoDeletedTime</a>。<tr><td>snoozeSlotType11+<td><a class="" href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager#slottype>notification.SlotType</a><td>否<td>是<td>指明延时提醒的通道渠道类型（不适用于倒计时提醒类型）。<tr><td>customRingUri11+<td>string<td>否<td>是<td>指明自定义提示音的uri，提示音文件必须放在resources/rawfile目录下，支持m4a、aac、mp3、ogg、wav、flac、amr等格式。<tr><td>ringChannel20+<td><a href=#ringchannel20 class="">RingChannel</a><td>否<td>是<td>指明自定义提示音的音频播放通道，默认为闹钟通道。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderrequestcalendar>ReminderRequestCalendar<a href=#reminderrequestcalendar class=hash-link aria-label=ReminderRequestCalendar的直接链接 title=ReminderRequestCalendar的直接链接 translate=no>​</a></h2>
+<p>ReminderRequestCalendar extends ReminderRequest</p>
+<p>日历实例对象，用于设置提醒的时间。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>dateTime<td><a href=#localdatetime class="">LocalDateTime</a><td>否<td>否<td>指明提醒的目标时间。<tr><td>repeatMonths<td>Array&lt;number><td>否<td>是<td>指明重复提醒的月份，范围：[1, 12]，默认为空。需和repeatDays一起使用。<tr><td>repeatDays<td>Array&lt;number><td>否<td>是<td>指明重复提醒的日期，范围：[1, 31]，默认为空。需和repeatMonths一起使用。<tr><td>daysOfWeek11+<td>Array&lt;number><td>否<td>是<td>指明每周哪几天需要重复提醒。范围为周一到周日，对应数字为1到7，默认为空。<tr><td>endDateTime12+<td><a href=#localdatetime class="">LocalDateTime</a><td>否<td>是<td>指明提醒的结束时间。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderrequestalarm>ReminderRequestAlarm<a href=#reminderrequestalarm class=hash-link aria-label=ReminderRequestAlarm的直接链接 title=ReminderRequestAlarm的直接链接 translate=no>​</a></h2>
+<p>ReminderRequestAlarm extends ReminderRequest</p>
+<p>闹钟实例对象，用于设置提醒的时间。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>hour<td>number<td>否<td>否<td>指明提醒的目标时刻，范围：[0, 23]。<tr><td>minute<td>number<td>否<td>否<td>指明提醒的目标分钟，范围：[0, 59]。<tr><td>daysOfWeek<td>Array&lt;number><td>否<td>是<td>指明每周哪几天需要重复提醒。范围为周一到周日，对应数字为1到7，默认为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderrequesttimer>ReminderRequestTimer<a href=#reminderrequesttimer class=hash-link aria-label=ReminderRequestTimer的直接链接 title=ReminderRequestTimer的直接链接 translate=no>​</a></h2>
+<p>ReminderRequestTimer extends ReminderRequest</p>
+<p>倒计时实例对象，用于设置提醒的时间。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>triggerTimeInSeconds<td>number<td>否<td>否<td>指明倒计时的秒数。  单位：s</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=localdatetime>LocalDateTime<a href=#localdatetime class=hash-link aria-label=LocalDateTime的直接链接 title=LocalDateTime的直接链接 translate=no>​</a></h2>
+<p>用于日历类提醒设置时指定时间信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>year<td>number<td>否<td>否<td>年<tr><td>month<td>number<td>否<td>否<td>月，取值范围是[1, 12]。<tr><td>day<td>number<td>否<td>否<td>日，取值范围是[1, 31]。<tr><td>hour<td>number<td>否<td>否<td>时，取值范围是[0, 23]。<tr><td>minute<td>number<td>否<td>否<td>分，取值范围是[0, 59]。<tr><td>second<td>number<td>否<td>是<td>秒，取值范围是[0, 59]。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderinfo12>ReminderInfo12+<a href=#reminderinfo12 class=hash-link aria-label=ReminderInfo12+的直接链接 title=ReminderInfo12+的直接链接 translate=no>​</a></h2>
+<p>代理提醒信息，包含 ReminderRequest 和 ReminderId。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>reminderId<td>number<td>否<td>否<td>发布提醒后返回的id。<tr><td>reminderReq<td><a href=#reminderrequest class="">ReminderRequest</a><td>否<td>否<td>代理提醒对象。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reminderstate23>ReminderState23+<a href=#reminderstate23 class=hash-link aria-label=ReminderState23+的直接链接 title=ReminderState23+的直接链接 translate=no>​</a></h2>
+<p>代理提醒状态信息。状态信息会在如下两种情况发送通知：</p>
+<ol>
+<li class="">用户点击代理提醒的通知按钮时，如果应用进程存在，则会发送用户点击的按钮类型的通知给应用。如果应用未运行，则无法收到通知。</li>
+<li class="">由于第1点不能保证应用可以收到通知，因此应用注册新的回调函数时，会将该应用下所有用户点击的按钮类型回调给应用。状态信息最多保存30天，应用注册新的回调函数时或者超过30天未注册回调函数，会删除缓存的状态信息。</li>
+</ol>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Notification.ReminderAgent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>reminderId<td>number<td>否<td>否<td>发布提醒后返回的id。<tr><td>buttonType<td><a href=#actionbuttontype class="">ActionButtonType</a><td>否<td>否<td>按钮类型。<tr><td>isMessageResent<td>boolean<td>否<td>否<td>信息是否为重复发送。  - false：信息首次发送。具体场景包括：用户点击代理提醒的通知按钮时，应用进程存在；用户点击代理提醒的通知按钮时，应用未运行，后续应用注册新的回调函数。  - true：信息重复发送，具体场景为：应用进程存在，用户点击代理提醒的通知按钮后，应用注册新的回调函数。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts-errcode/errorcode-webview/errorcode-webview><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Webview错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-resourceschedule-backgroundtaskmanager/js-apis-resourceschedule-backgroundtaskmanager><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.resourceschedule.backgroundTaskManager (后台任务管理)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#reminderagentmanagerpublishreminder class="table-of-contents__link toc-highlight">reminderAgentManager.publishReminder</a><li><a href=#reminderagentmanagerpublishreminder-1 class="table-of-contents__link toc-highlight">reminderAgentManager.publishReminder</a><li><a href=#reminderagentmanagercancelreminder class="table-of-contents__link toc-highlight">reminderAgentManager.cancelReminder</a><li><a href=#reminderagentmanagercancelreminder-1 class="table-of-contents__link toc-highlight">reminderAgentManager.cancelReminder</a><li><a href=#reminderagentmanagergetvalidreminders class="table-of-contents__link toc-highlight">reminderAgentManager.getValidReminders</a><li><a href=#reminderagentmanagergetvalidreminders-1 class="table-of-contents__link toc-highlight">reminderAgentManager.getValidReminders</a><li><a href=#reminderagentmanagercancelallreminders class="table-of-contents__link toc-highlight">reminderAgentManager.cancelAllReminders</a><li><a href=#reminderagentmanagercancelallreminders-1 class="table-of-contents__link toc-highlight">reminderAgentManager.cancelAllReminders</a><li><a href=#reminderagentmanageraddnotificationslot class="table-of-contents__link toc-highlight">reminderAgentManager.addNotificationSlot</a><li><a href=#reminderagentmanageraddnotificationslot-1 class="table-of-contents__link toc-highlight">reminderAgentManager.addNotificationSlot</a><li><a href=#reminderagentmanagerremovenotificationslot class="table-of-contents__link toc-highlight">reminderAgentManager.removeNotificationSlot</a><li><a href=#reminderagentmanagerremovenotificationslot-1 class="table-of-contents__link toc-highlight">reminderAgentManager.removeNotificationSlot</a><li><a href=#reminderagentmanagergetallvalidreminders12 class="table-of-contents__link toc-highlight">reminderAgentManager.getAllValidReminders12+</a><li><a href=#reminderagentmanageraddexcludedate12 class="table-of-contents__link toc-highlight">reminderAgentManager.addExcludeDate12+</a><li><a href=#reminderagentmanagerdeleteexcludedates12 class="table-of-contents__link toc-highlight">reminderAgentManager.deleteExcludeDates12+</a><li><a href=#reminderagentmanagergetexcludedates12 class="table-of-contents__link toc-highlight">reminderAgentManager.getExcludeDates12+</a><li><a href=#reminderagentmanagerupdatereminder20 class="table-of-contents__link toc-highlight">reminderAgentManager.updateReminder20+</a><li><a href=#reminderagentmanagercancelreminderondisplay23 class="table-of-contents__link toc-highlight">reminderAgentManager.cancelReminderOnDisplay23+</a><li><a href=#reminderagentmanagersubscribereminderstate23 class="table-of-contents__link toc-highlight">reminderAgentManager.subscribeReminderState23+</a><li><a href=#reminderagentmanagerunsubscribereminderstate23 class="table-of-contents__link toc-highlight">reminderAgentManager.unsubscribeReminderState23+</a><li><a href=#actionbuttontype class="table-of-contents__link toc-highlight">ActionButtonType</a><li><a href=#remindertype class="table-of-contents__link toc-highlight">ReminderType</a><li><a href=#ringchannel20 class="table-of-contents__link toc-highlight">RingChannel20+</a><li><a href=#actionbutton class="table-of-contents__link toc-highlight">ActionButton</a><li><a href=#wantagent class="table-of-contents__link toc-highlight">WantAgent</a><li><a href=#maxscreenwantagent class="table-of-contents__link toc-highlight">MaxScreenWantAgent</a><li><a href=#reminderrequest class="table-of-contents__link toc-highlight">ReminderRequest</a><li><a href=#reminderrequestcalendar class="table-of-contents__link toc-highlight">ReminderRequestCalendar</a><li><a href=#reminderrequestalarm class="table-of-contents__link toc-highlight">ReminderRequestAlarm</a><li><a href=#reminderrequesttimer class="table-of-contents__link toc-highlight">ReminderRequestTimer</a><li><a href=#localdatetime class="table-of-contents__link toc-highlight">LocalDateTime</a><li><a href=#reminderinfo12 class="table-of-contents__link toc-highlight">ReminderInfo12+</a><li><a href=#reminderstate23 class="table-of-contents__link toc-highlight">ReminderState23+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

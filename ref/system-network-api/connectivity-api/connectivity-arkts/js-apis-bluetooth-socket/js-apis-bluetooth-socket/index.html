@@ -1,0 +1,1032 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.bluetooth.socket (蓝牙socket模块) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.bluetooth.socket (蓝牙socket模块) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供一种蓝牙套接字功能，可实现设备间连接和数据传输。当两个设备间进行蓝牙套接字通信交互时，依据设备功能的不同，可区分客户端与服务端。 /><meta data-rh=true property=og:description content=本模块提供一种蓝牙套接字功能，可实现设备间连接和数据传输。当两个设备间进行蓝牙套接字通信交互时，依据设备功能的不同，可区分客户端与服务端。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket","name":"@ohos.bluetooth.socket (蓝牙socket模块)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="Connectivity Kit（短距通信服务）" class=categoryLinkLabel_W154>Connectivity Kit（短距通信服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="@ohos.bluetooth.a2dp (蓝牙a2dp模块)" class=linkLabel_WmDU>@ohos.bluetooth.a2dp (蓝牙a2dp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-access/js-apis-bluetooth-access><span title="@ohos.bluetooth.access (蓝牙access模块)" class=linkLabel_WmDU>@ohos.bluetooth.access (蓝牙access模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-baseprofile/js-apis-bluetooth-baseprofile><span title="@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)" class=linkLabel_WmDU>@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-ble/js-apis-bluetooth-ble><span title="@ohos.bluetooth.ble (蓝牙ble模块)" class=linkLabel_WmDU>@ohos.bluetooth.ble (蓝牙ble模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-connection/js-apis-bluetooth-connection><span title="@ohos.bluetooth.connection (蓝牙connection模块)" class=linkLabel_WmDU>@ohos.bluetooth.connection (蓝牙connection模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-constant/js-apis-bluetooth-constant><span title="@ohos.bluetooth.constant (蓝牙constant模块)" class=linkLabel_WmDU>@ohos.bluetooth.constant (蓝牙constant模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-common/js-apis-bluetooth-common><span title="@ohos.bluetooth.common (蓝牙common模块)" class=linkLabel_WmDU>@ohos.bluetooth.common (蓝牙common模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hfp/js-apis-bluetooth-hfp><span title="@ohos.bluetooth.hfp (蓝牙hfp模块)" class=linkLabel_WmDU>@ohos.bluetooth.hfp (蓝牙hfp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid><span title="@ohos.bluetooth.hid (蓝牙hid模块)" class=linkLabel_WmDU>@ohos.bluetooth.hid (蓝牙hid模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pan/js-apis-bluetooth-pan><span title="@ohos.bluetooth.pan (蓝牙pan模块)" class=linkLabel_WmDU>@ohos.bluetooth.pan (蓝牙pan模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket><span title="@ohos.bluetooth.socket (蓝牙socket模块)" class=linkLabel_WmDU>@ohos.bluetooth.socket (蓝牙socket模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pbap/js-apis-bluetooth-pbap><span title="@ohos.bluetooth.pbap (蓝牙pbap模块)" class=linkLabel_WmDU>@ohos.bluetooth.pbap (蓝牙pbap模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-map/js-apis-bluetooth-map><span title="@ohos.bluetooth.map (蓝牙map模块)" class=linkLabel_WmDU>@ohos.bluetooth.map (蓝牙map模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-connectedtag/js-apis-connectedtag><span title="@ohos.connectedTag (有源标签)" class=linkLabel_WmDU>@ohos.connectedTag (有源标签)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-cardemulation/js-apis-cardemulation><span title="@ohos.nfc.cardEmulation (标准NFC-cardEmulation)" class=linkLabel_WmDU>@ohos.nfc.cardEmulation (标准NFC-cardEmulation)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfccontroller/js-apis-nfccontroller><span title="@ohos.nfc.controller (标准NFC)" class=linkLabel_WmDU>@ohos.nfc.controller (标准NFC)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag><span title="@ohos.nfc.tag (标准NFC-Tag)" class=linkLabel_WmDU>@ohos.nfc.tag (标准NFC-Tag)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-secureelement/js-apis-secureelement><span title="@ohos.secureElement (安全单元的通道管理)" class=linkLabel_WmDU>@ohos.secureElement (安全单元的通道管理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanager/js-apis-wifimanager><span title="@ohos.wifiManager (WLAN)" class=linkLabel_WmDU>@ohos.wifiManager (WLAN)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext><span title="@ohos.wifiManagerExt (WLAN扩展接口)" class=linkLabel_WmDU>@ohos.wifiManagerExt (WLAN扩展接口)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-fusionconnectivity-partneragent/js-apis-fusionconnectivity-partneragent><span title=@ohos.FusionConnectivity.partnerAgent（设备状态通知模块） class=linkLabel_WmDU>@ohos.FusionConnectivity.partnerAgent（设备状态通知模块）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensioncontext/is-fusionconnectivity-partneragentextensioncontext><span title="@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensionability/is-fusionconnectivity-partneragentextensionability><span title="@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech><span title=tag class=categoryLinkLabel_W154>tag</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-c/connectivity-module/capi-bluetooth/capi-bluetooth><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-dep/js-apis-bluetooth/js-apis-bluetooth><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/distributed-service-api/distributed-service-arkts/js-apis-distributeddevicemanager/js-apis-distributeddevicemanager><span title="Distributed Service Kit（分布式管理服务）" class=categoryLinkLabel_W154>Distributed Service Kit（分布式管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/nearlink-api/nearlink-arkts/nearlink-manager/nearlink-manager><span title="NearLink Kit（星闪服务）" class=categoryLinkLabel_W154>NearLink Kit（星闪服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection><span title="Network Kit（网络服务）" class=categoryLinkLabel_W154>Network Kit（网络服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="Network Boost Kit（网络加速服务）" class=categoryLinkLabel_W154>Network Boost Kit（网络加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="Remote Communication Kit（远场通信服务）" class=categoryLinkLabel_W154>Remote Communication Kit（远场通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/service-collaboration-api/servicecollaboration-arkts/servicecollaboration-collaborationcamera/servicecollaboration-collaborationcamera><span title="Service Collaboration Kit（协同服务）" class=categoryLinkLabel_W154>Service Collaboration Kit（协同服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/telephony-api/telephony-arkts/js-apis-call/js-apis-call><span title="Telephony Kit（蜂窝通信服务）" class=categoryLinkLabel_W154>Telephony Kit（蜂窝通信服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>网络</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Connectivity Kit（短距通信服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.bluetooth.socket (蓝牙socket模块)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.bluetooth.socket (蓝牙socket模块)</h1></header>
+<p>本模块提供一种蓝牙套接字功能，可实现设备间连接和数据传输。当两个设备间进行蓝牙套接字通信交互时，依据设备功能的不同，可区分客户端与服务端。</p>
+<p>支持的套接字链路类型包括<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#rfcomm>RFCOMM</a>和<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#l2cap>L2CAP</a>。</p>
+<ul>
+<li class="">RFCOMM链路类型也称为串口通信协议（Serial Port Profile, <a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#spp>SPP</a>），适用于传统蓝牙（<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#br>BR</a>/<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#edr>EDR</a>）。</li>
+<li class="">L2CAP链路类型适用于传统蓝牙（BR/EDR）和低功耗蓝牙（<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#ble>BLE</a>）。</li>
+</ul>
+<p>通过<a href=#socketsppconnect class="">socket.sppConnect</a>创建客户端套接字并向服务端发起连接。</p>
+<p>通过<a href=#socketspplisten class="">socket.sppListen</a>创建服务端套接字并监听客户端的连接。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { socket } from '@kit.ConnectivityKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketspplisten>socket.sppListen<a href=#socketspplisten class=hash-link aria-label=socket.sppListen的直接链接 title=socket.sppListen的直接链接 translate=no>​</a></h2>
+<p>sppListen(name: string, options: SppOptions, callback: AsyncCallback&lt;number>): void</p>
+<p>服务端使用，创建一个服务端监听套接字。使用Callback异步回调。</p>
+<ul>
+<li class="">通过入参<a href=#sppoptions class="">socket.SppOptions</a>的type参数，可以创建不同链路类型的服务端套接字，适用于不同的场景。该操作会在蓝牙子系统中注册对应的服务，表示服务端支持的能力。</li>
+<li class="">客户端可通过<a href=#socketsppconnect class="">socket.sppConnect</a>向该服务端发起连接请求。</li>
+<li class="">当应用不再需要该服务端套接字时，需通过<a href=#socketsppcloseserversocket class="">socket.sppCloseServerSocket</a>主动关闭创建时获取到的套接字，蓝牙子系统会删除此前注册的服务。如果此时客户端发起连接，就会连接失败。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>服务的名称，该字符串的字符个数范围为[0, 256]。<tr><td>options<td><a href=#sppoptions class="">SppOptions</a><td>是<td>用于监听的套接字配置参数。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数。当创建服务端套接字成功，err为undefined，data为获取到的服务端套接字的ID，有效值为非负值；否则为错误对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>2900001<td>Service stopped.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900004<td>Profile not supported.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let serverNumber = -1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let serverSocket = (code: BusinessError, number: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('sppListen error, code is ' + code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    serverNumber = number;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('sppListen success, serverNumber = ' + serverNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 以RFCOMM链路类型套接字为例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let sppOption:socket.SppOptions = {uuid: '00001810-0000-1000-8000-00805F9B34FB', secure: false, type: socket.SppType.SPP_RFCOMM};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppListen('server1', sppOption, serverSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketgetl2cappsm20>socket.getL2capPsm20+<a href=#socketgetl2cappsm20 class=hash-link aria-label=socket.getL2capPsm20+的直接链接 title=socket.getL2capPsm20+的直接链接 translate=no>​</a></h2>
+<p>getL2capPsm(serverSocket: number): number</p>
+<p>获取服务端L2CAP链路类型套接字的协议/服务多路复用器值（Protocol/Service Multiplexer, <a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#psm>PSM</a>），该值用于标识特定的服务数据传输通道。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>需要在服务端调用完<a href=#socketspplisten class="">socket.sppListen</a>后调用该接口，且传入的链路类型<a href=#spptype class="">SppType</a>需是SPP_L2CAP或SPP_L2CAP_BLE。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>serverSocket<td>number<td>是<td>服务端套接字的ID。  该值是调用<a href=#socketspplisten class="">socket.sppListen</a>接口后，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回L2CAP链路类型套接字的psm值。  - <a href=#spptype class="">SppType</a>设置为SPP_L2CAP_BLE时，返回值的有效值范围为[0x01, 0xFF]。  - <a href=#spptype class="">SppType</a>设置为SPP_L2CAP时，返回值的有效值范围为[0x0000, 0xFFFF]。  - 服务端通道建立异常或<a href=#spptype class="">SppType</a>非L2CAP链路类型时，返回-1。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 服务端获取客户端设备地址。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let serverNumber = 1; // 此处serverNumber需赋值为调用sppListen接口后，回调中得到的serverNumber。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let l2capPsm: number = socket.getL2capPsm(serverNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppaccept>socket.sppAccept<a href=#socketsppaccept class=hash-link aria-label=socket.sppAccept的直接链接 title=socket.sppAccept的直接链接 translate=no>​</a></h2>
+<p>sppAccept(serverSocket: number, callback: AsyncCallback&lt;number>): void</p>
+<p>服务端使用，接受客户端的套接字连接请求。使用Callback异步回调。</p>
+<ul>
+<li class="">须在调用<a href=#socketspplisten class="">socket.sppListen</a>创建服务端套接字成功后，才能调用该接口监听客户端的连接请求。</li>
+<li class="">客户端可通过<a href=#socketsppconnect class="">socket.sppConnect</a>向该服务端发起连接请求。</li>
+<li class="">连接建立成功后，即可通过<a href=#socketsppwrite class="">socket.sppWrite</a>、<a href=#socketsppwriteasync18 class="">socket.sppWriteAsync</a>、<a href=#socketsppreadasync18 class="">socket.sppReadAsync</a>等接口，同客户端进行数据传输。</li>
+<li class="">当服务端不再需要已建立的连接时，可通过<a href=#socketsppcloseclientsocket class="">socket.sppCloseClientSocket</a>主动断开指定的客户端套接字连接。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>serverSocket<td>number<td>是<td>服务端套接字的ID。  该值是调用<a href=#socketspplisten class="">socket.sppListen</a>接口后，通过其异步callback获取到的。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数。当收到客户端的连接请求且连接建立成功时，err为undefined，data是用于标识发起此次连接请求的客户端套接字ID，有效值为非负值；否则err为错误对象。<tr><td><strong><strong>错误码</strong></strong>：<td><td><td></table>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>2900001<td>Service stopped.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900004<td>Profile not supported.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = -1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let serverNumber = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let acceptClientSocket = (code: BusinessError, number: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('sppListen error, code is ' + code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    clientNumber = number; // 获取的clientNumber用作客户端后续读/写操作socket的id。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('sppListen success, clientNumber = ' + clientNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppAccept(serverNumber, acceptClientSocket); // serverNumber是sppListen回调中得到的serverNumber。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppconnect>socket.sppConnect<a href=#socketsppconnect class=hash-link aria-label=socket.sppConnect的直接链接 title=socket.sppConnect的直接链接 translate=no>​</a></h2>
+<p>sppConnect(deviceId: string, options: SppOptions, callback: AsyncCallback&lt;number>): void</p>
+<p>客户端使用，创建一个客户端套接字，并向服务端的特定服务发起连接请求。</p>
+<ul>
+<li class="">通过<a href=#sppoptions class="">SppOptions</a>参数的type表示需要连接的服务类型。</li>
+<li class="">需确保服务端设备已具备需要连接的服务。服务端可通过<a href=#socketspplisten class="">socket.sppListen</a>注册并监听连接请求。</li>
+<li class="">连接建立成功后，即可通过<a href=#socketsppwrite class="">socket.sppWrite</a>或<a href=#socketsppwriteasync18 class="">socket.sppWriteAsync</a>接口，同服务端进行数据传输。</li>
+<li class="">当客户端不再需要已建立的连接时，可通过<a href=#socketsppcloseclientsocket class="">socket.sppCloseclientSocket</a>主动断开连接。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>deviceId<td>string<td>是<td>对端设备地址，例如："XX:XX:XX:XX:XX:XX"。<tr><td>options<td><a href=#sppoptions class="">SppOptions</a><td>是<td>客户端套接字连接配置参数。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数。当客户端发起连接成功，err为undefined，data为当前客户端套接字的ID，有效值为非负值；否则为错误对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>2900001<td>Service stopped.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900004<td>Profile not supported.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientSocket = (code: BusinessError, number: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('sppConnect error, code is ' + code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取的number用作客户端后续读/写操作的socket id。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('bluetooth clientSocket Number: ' + number);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 以RFCOMM链路类型套接字为例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let sppOption:socket.SppOptions = {uuid: '00001810-0000-1000-8000-00805F9B34FB', secure: false, type: socket.SppType.SPP_RFCOMM};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppConnect('XX:XX:XX:XX:XX:XX', sppOption, clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketgetdeviceid17>socket.getDeviceId17+<a href=#socketgetdeviceid17 class=hash-link aria-label=socket.getDeviceId17+的直接链接 title=socket.getDeviceId17+的直接链接 translate=no>​</a></h2>
+<p>getDeviceId(clientSocket: number): string</p>
+<p>客户端和服务端均可使用，获取套接字连接中的对端设备蓝牙地址。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">socket.sppAccept</a>或<a href=#socketsppconnect class="">socket.sppConnect</a>接口后，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>返回对端设备地址。  基于信息安全考虑，此处获取的设备地址为虚拟MAC地址。  - 已配对的地址不会变更。  - 若该设备重启蓝牙开关，重新获取到的虚拟地址会立即变更。  - 若取消配对，蓝牙子系统会根据该地址的实际使用情况，决策后续变更时机；若其他应用正在使用该地址，则不会立刻变更。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 服务端获取客户端设备地址。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientSocket = 1; // clientSocket是sppAccept回调中得到的，调用getDeviceId接口前需更新clientSocket。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let deviceAddr: string = socket.getDeviceId(clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 客户端获取服务端设备地址。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// clientSocket是sppConnect回调中得到的，调getDeviceId接口前需更新clientSocket。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let deviceAddr: string = socket.getDeviceId(clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppcloseserversocket>socket.sppCloseServerSocket<a href=#socketsppcloseserversocket class=hash-link aria-label=socket.sppCloseServerSocket的直接链接 title=socket.sppCloseServerSocket的直接链接 translate=no>​</a></h2>
+<p>sppCloseServerSocket(socket: number): void</p>
+<p>服务端使用，删除指定的服务端套接字。</p>
+<ul>
+<li class="">需先调用<a href=#socketspplisten class="">socket.sppListen</a>并获取到有效的服务端监听套接字标识符。</li>
+<li class="">若服务端无需继续监听，可调用本接口以关闭监听套接字，蓝牙子系统会删除此前注册的服务。如果此时客户端发起连接，就会连接失败。</li>
+<li class="">若服务端此时与其他客户端存在连接，该接口调用后，也会主动断开与客户端的连接。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>socket<td>number<td>是<td>服务端监听套接字的ID。  该值是调用<a href=#socketspplisten class="">socket.sppListen</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.<tr><td>801<td>Capability not supported.<tr><td>2900001<td>Service stopped.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let serverNumber = 1; // 此处serverNumber需赋值为调用sppListen接口后，在回调中得到的serverNumber。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppCloseServerSocket(serverNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppcloseclientsocket>socket.sppCloseClientSocket<a href=#socketsppcloseclientsocket class=hash-link aria-label=socket.sppCloseClientSocket的直接链接 title=socket.sppCloseClientSocket的直接链接 translate=no>​</a></h2>
+<p>sppCloseClientSocket(socket: number): void</p>
+<p>客户端和服务端均可使用，关闭指定的客户端套接字，并断开客户端和服务端之间的连接。</p>
+<ul>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">当应用不再需要已建立好的套接字连接时，需主动调用该接口断开客户端和服务端之间的连接。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>socket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">socket.sppAccept</a>或<a href=#socketsppconnect class="">socket.sppConnect</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.<tr><td>801<td>Capability not supported.<tr><td>2900001<td>Service stopped.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = 1; // 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppCloseClientSocket(clientNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppwrite>socket.sppWrite<a href=#socketsppwrite class=hash-link aria-label=socket.sppWrite的直接链接 title=socket.sppWrite的直接链接 translate=no>​</a></h2>
+<p>sppWrite(clientSocket: number, data: ArrayBuffer): void</p>
+<p>客户端和服务端均可使用，向对端设备发送数据。</p>
+<ul>
+<li class="">仅在双方成功建立连接后，调用本接口才有效。</li>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">若开发者需感知传输过程中异常断连等错误，建议使用<a href=#socketsppwriteasync18 class="">socket.sppWriteAsync</a>。</li>
+<li class="">按照蓝牙协议规范，数据通道在空闲状态需进入休眠模式以降低功耗。蓝牙子系统实现上，通道在5-7s内没有数据交互时会进入休眠模式，将导致下次调用此接口发送数据前，会耗费500ms左右退出休眠模式才开始发送数据。</li>
+<li class="">若想减少每次发送数据前退出休眠模式的耗时，建议每3s左右可往数据通道上发送一次任意大小的心跳数据，对数据通道进行保活，可防止进入休眠模式，但同时也会提高设备功耗。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_L2CAP</a>或<a href=#spptype class="">SPP_L2CAP_BLE</a>时，单次发送数据大小存在限制，单位为Byte，超过限制范围的数据将被截断。链路类型为SPP_L2CAP_BLE时单次发送数据大小范围为[1, 65535]；链路类型为SPP_L2CAP时服务端单次发送数据大小范围为[1, 4091]，客户端单次发送数据大小范围为[1, 8085]。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">socket.sppAccept</a>或<a href=#socketsppconnect class="">socket.sppConnect</a>接口，通过其异步callback获取到的。<tr><td>data<td>ArrayBuffer<td>是<td>写入的数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.<tr><td>801<td>Capability not supported.<tr><td>2901054<td>IO error.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = 1; // 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arrayBuffer = new ArrayBuffer(8);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let data = new Uint8Array(arrayBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">data[0] = 123;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppWrite(clientNumber, arrayBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketonsppread>socket.on('sppRead')<a href=#socketonsppread class=hash-link aria-label="socket.on('sppRead')的直接链接" title="socket.on('sppRead')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'sppRead', clientSocket: number, callback: Callback&lt;ArrayBuffer>): void</p>
+<p>客户端和服务端均可使用，订阅套接字读请求事件。调用该接口后，当收到对端发送的数据会执行订阅的回调函数。</p>
+<ul>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">不可以和API version 18开始支持的<a href=#socketsppreadasync18 class="">socket.sppReadAsync</a>接口混用，同一路套接字连接只能使用socket.on('sppRead')接口或者<a href=#socketsppreadasync18 class="">socket.sppReadAsync</a>接口。</li>
+<li class="">若开发者需感知传输过程中异常断连等错误，建议使用<a href=#socketsppreadasync18 class="">socket.sppReadAsync</a>。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_RFCOMM</a>时，当接收数据大小超过1024字节时，会自动分多次接收，每次接收数据大小范围为[1, 1024]。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_L2CAP</a>或<a href=#spptype class="">SPP_L2CAP_BLE</a>时，单次接收数据大小存在限制，需一次性读取全部数据，单位为Byte，超过最大接收数据大小限制将被截断。链路类型为SPP_L2CAP_BLE时单次接收数据大小范围为[1, 65535]；链路类型为SPP_L2CAP时服务端和客户端单次接收数据大小范围为[1, 8087]。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件回调类型，支持的事件为'sppRead'，表示订阅spp读请求事件。  当收到了对端发送的数据时，触发该事件。<tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">socket.sppAccept</a>或<a href=#socketsppconnect class="">socket.sppConnect</a>接口，通过其异步callback获取到的。<tr><td>callback<td>Callback&lt;ArrayBuffer><td>是<td>指定订阅的回调函数，会返回读取到的数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.<tr><td>801<td>Capability not supported.<tr><td>2901054<td>IO error.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = 1; // 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let dataRead = (dataBuffer: ArrayBuffer) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let data = new Uint8Array(dataBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('bluetooth data length is: ' + data.byteLength);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.on('sppRead', clientNumber, dataRead);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketoffsppread>socket.off('sppRead')<a href=#socketoffsppread class=hash-link aria-label="socket.off('sppRead')的直接链接" title="socket.off('sppRead')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'sppRead', clientSocket: number, callback?: Callback&lt;ArrayBuffer>): void</p>
+<p>取消订阅套接字读请求事件。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件回调类型，支持的事件为'sppRead'，表示取消订阅spp读请求事件。<tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">socket.sppAccept</a>或<a href=#socketsppconnect class="">socket.sppConnect</a>接口，通过其异步callback获取到的。<tr><td>callback<td>Callback&lt;ArrayBuffer><td>否<td>指定取消订阅的回调函数通知。  若传参，则需与<a href=#socketonsppread class="">socket.on('sppRead')</a>中的回调函数一致；若无传参，则取消订阅该type对应的所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = 1; // 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.off('sppRead', clientNumber);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppwriteasync18>socket.sppWriteAsync18+<a href=#socketsppwriteasync18 class=hash-link aria-label=socket.sppWriteAsync18+的直接链接 title=socket.sppWriteAsync18+的直接链接 translate=no>​</a></h2>
+<p>sppWriteAsync(clientSocket: number, data: ArrayBuffer): Promise&lt;void></p>
+<p>客户端和服务端均可使用，向对端设备发送数据。使用Promise异步回调。该接口支持断开连接时，会抛出错误码并返回。</p>
+<ul>
+<li class="">仅在双方成功建立连接后，调用本接口才有效。</li>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">按照蓝牙协议规范，数据通道在空闲状态需进入休眠模式以降低功耗。蓝牙子系统实现上，通道在5-7s内没有数据交互时会进入休眠模式，将导致下次调用此接口发送数据前，会耗费500ms左右退出休眠模式才开始发送数据。</li>
+<li class="">若想减少每次发送数据前退休眠模式的耗时，建议每3s左右可往数据通道上发送一次任意大小的心跳数据，对数据通道进行保活，可防止进入休眠模式，但同时也会提高设备功耗。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_L2CAP</a>或<a href=#spptype class="">SPP_L2CAP_BLE</a>时，单次发送数据大小存在限制，单位为Byte，超过限制大小的数据将被截断。链路类型为SPP_L2CAP_BLE时单次发送数据大小范围为[1, 65535]；链路类型为SPP_L2CAP时服务端单次发送数据大小范围为[1, 4091]，客户端单次发送数据大小范围为[1, 8085]。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">sppAccept</a>或<a href=#socketsppconnect class="">sppConnect</a>接口，通过其异步callback获取到的。<tr><td>data<td>ArrayBuffer<td>是<td>写入的数据。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Capability not supported.<tr><td>2901054<td>IO error.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientNumber = 1; // 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arrayBuffer = new ArrayBuffer(8);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let data = new Uint8Array(arrayBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppWriteAsync(clientNumber, arrayBuffer).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("sppWrite success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketsppreadasync18>socket.sppReadAsync18+<a href=#socketsppreadasync18 class=hash-link aria-label=socket.sppReadAsync18+的直接链接 title=socket.sppReadAsync18+的直接链接 translate=no>​</a></h2>
+<p>sppReadAsync(clientSocket: number): Promise&lt;ArrayBuffer></p>
+<p>客户端和服务端均可使用，读取对端发送数据的异步接口。使用Promise异步回调。该接口支持断开连接时，会抛出错误码并返回。</p>
+<ul>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">不可以和API version 10开始支持的<a href=#socketonsppread class="">socket.on('sppRead')</a>接口混用，同一路socket只能使用<a href=#socketonsppread class="">socket.on('sppRead')</a>接口或者socket.sppReadAsync接口。</li>
+<li class="">通过Promise异步返回读取的数据，建议在连接成功后循环调用去获取接收到的数据，若不及时调用会丢失接收的数据。</li>
+<li class="">该接口为异步接口，需要等异步回调结果返回后才能进行下一次调用。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_RFCOMM</a>时，当接收数据大小超过1024字节时，会自动分多次接收，每次接收数据大小范围为[1, 1024]。</li>
+<li class="">链路类型为<a href=#spptype class="">SPP_L2CAP</a>或<a href=#spptype class="">SPP_L2CAP_BLE</a>时，单次接收数据大小存在限制，需一次性读取全部数据，单位为Byte，超过最大接收数据大小限制将被截断。链路类型为SPP_L2CAP_BLE时单次接收数据大小范围为[1, 65535]；链路类型为SPP_L2CAP时服务端和客户端单次接收数据大小范围为[1, 8087]。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">sppAccept</a>或<a href=#socketsppconnect class="">sppConnect</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;ArrayBuffer><td>Promise对象。返回读取的数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Capability not supported.<tr><td>2901054<td>IO error.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function readAsync(clientNumber: number) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let flag = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    while (flag) { // 该接口需业务循环调用读取，具体循环形式按业务需要来实现，这里只是示例。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let buffer = await socket.sppReadAsync(clientNumber); // 使用await确保顺序读取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let data = new Uint8Array(buffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (data) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('sppRead success, data length = ' + data.byteLength);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 在此处理接收到的数据。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('startSppRead errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    socket.sppCloseClientSocket(clientNumber); // 发生错误时关闭连接。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketgetmaxreceivedatasize22>socket.getMaxReceiveDataSize22+<a href=#socketgetmaxreceivedatasize22 class=hash-link aria-label=socket.getMaxReceiveDataSize22+的直接链接 title=socket.getMaxReceiveDataSize22+的直接链接 translate=no>​</a></h2>
+<p>getMaxReceiveDataSize(clientSocket: number): number</p>
+<p>客户端和服务端均可使用，获取当前套接字链路类型下最大接收数据的大小。</p>
+<ul>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">若套接字链路类型为<a href=#spptype class="">SPP_RFCOMM</a>时，最大接收数据大小无限制且返回值为0。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">sppAccept</a>或<a href=#socketsppconnect class="">sppConnect</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回最大接收数据的大小，单位：Byte。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientSocket = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let result: number = socket.getMaxReceiveDataSize(clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketgetmaxtransmitdatasize22>socket.getMaxTransmitDataSize22+<a href=#socketgetmaxtransmitdatasize22 class=hash-link aria-label=socket.getMaxTransmitDataSize22+的直接链接 title=socket.getMaxTransmitDataSize22+的直接链接 translate=no>​</a></h2>
+<p>getMaxTransmitDataSize(clientSocket: number): number</p>
+<p>客户端和服务端均可使用，获取套接字当前链路类型下最大发送数据的大小。</p>
+<ul>
+<li class="">若客户端使用，需在调用<a href=#socketsppconnect class="">socket.sppConnect</a>后，且连接成功后使用。</li>
+<li class="">若服务端使用，需在调用<a href=#socketsppaccept class="">socket.sppAccept</a>后，且连接成功后使用。</li>
+<li class="">若套接字链路类型为<a href=#spptype class="">SPP_RFCOMM</a>时，最大发送数据大小无限制且返回值为0。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">sppAccept</a>或<a href=#socketsppconnect class="">sppConnect</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回最大发送数据的大小，单位：Byte。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientSocket = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let result: number = socket.getMaxTransmitDataSize(clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=socketisconnected22>socket.isConnected22+<a href=#socketisconnected22 class=hash-link aria-label=socket.isConnected22+的直接链接 title=socket.isConnected22+的直接链接 translate=no>​</a></h2>
+<p>isConnected(clientSocket: number): boolean</p>
+<p>客户端和服务端均可使用，检查当前链路是否已连接。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clientSocket<td>number<td>是<td>客户端套接字的ID。  该值是调用<a href=#socketsppaccept class="">sppAccept</a>或<a href=#socketsppconnect class="">sppConnect</a>接口，通过其异步callback获取到的。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>套接字链路是否已连接，true表示已连接，false表示未连接。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 入参clientNumber由sppAccept或sppConnect接口获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let clientSocket = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let result: boolean = socket.isConnected(clientSocket);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sppoptions>SppOptions<a href=#sppoptions class=hash-link aria-label=SppOptions的直接链接 title=SppOptions的直接链接 translate=no>​</a></h2>
+<p>描述套接字的配置参数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>uuid<td>string<td>否<td>否<td>RFCOMM套接字链路类型的服务UUID，例如"00001101-0000-1000-8000-00805F9B34FB"。  - 建议开发者使用自定义的服务UUID（可通过工具函数<a class="" href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-util/js-apis-util#utilgeneraterandomuuid9>util.generateRandomUUID</a>生成），也可以使用标准协议定义的Serial Port UUID服务(00001101-0000-1000-8000-00805F9B34FB)。  - SppType设置为SPP_RFCOMM时该参数必选。  - SppType设置为SPP_L2CAP或SPP_L2CAP_BLE时设置为空字符串。<tr><td>secure<td>boolean<td>否<td>否<td>是否是安全通道。true表示是安全通道，false表示非安全通道。<tr><td>type<td><a href=#spptype class="">SppType</a><td>否<td>否<td>蓝牙套接字链路类型。<tr><td>psm20+<td>number<td>否<td>是<td>协议/服务多路复用器值，用于标识特定的服务数据传输通道。不填写该参数时默认值为-1。  对于客户端：  - SppType设置为SPP_RFCOMM时，该参数不填。  - SppType设置为SPP_L2CAP_BLE或SPP_L2CAP时，需和服务端的psm值保持一致。  对于服务端：  - SppType设置为SPP_RFCOMM时，该参数不填。  - SppType设置为SPP_L2CAP_BLE时，psm值必须由系统自动分配，有效值范围为[0x01, 0xFF]。  - SppType设置为SPP_L2CAP时，psm值可以主动设置或蓝牙子系统分配，若为主动设置，其有效范围为[0x00, 0xFFFF]，并且需要满足低位字节最低位必须为1，高位字节最低位必须为0；若为蓝牙子系统分配，该参数不填，可以通过<a href=#socketgetl2cappsm20 class="">socket.getL2capPsm</a>接口获取psm值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=spptype>SppType<a href=#spptype class=hash-link aria-label=SppType的直接链接 title=SppType的直接链接 translate=no>​</a></h2>
+<p>枚举，蓝牙套接字链路类型。</p>
+<ul>
+<li class="">不同类型的蓝牙设备需要选取不同的链路类型。</li>
+<li class="">针对低功耗蓝牙（BLE）设备，必须使用L2CAP链路类型。</li>
+<li class="">针对传统蓝牙（BR/EDR）设备，建议优先采用RFCOMM链路进行连接。其优势在于可通过UUID服务动态协商信道（即设备通过查询服务UUID自动确定通信频道的过程），同时具备更高的安全性和可靠性。</li>
+</ul>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SPP_RFCOMM<td>0<td>基于传统蓝牙（BR/EDR）的RFCOMM链路。<tr><td>SPP_L2CAP20+<td>1<td>基于传统蓝牙（BR/EDR）的L2CAP链路。<tr><td>SPP_L2CAP_BLE20+<td>2<td>基于低功耗蓝牙（BLE）的L2CAP链路。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pan/js-apis-bluetooth-pan><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.bluetooth.pan (蓝牙pan模块)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pbap/js-apis-bluetooth-pbap><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.bluetooth.pbap (蓝牙pbap模块)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#socketspplisten class="table-of-contents__link toc-highlight">socket.sppListen</a><li><a href=#socketgetl2cappsm20 class="table-of-contents__link toc-highlight">socket.getL2capPsm20+</a><li><a href=#socketsppaccept class="table-of-contents__link toc-highlight">socket.sppAccept</a><li><a href=#socketsppconnect class="table-of-contents__link toc-highlight">socket.sppConnect</a><li><a href=#socketgetdeviceid17 class="table-of-contents__link toc-highlight">socket.getDeviceId17+</a><li><a href=#socketsppcloseserversocket class="table-of-contents__link toc-highlight">socket.sppCloseServerSocket</a><li><a href=#socketsppcloseclientsocket class="table-of-contents__link toc-highlight">socket.sppCloseClientSocket</a><li><a href=#socketsppwrite class="table-of-contents__link toc-highlight">socket.sppWrite</a><li><a href=#socketonsppread class="table-of-contents__link toc-highlight">socket.on('sppRead')</a><li><a href=#socketoffsppread class="table-of-contents__link toc-highlight">socket.off('sppRead')</a><li><a href=#socketsppwriteasync18 class="table-of-contents__link toc-highlight">socket.sppWriteAsync18+</a><li><a href=#socketsppreadasync18 class="table-of-contents__link toc-highlight">socket.sppReadAsync18+</a><li><a href=#socketgetmaxreceivedatasize22 class="table-of-contents__link toc-highlight">socket.getMaxReceiveDataSize22+</a><li><a href=#socketgetmaxtransmitdatasize22 class="table-of-contents__link toc-highlight">socket.getMaxTransmitDataSize22+</a><li><a href=#socketisconnected22 class="table-of-contents__link toc-highlight">socket.isConnected22+</a><li><a href=#sppoptions class="table-of-contents__link toc-highlight">SppOptions</a><li><a href=#spptype class="table-of-contents__link toc-highlight">SppType</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

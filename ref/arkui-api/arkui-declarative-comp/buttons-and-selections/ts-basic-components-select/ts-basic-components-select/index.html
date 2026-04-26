@@ -1,0 +1,1621 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>Select | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="Select | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=提供下拉选择菜单，让用户在多个选项间选择。 /><meta data-rh=true property=og:description content=提供下拉选择菜单，让用户在多个选项间选择。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select","name":"Select","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=通用事件 class=categoryLinkLabel_W154>通用事件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id><span title=通用属性 class=categoryLinkLabel_W154>通用属性</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=手势处理 class=categoryLinkLabel_W154>手势处理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><span title=行列与堆叠 class=categoryLinkLabel_W154>行列与堆叠</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow><span title=栅格与分栏 class=categoryLinkLabel_W154>栅格与分栏</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=滚动与滑动 class=categoryLinkLabel_W154>滚动与滑动</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><span title=导航与切换 class=categoryLinkLabel_W154>导航与切换</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=按钮与选择 class=categoryLinkLabel_W154>按钮与选择</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=Button class=linkLabel_WmDU>Button</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-toggle/ts-basic-components-toggle><span title=Toggle class=linkLabel_WmDU>Toggle</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-checkbox/ts-basic-components-checkbox><span title=Checkbox class=linkLabel_WmDU>Checkbox</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-checkboxgroup/ts-basic-components-checkboxgroup><span title=CheckboxGroup class=linkLabel_WmDU>CheckboxGroup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-container-ui-picker-component/ts-container-ui-picker-component><span title=UIPickerComponent class=linkLabel_WmDU>UIPickerComponent</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-calendarpicker/ts-basic-components-calendarpicker><span title=CalendarPicker class=linkLabel_WmDU>CalendarPicker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-datepicker/ts-basic-components-datepicker><span title=DatePicker class=linkLabel_WmDU>DatePicker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-textpicker/ts-basic-components-textpicker><span title=TextPicker class=linkLabel_WmDU>TextPicker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-timepicker/ts-basic-components-timepicker><span title=TimePicker class=linkLabel_WmDU>TimePicker</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-radio/ts-basic-components-radio><span title=Radio class=linkLabel_WmDU>Radio</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-rating/ts-basic-components-rating><span title=Rating class=linkLabel_WmDU>Rating</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-select/ts-basic-components-select><span title=Select class=linkLabel_WmDU>Select</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-slider/ts-basic-components-slider><span title=Slider class=linkLabel_WmDU>Slider</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ohos-arkui-advanced-arcbutton/ohos-arkui-advanced-arcbutton><span title=ArcButton class=linkLabel_WmDU>ArcButton</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ohos-arkui-advanced-arcslider/ohos-arkui-advanced-arcslider><span title=ArcSlider class=linkLabel_WmDU>ArcSlider</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-picker-common/ts-picker-common><span title=选择器（Picker）公共接口 class=linkLabel_WmDU>选择器（Picker）公共接口</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text><span title=文本与输入 class=categoryLinkLabel_W154>文本与输入</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image><span title=图片与视频 class=categoryLinkLabel_W154>图片与视频</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer><span title=信息展示 class=categoryLinkLabel_W154>信息展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank><span title=空白与分隔 class=categoryLinkLabel_W154>空白与分隔</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas><span title=画布绘制 class=categoryLinkLabel_W154>画布绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle><span title=图形绘制 class=categoryLinkLabel_W154>图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=渲染绘制 class=categoryLinkLabel_W154>渲染绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu><span title=菜单 class=categoryLinkLabel_W154>菜单</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title=动画 class=categoryLinkLabel_W154>动画</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box><span title=弹窗 class=categoryLinkLabel_W154>弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink><span title=卡片 class=categoryLinkLabel_W154>卡片</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-securitycomponent-attributes/ts-securitycomponent-attributes><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/themes/ts-container-with-theme/ts-container-with-theme><span title=主题 class=categoryLinkLabel_W154>主题</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/atomic-services/ohos-atomicservice-atomicservicenavigation/ohos-atomicservice-atomicservicenavigation><span title=AtomicService class=categoryLinkLabel_W154>AtomicService</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-placeholder-comp/ts-basic-components-nodecontainer/ts-basic-components-nodecontainer><span title=自定义占位组件 class=categoryLinkLabel_W154>自定义占位组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-lifecycle/ts-custom-component-lifecycle><span title=自定义组件 class=categoryLinkLabel_W154>自定义组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/component-preview/ts-universal-component-previewer/ts-universal-component-previewer><span title=组件预览 class=categoryLinkLabel_W154>组件预览</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-chip/ohos-arkui-advanced-chip><span title=系统预置UI组件库 class=categoryLinkLabel_W154>系统预置UI组件库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/state-management-and-rendering-control/ts-state-management/ts-state-management><span title=状态管理与渲染控制 class=categoryLinkLabel_W154>状态管理与渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/responsive-env-system-property/ts-env-system-property/ts-env-system-property><span title=响应式环境变量 class=categoryLinkLabel_W154>响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types><span title=公共定义 class=categoryLinkLabel_W154>公共定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-gridcontainer/ts-container-gridcontainer><span title=已停止维护的组件与接口 class=categoryLinkLabel_W154>已停止维护的组件与接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS组件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>按钮与选择</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Select</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Select</h1></header>
+<p>提供下拉选择菜单，让用户在多个选项间选择。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该组件从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=子组件>子组件<a href=#子组件 class=hash-link aria-label=子组件的直接链接 title=子组件的直接链接 translate=no>​</a></h2>
+<p>无</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口>接口<a href=#接口 class=hash-link aria-label=接口的直接链接 title=接口的直接链接 translate=no>​</a></h2>
+<p>Select(options: Array&lt;SelectOption>)</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td>Array&lt;<a href=#selectoption%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SelectOption</a>><td>是<td>设置下拉选项。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectoption对象说明>SelectOption对象说明<a href=#selectoption对象说明 class=hash-link aria-label=SelectOption对象说明的直接链接 title=SelectOption对象说明的直接链接 translate=no>​</a></h2>
+<p>下拉菜单项的信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>否<td>下拉选项内容。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>icon<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>是<td>下拉选项图片。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。<tr><td>symbolIcon12+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/universal-attributes-attribute-symbolglyphmodifier/universal-attributes-attribute-symbolglyphmodifier>SymbolGlyphModifier</a><td>否<td>是<td>下拉选项Symbol图片。  symbolIcon优先级高于icon。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h2>
+<p>除支持<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-attributes target=_blank rel="noopener noreferrer" class="">通用属性</a>外，还支持以下属性：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selected>selected<a href=#selected class=hash-link aria-label=selected的直接链接 title=selected的直接链接 translate=no>​</a></h3>
+<p>selected(value: number | Resource)</p>
+<p>设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性或设置为异常值时，默认选中值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。</p>
+<p>从API version 10开始，该属性支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-two-way-sync>$$</a>双向绑定变量。</p>
+<p>从API version 18开始，该属性支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-new-binding#%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A>!!</a>双向绑定变量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>number<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resource>Resource</a>11+<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selected18>selected18+<a href=#selected18 class=hash-link aria-label=selected18+的直接链接 title=selected18+的直接链接 translate=no>​</a></h3>
+<p>selected(numCount: Optional&lt;number | Resource>)</p>
+<p>设置下拉菜单初始选项的索引，第一项的索引为0。当不设置selected属性或设置异常值时，默认选择值为-1，菜单项不选中；当设置为undefined、null时，选中第一项。</p>
+<p>该属性支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-two-way-sync>$$</a>、<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-new-binding#%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A>!!</a>双向绑定变量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>numCount<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;number<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resource>Resource</a>><td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=value>value<a href=#value class=hash-link aria-label=value的直接链接 title=value的直接链接 translate=no>​</a></h3>
+<p>value(value: ResourceStr)</p>
+<p>设置下拉按钮的文本内容。选中菜单项后，按钮文本将自动更新为选中的菜单项文本。</p>
+<p>从API version 10开始，该参数支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-two-way-sync>$$</a>双向绑定变量。</p>
+<p>从API version 18开始，该参数支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-new-binding#%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A>!!</a>双向绑定变量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a>11+<td>是<td>下拉按钮本身的文本内容。  <strong><strong>说明：</strong></strong> 文本长度大于列宽时，文本被截断。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=value18>value18+<a href=#value18 class=hash-link aria-label=value18+的直接链接 title=value18+的直接链接 translate=no>​</a></h3>
+<p>value(resStr: Optional&lt;ResourceStr>)</p>
+<p>设置下拉按钮的文本内容。选中菜单项后，按钮文本将自动更新为选中的菜单项文本。与<a href=#value class="">value</a>相比，resStr参数新增了对undefined类型的支持。</p>
+<p>该参数支持<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-two-way-sync>$$</a>、<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-syntactic-sugar/arkts-new-binding#%E7%B3%BB%E7%BB%9F%E7%BB%84%E4%BB%B6%E5%8F%82%E6%95%B0%E5%8F%8C%E5%90%91%E7%BB%91%E5%AE%9A>!!</a>双向绑定变量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resStr<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a>><td>是<td>下拉按钮本身的文本内容。  当resStr的值为undefined时维持上次取值。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=controlsize12>controlSize12+<a href=#controlsize12 class=hash-link aria-label=controlSize12+的直接链接 title=controlSize12+的直接链接 translate=no>​</a></h3>
+<p>controlSize(value: ControlSize)</p>
+<p>设置Select组件的尺寸。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#controlsize11%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>ControlSize</a>11+<td>是<td>Select组件的尺寸。  默认值：ControlSize.NORMAL</table>
+<p>controlSize、width、height接口作用优先级：</p>
+<p>1）如果开发者只设置了width和height，当文字大小设置为较大的值时，文字会超出组件大小，超出的部分以省略号的方式显示；</p>
+<p>2）如果开发者只设置了controlSize，没有设置width和height，组件宽高自适应文字，文字不超出组件，并设置最小宽度minWidth和最小高度minHeight；</p>
+<p>3）如果同时设置了controlSize、width、height接口，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=controlsize18>controlSize18+<a href=#controlsize18 class=hash-link aria-label=controlSize18+的直接链接 title=controlSize18+的直接链接 translate=no>​</a></h3>
+<p>controlSize(size: Optional&lt;ControlSize>)</p>
+<p>设置Select组件的尺寸。与<a href=#controlsize12 class="">controlSize</a>12+相比，size参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>size<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button#controlsize11%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>ControlSize</a>><td>是<td>Select组件的尺寸。  当size的值为undefined时，默认值为ControlSize.NORMAL。</table>
+<p>controlSize、width、height接口作用优先级：</p>
+<p>1）如果开发者只设置了width和height，当文字大小设置的是比较大的值的时候，文字超出组件大小，超出的部分以省略号的方式显示；</p>
+<p>2）如果开发者只设置了controlSize，没有设置width和height，组件宽高自适应文字，文字不超出组件，并设置最小宽度minWidth和最小高度minHeight；</p>
+<p>3）如果controlSize、width、height接口都设置了，width和height设置的值生效，但如果width和height设置的值小于controlSize设置的最小宽度minWidth和最小高度minHeight，width和height设置的值不生效，宽高仍保持controlSize设置的最小宽度minWidth和最小高度minHeight。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menuitemcontentmodifier12>menuItemContentModifier12+<a href=#menuitemcontentmodifier12 class=hash-link aria-label=menuItemContentModifier12+的直接链接 title=menuItemContentModifier12+的直接链接 translate=no>​</a></h3>
+<p>menuItemContentModifier(modifier: ContentModifier&lt;MenuItemConfiguration>)</p>
+<p>定制Select下拉菜单项内容区的方法。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-content-modifier/ts-universal-attributes-content-modifier#contentmodifiert>ContentModifier</a><a href=#menuitemconfiguration12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class=""><menuitemconfiguration></menuitemconfiguration></a><td>是<td>在Select组件上，定制下拉菜单项内容区的方法。  modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menuitemcontentmodifier18>menuItemContentModifier18+<a href=#menuitemcontentmodifier18 class=hash-link aria-label=menuItemContentModifier18+的直接链接 title=menuItemContentModifier18+的直接链接 translate=no>​</a></h3>
+<p>menuItemContentModifier(modifier: Optional&lt;ContentModifier&lt;MenuItemConfiguration>>)</p>
+<p>定制Select下拉菜单项内容区的方法。与<a href=#menuitemcontentmodifier12 class="">menuItemContentModifier</a>12+相比，modifier参数新增了对undefined类型的支持。在应用了menuItemContentModifier后，下拉菜单的内容将完全由开发者自定义，此时为Select组件设置的分割线、选项颜色及下拉菜单的字体颜色等属性将不再生效。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-content-modifier/ts-universal-attributes-content-modifier#contentmodifiert>ContentModifier</a><a href=#menuitemconfiguration12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class=""><menuitemconfiguration></menuitemconfiguration></a>><td>是<td>在Select组件上，定制下拉菜单项内容区的方法。  modifier：内容修改器，开发者需要自定义class实现ContentModifier接口。  当modifier的值为undefined时，不使用内容修改器。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=divider12>divider12+<a href=#divider12 class=hash-link aria-label=divider12+的直接链接 title=divider12+的直接链接 translate=no>​</a></h3>
+<p>divider(options: Optional&lt;DividerOptions> | null)</p>
+<p>设置分割线样式，不设置该属性则按“默认值”展示分割线。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-textpicker/ts-basic-components-textpicker#divideroptions12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>DividerOptions</a>><td>null<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=dividerstyle19>dividerStyle19+<a href=#dividerstyle19 class=hash-link aria-label=dividerStyle19+的直接链接 title=dividerStyle19+的直接链接 translate=no>​</a></h3>
+<p>dividerStyle(style: Optional&lt;DividerStyleOptions>)</p>
+<p>设置分割线样式，不设置该属性则按“默认值”展示分割线。该属性与divider互斥，按调用顺序生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>style<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dividerstyleoptions12>DividerStyleOptions</a>><td>是<td>1.设置DividerOptions，则按设置的样式显示分割线。  默认值：  {  strokeWidth: '1px' ,  color: '#33182431'  }  2.设置为null或undefined时，展示默认分割线。  3.当mode为FLOAT_ABOVE_MENU时，strokeWidth设置过宽时，会覆盖文字。分割线会从每一个Item底部开始，同时向上向下画分割线。当mode为EMBEDDED_IN_MENU时，分割线在Menu中展开，独立占用高度。  4.startMargin和endMargin的默认值与不设置divider属性时的分割线样式保持一致。startMargin和endMargin的和与optionWidth的值相等时，不显示分割线。startMargin和endMargin的和超过optionWidth的值时，按照默认样式显示分割线。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=font>font<a href=#font class=hash-link aria-label=font的直接链接 title=font的直接链接 translate=no>​</a></h3>
+<p>font(value: Font)</p>
+<p>设置下拉按钮本身的文本样式。当size为0时，文本不显示，当size为负值时，文本的size按照默认值显示。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a><td>是<td>下拉按钮本身的文本样式。  API version 11及以前默认值：  {  size: $r('sys.float.ohos_id_text_size_button1'),  weight: FontWeight.Medium  }  API version 12以后，如果设置controlSize的值为：controlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=font18>font18+<a href=#font18 class=hash-link aria-label=font18+的直接链接 title=font18+的直接链接 translate=no>​</a></h3>
+<p>font(selectFont: Optional&lt;Font>)</p>
+<p>设置下拉按钮本身的文本样式。当size为0时，文本不显示，当size为负值时，文本的size按照默认值显示。与<a href=#font class="">font</a>相比，selectFont参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>selectFont<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a>><td>是<td>下拉按钮本身的文本样式。  如果设置controlSize的值为：controlSize.SMALL，size默认值是$r('sys.float.ohos_id_text_size_button2')，否则为$r('sys.float.ohos_id_text_size_button1')。  当selectFont的值为undefined时，恢复为系统文本样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=fontcolor>fontColor<a href=#fontcolor class=hash-link aria-label=fontColor的直接链接 title=fontColor的直接链接 translate=no>​</a></h3>
+<p>fontColor(value: ResourceColor)</p>
+<p>设置下拉按钮本身的文本颜色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉按钮本身的文本颜色。  默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=fontcolor18>fontColor18+<a href=#fontcolor18 class=hash-link aria-label=fontColor18+的直接链接 title=fontColor18+的直接链接 translate=no>​</a></h3>
+<p>fontColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉按钮本身的文本颜色。与<a href=#fontcolor class="">fontColor</a>相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉按钮本身的文本颜色。  当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')混合$r('sys.color.ohos_id_alpha_content_primary')的透明度。  当value的值为undefined时，维持上次取值。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionbgcolor>selectedOptionBgColor<a href=#selectedoptionbgcolor class=hash-link aria-label=selectedOptionBgColor的直接链接 title=selectedOptionBgColor的直接链接 translate=no>​</a></h3>
+<p>selectedOptionBgColor(value: ResourceColor)</p>
+<p>设置下拉菜单选中项的背景色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉菜单选中项的背景色。  默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionbgcolor18>selectedOptionBgColor18+<a href=#selectedoptionbgcolor18 class=hash-link aria-label=selectedOptionBgColor18+的直接链接 title=selectedOptionBgColor18+的直接链接 translate=no>​</a></h3>
+<p>selectedOptionBgColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉菜单选中项的背景色。与<a href=#selectedoptionbgcolor class="">selectedOptionBgColor</a>相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉菜单选中项的背景色。  当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_component_activated')混合$r('sys.color.ohos_id_alpha_highlight_bg')的透明度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionfont>selectedOptionFont<a href=#selectedoptionfont class=hash-link aria-label=selectedOptionFont的直接链接 title=selectedOptionFont的直接链接 translate=no>​</a></h3>
+<p>selectedOptionFont(value: Font)</p>
+<p>设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a><td>是<td>下拉菜单选中项的文本样式。  默认值：  {  size: $r('sys.float.ohos_id_text_size_body1'),  weight: FontWeight.Regular  }</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionfont18>selectedOptionFont18+<a href=#selectedoptionfont18 class=hash-link aria-label=selectedOptionFont18+的直接链接 title=selectedOptionFont18+的直接链接 translate=no>​</a></h3>
+<p>selectedOptionFont(selectFont: Optional&lt;Font>)</p>
+<p>设置下拉菜单选中项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。与<a href=#selectedoptionfont class="">selectedOptionFont</a>相比，selectFont参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>selectFont<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a>><td>是<td>下拉菜单选中项的文本样式。  当selectFont的值为undefined时，默认值：  {  size: $r('sys.float.ohos_id_text_size_body1'),  weight: FontWeight.Regular  }</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionfontcolor>selectedOptionFontColor<a href=#selectedoptionfontcolor class=hash-link aria-label=selectedOptionFontColor的直接链接 title=selectedOptionFontColor的直接链接 translate=no>​</a></h3>
+<p>selectedOptionFontColor(value: ResourceColor)</p>
+<p>设置下拉菜单选中项的文本颜色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉菜单选中项的文本颜色。  默认值：$r('sys.color.ohos_id_color_text_primary_activated')</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptionfontcolor18>selectedOptionFontColor18+<a href=#selectedoptionfontcolor18 class=hash-link aria-label=selectedOptionFontColor18+的直接链接 title=selectedOptionFontColor18+的直接链接 translate=no>​</a></h3>
+<p>selectedOptionFontColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉菜单选中项的文本颜色。与<a href=#selectedoptionfontcolor class="">selectedOptionFontColor</a>相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉菜单选中项的文本颜色。  当resColor的值为undefined时，默认值为$r('sys.color.ohos_id_color_text_primary_activated')。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionbgcolor>optionBgColor<a href=#optionbgcolor class=hash-link aria-label=optionBgColor的直接链接 title=optionBgColor的直接链接 translate=no>​</a></h3>
+<p>optionBgColor(value: ResourceColor)</p>
+<p>设置下拉菜单项的背景色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉菜单项的背景色。  默认值：  API version 11之前，默认值为Color.White。  API version 11及之后，默认值为Color.Transparent。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionbgcolor18>optionBgColor18+<a href=#optionbgcolor18 class=hash-link aria-label=optionBgColor18+的直接链接 title=optionBgColor18+的直接链接 translate=no>​</a></h3>
+<p>optionBgColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉菜单项的背景色。与<a href=#optionbgcolor class="">optionBgColor</a>相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉菜单项的背景色。  当resColor的值为undefined时，下拉菜单项的背景色为Color.White。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionfont>optionFont<a href=#optionfont class=hash-link aria-label=optionFont的直接链接 title=optionFont的直接链接 translate=no>​</a></h3>
+<p>optionFont(value: Font)</p>
+<p>设置下拉菜单项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a><td>是<td>下拉菜单项的文本样式。  默认值：  {  size: $r('sys.float.ohos_id_text_size_body1'),  weight: FontWeight.Regular  }</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionfont18>optionFont18+<a href=#optionfont18 class=hash-link aria-label=optionFont18+的直接链接 title=optionFont18+的直接链接 translate=no>​</a></h3>
+<p>optionFont(selectFont: Optional&lt;Font>)</p>
+<p>设置下拉菜单项的文本样式。当size为0的时候，文本不显示，当size为负值的时候，文本的size按照默认值显示。</p>
+<p>与<a href=#optionfont class="">optionFont</a>相比，selectFont参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>selectFont<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#font>Font</a>><td>是<td>下拉菜单项的文本样式。  当selectFont的值为undefined时，默认值：  {  size: $r('sys.float.ohos_id_text_size_body1'),  weight: FontWeight.Regular  }</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionfontcolor>optionFontColor<a href=#optionfontcolor class=hash-link aria-label=optionFontColor的直接链接 title=optionFontColor的直接链接 translate=no>​</a></h3>
+<p>optionFontColor(value: ResourceColor)</p>
+<p>设置下拉菜单项的文本颜色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉菜单项的文本颜色。  默认值：$r('sys.color.ohos_id_color_text_primary')</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionfontcolor18>optionFontColor18+<a href=#optionfontcolor18 class=hash-link aria-label=optionFontColor18+的直接链接 title=optionFontColor18+的直接链接 translate=no>​</a></h3>
+<p>optionFontColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉菜单项的文本颜色。与<a href=#optionfontcolor class="">optionFontColor</a>相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉菜单项的文本颜色。  当resColor的值为undefined时，默认值：$r('sys.color.ohos_id_color_text_primary')</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=space10>space10+<a href=#space10 class=hash-link aria-label=space10+的直接链接 title=space10+的直接链接 translate=no>​</a></h3>
+<p>space(value: Length)</p>
+<p>设置下拉菜单项的文本与箭头的间距。不支持设置百分比。将间距设置为null、undefined，或者小于等于8的值时，取默认值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#length>Length</a><td>是<td>下拉菜单项的文本与箭头的间距。  默认值：8  <strong><strong>说明：</strong></strong> 设置string类型时，不支持百分比。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=space18>space18+<a href=#space18 class=hash-link aria-label=space18+的直接链接 title=space18+的直接链接 translate=no>​</a></h3>
+<p>space(spaceLength: Optional&lt;Length>)</p>
+<p>设置下拉菜单项的文本与箭头的间距。不支持设置百分比。设置为null、undefined，或者小于等于8的值，取默认值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>spaceLength<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#length>Length</a>><td>是<td>下拉菜单项的文本与箭头之间的间距。  当spaceLength的值为undefined时，默认值：8</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arrowposition10>arrowPosition10+<a href=#arrowposition10 class=hash-link aria-label=arrowPosition10+的直接链接 title=arrowPosition10+的直接链接 translate=no>​</a></h3>
+<p>arrowPosition(value: ArrowPosition)</p>
+<p>设置下拉菜单项的文本与箭头之间的对齐方式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a href=#arrowposition10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">ArrowPosition</a><td>是<td>下拉菜单项的文本与箭头之间的对齐方式。  默认值：ArrowPosition.END</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arrowposition18>arrowPosition18+<a href=#arrowposition18 class=hash-link aria-label=arrowPosition18+的直接链接 title=arrowPosition18+的直接链接 translate=no>​</a></h3>
+<p>arrowPosition(position: Optional&lt;ArrowPosition>)</p>
+<p>设置下拉菜单项的文本与箭头之间的对齐方式。与<a href=#arrowposition10 class="">arrowPosition</a>相比，position参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>position<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a href=#arrowposition10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">ArrowPosition</a>><td>是<td>下拉菜单项的文本与箭头之间的对齐方式。  当position的值为undefined时，默认值：ArrowPosition.END</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menualign10>menuAlign10+<a href=#menualign10 class=hash-link aria-label=menuAlign10+的直接链接 title=menuAlign10+的直接链接 translate=no>​</a></h3>
+<p>menuAlign(alignType: MenuAlignType, offset?: Offset)</p>
+<p>设置下拉按钮与下拉菜单间的对齐方式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>alignType<td><a href=#menualigntype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">MenuAlignType</a><td>是<td>对齐方式类型。  默认值：MenuAlignType.START<tr><td>offset<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#offset>Offset</a><td>否<td>按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。  默认值：{dx: 0, dy: 0}</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menualign18>menuAlign18+<a href=#menualign18 class=hash-link aria-label=menuAlign18+的直接链接 title=menuAlign18+的直接链接 translate=no>​</a></h3>
+<p>menuAlign(alignType: Optional&lt;MenuAlignType>, offset?: Offset)</p>
+<p>设置下拉按钮与下拉菜单间的对齐方式。与<a href=#menualign10 class="">menuAlign</a>10+相比，alignType参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>alignType<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a href=#menualigntype10%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">MenuAlignType</a>><td>是<td>对齐方式类型。  当alignType的值为undefined时，默认值：MenuAlignType.START<tr><td>offset<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#offset>Offset</a><td>否<td>按照对齐类型对齐后，下拉菜单相对下拉按钮的偏移量。  默认值：{dx: 0, dy: 0}</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionwidth11>optionWidth11+<a href=#optionwidth11 class=hash-link aria-label=optionWidth11+的直接链接 title=optionWidth11+的直接链接 translate=no>​</a></h3>
+<p>optionWidth(value: Dimension | OptionWidthMode )</p>
+<p>设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。</p>
+<p>当设置为异常值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。</p>
+<p>Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于calc(100% - 32vp)的值，以避免下拉菜单弹出时发生偏移。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dimension10>Dimension</a><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#optionwidthmode11>OptionWidthMode</a><td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionwidth18>optionWidth18+<a href=#optionwidth18 class=hash-link aria-label=optionWidth18+的直接链接 title=optionWidth18+的直接链接 translate=no>​</a></h3>
+<p>optionWidth(width: Optional&lt;Dimension | OptionWidthMode> )</p>
+<p>设置下拉菜单项的宽度，不支持设置百分比。OptionWidthMode类型为枚举类型，OptionWidthMode决定下拉菜单是否继承下拉按钮宽度。与<a href=#optionwidth11 class="">optionWidth</a>11+相比，width参数新增了对undefined类型的支持。</p>
+<p>当设置为异常值或小于最小宽度56vp时，属性无效，菜单项宽度设为默认值，即2栅格。</p>
+<p>Select组件距屏幕边缘的左右间距为16vp，建议将组件本身及菜单项的宽度设置为小于等于calc(100% - 32vp)的值，以避免下拉菜单弹出时发生偏移。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>width<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dimension10>Dimension</a><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#optionwidthmode11>OptionWidthMode</a>><td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionheight11>optionHeight11+<a href=#optionheight11 class=hash-link aria-label=optionHeight11+的直接链接 title=optionHeight11+的直接链接 translate=no>​</a></h3>
+<p>optionHeight(value: Dimension)</p>
+<p>设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。</p>
+<p>当设置为异常值或零时，属性不生效。</p>
+<p>如果下拉菜单所有选项的实际高度没有设定的高度大，下拉菜单的高度按实际高度显示。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dimension10>Dimension</a><td>是<td>下拉菜单显示的最大高度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optionheight18>optionHeight18+<a href=#optionheight18 class=hash-link aria-label=optionHeight18+的直接链接 title=optionHeight18+的直接链接 translate=no>​</a></h3>
+<p>optionHeight(height: Optional&lt;Dimension>)</p>
+<p>设置下拉菜单显示的最大高度，不支持设置百分比。默认最大高度是屏幕可用高度的80%，设置的菜单最大高度不能超过默认最大高度。与<a href=#optionheight11 class="">optionHeight</a>11+相比，height参数新增了对undefined类型的支持。</p>
+<p>当设置为异常值或零时，属性不生效。</p>
+<p>如果下拉菜单所有选项的实际高度小于设定的高度，下拉菜单的高度按实际高度显示。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>height<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dimension10>Dimension</a>><td>是<td>下拉菜单显示的最大高度。  当height的值为undefined时，属性不生效，下拉菜单最大高度设为默认值，即下拉菜单最大高度默认值为屏幕可用高度的80%。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menubackgroundcolor11>menuBackgroundColor11+<a href=#menubackgroundcolor11 class=hash-link aria-label=menuBackgroundColor11+的直接链接 title=menuBackgroundColor11+的直接链接 translate=no>​</a></h3>
+<p>menuBackgroundColor(value: ResourceColor)</p>
+<p>设置下拉菜单的背景色。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 12开始，该接口支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td>是<td>下拉菜单的背景色。  默认值：  API version 11之前，默认值为$r('sys.color.ohos_id_color_card_bg')。  API version 11及之后，默认值为Color.Transparent。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menubackgroundcolor18>menuBackgroundColor18+<a href=#menubackgroundcolor18 class=hash-link aria-label=menuBackgroundColor18+的直接链接 title=menuBackgroundColor18+的直接链接 translate=no>​</a></h3>
+<p>menuBackgroundColor(resColor: Optional&lt;ResourceColor>)</p>
+<p>设置下拉菜单的背景色。与<a href=#menubackgroundcolor11 class="">menuBackgroundColor</a>11+相比，resColor参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resColor<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a>><td>是<td>下拉菜单的背景色。  当resColor的值为undefined时，默认值为Color.Transparent。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menubackgroundblurstyle11>menuBackgroundBlurStyle11+<a href=#menubackgroundblurstyle11 class=hash-link aria-label=menuBackgroundBlurStyle11+的直接链接 title=menuBackgroundBlurStyle11+的直接链接 translate=no>​</a></h3>
+<p>menuBackgroundBlurStyle(value: BlurStyle)</p>
+<p>设置下拉菜单的背景模糊材质。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 12开始，该接口支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-background/ts-universal-attributes-background#blurstyle9>BlurStyle</a><td>是<td>下拉菜单的背景模糊材质。  默认值：BlurStyle.COMPONENT_ULTRA_THICK</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menubackgroundblurstyle18>menuBackgroundBlurStyle18+<a href=#menubackgroundblurstyle18 class=hash-link aria-label=menuBackgroundBlurStyle18+的直接链接 title=menuBackgroundBlurStyle18+的直接链接 translate=no>​</a></h3>
+<p>menuBackgroundBlurStyle(style: Optional&lt;BlurStyle>)</p>
+<p>设置下拉菜单的背景模糊材质。与<a href=#menubackgroundblurstyle11 class="">menuBackgroundBlurStyle</a>11+相比，style参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>style<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-background/ts-universal-attributes-background#blurstyle9>BlurStyle</a>><td>是<td>下拉菜单的背景模糊材质。  当style的值为undefined时，默认值：BlurStyle.COMPONENT_ULTRA_THICK</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=avoidance19>avoidance19+<a href=#avoidance19 class=hash-link aria-label=avoidance19+的直接链接 title=avoidance19+的直接链接 translate=no>​</a></h3>
+<p>avoidance(mode: AvoidanceMode)</p>
+<p>设置下拉菜单的避让模式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>mode<td><a href=#avoidancemode19%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">AvoidanceMode</a><td>是<td>设置下拉菜单的避让模式。  默认值：AvoidanceMode.COVER_TARGET</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=menuoutline20>menuOutline20+<a href=#menuoutline20 class=hash-link aria-label=menuOutline20+的直接链接 title=menuOutline20+的直接链接 translate=no>​</a></h3>
+<p>menuOutline(outline: MenuOutlineOptions)</p>
+<p>设置下拉菜单框的外描边样式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>outline<td><a href=#menuoutlineoptions20%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">MenuOutlineOptions</a><td>是<td>下拉菜单框的外描边样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=showdefaultselectedicon20>showDefaultSelectedIcon20+<a href=#showdefaultselectedicon20 class=hash-link aria-label=showDefaultSelectedIcon20+的直接链接 title=showDefaultSelectedIcon20+的直接链接 translate=no>​</a></h3>
+<p>showDefaultSelectedIcon(show: boolean)</p>
+<p>设置是否显示默认选择的图标。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>show<td>boolean<td>是<td>是否显示默认选定的图标。  true：显示默认选择的图标；false：不显示默认选择的图标，通过突出显示背景色来表示选中。  默认值：false  当show为true时，若设置了selectedOptionBgColor选中项的背景色时，则同时显示选中项的背景色和默认选定的图标；若未通过selectedOptionBgColor设置选中项的背景色时，不突出显示背景色，只显示默认选定的图标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=textmodifier20>textModifier20+<a href=#textmodifier20 class=hash-link aria-label=textModifier20+的直接链接 title=textModifier20+的直接链接 translate=no>​</a></h3>
+<p>textModifier(modifier: Optional&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>>)</p>
+<p>定制Select按钮文本样式的方法，在应用了textModifier之后，Select按钮的文本样式将完全由开发者自定义。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>><td>是<td>在Select组件上，定制按钮文本样式的方法。  当modifier的值为undefined时，不自定义文本样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arrowmodifier20>arrowModifier20+<a href=#arrowmodifier20 class=hash-link aria-label=arrowModifier20+的直接链接 title=arrowModifier20+的直接链接 translate=no>​</a></h3>
+<p>arrowModifier(modifier: Optional&lt;SymbolGlyphModifier>)</p>
+<p>定制Select按钮下拉箭头图标样式的方法，在应用arrowModifier之后，Select按钮下拉箭头的图标样式将完全由开发者自定义。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/universal-attributes-attribute-symbolglyphmodifier/universal-attributes-attribute-symbolglyphmodifier>SymbolGlyphModifier</a>><td>是<td>在Select组件上，定制Select按钮下拉箭头图标样式的方法。  当modifier的值为undefined时，不自定义下拉箭头图标样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=optiontextmodifier20>optionTextModifier20+<a href=#optiontextmodifier20 class=hash-link aria-label=optionTextModifier20+的直接链接 title=optionTextModifier20+的直接链接 translate=no>​</a></h3>
+<p>optionTextModifier(modifier: Optional&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>>)</p>
+<p>定制Select下拉菜单未选中项文本样式的方法，在应用optionTextModifier之后，下拉菜单未选中项的文本样式将完全由开发者自定义。</p>
+<p>如果<a href=#optionfont class="">optionFont</a>与optionTextModifier的Font属性同时设置，则优先使用<a href=#optionfont class="">optionFont</a>设置下拉菜单未选中项的文本样式；<a href=#optionfont class="">optionFont</a>中缺省的属性将设置为对应的默认值。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>><td>是<td>在Select组件上，定制Select下拉菜单未选中项样式的方法。  当modifier的值为undefined时，不自定义下拉菜单未选中项的文本样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectedoptiontextmodifier20>selectedOptionTextModifier20+<a href=#selectedoptiontextmodifier20 class=hash-link aria-label=selectedOptionTextModifier20+的直接链接 title=selectedOptionTextModifier20+的直接链接 translate=no>​</a></h3>
+<p>selectedOptionTextModifier(modifier: Optional&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>>)</p>
+<p>定制Select下拉菜单选中项文本样式的方法，在应用selectedOptionTextModifier之后，下拉菜单选中项的文本样式将完全由开发者自定义。</p>
+<p>如果<a href=#selectedoptionfont class="">selectedOptionFont</a>与selectedOptionTextModifier的Font属性同时设置，则优先使用<a href=#selectedoptionfont class="">selectedOptionFont</a>设置下拉菜单选中项的文本样式；若未设置<a href=#selectedoptionfont class="">selectedOptionFont</a>，则优先使用<a href=#optionfont class="">optionFont</a>设置下拉菜单选中项的文本样式。其中<a href=#selectedoptionfont class="">selectedOptionFont</a>或者<a href=#optionfont class="">optionFont</a>缺省的属性将设置为对应的默认值。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口不支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modifier<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier>TextModifier</a>><td>是<td>设置下拉菜单项选中项的文本样式。  开发者可以根据需要管理和维护文本的样式进行设置。  当modifier的值为undefined时，不自定义下拉菜单项选中项的文本样式。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=showinsubwindow20>showInSubWindow20+<a href=#showinsubwindow20 class=hash-link aria-label=showInSubWindow20+的直接链接 title=showInSubWindow20+的直接链接 translate=no>​</a></h3>
+<p>showInSubWindow(showInSubWindow:Optional&lt;boolean>)</p>
+<p>设置下拉菜单是否显示在子窗中。未通过该接口设置时，下拉菜单默认不显示在子窗中。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>设备行为差异：</strong></strong> 在PC/2in1设备中可生效，在其他设备类型中不生效。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>showInSubWindow<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a><boolean></boolean><td>是<td>设置下拉菜单是否显示在子窗中。  true代表下拉菜单显示在子窗中。  false代表下拉菜单不显示在子窗中。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=keyboardavoidmode23>keyboardAvoidMode23+<a href=#keyboardavoidmode23 class=hash-link aria-label=keyboardAvoidMode23+的直接链接 title=keyboardAvoidMode23+的直接链接 translate=no>​</a></h3>
+<p>keyboardAvoidMode(mode:Optional&lt;MenuKeyboardAvoidMode>)</p>
+<p>设置下拉菜单是否避让软键盘。未通过该接口设置时，默认不避让软键盘。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>mode<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/popup-property/ts-universal-attributes-menu/ts-universal-attributes-menu#menukeyboardavoidmode23%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>MenuKeyboardAvoidMode</a>><td>是<td>设置下拉菜单是否避让软键盘。取值为undefined时，按照MenuKeyboardAvoidMode.NONE处理，不避让软键盘。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=minkeyboardavoiddistance23>minKeyboardAvoidDistance23+<a href=#minkeyboardavoiddistance23 class=hash-link aria-label=minKeyboardAvoidDistance23+的直接链接 title=minKeyboardAvoidDistance23+的直接链接 translate=no>​</a></h3>
+<p>minKeyboardAvoidDistance(distance:Optional&lt;LengthMetrics>)</p>
+<p>设置Select的菜单避让软键盘的最小距离。未通过该接口设置，最小距离默认为8vp。仅当<a href=#keyboardavoidmode23 class="">keyboardAvoidMode</a>设置为避让软键盘时生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>distance<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetrics12>LengthMetrics</a>><td>是<td>设置下拉菜单避让软键盘的最小距离。设置为负数、undefined时，按照8vp处理。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=arrowposition10枚举说明>ArrowPosition10+枚举说明<a href=#arrowposition10枚举说明 class=hash-link aria-label=ArrowPosition10+枚举说明的直接链接 title=ArrowPosition10+枚举说明的直接链接 translate=no>​</a></h2>
+<p>箭头的位置。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>END<td>0<td>文字在前，箭头在后。<tr><td>START<td>1<td>箭头在前，文字在后。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=menualigntype10枚举说明>MenuAlignType10+枚举说明<a href=#menualigntype10枚举说明 class=hash-link aria-label=MenuAlignType10+枚举说明的直接链接 title=MenuAlignType10+枚举说明的直接链接 translate=no>​</a></h2>
+<p>下拉菜单的对齐方式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>START<td>0<td>按照语言方向起始端对齐。<tr><td>CENTER<td>1<td>居中对齐。<tr><td>END<td>2<td>按照语言方向末端对齐。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=avoidancemode19枚举说明>AvoidanceMode19+枚举说明<a href=#avoidancemode19枚举说明 class=hash-link aria-label=AvoidanceMode19+枚举说明的直接链接 title=AvoidanceMode19+枚举说明的直接链接 translate=no>​</a></h2>
+<p>下拉菜单避让模式的枚举选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>说明<tbody><tr><td>COVER_TARGET<td>目标组件下方无足够空间时，覆盖目标组件。<tr><td>AVOID_AROUND_TARGET<td>目标组件四周无足够空间时，在最大空间处压缩显示（可滚动）。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=menuitemconfiguration12对象说明>MenuItemConfiguration12+对象说明<a href=#menuitemconfiguration12对象说明 class=hash-link aria-label=MenuItemConfiguration12+对象说明的直接链接 title=MenuItemConfiguration12+对象说明的直接链接 translate=no>​</a></h2>
+<p>开发者需要自定义class实现ContentModifier接口。继承自<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-content-modifier/ts-universal-attributes-content-modifier#commonconfigurationt>CommonConfiguration</a>。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>否<td>下拉菜单项的文本内容。  <strong><strong>说明：</strong></strong>  当文本字符的长度超过菜单项文本区域的宽度时，文本将会被截断。<tr><td>icon<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>是<td>下拉菜单项的图片内容。  <strong><strong>说明：</strong></strong>  string格式可用于加载网络图片和本地图片。<tr><td>symbolIcon<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/universal-attributes-attribute-symbolglyphmodifier/universal-attributes-attribute-symbolglyphmodifier>SymbolGlyphModifier</a><td>否<td>是<td>下拉选项Symbol图片内容。<tr><td>selected<td>boolean<td>否<td>否<td>下拉菜单项是否被选中。值为true表示选中，值为false表示未选中。  默认值：false<tr><td>index<td>number<td>否<td>否<td>下拉菜单项的索引，索引值从0开始。<tr><td>triggerSelect<td>(index: number, value: string) :void<td>否<td>否<td>下拉菜单选中某一项的回调函数。  index：选中菜单项的索引。  value：选中菜单项的文本。  <strong><strong>说明：</strong></strong>  index会赋值给事件<a href=#onselect class="">onSelect</a>回调中的索引参数； value会返回给Select组件显示，同时会赋值给事件<a href=#onselect class="">onSelect</a>回调中的文本参数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=menuoutlineoptions20对象说明>MenuOutlineOptions20+对象说明<a href=#menuoutlineoptions20对象说明 class=hash-link aria-label=MenuOutlineOptions20+对象说明的直接链接 title=MenuOutlineOptions20+对象说明的直接链接 translate=no>​</a></h2>
+<p>下拉菜单框的外描边参数对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>width<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dimension10>Dimension</a><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#edgeoutlinewidths11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>EdgeOutlineWidths</a><td>否<td>是<tr><td>color<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor>ResourceColor</a><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#edgecolors9>EdgeColors</a><td>否<td>是</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=事件>事件<a href=#事件 class=hash-link aria-label=事件的直接链接 title=事件的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onselect>onSelect<a href=#onselect class=hash-link aria-label=onSelect的直接链接 title=onSelect的直接链接 translate=no>​</a></h3>
+<p>onSelect(callback: (index: number, value: string) => void)</p>
+<p>下拉菜单选中某一项时，会触发回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>选中项的索引，索引值从0开始。<tr><td>value<td>string<td>是<td>选中项的值。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onselect18>onSelect18+<a href=#onselect18 class=hash-link aria-label=onSelect18+的直接链接 title=onSelect18+的直接链接 translate=no>​</a></h3>
+<p>onSelect(callback: Optional&lt;OnSelectCallback> )</p>
+<p>下拉菜单选中某一项时，会触发回调。与<a href=#onselect class="">onSelect</a>相比，callback参数新增了对undefined类型的支持。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a href=#onselectcallback18 class="">OnSelectCallback</a>><td>是<td>下拉菜单选中某一项的回调。  当callback的值为undefined时，不使用回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onselectcallback18>OnSelectCallback18+<a href=#onselectcallback18 class=hash-link aria-label=OnSelectCallback18+的直接链接 title=OnSelectCallback18+的直接链接 translate=no>​</a></h2>
+<p>type OnSelectCallback = (index: number, selectStr: string) => void</p>
+<p>下拉菜单选中某一项时触发的回调函数类型定义。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>选中项的索引，索引值从0开始。<tr><td>selectStr<td>string<td>是<td>选中项的值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例>示例<a href=#示例 class=hash-link aria-label=示例的直接链接 title=示例的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例1设置下拉菜单>示例1（设置下拉菜单）<a href=#示例1设置下拉菜单 class=hash-link aria-label=示例1（设置下拉菜单）的直接链接 title=示例1（设置下拉菜单）的直接链接 translate=no>​</a></h3>
+<p>该示例通过配置<a href=#selectoption%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SelectOption</a>实现下拉菜单，并从API version 19开始通过设置<a href=#avoidance19 class="">avoidance</a>属性实现菜单的避让方式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTT";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = 2;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State space: number = 8;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State arrowPosition: ArrowPosition = ArrowPosition.END;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // $r('app.media.selection')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'aaa', icon: $r("app.media.selection") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'bbb', icon: $r("app.media.selection") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ccc', icon: $r("app.media.selection") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ddd', icon: $r("app.media.selection") }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .font({ size: 16, weight: 500 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontColor('#182431')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .space(this.space)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowPosition(this.arrowPosition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuAlign(MenuAlignType.START, { dx: 0, dy: 0 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionWidth(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionHeight(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .avoidance(AvoidanceMode.COVER_TARGET);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552959722-692016064b35325b7c8abc6eb20d1484.png width=400 height=349 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例2设置symbol类型图标>示例2（设置symbol类型图标）<a href=#示例2设置symbol类型图标 class=hash-link aria-label=示例2（设置symbol类型图标）的直接链接 title=示例2（设置symbol类型图标）的直接链接 translate=no>​</a></h3>
+<p>该示例实现了一个下拉菜单中图片为Symbol的Select组件，并从API version 19开始通过设置<a href=#avoidance19 class="">avoidance</a>属性实现菜单的避让方式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { SymbolGlyphModifier } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTT";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = 2;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State space: number = 8;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State arrowPosition: ArrowPosition = ArrowPosition.END;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier1: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.ohos_wifi')).fontColor([Color.Green]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier2: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.ohos_star')).fontColor([Color.Red]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier3: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.ohos_trash')).fontColor([Color.Gray]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier4: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.exposure')).fontColor([Color.Gray]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'aaa', symbolIcon: this.symbolModifier1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'bbb', symbolIcon: this.symbolModifier2 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ccc', symbolIcon: this.symbolModifier3 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ddd', symbolIcon: this.symbolModifier4 }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .font({ size: 16, weight: 500 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontColor('#182431')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .space(this.space)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowPosition(this.arrowPosition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuAlign(MenuAlignType.START, { dx: 0, dy: 0 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .avoidance(AvoidanceMode.COVER_TARGET);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583479723-7da7f9c19ea42141254f5f780e80f8e0.png width=387 height=466 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例3自定义下拉菜单>示例3（自定义下拉菜单）<a href=#示例3自定义下拉菜单 class=hash-link aria-label=示例3（自定义下拉菜单）的直接链接 title=示例3（自定义下拉菜单）的直接链接 translate=no>​</a></h3>
+<p>该示例实现了一个自定义下拉菜选项的Select组件。自定义下拉菜单选项样式为“文本 + Symbol图片 + 空白间隔 + 文本 + 绘制三角形”，点击菜单选项后Select组件显示菜单选项的文本内容。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SymbolGlyphModifier } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class MyMenuItemContentModifier implements ContentModifier&lt;MenuItemConfiguration> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  modifierText: string = "";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  constructor(text: string) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.modifierText = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  applyContent(): WrappedBuilder&lt;[MenuItemConfiguration]> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return wrapBuilder(MenuItemBuilder);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Builder</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function MenuItemBuilder(configuration: MenuItemConfiguration) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Text(configuration.value)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Blank()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (configuration.symbolIcon) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      SymbolGlyph().attributeModifier(configuration.symbolIcon).fontSize(24)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else if (configuration.icon) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Image(configuration.icon).size({ width: 24, height: 24 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Blank(30)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Text((configuration.contentModifier as MyMenuItemContentModifier).modifierText)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Blank(30)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Path()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100px')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .height('150px')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .commands('M40 0 L80 100 L0 100 Z')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fillOpacity(0)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .stroke(Color.Black)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .strokeWidth(3)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    configuration.triggerSelect(configuration.index, configuration.value.valueOf().toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "Content Modifier Select";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier1: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.ohos_trash')).fontColor([Color.Gray]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State symbolModifier2: SymbolGlyphModifier =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    new SymbolGlyphModifier($r('sys.symbol.exposure')).fontColor([Color.Gray]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.icon')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Select([{ value: 'item1', icon: $r('app.media.icon'), symbolIcon: this.symbolModifier1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          { value: 'item1', icon: $r('app.media.icon'), symbolIcon: this.symbolModifier2 }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onSelect((index: number, text?: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info('Select index:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info('Select text:' + text);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .menuItemContentModifier(new MyMenuItemContentModifier("Content Modifier"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }.alignItems(VerticalAlign.Center).height('50%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552800074-b2aaf02877011e3940e322c302aab4ef.png width=525 height=292 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例4设置分割线样式>示例4（设置分割线样式）<a href=#示例4设置分割线样式 class=hash-link aria-label=示例4（设置分割线样式）的直接链接 title=示例4（设置分割线样式）的直接链接 translate=no>​</a></h3>
+<p>该示例通过配置divider的DividerOptions类型实现分割线样式的下拉菜单，并从API version 19开始通过设置<a href=#avoidance19 class="">avoidance</a>属性实现菜单的避让方式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTT";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = -1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State arrowPosition: ArrowPosition = ArrowPosition.END;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // $r('app.media.icon')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'aaa', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'bbb', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ccc', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ddd', icon: $r("app.media.icon") }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .font({ size: 16, weight: 500 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontColor('#182431')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowPosition(this.arrowPosition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuAlign(MenuAlignType.START, { dx: 0, dy: 0 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionWidth(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionHeight(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .divider({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          strokeWidth: 5,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          color: Color.Blue,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          startMargin: 10,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          endMargin: 10</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .avoidance(AvoidanceMode.COVER_TARGET);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583439769-31e9dd37750c33f4b3196d43a903bf4f.png width=227 height=251 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例5设置无分割线样式>示例5（设置无分割线样式）<a href=#示例5设置无分割线样式 class=hash-link aria-label=示例5（设置无分割线样式）的直接链接 title=示例5（设置无分割线样式）的直接链接 translate=no>​</a></h3>
+<p>该示例通过配置divider为null实现无分割线样式的下拉菜单，并从API version 19开始通过设置<a href=#avoidance19 class="">avoidance</a>属性实现菜单的避让方式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTT";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = -1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State arrowPosition: ArrowPosition = ArrowPosition.END;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // $r('app.media.icon')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'aaa', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'bbb', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ccc', icon: $r("app.media.icon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ddd', icon: $r("app.media.icon") }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .font({ size: 16, weight: 500 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontColor('#182431')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowPosition(this.arrowPosition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuAlign(MenuAlignType.START, { dx: 0, dy: 0 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionWidth(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionHeight(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .divider(null)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .avoidance(AvoidanceMode.COVER_TARGET);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552959724-587dcf04ed21ecade65330472328ce59.png width=227 height=252 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例6设置select中文本和箭头样式>示例6（设置Select中文本和箭头样式）<a href=#示例6设置select中文本和箭头样式 class=hash-link aria-label=示例6（设置Select中文本和箭头样式）的直接链接 title=示例6（设置Select中文本和箭头样式）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始，该示例通过<a href=#textmodifier20 class="">textModifier</a>和<a href=#arrowmodifier20 class="">arrowModifier</a>属性设置文本以及箭头样式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { TextModifier, SymbolGlyphModifier } from "@kit.ArkUI";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTTTTTTT".repeat(3);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = 2;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  textModifier: TextModifier = new TextModifier();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  symbolGlyphModifier: SymbolGlyphModifier = new SymbolGlyphModifier();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  aboutToAppear(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.textModifier</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .maxLines(2)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontSize(18)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .textAlign(TextAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontColor('#333333')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontWeight(FontWeight.Medium)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .textOverflow({overflow:TextOverflow.Clip})</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.symbolGlyphModifier</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontSize(25)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontColor(['#999999'])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'A very long option text that should be truncated nicely'.repeat(3), icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option B', icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option C', icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option D', icon: $r("app.media.startIcon") }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .textModifier(this.textModifier)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowModifier(this.symbolGlyphModifier)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .margin({ top: 20,left:30 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .borderRadius(12)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .padding(9)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .backgroundColor(Color.White)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .shadow({ radius: 10, color: '#888888', offsetX: 0, offsetY: 10 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .alignItems(HorizontalAlign.Start)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .padding(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .backgroundColor('#F0F2F5')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583479725-c672585743fe96ffb06b5c2489fcab84.png width=372 height=274 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例7设置select下拉菜单选中和非选中项文本样式>示例7（设置Select下拉菜单选中和非选中项文本样式）<a href=#示例7设置select下拉菜单选中和非选中项文本样式 class=hash-link aria-label=示例7（设置Select下拉菜单选中和非选中项文本样式）的直接链接 title=示例7（设置Select下拉菜单选中和非选中项文本样式）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始，该示例通过<a href=#optiontextmodifier20 class="">optionTextModifier</a>和<a href=#selectedoptiontextmodifier20 class="">selectedOptionTextModifier</a>属性设置下拉菜单选中和非选中项文本样式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { TextModifier } from "@kit.ArkUI";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTTTTTTT".repeat(3);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = 2;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  optionTextModifier: TextModifier = new TextModifier();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  selectedOptionTextModifier: TextModifier = new TextModifier();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  aboutToAppear(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.optionTextModifier</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .maxLines(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontSize(16)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .textAlign(TextAlign.Start)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontColor('#666666')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontWeight(FontWeight.Normal)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.selectedOptionTextModifier</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .maxLines(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontSize(18)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .textAlign(TextAlign.Start)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontColor('#007BFF')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.startIcon')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'A very long option text that should be truncated nicely'.repeat(3), icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option B', icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option C', icon: $r("app.media.startIcon") },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'Option D', icon: $r("app.media.startIcon") }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionTextModifier(this.optionTextModifier)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionTextModifier(this.selectedOptionTextModifier)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .margin({ top: 20,left:30 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .borderRadius(12)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .padding(9)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .backgroundColor(Color.White)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .shadow({ radius: 10, color: '#888888', offsetX: 0, offsetY: 10 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .alignItems(HorizontalAlign.Start)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .padding(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .backgroundColor('#F0F2F5')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552800076-bb94d66869a3045b0a99a88dc990a2b0.png width=373 height=246 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例8设置分割线模式>示例8（设置分割线模式）<a href=#示例8设置分割线模式 class=hash-link aria-label=示例8（设置分割线模式）的直接链接 title=示例8（设置分割线模式）的直接链接 translate=no>​</a></h3>
+<p>从API version 19开始，该示例通过配置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#dividerstyleoptions12>DividerStyleOptions</a>的mode属性设置分割线模式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { LengthMetrics } from '@kit.ArkUI'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    RelativeContainer() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: "SelectItem" }, { value: "SelectItem" }, { value: "SelectItem" },])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value("请选择")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .dividerStyle({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          strokeWidth: LengthMetrics.vp(5),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          color: '#d5d5d5',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          mode: DividerMode.EMBEDDED_IN_MENU</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583439771-7d9405088b762b1e9a8af61e64659f3f.png width=300 height=260 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例9设置select下拉菜单外描边样式>示例9（设置Select下拉菜单外描边样式）<a href=#示例9设置select下拉菜单外描边样式 class=hash-link aria-label=示例9（设置Select下拉菜单外描边样式）的直接链接 title=示例9（设置Select下拉菜单外描边样式）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始该示例通过配置menuOutline的width和color属性设置下拉菜单外描边样式。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct SelectExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State text: string = "TTTTT";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State index: number = -1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State arrowPosition: ArrowPosition = ArrowPosition.END;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'aaa' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'bbb' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ccc' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'ddd' }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selected(this.index)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value(this.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .font({ size: 16, weight: 500 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontColor('#182431')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .selectedOptionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionFont({ size: 16, weight: 400 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .arrowPosition(this.arrowPosition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuAlign(MenuAlignType.START, { dx: 0, dy: 0 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionWidth(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .optionHeight(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .menuOutline({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          width: '5vp',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          color: Color.Blue</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onSelect((index: number, text?: string | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('Select:' + index);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.index = index;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (text) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .backgroundColor('#F0F2F5')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552959726-073b92d77c44f1836f42261e858d2a04.png width=254 height=265 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例10设置select的弹出菜单避让软键盘>示例10（设置Select的弹出菜单避让软键盘）<a href=#示例10设置select的弹出菜单避让软键盘 class=hash-link aria-label=示例10（设置Select的弹出菜单避让软键盘）的直接链接 title=示例10（设置Select的弹出菜单避让软键盘）的直接链接 translate=no>​</a></h3>
+<p>该示例通过调用<a href=#keyboardavoidmode23 class="">keyboardAvoidMode</a>和<a href=#minkeyboardavoiddistance23 class="">minKeyboardAvoidDistance</a>接口，实现下拉菜单避让软键盘并自定义避让软键盘的最小距离。</p>
+<p>从API version 23开始，新增keyboardAvoidMode、minKeyboardAvoidDistance接口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { inputMethod } from '@kit.IMEKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { LengthMetrics } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private inputController: inputMethod.InputMethodController = inputMethod.getController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    RelativeContainer() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Select([{ value: 'SelectOption' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'SelectOption' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'SelectOption' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'SelectOption' },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        { value: 'SelectOption' }])</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .value('Click Show Options')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .alignRules({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          center: { anchor: '__container__', align: VerticalAlign.Center },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          middle: { anchor: '__container__', align: HorizontalAlign.Center },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .keyboardAvoidMode(MenuKeyboardAvoidMode.TRANSLATE_AND_RESIZE)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .minKeyboardAvoidDistance(LengthMetrics.vp(20))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          setTimeout(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.attachAndListener()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }, 2000)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  async attachAndListener() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    focusControl.requestFocus('Index')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      await this.inputController.attach(true, {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        inputAttribute: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          textInputType: inputMethod.TextInputType.TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          enterKeyType: inputMethod.EnterKeyType.SEARCH</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Fail to attach')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583479727-16aae2ab95735982402036f997bc2ccf.gif width=253 height=524 class=img_ev3q /></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-rating/ts-basic-components-rating><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Rating</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-slider/ts-basic-components-slider><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>Slider</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#子组件 class="table-of-contents__link toc-highlight">子组件</a><li><a href=#接口 class="table-of-contents__link toc-highlight">接口</a><li><a href=#selectoption对象说明 class="table-of-contents__link toc-highlight">SelectOption对象说明</a><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><ul><li><a href=#selected class="table-of-contents__link toc-highlight">selected</a><li><a href=#selected18 class="table-of-contents__link toc-highlight">selected18+</a><li><a href=#value class="table-of-contents__link toc-highlight">value</a><li><a href=#value18 class="table-of-contents__link toc-highlight">value18+</a><li><a href=#controlsize12 class="table-of-contents__link toc-highlight">controlSize12+</a><li><a href=#controlsize18 class="table-of-contents__link toc-highlight">controlSize18+</a><li><a href=#menuitemcontentmodifier12 class="table-of-contents__link toc-highlight">menuItemContentModifier12+</a><li><a href=#menuitemcontentmodifier18 class="table-of-contents__link toc-highlight">menuItemContentModifier18+</a><li><a href=#divider12 class="table-of-contents__link toc-highlight">divider12+</a><li><a href=#dividerstyle19 class="table-of-contents__link toc-highlight">dividerStyle19+</a><li><a href=#font class="table-of-contents__link toc-highlight">font</a><li><a href=#font18 class="table-of-contents__link toc-highlight">font18+</a><li><a href=#fontcolor class="table-of-contents__link toc-highlight">fontColor</a><li><a href=#fontcolor18 class="table-of-contents__link toc-highlight">fontColor18+</a><li><a href=#selectedoptionbgcolor class="table-of-contents__link toc-highlight">selectedOptionBgColor</a><li><a href=#selectedoptionbgcolor18 class="table-of-contents__link toc-highlight">selectedOptionBgColor18+</a><li><a href=#selectedoptionfont class="table-of-contents__link toc-highlight">selectedOptionFont</a><li><a href=#selectedoptionfont18 class="table-of-contents__link toc-highlight">selectedOptionFont18+</a><li><a href=#selectedoptionfontcolor class="table-of-contents__link toc-highlight">selectedOptionFontColor</a><li><a href=#selectedoptionfontcolor18 class="table-of-contents__link toc-highlight">selectedOptionFontColor18+</a><li><a href=#optionbgcolor class="table-of-contents__link toc-highlight">optionBgColor</a><li><a href=#optionbgcolor18 class="table-of-contents__link toc-highlight">optionBgColor18+</a><li><a href=#optionfont class="table-of-contents__link toc-highlight">optionFont</a><li><a href=#optionfont18 class="table-of-contents__link toc-highlight">optionFont18+</a><li><a href=#optionfontcolor class="table-of-contents__link toc-highlight">optionFontColor</a><li><a href=#optionfontcolor18 class="table-of-contents__link toc-highlight">optionFontColor18+</a><li><a href=#space10 class="table-of-contents__link toc-highlight">space10+</a><li><a href=#space18 class="table-of-contents__link toc-highlight">space18+</a><li><a href=#arrowposition10 class="table-of-contents__link toc-highlight">arrowPosition10+</a><li><a href=#arrowposition18 class="table-of-contents__link toc-highlight">arrowPosition18+</a><li><a href=#menualign10 class="table-of-contents__link toc-highlight">menuAlign10+</a><li><a href=#menualign18 class="table-of-contents__link toc-highlight">menuAlign18+</a><li><a href=#optionwidth11 class="table-of-contents__link toc-highlight">optionWidth11+</a><li><a href=#optionwidth18 class="table-of-contents__link toc-highlight">optionWidth18+</a><li><a href=#optionheight11 class="table-of-contents__link toc-highlight">optionHeight11+</a><li><a href=#optionheight18 class="table-of-contents__link toc-highlight">optionHeight18+</a><li><a href=#menubackgroundcolor11 class="table-of-contents__link toc-highlight">menuBackgroundColor11+</a><li><a href=#menubackgroundcolor18 class="table-of-contents__link toc-highlight">menuBackgroundColor18+</a><li><a href=#menubackgroundblurstyle11 class="table-of-contents__link toc-highlight">menuBackgroundBlurStyle11+</a><li><a href=#menubackgroundblurstyle18 class="table-of-contents__link toc-highlight">menuBackgroundBlurStyle18+</a><li><a href=#avoidance19 class="table-of-contents__link toc-highlight">avoidance19+</a><li><a href=#menuoutline20 class="table-of-contents__link toc-highlight">menuOutline20+</a><li><a href=#showdefaultselectedicon20 class="table-of-contents__link toc-highlight">showDefaultSelectedIcon20+</a><li><a href=#textmodifier20 class="table-of-contents__link toc-highlight">textModifier20+</a><li><a href=#arrowmodifier20 class="table-of-contents__link toc-highlight">arrowModifier20+</a><li><a href=#optiontextmodifier20 class="table-of-contents__link toc-highlight">optionTextModifier20+</a><li><a href=#selectedoptiontextmodifier20 class="table-of-contents__link toc-highlight">selectedOptionTextModifier20+</a><li><a href=#showinsubwindow20 class="table-of-contents__link toc-highlight">showInSubWindow20+</a><li><a href=#keyboardavoidmode23 class="table-of-contents__link toc-highlight">keyboardAvoidMode23+</a><li><a href=#minkeyboardavoiddistance23 class="table-of-contents__link toc-highlight">minKeyboardAvoidDistance23+</a></ul><li><a href=#arrowposition10枚举说明 class="table-of-contents__link toc-highlight">ArrowPosition10+枚举说明</a><li><a href=#menualigntype10枚举说明 class="table-of-contents__link toc-highlight">MenuAlignType10+枚举说明</a><li><a href=#avoidancemode19枚举说明 class="table-of-contents__link toc-highlight">AvoidanceMode19+枚举说明</a><li><a href=#menuitemconfiguration12对象说明 class="table-of-contents__link toc-highlight">MenuItemConfiguration12+对象说明</a><li><a href=#menuoutlineoptions20对象说明 class="table-of-contents__link toc-highlight">MenuOutlineOptions20+对象说明</a><li><a href=#事件 class="table-of-contents__link toc-highlight">事件</a><ul><li><a href=#onselect class="table-of-contents__link toc-highlight">onSelect</a><li><a href=#onselect18 class="table-of-contents__link toc-highlight">onSelect18+</a></ul><li><a href=#onselectcallback18 class="table-of-contents__link toc-highlight">OnSelectCallback18+</a><li><a href=#示例 class="table-of-contents__link toc-highlight">示例</a><ul><li><a href=#示例1设置下拉菜单 class="table-of-contents__link toc-highlight">示例1（设置下拉菜单）</a><li><a href=#示例2设置symbol类型图标 class="table-of-contents__link toc-highlight">示例2（设置symbol类型图标）</a><li><a href=#示例3自定义下拉菜单 class="table-of-contents__link toc-highlight">示例3（自定义下拉菜单）</a><li><a href=#示例4设置分割线样式 class="table-of-contents__link toc-highlight">示例4（设置分割线样式）</a><li><a href=#示例5设置无分割线样式 class="table-of-contents__link toc-highlight">示例5（设置无分割线样式）</a><li><a href=#示例6设置select中文本和箭头样式 class="table-of-contents__link toc-highlight">示例6（设置Select中文本和箭头样式）</a><li><a href=#示例7设置select下拉菜单选中和非选中项文本样式 class="table-of-contents__link toc-highlight">示例7（设置Select下拉菜单选中和非选中项文本样式）</a><li><a href=#示例8设置分割线模式 class="table-of-contents__link toc-highlight">示例8（设置分割线模式）</a><li><a href=#示例9设置select下拉菜单外描边样式 class="table-of-contents__link toc-highlight">示例9（设置Select下拉菜单外描边样式）</a><li><a href=#示例10设置select的弹出菜单避让软键盘 class="table-of-contents__link toc-highlight">示例10（设置Select的弹出菜单避让软键盘）</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

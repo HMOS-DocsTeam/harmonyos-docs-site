@@ -1,0 +1,1911 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.hiviewdfx.hiAppEvent (应用事件打点) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.hiviewdfx.hiAppEvent (应用事件打点) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供应用打点和事件订阅能力，包括事件存储、事件订阅、事件清理、打点配置等功能。HiAppEvent将应用运行过程中触发的事件信息统一归纳到AppEventInfo中，并将事件分为系统事件和应用事件两类。 /><meta data-rh=true property=og:description content=本模块提供应用打点和事件订阅能力，包括事件存储、事件订阅、事件清理、打点配置等功能。HiAppEvent将应用运行过程中触发的事件信息统一归纳到AppEventInfo中，并将事件分为系统事件和应用事件两类。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent","name":"@ohos.hiviewdfx.hiAppEvent (应用事件打点)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title="@ohos.hichecker (检测模式)" class=linkLabel_WmDU>@ohos.hichecker (检测模式)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hidebug/js-apis-hidebug><span title="@ohos.hidebug (Debug调试)" class=linkLabel_WmDU>@ohos.hidebug (Debug调试)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hilog/js-apis-hilog><span title="@ohos.hilog (HiLog日志打印)" class=linkLabel_WmDU>@ohos.hilog (HiLog日志打印)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hitracechain/js-apis-hitracechain><span title="@ohos.hiTraceChain (分布式跟踪)" class=linkLabel_WmDU>@ohos.hiTraceChain (分布式跟踪)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hitracemeter/js-apis-hitracemeter><span title="@ohos.hiTraceMeter (性能打点)" class=linkLabel_WmDU>@ohos.hiTraceMeter (性能打点)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-faultlogextensionability/js-apis-hiviewdfx-faultlogextensionability><span title="@ohos.hiviewdfx.FaultLogExtensionAbility (故障延迟通知)" class=linkLabel_WmDU>@ohos.hiviewdfx.FaultLogExtensionAbility (故障延迟通知)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-faultlogextensioncontext/js-apis-hiviewdfx-faultlogextensioncontext><span title="@ohos.hiviewdfx.FaultLogExtensionContext (故障延迟通知上下文)" class=linkLabel_WmDU>@ohos.hiviewdfx.FaultLogExtensionContext (故障延迟通知上下文)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-hiappevent/js-apis-hiviewdfx-hiappevent><span title="@ohos.hiviewdfx.hiAppEvent (应用事件打点)" class=linkLabel_WmDU>@ohos.hiviewdfx.hiAppEvent (应用事件打点)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-jsleakwatcher/js-apis-jsleakwatcher><span title="@ohos.hiviewdfx.jsLeakWatcher (ArkTS泄漏检测)" class=linkLabel_WmDU>@ohos.hiviewdfx.jsLeakWatcher (ArkTS泄漏检测)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/performance-analysis-arkts-dep/js-apis-bytrace/js-apis-bytrace><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-c/performance-analysis-module/capi-hiappevent/capi-hiappevent><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-faultlogger/errorcode-faultlogger><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/test-api/test-arkts/js-apis-app-ability-abilitydelegatorregistry/js-apis-app-ability-abilitydelegatorregistry><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Performance Analysis Kit（性能分析服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.hiviewdfx.hiAppEvent (应用事件打点)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.hiviewdfx.hiAppEvent (应用事件打点)</h1></header>
+<p>本模块提供应用打点和事件订阅能力，包括事件存储、事件订阅、事件清理、打点配置等功能。HiAppEvent将应用运行过程中触发的事件信息统一归纳到<a href=#appeventinfo class="">AppEventInfo</a>中，并将事件分为系统事件和应用事件两类。</p>
+<p>系统事件来源于系统服务，是系统预先定义的事件，这类事件信息中的事件参数对象params包含的字段已由各系统事件定义，具体字段含义在各系统事件指南的介绍中，例如<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/crash-events/hiappevent-watcher-crash-events>崩溃事件介绍</a>。</p>
+<p>应用事件来源于应用，是应用开发者自己定义的事件，这类事件信息支持自定义后通过<a href=#hiappeventwrite-1 class="">Write</a>打点接口进行配置设定，具体字段含义可结合开发者需求展开。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 9开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hiAppEvent } from '@kit.PerformanceAnalysisKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventaddwatcher>hiAppEvent.addWatcher<a href=#hiappeventaddwatcher class=hash-link aria-label=hiAppEvent.addWatcher的直接链接 title=hiAppEvent.addWatcher的直接链接 translate=no>​</a></h2>
+<p>addWatcher(watcher: Watcher): AppEventPackageHolder</p>
+<p>添加事件观察者。可通过事件观察者的回调函数监听事件。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>watcher<td><a href=#watcher class="">Watcher</a><td>是<td>事件观察者。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#appeventpackageholder class="">AppEventPackageHolder</a><td>订阅数据持有者。订阅失败时返回null。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11102001<td>Invalid watcher name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11102002<td>Invalid filtering event domain. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11102003<td>Invalid row value. Possible caused by the row value is less than zero.<tr><td>11102004<td>Invalid size value. Possible caused by the size value is less than zero.<tr><td>11102005<td>Invalid timeout value. Possible caused by the timeout value is less than zero.</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>addWatcher接口涉及I/O操作。在对性能敏感的业务场景中，开发者应根据实际需要确定该接口是在主线程还是在子线程中调用。</p>
+<p>如果选择在子线程中调用addWatcher，需要确保该子线程在整个接口使用周期内不会被销毁，以免影响接口的正常工作。</p>
+<p>可参考<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/worker-introduction>Worker简介</a>，以实现在子线程中调用接口。</p>
+<p>订阅接口addWatcher传入的名称name是唯一的，相同的name，后一次调用会覆盖前一次的订阅。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<p>根据添加的事件观察者类型，目前有如下三种使用方法：</p>
+<p>方法一：设置回调条件triggerCondition，实现onTrigger()回调。当满足回调条件时，系统将自动触发回调。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.addWatcher({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "watcher1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 订阅过滤条件，这里是订阅了系统事件领域的应用崩溃事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  appEventFilters: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      domain: hiAppEvent.domain.OS,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      names: [hiAppEvent.event.APP_CRASH]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 设置触发onTrigger回调的条件，这里是当满足事件总数量达到10个或事件总大小达到1000byte或事件发生超过30s时会触发回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  triggerCondition: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    row: 10,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    size: 1000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    timeOut: 1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 实现onTrigger回调，结合triggerCondition使用，满足回调条件触发回调，接收到回调通知后，使用takeNext()查询订阅的事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onTrigger: (curRow: number, curSize: number, holder: hiAppEvent.AppEventPackageHolder) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (holder == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'hiAppEvent', "holder is null");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'hiAppEvent', `curRow=${curRow}, curSize=${curSize}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let eventPkg: hiAppEvent.AppEventPackage | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    while ((eventPkg = holder.takeNext()) != null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'hiAppEvent', `eventPkg.packageId=${eventPkg.packageId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'hiAppEvent', `eventPkg.row=${eventPkg.row}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'hiAppEvent', `eventPkg.size=${eventPkg.size}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (const eventInfo of eventPkg.data) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.info(0x0000, 'hiAppEvent', `eventPkg.data=${eventInfo}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<p>方法二：未设置回调条件参数，使用事件订阅返回的holder对象主动获取监听的事件。</p>
+<p>针对异常退出时产生的崩溃事件（hiAppEvent.event.APP_CRASH）和应用冻屏事件（hiAppEvent.event.APP_FREEZE），系统捕获维测日志有一定耗时，典型情况下30s内完成，极端情况下2min左右完成。</p>
+<p>在手动处理订阅事件的方法中，由于事件可能未生成或日志信息未抓取完成，建议在进程启动后延时重试调用takeNext()获取此类事件。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let holder: hiAppEvent.AppEventPackageHolder = hiAppEvent.addWatcher({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "watcher2",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 订阅过滤条件，这里是订阅了系统事件领域的应用崩溃事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  appEventFilters: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      domain: hiAppEvent.domain.OS,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      names: [hiAppEvent.event.APP_CRASH]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 通过订阅数据持有者holder，主动获取崩溃事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (holder != null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let eventPkg: hiAppEvent.AppEventPackage | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  while ((eventPkg = holder.takeNext()) != null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'hiAppEvent', `eventPkg.packageId=${eventPkg.packageId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'hiAppEvent', `eventPkg.row=${eventPkg.row}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'hiAppEvent', `eventPkg.size=${eventPkg.size}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (const eventInfo of eventPkg.data) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'hiAppEvent', `eventPkg.data=${eventInfo}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>方法三：实现onReceive()回调，当监听的事件发生后实时触发回调。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.addWatcher({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "watcher3",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 订阅过滤条件，这里是订阅了系统事件领域的应用崩溃事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  appEventFilters: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      domain: hiAppEvent.domain.OS,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      names: [hiAppEvent.event.APP_CRASH]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 实现onReceive回调，监听到事件后实时回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onReceive: (domain: string, appEventGroups: Array&lt;hiAppEvent.AppEventGroup>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'hiAppEvent', `domain=${domain}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (const eventGroup of appEventGroups) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'hiAppEvent', `eventName=${eventGroup.name}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (const eventInfo of eventGroup.appEventInfos) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.info(0x0000, 'hiAppEvent', `event=${JSON.stringify(eventInfo)}`, );</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventremovewatcher>hiAppEvent.removeWatcher<a href=#hiappeventremovewatcher class=hash-link aria-label=hiAppEvent.removeWatcher的直接链接 title=hiAppEvent.removeWatcher的直接链接 translate=no>​</a></h2>
+<p>removeWatcher(watcher: Watcher): void</p>
+<p>移除事件观察者。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>watcher<td><a href=#watcher class="">Watcher</a><td>是<td>事件观察者。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11102001<td>Invalid watcher name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 1. 定义一个事件观察者</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let watcher: hiAppEvent.Watcher = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "watcher1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 2. 添加一个事件观察者来订阅事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.addWatcher(watcher);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 3. 移除该事件观察者以取消订阅事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.removeWatcher(watcher);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventseteventparam12>hiAppEvent.setEventParam12+<a href=#hiappeventseteventparam12 class=hash-link aria-label=hiAppEvent.setEventParam12+的直接链接 title=hiAppEvent.setEventParam12+的直接链接 translate=no>​</a></h2>
+<p>setEventParam(params: Record&lt;string, ParamType>, domain: string, name?: string): Promise&lt;void></p>
+<p>事件自定义参数设置方法，使用Promise方式作为异步回调。在同一生命周期中，可以通过事件领域和事件名称关联系统事件和应用事件。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td>Record&lt;string, <a href=#paramtype12 class="">ParamType</a>><td>是<td>事件自定义参数对象。参数名和参数值规格定义如下：  - 参数名为string类型，首字符必须为字母字符或$字符。中间字符必须为数字字符、字母字符或下划线字符。结尾字符必须为数字字符或字母字符。长度非空且不超过32个字符。  - 参数值为<a href=#paramtype12 class="">ParamType</a>类型，参数值长度需在1024个字符以内。  - 参数个数需在64个以内。<tr><td>domain<td>string<td>是<td>事件领域。事件领域可支持关联应用事件和系统事件（hiAppEvent.domain.OS）。<tr><td>name<td>string<td>否<td>事件名称。默认为空字符串，空字符串表示关联事件领域下的所有事件名称。事件名称可支持关联应用事件和系统事件，其中系统事件仅支持关联：  - <a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/crash-events/hiappevent-watcher-crash-events>崩溃事件</a>（hiAppEvent.event.APP_CRASH）  - <a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/freeze-events/hiappevent-watcher-freeze-events>应用冻屏事件</a>（hiAppEvent.event.APP_FREEZE）  - <a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events>资源泄漏事件</a>（hiAppEvent.event.RESOURCE_OVERLIMIT）。  <strong><strong>注意</strong></strong>：从API version 20开始，支持<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events>资源泄漏事件</a>。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11100001<td>Function disabled. Possible caused by the param disable in ConfigOption is true.<tr><td>11101001<td>Invalid event domain. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101002<td>Invalid event name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101004<td>Invalid string length of the event parameter.<tr><td>11101005<td>Invalid event parameter name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101007<td>The number of parameter keys exceeds the limit.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let params: Record&lt;string, hiAppEvent.ParamType> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "int_data": 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "str_data": "strValue",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 给应用事件追加自定义参数</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.setEventParam(params, "test_domain", "test_event").then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `success to set event param`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventseteventconfig15>hiAppEvent.setEventConfig15+<a href=#hiappeventseteventconfig15 class=hash-link aria-label=hiAppEvent.setEventConfig15+的直接链接 title=hiAppEvent.setEventConfig15+的直接链接 translate=no>​</a></h2>
+<p>setEventConfig(name: string, config: Record&lt;string, ParamType>): Promise&lt;void></p>
+<p>事件相关的配置参数设置方法，使用Promise方式作为异步回调。在同一生命周期中，可以通过事件名称，设置事件相关的配置参数。</p>
+<p>不同的事件有不同的配置项，目前仅支持以下事件：</p>
+<ul>
+<li class="">MAIN_THREAD_JANK（参数配置详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/main-thread-jank-events/hiappevent-watcher-mainthreadjank-events#seteventconfig%E6%8E%A5%E5%8F%A3%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE%E8%AF%B4%E6%98%8E>主线程超时事件检测</a>）</li>
+<li class="">APP_CRASH（参数配置详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/crash-events/hiappevent-watcher-crash-events#%E5%B4%A9%E6%BA%83%E6%97%A5%E5%BF%97%E8%A7%84%E6%A0%BC%E8%87%AA%E5%AE%9A%E4%B9%89%E5%8F%82%E6%95%B0%E8%AE%BE%E7%BD%AE>崩溃日志配置参数设置介绍</a>）</li>
+<li class="">RESOURCE_OVERLIMIT（参数配置详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events#%E8%87%AA%E5%AE%9A%E4%B9%89%E8%A7%84%E6%A0%BC%E8%AE%BE%E7%BD%AE>资源泄漏事件检测</a>）</li>
+</ul>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>事件名称。<tr><td>config<td>Record&lt;string, <a href=#paramtype12 class="">ParamType</a>><td>是<td>事件自定义参数对象。参数名和参数值规格定义如下：  - 参数名为string类型，要求非空，且参数名长度需在1024个字符以内。  - 参数值为ParamType类型，参数值长度需在1024个字符以内。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3.Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>以下示例用于模拟配置MAIN_THREAD_JANK事件的采集堆栈自定义参数：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let params: Record&lt;string, hiAppEvent.ParamType> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "log_type": "1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "sample_interval": "100",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "ignore_startup_time": "11",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "sample_count": "21",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "report_times_per_app": "3"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.setEventConfig(hiAppEvent.event.MAIN_THREAD_JANK, params).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `Successfully set sampling stack parameters.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `Failed to set sample stack value. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventconfigeventpolicy22>hiAppEvent.configEventPolicy22+<a href=#hiappeventconfigeventpolicy22 class=hash-link aria-label=hiAppEvent.configEventPolicy22+的直接链接 title=hiAppEvent.configEventPolicy22+的直接链接 translate=no>​</a></h2>
+<p>configEventPolicy(policy: EventPolicy): Promise&lt;void></p>
+<p>系统事件相关的配置策略设置方法，使用Promise方式作为异步回调。</p>
+<p>在同一生命周期中，可以通过配置策略设置系统事件相关的策略参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>policy<td><a href=#eventpolicy22 class="">EventPolicy</a><td>是<td>系统事件配置策略。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。  各个事件的事件配置策略，详细规格见<a href=#eventpolicy22 class="">EventPolicy</a>类型说明。若配置策略设置有误，会导致接口返回失败。  - 参数类型设置有误，则返回401通用错误信息；  - 参数规格设置有误，则在hilog日志输出相关错误信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>以下示例用于模拟设置MAIN_THREAD_JANK事件的配置策略：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let policy: hiAppEvent.EventPolicy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "mainThreadJankPolicy":{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "logType": 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "sampleInterval": 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "ignoreStartupTime": 11,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "sampleCount": 21,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "reportTimesPerApp": 3,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "autoStopSampling": true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.configEventPolicy(policy).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `Successfully set main thread jank event policy.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `Failed to set main thread jank event policy. Code: ${err?.code}, message: ${err?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=watcher>Watcher<a href=#watcher class=hash-link aria-label=Watcher的直接链接 title=Watcher的直接链接 translate=no>​</a></h2>
+<p>提供事件观察者的参数选项。用于配置和管理事件的观察者，实现对特定事件的监听和处理。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>观察者名称，用于唯一标识观察者。首字符必须为字母字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过32个字符。如testName1、crash_Watcher等。<tr><td>triggerCondition<td><a href=#triggercondition class="">TriggerCondition</a><td>否<td>是<td>订阅回调触发条件，需要与回调函数onTrigger一同传入才会生效。默认不触发。<tr><td>appEventFilters<td><a href=#appeventfilter class="">AppEventFilter</a>[]<td>否<td>是<td>订阅过滤条件，在需要对订阅事件进行过滤时传入。默认不过滤事件。<tr><td>onTrigger<td>(curRow: number, curSize: number, holder: <a href=#appeventpackageholder class="">AppEventPackageHolder</a>) => void<td>否<td>是<td>订阅回调函数，需要与回调触发条件triggerCondition一同传入才会生效，函数入参说明如下：  curRow：在本次回调触发时的订阅事件总数量；  curSize：在本次回调触发时的订阅事件总大小，单位为byte；  holder：订阅数据持有者对象，可以通过其对订阅事件进行处理。<tr><td>onReceive11+<td>(domain: string, appEventGroups: Array&lt;<a href=#appeventgroup11 class="">AppEventGroup</a>>) => void<td>否<td>是<td>订阅实时回调函数，与回调函数onTrigger同时存在时，只触发此回调，函数入参说明如下：  domain：回调事件的领域名称；  appEventGroups：回调事件集合。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>不建议在回调函数中执行<a href=#hiappeventremovewatcher class="">移除观察者</a>的操作，watcher一旦被移除，则其原有的订阅回调功能也会随之失效，可能会造成某些事件发生后无订阅回调情况。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=triggercondition>TriggerCondition<a href=#triggercondition class=hash-link aria-label=TriggerCondition的直接链接 title=TriggerCondition的直接链接 translate=no>​</a></h2>
+<p>提供设置<a href=#watcher class="">Watcher</a>的onTrigger回调触发条件的参数选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>row<td>number<td>否<td>是<td>满足触发回调的事件总数量，正整数。默认值0，不触发回调。传入负值时，会被置为默认值。<tr><td>size<td>number<td>否<td>是<td>满足触发回调的事件总大小，正整数，单位为byte。默认值0，不触发回调。传入负值时，会被置为默认值。<tr><td>timeOut<td>number<td>否<td>是<td>满足触发回调的超时时长，正整数，单位为30s。默认值0，不触发回调。传入负值时，会被置为默认值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventfilter>AppEventFilter<a href=#appeventfilter class=hash-link aria-label=AppEventFilter的直接链接 title=AppEventFilter的直接链接 translate=no>​</a></h2>
+<p>提供设置<a href=#watcher class="">Watcher</a>的订阅过滤条件的参数选项。用于在事件观察者中设置事件过滤条件，确保只有满足过滤条件的事件才会被监听处理。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>domain<td>string<td>否<td>否<td>需要订阅的事件领域。可以是系统事件领域（hiAppEvent.domain.OS）或开发者在使用<a href=#hiappeventwrite-1 class="">Write</a>接口时传入的自定义事件信息（<a href=#appeventinfo class="">AppEventInfo</a>）中的事件领域。<tr><td>eventTypes<td><a href=#eventtype class="">EventType</a>[]<td>否<td>是<td>需要订阅的事件类型集合。默认不进行过滤。<tr><td>names11+<td>string[]<td>否<td>是<td>需要订阅的事件名称集合。默认不进行过滤。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>不同类型应用上，系统事件的订阅规格不同，具体规格可参见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/hiappevent-intro#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>HiAppEvent约束与限制</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventpackageholder>AppEventPackageHolder<a href=#appeventpackageholder class=hash-link aria-label=AppEventPackageHolder的直接链接 title=AppEventPackageHolder的直接链接 translate=no>​</a></h2>
+<p>订阅数据持有者类，用于对事件信息进行处理。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor>constructor<a href=#constructor class=hash-link aria-label=constructor的直接链接 title=constructor的直接链接 translate=no>​</a></h3>
+<p>constructor(watcherName: string)</p>
+<p>类构造函数，用于创建订阅数据持有者实例。先通过<a href=#hiappeventaddwatcher class="">addWatcher</a>添加事件观察者，再通过观察者名称关联到应用内已添加的观察者对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>watcherName<td>string<td>是<td>已通过<a href=#hiappeventaddwatcher class="">addWatcher</a>添加的事件观察者名称。若未通过addWatcher添加，则默认无数据。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 添加数据观察者“Watcher1”，订阅监听系统事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.addWatcher({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "Watcher1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  appEventFilters: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      domain: hiAppEvent.domain.OS,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 创建订阅数据持有者实例，holder1持有的数据为上述addWatcher中添加的观察者“Watcher1”监听到的事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let holder1: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHolder("Watcher1");</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setsize>setSize<a href=#setsize class=hash-link aria-label=setSize的直接链接 title=setSize的直接链接 translate=no>​</a></h3>
+<p>setSize(size: number): void</p>
+<p>设置每次取出的事件包的数据大小阈值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>size<td>number<td>是<td>数据大小阈值，单位为byte。取值范围[0, 2^31-1]，超出范围会抛异常。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11104001<td>Invalid size value. Possible caused by the size value is less than or equal to zero.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 创建订阅数据持有者实例，holder2持有的数据为已通过addWatcher添加的观察者“Watcher1”监听到的事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let holder2: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHolder("Watcher1");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置每次取出事件包的数据大小阈值为1000byte</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">holder2.setSize(1000);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setrow12>setRow12+<a href=#setrow12 class=hash-link aria-label=setRow12+的直接链接 title=setRow12+的直接链接 translate=no>​</a></h3>
+<p>setRow(size: number): void</p>
+<p>设置每次取出的事件包的数据条数，优先级高于setSize，和setSize同时调用时仅setRow生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>size<td>number<td>是<td>事件条数，单位为条。取值范围(0, 2^31-1]，超出范围会抛异常。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11104001<td>Invalid size value. Possible caused by the size value is less than or equal to zero.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 创建订阅数据持有者实例，holder3持有的数据为已通过addWatcher添加的观察者“Watcher1”监听到的事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let holder3: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHolder("Watcher1");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置每次取出的事件包的数据条数为1000条</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">holder3.setRow(1000);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=takenext>takeNext<a href=#takenext class=hash-link aria-label=takeNext的直接链接 title=takeNext的直接链接 translate=no>​</a></h3>
+<p>takeNext(): AppEventPackage</p>
+<p>获取订阅事件。</p>
+<p>系统根据setSize设置的数据大小阈值或setRow设置的条数来取出订阅事件数据，默认取1条订阅事件。当订阅事件数据全部被取出时返回null。</p>
+<p>当setRow和setSize同时调用时仅setRow生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#appeventpackage class="">AppEventPackage</a><td>取出的事件包对象，订阅事件数据被全部取出后会返回null。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 创建订阅数据持有者实例，holder4持有的数据为已通过addWatcher添加的观察者“Watcher1”监听到的事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let holder4: hiAppEvent.AppEventPackageHolder = new hiAppEvent.AppEventPackageHolder("Watcher1");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取订阅事件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let eventPkg: hiAppEvent.AppEventPackage | null = holder4.takeNext();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventinfo>AppEventInfo<a href=#appeventinfo class=hash-link aria-label=AppEventInfo的直接链接 title=AppEventInfo的直接链接 translate=no>​</a></h2>
+<p>提供事件信息的参数选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>domain<td>string<td>否<td>否<td>事件领域。事件领域名称支持数字、字母、下划线字符，需要以字母开头且不能以下划线结尾，长度非空且不超过32个字符。<tr><td>name<td>string<td>否<td>否<td>事件名称。首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过48个字符。<tr><td>eventType<td><a href=#eventtype class="">EventType</a><td>否<td>否<td>事件类型。<tr><td>params<td>object<td>否<td>否<td>事件参数对象，包含每个事件参数的参数名和参数值。<strong><strong>系统事件中params包含的字段已由各系统事件定义，具体字段含义在各类系统事件指南的介绍中，例如<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/crash-events/hiappevent-watcher-crash-events>崩溃事件介绍</a>。</strong></strong> 针对应用事件，<a href=#hiappeventwrite-1 class="">Write</a>打点写入的参数由开发者定义，其规格如下：  - 参数名为string类型，首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过32个字符。如testName、$123_name等。  - 参数值支持string、number、boolean、数组类型。string类型参数长度需在8*1024个字符以内，超出后会和对应的参数名一同被丢弃；number类型参数取值需在Number.MIN_SAFE_INTEGER~Number.MAX_SAFE_INTEGER范围内，超出可能会产生不确定值；数组类型参数中的元素类型只能全为string、number、boolean中的一种，且元素个数需在100以内，超出部分即从第101个元素开始会被丢弃。  - 参数个数需在32个以内，超出的参数会做丢弃处理。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventpackage>AppEventPackage<a href=#appeventpackage class=hash-link aria-label=AppEventPackage的直接链接 title=AppEventPackage的直接链接 translate=no>​</a></h2>
+<p>提供订阅返回的事件包的参数定义。可用于获取事件包的详细信息，事件包由<a href=#takenext class="">takeNext</a>接口获得。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>packageId<td>number<td>否<td>否<td>事件包ID，从0开始自动递增。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>row<td>number<td>否<td>否<td>事件包的事件数量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>size<td>number<td>否<td>否<td>事件包的事件大小，单位为byte。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>data<td>string[]<td>否<td>否<td>事件包的事件信息。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>appEventInfos12+<td>Array&lt;<a href=#appeventinfo class="">AppEventInfo</a>><td>否<td>否<td>事件对象集合。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventgroup11>AppEventGroup11+<a href=#appeventgroup11 class=hash-link aria-label=AppEventGroup11+的直接链接 title=AppEventGroup11+的直接链接 translate=no>​</a></h2>
+<p>提供订阅返回的事件组的参数定义。可用于获取事件组的详细信息，事件组常在<a href=#watcher class="">Watcher</a>的onReceive回调中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>事件名称。<tr><td>appEventInfos<td>Array&lt;<a href=#appeventinfo class="">AppEventInfo</a>><td>否<td>否<td>事件对象集合。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventwrite>hiAppEvent.write<a href=#hiappeventwrite class=hash-link aria-label=hiAppEvent.write的直接链接 title=hiAppEvent.write的直接链接 translate=no>​</a></h2>
+<p>write(info: AppEventInfo, callback: AsyncCallback&lt;void>): void</p>
+<p>应用事件打点方法，将AppEventInfo类型的事件进行存储，使用callback方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（<a href=#hiappeventevent class="">Event</a>中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（<a href=#hiappeventaddwatcher class="">addWatcher</a>）进行订阅。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>info<td><a href=#appeventinfo class="">AppEventInfo</a><td>是<td>应用事件对象。其内部定义的事件名称建议避免与<a href=#hiappeventevent class="">Event</a>中定义的系统事件名称常量产生冲突。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>打点回调函数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11100001<td>Function disabled. Possible caused by the param disable in ConfigOption is true.<tr><td>11101001<td>Invalid event domain. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101002<td>Invalid event name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101003<td>Invalid number of event parameters. Possible caused by the number of parameters is over 32.<tr><td>11101004<td>Invalid string length of the event parameter.<tr><td>11101005<td>Invalid event parameter name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101006<td>Invalid array length of the event parameter.</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>write接口涉及I/O操作，执行时间通常在毫秒级别。因此，开发者应根据实际业务需求，确定该接口是在主线程还是在子线程中调用。</p>
+<p>可参考<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/multi-thread-concurrency-overview>多线程并发概述</a>，以实现在子线程中调用接口。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let eventParams: Record&lt;string, number | string> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "int_data": 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "str_data": "strValue",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 应用事件打点，使用callback方式作为异步回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.write({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  domain: "test_domain",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "test_event",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  eventType: hiAppEvent.EventType.FAULT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  params: eventParams,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}, (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'hiAppEvent', `code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `success to write event`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventwrite-1>hiAppEvent.write<a href=#hiappeventwrite-1 class=hash-link aria-label=hiAppEvent.write的直接链接 title=hiAppEvent.write的直接链接 translate=no>​</a></h2>
+<p>write(info: AppEventInfo): Promise&lt;void></p>
+<p>应用事件打点方法，将AppEventInfo类型的事件进行存储，使用Promise方式作为异步回调。通过此接口写入的事件对象是开发者自定义的对象，为了避免与系统事件产生冲突混淆，不建议写入系统事件（<a href=#hiappeventevent class="">Event</a>中定义的系统事件名称常量）。此接口写入的事件可通过订阅事件观察者（<a href=#hiappeventaddwatcher class="">addWatcher</a>）进行处理。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>info<td><a href=#appeventinfo class="">AppEventInfo</a><td>是<td>应用事件对象。其中的事件名称建议避免与<a href=#hiappeventevent class="">Event</a>中定义的系统事件名称常量冲突混淆。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11100001<td>Function disabled. Possible caused by the param disable in ConfigOption is true.<tr><td>11101001<td>Invalid event domain. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101002<td>Invalid event name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101003<td>Invalid number of event parameters. Possible caused by the number of parameters is over 32.<tr><td>11101004<td>Invalid string length of the event parameter.<tr><td>11101005<td>Invalid event parameter name. Possible causes: 1. Contain invalid characters; 2. Length is invalid.<tr><td>11101006<td>Invalid array length of the event parameter.</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>write接口涉及I/O操作，执行时间通常在毫秒级别。因此，开发者应根据实际业务需求，确定该接口是在主线程还是在子线程中调用。</p>
+<p>可参考<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/multi-thread-concurrency-overview>多线程并发概述</a>，以实现在子线程中调用接口。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let eventParams: Record&lt;string, number | string> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "int_data": 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "str_data": "strValue",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 应用事件打点，使用Promise方式作为异步回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.write({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  domain: "test_domain",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  name: "test_event",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  eventType: hiAppEvent.EventType.FAULT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  params: eventParams,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `success to write event`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventaddprocessor11>hiAppEvent.addProcessor11+<a href=#hiappeventaddprocessor11 class=hash-link aria-label=hiAppEvent.addProcessor11+的直接链接 title=hiAppEvent.addProcessor11+的直接链接 translate=no>​</a></h2>
+<p>addProcessor(processor: Processor): number</p>
+<p>添加数据处理者配置信息，用于配置处理者接收的事件名等信息。事件发生后处理者可以接收事件。</p>
+<p>该接口为同步接口，包含耗时操作。为了确保性能，建议使用<a href=#hiappeventaddprocessorfromconfig20 class="">addProcessorFromConfig</a>异步接口或者交由子线程执行。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>processor<td><a href=#processor11 class="">Processor</a><td>是<td>上报事件的数据处理者。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>所添加上报事件数据处理者的ID，标识唯一数据处理者，可用于移除数据处理者。 添加失败返回-1，添加成功返回大于0的值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let processor: hiAppEvent.Processor = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: 'analytics_demo'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let id: number = hiAppEvent.addProcessor(processor);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `addProcessor event was successful, id=${id}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to addProcessor event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventaddprocessorfromconfig20>hiAppEvent.addProcessorFromConfig20+<a href=#hiappeventaddprocessorfromconfig20 class=hash-link aria-label=hiAppEvent.addProcessorFromConfig20+的直接链接 title=hiAppEvent.addProcessorFromConfig20+的直接链接 translate=no>​</a></h2>
+<p>addProcessorFromConfig(processorName: string, configName?: string): Promise&lt;number></p>
+<p>添加数据处理者配置信息。系统会自动解析预置在目录“/system/etc/hiappevent”的processor.json配置文件，并根据configName字段加载对应的processor信息（例如支持接收的故障事件名称等信息）。</p>
+<p>配置完成后，事件发生时系统将自动触发该回调。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>processorName<td>string<td>是<td>数据处理者的名称。名称只能包含大小写字母、数字、下划线和$，不能以数字开头，长度非空且不超过256个字符。  当前取值仅支持“ha_app_event”，表示接口故障处理者。<tr><td>configName<td>string<td>否<td>数据处理者的配置名称，系统会根据配置名称从系统预置的processor.json配置文件中自动加载对应的配置项。只能包含大小写字母、数字、下划线和$，不能以数字开头，长度非空且不超过256个字符。  当前取值仅支持默认值“SDK_OCG”，用于配置“接口故障处理者”可处理的事件名称等信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;number><td>Promise对象。返回添加的事件数据处理者的唯一ID，可用于移除该数据处理者。 添加失败返回11105001错误码。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>11105001<td>Invalid parameter value. Possible causes: 1. Incorrect parameter length; 2. Incorrect parameter format.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.addProcessorFromConfig("test_name").then((processorId) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `Succeeded in adding processor from config, processorId=${processorId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `Failed to add processor from config, code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventremoveprocessor11>hiAppEvent.removeProcessor11+<a href=#hiappeventremoveprocessor11 class=hash-link aria-label=hiAppEvent.removeProcessor11+的直接链接 title=hiAppEvent.removeProcessor11+的直接链接 translate=no>​</a></h2>
+<p>removeProcessor(id: number): void</p>
+<p>移除上报事件的数据处理者。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>id<td>number<td>是<td>上报事件数据处理者ID。值大于0。由调用<a href=#hiappeventaddprocessor11 class="">addProcessor</a>或<a href=#hiappeventaddprocessorfromconfig20 class="">addProcessorFromConfig</a>接口返回值所得。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let processor: hiAppEvent.Processor = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: 'analytics_demo'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let id: number = hiAppEvent.addProcessor(processor);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 根据添加数据处理者返回的标识id移除特定数据处理者</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hiAppEvent.removeProcessor(id);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to removeProcessor event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventsetuserid11>hiAppEvent.setUserId11+<a href=#hiappeventsetuserid11 class=hash-link aria-label=hiAppEvent.setUserId11+的直接链接 title=hiAppEvent.setUserId11+的直接链接 translate=no>​</a></h2>
+<p>setUserId(name: string, value: string): void</p>
+<p>设置用户ID值。用于在配置<a href=#processor11 class="">Processor</a>数据处理者时进行关联。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>用户ID的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。<tr><td>value<td>string<td>是<td>用户ID的值。长度不超过256，当值为null或空字符串时，则清除用户ID。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hiAppEvent.setUserId('key', 'value');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to setUserId event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventgetuserid11>hiAppEvent.getUserId11+<a href=#hiappeventgetuserid11 class=hash-link aria-label=hiAppEvent.getUserId11+的直接链接 title=hiAppEvent.getUserId11+的直接链接 translate=no>​</a></h2>
+<p>getUserId(name: string): string</p>
+<p>获取通过setUserId接口设置的value值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>用户ID的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>用户ID的值。没有查到返回空字符串。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.setUserId('key', 'value');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let value: string = hiAppEvent.getUserId('key');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `getUserId event was successful, userId=${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to getUserId event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventsetuserproperty11>hiAppEvent.setUserProperty11+<a href=#hiappeventsetuserproperty11 class=hash-link aria-label=hiAppEvent.setUserProperty11+的直接链接 title=hiAppEvent.setUserProperty11+的直接链接 translate=no>​</a></h2>
+<p>setUserProperty(name: string, value: string): void</p>
+<p>设置用户属性值。用于在配置<a href=#processor11 class="">Processor</a>数据处理者时进行关联。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>用户属性的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。<tr><td>value<td>string<td>是<td>用户属性的值。长度不超过1024，当值为null或空字符串时，则清除用户属性。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hiAppEvent.setUserProperty('key', 'value');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to setUserProperty event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventgetuserproperty11>hiAppEvent.getUserProperty11+<a href=#hiappeventgetuserproperty11 class=hash-link aria-label=hiAppEvent.getUserProperty11+的直接链接 title=hiAppEvent.getUserProperty11+的直接链接 translate=no>​</a></h2>
+<p>getUserProperty(name: string): string</p>
+<p>获取通过setUserProperty接口设置的value值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>用户属性的key。只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>用户属性的值。没有查到返回空字符串。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.setUserProperty('key', 'value');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let value: string = hiAppEvent.getUserProperty('key');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'hiAppEvent', `getUserProperty event was successful, userProperty=${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'hiAppEvent', `failed to getUserProperty event, code=${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventcleardata>hiAppEvent.clearData<a href=#hiappeventcleardata class=hash-link aria-label=hiAppEvent.clearData的直接链接 title=hiAppEvent.clearData的直接链接 translate=no>​</a></h2>
+<p>clearData(): void</p>
+<p>应用事件打点数据清理方法，将当前应用存储在本地的打点数据进行清除。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.clearData();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventconfigure>hiAppEvent.configure<a href=#hiappeventconfigure class=hash-link aria-label=hiAppEvent.configure的直接链接 title=hiAppEvent.configure的直接链接 translate=no>​</a></h2>
+<p>configure(config: ConfigOption): void</p>
+<p>应用事件打点配置方法，支持配置打点开关和目录存储配额大小。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#configoption class="">ConfigOption</a><td>是<td>应用事件打点配置项对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-errcode/errorcode-hiappevent/errorcode-hiappevent>应用事件打点错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td>11103001<td>Invalid max storage quota value. Possible caused by incorrectly formatted.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 配置打点开关为关闭状态</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let config1: hiAppEvent.ConfigOption = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  disable: true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.configure(config1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 配置文件目录存储配额为100M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let config2: hiAppEvent.ConfigOption = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  maxStorage: '100M',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hiAppEvent.configure(config2);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=configoption>ConfigOption<a href=#configoption class=hash-link aria-label=ConfigOption的直接链接 title=ConfigOption的直接链接 translate=no>​</a></h2>
+<p>提供对应用事件打点功能的配置选项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>disable<td>boolean<td>否<td>是<td>打点功能开关，默认值为false。true：关闭打点功能，false：开启打点功能。<tr><td>maxStorage<td>string<td>否<td>是<td>打点数据存放目录的配额大小，默认值为“10M”。建议配额大小不超过10M，配额过大可能会影响接口效率。  在目录大小超出配额后，下次打点会触发对目录的清理操作：按从旧到新的顺序逐个删除打点数据文件，直到目录大小不超出配额时结束。  配额值字符串规格如下：  - 配额值字符串只由数字字符和大小单位字符（单位字符支持[b</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=eventpolicy22>EventPolicy22+<a href=#eventpolicy22 class=hash-link aria-label=EventPolicy22+的直接链接 title=EventPolicy22+的直接链接 translate=no>​</a></h2>
+<p>提供系统事件配置策略的定义，用于使用<a href=#hiappeventconfigeventpolicy22 class="">configEventPolicy</a>设置事件配置策略。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>mainThreadJankPolicy<td><a href=#mainthreadjankpolicy22 class="">MainThreadJankPolicy</a><td>否<td>是<td>主线程超时事件配置策略。<tr><td>cpuUsageHighPolicy<td><a href=#cpuusagehighpolicy22 class="">CpuUsageHighPolicy</a><td>否<td>是<td>CPU高负载事件配置策略。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mainthreadjankpolicy22>MainThreadJankPolicy22+<a href=#mainthreadjankpolicy22 class=hash-link aria-label=MainThreadJankPolicy22+的直接链接 title=MainThreadJankPolicy22+的直接链接 translate=no>​</a></h2>
+<p>提供主线程超时事件配置策略的定义。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>logType<td>number<td>否<td>是<td>采集日志的类型。默认值：0。  logType=0：其他选项均取默认值，主线程连续两次超时150ms~450ms，采集调用栈；主线程超时450ms，采集trace。  logType=1：仅采集调用栈，触发检测的阈值由用户自定义。  logType=2：仅采集trace。  <strong><strong>说明</strong></strong>：  - logType=0时，仅需配置autoStopSampling参数，其他参数均取默认值，无需设置。  - logType=2时，其他参数均不生效，无需设置。<tr><td>ignoreStartupTime<td>number<td>否<td>是<td>应用启动期间忽略主线程超时检测的时间。单位：秒，默认值：10，最小值：3。<tr><td>sampleInterval<td>number<td>否<td>是<td>主线程超时检测间隔和采样间隔。单位：毫秒，默认值：150，取值范围：[50, 500]。<tr><td>sampleCount<td>number<td>否<td>是<td>主线程超时采样次数。单位：次，默认值：10，最小值：1。  最大值需要结合自定义的sampleInterval进行动态计算，计算公式：sampleCount &lt;= (2500 / sampleInterval - 4)。  <strong><strong>说明</strong></strong>：  - 2500的含义：根据系统规定，主线程超时事件从检测到上报的时间不可以超过2.5s（即：2500ms）。因此sampleCount的设置值不能超过系统按计算公式得出的最大值。  - 4的含义：第一次超时间隔检测时间 + 第二次超时间隔（系统提供两次再次发生超时事件的检测机会）时间 + 收集并上报堆栈信息的时间。  - 开发者要结合需求场景，进行合理的设置。<tr><td>reportTimesPerApp<td>number<td>否<td>是<td>同一个应用的PID一个生命周期内，主线程超时采样上报次数。一个生命周期内只能设置一次。  默认值：1，单位：次。  每分钟上报次数范围：[1, 3]。<tr><td>autoStopSampling<td>boolean<td>否<td>是<td>主线程超时结束时，是否自动停止采样主线程堆栈。  true: 超时结束或达到设置的采样次数，停止采样。  false：达到设置的采样次数时停止采样。  默认值：false。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=cpuusagehighpolicy22>CpuUsageHighPolicy22+<a href=#cpuusagehighpolicy22 class=hash-link aria-label=CpuUsageHighPolicy22+的直接链接 title=CpuUsageHighPolicy22+的直接链接 translate=no>​</a></h2>
+<p>提供CPU高负载事件配置策略的定义。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>该接口被调用后，会将设置值持久化。后续重复调用该接口时，若不设置对应参数，则取上一次系统取用的值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在应用中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>foregroundLoadThreshold<td>number<td>否<td>是<td>应用前台CPU高负载异常阈值，阈值范围：[1, 100]，单位：%，默认值：30。若设置值在阈值范围外，系统将取用默认值30。  <strong><strong>说明</strong></strong>：建议取值小于30。<tr><td>backgroundLoadThreshold<td>number<td>否<td>是<td>应用后台CPU高负载异常阈值，阈值范围：[1, 100]，单位：%，默认值：10。若设置值在阈值范围外，系统将取用默认值10。  <strong><strong>说明</strong></strong>：建议取值小于10。<tr><td>threadLoadThreshold<td>number<td>否<td>是<td>应用线程CPU高负载异常阈值，阈值范围：[15, 100]，单位：%，默认值：70。若设置值在阈值范围外，系统将取用默认值70。<tr><td>perfLogCaptureCount<td>number<td>否<td>是<td>采样栈每日采集次数。一旦系统检测到当前异常日志的采集次数超过设置值，系统仍会正常上报事件，但异常事件中的external_log字段，将不再附加日志文件路径信息。  Debug版本应用，阈值范围：[-1, 100]；  Release版本应用，阈值范围：[0, 20]。  单位：次，默认值：1。  若设置值在阈值范围外，系统将取用默认值1。  <strong><strong>说明</strong></strong>：  1. 值为-1，表示不限制采集日志次数。  2. 值为0，表示不采集日志。  3. 值大于0，表示每日采集次数上限。<tr><td>threadLoadInterval<td>number<td>否<td>是<td>应用线程CPU高负载异常检测周期，阈值范围：[5, 3600]，单位：秒，默认值：60。  若设置值在阈值范围外，系统将取用默认值60。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=processor11>Processor11+<a href=#processor11 class=hash-link aria-label=Processor11+的直接链接 title=Processor11+的直接链接 translate=no>​</a></h2>
+<p>可以上报事件的数据处理者对象。用于事件的上报和管理，开发者可自定义数据处理配置，满足不同的数据处理需求。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>数据处理者的名称。名称只能包含大小写字母、数字、下划线和 $，不能以数字开头，长度非空且不超过256个字符。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>debugMode<td>boolean<td>否<td>是<td>是否开启debug模式，默认值为false。配置值为true表示开启debug模式，false表示不开启debug模式。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>routeInfo<td>string<td>否<td>是<td>服务器位置信息，默认为空字符串。传入字符串长度不能超过8KB，超过时会被置为默认值。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>appId<td>string<td>否<td>是<td>应用id，默认为空字符串。传入字符串长度不能超过8KB，超过时会被置为默认值。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>onStartReport<td>boolean<td>否<td>是<td>数据处理者在启动时是否上报事件，默认值为false。配置值为true表示上报事件，false表示不上报事件。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>onBackgroundReport<td>boolean<td>否<td>是<td>当应用程序进入后台时是否上报事件，默认值为false。配置值为true表示上报事件，false表示不上报事件。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>periodReport<td>number<td>否<td>是<td>事件定时上报时间周期，单位为秒。传入数值必须大于或等于0，小于0时会被置为默认值0，不进行定时上报。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>batchReport<td>number<td>否<td>是<td>事件上报阈值，当事件条数达到阈值时上报事件。传入数值必须大于0且小于1000，不在数值范围内会被置为默认值0，不进行上报。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>userIds<td>string[]<td>否<td>是<td>数据处理者可以上报的用户ID的name数组。name对应<a href=#hiappeventsetuserid11 class="">setUserId</a>接口的name参数。默认为空数组。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>userProperties<td>string[]<td>否<td>是<td>数据处理者可以上报的用户属性的name数组。name对应<a href=#hiappeventsetuserproperty11 class="">setUserProperty</a>接口的name参数。默认为空数组。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>eventConfigs<td><a href=#appeventreportconfig11 class="">AppEventReportConfig</a>[]<td>否<td>是<td>数据处理者可以上报的事件描述配置数组。默认为空数组。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>configId12+<td>number<td>否<td>是<td>数据处理者配置id。传入数值必须大于或等于0，小于0时会被置为默认值0。传入的值大于0时，与数据处理者的名称name共同唯一标识数据处理者。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>customConfigs12+<td>Record&lt;string, string><td>否<td>是<td>自定义扩展参数。传入参数名和参数值不符合规格会默认不配置扩展参数，其规格定义如下：  - 参数名为string类型，首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过32个字符。  - 参数值为string类型，参数值长度需在1024个字符以内。  - 参数个数需在32个以内。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>configName20+<td>string<td>否<td>是<td>数据处理者的配置名称，默认为空，系统不从配置文件中加载配置项。当配置名称不为空时，系统会根据配置名称从系统预置的processor.json配置文件中自动加载对应的配置项。只能包含大小写字母、数字、下划线和$，不能以数字开头，长度非空且不超过256个字符。  当前取值仅支持“SDK_OCG”，用于配置“接口故障处理者”可处理的事件名称等信息。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该参数支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appeventreportconfig11>AppEventReportConfig11+<a href=#appeventreportconfig11 class=hash-link aria-label=AppEventReportConfig11+的直接链接 title=AppEventReportConfig11+的直接链接 translate=no>​</a></h2>
+<p>数据处理者可以上报事件的描述配置。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>domain<td>string<td>否<td>是<td>事件领域。默认为空字符串，事件领域名称支持数字、字母、下划线字符，需要以字母开头且不能以下划线结尾，长度非空且不超过32个字符。<tr><td>name<td>string<td>否<td>是<td>事件名称。默认为空字符串，首字符必须为字母字符或$字符，中间字符必须为数字字符、字母字符或下划线字符，结尾字符必须为数字字符或字母字符，长度非空且不超过48个字符。<tr><td>isRealTime<td>boolean<td>否<td>是<td>是否实时上报事件。默认值为false，配置值为true表示实时上报事件，false表示不实时上报事件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=paramtype12>ParamType12+<a href=#paramtype12 class=hash-link aria-label=ParamType12+的直接链接 title=ParamType12+的直接链接 translate=no>​</a></h2>
+<p>type ParamType = number | string | boolean | Array&lt;string></p>
+<p>事件自定义参数值的类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>表示值类型为数字。<tr><td>string<td>表示值类型为字符串。<tr><td>boolean<td>表示值类型为布尔值。<tr><td>Array&lt;string><td>表示值类型为字符串类型的数组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=eventtype>EventType<a href=#eventtype class=hash-link aria-label=EventType的直接链接 title=EventType的直接链接 translate=no>​</a></h2>
+<p>事件类型枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>FAULT<td>1<td>故障类型事件。<tr><td>STATISTIC<td>2<td>统计类型事件。<tr><td>SECURITY<td>3<td>安全类型事件。<tr><td>BEHAVIOR<td>4<td>行为类型事件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventdomain11>hiAppEvent.domain11+<a href=#hiappeventdomain11 class=hash-link aria-label=hiAppEvent.domain11+的直接链接 title=hiAppEvent.domain11+的直接链接 translate=no>​</a></h2>
+<p>提供领域名称常量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>说明<tbody><tr><td>OS<td>string<td>是<td>系统领域。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventevent>hiAppEvent.event<a href=#hiappeventevent class=hash-link aria-label=hiAppEvent.event的直接链接 title=hiAppEvent.event的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=常量>常量<a href=#常量 class=hash-link aria-label=常量的直接链接 title=常量的直接链接 translate=no>​</a></h3>
+<p>提供事件名称常量。包含系统事件名称常量和应用事件名称常量，其中应用事件名称常量是为开发者在调用<a href=#hiappeventwrite-1 class="">Write</a>接口进行应用事件打点时预留的可选自定义事件名称。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>说明<tbody><tr><td>USER_LOGIN<td>string<td>是<td>用户登录事件。预留的应用事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>USER_LOGOUT<td>string<td>是<td>用户登出事件。预留的应用事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>DISTRIBUTED_SERVICE_START<td>string<td>是<td>分布式服务启动事件。预留的应用事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>APP_CRASH11+<td>string<td>是<td>应用崩溃事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>APP_FREEZE11+<td>string<td>是<td>应用冻屏事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 11开始，该参数支持在元服务中使用。<tr><td>APP_LAUNCH12+<td>string<td>是<td>应用启动耗时事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>SCROLL_JANK12+<td>string<td>是<td>应用滑动丢帧事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>CPU_USAGE_HIGH12+<td>string<td>是<td>应用CPU高负载事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>BATTERY_USAGE12+<td>string<td>是<td>应用24h功耗器件分解统计事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>RESOURCE_OVERLIMIT12+<td>string<td>是<td>应用资源泄漏事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>ADDRESS_SANITIZER12+<td>string<td>是<td>应用地址越界事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>MAIN_THREAD_JANK12+<td>string<td>是<td>应用主线程超时事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该参数支持在元服务中使用。<tr><td>APP_KILLED20+<td>string<td>是<td>应用终止事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 20开始，该参数支持在元服务中使用。<tr><td>APP_HICOLLIE21+<td>string<td>是<td>应用任务执行超时事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 21开始，该参数支持在元服务中使用。<tr><td>AUDIO_JANK_FRAME21+<td>string<td>是<td>应用音频卡顿事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 21开始，该参数支持在元服务中使用。<tr><td>SCROLL_ARKWEB_FLING_JANK23+<td>string<td>是<td>ArkWeb抛滑丢帧事件。系统事件名称常量。  <strong><strong>元服务API：</strong></strong> 从API version 23开始，该参数支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiappeventparam>hiAppEvent.param<a href=#hiappeventparam class=hash-link aria-label=hiAppEvent.param的直接链接 title=hiAppEvent.param的直接链接 translate=no>​</a></h2>
+<p>提供参数名称常量。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.HiviewDFX.HiAppEvent</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>说明<tbody><tr><td>USER_ID<td>string<td>是<td>用户自定义ID。<tr><td>DISTRIBUTED_SERVICE_NAME<td>string<td>是<td>分布式服务名称。<tr><td>DISTRIBUTED_SERVICE_INSTANCE_ID<td>string<td>是<td>分布式服务实例ID。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hiviewdfx-faultlogextensioncontext/js-apis-hiviewdfx-faultlogextensioncontext><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.hiviewdfx.FaultLogExtensionContext (故障延迟通知上下文)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-jsleakwatcher/js-apis-jsleakwatcher><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.hiviewdfx.jsLeakWatcher (ArkTS泄漏检测)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#hiappeventaddwatcher class="table-of-contents__link toc-highlight">hiAppEvent.addWatcher</a><li><a href=#hiappeventremovewatcher class="table-of-contents__link toc-highlight">hiAppEvent.removeWatcher</a><li><a href=#hiappeventseteventparam12 class="table-of-contents__link toc-highlight">hiAppEvent.setEventParam12+</a><li><a href=#hiappeventseteventconfig15 class="table-of-contents__link toc-highlight">hiAppEvent.setEventConfig15+</a><li><a href=#hiappeventconfigeventpolicy22 class="table-of-contents__link toc-highlight">hiAppEvent.configEventPolicy22+</a><li><a href=#watcher class="table-of-contents__link toc-highlight">Watcher</a><li><a href=#triggercondition class="table-of-contents__link toc-highlight">TriggerCondition</a><li><a href=#appeventfilter class="table-of-contents__link toc-highlight">AppEventFilter</a><li><a href=#appeventpackageholder class="table-of-contents__link toc-highlight">AppEventPackageHolder</a><ul><li><a href=#constructor class="table-of-contents__link toc-highlight">constructor</a><li><a href=#setsize class="table-of-contents__link toc-highlight">setSize</a><li><a href=#setrow12 class="table-of-contents__link toc-highlight">setRow12+</a><li><a href=#takenext class="table-of-contents__link toc-highlight">takeNext</a></ul><li><a href=#appeventinfo class="table-of-contents__link toc-highlight">AppEventInfo</a><li><a href=#appeventpackage class="table-of-contents__link toc-highlight">AppEventPackage</a><li><a href=#appeventgroup11 class="table-of-contents__link toc-highlight">AppEventGroup11+</a><li><a href=#hiappeventwrite class="table-of-contents__link toc-highlight">hiAppEvent.write</a><li><a href=#hiappeventwrite-1 class="table-of-contents__link toc-highlight">hiAppEvent.write</a><li><a href=#hiappeventaddprocessor11 class="table-of-contents__link toc-highlight">hiAppEvent.addProcessor11+</a><li><a href=#hiappeventaddprocessorfromconfig20 class="table-of-contents__link toc-highlight">hiAppEvent.addProcessorFromConfig20+</a><li><a href=#hiappeventremoveprocessor11 class="table-of-contents__link toc-highlight">hiAppEvent.removeProcessor11+</a><li><a href=#hiappeventsetuserid11 class="table-of-contents__link toc-highlight">hiAppEvent.setUserId11+</a><li><a href=#hiappeventgetuserid11 class="table-of-contents__link toc-highlight">hiAppEvent.getUserId11+</a><li><a href=#hiappeventsetuserproperty11 class="table-of-contents__link toc-highlight">hiAppEvent.setUserProperty11+</a><li><a href=#hiappeventgetuserproperty11 class="table-of-contents__link toc-highlight">hiAppEvent.getUserProperty11+</a><li><a href=#hiappeventcleardata class="table-of-contents__link toc-highlight">hiAppEvent.clearData</a><li><a href=#hiappeventconfigure class="table-of-contents__link toc-highlight">hiAppEvent.configure</a><li><a href=#configoption class="table-of-contents__link toc-highlight">ConfigOption</a><li><a href=#eventpolicy22 class="table-of-contents__link toc-highlight">EventPolicy22+</a><li><a href=#mainthreadjankpolicy22 class="table-of-contents__link toc-highlight">MainThreadJankPolicy22+</a><li><a href=#cpuusagehighpolicy22 class="table-of-contents__link toc-highlight">CpuUsageHighPolicy22+</a><li><a href=#processor11 class="table-of-contents__link toc-highlight">Processor11+</a><li><a href=#appeventreportconfig11 class="table-of-contents__link toc-highlight">AppEventReportConfig11+</a><li><a href=#paramtype12 class="table-of-contents__link toc-highlight">ParamType12+</a><li><a href=#eventtype class="table-of-contents__link toc-highlight">EventType</a><li><a href=#hiappeventdomain11 class="table-of-contents__link toc-highlight">hiAppEvent.domain11+</a><li><a href=#hiappeventevent class="table-of-contents__link toc-highlight">hiAppEvent.event</a><ul><li><a href=#常量 class="table-of-contents__link toc-highlight">常量</a></ul><li><a href=#hiappeventparam class="table-of-contents__link toc-highlight">hiAppEvent.param</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

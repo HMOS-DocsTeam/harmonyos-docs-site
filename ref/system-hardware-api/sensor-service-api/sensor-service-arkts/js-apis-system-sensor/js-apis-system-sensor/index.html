@@ -1,0 +1,991 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@system.sensor (传感器) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@system.sensor (传感器) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=sensor模块提供订阅传感器数据基本能力，主要包含查询传感器的列表、订阅/取消传感器的数据、执行控制命令等。 /><meta data-rh=true property=og:description content=sensor模块提供订阅传感器数据基本能力，主要包含查询传感器的列表、订阅/取消传感器的数据、执行控制命令等。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor","name":"@system.sensor (传感器)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title="Car Kit（车服务）" class=categoryLinkLabel_W154>Car Kit（车服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/driver-development-api/driver-development-arkts/js-apis-app-ability-driverextensionability/js-apis-app-ability-driverextensionability><span title="Driver Development Kit（驱动开发服务）" class=categoryLinkLabel_W154>Driver Development Kit（驱动开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/multimodal-awareness-api/multimodal-awareness-arkts/js-apis-stationary/js-apis-stationary><span title="Multimodal Awareness Kit（多模态融合感知服务）" class=categoryLinkLabel_W154>Multimodal Awareness Kit（多模态融合感知服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/pen-api/pen-arkts/pen-handwritecontroller/pen-handwritecontroller><span title="Pen Kit（手写笔服务）" class=categoryLinkLabel_W154>Pen Kit（手写笔服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor><span title="Sensor Service Kit（传感器服务）" class=categoryLinkLabel_W154>Sensor Service Kit（传感器服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor><span title="@ohos.sensor (传感器)" class=linkLabel_WmDU>@ohos.sensor (传感器)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-vibrator/js-apis-vibrator><span title="@ohos.vibrator (振动)" class=linkLabel_WmDU>@ohos.vibrator (振动)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-sensor/js-apis-system-sensor><span title="@system.sensor (传感器)" class=linkLabel_WmDU>@system.sensor (传感器)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-vibrate/js-apis-system-vibrate><span title="@system.vibrator (振动)" class=linkLabel_WmDU>@system.vibrator (振动)</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-c/sensor-service-module/capi-sensor/capi-sensor><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts-errcode/errorcode-sensor/errorcode-sensor><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/mechanic-kit-api/mechanic-arkts/js-apis-mechanicmanager/js-apis-mechanicmanager><span title="Mechanic Kit（机械设备管理服务）" class=categoryLinkLabel_W154>Mechanic Kit（机械设备管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/wear-engine-api/wearengine_arkts_api/wearengine_api/wearengine_api><span title="Wear Engine Kit（穿戴服务）" class=categoryLinkLabel_W154>Wear Engine Kit（穿戴服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>硬件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Sensor Service Kit（传感器服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@system.sensor (传感器)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@system.sensor (传感器)</h1></header>
+<p>sensor模块提供订阅传感器数据基本能力，主要包含查询传感器的列表、订阅/取消传感器的数据、执行控制命令等。</p>
+<p>根据传感器的用途，可以将传感器分为六大类：运动类传感器、环境类传感器、方向类传感器、光线类传感器、健康类传感器、其他类传感器（如霍尔传感器），每一大类传感器包含不同类型的传感器，某种类型的传感器可能是单一的物理传感器，也可能是由多个物理传感器复合而成。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">模块维护策略：
+<ul>
+<li class="">对于Lite Wearable设备类型，该模块长期维护，正常使用。</li>
+<li class="">对于支持该模块的其他设备类型，该模块从API version 8开始不再维护，推荐使用新接口<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor>@ohos.sensor</a>。</li>
+</ul>
+</li>
+<li class="">本模块首批接口从API version 3开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</li>
+<li class="">该功能使用需要对应硬件支持，仅支持真机调试。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor } from '@kit.SensorServiceKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribeaccelerometer>Sensor.subscribeAccelerometer<a href=#sensorsubscribeaccelerometer class=hash-link aria-label=Sensor.subscribeAccelerometer的直接链接 title=Sensor.subscribeAccelerometer的直接链接 translate=no>​</a></h2>
+<p>subscribeAccelerometer(options: subscribeAccelerometerOptions): void</p>
+<p>观察加速度数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#accelerometer9>ACCELEROMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCELEROMETER，该权限为系统权限</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribeaccelerometeroptions class="">subscribeAccelerometerOptions</a><td>是<td>监听加速度传感器数据的回调函数的执行频率。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, AccelerometerResponse, subscribeAccelerometerOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let accelerometerOptions: subscribeAccelerometerOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  interval: 'normal',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: AccelerometerResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. X-axis data: ' + ret.x);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Y-axis data: ' + ret.y);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Z-axis data: ' + ret.z);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeAccelerometer(accelerometerOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribeaccelerometer>Sensor.unsubscribeAccelerometer<a href=#sensorunsubscribeaccelerometer class=hash-link aria-label=Sensor.unsubscribeAccelerometer的直接链接 title=Sensor.unsubscribeAccelerometer的直接链接 translate=no>​</a></h2>
+<p>unsubscribeAccelerometer(): void</p>
+<p>取消订阅加速度数据。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#accelerometerdeprecated-2>ACCELEROMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCELEROMETER，该权限为系统权限</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeAccelerometer();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribecompass>Sensor.subscribeCompass<a href=#sensorsubscribecompass class=hash-link aria-label=Sensor.subscribeCompass的直接链接 title=Sensor.subscribeCompass的直接链接 translate=no>​</a></h2>
+<p>subscribeCompass(options: SubscribeCompassOptions): void</p>
+<p>订阅罗盘数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#orientationdeprecated>ORIENTATION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribecompassoptions class="">SubscribeCompassOptions</a><td>是<td>当罗盘传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, CompassResponse, SubscribeCompassOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeCompassOptions: SubscribeCompassOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: CompassResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get data direction:' + ret.direction);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeCompass(subscribeCompassOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribecompass>Sensor.unsubscribeCompass<a href=#sensorunsubscribecompass class=hash-link aria-label=Sensor.unsubscribeCompass的直接链接 title=Sensor.unsubscribeCompass的直接链接 translate=no>​</a></h2>
+<p>unsubscribeCompass(): void</p>
+<p>取消订阅罗盘。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#orientationdeprecated-2>ORIENTATION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeCompass();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribeproximity>Sensor.subscribeProximity<a href=#sensorsubscribeproximity class=hash-link aria-label=Sensor.subscribeProximity的直接链接 title=Sensor.subscribeProximity的直接链接 translate=no>​</a></h2>
+<p>subscribeProximity(options: SubscribeProximityOptions): void</p>
+<p>订阅距离感应数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#proximitydeprecated>PROXIMITY</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribeproximityoptions class="">SubscribeProximityOptions</a><td>是<td>当距离传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, ProximityResponse, SubscribeProximityOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeProximityOptions: SubscribeProximityOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: ProximityResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get data distance:' + ret.distance);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeProximity(subscribeProximityOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribeproximity>Sensor.unsubscribeProximity<a href=#sensorunsubscribeproximity class=hash-link aria-label=Sensor.unsubscribeProximity的直接链接 title=Sensor.unsubscribeProximity的直接链接 translate=no>​</a></h2>
+<p>unsubscribeProximity(): void</p>
+<p>取消订阅距离感应。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#proximitydeprecated-2>PROXIMITY</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeProximity();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribelight>Sensor.subscribeLight<a href=#sensorsubscribelight class=hash-link aria-label=Sensor.subscribeLight的直接链接 title=Sensor.subscribeLight的直接链接 translate=no>​</a></h2>
+<p>subscribeLight(options: SubscribeLightOptions): void</p>
+<p>订阅环境光线感应数据变化。再次调用时，会覆盖前一次调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#ambient_lightdeprecated>AMBIENT_LIGHT</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribelightoptions class="">SubscribeLightOptions</a><td>是<td>当环境光传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, LightResponse, SubscribeLightOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeLightOptions: SubscribeLightOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: LightResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get data intensity:' + ret.intensity);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeLight(subscribeLightOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribelight>Sensor.unsubscribeLight<a href=#sensorunsubscribelight class=hash-link aria-label=Sensor.unsubscribeLight的直接链接 title=Sensor.unsubscribeLight的直接链接 translate=no>​</a></h2>
+<p>unsubscribeLight(): void</p>
+<p>取消订阅环境光线感应。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#ambient_lightdeprecated-2>AMBIENT_LIGHT</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeLight();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribestepcounter>Sensor.subscribeStepCounter<a href=#sensorsubscribestepcounter class=hash-link aria-label=Sensor.subscribeStepCounter的直接链接 title=Sensor.subscribeStepCounter的直接链接 translate=no>​</a></h2>
+<p>subscribeStepCounter(options: SubscribeStepCounterOptions): void</p>
+<p>订阅计步传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#pedometerdeprecated>PEDOMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACTIVITY_MOTION</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribestepcounteroptions class="">SubscribeStepCounterOptions</a><td>是<td>当步进计数器传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, StepCounterResponse, SubscribeStepCounterOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeStepCounterOptions: SubscribeStepCounterOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: StepCounterResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get step value:' + ret.steps);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeStepCounter(subscribeStepCounterOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribestepcounter>Sensor.unsubscribeStepCounter<a href=#sensorunsubscribestepcounter class=hash-link aria-label=Sensor.unsubscribeStepCounter的直接链接 title=Sensor.unsubscribeStepCounter的直接链接 translate=no>​</a></h2>
+<p>unsubscribeStepCounter(): void</p>
+<p>取消订阅计步传感器。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#pedometerdeprecated-2>PEDOMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACTIVITY_MOTION</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeStepCounter();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribebarometer>Sensor.subscribeBarometer<a href=#sensorsubscribebarometer class=hash-link aria-label=Sensor.subscribeBarometer的直接链接 title=Sensor.subscribeBarometer的直接链接 translate=no>​</a></h2>
+<p>subscribeBarometer(options: SubscribeBarometerOptions): void</p>
+<p>订阅气压计传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#barometerdeprecated-1>BAROMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribebarometeroptions class="">SubscribeBarometerOptions</a><td>是<td>当气压计传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, BarometerResponse, SubscribeBarometerOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeBarometerOptions: SubscribeBarometerOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: BarometerResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get data value:' + ret.pressure);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeBarometer(subscribeBarometerOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribebarometer>Sensor.unsubscribeBarometer<a href=#sensorunsubscribebarometer class=hash-link aria-label=Sensor.unsubscribeBarometer的直接链接 title=Sensor.unsubscribeBarometer的直接链接 translate=no>​</a></h2>
+<p>unsubscribeBarometer(): void</p>
+<p>取消订阅气压计传感器。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#barometerdeprecated-2>BAROMETER</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeBarometer();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribeheartrate>Sensor.subscribeHeartRate<a href=#sensorsubscribeheartrate class=hash-link aria-label=Sensor.subscribeHeartRate的直接链接 title=Sensor.subscribeHeartRate的直接链接 translate=no>​</a></h2>
+<p>subscribeHeartRate(options: SubscribeHeartRateOptions): void</p>
+<p>订阅心率传感器数据变化。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#heart_ratedeprecated>HEART_RATE</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_HEALTH_DATA</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribeheartrateoptions class="">SubscribeHeartRateOptions</a><td>是<td>当心率传感器数据发生变化时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, HeartRateResponse, SubscribeHeartRateOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeHeartRateOptions: SubscribeHeartRateOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: HeartRateResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get heartRate value:' + ret.heartRate);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeHeartRate(subscribeHeartRateOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribeheartrate>Sensor.unsubscribeHeartRate<a href=#sensorunsubscribeheartrate class=hash-link aria-label=Sensor.unsubscribeHeartRate的直接链接 title=Sensor.unsubscribeHeartRate的直接链接 translate=no>​</a></h2>
+<p>unsubscribeHeartRate(): void</p>
+<p>取消订阅心率传感器。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#heart_ratedeprecated-2>HEART_RATE</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_HEALTH_DATA</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeHeartRate();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribeonbodystate>Sensor.subscribeOnBodyState<a href=#sensorsubscribeonbodystate class=hash-link aria-label=Sensor.subscribeOnBodyState的直接链接 title=Sensor.subscribeOnBodyState的直接链接 translate=no>​</a></h2>
+<p>subscribeOnBodyState(options: SubscribeOnBodyStateOptions): void</p>
+<p>订阅设备佩戴状态。针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#wear_detectiondeprecated>WEAR_DETECTION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribeonbodystateoptions class="">SubscribeOnBodyStateOptions</a><td>是<td>当穿着状态改变时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, OnBodyStateResponse, SubscribeOnBodyStateOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeOnBodyStateOptions: SubscribeOnBodyStateOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: OnBodyStateResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Get on-body state value:' + ret.value);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeOnBodyState(subscribeOnBodyStateOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribeonbodystate>Sensor.unsubscribeOnBodyState<a href=#sensorunsubscribeonbodystate class=hash-link aria-label=Sensor.unsubscribeOnBodyState的直接链接 title=Sensor.unsubscribeOnBodyState的直接链接 translate=no>​</a></h2>
+<p>unsubscribeOnBodyState(): void</p>
+<p>取消订阅设备佩戴状态。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#wear_detectiondeprecated-2>WEAR_DETECTION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeOnBodyState();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorgetonbodystate>Sensor.getOnBodyState<a href=#sensorgetonbodystate class=hash-link aria-label=Sensor.getOnBodyState的直接链接 title=Sensor.getOnBodyState的直接链接 translate=no>​</a></h2>
+<p>getOnBodyState(options: GetOnBodyStateOptions): void</p>
+<p>获取设备佩戴状态。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#getonbodystateoptions class="">GetOnBodyStateOptions</a><td>是<td>获取传感器所在设备穿戴状态时调用。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, OnBodyStateResponse, GetOnBodyStateOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let getOnBodyStateOptions: GetOnBodyStateOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: OnBodyStateResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. On body state: ' + ret.value);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.getOnBodyState(getOnBodyStateOptions);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribedeviceorientation6>Sensor.subscribeDeviceOrientation6+<a href=#sensorsubscribedeviceorientation6 class=hash-link aria-label=Sensor.subscribeDeviceOrientation6+的直接链接 title=Sensor.subscribeDeviceOrientation6+的直接链接 translate=no>​</a></h2>
+<p>subscribeDeviceOrientation(options: SubscribeDeviceOrientationOptions): void</p>
+<p>观察设备方向传感器数据变化。</p>
+<p>针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效；针对同一个方法内，不支持多次调用。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#orientationdeprecated>ORIENTATION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribedeviceorientationoptions6 class="">SubscribeDeviceOrientationOptions</a><td>是<td>用于监听设备方向传感器数据的回调函数的执行频率。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, DeviceOrientationResponse, SubscribeDeviceOrientationOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeDeviceOrientationOptions: SubscribeDeviceOrientationOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  interval: 'normal',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: DeviceOrientationResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Alpha data: ' + ret.alpha);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Beta data: ' + ret.beta);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Gamma data: ' + ret.gamma);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeDeviceOrientation(subscribeDeviceOrientationOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribedeviceorientation6>Sensor.unsubscribeDeviceOrientation6+<a href=#sensorunsubscribedeviceorientation6 class=hash-link aria-label=Sensor.unsubscribeDeviceOrientation6+的直接链接 title=Sensor.unsubscribeDeviceOrientation6+的直接链接 translate=no>​</a></h2>
+<p>unsubscribeDeviceOrientation(): void</p>
+<p>取消订阅设备方向传感器数据。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#orientationdeprecated-2>ORIENTATION</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeDeviceOrientation();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorsubscribegyroscope6>Sensor.subscribeGyroscope6+<a href=#sensorsubscribegyroscope6 class=hash-link aria-label=Sensor.subscribeGyroscope6+的直接链接 title=Sensor.subscribeGyroscope6+的直接链接 translate=no>​</a></h2>
+<p>subscribeGyroscope(options: SubscribeGyroscopeOptions): void</p>
+<p>观察陀螺仪传感器数据变化。</p>
+<p>针对同一个应用，多次点击调用时，会覆盖前面的调用效果，即仅最后一次调用生效；针对同一个方法内，不支持多次调用。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#gyroscopedeprecated>GYROSCOPE</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.GYROSCOPE，该权限为系统权限</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#subscribegyroscopeoptions6 class="">SubscribeGyroscopeOptions</a><td>是<td>用于侦听陀螺仪传感器数据的回调函数的执行频率。</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Sensor, GyroscopeResponse, SubscribeGyroscopeOptions } from '@kit.SensorServiceKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let subscribeGyroscopeOptions: SubscribeGyroscopeOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  interval: 'normal',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  success: (ret: GyroscopeResponse) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. X-axis data: ' + ret.x);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Y-axis data: ' + ret.y);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in subscribing. Z-axis data: ' + ret.z);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fail: (data: string, code: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to subscribe. Code: ${code}, data: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Sensor.subscribeGyroscope(subscribeGyroscopeOptions);</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>建议在页面销毁时，即onDestroy回调中，取消数据订阅，避免不必要的性能开销。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sensorunsubscribegyroscope6>Sensor.unsubscribeGyroscope6+<a href=#sensorunsubscribegyroscope6 class=hash-link aria-label=Sensor.unsubscribeGyroscope6+的直接链接 title=Sensor.unsubscribeGyroscope6+的直接链接 translate=no>​</a></h2>
+<p>unsubscribeGyroscope(): void</p>
+<p>取消订阅陀螺仪传感器数据。</p>
+<p>除Lite Wearable外，从API Version8开始，推荐使用<a class="" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-sensor/js-apis-sensor#gyroscopedeprecated-2>GYROSCOPE</a>。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.GYROSCOPE，该权限为系统权限</p>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Sensor.unsubscribeGyroscope();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribeaccelerometeroptions>subscribeAccelerometerOptions<a href=#subscribeaccelerometeroptions class=hash-link aria-label=subscribeAccelerometerOptions的直接链接 title=subscribeAccelerometerOptions的直接链接 translate=no>​</a></h2>
+<p>用于监听加速度传感器数据的回调函数的执行频率。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCELEROMETER</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>interval<td>string<td>是<td>频率参数，加速度的回调函数执行频率。  默认为normal，可选值有：  game：极高的回调频率，20ms/次，适用于游戏。  ui：较高的回调频率，60ms/次，适用于UI更新。  normal：普通的回调频率，200ms/次，低功耗。<tr><td>success<td><a href=#accelerometerresponse class="">AccelerometerResponse</a><td>是<td>感应到加速度数据变化后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=accelerometerresponse>AccelerometerResponse<a href=#accelerometerresponse class=hash-link aria-label=AccelerometerResponse的直接链接 title=AccelerometerResponse的直接链接 translate=no>​</a></h2>
+<p>感应到加速度数据变化后的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCELEROMETER</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>x<td>number<td>是<td>x轴的加速度。<tr><td>y<td>number<td>是<td>y轴的加速度。<tr><td>z<td>number<td>是<td>z轴的加速度。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribecompassoptions>SubscribeCompassOptions<a href=#subscribecompassoptions class=hash-link aria-label=SubscribeCompassOptions的直接链接 title=SubscribeCompassOptions的直接链接 translate=no>​</a></h2>
+<p>当罗盘传感器数据发生变化时调用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#compassresponse class="">CompassResponse</a><td>是<td>罗盘数据改变后触发的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=compassresponse>CompassResponse<a href=#compassresponse class=hash-link aria-label=CompassResponse的直接链接 title=CompassResponse的直接链接 translate=no>​</a></h2>
+<p>罗盘数据改变后触发的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>direction<td>number<td>是<td>设备面对的方向度数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribeproximityoptions>SubscribeProximityOptions<a href=#subscribeproximityoptions class=hash-link aria-label=SubscribeProximityOptions的直接链接 title=SubscribeProximityOptions的直接链接 translate=no>​</a></h2>
+<p>当距离传感器数据发生变化时调用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#proximityresponse class="">ProximityResponse</a><td>是<td>距离感应数据改变后调用的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=proximityresponse>ProximityResponse<a href=#proximityresponse class=hash-link aria-label=ProximityResponse的直接链接 title=ProximityResponse的直接链接 translate=no>​</a></h2>
+<p>距离感应数据改变后调用的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>distance<td>number<td>是<td>可见物体相对于设备显示屏的接近或远离状态。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribelightoptions>SubscribeLightOptions<a href=#subscribelightoptions class=hash-link aria-label=SubscribeLightOptions的直接链接 title=SubscribeLightOptions的直接链接 translate=no>​</a></h2>
+<p>当环境光传感器数据发生变化时调用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#lightresponse class="">LightResponse</a><td>是<td>光线感应数据改变后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=lightresponse>LightResponse<a href=#lightresponse class=hash-link aria-label=LightResponse的直接链接 title=LightResponse的直接链接 translate=no>​</a></h2>
+<p>光线感应数据改变后的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>intensity<td>number<td>是<td>光线强度，单位为lux。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribestepcounteroptions>SubscribeStepCounterOptions<a href=#subscribestepcounteroptions class=hash-link aria-label=SubscribeStepCounterOptions的直接链接 title=SubscribeStepCounterOptions的直接链接 translate=no>​</a></h2>
+<p>当步进计数器传感器数据发生变化时调用。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACTIVITY_MOTION</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#stepcounterresponse class="">StepCounterResponse</a><td>是<td>计步传感器数据改变后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=stepcounterresponse>StepCounterResponse<a href=#stepcounterresponse class=hash-link aria-label=StepCounterResponse的直接链接 title=StepCounterResponse的直接链接 translate=no>​</a></h2>
+<p>计步传感器数据改变后的回调函数。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACTIVITY_MOTION</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>steps<td>number<td>是<td>计步传感器重启后累计记录的步数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribebarometeroptions>SubscribeBarometerOptions<a href=#subscribebarometeroptions class=hash-link aria-label=SubscribeBarometerOptions的直接链接 title=SubscribeBarometerOptions的直接链接 translate=no>​</a></h2>
+<p>当气压计传感器数据发生变化时调用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#barometerresponse class="">BarometerResponse</a><td>是<td>气压计传感器数据改变后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=barometerresponse>BarometerResponse<a href=#barometerresponse class=hash-link aria-label=BarometerResponse的直接链接 title=BarometerResponse的直接链接 translate=no>​</a></h2>
+<p>气压计传感器数据改变后的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>pressure<td>number<td>是<td>气压值，单位：帕斯卡。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribeheartrateoptions>SubscribeHeartRateOptions<a href=#subscribeheartrateoptions class=hash-link aria-label=SubscribeHeartRateOptions的直接链接 title=SubscribeHeartRateOptions的直接链接 translate=no>​</a></h2>
+<p>当心率传感器数据发生变化时调用。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_HEALTH_DATA</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#heartrateresponse class="">HeartRateResponse</a><td>是<td>心率传感器数据改变后的回调函数，默认频率5s/次。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=heartrateresponse>HeartRateResponse<a href=#heartrateresponse class=hash-link aria-label=HeartRateResponse的直接链接 title=HeartRateResponse的直接链接 translate=no>​</a></h2>
+<p>心率传感器数据改变后的回调函数，默认频率5s/次。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_HEALTH_DATA</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>heartRate<td>number<td>是<td>心率值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribeonbodystateoptions>SubscribeOnBodyStateOptions<a href=#subscribeonbodystateoptions class=hash-link aria-label=SubscribeOnBodyStateOptions的直接链接 title=SubscribeOnBodyStateOptions的直接链接 translate=no>​</a></h2>
+<p>当传感器所在设备穿戴状态改变时调用，分为已穿戴和未穿戴。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#onbodystateresponse class="">OnBodyStateResponse</a><td>是<td>传感器所在设备穿戴状态改变后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onbodystateresponse>OnBodyStateResponse<a href=#onbodystateresponse class=hash-link aria-label=OnBodyStateResponse的直接链接 title=OnBodyStateResponse的直接链接 translate=no>​</a></h2>
+<p>传感器所在设备是否穿戴。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>value<td>boolean<td>是<td>是否已佩戴设备，当返回true表示已佩戴，否则未佩戴。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getonbodystateoptions>GetOnBodyStateOptions<a href=#getonbodystateoptions class=hash-link aria-label=GetOnBodyStateOptions的直接链接 title=GetOnBodyStateOptions的直接链接 translate=no>​</a></h2>
+<p>获取传感器所在设备穿戴状态时调用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>success<td><a href=#onbodystateresponse class="">OnBodyStateResponse</a><td>是<td>接口调用成功的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。<tr><td>complete<td>Function<td>否<td>接口调用结束的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribedeviceorientationoptions6>SubscribeDeviceOrientationOptions6+<a href=#subscribedeviceorientationoptions6 class=hash-link aria-label=SubscribeDeviceOrientationOptions6+的直接链接 title=SubscribeDeviceOrientationOptions6+的直接链接 translate=no>​</a></h2>
+<p>用于监听设备方向传感器数据的回调函数的执行频率。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>interval<td>string<td>是<td>频率参数，设备方向传感器的回调函数执行频率。  默认为normal，可选值有：  - game：极高的回调频率，20ms/次，适用于游戏。  - ui：较高的回调频率，60ms/次，适用于UI更新。  - normal：普通的回调频率，200ms/次，低功耗。<tr><td>success<td><a href=#deviceorientationresponse6 class="">DeviceOrientationResponse</a><td>是<td>感应到设备方向传感器数据变化后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deviceorientationresponse6>DeviceOrientationResponse6+<a href=#deviceorientationresponse6 class=hash-link aria-label=DeviceOrientationResponse6+的直接链接 title=DeviceOrientationResponse6+的直接链接 translate=no>​</a></h2>
+<p>感应到设备方向传感器数据变化后的回调函数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Lite Wearable中无效果，在其他设备类型中可正常调用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>alpha<td>number<td>是<td>当设备坐标 X/Y 和地球 X/Y 重合时，绕着 Z 轴转动的夹角为 alpha。<tr><td>beta<td>number<td>是<td>当设备坐标 Y/Z 和地球 Y/Z 重合时，绕着 X 轴转动的夹角为 beta。<tr><td>gamma<td>number<td>是<td>当设备 X/Z 和地球 X/Z 重合时，绕着 Y 轴转动的夹角为 gamma。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subscribegyroscopeoptions6>SubscribeGyroscopeOptions6+<a href=#subscribegyroscopeoptions6 class=hash-link aria-label=SubscribeGyroscopeOptions6+的直接链接 title=SubscribeGyroscopeOptions6+的直接链接 translate=no>​</a></h2>
+<p>用于侦听陀螺仪传感器数据的回调函数的执行频率。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.GYROSCOPE</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>interval<td>string<td>是<td>频率参数，陀螺仪的回调函数执行频率。  默认为normal，可选值有：  game：极高的回调频率，20ms/次，适用于游戏。  ui：较高的回调频率，60ms/次，适用于UI更新。  normal：普通的回调频率，200ms/次，低功耗。<tr><td>success<td><a href=#gyroscoperesponse6 class="">GyroscopeResponse</a><td>是<td>感应到陀螺仪数据变化后的回调函数。<tr><td>fail<td>Function<td>否<td>接口调用失败的回调函数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gyroscoperesponse6>GyroscopeResponse6+<a href=#gyroscoperesponse6 class=hash-link aria-label=GyroscopeResponse6+的直接链接 title=GyroscopeResponse6+的直接链接 translate=no>​</a></h2>
+<p>感应到陀螺仪传感器数据变化后的回调函数。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.GYROSCOPE</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Sensors.Sensor.Lite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>x<td>number<td>是<td>x轴的旋转角速度。<tr><td>y<td>number<td>是<td>y轴的旋转角速度。<tr><td>z<td>number<td>是<td>z轴的旋转角速度。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-vibrator/js-apis-vibrator><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.vibrator (振动)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-hardware-api/sensor-service-api/sensor-service-arkts/js-apis-system-vibrate/js-apis-system-vibrate><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@system.vibrator (振动)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#sensorsubscribeaccelerometer class="table-of-contents__link toc-highlight">Sensor.subscribeAccelerometer</a><li><a href=#sensorunsubscribeaccelerometer class="table-of-contents__link toc-highlight">Sensor.unsubscribeAccelerometer</a><li><a href=#sensorsubscribecompass class="table-of-contents__link toc-highlight">Sensor.subscribeCompass</a><li><a href=#sensorunsubscribecompass class="table-of-contents__link toc-highlight">Sensor.unsubscribeCompass</a><li><a href=#sensorsubscribeproximity class="table-of-contents__link toc-highlight">Sensor.subscribeProximity</a><li><a href=#sensorunsubscribeproximity class="table-of-contents__link toc-highlight">Sensor.unsubscribeProximity</a><li><a href=#sensorsubscribelight class="table-of-contents__link toc-highlight">Sensor.subscribeLight</a><li><a href=#sensorunsubscribelight class="table-of-contents__link toc-highlight">Sensor.unsubscribeLight</a><li><a href=#sensorsubscribestepcounter class="table-of-contents__link toc-highlight">Sensor.subscribeStepCounter</a><li><a href=#sensorunsubscribestepcounter class="table-of-contents__link toc-highlight">Sensor.unsubscribeStepCounter</a><li><a href=#sensorsubscribebarometer class="table-of-contents__link toc-highlight">Sensor.subscribeBarometer</a><li><a href=#sensorunsubscribebarometer class="table-of-contents__link toc-highlight">Sensor.unsubscribeBarometer</a><li><a href=#sensorsubscribeheartrate class="table-of-contents__link toc-highlight">Sensor.subscribeHeartRate</a><li><a href=#sensorunsubscribeheartrate class="table-of-contents__link toc-highlight">Sensor.unsubscribeHeartRate</a><li><a href=#sensorsubscribeonbodystate class="table-of-contents__link toc-highlight">Sensor.subscribeOnBodyState</a><li><a href=#sensorunsubscribeonbodystate class="table-of-contents__link toc-highlight">Sensor.unsubscribeOnBodyState</a><li><a href=#sensorgetonbodystate class="table-of-contents__link toc-highlight">Sensor.getOnBodyState</a><li><a href=#sensorsubscribedeviceorientation6 class="table-of-contents__link toc-highlight">Sensor.subscribeDeviceOrientation6+</a><li><a href=#sensorunsubscribedeviceorientation6 class="table-of-contents__link toc-highlight">Sensor.unsubscribeDeviceOrientation6+</a><li><a href=#sensorsubscribegyroscope6 class="table-of-contents__link toc-highlight">Sensor.subscribeGyroscope6+</a><li><a href=#sensorunsubscribegyroscope6 class="table-of-contents__link toc-highlight">Sensor.unsubscribeGyroscope6+</a><li><a href=#subscribeaccelerometeroptions class="table-of-contents__link toc-highlight">subscribeAccelerometerOptions</a><li><a href=#accelerometerresponse class="table-of-contents__link toc-highlight">AccelerometerResponse</a><li><a href=#subscribecompassoptions class="table-of-contents__link toc-highlight">SubscribeCompassOptions</a><li><a href=#compassresponse class="table-of-contents__link toc-highlight">CompassResponse</a><li><a href=#subscribeproximityoptions class="table-of-contents__link toc-highlight">SubscribeProximityOptions</a><li><a href=#proximityresponse class="table-of-contents__link toc-highlight">ProximityResponse</a><li><a href=#subscribelightoptions class="table-of-contents__link toc-highlight">SubscribeLightOptions</a><li><a href=#lightresponse class="table-of-contents__link toc-highlight">LightResponse</a><li><a href=#subscribestepcounteroptions class="table-of-contents__link toc-highlight">SubscribeStepCounterOptions</a><li><a href=#stepcounterresponse class="table-of-contents__link toc-highlight">StepCounterResponse</a><li><a href=#subscribebarometeroptions class="table-of-contents__link toc-highlight">SubscribeBarometerOptions</a><li><a href=#barometerresponse class="table-of-contents__link toc-highlight">BarometerResponse</a><li><a href=#subscribeheartrateoptions class="table-of-contents__link toc-highlight">SubscribeHeartRateOptions</a><li><a href=#heartrateresponse class="table-of-contents__link toc-highlight">HeartRateResponse</a><li><a href=#subscribeonbodystateoptions class="table-of-contents__link toc-highlight">SubscribeOnBodyStateOptions</a><li><a href=#onbodystateresponse class="table-of-contents__link toc-highlight">OnBodyStateResponse</a><li><a href=#getonbodystateoptions class="table-of-contents__link toc-highlight">GetOnBodyStateOptions</a><li><a href=#subscribedeviceorientationoptions6 class="table-of-contents__link toc-highlight">SubscribeDeviceOrientationOptions6+</a><li><a href=#deviceorientationresponse6 class="table-of-contents__link toc-highlight">DeviceOrientationResponse6+</a><li><a href=#subscribegyroscopeoptions6 class="table-of-contents__link toc-highlight">SubscribeGyroscopeOptions6+</a><li><a href=#gyroscoperesponse6 class="table-of-contents__link toc-highlight">GyroscopeResponse6+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

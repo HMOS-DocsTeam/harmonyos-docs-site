@@ -1,0 +1,3002 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>drag_and_drop.h | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="drag_and_drop.h | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=概述 /><meta data-rh=true property=og:description content=概述 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h","name":"drag_and_drop.h","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title=模块 class=categoryLinkLabel_W154>模块</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h><span title=头文件 class=categoryLinkLabel_W154>头文件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h><span title=drag_and_drop.h class=linkLabel_WmDU>drag_and_drop.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drawable-descriptor-h/capi-drawable-descriptor-h><span title=drawable_descriptor.h class=linkLabel_WmDU>drawable_descriptor.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-animate-h/capi-native-animate-h><span title=native_animate.h class=linkLabel_WmDU>native_animate.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-dialog-h/capi-native-dialog-h><span title=native_dialog.h class=linkLabel_WmDU>native_dialog.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-gesture-h/capi-native-gesture-h><span title=native_gesture.h class=linkLabel_WmDU>native_gesture.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-interface-h/capi-native-interface-h><span title=native_interface.h class=linkLabel_WmDU>native_interface.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-interface-accessibility-h/capi-native-interface-accessibility-h><span title=native_interface_accessibility.h class=linkLabel_WmDU>native_interface_accessibility.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-interface-focus-h/capi-native-interface-focus-h><span title=native_interface_focus.h class=linkLabel_WmDU>native_interface_focus.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-interface-xcomponent-h/capi-native-interface-xcomponent-h><span title=native_interface_xcomponent.h class=linkLabel_WmDU>native_interface_xcomponent.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-key-event-h/capi-native-key-event-h><span title=native_key_event.h class=linkLabel_WmDU>native_key_event.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-node-h/capi-native-node-h><span title=native_node.h class=linkLabel_WmDU>native_node.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-node-napi-h/capi-native-node-napi-h><span title=native_node_napi.h class=linkLabel_WmDU>native_node_napi.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-render-h/capi-native-render-h><span title=native_render.h class=linkLabel_WmDU>native_render.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h><span title=native_type.h class=linkLabel_WmDU>native_type.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-xcomponent-key-event-h/capi-native-xcomponent-key-event-h><span title=native_xcomponent_key_event.h class=linkLabel_WmDU>native_xcomponent_key_event.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-styled-string-h/capi-styled-string-h><span title=styled_string.h class=linkLabel_WmDU>styled_string.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-ui-input-event-h/capi-ui-input-event-h><span title=ui_input_event.h class=linkLabel_WmDU>ui_input_event.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-window-h/capi-oh-window-h><span title=oh_window.h class=linkLabel_WmDU>oh_window.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-window-comm-h/capi-oh-window-comm-h><span title=oh_window_comm.h class=linkLabel_WmDU>oh_window_comm.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-window-event-filter-h/capi-oh-window-event-filter-h><span title=oh_window_event_filter.h class=linkLabel_WmDU>oh_window_event_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-window-pip-h/capi-oh-window-pip-h><span title=oh_window_pip.h class=linkLabel_WmDU>oh_window_pip.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-display-capture-h/capi-oh-display-capture-h><span title=oh_display_capture.h class=linkLabel_WmDU>oh_display_capture.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-display-info-h/capi-oh-display-info-h><span title=oh_display_info.h class=linkLabel_WmDU>oh_display_info.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-oh-display-manager-h/capi-oh-display-manager-h><span title=oh_display_manager.h class=linkLabel_WmDU>oh_display_manager.h</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-nodeevent/capi-arkui-nativemodule-arkui-nodeevent><span title=结构体 class=categoryLinkLabel_W154>结构体</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>C API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>头文件</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>drag_and_drop.h</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>drag_and_drop.h</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=概述>概述<a href=#概述 class=hash-link aria-label=概述的直接链接 title=概述的直接链接 translate=no>​</a></h2>
+<p>提供NativeDrag相关接口定义。</p>
+<p><strong><strong>引用文件：</strong></strong> &lt;arkui/drag_and_drop.h></p>
+<p><strong><strong>库：</strong></strong> libace_ndk.z.so</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>相关模块：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule>ArkUI_NativeModule</a></p>
+<p><strong><strong>相关示例：</strong></strong> <a href=https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/NativeDragDrop target=_blank rel="noopener noreferrer" class="">NativeDragDrop</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=汇总>汇总<a href=#汇总 class=hash-link aria-label=汇总的直接链接 title=汇总的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=结构体>结构体<a href=#结构体 class=hash-link aria-label=结构体的直接链接 title=结构体的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-nodeevent/capi-arkui-nativemodule-arkui-nodeevent>ArkUI_NodeEvent</a><td>ArkUI_NodeEvent<td>组件事件的通用结构类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context/capi-arkui-nativemodule-arkui-context>ArkUI_Context</a><td>ArkUI_Context<td>native UI的上下文实例对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context8h/capi-arkui-nativemodule-arkui-context8h>ArkUI_Context*</a><td>ArkUI_ContextHandle<td>native UI的上下文实例对象指针定义。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a><td>ArkUI_DragEvent<td>拖拽事件。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a><td>ArkUI_DragPreviewOption<td>设置拖拽跟手图的相关自定义参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a><td>ArkUI_DragAction<td>拖拽行为，用于主动发起拖拽。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-draganddropinfo/capi-arkui-nativemodule-arkui-draganddropinfo>ArkUI_DragAndDropInfo</a><td>ArkUI_DragAndDropInfo<td>主动发起拖拽后，通过拖拽状态监听返回的系统拖拽相关数据。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举>枚举<a href=#枚举 class=hash-link aria-label=枚举的直接链接 title=枚举的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a href=#arkui_dragresult class="">ArkUI_DragResult</a><td>ArkUI_DragResult<td>拖拽结果定义，由数据接收方设置，并由系统传递给数据拖出方，拖出方可感知接收方对数据的处理结果。<tr><td><a href=#arkui_dropoperation class="">ArkUI_DropOperation</a><td>ArkUI_DropOperation<td>定义拖拽释放时的数据处理方式，可影响角标的显示。<tr><td><a href=#arkui_predragstatus class="">ArkUI_PreDragStatus</a><td>ArkUI_PreDragStatus<td>定义拖拽发起前的长按交互阶段的变化状态。<tr><td><a href=#arkui_dragpreviewscalemode class="">ArkUI_DragPreviewScaleMode</a><td>ArkUI_DragPreviewScaleMode<td>拖拽预览缩放模式。<tr><td><a href=#arkui_dragstatus class="">ArkUI_DragStatus</a><td>ArkUI_DragStatus<td>拖拽状态。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数>函数<a href=#函数 class=hash-link aria-label=函数的直接链接 title=函数的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>描述<tbody><tr><td><a href=#oh_arkui_nodeevent_getdragevent class="">ArkUI_DragEvent* OH_ArkUI_NodeEvent_GetDragEvent(ArkUI_NodeEvent* nodeEvent)</a><td>从 NodeEvent 中获取DragEvent。<tr><td><a href=#oh_arkui_nodeevent_getpredragstatus class="">ArkUI_PreDragStatus OH_ArkUI_NodeEvent_GetPreDragStatus(ArkUI_NodeEvent* nodeEvent)</a><td>获取预览拖拽事件状态。<tr><td><a href=#oh_arkui_dragevent_disabledefaultdropanimation class="">int32_t OH_ArkUI_DragEvent_DisableDefaultDropAnimation(ArkUI_DragEvent* event, bool disable)</a><td>设置是否禁用松手时的系统默认动效，默认不禁用，通常在应用需要自定义落位动效时配置。<tr><td><a href=#oh_arkui_dragevent_setsuggesteddropoperation class="">int32_t OH_ArkUI_DragEvent_SetSuggestedDropOperation(ArkUI_DragEvent* event, ArkUI_DropOperation dropOperation)</a><td>设置数据处理方式。<tr><td><a href=#oh_arkui_dragevent_setdragresult class="">int32_t OH_ArkUI_DragEvent_SetDragResult(ArkUI_DragEvent* event, ArkUI_DragResult result)</a><td>设置拖拽事件的结果。<tr><td><a href=#oh_arkui_dragevent_setdata class="">int32_t OH_ArkUI_DragEvent_SetData(ArkUI_DragEvent* event, OH_UdmfData* data)</a><td>向ArkUI_DragEvent中设置拖拽数据。<tr><td><a href=#oh_arkui_dragevent_setdataloadparams class="">ArkUI_ErrorCode OH_ArkUI_DragEvent_SetDataLoadParams(ArkUI_DragEvent* event, OH_UdmfDataLoadParams* dataLoadParams)</a><td>调用此方法向系统提供数据加载参数，而非直接传入完整的数据对象。当用户将数据拖拽至目标应用程序并释放时，系统将使用dataLoadParams请求数据。这可以显著提高拖拽大量数据及目标应用程序处理释放数据的效率。此方法应始终优先于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_setdata>OH_ArkUI_DragEvent_SetData</a>使用。请参考<strong><strong>udmf.h</strong></strong>中的<a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#oh_udmfdataloadparams_create>OH_UdmfDataLoadParams_Create</a>了解如何创建和准备数据加载参数。该方法与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_setdata>OH_ArkUI_DragEvent_SetData</a>存在冲突，系统始终以最后调用的方法为准。<tr><td><a href=#oh_arkui_dragevent_getudmfdata class="">int32_t OH_ArkUI_DragEvent_GetUdmfData(ArkUI_DragEvent* event, OH_UdmfData *data)</a><td>从ArkUI_DragEvent中获取拖拽默认相关数据。<tr><td><a href=#oh_arkui_dragevent_getdatatypecount class="">int32_t OH_ArkUI_DragEvent_GetDataTypeCount(ArkUI_DragEvent* event, int32_t* count)</a><td>从ArkUI_DragEvent中获取所拖拽的数据类型种类个数。<tr><td><a href=#oh_arkui_dragevent_getdatatypes class="">int32_t OH_ArkUI_DragEvent_GetDataTypes(ArkUI_DragEvent *event, char *eventTypeArray[], int32_t length, int32_t maxStrLen)</a><td>从ArkUI_DragEvent中获取拖拽数据的类型列表。<tr><td><a href=#oh_arkui_dragevent_getdragresult class="">int32_t OH_ArkUI_DragEvent_GetDragResult(ArkUI_DragEvent* event, ArkUI_DragResult* result)</a><td>从ArkUI_DragEvent中获取拖拽结果。<tr><td><a href=#oh_arkui_dragevent_getdropoperation class="">int32_t OH_ArkUI_DragEvent_GetDropOperation(ArkUI_DragEvent* event, ArkUI_DropOperation* operation)</a><td>从ArkUI_DragEvent中获取数据处理方式。<tr><td><a href=#oh_arkui_dragevent_getpreviewtouchpointx class="">float OH_ArkUI_DragEvent_GetPreviewTouchPointX(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取预览图跟手点的x轴坐标。<tr><td><a href=#oh_arkui_dragevent_getpreviewtouchpointy class="">float OH_ArkUI_DragEvent_GetPreviewTouchPointY(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取预览图跟手点的y轴坐标。<tr><td><a href=#oh_arkui_dragevent_getpreviewrectwidth class="">float OH_ArkUI_DragEvent_GetPreviewRectWidth(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取预览图的宽。<tr><td><a href=#oh_arkui_dragevent_getpreviewrectheight class="">float OH_ArkUI_DragEvent_GetPreviewRectHeight(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取预览图的高。<tr><td><a href=#oh_arkui_dragevent_gettouchpointxtowindow class="">float OH_ArkUI_DragEvent_GetTouchPointXToWindow(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于window的x轴坐标。<tr><td><a href=#oh_arkui_dragevent_gettouchpointytowindow class="">float OH_ArkUI_DragEvent_GetTouchPointYToWindow(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于window的y轴坐标。<tr><td><a href=#oh_arkui_dragevent_gettouchpointxtodisplay class="">float OH_ArkUI_DragEvent_GetTouchPointXToDisplay(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于当前Display的x轴坐标。<tr><td><a href=#oh_arkui_dragevent_gettouchpointytodisplay class="">float OH_ArkUI_DragEvent_GetTouchPointYToDisplay(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于当前Display的y轴坐标。<tr><td><a href=#oh_arkui_dragevent_getvelocityx class="">float OH_ArkUI_DragEvent_GetVelocityX(ArkUI_DragEvent* event)</a><td>获取当前拖拽的x轴方向拖动速度。<tr><td><a href=#oh_arkui_dragevent_getvelocityy class="">float OH_ArkUI_DragEvent_GetVelocityY(ArkUI_DragEvent* event)</a><td>获取当前拖拽的y轴方向拖动速度。<tr><td><a href=#oh_arkui_dragevent_getvelocity class="">float OH_ArkUI_DragEvent_GetVelocity(ArkUI_DragEvent* event)</a><td>获取当前拖拽的主方向拖动速度。<tr><td><a href=#oh_arkui_dragevent_getmodifierkeystates class="">int32_t OH_ArkUI_DragEvent_GetModifierKeyStates(ArkUI_DragEvent* event, uint64_t* keys)</a><td>获取功能键按压状态。<tr><td><a href=#oh_arkui_dragevent_startdataloading class="">int32_t OH_ArkUI_DragEvent_StartDataLoading(ArkUI_DragEvent* event, OH_UdmfGetDataParams* options, char* key, unsigned int keyLen)</a><td>使用指定的同步参数开始数据同步。<tr><td><a href=#oh_arkui_canceldataloading class="">int32_t OH_ArkUI_CancelDataLoading(ArkUI_ContextHandle uiContext, const char* key)</a><td>取消正在进行的数据同步。<tr><td><a href=#oh_arkui_disabledropdataprefetchonnode class="">int32_t OH_ArkUI_DisableDropDataPrefetchOnNode(ArkUI_NodeHandle node, bool disabled)</a><td>设置是否在执行<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-node-h/capi-native-node-h#arkui_nodeeventtype>NODE_ON_DROP</a>之前禁用数据预获取过程。系统将重试获取数据，直到达到最大时间限制（目前为2.4秒），这对跨设备的拖动操作非常有用，因为它有助于系统稳定通信。然而，对于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading</a>方法而言，这一特性显得多余。该方法采用异步机制获取数据，因此在NODE_ON_DROP中使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading</a>时，为了避免在NODE_ON_DROP执行前意外获取数据，必须将此字段设置为true。<tr><td><a href=#oh_arkui_setdrageventstrictreportwithnode class="">int32_t OH_ArkUI_SetDragEventStrictReportWithNode(ArkUI_NodeHandle node, bool enabled)</a><td>控制是否使能严格dragEvent上报，建议开启；默认是不开启的；当不开启时，从父组件拖移进子组件时，父组件并不会收到leave的通知；而开启之后，只要前后两个组件发生变化，上一个组件就会收到leave，新的组件收到enter通知；该配置与具体的UI实例相关，需要通过传入一个当前UI实例上的一个具体的组件节点来关联。<tr><td><a href=#oh_arkui_setdrageventstrictreportwithcontext class="">int32_t OH_ArkUI_SetDragEventStrictReportWithContext(ArkUI_ContextHandle uiContext, bool enabled)</a><td>控制是否使能严格dragEvent上报，建议开启；默认是不开启的;当不开启时，从父组件拖移进子组件时，父组件并不会收到leave的通知；而开启之后，只要前后两个组件发生变化，上一个组件就会收到leave，新的组件收到enter通知；该配置与具体的UI实例相关，可通过传入一个UI实例进行关联。<tr><td><a href=#oh_arkui_setnodealloweddropdatatypes class="">int32_t OH_ArkUI_SetNodeAllowedDropDataTypes(ArkUI_NodeHandle node, const char* typesArray[], int32_t count)</a><td>配置组件允许接受落入的数据类型，该接口会重置通过 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_disallownodeanydropdatatypes>OH_ArkUI_DisallowNodeAnyDropDataTypes</a> 或<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_allownodealldropdatatypes>OH_ArkUI_AllowNodeAllDropDataTypes</a>进行的配置。<tr><td><a href=#oh_arkui_disallownodeanydropdatatypes class="">int32_t OH_ArkUI_DisallowNodeAnyDropDataTypes(ArkUI_NodeHandle node)</a><td>配置组件不允许接受任何数据类型，该接口会重置通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_setnodealloweddropdatatypes>OH_ArkUI_SetNodeAllowedDropDataTypes</a>配置的数据类型。<tr><td><a href=#oh_arkui_allownodealldropdatatypes class="">int32_t OH_ArkUI_AllowNodeAllDropDataTypes(ArkUI_NodeHandle node)</a><td>配置组件允许接受任意数据类型，该接口会重置通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_setnodealloweddropdatatypes>OH_ArkUI_SetNodeAllowedDropDataTypes</a>配置的数据类型。<tr><td><a href=#oh_arkui_setnodedraggable class="">int32_t OH_ArkUI_SetNodeDraggable(ArkUI_NodeHandle node, bool enabled)</a><td>设置该组件是否允许进行拖拽。<tr><td><a href=#oh_arkui_setnodedragpreview class="">int32_t OH_ArkUI_SetNodeDragPreview(ArkUI_NodeHandle node, OH_PixelmapNative* preview)</a><td>设置组件在被拖拽时的自定义跟手图。<tr><td><a href=#oh_arkui_createdragpreviewoption class="">ArkUI_DragPreviewOption* OH_ArkUI_CreateDragPreviewOption(void)</a><td>构建一个ArkUI_DragPreviewOption对象。<tr><td><a href=#oh_arkui_dragpreviewoption_dispose class="">void OH_ArkUI_DragPreviewOption_Dispose(ArkUI_DragPreviewOption* option)</a><td>销毁跟手图自定义参数对象实例。<tr><td><a href=#oh_arkui_dragpreviewoption_setscalemode class="">int32_t OH_ArkUI_DragPreviewOption_SetScaleMode(ArkUI_DragPreviewOption* option, ArkUI_DragPreviewScaleMode scaleMode)</a><td>设置拖拽跟手图是否根据系统定义自动进行缩放。<tr><td><a href=#oh_arkui_dragpreviewoption_setdefaultshadowenabled class="">int32_t OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled(ArkUI_DragPreviewOption* option, bool enabled)</a><td>设置跟手图背板默认的投影效果，默认不开启。<tr><td><a href=#oh_arkui_dragpreviewoption_setdefaultradiusenabled class="">int32_t OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled(ArkUI_DragPreviewOption* option, bool enabled)</a><td>设置跟手图背板默认的圆角效果（默认圆角半径为12.0vp），默认不开启。<tr><td><a href=#oh_arkui_dragpreviewoption_setnumberbadgeenabled class="">int32_t OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled(ArkUI_DragPreviewOption* option, bool enabled)</a><td>设置跟手图背板是否显示角标,开启后,系统会根据拖拽数量自动进行角标显示。<tr><td><a href=#oh_arkui_dragpreviewoption_setbadgenumber class="">int32_t OH_ArkUI_DragPreviewOption_SetBadgeNumber(ArkUI_DragPreviewOption* option, uint32_t forcedNumber)</a><td>强制显示角标的数量，覆盖<a href=#oh_arkui_dragpreviewoption_setnumberbadgeenabled class="">OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled</a>设置的值。<tr><td><a href=#oh_arkui_dragpreviewoption_setdefaultanimationbeforeliftingenabled class="">int32_t OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled(ArkUI_DragPreviewOption* option, bool enabled)</a><td>配置是否开启点按时的默认动画。<tr><td><a href=#oh_arkui_setnodedragpreviewoption class="">int32_t OH_ArkUI_SetNodeDragPreviewOption(ArkUI_NodeHandle node, ArkUI_DragPreviewOption* option)</a><td>将构造的ArkUI_DragPreviewOption设置给组件。<tr><td><a href=#oh_arkui_createdragactionwithnode class="">ArkUI_DragAction* OH_ArkUI_CreateDragActionWithNode(ArkUI_NodeHandle node)</a><td>创建一个拖拽操作对象，该对象需与一个UI实例相关联，可通过传入一个当前UI实例的某个组件节点来指定。<tr><td><a href=#oh_arkui_createdragactionwithcontext class="">ArkUI_DragAction* OH_ArkUI_CreateDragActionWithContext(ArkUI_ContextHandle uiContext)</a><td>创建一个拖拽操作对象，该对象需与一个UI实例相关联，可通过传入一个UI实例指针来关联。<tr><td><a href=#oh_arkui_dragaction_dispose class="">void OH_ArkUI_DragAction_Dispose(ArkUI_DragAction* dragAction)</a><td>销毁创建的 ArkUI_DragAction 对象。<tr><td><a href=#oh_arkui_dragaction_setpointerid class="">int32_t OH_ArkUI_DragAction_SetPointerId(ArkUI_DragAction* dragAction, int32_t pointer)</a><td>设置手指ID，当屏幕上仅有一只手指在操作时，手指ID为0；一般情况下，配置0即可。<tr><td><a href=#oh_arkui_dragaction_setpixelmaps class="">int32_t OH_ArkUI_DragAction_SetPixelMaps(ArkUI_DragAction* dragAction, OH_PixelmapNative* pixelmapArray[], int32_t size)</a><td>设置拖拽跟手图，只能使用 pixelmap 格式对象。<tr><td><a href=#oh_arkui_dragaction_settouchpointx class="">int32_t OH_ArkUI_DragAction_SetTouchPointX(ArkUI_DragAction* dragAction, float x)</a><td>设置跟手点，相对于设置的第一个pixelmap的左上角。<tr><td><a href=#oh_arkui_dragaction_settouchpointy class="">int32_t OH_ArkUI_DragAction_SetTouchPointY(ArkUI_DragAction* dragAction, float y)</a><td>设置跟手点，相对于设置的第一个pixelmap的左上角。<tr><td><a href=#oh_arkui_dragaction_setdata class="">int32_t OH_ArkUI_DragAction_SetData(ArkUI_DragAction* dragAction, OH_UdmfData* data)</a><td>设置拖拽数据。<tr><td><a href=#oh_arkui_dragaction_setdataloadparams class="">ArkUI_ErrorCode OH_ArkUI_DragAction_SetDataLoadParams(ArkUI_DragAction* dragAction,OH_UdmfDataLoadParams* dataLoadParams)</a><td>使用此方法为系统提供一个数据加载参数，而不是直接提供一个完整的数据对象。当用户拖拽到目标应用程序并落入时，系统将使用dataLoadParams请求数据。可以极大地提高拖拽大量数据的效率，以及目标应用程序中处理落入数据的效率。此方法应始终优先于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragaction_setdata>OH_ArkUI_DragAction_SetData</a>使用。请参考<strong><strong>udmf.h</strong></strong>中的<a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#oh_udmfdataloadparams_create>OH_UdmfDataLoadParams_Create</a>了解如何创建和准备数据加载参数。该方法与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragaction_setdata>OH_ArkUI_DragAction_SetData</a>存在冲突，系统始终以最后调用的方法为准。<tr><td><a href=#oh_arkui_dragaction_setdragpreviewoption class="">int32_t OH_ArkUI_DragAction_SetDragPreviewOption(ArkUI_DragAction* dragAction, ArkUI_DragPreviewOption* option)</a><td>将构造的ArkUI_DragPreviewOption设置给ArkUI_DragAction。<tr><td><a href=#oh_arkui_dragaction_registerstatuslistener class="">int32_t OH_ArkUI_DragAction_RegisterStatusListener(ArkUI_DragAction* dragAction, void* userData,void(*listener)(ArkUI_DragAndDropInfo* dragAndDropInfo, void* userData))</a><td>注册拖拽状态监听回调，该回调可感知到拖拽已经发起或用户松手结束的状态，可通过该监听获取到落入方对数据的接收处理是否成功。<tr><td><a href=#oh_arkui_dragevent_getdisplayid class="">ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDisplayId(ArkUI_DragEvent* event, int32_t* displayId)</a><td>获取当前拖拽事件发生时所在的屏幕ID，不支持当eventType为NODE_ON_DRAG_END时获取。<tr><td><a href=#oh_arkui_dragaction_unregisterstatuslistener class="">void OH_ArkUI_DragAction_UnregisterStatusListener(ArkUI_DragAction* dragAction)</a><td>解注册拖拽状态监听回调。<tr><td><a href=#oh_arkui_draganddropinfo_getdragstatus class="">ArkUI_DragStatus OH_ArkUI_DragAndDropInfo_GetDragStatus(ArkUI_DragAndDropInfo* dragAndDropInfo)</a><td>获取<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>发起拖拽的状态，获取异常时返回 ArkUI_DRAG_STATUS_UNKNOWN。<tr><td><a href=#oh_arkui_draganddropinfo_getdragevent class="">ArkUI_DragEvent* OH_ArkUI_DragAndDropInfo_GetDragEvent(ArkUI_DragAndDropInfo* dragAndDropInfo)</a><td>通过dragAndDropInfo获取到DragEvent，可通过DragEvent获取释放结果等。<tr><td><a href=#oh_arkui_startdrag class="">int32_t OH_ArkUI_StartDrag(ArkUI_DragAction* dragAction)</a><td>通过构造的DragAction对象发起拖拽。<tr><td><a href=#oh_arkui_dragevent_requestdragendpending class="">int32_t OH_ArkUI_DragEvent_RequestDragEndPending(ArkUI_DragEvent* event, int32_t* requestIdentify)</a><td>请求延迟处理拖拽结束事件，等待应用程序确认操作结果。应用程序需通过 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_notifydragresult>OH_ArkUI_NotifyDragResult</a>接口将最终结果回传至系统，并在所有处理完成后调用 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_notifydragendpendingdone>OH_ArkUI_NotifyDragEndPendingDone</a>。最大等待时间为2秒。<tr><td><a href=#oh_arkui_notifydragresult class="">int32_t OH_ArkUI_NotifyDragResult(int32_t requestIdentify, ArkUI_DragResult result)</a><td>通知系统最终拖拽结果。系统会校验请求标识符是否与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_requestdragendpending>OH_ArkUI_DragEvent_RequestDragEndPending</a>返回的一致，不一致则忽略本次调用。<tr><td><a href=#oh_arkui_notifydragendpendingdone class="">int32_t OH_ArkUI_NotifyDragEndPendingDone(int32_t requestIdentify)</a><td>通知系统所有异步处理已完成，可结束拖拽结束挂起状态。<tr><td><a href=#oh_arkui_enabledropdisallowedbadge class="">ArkUI_ErrorCode OH_ArkUI_EnableDropDisallowedBadge(ArkUI_ContextHandle uiContext, bool enabled)</a><td>设置是否可以显示禁用角标。<tr><td><a href=#oh_arkui_dragevent_gettouchpointxtoglobaldisplay class="">float OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于全局屏幕的x轴坐标。<tr><td><a href=#oh_arkui_dragevent_gettouchpointytoglobaldisplay class="">float OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay(ArkUI_DragEvent* event)</a><td>从ArkUI_DragEvent中获取跟手点相对于全局屏幕的y轴坐标。<tr><td><a href=#oh_arkui_dragevent_getdragsource class="">ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDragSource(ArkUI_DragEvent* event, char *bundleName, int32_t length)</a><td>获取拖拽发起方的应用包名信息，需要传递一个字符数组来接收包名字符串，并显式指明数组长度，该数组长度不小于128个字符。<tr><td><a href=#oh_arkui_dragevent_isremote class="">ArkUI_ErrorCode OH_ArkUI_DragEvent_IsRemote(ArkUI_DragEvent* event, bool* isRemote)</a><td>判断当前的拖拽操作是否是跨设备拖拽。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举类型说明>枚举类型说明<a href=#枚举类型说明 class=hash-link aria-label=枚举类型说明的直接链接 title=枚举类型说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arkui_dragresult>ArkUI_DragResult<a href=#arkui_dragresult class=hash-link aria-label=ArkUI_DragResult的直接链接 title=ArkUI_DragResult的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum ArkUI_DragResult</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>拖拽结果定义，由数据接收方设置，并由系统传递给数据拖出方，拖出方可感知接收方对数据的处理结果。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>ARKUI_DRAG_RESULT_SUCCESSFUL = 0<td>拖拽处理成功。<tr><td>ARKUI_DRAG_RESULT_FAILED = 1<td>拖拽处理失败。<tr><td>ARKUI_DRAG_RESULT_CANCELED = 2<td>拖拽处理取消。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arkui_dropoperation>ArkUI_DropOperation<a href=#arkui_dropoperation class=hash-link aria-label=ArkUI_DropOperation的直接链接 title=ArkUI_DropOperation的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum ArkUI_DropOperation</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>定义拖拽释放时的数据处理方式，影响角标的显示。当设置为复制行为时角标显示加号，设置为剪切行为时角标不显示加号。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>ARKUI_DROP_OPERATION_COPY = 0<td>复制行为。<tr><td>ARKUI_DROP_OPERATION_MOVE = 1<td>剪切行为。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arkui_predragstatus>ArkUI_PreDragStatus<a href=#arkui_predragstatus class=hash-link aria-label=ArkUI_PreDragStatus的直接链接 title=ArkUI_PreDragStatus的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum ArkUI_PreDragStatus</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>定义拖拽发起前的长按交互阶段的变化状态。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>ARKUI_PRE_DRAG_STATUS_UNKNOWN = -1<td>Unknown。<tr><td>ARKUI_PRE_DRAG_STATUS_ACTION_DETECTING = 0<td>拖拽手势启动阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_READY_TO_TRIGGER_DRAG = 1<td>拖拽准备完成，可发起拖拽阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_STARTED = 2<td>拖拽浮起动效发起阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_PREVIEW_LIFT_FINISHED = 3<td>拖拽浮起动效结束阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_STARTED = 4<td>拖拽落回动效发起阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_PREVIEW_LANDING_FINISHED = 5<td>拖拽落回动效结束阶段。<tr><td>ARKUI_PRE_DRAG_STATUS_CANCELED_BEFORE_DRAG = 6<td>拖拽浮起落位动效中断。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arkui_dragpreviewscalemode>ArkUI_DragPreviewScaleMode<a href=#arkui_dragpreviewscalemode class=hash-link aria-label=ArkUI_DragPreviewScaleMode的直接链接 title=ArkUI_DragPreviewScaleMode的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum ArkUI_DragPreviewScaleMode</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>拖拽预览缩放模式。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>ARKUI_DRAG_PREVIEW_SCALE_AUTO = 0<td>系统根据拖拽场景自动改变跟手点位置，根据规则自动对拖拽背板图进行缩放变换等。<tr><td>ARKUI_DRAG_PREVIEW_SCALE_DISABLED = 1<td>禁用系统对拖拽背板图的缩放行为。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arkui_dragstatus>ArkUI_DragStatus<a href=#arkui_dragstatus class=hash-link aria-label=ArkUI_DragStatus的直接链接 title=ArkUI_DragStatus的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum ArkUI_DragStatus</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>拖拽状态。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>ARKUI_DRAG_STATUS_UNKNOWN = -1<td>未知的拖拽状态。<tr><td>ARKUI_DRAG_STATUS_STARTED = 0<td>拖拽开始。<tr><td>ARKUI_DRAG_STATUS_ENDED = 1<td>拖拽结束。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数说明>函数说明<a href=#函数说明 class=hash-link aria-label=函数说明的直接链接 title=函数说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_nodeevent_getdragevent>OH_ArkUI_NodeEvent_GetDragEvent()<a href=#oh_arkui_nodeevent_getdragevent class=hash-link aria-label=OH_ArkUI_NodeEvent_GetDragEvent()的直接链接 title=OH_ArkUI_NodeEvent_GetDragEvent()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragEvent* OH_ArkUI_NodeEvent_GetDragEvent(ArkUI_NodeEvent* nodeEvent)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从 NodeEvent 中获取DragEvent。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-nodeevent/capi-arkui-nativemodule-arkui-nodeevent>ArkUI_NodeEvent</a>* nodeEvent<td>ArkUI_NodeEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>*<td>ArkUI_DragEvent 事件指针，当传入的 NodeEvent 无效或不是拖拽相关的事件时，则返回空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_nodeevent_getpredragstatus>OH_ArkUI_NodeEvent_GetPreDragStatus()<a href=#oh_arkui_nodeevent_getpredragstatus class=hash-link aria-label=OH_ArkUI_NodeEvent_GetPreDragStatus()的直接链接 title=OH_ArkUI_NodeEvent_GetPreDragStatus()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_PreDragStatus OH_ArkUI_NodeEvent_GetPreDragStatus(ArkUI_NodeEvent* nodeEvent)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取预览拖拽事件状态。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-nodeevent/capi-arkui-nativemodule-arkui-nodeevent>ArkUI_NodeEvent</a>* nodeEvent<td>ArkUI_NodeEvent节点对象。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_predragstatus>ArkUI_PreDragStatus</a><td>ArkUI_PreDragStatus 拖拽发起前交互状态。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_disabledefaultdropanimation>OH_ArkUI_DragEvent_DisableDefaultDropAnimation()<a href=#oh_arkui_dragevent_disabledefaultdropanimation class=hash-link aria-label=OH_ArkUI_DragEvent_DisableDefaultDropAnimation()的直接链接 title=OH_ArkUI_DragEvent_DisableDefaultDropAnimation()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_DisableDefaultDropAnimation(ArkUI_DragEvent* event, bool disable)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置是否禁用松手时的系统默认动效，默认不禁用，通常在应用需要自定义落位动效时配置。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td>bool disable<td>是否禁用松手时的系统默认动效，true禁用，false不禁用。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_setsuggesteddropoperation>OH_ArkUI_DragEvent_SetSuggestedDropOperation()<a href=#oh_arkui_dragevent_setsuggesteddropoperation class=hash-link aria-label=OH_ArkUI_DragEvent_SetSuggestedDropOperation()的直接链接 title=OH_ArkUI_DragEvent_SetSuggestedDropOperation()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_SetSuggestedDropOperation(ArkUI_DragEvent* event, ArkUI_DropOperation dropOperation)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置数据处理方式。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dropoperation>ArkUI_DropOperation</a> dropOperation<td>角标显示状态的类型。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_setdragresult>OH_ArkUI_DragEvent_SetDragResult()<a href=#oh_arkui_dragevent_setdragresult class=hash-link aria-label=OH_ArkUI_DragEvent_SetDragResult()的直接链接 title=OH_ArkUI_DragEvent_SetDragResult()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_SetDragResult(ArkUI_DragEvent* event, ArkUI_DragResult result)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置拖拽事件的结果。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragresult>ArkUI_DragResult</a> result<td>拖拽数据处理结果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_setdata>OH_ArkUI_DragEvent_SetData()<a href=#oh_arkui_dragevent_setdata class=hash-link aria-label=OH_ArkUI_DragEvent_SetData()的直接链接 title=OH_ArkUI_DragEvent_SetData()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_SetData(ArkUI_DragEvent* event, OH_UdmfData* data)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>向ArkUI_DragEvent中设置拖拽数据。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfdata/capi-udmf-oh-udmfdata>OH_UdmfData</a>* data<td>拖拽数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_setdataloadparams>OH_ArkUI_DragEvent_SetDataLoadParams()<a href=#oh_arkui_dragevent_setdataloadparams class=hash-link aria-label=OH_ArkUI_DragEvent_SetDataLoadParams()的直接链接 title=OH_ArkUI_DragEvent_SetDataLoadParams()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_DragEvent_SetDataLoadParams(ArkUI_DragEvent* event, OH_UdmfDataLoadParams* dataLoadParams)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>使用此方法为系统提供一个数据加载参数，而不是直接提供一个完整的数据对象。当用户拖拽到目标应用程序并落入时，系统将使用dataLoadParams请求数据。可以极大地提高拖拽大量数据的效率，以及目标应用程序中处理落入数据的效率。此方法应始终优先于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_setdata>OH_ArkUI_DragEvent_SetData</a>使用。请参考<strong><strong>udmf.h</strong></strong>中的<a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#oh_udmfdataloadparams_create>OH_UdmfDataLoadParams_Create</a>了解如何创建和准备数据加载参数。该方法与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_setdata>OH_ArkUI_DragEvent_SetData</a>存在冲突，系统始终以最后调用的方法为准。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfdataloadparams/capi-udmf-oh-udmfdataloadparams>OH_UdmfDataLoadParams</a>* dataLoadParams<td>落入操作时使用的数据加载参数。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getudmfdata>OH_ArkUI_DragEvent_GetUdmfData()<a href=#oh_arkui_dragevent_getudmfdata class=hash-link aria-label=OH_ArkUI_DragEvent_GetUdmfData()的直接链接 title=OH_ArkUI_DragEvent_GetUdmfData()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetUdmfData(ArkUI_DragEvent* event, OH_UdmfData *data)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取拖拽默认相关数据。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfdata/capi-udmf-oh-udmfdata>OH_UdmfData</a> *data<td>OH_UdmfData 拖拽的数据指针，应用在接收时需通过 <a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#oh_udmfdata_create>OH_UdmfData_Create</a> 方法创建一个用于接收数据的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdatatypecount>OH_ArkUI_DragEvent_GetDataTypeCount()<a href=#oh_arkui_dragevent_getdatatypecount class=hash-link aria-label=OH_ArkUI_DragEvent_GetDataTypeCount()的直接链接 title=OH_ArkUI_DragEvent_GetDataTypeCount()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetDataTypeCount(ArkUI_DragEvent* event, int32_t* count)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取所拖拽的数据类型种类个数。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td>int32_t* count<td>出参，返回所拖拽数据的类型的数量。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdatatypes>OH_ArkUI_DragEvent_GetDataTypes()<a href=#oh_arkui_dragevent_getdatatypes class=hash-link aria-label=OH_ArkUI_DragEvent_GetDataTypes()的直接链接 title=OH_ArkUI_DragEvent_GetDataTypes()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetDataTypes(ArkUI_DragEvent *event, char *eventTypeArray[], int32_t length, int32_t maxStrLen)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取拖拽数据的类型列表。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a> *event<td>ArkUI_DragEvent事件指针。<tr><td>char *eventTypeArray[]<td>返回拖拽数据的类型列表，需要先自行创建字符串数组。<tr><td>int32_t length<td>数组总长度，不应少于使用OH_ArkUI_DragEvent_GetDataTypesCount获取到的数量。<tr><td>int32_t maxStrLen<td>拖拽数据类型的最大字符串长度。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_BUFFER_SIZE_ERROR</a> 传入的缓冲区大小异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdragresult>OH_ArkUI_DragEvent_GetDragResult()<a href=#oh_arkui_dragevent_getdragresult class=hash-link aria-label=OH_ArkUI_DragEvent_GetDragResult()的直接链接 title=OH_ArkUI_DragEvent_GetDragResult()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetDragResult(ArkUI_DragEvent* event, ArkUI_DragResult* result)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取拖拽结果。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragresult>ArkUI_DragResult</a>* result<td>出参，返回拖拽事件对应的拖拽结果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdropoperation>OH_ArkUI_DragEvent_GetDropOperation()<a href=#oh_arkui_dragevent_getdropoperation class=hash-link aria-label=OH_ArkUI_DragEvent_GetDropOperation()的直接链接 title=OH_ArkUI_DragEvent_GetDropOperation()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetDropOperation(ArkUI_DragEvent* event, ArkUI_DropOperation* operation)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取数据处理方式。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dropoperation>ArkUI_DropOperation</a>* operation<td>数据的处理方式.</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。  可能原因: 1. 参数为空或event非有效的DragEvent.</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getpreviewtouchpointx>OH_ArkUI_DragEvent_GetPreviewTouchPointX()<a href=#oh_arkui_dragevent_getpreviewtouchpointx class=hash-link aria-label=OH_ArkUI_DragEvent_GetPreviewTouchPointX()的直接链接 title=OH_ArkUI_DragEvent_GetPreviewTouchPointX()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetPreviewTouchPointX(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取预览图跟手点的x轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点的x轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getpreviewtouchpointy>OH_ArkUI_DragEvent_GetPreviewTouchPointY()<a href=#oh_arkui_dragevent_getpreviewtouchpointy class=hash-link aria-label=OH_ArkUI_DragEvent_GetPreviewTouchPointY()的直接链接 title=OH_ArkUI_DragEvent_GetPreviewTouchPointY()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetPreviewTouchPointY(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取预览图跟手点的y轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点的y轴坐标，单位px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getpreviewrectwidth>OH_ArkUI_DragEvent_GetPreviewRectWidth()<a href=#oh_arkui_dragevent_getpreviewrectwidth class=hash-link aria-label=OH_ArkUI_DragEvent_GetPreviewRectWidth()的直接链接 title=OH_ArkUI_DragEvent_GetPreviewRectWidth()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetPreviewRectWidth(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取预览图的宽。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手图宽度，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getpreviewrectheight>OH_ArkUI_DragEvent_GetPreviewRectHeight()<a href=#oh_arkui_dragevent_getpreviewrectheight class=hash-link aria-label=OH_ArkUI_DragEvent_GetPreviewRectHeight()的直接链接 title=OH_ArkUI_DragEvent_GetPreviewRectHeight()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetPreviewRectHeight(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取预览图的高。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手图高度，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointxtowindow>OH_ArkUI_DragEvent_GetTouchPointXToWindow()<a href=#oh_arkui_dragevent_gettouchpointxtowindow class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointXToWindow()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointXToWindow()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointXToWindow(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于window的x轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回跟手点相对于window的x轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointytowindow>OH_ArkUI_DragEvent_GetTouchPointYToWindow()<a href=#oh_arkui_dragevent_gettouchpointytowindow class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointYToWindow()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointYToWindow()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointYToWindow(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于window的y轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回跟手点相对于window的y轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointxtodisplay>OH_ArkUI_DragEvent_GetTouchPointXToDisplay()<a href=#oh_arkui_dragevent_gettouchpointxtodisplay class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointXToDisplay()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointXToDisplay()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointXToDisplay(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于当前Display的x轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点相对于当前Display的x轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointytodisplay>OH_ArkUI_DragEvent_GetTouchPointYToDisplay()<a href=#oh_arkui_dragevent_gettouchpointytodisplay class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointYToDisplay()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointYToDisplay()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointYToDisplay(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于当前Display的y轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点相对于当前Display的y轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getvelocityx>OH_ArkUI_DragEvent_GetVelocityX()<a href=#oh_arkui_dragevent_getvelocityx class=hash-link aria-label=OH_ArkUI_DragEvent_GetVelocityX()的直接链接 title=OH_ArkUI_DragEvent_GetVelocityX()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetVelocityX(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取当前拖拽的x轴方向拖动速度。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回当前拖拽的x轴方向移动速度，单位为px/s，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getvelocityy>OH_ArkUI_DragEvent_GetVelocityY()<a href=#oh_arkui_dragevent_getvelocityy class=hash-link aria-label=OH_ArkUI_DragEvent_GetVelocityY()的直接链接 title=OH_ArkUI_DragEvent_GetVelocityY()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetVelocityY(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取当前拖拽的y轴方向拖动速度。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回当前拖拽的y轴方向移动速度，单位为px/s，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getvelocity>OH_ArkUI_DragEvent_GetVelocity()<a href=#oh_arkui_dragevent_getvelocity class=hash-link aria-label=OH_ArkUI_DragEvent_GetVelocity()的直接链接 title=OH_ArkUI_DragEvent_GetVelocity()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetVelocity(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取当前拖拽的主方向拖动速度。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回当前拖拽移动速度，单位为px/s，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getmodifierkeystates>OH_ArkUI_DragEvent_GetModifierKeyStates()<a href=#oh_arkui_dragevent_getmodifierkeystates class=hash-link aria-label=OH_ArkUI_DragEvent_GetModifierKeyStates()的直接链接 title=OH_ArkUI_DragEvent_GetModifierKeyStates()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_GetModifierKeyStates(ArkUI_DragEvent* event, uint64_t* keys)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取功能键按压状态。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td>uint64_t* keys<td>返回当前处于按下状态的修饰键组合（Ctrl、Shift和Alt），应用可通过位运算进行判断。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading()<a href=#oh_arkui_dragevent_startdataloading class=hash-link aria-label=OH_ArkUI_DragEvent_StartDataLoading()的直接链接 title=OH_ArkUI_DragEvent_StartDataLoading()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_StartDataLoading(ArkUI_DragEvent* event, OH_UdmfGetDataParams* options, char* key, unsigned int keyLen)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>使用指定的同步参数开始数据同步。</p>
+<p><strong><strong>起始版本：</strong></strong> 15</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfgetdataparams/capi-udmf-oh-udmfgetdataparams>OH_UdmfGetDataParams</a>* options<td>OH_UdmfGetDataParams参数指针。<tr><td>char* key<td>返回数据设置成功之后的key值，字符串长度不小于<a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#udmf_key_buffer_len>UDMF_KEY_BUFFER_LEN</a>。<tr><td>unsigned int keyLen<td>表示key字符串的长度。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_canceldataloading>OH_ArkUI_CancelDataLoading()<a href=#oh_arkui_canceldataloading class=hash-link aria-label=OH_ArkUI_CancelDataLoading()的直接链接 title=OH_ArkUI_CancelDataLoading()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_CancelDataLoading(ArkUI_ContextHandle uiContext, const char* key)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>取消正在进行的数据同步。</p>
+<p><strong><strong>起始版本：</strong></strong> 15</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context8h/capi-arkui-nativemodule-arkui-context8h>ArkUI_ContextHandle</a> uiContext<td>UI实例对象指针。<tr><td>const char* key<td>表示数据的key值并通过 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading</a> 返回。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_disabledropdataprefetchonnode>OH_ArkUI_DisableDropDataPrefetchOnNode()<a href=#oh_arkui_disabledropdataprefetchonnode class=hash-link aria-label=OH_ArkUI_DisableDropDataPrefetchOnNode()的直接链接 title=OH_ArkUI_DisableDropDataPrefetchOnNode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DisableDropDataPrefetchOnNode(ArkUI_NodeHandle node, bool disabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置是否在执行<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-node-h/capi-native-node-h#arkui_nodeeventtype>NODE_ON_DROP</a>之前禁用数据预获取过程。系统将重试获取数据，直到达到最大时间限制（目前为2.4秒），这对跨设备的拖动操作非常有用，因为它有助于系统稳定通信。然而，对于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading</a>方法而言，这一特性显得多余。该方法采用异步机制获取数据，因此在NODE_ON_DROP中使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_startdataloading>OH_ArkUI_DragEvent_StartDataLoading</a>时，为了避免在NODE_ON_DROP执行前意外获取数据，必须将此字段设置为true。</p>
+<p><strong><strong>起始版本：</strong></strong> 15</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。<tr><td>bool disabled<td>表示是禁用数据预取过程。true表示禁止，false表示不禁止。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setdrageventstrictreportwithnode>OH_ArkUI_SetDragEventStrictReportWithNode()<a href=#oh_arkui_setdrageventstrictreportwithnode class=hash-link aria-label=OH_ArkUI_SetDragEventStrictReportWithNode()的直接链接 title=OH_ArkUI_SetDragEventStrictReportWithNode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetDragEventStrictReportWithNode(ArkUI_NodeHandle node, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>控制是否使能严格dragEvent上报，建议开启；默认是不开启的；当不开启时，从父组件拖移进子组件时，父组件并不会收到leave的通知；而开启之后，只要前后两个组件发生变化，上一个组件就会收到leave，新的组件收到enter通知；该配置与具体的UI实例相关，需要通过传入一个当前UI实例上的一个具体的组件节点来关联。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。<tr><td>bool enabled<td>是否开启严格上报。true表示开启严格上报，false表示关闭严格上报。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setdrageventstrictreportwithcontext>OH_ArkUI_SetDragEventStrictReportWithContext()<a href=#oh_arkui_setdrageventstrictreportwithcontext class=hash-link aria-label=OH_ArkUI_SetDragEventStrictReportWithContext()的直接链接 title=OH_ArkUI_SetDragEventStrictReportWithContext()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetDragEventStrictReportWithContext(ArkUI_ContextHandle uiContext, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>控制是否使能严格dragEvent上报，建议开启；默认是不开启的;当不开启时，从父组件拖移进子组件时，父组件并不会收到leave的通知；而开启之后，只要前后两个组件发生变化，上一个组件就会收到leave，新的组件收到enter通知；该配置与具体的UI实例相关，可通过传入一个UI实例进行关联。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context8h/capi-arkui-nativemodule-arkui-context8h>ArkUI_ContextHandle</a> uiContext<td>UI实例指针。<tr><td>bool enabled<td>是否开启严格上报。true表示开启严格上报，false表示关闭严格上报。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setnodealloweddropdatatypes>OH_ArkUI_SetNodeAllowedDropDataTypes()<a href=#oh_arkui_setnodealloweddropdatatypes class=hash-link aria-label=OH_ArkUI_SetNodeAllowedDropDataTypes()的直接链接 title=OH_ArkUI_SetNodeAllowedDropDataTypes()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetNodeAllowedDropDataTypes(ArkUI_NodeHandle node, const char* typesArray[], int32_t count)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>配置组件允许接受落入的数据类型，该接口会重置通过 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_disallownodeanydropdatatypes>OH_ArkUI_DisallowNodeAnyDropDataTypes</a> 或<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_allownodealldropdatatypes>OH_ArkUI_AllowNodeAllDropDataTypes</a>进行的配置。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。<tr><td>const char* typesArray[]<td>允许落入的数据类型数组。<tr><td>int32_t count<td>数组的长度。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_disallownodeanydropdatatypes>OH_ArkUI_DisallowNodeAnyDropDataTypes()<a href=#oh_arkui_disallownodeanydropdatatypes class=hash-link aria-label=OH_ArkUI_DisallowNodeAnyDropDataTypes()的直接链接 title=OH_ArkUI_DisallowNodeAnyDropDataTypes()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DisallowNodeAnyDropDataTypes(ArkUI_NodeHandle node)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>配置组件不允许接受任何数据类型，该接口会重置通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_setnodealloweddropdatatypes>OH_ArkUI_SetNodeAllowedDropDataTypes</a>配置的数据类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_allownodealldropdatatypes>OH_ArkUI_AllowNodeAllDropDataTypes()<a href=#oh_arkui_allownodealldropdatatypes class=hash-link aria-label=OH_ArkUI_AllowNodeAllDropDataTypes()的直接链接 title=OH_ArkUI_AllowNodeAllDropDataTypes()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_AllowNodeAllDropDataTypes(ArkUI_NodeHandle node)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>配置组件允许接受任意数据类型，该接口会重置通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_setnodealloweddropdatatypes>OH_ArkUI_SetNodeAllowedDropDataTypes</a>配置的数据类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setnodedraggable>OH_ArkUI_SetNodeDraggable()<a href=#oh_arkui_setnodedraggable class=hash-link aria-label=OH_ArkUI_SetNodeDraggable()的直接链接 title=OH_ArkUI_SetNodeDraggable()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetNodeDraggable(ArkUI_NodeHandle node, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置该组件是否允许进行拖拽。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。<tr><td>bool enabled<td>是否支持拖出。true表示支持拖出，false表示不支持拖出。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setnodedragpreview>OH_ArkUI_SetNodeDragPreview()<a href=#oh_arkui_setnodedragpreview class=hash-link aria-label=OH_ArkUI_SetNodeDragPreview()的直接链接 title=OH_ArkUI_SetNodeDragPreview()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetNodeDragPreview(ArkUI_NodeHandle node, OH_PixelmapNative* preview)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置组件在被拖拽时的自定义跟手图。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>目标组件节点指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-oh-pixelmapnative8h/capi-arkui-nativemodule-oh-pixelmapnative8h>OH_PixelmapNative</a>* preview<td>自定义跟手图，使用 pixelmap 格式。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_createdragpreviewoption>OH_ArkUI_CreateDragPreviewOption()<a href=#oh_arkui_createdragpreviewoption class=hash-link aria-label=OH_ArkUI_CreateDragPreviewOption()的直接链接 title=OH_ArkUI_CreateDragPreviewOption()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragPreviewOption* OH_ArkUI_CreateDragPreviewOption(void)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>构建一个ArkUI_DragPreviewOption对象。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>*<td>ArkUI_DragPreviewOption对象。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_dispose>OH_ArkUI_DragPreviewOption_Dispose()<a href=#oh_arkui_dragpreviewoption_dispose class=hash-link aria-label=OH_ArkUI_DragPreviewOption_Dispose()的直接链接 title=OH_ArkUI_DragPreviewOption_Dispose()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_ArkUI_DragPreviewOption_Dispose(ArkUI_DragPreviewOption* option)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>销毁跟手图自定义参数对象实例。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setscalemode>OH_ArkUI_DragPreviewOption_SetScaleMode()<a href=#oh_arkui_dragpreviewoption_setscalemode class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetScaleMode()的直接链接 title=OH_ArkUI_DragPreviewOption_SetScaleMode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetScaleMode(ArkUI_DragPreviewOption* option, ArkUI_DragPreviewScaleMode scaleMode)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置拖拽跟手图是否根据系统定义自动进行缩放。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragpreviewscalemode>ArkUI_DragPreviewScaleMode</a> scaleMode<td>设置组件拖拽过程中的跟手图缩放模式。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setdefaultshadowenabled>OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()<a href=#oh_arkui_dragpreviewoption_setdefaultshadowenabled class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()的直接链接 title=OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled(ArkUI_DragPreviewOption* option, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置跟手图背板默认的投影效果，默认不开启。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td>bool enabled<td>是否使用默认投影效果。true表示使用默认投影效果，false表示不使用默认投影效果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setdefaultradiusenabled>OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()<a href=#oh_arkui_dragpreviewoption_setdefaultradiusenabled class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()的直接链接 title=OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled(ArkUI_DragPreviewOption* option, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置跟手图背板默认的圆角效果（默认圆角半径为12.0vp），默认不开启。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td>bool enabled<td>是否开启圆角效果显示。true表示开启圆角效果显示，false表示不开启圆角效果显示。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setnumberbadgeenabled>OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()<a href=#oh_arkui_dragpreviewoption_setnumberbadgeenabled class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()的直接链接 title=OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled(ArkUI_DragPreviewOption* option, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置跟手图背板是否显示角标,开启后,系统会根据拖拽数量自动进行角标显示。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td>bool enabled<td>是否开启角标显示。true表示开启角标显示，false表示不开启角标显示。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setbadgenumber>OH_ArkUI_DragPreviewOption_SetBadgeNumber()<a href=#oh_arkui_dragpreviewoption_setbadgenumber class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetBadgeNumber()的直接链接 title=OH_ArkUI_DragPreviewOption_SetBadgeNumber()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetBadgeNumber(ArkUI_DragPreviewOption* option, uint32_t forcedNumber)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>强制显示角标的数量，覆盖<a href=#oh_arkui_dragpreviewoption_setnumberbadgeenabled class="">OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled</a>设置的值。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td>uint32_t forcedNumber<td>角标的数量。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragpreviewoption_setdefaultanimationbeforeliftingenabled>OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()<a href=#oh_arkui_dragpreviewoption_setdefaultanimationbeforeliftingenabled class=hash-link aria-label=OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()的直接链接 title=OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled(ArkUI_DragPreviewOption* option, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>配置是否开启点按时的默认动画。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。<tr><td>bool enabled<td>是否开启默认点按效果。true表示开启默认点按效果，false表示不开启默认点按效果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_setnodedragpreviewoption>OH_ArkUI_SetNodeDragPreviewOption()<a href=#oh_arkui_setnodedragpreviewoption class=hash-link aria-label=OH_ArkUI_SetNodeDragPreviewOption()的直接链接 title=OH_ArkUI_SetNodeDragPreviewOption()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_SetNodeDragPreviewOption(ArkUI_NodeHandle node, ArkUI_DragPreviewOption* option)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>将构造的ArkUI_DragPreviewOption设置给组件。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_createdragactionwithnode>OH_ArkUI_CreateDragActionWithNode()<a href=#oh_arkui_createdragactionwithnode class=hash-link aria-label=OH_ArkUI_CreateDragActionWithNode()的直接链接 title=OH_ArkUI_CreateDragActionWithNode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragAction* OH_ArkUI_CreateDragActionWithNode(ArkUI_NodeHandle node)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>创建一个拖拽操作对象，该对象需与一个UI实例相关联，可通过传入一个当前UI实例的某个组件节点来指定。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-node8h/capi-arkui-nativemodule-arkui-node8h>ArkUI_NodeHandle</a> node<td>组件节点指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>*<td>ArkUI_DragAction对象指针，如果创建失败，则返回空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_createdragactionwithcontext>OH_ArkUI_CreateDragActionWithContext()<a href=#oh_arkui_createdragactionwithcontext class=hash-link aria-label=OH_ArkUI_CreateDragActionWithContext()的直接链接 title=OH_ArkUI_CreateDragActionWithContext()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragAction* OH_ArkUI_CreateDragActionWithContext(ArkUI_ContextHandle uiContext)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>创建一个拖拽操作对象，该对象需与一个UI实例相关联，可通过传入一个UI实例指针来关联。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context8h/capi-arkui-nativemodule-arkui-context8h>ArkUI_ContextHandle</a> uiContext<td>UI实例对象指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>*<td>ArkUI_DragAction对象，如果创建失败，则返回空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_dispose>OH_ArkUI_DragAction_Dispose()<a href=#oh_arkui_dragaction_dispose class=hash-link aria-label=OH_ArkUI_DragAction_Dispose()的直接链接 title=OH_ArkUI_DragAction_Dispose()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_ArkUI_DragAction_Dispose(ArkUI_DragAction* dragAction)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>销毁创建的 ArkUI_DragAction 对象。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_setpointerid>OH_ArkUI_DragAction_SetPointerId()<a href=#oh_arkui_dragaction_setpointerid class=hash-link aria-label=OH_ArkUI_DragAction_SetPointerId()的直接链接 title=OH_ArkUI_DragAction_SetPointerId()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetPointerId(ArkUI_DragAction* dragAction, int32_t pointer)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置手指ID，当屏幕上仅有一只手指在操作时，手指ID为0；一般情况下，配置0即可。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td>int32_t pointer<td>手指ID，范围0～9。取值超出时默认置为-1。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_setpixelmaps>OH_ArkUI_DragAction_SetPixelMaps()<a href=#oh_arkui_dragaction_setpixelmaps class=hash-link aria-label=OH_ArkUI_DragAction_SetPixelMaps()的直接链接 title=OH_ArkUI_DragAction_SetPixelMaps()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetPixelMaps(ArkUI_DragAction* dragAction, OH_PixelmapNative* pixelmapArray[], int32_t size)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置拖拽跟手图，只能使用 pixelmap 格式对象。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-oh-pixelmapnative8h/capi-arkui-nativemodule-oh-pixelmapnative8h>OH_PixelmapNative</a>* pixelmapArray[]<td>拖拽跟手图位图数组。  <strong><strong>说明：</strong></strong> 该参数必须为堆上分配对象，请开发者手动管理其生命周期。<tr><td>int32_t size<td>拖拽跟手图数量。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_settouchpointx>OH_ArkUI_DragAction_SetTouchPointX()<a href=#oh_arkui_dragaction_settouchpointx class=hash-link aria-label=OH_ArkUI_DragAction_SetTouchPointX()的直接链接 title=OH_ArkUI_DragAction_SetTouchPointX()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetTouchPointX(ArkUI_DragAction* dragAction, float x)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置跟手点，相对于设置的第一个pixelmap的左上角。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td>float x<td>跟手点坐标x值，单位为px。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_settouchpointy>OH_ArkUI_DragAction_SetTouchPointY()<a href=#oh_arkui_dragaction_settouchpointy class=hash-link aria-label=OH_ArkUI_DragAction_SetTouchPointY()的直接链接 title=OH_ArkUI_DragAction_SetTouchPointY()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetTouchPointY(ArkUI_DragAction* dragAction, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置跟手点，相对于设置的第一个pixelmap的左上角。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td>float y<td>跟手点坐标y值，单位为px。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_setdata>OH_ArkUI_DragAction_SetData()<a href=#oh_arkui_dragaction_setdata class=hash-link aria-label=OH_ArkUI_DragAction_SetData()的直接链接 title=OH_ArkUI_DragAction_SetData()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetData(ArkUI_DragAction* dragAction, OH_UdmfData* data)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置拖拽数据。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfdata/capi-udmf-oh-udmfdata>OH_UdmfData</a>* data<td>拖拽数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_setdataloadparams>OH_ArkUI_DragAction_SetDataLoadParams()<a href=#oh_arkui_dragaction_setdataloadparams class=hash-link aria-label=OH_ArkUI_DragAction_SetDataLoadParams()的直接链接 title=OH_ArkUI_DragAction_SetDataLoadParams()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_DragAction_SetDataLoadParams(ArkUI_DragAction* dragAction,OH_UdmfDataLoadParams* dataLoadParams)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>使用此方法为系统提供一个数据加载参数，而不是直接提供一个完整的数据对象。当用户拖拽到目标应用程序并落入时，系统将使用dataLoadParams请求数据。可以极大地提高拖拽大量数据的效率，以及目标应用程序中处理落入数据的效率。此方法应始终优先于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragaction_setdata>OH_ArkUI_DragAction_SetData</a>使用。请参考<strong><strong>udmf.h</strong></strong>中的<a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-headerfile/capi-udmf-h/capi-udmf-h#oh_udmfdataloadparams_create>OH_UdmfDataLoadParams_Create</a>了解如何创建和准备数据加载参数。该方法与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragaction_setdata>OH_ArkUI_DragAction_SetData</a>存在冲突，系统始终以最后调用的方法为准。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-c/arkdata-struct/capi-udmf-oh-udmfdataloadparams/capi-udmf-oh-udmfdataloadparams>OH_UdmfDataLoadParams</a>* dataLoadParams<td>在落入操作时使用的数据加载参数。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_setdragpreviewoption>OH_ArkUI_DragAction_SetDragPreviewOption()<a href=#oh_arkui_dragaction_setdragpreviewoption class=hash-link aria-label=OH_ArkUI_DragAction_SetDragPreviewOption()的直接链接 title=OH_ArkUI_DragAction_SetDragPreviewOption()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_SetDragPreviewOption(ArkUI_DragAction* dragAction, ArkUI_DragPreviewOption* option)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>将构造的ArkUI_DragPreviewOption设置给ArkUI_DragAction。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragpreviewoption/capi-arkui-nativemodule-arkui-dragpreviewoption>ArkUI_DragPreviewOption</a>* option<td>自定义参数。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_registerstatuslistener>OH_ArkUI_DragAction_RegisterStatusListener()<a href=#oh_arkui_dragaction_registerstatuslistener class=hash-link aria-label=OH_ArkUI_DragAction_RegisterStatusListener()的直接链接 title=OH_ArkUI_DragAction_RegisterStatusListener()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragAction_RegisterStatusListener(ArkUI_DragAction* dragAction, void* userData,void(*listener)(ArkUI_DragAndDropInfo* dragAndDropInfo, void* userData))</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>注册拖拽状态监听回调，该回调可感知到拖拽已经发起或用户松手结束的状态，可通过该监听获取到落入方对数据的接收处理是否成功。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。<tr><td>void* userData<td>应用自定义数据。<tr><td>listener<td>状态监听回调，回调触发时，系统会返回一个拖拽状态对象指针，该指针会在回调执行完成后被销毁，应用不应再持有。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdisplayid>OH_ArkUI_DragEvent_GetDisplayId()<a href=#oh_arkui_dragevent_getdisplayid class=hash-link aria-label=OH_ArkUI_DragEvent_GetDisplayId()的直接链接 title=OH_ArkUI_DragEvent_GetDisplayId()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDisplayId(ArkUI_DragEvent* event, int32_t* displayId)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取当前拖拽事件发生时所在的屏幕ID，不支持当eventType为NODE_ON_DRAG_END时获取。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。<tr><td>int32_t* displayId<td>返回当前拖拽事件发生时所在的屏幕ID。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragaction_unregisterstatuslistener>OH_ArkUI_DragAction_UnregisterStatusListener()<a href=#oh_arkui_dragaction_unregisterstatuslistener class=hash-link aria-label=OH_ArkUI_DragAction_UnregisterStatusListener()的直接链接 title=OH_ArkUI_DragAction_UnregisterStatusListener()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_ArkUI_DragAction_UnregisterStatusListener(ArkUI_DragAction* dragAction)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>解注册拖拽状态监听回调。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽行为对象。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_draganddropinfo_getdragstatus>OH_ArkUI_DragAndDropInfo_GetDragStatus()<a href=#oh_arkui_draganddropinfo_getdragstatus class=hash-link aria-label=OH_ArkUI_DragAndDropInfo_GetDragStatus()的直接链接 title=OH_ArkUI_DragAndDropInfo_GetDragStatus()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragStatus OH_ArkUI_DragAndDropInfo_GetDragStatus(ArkUI_DragAndDropInfo* dragAndDropInfo)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>发起拖拽的状态，获取异常时返回 ArkUI_DRAG_STATUS_UNKNOWN。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-draganddropinfo/capi-arkui-nativemodule-arkui-draganddropinfo>ArkUI_DragAndDropInfo</a>* dragAndDropInfo<td>拖拽状态监听返回的拖拽相关信息。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragstatus>ArkUI_DragStatus</a><td>ArkUI_DragStatus 拖拽状态，如果获取失败，返回默认值 ArkUI_DRAG_STATUS_UNKNOWN。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_draganddropinfo_getdragevent>OH_ArkUI_DragAndDropInfo_GetDragEvent()<a href=#oh_arkui_draganddropinfo_getdragevent class=hash-link aria-label=OH_ArkUI_DragAndDropInfo_GetDragEvent()的直接链接 title=OH_ArkUI_DragAndDropInfo_GetDragEvent()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_DragEvent* OH_ArkUI_DragAndDropInfo_GetDragEvent(ArkUI_DragAndDropInfo* dragAndDropInfo)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>通过dragAndDropInfo获取到DragEvent，可通过DragEvent获取释放结果等。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-draganddropinfo/capi-arkui-nativemodule-arkui-draganddropinfo>ArkUI_DragAndDropInfo</a>* dragAndDropInfo<td>拖拽状态监听返回的拖拽相关信息。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>*<td>ArkUI_DragEvent 拖拽事件，如果获取失败，则返回空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_startdrag>OH_ArkUI_StartDrag()<a href=#oh_arkui_startdrag class=hash-link aria-label=OH_ArkUI_StartDrag()的直接链接 title=OH_ArkUI_StartDrag()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_StartDrag(ArkUI_DragAction* dragAction)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>通过构造的DragAction对象发起拖拽。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragaction/capi-arkui-nativemodule-arkui-dragaction>ArkUI_DragAction</a>* dragAction<td>拖拽action对象。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_requestdragendpending>OH_ArkUI_DragEvent_RequestDragEndPending()<a href=#oh_arkui_dragevent_requestdragendpending class=hash-link aria-label=OH_ArkUI_DragEvent_RequestDragEndPending()的直接链接 title=OH_ArkUI_DragEvent_RequestDragEndPending()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_DragEvent_RequestDragEndPending(ArkUI_DragEvent* event, int32_t* requestIdentify)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>请求延迟处理拖拽结束事件，等待应用程序确认操作结果。应用程序需通过 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_notifydragresult>OH_ArkUI_NotifyDragResult</a>接口将最终结果回传至系统，并在所有处理完成后调用 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_notifydragendpendingdone>OH_ArkUI_NotifyDragEndPendingDone</a>。最大等待时间为2秒。</p>
+<p><strong><strong>起始版本：</strong></strong> 19</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>指向 <strong><strong>ArkUI_DragEvent</strong></strong> 对象的指针。<tr><td>int32_t* requestIdentify<td>系统自动生成的请求标识符，是一个输出参数，需要为一个有效的地址。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED</a> 当前阶段不允许该操作。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_notifydragresult>OH_ArkUI_NotifyDragResult()<a href=#oh_arkui_notifydragresult class=hash-link aria-label=OH_ArkUI_NotifyDragResult()的直接链接 title=OH_ArkUI_NotifyDragResult()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_NotifyDragResult(int32_t requestIdentify, ArkUI_DragResult result)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>通知系统最终拖拽结果。系统会校验请求标识符是否与<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_requestdragendpending>OH_ArkUI_DragEvent_RequestDragEndPending</a>返回的一致，不一致则忽略本次调用。</p>
+<p><strong><strong>起始版本：</strong></strong> 19</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>int32_t requestIdentify<td>由 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_requestdragendpending>OH_ArkUI_DragEvent_RequestDragEndPending</a> 返回的标识符。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragresult>ArkUI_DragResult</a> result<td>拖拽结果枚举值（<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#arkui_dragresult>ArkUI_DragResult</a> 类型）。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED</a> 当前阶段不允许该操作。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_notifydragendpendingdone>OH_ArkUI_NotifyDragEndPendingDone()<a href=#oh_arkui_notifydragendpendingdone class=hash-link aria-label=OH_ArkUI_NotifyDragEndPendingDone()的直接链接 title=OH_ArkUI_NotifyDragEndPendingDone()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">int32_t OH_ArkUI_NotifyDragEndPendingDone(int32_t requestIdentify)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>通知系统所有异步处理已完成，可结束拖拽结束挂起状态。</p>
+<p><strong><strong>起始版本：</strong></strong> 19</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>int32_t requestIdentify<td>由 <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drag-and-drop-h/capi-drag-and-drop-h#oh_arkui_dragevent_requestdragendpending>OH_ArkUI_DragEvent_RequestDragEndPending</a> 返回的标识符。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>int32_t<td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_DRAG_DROP_OPERATION_NOT_ALLOWED</a> 当前阶段不允许该操作。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_enabledropdisallowedbadge>OH_ArkUI_EnableDropDisallowedBadge()<a href=#oh_arkui_enabledropdisallowedbadge class=hash-link aria-label=OH_ArkUI_EnableDropDisallowedBadge()的直接链接 title=OH_ArkUI_EnableDropDisallowedBadge()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_EnableDropDisallowedBadge(ArkUI_ContextHandle uiContext, bool enabled)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>设置是否可以显示禁用角标。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-context8h/capi-arkui-nativemodule-arkui-context8h>ArkUI_ContextHandle</a> uiContext<td>UI实例对象指针。<tr><td>bool enabled<td>是否可以显示禁用角标。true表示可以显示禁用角标，false表示不可以显示禁用角标。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointxtoglobaldisplay>OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()<a href=#oh_arkui_dragevent_gettouchpointxtoglobaldisplay class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于全局屏幕的x轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点相对于全局Display的x轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_gettouchpointytoglobaldisplay>OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()<a href=#oh_arkui_dragevent_gettouchpointytoglobaldisplay class=hash-link aria-label=OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()的直接链接 title=OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay(ArkUI_DragEvent* event)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>从ArkUI_DragEvent中获取跟手点相对于全局屏幕的y轴坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>ArkUI_DragEvent事件指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>float 返回拖拽跟手点相对于全局Display的y轴坐标，单位为px，传入参数无效时返回默认值0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_getdragsource>OH_ArkUI_DragEvent_GetDragSource()<a href=#oh_arkui_dragevent_getdragsource class=hash-link aria-label=OH_ArkUI_DragEvent_GetDragSource()的直接链接 title=OH_ArkUI_DragEvent_GetDragSource()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_DragEvent_GetDragSource(ArkUI_DragEvent* event, char *bundleName, int32_t length)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>获取拖拽发起方的应用包名信息，需要传递一个字符数组来接收包名字符串，并显式指明数组长度，该数组长度不小于128个字符。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>指向<strong><strong>ArkUI_DragEvent</strong></strong>对象的指针。<tr><td>char *bundleName<td>用来接收拖起方包名的字符串数组，长度不应小于128个字符。<tr><td>int32_t length<td>用来显式指明传入的字符串数组长度，不应小于128个字符。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_arkui_dragevent_isremote>OH_ArkUI_DragEvent_IsRemote()<a href=#oh_arkui_dragevent_isremote class=hash-link aria-label=OH_ArkUI_DragEvent_IsRemote()的直接链接 title=OH_ArkUI_DragEvent_IsRemote()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">ArkUI_ErrorCode OH_ArkUI_DragEvent_IsRemote(ArkUI_DragEvent* event, bool* isRemote)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述：</strong></strong></p>
+<p>判断当前的拖拽操作是否是跨设备拖拽。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-dragevent/capi-arkui-nativemodule-arkui-dragevent>ArkUI_DragEvent</a>* event<td>指向<strong><strong>ArkUI_DragEvent</strong></strong>对象的指针。<tr><td>bool* isRemote<td>布尔变量指针，用来接收是否是跨设备拖拽。true表示是跨设备拖拽，false表示非跨设备拖拽。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ArkUI_ErrorCode</a><td>错误码。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_NO_ERROR</a> 成功。  <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-native-type-h/capi-native-type-h#arkui_errorcode>ARKUI_ERROR_CODE_PARAM_INVALID</a> 函数参数异常。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-rendernodeutils/capi-arkui-rendernodeutils><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkUI_RenderNodeUtils</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-headerfile/capi-drawable-descriptor-h/capi-drawable-descriptor-h><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>drawable_descriptor.h</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概述 class="table-of-contents__link toc-highlight">概述</a><li><a href=#汇总 class="table-of-contents__link toc-highlight">汇总</a><ul><li><a href=#结构体 class="table-of-contents__link toc-highlight">结构体</a><li><a href=#枚举 class="table-of-contents__link toc-highlight">枚举</a><li><a href=#函数 class="table-of-contents__link toc-highlight">函数</a></ul><li><a href=#枚举类型说明 class="table-of-contents__link toc-highlight">枚举类型说明</a><ul><li><a href=#arkui_dragresult class="table-of-contents__link toc-highlight">ArkUI_DragResult</a><li><a href=#arkui_dropoperation class="table-of-contents__link toc-highlight">ArkUI_DropOperation</a><li><a href=#arkui_predragstatus class="table-of-contents__link toc-highlight">ArkUI_PreDragStatus</a><li><a href=#arkui_dragpreviewscalemode class="table-of-contents__link toc-highlight">ArkUI_DragPreviewScaleMode</a><li><a href=#arkui_dragstatus class="table-of-contents__link toc-highlight">ArkUI_DragStatus</a></ul><li><a href=#函数说明 class="table-of-contents__link toc-highlight">函数说明</a><ul><li><a href=#oh_arkui_nodeevent_getdragevent class="table-of-contents__link toc-highlight">OH_ArkUI_NodeEvent_GetDragEvent()</a><li><a href=#oh_arkui_nodeevent_getpredragstatus class="table-of-contents__link toc-highlight">OH_ArkUI_NodeEvent_GetPreDragStatus()</a><li><a href=#oh_arkui_dragevent_disabledefaultdropanimation class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_DisableDefaultDropAnimation()</a><li><a href=#oh_arkui_dragevent_setsuggesteddropoperation class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_SetSuggestedDropOperation()</a><li><a href=#oh_arkui_dragevent_setdragresult class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_SetDragResult()</a><li><a href=#oh_arkui_dragevent_setdata class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_SetData()</a><li><a href=#oh_arkui_dragevent_setdataloadparams class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_SetDataLoadParams()</a><li><a href=#oh_arkui_dragevent_getudmfdata class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetUdmfData()</a><li><a href=#oh_arkui_dragevent_getdatatypecount class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDataTypeCount()</a><li><a href=#oh_arkui_dragevent_getdatatypes class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDataTypes()</a><li><a href=#oh_arkui_dragevent_getdragresult class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDragResult()</a><li><a href=#oh_arkui_dragevent_getdropoperation class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDropOperation()</a><li><a href=#oh_arkui_dragevent_getpreviewtouchpointx class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetPreviewTouchPointX()</a><li><a href=#oh_arkui_dragevent_getpreviewtouchpointy class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetPreviewTouchPointY()</a><li><a href=#oh_arkui_dragevent_getpreviewrectwidth class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetPreviewRectWidth()</a><li><a href=#oh_arkui_dragevent_getpreviewrectheight class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetPreviewRectHeight()</a><li><a href=#oh_arkui_dragevent_gettouchpointxtowindow class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointXToWindow()</a><li><a href=#oh_arkui_dragevent_gettouchpointytowindow class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointYToWindow()</a><li><a href=#oh_arkui_dragevent_gettouchpointxtodisplay class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointXToDisplay()</a><li><a href=#oh_arkui_dragevent_gettouchpointytodisplay class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointYToDisplay()</a><li><a href=#oh_arkui_dragevent_getvelocityx class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetVelocityX()</a><li><a href=#oh_arkui_dragevent_getvelocityy class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetVelocityY()</a><li><a href=#oh_arkui_dragevent_getvelocity class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetVelocity()</a><li><a href=#oh_arkui_dragevent_getmodifierkeystates class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetModifierKeyStates()</a><li><a href=#oh_arkui_dragevent_startdataloading class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_StartDataLoading()</a><li><a href=#oh_arkui_canceldataloading class="table-of-contents__link toc-highlight">OH_ArkUI_CancelDataLoading()</a><li><a href=#oh_arkui_disabledropdataprefetchonnode class="table-of-contents__link toc-highlight">OH_ArkUI_DisableDropDataPrefetchOnNode()</a><li><a href=#oh_arkui_setdrageventstrictreportwithnode class="table-of-contents__link toc-highlight">OH_ArkUI_SetDragEventStrictReportWithNode()</a><li><a href=#oh_arkui_setdrageventstrictreportwithcontext class="table-of-contents__link toc-highlight">OH_ArkUI_SetDragEventStrictReportWithContext()</a><li><a href=#oh_arkui_setnodealloweddropdatatypes class="table-of-contents__link toc-highlight">OH_ArkUI_SetNodeAllowedDropDataTypes()</a><li><a href=#oh_arkui_disallownodeanydropdatatypes class="table-of-contents__link toc-highlight">OH_ArkUI_DisallowNodeAnyDropDataTypes()</a><li><a href=#oh_arkui_allownodealldropdatatypes class="table-of-contents__link toc-highlight">OH_ArkUI_AllowNodeAllDropDataTypes()</a><li><a href=#oh_arkui_setnodedraggable class="table-of-contents__link toc-highlight">OH_ArkUI_SetNodeDraggable()</a><li><a href=#oh_arkui_setnodedragpreview class="table-of-contents__link toc-highlight">OH_ArkUI_SetNodeDragPreview()</a><li><a href=#oh_arkui_createdragpreviewoption class="table-of-contents__link toc-highlight">OH_ArkUI_CreateDragPreviewOption()</a><li><a href=#oh_arkui_dragpreviewoption_dispose class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_Dispose()</a><li><a href=#oh_arkui_dragpreviewoption_setscalemode class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetScaleMode()</a><li><a href=#oh_arkui_dragpreviewoption_setdefaultshadowenabled class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetDefaultShadowEnabled()</a><li><a href=#oh_arkui_dragpreviewoption_setdefaultradiusenabled class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetDefaultRadiusEnabled()</a><li><a href=#oh_arkui_dragpreviewoption_setnumberbadgeenabled class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetNumberBadgeEnabled()</a><li><a href=#oh_arkui_dragpreviewoption_setbadgenumber class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetBadgeNumber()</a><li><a href=#oh_arkui_dragpreviewoption_setdefaultanimationbeforeliftingenabled class="table-of-contents__link toc-highlight">OH_ArkUI_DragPreviewOption_SetDefaultAnimationBeforeLiftingEnabled()</a><li><a href=#oh_arkui_setnodedragpreviewoption class="table-of-contents__link toc-highlight">OH_ArkUI_SetNodeDragPreviewOption()</a><li><a href=#oh_arkui_createdragactionwithnode class="table-of-contents__link toc-highlight">OH_ArkUI_CreateDragActionWithNode()</a><li><a href=#oh_arkui_createdragactionwithcontext class="table-of-contents__link toc-highlight">OH_ArkUI_CreateDragActionWithContext()</a><li><a href=#oh_arkui_dragaction_dispose class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_Dispose()</a><li><a href=#oh_arkui_dragaction_setpointerid class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetPointerId()</a><li><a href=#oh_arkui_dragaction_setpixelmaps class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetPixelMaps()</a><li><a href=#oh_arkui_dragaction_settouchpointx class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetTouchPointX()</a><li><a href=#oh_arkui_dragaction_settouchpointy class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetTouchPointY()</a><li><a href=#oh_arkui_dragaction_setdata class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetData()</a><li><a href=#oh_arkui_dragaction_setdataloadparams class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetDataLoadParams()</a><li><a href=#oh_arkui_dragaction_setdragpreviewoption class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_SetDragPreviewOption()</a><li><a href=#oh_arkui_dragaction_registerstatuslistener class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_RegisterStatusListener()</a><li><a href=#oh_arkui_dragevent_getdisplayid class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDisplayId()</a><li><a href=#oh_arkui_dragaction_unregisterstatuslistener class="table-of-contents__link toc-highlight">OH_ArkUI_DragAction_UnregisterStatusListener()</a><li><a href=#oh_arkui_draganddropinfo_getdragstatus class="table-of-contents__link toc-highlight">OH_ArkUI_DragAndDropInfo_GetDragStatus()</a><li><a href=#oh_arkui_draganddropinfo_getdragevent class="table-of-contents__link toc-highlight">OH_ArkUI_DragAndDropInfo_GetDragEvent()</a><li><a href=#oh_arkui_startdrag class="table-of-contents__link toc-highlight">OH_ArkUI_StartDrag()</a><li><a href=#oh_arkui_dragevent_requestdragendpending class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_RequestDragEndPending()</a><li><a href=#oh_arkui_notifydragresult class="table-of-contents__link toc-highlight">OH_ArkUI_NotifyDragResult()</a><li><a href=#oh_arkui_notifydragendpendingdone class="table-of-contents__link toc-highlight">OH_ArkUI_NotifyDragEndPendingDone()</a><li><a href=#oh_arkui_enabledropdisallowedbadge class="table-of-contents__link toc-highlight">OH_ArkUI_EnableDropDisallowedBadge()</a><li><a href=#oh_arkui_dragevent_gettouchpointxtoglobaldisplay class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointXToGlobalDisplay()</a><li><a href=#oh_arkui_dragevent_gettouchpointytoglobaldisplay class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetTouchPointYToGlobalDisplay()</a><li><a href=#oh_arkui_dragevent_getdragsource class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_GetDragSource()</a><li><a href=#oh_arkui_dragevent_isremote class="table-of-contents__link toc-highlight">OH_ArkUI_DragEvent_IsRemote()</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

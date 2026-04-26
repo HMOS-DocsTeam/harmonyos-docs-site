@@ -1,0 +1,247 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-mindspore-lite-kit/mindspore-lite-converter-guidelines/mindspore-lite-converter-guidelines" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>使用MindSpore Lite进行模型转换 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="使用MindSpore Lite进行模型转换 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=场景介绍 /><meta data-rh=true property=og:description content=场景介绍 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/","name":"使用MindSpore Lite进行模型转换","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title="Agent Framework Kit（智能体框架服务）" class=categoryLinkLabel_W154>Agent Framework Kit（智能体框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/cann-kit-guide/cannkit-introduction/><span title="CANN Kit（CANN异构计算框架服务）" class=categoryLinkLabel_W154>CANN Kit（CANN异构计算框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/core-speech-kit-guide/core-speech-introduction/><span title="Core Speech Kit（基础语音服务）" class=categoryLinkLabel_W154>Core Speech Kit（基础语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/core-vision-kit-guide/core-vision-introduction/><span title="Core Vision Kit（基础视觉服务）" class=categoryLinkLabel_W154>Core Vision Kit（基础视觉服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/intents-kit-guide/intents-introduction/><span title="Intents Kit（意图框架服务）" class=categoryLinkLabel_W154>Intents Kit（意图框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-kit-introduction/><span title="MindSpore Lite Kit（昇思推理框架服务）" class=categoryLinkLabel_W154>MindSpore Lite Kit（昇思推理框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-kit-introduction/><span title="MindSpore Lite Kit简介" class=linkLabel_WmDU>MindSpore Lite Kit简介</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-converter-guidelines/><span title="使用MindSpore Lite进行模型转换" class=linkLabel_WmDU>使用MindSpore Lite进行模型转换</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/deployment/mindspore-lite-guidelines/><span title=模型部署 class=categoryLinkLabel_W154>模型部署</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-guidelines-based-js/><span title="使用MindSpore Lite实现图像分类（ArkTS）" class=linkLabel_WmDU>使用MindSpore Lite实现图像分类（ArkTS）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-guidelines-based-native/><span title="使用MindSpore Lite实现图像分类（C/C++）" class=linkLabel_WmDU>使用MindSpore Lite实现图像分类（C/C++）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-asr-based-native/><span title="使用MindSpore Lite实现语音识别（C/C++）" class=linkLabel_WmDU>使用MindSpore Lite实现语音识别（C/C++）</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-appendix/mindspore-lite-supported-operators/><span title=附录 class=categoryLinkLabel_W154>附录</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/natural-language-kit-guide/natural-language-introduction/><span title="Natural Language Kit（自然语言理解服务）" class=categoryLinkLabel_W154>Natural Language Kit（自然语言理解服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/neural-network-runtime-kit/neural-network-runtime-kit-introduction/><span title="Neural Network Runtime Kit（Neural Network运行时服务）" class=categoryLinkLabel_W154>Neural Network Runtime Kit（Neural Network运行时服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/speech-kit-guide/speech-production/><span title="Speech Kit（场景化语音服务）" class=categoryLinkLabel_W154>Speech Kit（场景化语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/vision-kit-guide/vision-introduction/><span title="Vision Kit（场景化视觉服务）" class=categoryLinkLabel_W154>Vision Kit（场景化视觉服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>AI</span><li class=breadcrumbs__item><span class=breadcrumbs__link>MindSpore Lite Kit（昇思推理框架服务）</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>使用MindSpore Lite进行模型转换</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>使用MindSpore Lite进行模型转换</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=场景介绍>场景介绍<a href=#场景介绍 class=hash-link aria-label=场景介绍的直接链接 title=场景介绍的直接链接 translate=no>​</a></h2>
+<p>MindSpore Lite AI模型部署流程是：</p>
+<ol>
+<li class="">开发者首先将原始模型（如：ONNX、CAFFE等）用MindSpore Lite模型转换工具，生成后缀为.ms的模型文件。MindSpore Lite Kit所支持的ONNX算子，可查询<a class="" href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-appendix/mindspore-lite-supported-operators>MindSpore Lite Kit算子支持列表</a>，以确保模型转换成功。</li>
+<li class="">然后在代码中调用MindSpore Lite推理引擎接口，执行<a class="" href=/harmonyos-docs-site/mindspore-lite-kit/deployment/mindspore-lite-guidelines>模型推理</a>。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=获取模型转换工具>获取模型转换工具<a href=#获取模型转换工具 class=hash-link aria-label=获取模型转换工具的直接链接 title=获取模型转换工具的直接链接 translate=no>​</a></h2>
+<p>对于MindSpore Lite模型转换工具，有以下两种方式可以获取：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=通过下载获取>通过下载获取<a href=#通过下载获取 class=hash-link aria-label=通过下载获取的直接链接 title=通过下载获取的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组件<th>硬件平台<th>操作系统<th>链接<th>SHA-256<tbody><tr><td>端侧推理和训练benchmark工具、converter工具、cropper工具<td>CPU<td>Linux-x86_64<td><a href=https://ms-release.obs.cn-north-4.myhuaweicloud.com/2.7.0/MindSporeLite/lite/release/linux/x86_64/mindspore-lite-2.7.0-linux-x64.tar.gz target=_blank rel="noopener noreferrer" class="">mindspore-lite-2.7.0-linux-x64.tar.gz</a><td>8bb1097100c9fec12675670ba2d4264a2cd6da3a9be093eb56631d00fc0c455b</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=通过源码编译>通过源码编译<a href=#通过源码编译 class=hash-link aria-label=通过源码编译的直接链接 title=通过源码编译的直接链接 translate=no>​</a></h3>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">由于支持转换PyTorch模型的编译选项默认关闭，因此下载的安装包不支持转换PyTorch模型，只能通过源码编译方式获取。</li>
+<li class="">模型中有transpose与convolution算子融合，需要通过源码编译方式获取。否则可能会发生类似警告：node infer shape failed, node is Default/Conv2DFusion-xxx。</li>
+<li class="">当指定NPU后端进行推理时，需要自定义<a href=#%E5%85%B3%E9%97%AD%E6%8C%87%E5%AE%9A%E7%AE%97%E5%AD%90%E8%9E%8D%E5%90%88 class="">关闭clip算子融合</a>，模型转换工具需要通过源码编译方式获取。否则可能会发生类似报错：BuildKirinNPUModel# Create full model kernel failed。</li>
+</ul>
+<ol>
+<li class="">
+<p>编译环境要求如下：</p>
+<ul>
+<li class="">系统环境：Linux x86_64，推荐使用Ubuntu 18.04.02LTS。</li>
+<li class="">C++编译依赖：
+<ul>
+<li class="">GCC >= 7.3.0</li>
+<li class="">CMake >= 3.18.3</li>
+<li class="">Git >= 2.28.0</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">
+<p>取<a href=https://gitcode.com/openharmony/third_party_mindspore target=_blank rel="noopener noreferrer" class="">MindSpore Lite源码</a>。MindSpore Lite完整源码位于：mindspore-src/source/。</p>
+</li>
+<li class="">
+<p>执行编译。</p>
+<p>如要获取支持转换PyTorch模型的转换工具，编译前需要先export MSLITE_ENABLE_CONVERT_PYTORCH_MODEL=on && export LIB_TORCH_PATH="/home/user/libtorch"。转换前加入libtorch的环境变量：export LD_LIBRARY_PATH="/home/user/libtorch/lib:${LD_LIBRARY_PATH}"。用户可以下载CPU版本libtorch后解压到/home/user/libtorch的目录下。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">cd mindspore-src/source/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bash build.sh -I x86_64 -j 8</span><br/></div></code></pre></div></div>
+<p>编译完成后，可从源码根目录的output/子目录取得MindSpore Lite发布件。解压后，转换工具位于tools/converter/converter/。</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=配置环境变量>配置环境变量<a href=#配置环境变量 class=hash-link aria-label=配置环境变量的直接链接 title=配置环境变量的直接链接 translate=no>​</a></h2>
+<p>获取到模型转换工具之后，还需要将转换工具需要的动态链接库加入环境变量LD_LIBRARY_PATH。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">export LD_LIBRARY_PATH=${PACKAGE_PATH}/tools/converter/lib:${LD_LIBRARY_PATH}</span><br/></div></code></pre></div></div>
+<p>其中，${PACKAGE_PATH}对应为编译或下载得到的MindSpore Lite发布件解压后的路径。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=参数说明>参数说明<a href=#参数说明 class=hash-link aria-label=参数说明的直接链接 title=参数说明的直接链接 translate=no>​</a></h2>
+<p>MindSpore Lite模型转换工具提供了多种参数设置，用户可根据需要来选择使用。此外，用户可输入./converter_lite --help获取实时帮助信息。</p>
+<p>下面提供详细的参数说明。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数说明<th>取值范围<tbody><tr><td>--help<td>否<td>打印全部帮助信息。<td>-<tr><td>--fmk<td>是<td>输入模型的原始格式。只有在MS模型转换为Micro代码场景时，才支持设置为MSLITE。<td>MINDIR、CAFFE、TFLITE、TF、ONNX、PYTORCH、MSLITE<tr><td>--modelFile<td>是<td>输入模型的路径。<td>-<tr><td>--outputFile<td>是<td>输出模型的路径，不需加后缀，可自动生成.ms后缀。<td>-<tr><td>--weightFile<td>转换CAFFE模型时必选<td>输入模型权重文件的路径。<td>-<tr><td>--configFile<td>否<td>1）可作为训练后量化配置文件路径；2）可作为扩展功能配置文件路径。<td>-<tr><td>--fp16<td>否<td>设定在模型序列化时是否需要将float32数据格式的权重存储为float16数据格式。  默认值为off。<td>on、off<tr><td>--inputShape<td>否<td>设定模型输入的维度，输入维度的顺序和原始模型保持一致。对某些特定的模型可以进一步优化模型结构，但是转化后的模型将可能失去动态shape的特性。输入名和shape之间用:分割，多个输入用;分割，同时加上双引号""。例如配置为"inTensorName_1: 1,32,32,4;inTensorName_2:1,64,64,4;"。<td>-<tr><td>--inputDataFormat<td>否<td>设定导出模型的输入format，只对四维输入有效。  默认值为NHWC。<td>NHWC、NCHW<tr><td>--inputDataType<td>否<td>设定量化模型输入tensor的数据类型。仅当模型输入tensor的量化参数（scale和zero point）配置时有效。默认与原始模型输入tensor的数据类型保持一致。  默认值为DEFAULT。<td>FLOAT32、INT8、UINT8、DEFAULT<tr><td>--outputDataType<td>否<td>设定量化模型输出tensor的数据类型。仅当模型输出tensor的量化参数（scale和zero point）配置时有效。默认与原始模型输出tensor的数据类型保持一致。  默认值为DEFAULT。<td>FLOAT32、INT8、UINT8、DEFAULT<tr><td>--outputDataFormat<td>否<td>设定导出模型的输出format，只对四维输出有效。<td>NHWC、NCHW</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">参数名和参数值之间用等号连接，中间不能有空格。</li>
+<li class="">CAFFE模型一般分为两个文件：*.prototxt模型结构，对应--modelFile参数；*.caffemodel模型权值，对应--weightFile参数。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用示例>使用示例<a href=#使用示例 class=hash-link aria-label=使用示例的直接链接 title=使用示例的直接链接 translate=no>​</a></h2>
+<p>以CAFFE模型LeNet为例，执行转换命令。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">./converter_lite --fmk=CAFFE --modelFile=lenet.prototxt --weightFile=lenet.caffemodel --outputFile=lenet</span><br/></div></code></pre></div></div>
+<p>本例中，因为采用了CAFFE模型，所以需要模型结构、模型权值两个输入文件。再加上其他必需的fmk类型和输出路径两个参数，即可成功执行。</p>
+<p>结果显示为：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">CONVERT RESULT SUCCESS:0</span><br/></div></code></pre></div></div>
+<p>这表示已经成功将CAFFE模型转化为MindSpore Lite模型，获得新文件lenet.ms。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=离线模型转换可选>离线模型转换（可选）<a href=#离线模型转换可选 class=hash-link aria-label=离线模型转换（可选）的直接链接 title=离线模型转换（可选）的直接链接 translate=no>​</a></h2>
+<p>当部署场景对加载时延要求严格时，开发者希望进一步降低加载时延，可采用另一种部署方案，即基于离线模型的推理。离线模型是使用硬件厂商的离线模型转换工具转换得到的模型，由硬件厂商负责解析和推理。</p>
+<p>执行推理时，MindSpore Lite会直接将离线模型传给接入NNRt的 AI 硬件，无需在线构图即可加载，大幅降低模型加载时延，并且可携带额外的硬件特定信息，协助AI硬件推理。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=约束与限制>约束与限制<a href=#约束与限制 class=hash-link aria-label=约束与限制的直接链接 title=约束与限制的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">离线模型仅支持在NNRt后端推理，硬件厂商需接入NNRt且支持离线模型推理。</li>
+<li class="">离线模型转换工具仅支持通过源码编译方式获取。</li>
+<li class="">离线模型在转换时fmk必须指定为THIRDPARTY。</li>
+<li class="">离线模型本身作为黑盒，转换工具无法直接解析它得到模型输入输出张量信息，因此需要用户在转换工具的扩展配置文件中手动配置。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=扩展配置文件说明>扩展配置文件说明<a href=#扩展配置文件说明 class=hash-link aria-label=扩展配置文件说明的直接链接 title=扩展配置文件说明的直接链接 translate=no>​</a></h3>
+<p>扩展配置样例如下：</p>
+<ul>
+<li class="">首行[third_party_model]为固定关键词，表明此节为离线模型配置。</li>
+<li class="">下方依次是模型输入输出张量的名称、数据类型、形状、内存格式等信息，每个字段独占一行，先后顺序不限，采用键值对格式。</li>
+<li class="">除数据类型和形状必选外，其它为可选配置。</li>
+<li class="">最后，还提供扩展参数字段，可将离线模型所需的自定义配置用键值对的形式一同封装到.ms文件，在推理时由NNRt传递给AI硬件使用。</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">[third_party_model]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">input_names=in_0;in_1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">input_dtypes=float32;float32</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">input_shapes=8,256,256;8,256,256,3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">input_formats=NCHW;NCHW</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">output_names=out_0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">output_dtypes=float32</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">output_shapes=8,64</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">output_formats=NCHW</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">extended_parameters=key_foo:value_foo;key_bar:value_bar</span><br/></div></code></pre></div></div>
+<p>字段说明：</p>
+<ul>
+<li class="">input_names：[可选]模型输入名称，格式：字符串，多个输入用;间隔。</li>
+<li class="">input_dtypes：[必选]模型输入数据类型，格式：类型，多个输入用;间隔。</li>
+<li class="">input_shapes：[必选]模型输入形状，格式：整数数组，多个输入用;间隔。</li>
+<li class="">input_formats：[可选]模型输入内存布局，格式：字符串，多个输入用;间隔，默认值NHWC。</li>
+<li class="">output_names：[可选]模型输入名称，格式：字符串，多个输入用;间隔。</li>
+<li class="">output_dtypes：[必选]模型输出数据类型，格式：类型，多个输出用;间隔。</li>
+<li class="">output_shapes：[必选]模型输出形状，格式：整数数组，多个输出用;间隔。</li>
+<li class="">output_formats：[可选]模型输出内存布局，格式：字符串，多个输入用;间隔，默认值NHWC。</li>
+<li class="">extended_parameters：[可选]推理硬件自定义配置，字符串键值对格式，会通过NNRt后端传给硬件。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=附录>附录<a href=#附录 class=hash-link aria-label=附录的直接链接 title=附录的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=关闭指定算子融合>关闭指定算子融合<a href=#关闭指定算子融合 class=hash-link aria-label=关闭指定算子融合的直接链接 title=关闭指定算子融合的直接链接 translate=no>​</a></h3>
+<p>如果用户需要关闭指定算子融合功能，可新建配置文件，如converter.cfg，配置文件内容如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">[registry]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 当参数disable_fusion=off时，可通过配置fusion_blacklists关闭指定融合；当参数disable_fusion=on时，关闭所有融合，参数fusion_blacklists不生效。默认值为off。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">disable_fusion=off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 关闭多个算子融合时，用逗号分隔。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">fusion_blacklists=ConvActivationFusion,MatMulActivationFusion,clip_convert_activation_pass</span><br/></div></code></pre></div></div>
+<p>在执行converter时，指定参数--configFile=converter.cfg即可。</p>
+<p>支持关闭的融合算子如下所示：</p>
+<ul>
+<li class="">AddConcatActivationFusion</li>
+<li class="">SqueezeFusion</li>
+<li class="">TransposeFusion</li>
+<li class="">ReshapeReshapeFusion</li>
+<li class="">ConvBiasaddFusion</li>
+<li class="">ConvBatchNormFusion</li>
+<li class="">ConvScaleFusion</li>
+<li class="">GroupNormFusion</li>
+<li class="">TfNormFusion</li>
+<li class="">OnnxLayerNormFusion</li>
+<li class="">OnnxLayerNormFusion2</li>
+<li class="">BatchMatMulFusion</li>
+<li class="">BatchNormToScaleFusion</li>
+<li class="">SigmoidMulFusion</li>
+<li class="">ActivationFusion</li>
+<li class="">ConvActivationFusion</li>
+<li class="">ConvTupleGetItemFusion</li>
+<li class="">ConvTupleActivationFusion</li>
+<li class="">TfliteLstmCellFusion</li>
+<li class="">TfLstmCellFusion</li>
+<li class="">TfBidirectionGruFusion</li>
+<li class="">TfGeLUFusion</li>
+<li class="">OnnxGeLUFusion</li>
+<li class="">TfliteRelPosMultiHeadAttentionFusion</li>
+<li class="">GLUFusion</li>
+<li class="">ConstFoldPass</li>
+<li class="">AffineFusion</li>
+<li class="">AffineActivationFusion</li>
+<li class="">ConvConvFusion</li>
+<li class="">ConvPadFusion</li>
+<li class="">MatMulAddFusion</li>
+<li class="">MatMulMulFusion</li>
+<li class="">TransposeMatMulFusion</li>
+<li class="">MulAddFusion</li>
+<li class="">ScaleActivationFusion</li>
+<li class="">ScaleScaleFusion</li>
+<li class="">FullConnectedFusion</li>
+<li class="">FullconnectedAddFusion</li>
+<li class="">TensorDotFusion</li>
+<li class="">MatMulActivationFusion</li>
+<li class="">clip_convert_activation_pass</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/mindspore-lite-kit/mindspore-lite-kit-introduction/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>MindSpore Lite Kit简介</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/mindspore-lite-kit/deployment/mindspore-lite-guidelines/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>使用MindSpore Lite进行模型推理 (C/C++)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#场景介绍 class="table-of-contents__link toc-highlight">场景介绍</a><li><a href=#获取模型转换工具 class="table-of-contents__link toc-highlight">获取模型转换工具</a><ul><li><a href=#通过下载获取 class="table-of-contents__link toc-highlight">通过下载获取</a><li><a href=#通过源码编译 class="table-of-contents__link toc-highlight">通过源码编译</a></ul><li><a href=#配置环境变量 class="table-of-contents__link toc-highlight">配置环境变量</a><li><a href=#参数说明 class="table-of-contents__link toc-highlight">参数说明</a><li><a href=#使用示例 class="table-of-contents__link toc-highlight">使用示例</a><li><a href=#离线模型转换可选 class="table-of-contents__link toc-highlight">离线模型转换（可选）</a><ul><li><a href=#约束与限制 class="table-of-contents__link toc-highlight">约束与限制</a><li><a href=#扩展配置文件说明 class="table-of-contents__link toc-highlight">扩展配置文件说明</a></ul><li><a href=#附录 class="table-of-contents__link toc-highlight">附录</a><ul><li><a href=#关闭指定算子融合 class="table-of-contents__link toc-highlight">关闭指定算子融合</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

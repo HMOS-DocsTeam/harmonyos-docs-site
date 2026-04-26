@@ -1,0 +1,1455 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>SOTER | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="SOTER | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=SOTER提供移动端免密身份认证能力，支持使用SOTER协议的应用实现免密登录，免密支付等业务场景。 /><meta data-rh=true property=og:description content=SOTER提供移动端免密身份认证能力，支持使用SOTER协议的应用实现免密登录，免密支付等业务场景。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api","name":"SOTER","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title=FIDO class=linkLabel_WmDU>FIDO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><span title=IFAA class=linkLabel_WmDU>IFAA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><span title=SOTER class=linkLabel_WmDU>SOTER</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api><span title=通行密钥 class=linkLabel_WmDU>通行密钥</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido><span title="ArkTS API错误码" class=categoryLinkLabel_W154>ArkTS API错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_module/passkey/passkey><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Online Authentication Kit（在线认证服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>SOTER</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>SOTER</h1></header>
+<p>SOTER提供移动端免密身份认证能力，支持使用SOTER协议的应用实现免密登录，免密支付等业务场景。</p>
+<p>支持的设备类型为：Phone, PC/2in1, Tablet</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { soter } from '@kit.OnlineAuthenticationKit'</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=keytype>KeyType<a href=#keytype class=hash-link aria-label=KeyType的直接链接 title=KeyType的直接链接 translate=no>​</a></h2>
+<p>密钥选型，为枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>ECC_P256<td>0<td>密钥选型ECC P256。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=signedresult>SignedResult<a href=#signedresult class=hash-link aria-label=SignedResult的直接链接 title=SignedResult的直接链接 translate=no>​</a></h2>
+<p>表示签名结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>message<td>Uint8Array<td>是<td>原始报文。<tr><td>signature<td>Uint8Array<td>是<td>原始报文的签名。<tr><td>saltLength<td>number<td>是<td>盐值长度，小于U32类型最大值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getversionsync>getVersionSync<a href=#getversionsync class=hash-link aria-label=getVersionSync的直接链接 title=getVersionSync的直接链接 translate=no>​</a></h2>
+<p>getVersionSync(): string</p>
+<p>该接口用于获取SOTER免密认证API接口的版本号，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>返回SOTER免密认证的API接口版本号。最大长度64个字符。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let res: string = soter.getVersionSync();// 开发者处理结果</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getversion>getVersion<a href=#getversion class=hash-link aria-label=getVersion的直接链接 title=getVersion的直接链接 translate=no>​</a></h2>
+<p>getVersion(): Promise&lt;string></p>
+<p>该接口用于获取SOTER免密认证API接口的版本号，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回SOTER免密认证的API接口版本号。最大长度64个字符。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let resPromise: Promise&lt;string> = soter.getVersion();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">resPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing getVersion.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getVersion. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hasappsecurekeysync>hasAppSecureKeySync<a href=#hasappsecurekeysync class=hash-link aria-label=hasAppSecureKeySync的直接链接 title=hasAppSecureKeySync的直接链接 translate=no>​</a></h2>
+<p>hasAppSecureKeySync(keyType: KeyType): boolean</p>
+<p>该接口用于查询应用密钥的生成状态，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，当前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>同步返回应用密钥的生成状态。true代表已生成，false代表未生成。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 查询应用密钥生成状态 同步</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hasAppSecureKey: boolean = soter.hasAppSecureKeySync(keyType);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hasappsecurekey>hasAppSecureKey<a href=#hasappsecurekey class=hash-link aria-label=hasAppSecureKey的直接链接 title=hasAppSecureKey的直接链接 translate=no>​</a></h2>
+<p>hasAppSecureKey(keyType: KeyType): Promise&lt;boolean></p>
+<p>该接口用于查询应用密钥的生成状态，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回应用密钥的生成状态。true代表已生成，false代表未生成。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 异步查询应用密钥的生成状态</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hasAppSecureKeyPromise: Promise&lt;boolean> = soter.hasAppSecureKey(keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hasAppSecureKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing hasAppSecureKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call hasAppSecureKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generateappsecurekeysync>generateAppSecureKeySync<a href=#generateappsecurekeysync class=hash-link aria-label=generateAppSecureKeySync的直接链接 title=generateAppSecureKeySync的直接链接 translate=no>​</a></h2>
+<p>generateAppSecureKeySync(keyType: KeyType): Uint8Array</p>
+<p>该接口用于生成App应用密钥，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回App应用密钥。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成应用密钥</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appSecureKey: Uint8Array = soter.generateAppSecureKeySync(keyType);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generateappsecurekey>generateAppSecureKey<a href=#generateappsecurekey class=hash-link aria-label=generateAppSecureKey的直接链接 title=generateAppSecureKey的直接链接 translate=no>​</a></h2>
+<p>generateAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array></p>
+<p>该接口用于生成App应用密钥，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256，其余枚举值均报错。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回App应用密钥。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成应用密钥</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appSecureKeyPromise: Promise&lt;Uint8Array> = soter.generateAppSecureKey(keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">appSecureKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing generateAppSecureKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call generateAppSecureKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getappsecurekeysync>getAppSecureKeySync<a href=#getappsecurekeysync class=hash-link aria-label=getAppSecureKeySync的直接链接 title=getAppSecureKeySync的直接链接 translate=no>​</a></h2>
+<p>getAppSecureKeySync(keyType: KeyType): Uint8Array</p>
+<p>该接口用于获取App应用密钥，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回App应用密钥。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取应用密钥 同步</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appSecureKey: Uint8Array = soter.getAppSecureKeySync(keyType);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getappsecurekey>getAppSecureKey<a href=#getappsecurekey class=hash-link aria-label=getAppSecureKey的直接链接 title=getAppSecureKey的直接链接 translate=no>​</a></h2>
+<p>getAppSecureKey(keyType: KeyType): Promise&lt;Uint8Array></p>
+<p>该接口用于获取App应用密钥，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回App应用密钥。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取应用密钥 Promise</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appSecureKeyPromise: Promise&lt;Uint8Array> = soter.getAppSecureKey(keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">appSecureKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing getAppSecureKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getAppSecureKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hasauthkeysync>hasAuthKeySync<a href=#hasauthkeysync class=hash-link aria-label=hasAuthKeySync的直接链接 title=hasAuthKeySync的直接链接 translate=no>​</a></h2>
+<p>hasAuthKeySync(keyAlias: string, keyType: KeyType): boolean</p>
+<p>该接口用于查询AuthKey生成状态，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>同步返回AuthKey生成状态，true代表已生成，false代表未生成。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias'; // 开发者自定义索引</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 查询AuthKey开通状态 同步</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hasAuthKey: boolean = soter.hasAuthKeySync(keyAlias, keyType);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hasauthkey>hasAuthKey<a href=#hasauthkey class=hash-link aria-label=hasAuthKey的直接链接 title=hasAuthKey的直接链接 translate=no>​</a></h2>
+<p>hasAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;boolean></p>
+<p>该接口用于查询AuthKey生成状态，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回查询AuthKey生成状态。true代表已生成，false代表未生成。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 查询AuthKey生成状态 Promise</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hasAuthKeyPromise: Promise&lt;boolean> = soter.hasAuthKey(keyAlias, keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hasAuthKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing hasAuthKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call hasAuthKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generateauthkeysync>generateAuthKeySync<a href=#generateauthkeysync class=hash-link aria-label=generateAuthKeySync的直接链接 title=generateAuthKeySync的直接链接 translate=no>​</a></h2>
+<p>generateAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult</p>
+<p>该接口用于生成AuthKey，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#signedresult class="">SignedResult</a><td>返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成AuthKey</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let signedResult: soter.SignedResult = soter.generateAuthKeySync(keyAlias, keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authKey: Uint8Array = signedResult?.signature; // 开发者使用结果AuthKey</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generateauthkey>generateAuthKey<a href=#generateauthkey class=hash-link aria-label=generateAuthKey的直接链接 title=generateAuthKey的直接链接 translate=no>​</a></h2>
+<p>generateAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult></p>
+<p>该接口用于生成AuthKey，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#signedresult class="">SignedResult</a>><td>Promise对象，返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成AuthKey</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authKeyPromise: Promise&lt;soter.SignedResult> = soter.generateAuthKey(keyAlias, keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">authKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing generateAuthKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   console.error(`Failed to call generateAuthKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getauthkeysync>getAuthKeySync<a href=#getauthkeysync class=hash-link aria-label=getAuthKeySync的直接链接 title=getAuthKeySync的直接链接 translate=no>​</a></h2>
+<p>getAuthKeySync(keyAlias: string, keyType: KeyType): SignedResult</p>
+<p>该接口用于获取AuthKey，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#signedresult class="">SignedResult</a><td>返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 使用同步接口获取AuthKey</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let signedResult: soter.SignedResult = soter.getAuthKeySync(keyAlias, keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authKey: Uint8Array = signedResult.message; // 开发者使用结果AuthKey</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getauthkey>getAuthKey<a href=#getauthkey class=hash-link aria-label=getAuthKey的直接链接 title=getAuthKey的直接链接 translate=no>​</a></h2>
+<p>getAuthKey(keyAlias: string, keyType: KeyType): Promise&lt;SignedResult></p>
+<p>该接口用于获取AuthKey，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>keyType<td><a href=#keytype class="">KeyType</a><td>是<td>密钥选型，目前只支持 soter.KeyType.ECC_P256。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#signedresult class="">SignedResult</a>><td>Promise对象，返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyType: soter.KeyType = soter.KeyType.ECC_P256; // 密钥选型，当前只支持ECC_P256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取AuthKey Promise</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authKeyPromise: Promise&lt;soter.SignedResult> = soter.getAuthKey(keyAlias, keyType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">authKeyPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing getAuthKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getAuthKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generatechallengesync>generateChallengeSync<a href=#generatechallengesync class=hash-link aria-label=generateChallengeSync的直接链接 title=generateChallengeSync的直接链接 translate=no>​</a></h2>
+<p>generateChallengeSync(keyAlias: string): Uint8Array</p>
+<p>该接口用于生成Challenge，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回生成的Challenge。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成Challenge</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let challenge: Uint8Array = soter.generateChallengeSync(keyAlias);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=generatechallenge>generateChallenge<a href=#generatechallenge class=hash-link aria-label=generateChallenge的直接链接 title=generateChallenge的直接链接 translate=no>​</a></h2>
+<p>generateChallenge(keyAlias: string): Promise&lt;Uint8Array></p>
+<p>该接口用于生成Challenge，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回生成的Challenge。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 生成Challenge</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let challengePromise: Promise&lt;Uint8Array> = soter.generateChallenge(keyAlias);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">challengePromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing generateChallenge.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call generateChallenge. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=signwithauthkeysync>signWithAuthKeySync<a href=#signwithauthkeysync class=hash-link aria-label=signWithAuthKeySync的直接链接 title=signWithAuthKeySync的直接链接 translate=no>​</a></h2>
+<p>signWithAuthKeySync(keyAlias: string, authToken: Uint8Array, info: string): SignedResult</p>
+<p>该接口用于SOTER免密认证，同步返回签名的报文。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>authToken<td>Uint8Array<td>是<td>用户身份认证通过的凭证（通过用户认证模块可获取，调用@ohos.userIAM.userAuth的getUserAuthInstance）。<tr><td>info<td>string<td>是<td>开发者自定义信息，info最大长度为511字符。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#signedresult class="">SignedResult</a><td>返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者调用@ohos.userIAM.userAuth的getUserAuthInstance获取authToken；authToken需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authToken = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let info = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authResult: soter.SignedResult = soter.signWithAuthKeySync(keyAlias, authToken, info)</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=signwithauthkey>signWithAuthKey<a href=#signwithauthkey class=hash-link aria-label=signWithAuthKey的直接链接 title=signWithAuthKey的直接链接 translate=no>​</a></h2>
+<p>signWithAuthKey(keyAlias: string, authToken: Uint8Array, info: string): Promise&lt;SignedResult></p>
+<p>该接口用于SOTER免密认证，使用Promise异步回调返回签名的报文。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。<tr><td>authToken<td>Uint8Array<td>是<td>用户身份认证通过的凭证（通过用户认证模块可获取，调用@ohos.userIAM.userAuth的getUserAuthInstance）。<tr><td>info<td>string<td>是<td>开发者自定义信息，info最大长度为511字符。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#signedresult class="">SignedResult</a>><td>Promise对象，返回SignedResult对象。其中signature为返回报文的签名，message为返回报文的原文，saltLength为加密盐值长度。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者调用@ohos.userIAM.userAuth的getUserAuthInstance获取authToken；authToken需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authToken = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let info = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authResultPromise: Promise&lt;soter.SignedResult> = soter.signWithAuthKey(keyAlias, authToken, info);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">authResultPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing signWithAuthKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call signWithAuthKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deleteauthkeysync>deleteAuthKeySync<a href=#deleteauthkeysync class=hash-link aria-label=deleteAuthKeySync的直接链接 title=deleteAuthKeySync的直接链接 translate=no>​</a></h2>
+<p>deleteAuthKeySync(keyAlias: string): void</p>
+<p>该接口用于删除AuthKey。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 删除认证密钥</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">soter.deleteAuthKeySync(keyAlias);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deleteauthkey>deleteAuthKey<a href=#deleteauthkey class=hash-link aria-label=deleteAuthKey的直接链接 title=deleteAuthKey的直接链接 translate=no>​</a></h2>
+<p>deleteAuthKey(keyAlias: string): Promise&lt;void></p>
+<p>该接口用于删除AuthKey，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>keyAlias<td>string<td>是<td>开发者自定义的密钥别名，keyAlias长度取值范围为[1, 31]。合法字符为：a-z, A-Z, 0-9, -(非首字符), _(非首字符)。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes:  1. Mandatory parameters are left unspecified.  2. Parameter verification failed.<tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let keyAlias: string = 'keyAlias';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 删除AuthKey</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let delPromise: Promise&lt;void> = soter.deleteAuthKey(keyAlias);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">delPromise.then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing deleteAuthKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call deleteAuthKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deleteappsecurekeysync>deleteAppSecureKeySync<a href=#deleteappsecurekeysync class=hash-link aria-label=deleteAppSecureKeySync的直接链接 title=deleteAppSecureKeySync的直接链接 translate=no>​</a></h2>
+<p>deleteAppSecureKeySync(): void</p>
+<p>该接口用于删除应用密钥，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 删除应用密钥</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">soter.deleteAppSecureKeySync();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deleteappsecurekey>deleteAppSecureKey<a href=#deleteappsecurekey class=hash-link aria-label=deleteAppSecureKey的直接链接 title=deleteAppSecureKey的直接链接 translate=no>​</a></h2>
+<p>deleteAppSecureKey(): Promise&lt;void></p>
+<p>该接口用于删除应用密钥，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.SOTER</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-soter/onlineauthentication-error-code-soter>SOTER免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1014500001<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 删除应用密钥</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let delAppSecureKeyPromise: Promise&lt;void> = soter.deleteAppSecureKey();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">delAppSecureKeyPromise.then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in doing deleteAppSecureKey.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call deleteAppSecureKey. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>IFAA</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>通行密钥</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#keytype class="table-of-contents__link toc-highlight">KeyType</a><li><a href=#signedresult class="table-of-contents__link toc-highlight">SignedResult</a><li><a href=#getversionsync class="table-of-contents__link toc-highlight">getVersionSync</a><li><a href=#getversion class="table-of-contents__link toc-highlight">getVersion</a><li><a href=#hasappsecurekeysync class="table-of-contents__link toc-highlight">hasAppSecureKeySync</a><li><a href=#hasappsecurekey class="table-of-contents__link toc-highlight">hasAppSecureKey</a><li><a href=#generateappsecurekeysync class="table-of-contents__link toc-highlight">generateAppSecureKeySync</a><li><a href=#generateappsecurekey class="table-of-contents__link toc-highlight">generateAppSecureKey</a><li><a href=#getappsecurekeysync class="table-of-contents__link toc-highlight">getAppSecureKeySync</a><li><a href=#getappsecurekey class="table-of-contents__link toc-highlight">getAppSecureKey</a><li><a href=#hasauthkeysync class="table-of-contents__link toc-highlight">hasAuthKeySync</a><li><a href=#hasauthkey class="table-of-contents__link toc-highlight">hasAuthKey</a><li><a href=#generateauthkeysync class="table-of-contents__link toc-highlight">generateAuthKeySync</a><li><a href=#generateauthkey class="table-of-contents__link toc-highlight">generateAuthKey</a><li><a href=#getauthkeysync class="table-of-contents__link toc-highlight">getAuthKeySync</a><li><a href=#getauthkey class="table-of-contents__link toc-highlight">getAuthKey</a><li><a href=#generatechallengesync class="table-of-contents__link toc-highlight">generateChallengeSync</a><li><a href=#generatechallenge class="table-of-contents__link toc-highlight">generateChallenge</a><li><a href=#signwithauthkeysync class="table-of-contents__link toc-highlight">signWithAuthKeySync</a><li><a href=#signwithauthkey class="table-of-contents__link toc-highlight">signWithAuthKey</a><li><a href=#deleteauthkeysync class="table-of-contents__link toc-highlight">deleteAuthKeySync</a><li><a href=#deleteauthkey class="table-of-contents__link toc-highlight">deleteAuthKey</a><li><a href=#deleteappsecurekeysync class="table-of-contents__link toc-highlight">deleteAppSecureKeySync</a><li><a href=#deleteappsecurekey class="table-of-contents__link toc-highlight">deleteAppSecureKey</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

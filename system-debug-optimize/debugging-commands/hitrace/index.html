@@ -1,0 +1,551 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-debug-optimize/debugging-commands/hitrace/hitrace" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>hitrace | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="hitrace | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=hitrace命令行工具提供trace信息采集能力，支持采集系统提供的打点和开发者使用HitraceMeter接口在应用中设置的打点。该工具支持多种方式采集文本格式或二进制格式的trace信息，帮助开发者观测程序运行情况和定位故障问题。 /><meta data-rh=true property=og:description content=hitrace命令行工具提供trace信息采集能力，支持采集系统提供的打点和开发者使用HitraceMeter接口在应用中设置的打点。该工具支持多种方式采集文本格式或二进制格式的trace信息，帮助开发者观测程序运行情况和定位故障问题。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/","name":"hitrace","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/test-kit/test-kit-overview/><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=调试命令 class=categoryLinkLabel_W154>调试命令</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=SDK命令行工具简介 class=linkLabel_WmDU>SDK命令行工具简介</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc/><span title=hdc class=linkLabel_WmDU>hdc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/aa-tool/><span title=aa工具 class=linkLabel_WmDU>aa工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/bm-tool/><span title=bm工具 class=linkLabel_WmDU>bm工具</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/packing-unpacking/packing-tool/><span title=打包拆包工具 class=categoryLinkLabel_W154>打包拆包工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/app-check-tool/><span title=扫描工具 class=linkLabel_WmDU>扫描工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/cem-tool/><span title=cem工具 class=linkLabel_WmDU>cem工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/anm-tool/><span title=anm工具 class=linkLabel_WmDU>anm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/edm-tool/><span title=edm工具 class=linkLabel_WmDU>edm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/><span title=restool工具 class=linkLabel_WmDU>restool工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/param-tool/><span title=param工具 class=linkLabel_WmDU>param工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/power-shell/><span title=power-shell工具 class=linkLabel_WmDU>power-shell工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/atm-tool/><span title=atm工具 class=linkLabel_WmDU>atm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/network-cfg/><span title=network-cfg工具 class=linkLabel_WmDU>network-cfg工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/><span title=hilog class=linkLabel_WmDU>hilog</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool/><span title=hilogtool class=linkLabel_WmDU>hilogtool</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hidumper-tool/hidumper/><span title=hidumper class=categoryLinkLabel_W154>hidumper</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/><span title=hitrace class=linkLabel_WmDU>hitrace</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/><span title=hiperf class=linkLabel_WmDU>hiperf</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiprofiler/><span title=hiprofiler class=linkLabel_WmDU>hiprofiler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/uinput/><span title=uinput class=linkLabel_WmDU>uinput</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/toybox/><span title=命令行工具 class=categoryLinkLabel_W154>命令行工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/binary-sign-tool/><span title=二进制签名工具 class=linkLabel_WmDU>二进制签名工具</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调试命令</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>hitrace</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>hitrace</h1></header>
+<p>hitrace命令行工具提供trace信息采集能力，支持采集系统提供的打点和开发者使用<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hitracemeter/hitracemeter-intro>HitraceMeter接口</a>在应用中设置的打点。该工具支持多种方式采集文本格式或二进制格式的trace信息，帮助开发者观测程序运行情况和定位故障问题。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=环境要求>环境要求<a href=#环境要求 class=hash-link aria-label=环境要求的直接链接 title=环境要求的直接链接 translate=no>​</a></h2>
+<ul>
+<li class="">根据hdc命令行工具指导，完成<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87>hdc环境准备</a>。</li>
+<li class="">确保设备已正常连接，并执行hdc shell。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=命令行说明>命令行说明<a href=#命令行说明 class=hash-link aria-label=命令行说明的直接链接 title=命令行说明的直接链接 translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>命令<th>含义说明<tbody><tr><td>-h/--help<td>查看帮助。<tr><td>-l/--list_categories<td>查看tag列表。<tr><td>--trace_begin<td>开始捕获trace。<tr><td>--trace_finish<td>结束捕获trace。<tr><td>--trace_finish_nodump<td>结束捕获trace，与--trace_finish的区别是不输出trace信息。<tr><td>--trace_dump<td>导出trace信息。<tr><td>--record<td>使能录制模式，允许长时间采集并落盘trace数据，必须和--trace_begin或--trace_finish一起使用。<tr><td>--overwrite<td>设置内核缓冲区满之后的行为，未设置此选项时默认丢弃最老数据，设置此选项后丢弃最新数据。<tr><td>--file_size<td>设置文件大小（单位为KB），仅在采集二进制格式trace数据时有效。<tr><td>-b N/--buffer_size N<td>设置用于存储和读取trace的缓冲区大小（单位为KB）。最小值为512，最大值与设备当前可用内存有关。<tr><td>-t N/--time N<td>设置hitrace采集时长，单位为s。<tr><td>-o/--output filename<td>指定目标文件的名称（导出trace格式为文本时默认为stdout，如需保存到文件，建议使用/data/local/tmp路径。导出trace格式为二进制时不支持此选项）。<tr><td>-z<td>压缩捕获的trace数据。<tr><td>--text<td>导出trace数据为文本格式（默认为文本格式）。<tr><td>--raw<td>导出trace数据为二进制格式（默认为文本格式）。<tr><td>--trace_clock<td>设置向trace添加时间戳的时钟类型，可以是boot（默认）、global、mono、uptime或perf。不同设备支持的时钟类型不同，建议使用默认的boot进行采集，其时间为从本次开机起的时间戳，单位为s。每种时间类型的说明如下：  - boot：系统启动后的时间戳，休眠或系统挂起时也会计时。  - global：全局同步的时钟，可能有性能开销。  - mono：系统启动后的时间戳，休眠或系统挂起时不会计时。  - uptime：系统启动后的时间戳，类似于mono。  - perf：高性能计数器，适合性能分析。<tr><td>--start_bgsrv<td>开启快照模式trace捕获。<tr><td>--dump_bgsrv<td>触发快照模式trace输出到文件。<tr><td>--stop_bgsrv<td>关闭快照模式trace捕获。<tr><td>--trace_level<td>设置trace输出级别阈值，输出级别可以是Debug、Info、Critical、Commercial或其对应缩写D、I、C、M。  <strong><strong>说明</strong></strong>：从API version 19开始，支持该命令。<tr><td>--get_level<td>查询trace输出级别阈值。  <strong><strong>说明</strong></strong>：从API version 20开始，支持该命令。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>trace信息可以用两种不同的格式保存，分别为文本格式和二进制格式。文本格式的trace可以直接用文本编辑器查看，二进制格式的trace可以使用<a href=https://gitcode.com/openharmony/developtools_smartperf_host target=_blank rel="noopener noreferrer" class="">Smartperf_Host</a>工具进行可视化trace分析。工具下载链接：<a href=https://gitcode.com/openharmony/developtools_smartperf_host/releases target=_blank rel="noopener noreferrer" class="">developtools_smartperf_host官方发行版</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=常用命令>常用命令<a href=#常用命令 class=hash-link aria-label=常用命令的直接链接 title=常用命令的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看帮助信息>查看帮助信息<a href=#查看帮助信息 class=hash-link aria-label=查看帮助信息的直接链接 title=查看帮助信息的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -h</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -h</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/05/28 15:19:52 hitrace enter, running_state is SHOW_HELP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">usage: hitrace [options] [categories...]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">options include:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  -b N                   Set the size of the buffer (KB) for storing and reading traces.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         The default buffer size is 18432 KB.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --buffer_size N        Like "-b N".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  -l                     List available hitrace categories.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --list_categories      Like "-l".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  -t N                   Set the hitrace running duration in seconds (5s by default), which depends on</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         the time required for analysis.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --time N               Like "-t N".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_clock clock    Sets the type of the clock for adding a timestamp to a trace, which can be</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         boot (default), global, mono, uptime, or perf.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_begin          Start capturing traces.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_dump           Dump traces to a specified path (stdout by default).</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_finish         Stop capturing traces and dumps traces to a specified path (stdout by default).</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_finish_nodump  Stop capturing traces and not dumps traces.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --record               Enable or disable long-term trace collection tasks in conjunction with</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         "--trace_begin" and "--trace_finish".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --overwrite            Set the action to take when the buffer is full. If this option is used,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         the latest traces are discarded; if this option is not used (default setting),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         the earliest traces are discarded.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  -o filename            Specifies the name of the target file (stdout by default).</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --output filename      Like "-o filename".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  -z                     Compresses a captured trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --text                 Specify the output format of trace as text.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --raw                  Specify the output format of trace as raw trace, the default format is text.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --start_bgsrv          Enable trace_service in snapshot mode.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --dump_bgsrv           Trigger the dump trace task of the trace_service.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --stop_bgsrv           Disable trace_service in snapshot mode.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --file_size            Sets the size of the raw trace (KB). The default file size is 102400 KB.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         Only effective in raw trace mode</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --trace_level level    Set the system parameter "persist.hitrace.level.threshold", which can control</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         the level threshold of tracing. Valid values for "level" include</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         D or Debug, I or Info, C or Critical, M or Commercial.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  --get_level            Query the system parameter "persist.hitrace.level.threshold",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                         which can control the level threshold of tracing.</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看hitrace包含的tag>查看hitrace包含的tag<a href=#查看hitrace包含的tag class=hash-link aria-label=查看hitrace包含的tag的直接链接 title=查看hitrace包含的tag的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -l</span><br/></div></code></pre></div></div>
+<p>各tag具体含义参考下面的tag名称与描述对照表。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>tag名称<th>描述<tbody><tr><td>ability<td>用户态trace标签，能力管理器服务。<tr><td>accesscontrol<td>用户态trace标签，访问控制模块。<tr><td>accessibility<td>用户态trace标签，无障碍软件服务管理器。<tr><td>ace<td>用户态trace标签，ArkUI跨平台引擎开发框架。<tr><td>animation<td>用户态trace标签，动画模块。<tr><td>app<td>用户态trace标签，应用模块。通过<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hitracemeter/hitracemeter-intro>HiTraceMeter</a>接口做的trace打点属于app tag。<tr><td>ark<td>用户态trace标签，Ark模块。<tr><td>account<td>用户态trace标签，账户管理器。<tr><td>binder<td>内核态trace标签，binder通信内核信息。<tr><td>bluetooth<td>用户态trace标签，蓝牙通信。<tr><td>cloud<td>用户态trace标签，云子系统。<tr><td>commercial<td>用户态trace标签，nolog版本标签。<tr><td>commonlibrary<td>用户态trace标签，通用库。<tr><td>dcamera<td>用户态trace标签，分布式相机。<tr><td>daudio<td>用户态trace标签，分布式音频。<tr><td>devicemanager<td>用户态trace标签，设备管理器。<tr><td>deviceauth<td>用户态trace标签，设备认证。<tr><td>deviceprofile<td>用户态trace标签，设备配置文件。<tr><td>dhfwk<td>用户态trace标签，分布式硬件框架。<tr><td>dinput<td>用户态trace标签，分布式输入。<tr><td>dlpcre<td>用户态trace标签，数据防泄露凭证服务。<tr><td>disk<td>内核态trace标签，磁盘I/O。<tr><td>distributeddatamgr<td>用户态trace标签，分布式数据管理器。<tr><td>dscreen<td>用户态trace标签，分布式屏幕。<tr><td>dsched<td>用户态trace标签，分布式调度。<tr><td>dsoftbus<td>用户态trace标签，分布式软总线。<tr><td>drm<td>用户态trace标签，数字版权管理。<tr><td>erofs<td>内核态trace标签，增强型只读文件系统。<tr><td>ffrt<td>用户态trace标签，FFRT任务。<tr><td>filemanagement<td>用户态trace标签，文件管理。<tr><td>freq<td>内核态trace标签，CPU频率。<tr><td>gresource<td>用户态trace标签，全局资源管理器。<tr><td>graphic<td>用户态trace标签，图形模块。<tr><td>hdcd<td>用户态trace标签，hdcd工具。<tr><td>hdf<td>用户态trace标签，硬件驱动框架。<tr><td>huks<td>用户态trace标签，通用密钥库。<tr><td>idle<td>内核态trace标签，CPU空闲信息。<tr><td>interconn<td>用户态trace标签，互联子系统。<tr><td>ipa<td>内核态trace标签，热功耗分配器。<tr><td>irq<td>内核态trace标签，IRQ事件。<tr><td>irqoff<td>内核态trace标签，IRQ禁用代码段追踪。<tr><td>i2c<td>内核态trace标签，I2C总线事件。<tr><td>load<td>内核态trace标签，CPU负载。<tr><td>membus<td>内核态trace标签，内存总线利用率。<tr><td>memory<td>内核态trace标签，内存信息。<tr><td>memreclaim<td>内核态trace标签，内核内存回收。<tr><td>misc<td>用户态trace标签，misc模块。<tr><td>mdfs<td>用户态trace标签，移动分布式文件系统。<tr><td>mmc<td>内核态trace标签，嵌入式多媒体卡命令。<tr><td>multimodalinput<td>用户态trace标签，多模态输入。<tr><td>musl<td>用户态trace标签，musl模块。<tr><td>net<td>用户态trace标签，网络模块。<tr><td>notification<td>用户态trace标签，通知模块。<tr><td>nweb<td>用户态trace标签，NWeb模块。<tr><td>ohos<td>用户态trace标签，系统通用标签。<tr><td>pagecache<td>内核态trace标签，页缓存。<tr><td>power<td>用户态trace标签，电源管理器。<tr><td>preemptoff<td>内核态trace标签，抢占禁用代码段追踪。<tr><td>push<td>用户态trace标签，推送子系统。<tr><td>regulators<td>内核态trace标签，电压电流调节器。<tr><td>rpc<td>用户态trace标签，RPC与IPC通信。<tr><td>samgr<td>用户态trace标签，服务能力管理组。<tr><td>sched<td>内核态trace标签，CPU调度。<tr><td>schedlt<td>内核态trace标签，轻量级CPU调度。  <strong><strong>说明</strong></strong>：从API version 23开始，支持该标签。<tr><td>security<td>用户态trace标签，安全子系统。<tr><td>sensors<td>用户态trace标签，传感器模块。<tr><td>sync<td>内核态trace标签，DMA同步。<tr><td>useriam<td>用户态trace标签，用户身份与访问管理。<tr><td>ufs<td>内核态trace标签，通用闪存存储命令。<tr><td>usb<td>用户态trace标签，USB子系统。<tr><td>virse<td>用户态trace标签，虚拟化服务。<tr><td>workq<td>内核态trace标签，内核worker队列。<tr><td>window<td>用户态trace标签，窗口管理器。<tr><td>zbinder<td>内核态trace标签，zbinder事件。<tr><td>zcamera<td>用户态trace标签，相机模块。<tr><td>zimage<td>用户态trace标签，图像模块。<tr><td>zmedia<td>用户态trace标签，媒体模块。<tr><td>zaudio<td>用户态trace标签，音频模块。</table>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -l</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/05/27 16:24:38 hitrace enter, running_state is SHOW_LIST_CATEGORY</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tagName:   description:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">             ability - Ability Manager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">       accesscontrol - Access Control Module</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">       accessibility - Accessibility Manager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">             account - Account Manager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=捕获指定时长文本格式trace>捕获指定时长文本格式trace<a href=#捕获指定时长文本格式trace class=hash-link aria-label=捕获指定时长文本格式trace的直接链接 title=捕获指定时长文本格式trace的直接链接 translate=no>​</a></h3>
+<p>不指定-o参数时，默认将捕获到的trace内容显示在命令行窗口。下面参数是指定采集10秒的数据，缓冲区大小为204800KB，采集的tag为app。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -t 10 -b 204800 app</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -t 10 -b 204800 app</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:14:52 start capture, please wait 10s ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># tracer: nop</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                          _-----=> irqs-off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                         / _----=> need-resched</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        | / _---=> hardirq/softirq</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        || / _--=> preempt-depth</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        ||| /     delay</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#           TASK-PID       TGID    CPU#  ||||   TIMESTAMP  FUNCTION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#              | |           |       |   ||||      |         |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [003] .... 589942.951387: tracing_mark_write: B|952|H:CheckMsgFromNetlink|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [003] .... 589942.951554: tracing_mark_write: B|952|H:OnKstateCallback, mask: 8, data: [PID 15461 KILLED][SIG 9]|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [003] .... 589942.951693: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [003] .... 589942.951737: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 589942.951909: tracing_mark_write: B|952|H:ProcessEvent, eventId: 6|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 589942.952510: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:15:02 TraceFinish done.</span><br/></div></code></pre></div></div>
+<p>指定-o参数时，可以将trace信息保存到指定目录，建议保存在/data/local/tmp路径下。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -t 10 -b 204800 app -o /data/local/tmp/test.ftrace</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -t 10 -b 204800 app -o /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:19:47 start capture, please wait 10s ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:19:57 capture done, start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:19:57 trace read done, output: /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:19:57 TraceFinish done.</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=捕获指定时长二进制格式trace>捕获指定时长二进制格式trace<a href=#捕获指定时长二进制格式trace class=hash-link aria-label=捕获指定时长二进制格式trace的直接链接 title=捕获指定时长二进制格式trace的直接链接 translate=no>​</a></h3>
+<p>命令带--raw参数时可捕获二进制格式trace，捕获二进制格式trace时不支持指定路径，固定保存在路径/data/log/hitrace下。采集结束后，采集结束后生成文件的绝对路径会显示在命令行窗口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -t 10 -b 204800 app --raw</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -t 10 -b 204800 app --raw</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:21:16 hitrace enter, running_state is RECORDING_SHORT_RAW</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:21:16 args: tags:app bufferSize:204800 overwrite:1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:21:16 start capture, please wait 10s ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 10:21:27 capture done, output files:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/record_trace_20250604102116@590322-695861087.sys</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=快照模式捕获文本格式trace>快照模式捕获文本格式trace<a href=#快照模式捕获文本格式trace class=hash-link aria-label=快照模式捕获文本格式trace的直接链接 title=快照模式捕获文本格式trace的直接链接 translate=no>​</a></h3>
+<p>快照模式下，trace信息保存在内核缓冲区。当数据量超出缓冲区大小时，默认丢弃最早的数据。</p>
+<p>使用以下命令开启快照模式，指定缓冲区大小为204800KB，采集的tag为app和graphic。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_begin -b 204800 app graphic</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_begin -b 204800 app graphic</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:03:39 hitrace enter, running_state is RECORDING_LONG_BEGIN</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:03:39 args: tags:app,graphic bufferSize:204800 overwrite:1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:03:39 OpenRecording done.</span><br/></div></code></pre></div></div>
+<p>在开启快照模式后，可以使用下面的命令将当前缓冲区内的数据导出。默认将trace信息显示到命令行窗口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_dump</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_dump</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:07:57 start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># tracer: nop</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                          _-----=> irqs-off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                         / _----=> need-resched</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        | / _---=> hardirq/softirq</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        || / _--=> preempt-depth</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        ||| /     delay</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#           TASK-PID       TGID    CPU#  ||||   TIMESTAMP  FUNCTION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#              | |           |       |   ||||      |         |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [002] .... 610865.463378: tracing_mark_write: B|952|H:CheckMsgFromNetlink|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [002] .... 610865.463503: tracing_mark_write: B|952|H:OnKstateCallback, mask: 8, data: [PID 14446 KILLED][SIG 9]|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [002] .... 610865.463626: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> KstateRecvThrea-1132    (    952) [002] .... 610865.463654: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610865.463767: tracing_mark_write: B|952|H:ProcessEvent, eventId: 6|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610865.463879: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.506055: tracing_mark_write: B|952|H:ProcessEvent, eventId: 0|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.506297: tracing_mark_write: B|952|H:HandleStateTransition, 20020111_com.ohos.medialibrary.medialibrarydata_[6255]|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.506782: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.506824: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.557458: tracing_mark_write: B|952|H:ProcessEvent, eventId: 0|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.558060: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> state_change_ha-1139    (    952) [001] .... 610866.558101: tracing_mark_write: E|952|I62</span><br/></div></code></pre></div></div>
+<p>导出时也可以使用-o命令保存到指定文件，建议保存到/data/local/tmp路径下。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_dump -o /data/local/tmp/test.ftrace</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_dump -o /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:09:10 start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:09:10 trace read done, output: /data/local/tmp/test.ftrace</span><br/></div></code></pre></div></div>
+<p>需要停止采集时，有如下三种命令：</p>
+<ol>
+<li class="">
+<p>停止采集，并将当前缓冲区内的trace信息显示到命令行窗口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_finish</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:22:02 start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># tracer: nop</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                          _-----=> irqs-off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                         / _----=> need-resched</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        | / _---=> hardirq/softirq</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        || / _--=> preempt-depth</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#                                        ||| /     delay</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#           TASK-PID       TGID    CPU#  ||||   TIMESTAMP  FUNCTION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#              | |           |       |   ||||      |         |</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">KstateRecvThrea-1132    (    952) [002] .... 610865.463378: tracing_mark_write: B|952|H:CheckMsgFromNetlink|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">KstateRecvThrea-1132    (    952) [002] .... 610865.463503: tracing_mark_write: B|952|H:OnKstateCallback, mask: 8, data: [PID 14446 KILLED][SIG 9]|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">KstateRecvThrea-1132    (    952) [002] .... 610865.463626: tracing_mark_write: E|952|I62</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">KstateRecvThrea-1132    (    952) [002] .... 610865.463654: tracing_mark_write: E|952|I62</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>停止采集，并将当前缓冲区内的trace信息保存到指定文件。建议保存路径为/data/local/tmp。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_finish -o /data/local/tmp/test.ftrace</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_finish -o /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:24:52 start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:24:52 trace read done, output: /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:24:52 Trace Closed.</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>停止采集，不输出trace信息。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_finish_nodump</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_finish_nodump</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:26:11 hitrace enter, running_state is RECORDING_LONG_FINISH_NODUMP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:26:11 end capture trace.</span><br/></div></code></pre></div></div>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=快照模式捕获二进制格式trace>快照模式捕获二进制格式trace<a href=#快照模式捕获二进制格式trace class=hash-link aria-label=快照模式捕获二进制格式trace的直接链接 title=快照模式捕获二进制格式trace的直接链接 translate=no>​</a></h3>
+<p>快照模式下捕获二进制格式trace时不支持指定tag，默认采集以下tag。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">"net", "dsched", "graphic", "multimodalinput", "dinput", "ark", "ace", "window","zaudio", "daudio", "zmedia", "dcamera", "zcamera", "dhfwk", "app", "gresource", "ability", "power", "samgr", "ffrt", "nweb", "hdf", "virse", "workq", "ipa", "sched", "freq", "disk", "sync", "binder", "mmc", "membus", "load"</span><br/></div></code></pre></div></div>
+<p>使用下面的命令开启捕获二进制trace。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --start_bgsrv</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --start_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:44:54 hitrace enter, running_state is SNAPSHOT_START</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:44:54 OpenSnapshot done.</span><br/></div></code></pre></div></div>
+<p>使用以下命令将当前缓冲区的trace信息导出到文件。二进制格式trace不支持指定路径导出或显示到命令行窗口，导出的文件路径会显示在命令行窗口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --dump_bgsrv</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --dump_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:50:34 hitrace enter, running_state is SNAPSHOT_DUMP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:50:35 DumpSnapshot done, output:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/trace_20250604164454@613340-339960.sys</span><br/></div></code></pre></div></div>
+<p>在结束捕获时，可以使用下面的命令停止采集。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --stop_bgsrv</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --stop_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:52:51 hitrace enter, running_state is SNAPSHOT_STOP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 16:52:52 CloseSnapshot done.</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=录制模式捕获trace>录制模式捕获trace<a href=#录制模式捕获trace class=hash-link aria-label=录制模式捕获trace的直接链接 title=录制模式捕获trace的直接链接 translate=no>​</a></h3>
+<p>录制模式下，系统会持续保存运行时生成的二进制格式trace，文件大小超过设定的值时会生成新文件。不支持指定保存路径。</p>
+<p>使用以下命令开启录制模式。缓冲区大小设定为204800KB，文件大小设为102400KB，采集的tag为app和graphic。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_begin --record -b 204800 --file_size 102400 app graphic</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_begin --record -b 204800 --file_size 102400 app graphic</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 17:03:37 hitrace enter, running_state is RECORDING_LONG_BEGIN_RECORD</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 17:03:37 args: tags:app,graphic bufferSize:204800 overwrite:1 fileSize:102400</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 17:03:37 trace capturing.</span><br/></div></code></pre></div></div>
+<p>采集结束时，使用以下命令停止采集，命令行窗口会显示生成的文件的绝对路径。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_finish --record</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_finish --record</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 17:06:14 hitrace enter, running_state is RECORDING_LONG_FINISH_RECORD</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/06/04 17:06:15 capture done, output files:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/record_trace_20250604170337@614463-183970330.sys</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/record_trace_20250604170423@614508-554071886.sys</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/record_trace_20250604170552@614597-598551039.sys</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=捕获trace后进行压缩>捕获trace后进行压缩<a href=#捕获trace后进行压缩 class=hash-link aria-label=捕获trace后进行压缩的直接链接 title=捕获trace后进行压缩的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hitrace -z -b 102400 -t 10 sched freq idle disk -o /data/local/tmp/test.ftrace</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -z -b 102400 -t 10 sched freq idle disk -o /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2024/11/14 12:00:18 start capture, please wait 10s ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2024/11/14 12:00:28 capture done, start to read trace.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2024/11/14 12:00:29 trace read done, output: /data/local/tmp/test.ftrace</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2024/11/14 12:00:29 TraceFinish done.</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=设置和查询trace输出级别阈值>设置和查询trace输出级别阈值<a href=#设置和查询trace输出级别阈值 class=hash-link aria-label=设置和查询trace输出级别阈值的直接链接 title=设置和查询trace输出级别阈值的直接链接 translate=no>​</a></h3>
+<p>打点级别优先级从高到低分别为 M（Commercial）、C（Critical）、I（Info）、D（Debug），低于trace输出级别阈值的打点将不会生效。</p>
+<p>开发者可使用带trace级别的打点接口（参考<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hitracemeter/js-apis-hitracemeter>@ohos.hiTraceMeter</a>和<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-c/performance-analysis-headerfile/capi-trace-h/capi-trace-h>trace.h</a>中的API version 19的trace打点接口），测试不同阈值下的trace输出是否符合预期。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 设置trace输出级别阈值</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_level D/I/C/M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hitrace --trace_level Debug/Info/Critical/Commercial</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 查询trace输出级别阈值</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hitrace --get_level</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --trace_level Info</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/08/16 10:34:23 hitrace enter, running_state is SET_TRACE_LEVEL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/08/16 10:34:23 success to set trace level.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --get_level</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/08/16 10:34:29 hitrace enter, running_state is GET_TRACE_LEVEL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/08/16 10:34:29 the current trace level threshold is Info</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=trace文件名说明>trace文件名说明<a href=#trace文件名说明 class=hash-link aria-label=trace文件名说明的直接链接 title=trace文件名说明的直接链接 translate=no>​</a></h2>
+<p>使用hitrace命令行工具采集二进制格式trace信息时，不支持指定文件路径。默认保存在/data/log/hitrace路径下，hitrace自动生成文件名并将绝对路径显示在命令行窗口。</p>
+<p>快照模式下生成的trace文件名以trace开头，录制模式下生成的trace文件名以record开头，后面为本地时间和boot time（从开机时间开始的时间戳）。</p>
+<p>以下面这个文件名为例：20250701215441说明这个文件生成的时间为2025年7月1日21时54分41秒，此时对应的boot time为6016.653165227。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --dump_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/01 21:54:41 hitrace enter, running_state is SNAPSHOT_DUMP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/01 21:54:42 DumpSnapshot done, output:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    /data/log/hitrace/trace_20250701215441@6016-653165227.sys</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=常见问题>常见问题<a href=#常见问题 class=hash-link aria-label=常见问题的直接链接 title=常见问题的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=执行hitrace命令后显示错误码1>执行hitrace命令后显示错误码1<a href=#执行hitrace命令后显示错误码1 class=hash-link aria-label=执行hitrace命令后显示错误码1的直接链接 title=执行hitrace命令后显示错误码1的直接链接 translate=no>​</a></h3>
+<p><strong><strong>现象描述</strong></strong></p>
+<p>执行hitrace命令后报错，错误码为1。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --dump_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:20:38 hitrace enter, running_state is SNAPSHOT_DUMP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:20:38 error: DumpSnapshot failed, errorCode(1)</span><br/></div></code></pre></div></div>
+<p><strong><strong>可能原因&解决方法</strong></strong></p>
+<p>错误码1表示hiview进程状态异常，可以尝试重启手机后重新采集。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=执行hitrace命令后报错not-support-category-on-this-device>执行hitrace命令后报错“not support category on this device”<a href=#执行hitrace命令后报错not-support-category-on-this-device class=hash-link aria-label="执行hitrace命令后报错“not support category on this device”的直接链接" title="执行hitrace命令后报错“not support category on this device”的直接链接" translate=no>​</a></h3>
+<p><strong><strong>现象描述</strong></strong></p>
+<p>执行hitrace命令后报错，命令行窗口显示“not support category on this device”。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace -t 10 aaa</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:24:21 error: aaa is not support category on this device.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:24:21 error: parsing args failed, exit.</span><br/></div></code></pre></div></div>
+<p><strong><strong>可能原因&解决方法</strong></strong></p>
+<p>命令中指定的tag不存在，建议使用“hitrace -l”命令查看支持的tag范围。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=执行hitrace命令后显示错误码1004>执行hitrace命令后显示错误码1004<a href=#执行hitrace命令后显示错误码1004 class=hash-link aria-label=执行hitrace命令后显示错误码1004的直接链接 title=执行hitrace命令后显示错误码1004的直接链接 translate=no>​</a></h3>
+<p><strong><strong>现象描述</strong></strong></p>
+<p>执行hitrace命令后报错，错误码为1004。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hitrace --dump_bgsrv</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:25:58 hitrace enter, running_state is SNAPSHOT_DUMP</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2025/07/04 17:25:58 error: DumpSnapshot failed, errorCode(1004)</span><br/></div></code></pre></div></div>
+<p><strong><strong>可能原因&解决方法</strong></strong></p>
+<p>1004表示写入文件错误，可能的原因包括：</p>
+<ol>
+<li class="">采集文本格式trace时，使用-o参数指定输出的文件路径不存在或无权限。建议将trace保存到/data/local/tmp路径下。</li>
+<li class="">磁盘空间已满时，不会生成新的trace文件，建议释放磁盘空间，确保空闲空间大于500MB，然后重新采集。</li>
+</ol></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hidumper-tool/hidumper-privacymanagerservice/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>PrivacyManagerService</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>hiperf</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#环境要求 class="table-of-contents__link toc-highlight">环境要求</a><li><a href=#命令行说明 class="table-of-contents__link toc-highlight">命令行说明</a><li><a href=#常用命令 class="table-of-contents__link toc-highlight">常用命令</a><ul><li><a href=#查看帮助信息 class="table-of-contents__link toc-highlight">查看帮助信息</a><li><a href=#查看hitrace包含的tag class="table-of-contents__link toc-highlight">查看hitrace包含的tag</a><li><a href=#捕获指定时长文本格式trace class="table-of-contents__link toc-highlight">捕获指定时长文本格式trace</a><li><a href=#捕获指定时长二进制格式trace class="table-of-contents__link toc-highlight">捕获指定时长二进制格式trace</a><li><a href=#快照模式捕获文本格式trace class="table-of-contents__link toc-highlight">快照模式捕获文本格式trace</a><li><a href=#快照模式捕获二进制格式trace class="table-of-contents__link toc-highlight">快照模式捕获二进制格式trace</a><li><a href=#录制模式捕获trace class="table-of-contents__link toc-highlight">录制模式捕获trace</a><li><a href=#捕获trace后进行压缩 class="table-of-contents__link toc-highlight">捕获trace后进行压缩</a><li><a href=#设置和查询trace输出级别阈值 class="table-of-contents__link toc-highlight">设置和查询trace输出级别阈值</a></ul><li><a href=#trace文件名说明 class="table-of-contents__link toc-highlight">trace文件名说明</a><li><a href=#常见问题 class="table-of-contents__link toc-highlight">常见问题</a><ul><li><a href=#执行hitrace命令后显示错误码1 class="table-of-contents__link toc-highlight">执行hitrace命令后显示错误码1</a><li><a href=#执行hitrace命令后报错not-support-category-on-this-device class="table-of-contents__link toc-highlight">执行hitrace命令后报错“not support category on this device”</a><li><a href=#执行hitrace命令后显示错误码1004 class="table-of-contents__link toc-highlight">执行hitrace命令后显示错误码1004</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

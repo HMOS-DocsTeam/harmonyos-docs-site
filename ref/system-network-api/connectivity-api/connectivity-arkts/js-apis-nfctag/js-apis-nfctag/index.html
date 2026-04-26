@@ -1,0 +1,2360 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.nfc.tag (标准NFC-Tag) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.nfc.tag (标准NFC-Tag) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块主要用于操作及管理NFC Tag，提供后台读卡和前台应用优先分发两种读卡模式。"/><meta data-rh=true property=og:description content="本模块主要用于操作及管理NFC Tag，提供后台读卡和前台应用优先分发两种读卡模式。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag","name":"@ohos.nfc.tag (标准NFC-Tag)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="Connectivity Kit（短距通信服务）" class=categoryLinkLabel_W154>Connectivity Kit（短距通信服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="@ohos.bluetooth.a2dp (蓝牙a2dp模块)" class=linkLabel_WmDU>@ohos.bluetooth.a2dp (蓝牙a2dp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-access/js-apis-bluetooth-access><span title="@ohos.bluetooth.access (蓝牙access模块)" class=linkLabel_WmDU>@ohos.bluetooth.access (蓝牙access模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-baseprofile/js-apis-bluetooth-baseprofile><span title="@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)" class=linkLabel_WmDU>@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-ble/js-apis-bluetooth-ble><span title="@ohos.bluetooth.ble (蓝牙ble模块)" class=linkLabel_WmDU>@ohos.bluetooth.ble (蓝牙ble模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-connection/js-apis-bluetooth-connection><span title="@ohos.bluetooth.connection (蓝牙connection模块)" class=linkLabel_WmDU>@ohos.bluetooth.connection (蓝牙connection模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-constant/js-apis-bluetooth-constant><span title="@ohos.bluetooth.constant (蓝牙constant模块)" class=linkLabel_WmDU>@ohos.bluetooth.constant (蓝牙constant模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-common/js-apis-bluetooth-common><span title="@ohos.bluetooth.common (蓝牙common模块)" class=linkLabel_WmDU>@ohos.bluetooth.common (蓝牙common模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hfp/js-apis-bluetooth-hfp><span title="@ohos.bluetooth.hfp (蓝牙hfp模块)" class=linkLabel_WmDU>@ohos.bluetooth.hfp (蓝牙hfp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid><span title="@ohos.bluetooth.hid (蓝牙hid模块)" class=linkLabel_WmDU>@ohos.bluetooth.hid (蓝牙hid模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pan/js-apis-bluetooth-pan><span title="@ohos.bluetooth.pan (蓝牙pan模块)" class=linkLabel_WmDU>@ohos.bluetooth.pan (蓝牙pan模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket><span title="@ohos.bluetooth.socket (蓝牙socket模块)" class=linkLabel_WmDU>@ohos.bluetooth.socket (蓝牙socket模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pbap/js-apis-bluetooth-pbap><span title="@ohos.bluetooth.pbap (蓝牙pbap模块)" class=linkLabel_WmDU>@ohos.bluetooth.pbap (蓝牙pbap模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-map/js-apis-bluetooth-map><span title="@ohos.bluetooth.map (蓝牙map模块)" class=linkLabel_WmDU>@ohos.bluetooth.map (蓝牙map模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-connectedtag/js-apis-connectedtag><span title="@ohos.connectedTag (有源标签)" class=linkLabel_WmDU>@ohos.connectedTag (有源标签)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-cardemulation/js-apis-cardemulation><span title="@ohos.nfc.cardEmulation (标准NFC-cardEmulation)" class=linkLabel_WmDU>@ohos.nfc.cardEmulation (标准NFC-cardEmulation)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfccontroller/js-apis-nfccontroller><span title="@ohos.nfc.controller (标准NFC)" class=linkLabel_WmDU>@ohos.nfc.controller (标准NFC)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag><span title="@ohos.nfc.tag (标准NFC-Tag)" class=linkLabel_WmDU>@ohos.nfc.tag (标准NFC-Tag)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-secureelement/js-apis-secureelement><span title="@ohos.secureElement (安全单元的通道管理)" class=linkLabel_WmDU>@ohos.secureElement (安全单元的通道管理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanager/js-apis-wifimanager><span title="@ohos.wifiManager (WLAN)" class=linkLabel_WmDU>@ohos.wifiManager (WLAN)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext><span title="@ohos.wifiManagerExt (WLAN扩展接口)" class=linkLabel_WmDU>@ohos.wifiManagerExt (WLAN扩展接口)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-fusionconnectivity-partneragent/js-apis-fusionconnectivity-partneragent><span title=@ohos.FusionConnectivity.partnerAgent（设备状态通知模块） class=linkLabel_WmDU>@ohos.FusionConnectivity.partnerAgent（设备状态通知模块）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensioncontext/is-fusionconnectivity-partneragentextensioncontext><span title="@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensionability/is-fusionconnectivity-partneragentextensionability><span title="@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech><span title=tag class=categoryLinkLabel_W154>tag</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-c/connectivity-module/capi-bluetooth/capi-bluetooth><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-dep/js-apis-bluetooth/js-apis-bluetooth><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/distributed-service-api/distributed-service-arkts/js-apis-distributeddevicemanager/js-apis-distributeddevicemanager><span title="Distributed Service Kit（分布式管理服务）" class=categoryLinkLabel_W154>Distributed Service Kit（分布式管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/nearlink-api/nearlink-arkts/nearlink-manager/nearlink-manager><span title="NearLink Kit（星闪服务）" class=categoryLinkLabel_W154>NearLink Kit（星闪服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection><span title="Network Kit（网络服务）" class=categoryLinkLabel_W154>Network Kit（网络服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="Network Boost Kit（网络加速服务）" class=categoryLinkLabel_W154>Network Boost Kit（网络加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="Remote Communication Kit（远场通信服务）" class=categoryLinkLabel_W154>Remote Communication Kit（远场通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/service-collaboration-api/servicecollaboration-arkts/servicecollaboration-collaborationcamera/servicecollaboration-collaborationcamera><span title="Service Collaboration Kit（协同服务）" class=categoryLinkLabel_W154>Service Collaboration Kit（协同服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/telephony-api/telephony-arkts/js-apis-call/js-apis-call><span title="Telephony Kit（蜂窝通信服务）" class=categoryLinkLabel_W154>Telephony Kit（蜂窝通信服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>网络</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Connectivity Kit（短距通信服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.nfc.tag (标准NFC-Tag)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.nfc.tag (标准NFC-Tag)</h1></header>
+<p>本模块主要用于操作及管理NFC Tag，提供后台读卡和前台应用优先分发两种读卡模式。</p>
+<p>后台读卡是指不需要打开应用程序，电子设备通过NFC读取标签卡片后，根据标签卡片的类型匹配到一个或多个应用程序。如果仅匹配到一个，则直接拉起应用程序的读卡页面；如果是多个则弹出应用选择器，让用户选择指定的读卡应用。后台读卡不涉及tag相关接口，示例参考<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/nfc/nfc-tag-access-guide#%E5%90%8E%E5%8F%B0%E8%AF%BB%E5%8F%96%E6%A0%87%E7%AD%BE>nfc-tag开发指南</a>。</p>
+<p>前台读卡是指提前打开应用程序，并进入对应的NFC读卡页面后读卡，只会把读到的标签卡片信息分发给前台应用程序。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">本模块首批接口从API version 7开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</li>
+<li class="">调用本模块接口和常量时请使用canIUse("SystemCapability.Communication.NFC.Tag")判断设备是否支持NFC能力，否则可能导致应用运行稳定性问题，参考<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/nfc/nfc-tag-access-guide>nfc-tag开发指南</a>。</li>
+<li class="">导入tag模块编辑器报错，在某个具体设备型号上能力可能超出工程默认设备定义的能力集范围，如需要使用此部分能力需额外配置自定义syscap，参考<a class="" href=/harmonyos-docs-site/ref/syscap/syscap#syscap%E5%BC%80%E5%8F%91%E6%8C%87%E5%AF%BC>syscap开发指南</a>。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块><strong><strong>导入模块</strong></strong><a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagtaginfo><strong><strong>tag.TagInfo</strong></strong><a href=#tagtaginfo class=hash-link aria-label=tagtaginfo的直接链接 title=tagtaginfo的直接链接 translate=no>​</a></h2>
+<p>在对相关Tag类型卡片进行读写之前，必须先获取<a href=#taginfo class="">TagInfo</a>相关属性值，以确认设备读取到的Tag卡片支持哪些技术类型。这样Tag应用程序才能调用正确的接口和所读取到的Tag卡片进行通信。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default class EntryAbility extends UIAbility {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onCreate(want : Want, launchParam: AbilityConstant.LaunchParam) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 添加其他功能代码...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // want由nfc服务初始化，包含找到的tag</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let tagInfo : tag.TagInfo | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tagInfo = tag.getTagInfo(want);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.getTagInfo catch error: " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (tagInfo == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("no TagInfo to be created, ignore it.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 获取发现标签的支持技术</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let isNfcATag =  false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let isIsoDepTag =  false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        for (let i = 0; i &lt; tagInfo.technology.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (tagInfo.technology[i] == tag.NFC_A) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                isNfcATag = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (tagInfo.technology[i] == tag.ISO_DEP) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                isIsoDepTag = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 检查其他技术类型: tag.NFC_B/NFC_F/NFC_V/NDEF/MIFARE_CLASSIC/MIFARE_ULTRALIGHT/NDEF_FORMATABLE</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 使用 NfcA APIs 去访问发现的标签</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (isNfcATag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let nfcA : tag.NfcATag | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                nfcA = tag.getNfcA(tagInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.error("tag.getNfcA catch error: " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // 其他代码：对发现的标签执行读取或写入</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 使用 IsoDep APIs 去访问发现的标签</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (isIsoDepTag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let isoDep : tag.IsoDepTag | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                isoDep = tag.getIsoDep(tagInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.error("tag.getIsoDep catch error: " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // 其他代码：对发现的标签执行读取或写入</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 使用相同的代码来处理 "NfcA/NfcB/NfcF/NfcV/Ndef/MifareClassic/MifareUL/NdefFormatable".</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcatagdeprecated>tag.getNfcATag(deprecated)<a href=#taggetnfcatagdeprecated class=hash-link aria-label=tag.getNfcATag(deprecated)的直接链接 title=tag.getNfcATag(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getNfcATag(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcatag>NfcATag</a></p>
+<p>获取NFC A类型Tag对象，通过该对象可访问NfcA技术类型的Tag。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从 API version 7 开始支持，从 API version 9 开始废弃，建议使用<a href=#taggetnfca9 class="">tag.getNfcA</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcatag>NfcATag</a><td>NFC A类型Tag对象。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfca9>tag.getNfcA9+<a href=#taggetnfca9 class=hash-link aria-label=tag.getNfcA9+的直接链接 title=tag.getNfcA9+的直接链接 translate=no>​</a></h2>
+<p>getNfcA(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcatag>NfcATag</a></p>
+<p>获取NFC A类型Tag对象，通过该对象可访问NfcA技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcatag>NfcATag</a><td>NFC A类型Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcbtagdeprecated>tag.getNfcBTag(deprecated)<a href=#taggetnfcbtagdeprecated class=hash-link aria-label=tag.getNfcBTag(deprecated)的直接链接 title=tag.getNfcBTag(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getNfcBTag(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcbtag>NfcBTag</a></p>
+<p>获取NFC B类型Tag对象，通过该对象可访问NfcB技术类型的Tag。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从 API version 7 开始支持，从 API version 9 开始废弃，建议使用<a href=#taggetnfcb9 class="">tag.getNfcB</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcbtag>NfcBTag</a><td>NFC B类型Tag对象。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcb9>tag.getNfcB9+<a href=#taggetnfcb9 class=hash-link aria-label=tag.getNfcB9+的直接链接 title=tag.getNfcB9+的直接链接 translate=no>​</a></h2>
+<p>getNfcB(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcbtag>NfcBTag</a></p>
+<p>获取NFC B类型Tag对象，通过该对象可访问NfcB技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcbtag>NfcBTag</a><td>NFC B类型Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcftagdeprecated>tag.getNfcFTag(deprecated)<a href=#taggetnfcftagdeprecated class=hash-link aria-label=tag.getNfcFTag(deprecated)的直接链接 title=tag.getNfcFTag(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getNfcFTag(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcftag>NfcFTag</a></p>
+<p>获取NFC F类型Tag对象，通过该对象可访问NfcF技术类型的Tag。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从 API version 7 开始支持，从 API version 9 开始废弃，建议使用<a href=#taggetnfcf9 class="">tag.getNfcF</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcftag>NfcFTag</a><td>NFC F类型Tag对象。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcf9>tag.getNfcF9+<a href=#taggetnfcf9 class=hash-link aria-label=tag.getNfcF9+的直接链接 title=tag.getNfcF9+的直接链接 translate=no>​</a></h2>
+<p>getNfcF(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcftag>NfcFTag</a></p>
+<p>获取NFC F类型Tag对象，通过该对象可访问NfcF技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcftag>NfcFTag</a><td>NFC F类型Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcvtagdeprecated>tag.getNfcVTag(deprecated)<a href=#taggetnfcvtagdeprecated class=hash-link aria-label=tag.getNfcVTag(deprecated)的直接链接 title=tag.getNfcVTag(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getNfcVTag(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcvtag>NfcVTag</a></p>
+<p>获取NFC V类型Tag对象，通过该对象可访问NfcV技术类型的Tag。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从 API version 7 开始支持，从 API version 9 开始废弃，建议使用<a href=#taggetnfcv9 class="">tag.getNfcV</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcvtag>NfcVTag</a><td>NFC V类型Tag对象。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetnfcv9>tag.getNfcV9+<a href=#taggetnfcv9 class=hash-link aria-label=tag.getNfcV9+的直接链接 title=tag.getNfcV9+的直接链接 translate=no>​</a></h2>
+<p>getNfcV(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcvtag>NfcVTag</a></p>
+<p>获取NFC V类型Tag对象，通过该对象可访问NfcV技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcvtag>NfcVTag</a><td>NFC V类型Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetisodep9>tag.getIsoDep9+<a href=#taggetisodep9 class=hash-link aria-label=tag.getIsoDep9+的直接链接 title=tag.getIsoDep9+的直接链接 translate=no>​</a></h2>
+<p>getIsoDep(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#isodeptag9>IsoDepTag</a></p>
+<p>获取IsoDep类型Tag对象，通过该对象可访问支持IsoDep技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#isodeptag9>IsoDepTag</a><td>IsoDep类型Tag对象，通过该对象访问IsoDep类型的相关接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetndef9>tag.getNdef9+<a href=#taggetndef9 class=hash-link aria-label=tag.getNdef9+的直接链接 title=tag.getNdef9+的直接链接 translate=no>​</a></h2>
+<p>getNdef(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndeftag9>NdefTag</a></p>
+<p>获取NDEF类型Tag对象，通过该对象可访问支持NDEF技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndeftag9>NdefTag</a><td>NDEF类型Tag对象，通过该对象访问NDEF类型的相关接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetmifareclassic9>tag.getMifareClassic9+<a href=#taggetmifareclassic9 class=hash-link aria-label=tag.getMifareClassic9+的直接链接 title=tag.getMifareClassic9+的直接链接 translate=no>​</a></h2>
+<p>getMifareClassic(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareclassictag9>MifareClassicTag</a></p>
+<p>获取MIFARE Classic类型Tag对象，通过该对象访问支持MIFARE Classic技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareclassictag9>MifareClassicTag</a><td>MIFARE Classic类型Tag对象，通过该对象访问MIFARE Classic类型的相关接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetmifareultralight9>tag.getMifareUltralight9+<a href=#taggetmifareultralight9 class=hash-link aria-label=tag.getMifareUltralight9+的直接链接 title=tag.getMifareUltralight9+的直接链接 translate=no>​</a></h2>
+<p>getMifareUltralight(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareultralighttag9>MifareUltralightTag</a></p>
+<p>获取MIFARE Ultralight类型Tag对象，通过该对象可访问支持MIFARE Ultralight技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareultralighttag9>MifareUltralightTag</a><td>MIFARE Ultralight类型Tag对象，通过该对象访问MIFARE Ultralight类型的相关接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetndefformatable9>tag.getNdefFormatable9+<a href=#taggetndefformatable9 class=hash-link aria-label=tag.getNdefFormatable9+的直接链接 title=tag.getNdefFormatable9+的直接链接 translate=no>​</a></h2>
+<p>getNdefFormatable(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefformatabletag9>NdefFormatableTag</a></p>
+<p>获取NDEF Formatable类型Tag对象，通过该对象可访问支持NDEF Formatable技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefformatabletag9>NdefFormatableTag</a><td>NDEF Formatable类型Tag对象，通过该对象访问NDEF Formatable类型的相关接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggetbarcodetag18>tag.getBarcodeTag18+<a href=#taggetbarcodetag18 class=hash-link aria-label=tag.getBarcodeTag18+的直接链接 title=tag.getBarcodeTag18+的直接链接 translate=no>​</a></h2>
+<p>getBarcodeTag(tagInfo: <a href=#taginfo class="">TagInfo</a>): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#barcodetag18>BarcodeTag</a></p>
+<p>获取BarcodeTag类型Tag对象，通过该对象可访问BarcodeTag技术类型的Tag。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>tagInfo<td><a href=#taginfo class="">TagInfo</a><td>是<td>包含Tag技术类型和相关参数，从<a href=#taggettaginfo9 class="">tag.getTagInfo(want: Want)</a>获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#barcodetag18>BarcodeTag</a><td>BarcodeTag类型Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taggettaginfo9>tag.getTagInfo9+<a href=#taggettaginfo9 class=hash-link aria-label=tag.getTagInfo9+的直接链接 title=tag.getTagInfo9+的直接链接 translate=no>​</a></h2>
+<p>getTagInfo(want: <a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want#want>Want</a>): <a href=#taginfo class="">TagInfo</a></p>
+<p>从Want中获取TagInfo，Want是被NFC服务初始化，包含了TagInfo所需的属性值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>want<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want#want>Want</a><td>是<td>分发Ability时，在系统onCreate入口函数的参数中获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#taginfo class="">TagInfo</a><td>TagInfo对象，用于获取不同技术类型的Tag对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagregisterforegrounddispatch10>tag.registerForegroundDispatch10+<a href=#tagregisterforegrounddispatch10 class=hash-link aria-label=tag.registerForegroundDispatch10+的直接链接 title=tag.registerForegroundDispatch10+的直接链接 translate=no>​</a></h2>
+<p>registerForegroundDispatch(elementName: <a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>, discTech: number[], callback: AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>>): void</p>
+<p>注册对NFC Tag读卡事件的监听，实现前台应用优先分发的目的。通过discTech设置支持的读卡技术类型，通过callback方式获取读取到Tag的<a href=#taginfo class="">TagInfo</a>信息。应用必须在前台才能调用。需要与取消监听接口<a href=#tagunregisterforegrounddispatch10 class="">tag.unregisterForegroundDispatch</a>成对使用。如果已注册事件监听，需要在页面退出前台或页面销毁前调用取消注册。使用callback异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。<tr><td>discTech<td>number[]<td>是<td>前台应用指定的NFC读卡技术类型，不可以为空，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含<a href=#%E5%B8%B8%E9%87%8F class="">NFC_A</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_B</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_F</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_V</a>中的一种或多种）。<tr><td>callback<td>AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>><td>是<td>前台读卡监听回调函数，返回读到的Tag信息，不可以为空。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.<tr><td>3100202<td>The element state is invalid.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>示例请参见<a href=#tagunregisterforegrounddispatch10 class="">tag.unregisterForegroundDispatch</a>接口的示例。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagunregisterforegrounddispatch10>tag.unregisterForegroundDispatch10+<a href=#tagunregisterforegrounddispatch10 class=hash-link aria-label=tag.unregisterForegroundDispatch10+的直接链接 title=tag.unregisterForegroundDispatch10+的直接链接 translate=no>​</a></h2>
+<p>unregisterForegroundDispatch(elementName: <a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>): void</p>
+<p>取消注册对NFC Tag读卡事件的监听，退出前台应用优先分发。如果已注册事件监听，需要在页面退出前台或页面销毁前调用取消注册。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { AbilityConstant, UIAbility, Want, bundleManager } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let discTech : number[] = [tag.NFC_A, tag.NFC_B]; // 用前台ability时所需要的技术代替</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let elementName : bundleManager.ElementName;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function foregroundCb(err : BusinessError, tagInfo : tag.TagInfo) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("foreground callback: tag found tagInfo = ", JSON.stringify(tagInfo));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("foreground callback err: " + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // taginfo的其他操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default class MainAbility extends UIAbility {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    OnCreate(want : Want, launchParam : AbilityConstant.LaunchParam) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("OnCreate");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        elementName = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            bundleName: want.bundleName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            abilityName: want.abilityName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            moduleName: want.moduleName as string</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onForeground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onForeground");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.registerForegroundDispatch(elementName, discTech, foregroundCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("registerForegroundDispatch error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onBackground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onBackground");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.unregisterForegroundDispatch(elementName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("unregisterForegroundDispatch error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onWindowStageDestroy() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onWindowStageDestroy");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.unregisterForegroundDispatch(elementName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("unregisterForegroundDispatch error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ability生命周期内的其他功能</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagon11>tag.on11+<a href=#tagon11 class=hash-link aria-label=tag.on11+的直接链接 title=tag.on11+的直接链接 translate=no>​</a></h2>
+<p>on(type: 'readerMode', elementName: <a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>, discTech: number[], callback: AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>>): void</p>
+<p>订阅NFC Tag读卡事件，实现前台应用优先分发。设备会进入读卡器模式，同时关闭卡模拟。通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的<a href=#taginfo class="">TagInfo</a>信息。需要与取消读卡器模式的<a href=#tagoff11 class="">tag.off</a>成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用<a href=#tagoff11 class="">tag.off</a>。使用callback异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>要注册的回调类型，固定填"readerMode"字符串。<tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。<tr><td>discTech<td>number[]<td>是<td>前台应用指定的NFC读卡技术类型，不可以为空，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含<a href=#%E5%B8%B8%E9%87%8F class="">NFC_A</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_B</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_F</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_V</a>中的一种或多种）。<tr><td>callback<td>AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>><td>是<td>读卡器模式监听回调函数，返回读到的Tag信息，不可以为空。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.<tr><td>3100202<td>The element state is invalid.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>示例请参见<a href=#tagoff11 class="">tag.off</a>接口的示例。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagoff11>tag.off11+<a href=#tagoff11 class=hash-link aria-label=tag.off11+的直接链接 title=tag.off11+的直接链接 translate=no>​</a></h2>
+<p>off(type: 'readerMode', elementName: <a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>, callback?: AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>>): void</p>
+<p>取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过<a href=#tagon11 class="">tag.on</a>设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>要注销的回调类型，固定填"readerMode"字符串。<tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值），不可以为空。<tr><td>callback<td>AsyncCallback&lt;<a href=#taginfo class="">TagInfo</a>><td>否<td>前台读卡监听回调函数，返回读到的Tag信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.<tr><td>3100203<td>The off() API can be called only when the on() has been called.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { AbilityConstant, UIAbility, Want, bundleManager } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let discTech : number[] = [tag.NFC_A, tag.NFC_B]; // 用前台ability时所需要的技术代替</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let elementName : bundleManager.ElementName;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function readerModeCb(err : BusinessError, tagInfo : tag.TagInfo) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("offCallback: tag found tagInfo = ", JSON.stringify(tagInfo));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("offCallback err: " + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // taginfo的其他操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default class MainAbility extends UIAbility {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    OnCreate(want : Want, launchParam : AbilityConstant.LaunchParam) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("OnCreate");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        elementName = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            bundleName: want.bundleName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            abilityName: want.abilityName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            moduleName: want.moduleName as string</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onForeground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("on start");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.on('readerMode', elementName, discTech, readerModeCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.on error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onBackground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onBackground");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.off('readerMode', elementName, readerModeCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.off error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onWindowStageDestroy() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onWindowStageDestroy");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.off('readerMode', elementName, readerModeCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.off error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ability生命周期内的其他功能</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagon23>tag.on23+<a href=#tagon23 class=hash-link aria-label=tag.on23+的直接链接 title=tag.on23+的直接链接 translate=no>​</a></h2>
+<p>on(type: 'readerModeWithInterval', elementName: ElementName, discTech: number[], callback: Callback&lt;TagInfo>, interval: number): void</p>
+<p>订阅NFC Tag读卡事件，实现前台应用优先分发，并支持卡在位检测间隔设置。使用callback异步回调。</p>
+<ul>
+<li class="">设备会进入读卡器模式，同时关闭卡模拟。</li>
+<li class="">通过discTech设置支持的读卡技术类型，通过callback方式获取到Tag的<a href=#taginfo class="">TagInfo</a>信息，通过interval设置卡在位检测间隔。</li>
+<li class="">需要与取消读卡器模式的<a href=#tagoff23 class="">tag.off</a>成对使用，如果已通过on进行设置，需要在页面退出前台或页面销毁时调用<a href=#tagoff23 class="">tag.off</a>。</li>
+</ul>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>要注册的回调类型，固定填"readerModeWithInterval"字符串。<tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。<tr><td>discTech<td>number[]<td>是<td>前台应用指定的NFC读卡技术类型，至少指定一种读卡技术类型。每个number值表示所支持技术类型的常量值型，根据number值设置NFC读卡轮询的Tag技术类型（仅包含<a href=#%E5%B8%B8%E9%87%8F class="">NFC_A</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_B</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_F</a>, <a href=#%E5%B8%B8%E9%87%8F class="">NFC_V</a>中的一种或多种）。<tr><td>callback<td>Callback&lt;<a href=#taginfo class="">TagInfo</a>><td>是<td>读卡器模式监听回调函数，返回读到的Tag信息。<tr><td>interval<td>number<td>是<td>设置卡在位检测间隔，单位为ms。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.<tr><td>3100202<td>The element state is invalid.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>示例请参见<a href=#tagoff23 class="">tag.off</a>接口的示例。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagoff23>tag.off23+<a href=#tagoff23 class=hash-link aria-label=tag.off23+的直接链接 title=tag.off23+的直接链接 translate=no>​</a></h2>
+<p>off(type: 'readerModeWithInterval', elementName: ElementName, callback?: Callback&lt;TagInfo>): void</p>
+<p>取消订阅NFC Tag读卡事件。设备退出读卡模式，并恢复卡模拟。如果已通过<a href=#tagon23 class="">tag.on</a>设置NFC的读卡器模式，需要在页面退出前台或页面销毁时调用off进行取消。使用callback异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>要注销的回调类型，固定填"readerModeWithInterval"字符串。<tr><td>elementName<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a><td>是<td>所属应用读卡的页面信息（至少包含bundleName、abilityName这两项的赋值）。<tr><td>callback<td>Callback&lt;<a href=#taginfo class="">TagInfo</a>><td>否<td>前台读卡监听回调函数，返回读到的Tag信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>3100201<td>The tag running state is abnormal in the service.<tr><td>3100203<td>The off() API can be called only when the on() has been called.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { AbilityConstant, UIAbility, Want, bundleManager } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let discTech : number[] = [tag.NFC_A, tag.NFC_B]; // 用前台ability时所需要的技术代替</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let elementName : bundleManager.ElementName;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let interval : number = 200;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function readerModeCb(err : BusinessError, tagInfo : tag.TagInfo) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("offCallback: tag found tagInfo = ", JSON.stringify(tagInfo));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("offCallback err: " + err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // taginfo的其他操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default class MainAbility extends UIAbility {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    OnCreate(want : Want, launchParam : AbilityConstant.LaunchParam) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("OnCreate");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        elementName = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            bundleName: want.bundleName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            abilityName: want.abilityName as string,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            moduleName: want.moduleName as string</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onForeground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("on start");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.on('readerModeWithInterval', elementName, discTech, readerModeCb, interval);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.on error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onBackground() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onBackground");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.off('readerModeWithInterval', elementName, readerModeCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.off error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onWindowStageDestroy() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("onWindowStageDestroy");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            tag.off('readerModeWithInterval', elementName, readerModeCb);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error("tag.off error: " + (e as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ability生命周期内的其他功能</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmakeurirecord9>tag.ndef.makeUriRecord9+<a href=#tagndefmakeurirecord9 class=hash-link aria-label=tag.ndef.makeUriRecord9+的直接链接 title=tag.ndef.makeUriRecord9+的直接链接 translate=no>​</a></h2>
+<p>makeUriRecord(uri: string): NdefRecord</p>
+<p>根据输入的URI，构建NDEF标签的Record数据对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>uri<td>string<td>是<td>写入到NDEF Record里面的数据内容。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#ndefrecord9 class="">NdefRecord</a><td>NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let uri = "https://www.example.com"; // 修改为正确可用的uri</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefRecord : tag.NdefRecord = tag.ndef.makeUriRecord(uri);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (ndefRecord != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeUriRecord rtdType: " + ndefRecord.rtdType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeUriRecord payload: " + ndefRecord.payload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("ndefMessage makeUriRecord ndefRecord: " + ndefRecord);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndefMessage makeUriRecord catch businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmaketextrecord9>tag.ndef.makeTextRecord9+<a href=#tagndefmaketextrecord9 class=hash-link aria-label=tag.ndef.makeTextRecord9+的直接链接 title=tag.ndef.makeTextRecord9+的直接链接 translate=no>​</a></h2>
+<p>makeTextRecord(text: string, locale: string): NdefRecord</p>
+<p>根据输入的文本数据和编码类型，构建NDEF标签的Record。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>text<td>string<td>是<td>写入到NDEF Record里面的文本数据内容。<tr><td>locale<td>string<td>是<td>文本数据内容的编码方式。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#ndefrecord9 class="">NdefRecord</a><td>NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let text = "Hello World";   // 修改为想要写入的文本</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let locale = "en"; // 修改为预期的编码格式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefRecord : tag.NdefRecord = tag.ndef.makeTextRecord(text, locale);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (ndefRecord != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeTextRecord rtdType: " + ndefRecord.rtdType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeTextRecord payload: " + ndefRecord.payload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("ndefMessage makeTextRecord ndefRecord: " + ndefRecord);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndefMessage makeTextRecord catch businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmakeapplicationrecord18>tag.ndef.makeApplicationRecord18+<a href=#tagndefmakeapplicationrecord18 class=hash-link aria-label=tag.ndef.makeApplicationRecord18+的直接链接 title=tag.ndef.makeApplicationRecord18+的直接链接 translate=no>​</a></h2>
+<p>makeApplicationRecord(bundleName: string): NdefRecord</p>
+<p>根据HarmonyOS应用的bundlename，构建NDEF标签的Record。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>bundleName<td>string<td>是<td>要创建标签的应用包名。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#ndefrecord9 class="">NdefRecord</a><td>NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let bundleName: string = 'com.demo.test';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefRecord : tag.NdefRecord = tag.ndef.makeApplicationRecord(bundleName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (ndefRecord != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeApplicationRecord rtdType: " + ndefRecord.rtdType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeApplicationRecord payload: " + ndefRecord.payload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("ndefMessage makeApplicationRecord ndefRecord: " + ndefRecord);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndefMessage makeApplicationRecord catch businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmakemimerecord9>tag.ndef.makeMimeRecord9+<a href=#tagndefmakemimerecord9 class=hash-link aria-label=tag.ndef.makeMimeRecord9+的直接链接 title=tag.ndef.makeMimeRecord9+的直接链接 translate=no>​</a></h2>
+<p>makeMimeRecord(mimeType: string, mimeData: number[]): NdefRecord</p>
+<p>根据输入的MIME数据和类型，构建NDEF标签的Record。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>mimeType<td>string<td>是<td>符合RFC规则的MIME类型，比如"text/plain"或"image/jpeg"。<tr><td>mimeData<td>number[]<td>是<td>MIME数据内容，每个number十六进制表示，范围是0x00~0xFF。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#ndefrecord9 class="">NdefRecord</a><td>NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mimeType = "text/plain";   // 修改为预期的符合规则的MIME类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mimeData = [0x01, 0x02, 0x03, 0x04]; // 修改为预期的符合格式的数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefRecord : tag.NdefRecord = tag.ndef.makeMimeRecord(mimeType, mimeData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (ndefRecord != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeMimeRecord rtdType: " + ndefRecord.rtdType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeMimeRecord payload: " + ndefRecord.payload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("ndefMessage makeMimeRecord ndefRecord: " + ndefRecord);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndefMessage makeMimeRecord catch businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmakeexternalrecord9>tag.ndef.makeExternalRecord9+<a href=#tagndefmakeexternalrecord9 class=hash-link aria-label=tag.ndef.makeExternalRecord9+的直接链接 title=tag.ndef.makeExternalRecord9+的直接链接 translate=no>​</a></h2>
+<p>makeExternalRecord(domainName: string, type: string, externalData: number[]): NdefRecord</p>
+<p>根据应用程序特定的外部数据，构建NDEF标签的Record。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>domainName<td>string<td>是<td>外部数据发布组织的域名，一般是应用程序的包名。<tr><td>type<td>string<td>是<td>外部数据的指定类型。<tr><td>externalData<td>number[]<td>是<td>外部数据内容，每个number十六进制表示，范围是0x00~0xFF。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a href=#ndefrecord9 class="">NdefRecord</a><td>NDEF标签的Record，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let domainName = "ohos.nfc.application"; // 修改为符合规范的包名</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let type = "test"; // 修改为正确的数据类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let externalData = [0x01, 0x02, 0x03, 0x04]; // 修改为正确的外部数据内容</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefRecord : tag.NdefRecord = tag.ndef.makeExternalRecord(domainName, type, externalData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (ndefRecord != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeExternalRecord rtdType: " + ndefRecord.rtdType);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("ndefMessage makeExternalRecord payload: " + ndefRecord.payload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("ndefMessage makeExternalRecord ndefRecord: " + ndefRecord);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndefMessage makeExternalRecord catch businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefmessagetobytes9>tag.ndef.messageToBytes9+<a href=#tagndefmessagetobytes9 class=hash-link aria-label=tag.ndef.messageToBytes9+的直接链接 title=tag.ndef.messageToBytes9+的直接链接 translate=no>​</a></h2>
+<p>messageToBytes(ndefMessage: <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a>): number[]</p>
+<p>把输入的NDEF消息数据对象，转换为字节格式的数据。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>ndefMessage<td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a><td>是<td>NDEF消息数据对象。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>number[]<td>NDEF消息数据对象，所转换成的字节格式的数据。每个number十六进制表示，范围是0x00~0xFF。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let rawData = [0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43]; // 必须符合NDEF格式的数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefMessage : tag.NdefMessage = tag.ndef.createNdefMessage(rawData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("ndef createNdefMessage, ndefMessage: " + ndefMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let rawData2 : number[] = tag.ndef.messageToBytes(ndefMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("ndefMessage messageToBytes rawData2: " + rawData2);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndef createNdefMessage businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefcreatendefmessage9>tag.ndef.createNdefMessage9+<a href=#tagndefcreatendefmessage9 class=hash-link aria-label=tag.ndef.createNdefMessage9+的直接链接 title=tag.ndef.createNdefMessage9+的直接链接 translate=no>​</a></h2>
+<p>createNdefMessage(data: number[]): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a></p>
+<p>使用原始字节数据创建NDEF标签的Message。该数据必须符合NDEF Record数据格式，如果不符合格式，则返回的NdefMessage数据对象，所包含的NDEF Record列表会为空。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>data<td>number[]<td>是<td>原始字节，每个number十六进制表示，范围是0x00~0xFF。要求必须满足NDEF Record的格式。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a><td>NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let rawData = [0xD1, 0x01, 0x03, 0x54, 0x4E, 0x46, 0x43];  //必须是可以被解析的NDEF记录</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefMessage : tag.NdefMessage = tag.ndef.createNdefMessage(rawData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("ndef createNdefMessage, ndefMessage: " + ndefMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndef createNdefMessage businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagndefcreatendefmessage9-1>tag.ndef.createNdefMessage9+<a href=#tagndefcreatendefmessage9-1 class=hash-link aria-label=tag.ndef.createNdefMessage9+的直接链接 title=tag.ndef.createNdefMessage9+的直接链接 translate=no>​</a></h2>
+<p>createNdefMessage(ndefRecords: NdefRecord[]): <a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a></p>
+<p>使用NDEF Records列表，创建NDEF Message。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>ndefRecords<td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag#ndefrecord9>NdefRecord</a>[]<td>是<td>NDEF标签的Record列表，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>NdefMessage</a><td>NDEF标签的Message，详见NDEF技术规范《NFCForum-TS-NDEF_1.0》。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-nfc/errorcode-nfc>NFC错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed. Possible causes:  1. Mandatory parameters are left unspecified.  2. Incorrect parameters types.  3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { tag } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let uriRecord : tag.NdefRecord = tag.ndef.makeUriRecord("https://www.example.com");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let textRecord : tag.NdefRecord = tag.ndef.makeTextRecord("Hello World", "en");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let ndefRecords : tag.NdefRecord[] = [uriRecord, textRecord];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let ndefMessage : tag.NdefMessage = tag.ndef.createNdefMessage(ndefRecords);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("ndef createNdefMessage ndefMessage: " + ndefMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (businessError) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("ndef createNdefMessage businessError: " + businessError);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=taginfo>TagInfo<a href=#taginfo class=hash-link aria-label=TagInfo的直接链接 title=TagInfo的直接链接 translate=no>​</a></h2>
+<p>NFC服务在读取到标签时给出的对象，通过该对象属性，应用知道该标签支持哪些技术类型，并使用匹配的技术类型来调用相关接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.NFC_TAG</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th><strong><strong>可选</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>uid9+<td>number[]<td>否<td>否<td>标签的uid，每个number值是十六进制表示，范围是0x00~0xFF。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>technology9+<td>number[]<td>否<td>否<td>支持的技术类型，每个number值表示所支持技术类型的常量值。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>supportedProfiles(deprecated)<td>number[]<td>否<td>否<td>支持的技术类型。  <strong><strong>说明：</strong></strong> 从API version 7开始支持，从API version 9开始废弃，使用<a href=#taginfo class="">tag.TagInfo#technology</a>替代。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ndefrecord9>NdefRecord9+<a href=#ndefrecord9 class=hash-link aria-label=NdefRecord9+的直接链接 title=NdefRecord9+的直接链接 translate=no>​</a></h2>
+<p>NDEF标签Record属性的定义，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th><strong><strong>可选</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>tnf<td>number<td>否<td>否<td>NDEF Record的TNF(Type Name Field)。<tr><td>rtdType<td>number[]<td>否<td>否<td>NDEF Record的RTD(Record Type Definition)类型值，每个number十六进制表示，范围是0x00~0xFF。<tr><td>id<td>number[]<td>否<td>否<td>NDEF Record的ID，每个number十六进制表示，范围是0x00~0xFF。<tr><td>payload<td>number[]<td>否<td>否<td>NDEF Record的PAYLOAD，每个number十六进制表示，范围是0x00~0xFF。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=常量>常量<a href=#常量 class=hash-link aria-label=常量的直接链接 title=常量的直接链接 translate=no>​</a></h2>
+<p>NFC Tag有多种不同的技术类型，定义常量描述不同的技术类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>NFC_A<td>number<td>1<td>NFC-A (ISO 14443-3A)技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NFC_B<td>number<td>2<td>NFC-B (ISO 14443-3B)技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>ISO_DEP<td>number<td>3<td>ISO-DEP (ISO 14443-4)技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NFC_F<td>number<td>4<td>NFC-F (JIS 6319-4)技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NFC_V<td>number<td>5<td>NFC-V (ISO 15693)技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NDEF<td>number<td>6<td>NDEF技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NDEF_FORMATABLE9+<td>number<td>7<td>可以格式化的NDEF技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>MIFARE_CLASSIC<td>number<td>8<td>MIFARE Classic技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>MIFARE_ULTRALIGHT<td>number<td>9<td>MIFARE Ultralight技术。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>NFC_BARCODE18+<td>number<td>10<td>BARCODE技术。  <strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。<tr><td>RTD_TEXT9+<td>number[]<td>[0x54]<td>文本类型的NDEF Record，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>RTD_URI9+<td>number[]<td>[0x55]<td>URI类型的NDEF Record，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tnftype9>TnfType9+<a href=#tnftype9 class=hash-link aria-label=TnfType9+的直接链接 title=TnfType9+的直接链接 translate=no>​</a></h2>
+<p>NDEF Record的TNF(Type Name Field)类型值，参考NDEF标签技术规范《NFCForum-TS-NDEF_1.0》的定义细节。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>TNF_EMPTY<td>0x0<td>Empty。<tr><td>TNF_WELL_KNOWN<td>0x1<td>NFC Forum well-known type [NFC RTD]。<tr><td>TNF_MEDIA<td>0x2<td>Media-type as defined in RFC 2046 [RFC 2046]。<tr><td>TNF_ABSOLUTE_URI<td>0x3<td>Absolute URI as defined in RFC 3986 [RFC 3986]。<tr><td>TNF_EXT_APP<td>0x4<td>NFC Forum external type [NFC RTD]。<tr><td>TNF_UNKNOWN<td>0x5<td>Unknown。<tr><td>TNF_UNCHANGED<td>0x6<td>Unchanged (see section 2.3.3)。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nfcforumtype9>NfcForumType9+<a href=#nfcforumtype9 class=hash-link aria-label=NfcForumType9+的直接链接 title=NfcForumType9+的直接链接 translate=no>​</a></h2>
+<p>NFC Forum标准里面Tag类型的定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>NFC_FORUM_TYPE_1<td>1<td>NFC论坛类型1。<tr><td>NFC_FORUM_TYPE_2<td>2<td>NFC论坛类型2。<tr><td>NFC_FORUM_TYPE_3<td>3<td>NFC论坛类型3。<tr><td>NFC_FORUM_TYPE_4<td>4<td>NFC论坛类型4。<tr><td>MIFARE_CLASSIC<td>101<td>MIFARE Classic类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mifareclassictype9>MifareClassicType9+<a href=#mifareclassictype9 class=hash-link aria-label=MifareClassicType9+的直接链接 title=MifareClassicType9+的直接链接 translate=no>​</a></h2>
+<p>MIFARE Classic标签类型的定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>TYPE_UNKNOWN<td>0<td>未知的MIFARE类型。<tr><td>TYPE_CLASSIC<td>1<td>MIFARE Classic类型。<tr><td>TYPE_PLUS<td>2<td>MIFARE Plus类型。<tr><td>TYPE_PRO<td>3<td>MIFARE Pro类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mifareclassicsize9>MifareClassicSize9+<a href=#mifareclassicsize9 class=hash-link aria-label=MifareClassicSize9+的直接链接 title=MifareClassicSize9+的直接链接 translate=no>​</a></h2>
+<p>MIFARE Classic标签存储大小的定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>MC_SIZE_MINI<td>320<td>每个标签5个扇区，每个扇区4个块。<tr><td>MC_SIZE_1K<td>1024<td>每个标签16个扇区，每个扇区4个块。<tr><td>MC_SIZE_2K<td>2048<td>每个标签32个扇区，每个扇区4个块。<tr><td>MC_SIZE_4K<td>4096<td>每个标签40个扇区，每个扇区4个块。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mifareultralighttype9>MifareUltralightType9+<a href=#mifareultralighttype9 class=hash-link aria-label=MifareUltralightType9+的直接链接 title=MifareUltralightType9+的直接链接 translate=no>​</a></h2>
+<p>MIFARE Ultralight标签类型的定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>TYPE_UNKNOWN<td>0<td>未知的 MIFARE 类型。<tr><td>TYPE_ULTRALIGHT<td>1<td>MIFARE Ultralight类型。<tr><td>TYPE_ULTRALIGHT_C<td>2<td>MIFARE UltralightC 类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nfcatag>NfcATag<a href=#nfcatag class=hash-link aria-label=NfcATag的直接链接 title=NfcATag的直接链接 translate=no>​</a></h2>
+<p>type NfcATag = _NfcATag</p>
+<p>获取NfcATag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcatag>_NfcATag</a><td>NfcATag 提供 NFC-A(ISO 14443-3A)技术的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nfcbtag>NfcBTag<a href=#nfcbtag class=hash-link aria-label=NfcBTag的直接链接 title=NfcBTag的直接链接 translate=no>​</a></h2>
+<p>type NfcBTag = _NfcBTag</p>
+<p>获取NfcBTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcbtag>_NfcBTag</a><td>NfcBTag 提供 NFC-B(ISO 14443-3B)技术的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nfcftag>NfcFTag<a href=#nfcftag class=hash-link aria-label=NfcFTag的直接链接 title=NfcFTag的直接链接 translate=no>​</a></h2>
+<p>type NfcFTag = _NfcFTag</p>
+<p>获取NfcFTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcftag>_NfcFTag</a><td>NfcFTag 提供对 NFC-F(JIS 6319-4)技术的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nfcvtag>NfcVTag<a href=#nfcvtag class=hash-link aria-label=NfcVTag的直接链接 title=NfcVTag的直接链接 translate=no>​</a></h2>
+<p>type NfcVTag = _NfcVTag</p>
+<p>获取NfcVTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#nfcvtag>_NfcVTag</a><td>NfcVTag 提供对 NFC-V(ISO 15693)技术的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=isodeptag9>IsoDepTag9+<a href=#isodeptag9 class=hash-link aria-label=IsoDepTag9+的直接链接 title=IsoDepTag9+的直接链接 translate=no>​</a></h2>
+<p>type IsoDepTag = _IsoDepTag</p>
+<p>获取IsoDepTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#isodeptag9>_IsoDepTag</a><td>IsoDepTag 提供 ISO-DEP(ISO 14443-4)技术的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ndeftag9>NdefTag9+<a href=#ndeftag9 class=hash-link aria-label=NdefTag9+的直接链接 title=NdefTag9+的直接链接 translate=no>​</a></h2>
+<p>type NdefTag = _NdefTag</p>
+<p>获取NdefTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndeftag9>_NdefTag</a><td>提供对已格式化为NDEF的NFC标签的数据和操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mifareclassictag9>MifareClassicTag9+<a href=#mifareclassictag9 class=hash-link aria-label=MifareClassicTag9+的直接链接 title=MifareClassicTag9+的直接链接 translate=no>​</a></h2>
+<p>type MifareClassicTag = _MifareClassicTag</p>
+<p>获取MifareClassicTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareclassictag9>_MifareClassicTag</a><td>MifareClassicTag提供对MIFARE Classic属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mifareultralighttag9>MifareUltralightTag9+<a href=#mifareultralighttag9 class=hash-link aria-label=MifareUltralightTag9+的直接链接 title=MifareUltralightTag9+的直接链接 translate=no>​</a></h2>
+<p>type MifareUltralightTag = _MifareUltralightTag;</p>
+<p>获取MifareUltralightTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#mifareultralighttag9>_MifareUltralightTag</a><td>MifareUltralightTag 提供对MIFARE Ultralight属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ndefformatabletag9>NdefFormatableTag9+<a href=#ndefformatabletag9 class=hash-link aria-label=NdefFormatableTag9+的直接链接 title=NdefFormatableTag9+的直接链接 translate=no>​</a></h2>
+<p>type NdefFormatableTag = _NdefFormatableTag</p>
+<p>获取NdefFormatableTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefformatabletag9>_NdefFormatableTag</a><td>NdefFormatableTag为NDEF Formattable的标签提供格式化操作。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=barcodetag18>BarcodeTag18+<a href=#barcodetag18 class=hash-link aria-label=BarcodeTag18+的直接链接 title=BarcodeTag18+的直接链接 translate=no>​</a></h2>
+<p>type BarcodeTag = _BarcodeTag</p>
+<p>获取BarcodeTag。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#barcodetag18>_BarcodeTag</a><td>提供对条形码标签的属性和I/O操作的访问。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ndefmessage9>NdefMessage9+<a href=#ndefmessage9 class=hash-link aria-label=NdefMessage9+的直接链接 title=NdefMessage9+的直接链接 translate=no>​</a></h2>
+<p>type NdefMessage = _NdefMessage</p>
+<p>获取NdefMessage。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech#ndefmessage9>_NdefMessage</a><td>获取NDEF消息中的所有记录。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=tagsession>TagSession<a href=#tagsession class=hash-link aria-label=TagSession的直接链接 title=TagSession的直接链接 translate=no>​</a></h2>
+<p>type TagSession = _TagSession</p>
+<p>获取TagSession。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.NFC.Tag</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-tagsession/js-apis-tagsession#tagsession>_TagSession</a><td>TagSession是所有<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech>NFC Tag技术类型</a>的基类， 提供建立连接和发送数据等共同接口。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfccontroller/js-apis-nfccontroller><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.nfc.controller (标准NFC)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-secureelement/js-apis-secureelement><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.secureElement (安全单元的通道管理)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight"><strong><strong>导入模块</strong></strong></a><li><a href=#tagtaginfo class="table-of-contents__link toc-highlight"><strong><strong>tag.TagInfo</strong></strong></a><li><a href=#taggetnfcatagdeprecated class="table-of-contents__link toc-highlight">tag.getNfcATag(deprecated)</a><li><a href=#taggetnfca9 class="table-of-contents__link toc-highlight">tag.getNfcA9+</a><li><a href=#taggetnfcbtagdeprecated class="table-of-contents__link toc-highlight">tag.getNfcBTag(deprecated)</a><li><a href=#taggetnfcb9 class="table-of-contents__link toc-highlight">tag.getNfcB9+</a><li><a href=#taggetnfcftagdeprecated class="table-of-contents__link toc-highlight">tag.getNfcFTag(deprecated)</a><li><a href=#taggetnfcf9 class="table-of-contents__link toc-highlight">tag.getNfcF9+</a><li><a href=#taggetnfcvtagdeprecated class="table-of-contents__link toc-highlight">tag.getNfcVTag(deprecated)</a><li><a href=#taggetnfcv9 class="table-of-contents__link toc-highlight">tag.getNfcV9+</a><li><a href=#taggetisodep9 class="table-of-contents__link toc-highlight">tag.getIsoDep9+</a><li><a href=#taggetndef9 class="table-of-contents__link toc-highlight">tag.getNdef9+</a><li><a href=#taggetmifareclassic9 class="table-of-contents__link toc-highlight">tag.getMifareClassic9+</a><li><a href=#taggetmifareultralight9 class="table-of-contents__link toc-highlight">tag.getMifareUltralight9+</a><li><a href=#taggetndefformatable9 class="table-of-contents__link toc-highlight">tag.getNdefFormatable9+</a><li><a href=#taggetbarcodetag18 class="table-of-contents__link toc-highlight">tag.getBarcodeTag18+</a><li><a href=#taggettaginfo9 class="table-of-contents__link toc-highlight">tag.getTagInfo9+</a><li><a href=#tagregisterforegrounddispatch10 class="table-of-contents__link toc-highlight">tag.registerForegroundDispatch10+</a><li><a href=#tagunregisterforegrounddispatch10 class="table-of-contents__link toc-highlight">tag.unregisterForegroundDispatch10+</a><li><a href=#tagon11 class="table-of-contents__link toc-highlight">tag.on11+</a><li><a href=#tagoff11 class="table-of-contents__link toc-highlight">tag.off11+</a><li><a href=#tagon23 class="table-of-contents__link toc-highlight">tag.on23+</a><li><a href=#tagoff23 class="table-of-contents__link toc-highlight">tag.off23+</a><li><a href=#tagndefmakeurirecord9 class="table-of-contents__link toc-highlight">tag.ndef.makeUriRecord9+</a><li><a href=#tagndefmaketextrecord9 class="table-of-contents__link toc-highlight">tag.ndef.makeTextRecord9+</a><li><a href=#tagndefmakeapplicationrecord18 class="table-of-contents__link toc-highlight">tag.ndef.makeApplicationRecord18+</a><li><a href=#tagndefmakemimerecord9 class="table-of-contents__link toc-highlight">tag.ndef.makeMimeRecord9+</a><li><a href=#tagndefmakeexternalrecord9 class="table-of-contents__link toc-highlight">tag.ndef.makeExternalRecord9+</a><li><a href=#tagndefmessagetobytes9 class="table-of-contents__link toc-highlight">tag.ndef.messageToBytes9+</a><li><a href=#tagndefcreatendefmessage9 class="table-of-contents__link toc-highlight">tag.ndef.createNdefMessage9+</a><li><a href=#tagndefcreatendefmessage9-1 class="table-of-contents__link toc-highlight">tag.ndef.createNdefMessage9+</a><li><a href=#taginfo class="table-of-contents__link toc-highlight">TagInfo</a><li><a href=#ndefrecord9 class="table-of-contents__link toc-highlight">NdefRecord9+</a><li><a href=#常量 class="table-of-contents__link toc-highlight">常量</a><li><a href=#tnftype9 class="table-of-contents__link toc-highlight">TnfType9+</a><li><a href=#nfcforumtype9 class="table-of-contents__link toc-highlight">NfcForumType9+</a><li><a href=#mifareclassictype9 class="table-of-contents__link toc-highlight">MifareClassicType9+</a><li><a href=#mifareclassicsize9 class="table-of-contents__link toc-highlight">MifareClassicSize9+</a><li><a href=#mifareultralighttype9 class="table-of-contents__link toc-highlight">MifareUltralightType9+</a><li><a href=#nfcatag class="table-of-contents__link toc-highlight">NfcATag</a><li><a href=#nfcbtag class="table-of-contents__link toc-highlight">NfcBTag</a><li><a href=#nfcftag class="table-of-contents__link toc-highlight">NfcFTag</a><li><a href=#nfcvtag class="table-of-contents__link toc-highlight">NfcVTag</a><li><a href=#isodeptag9 class="table-of-contents__link toc-highlight">IsoDepTag9+</a><li><a href=#ndeftag9 class="table-of-contents__link toc-highlight">NdefTag9+</a><li><a href=#mifareclassictag9 class="table-of-contents__link toc-highlight">MifareClassicTag9+</a><li><a href=#mifareultralighttag9 class="table-of-contents__link toc-highlight">MifareUltralightTag9+</a><li><a href=#ndefformatabletag9 class="table-of-contents__link toc-highlight">NdefFormatableTag9+</a><li><a href=#barcodetag18 class="table-of-contents__link toc-highlight">BarcodeTag18+</a><li><a href=#ndefmessage9 class="table-of-contents__link toc-highlight">NdefMessage9+</a><li><a href=#tagsession class="table-of-contents__link toc-highlight">TagSession</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

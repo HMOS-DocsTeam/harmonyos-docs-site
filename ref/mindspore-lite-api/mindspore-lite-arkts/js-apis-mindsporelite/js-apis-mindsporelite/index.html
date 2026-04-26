@@ -1,0 +1,1660 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.ai.mindSporeLite (端侧AI框架) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.ai.mindSporeLite (端侧AI框架) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="MindSpore Lite是一个轻量化、高性能的端侧AI引擎，提供了标准的模型推理和训练接口，内置通用硬件高性能算子库，支持Neural Network Runtime Kit使能AI专用芯片加速推理，助力打造全场景智能应用。"/><meta data-rh=true property=og:description content="MindSpore Lite是一个轻量化、高性能的端侧AI引擎，提供了标准的模型推理和训练接口，内置通用硬件高性能算子库，支持Neural Network Runtime Kit使能AI专用芯片加速推理，助力打造全场景智能应用。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite","name":"@ohos.ai.mindSporeLite (端侧AI框架)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title="Agent Framework Kit（智能体框架服务）" class=categoryLinkLabel_W154>Agent Framework Kit（智能体框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cann-api/hiai-foundation-c/cannkit-index/cannkit/cannkit><span title="CANN Kit（CANN异构计算框架服务）" class=categoryLinkLabel_W154>CANN Kit（CANN异构计算框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-speech-api/core-speech-arkts/hms-ai-texttospeech/hms-ai-texttospeech><span title="Core Speech Kit（基础语音服务）" class=categoryLinkLabel_W154>Core Speech Kit（基础语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title="Core Vision Kit（基础视觉服务）" class=categoryLinkLabel_W154>Core Vision Kit（基础视觉服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title="Intents Kit（意图框架服务）" class=categoryLinkLabel_W154>Intents Kit（意图框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/natural-language-api/natural-language-arkts/natural-language-text-processing-api/natural-language-text-processing-api><span title="Natural Language Kit（自然语言理解服务）" class=categoryLinkLabel_W154>Natural Language Kit（自然语言理解服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="MindSpore Lite Kit（昇思推理框架服务）" class=categoryLinkLabel_W154>MindSpore Lite Kit（昇思推理框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="@ohos.ai.mindSporeLite (端侧AI框架)" class=linkLabel_WmDU>@ohos.ai.mindSporeLite (端侧AI框架)</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-c/mindspore-lite-module/capi-mindspore/capi-mindspore><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/neural-network-runtime-api/neural-network-runtime-c/neural-network-runtime-module/capi-neuralnetworkruntime/capi-neuralnetworkruntime><span title="Neural Network Runtime Kit（Neural Network运行时服务）" class=categoryLinkLabel_W154>Neural Network Runtime Kit（Neural Network运行时服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/speech-api/speech-arkts/speech-textreader-api/speech-textreader-api><span title="Speech Kit（场景化语音服务）" class=categoryLinkLabel_W154>Speech Kit（场景化语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title="Vision Kit（场景化视觉服务）" class=categoryLinkLabel_W154>Vision Kit（场景化视觉服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>AI</span><li class=breadcrumbs__item><span class=breadcrumbs__link>MindSpore Lite Kit（昇思推理框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.ai.mindSporeLite (端侧AI框架)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.ai.mindSporeLite (端侧AI框架)</h1></header>
+<p>MindSpore Lite是一个轻量化、高性能的端侧AI引擎，提供了标准的模型推理和训练接口，内置通用硬件高性能算子库，支持Neural Network Runtime Kit使能AI专用芯片加速推理，助力打造全场景智能应用。</p>
+<p>本模块主要介绍MindSpore Lite AI引擎支持模型端侧推理/训练的相关能力。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。示例代码使用模型均为MindSpore端侧模型。</li>
+<li class="">本模块接口仅可在Stage模型下使用。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { mindSporeLite } from '@kit.MindSporeLiteKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfile>mindSporeLite.loadModelFromFile<a href=#mindsporeliteloadmodelfromfile class=hash-link aria-label=mindSporeLite.loadModelFromFile的直接链接 title=mindSporeLite.loadModelFromFile的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFile(model: string, callback: Callback&lt;Model>): void</p>
+<p>从完整路径加载输入模型，用于CPU推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>string<td>是<td>模型的完整输入路径。字符串长度限制跟随文件系统。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile: string = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfile-1>mindSporeLite.loadModelFromFile<a href=#mindsporeliteloadmodelfromfile-1 class=hash-link aria-label=mindSporeLite.loadModelFromFile的直接链接 title=mindSporeLite.loadModelFromFile的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFile(model: string, context: Context, callback: Callback&lt;Model>): void</p>
+<p>从完整路径加载输入模型用于推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>string<td>是<td>模型的完整输入路径。字符串长度限制跟随文件系统。<tr><td>context<td><a href=#context class="">Context</a><td>是<td>运行环境的配置信息。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ['cpu'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile: string = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile, context, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfile-2>mindSporeLite.loadModelFromFile<a href=#mindsporeliteloadmodelfromfile-2 class=hash-link aria-label=mindSporeLite.loadModelFromFile的直接链接 title=mindSporeLite.loadModelFromFile的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFile(model: string, context?: Context): Promise&lt;Model></p>
+<p>从完整路径加载输入模型用于推理。使用Promise异步函数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>string<td>是<td>模型的完整输入路径。字符串长度限制跟随文件系统。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfrombuffer>mindSporeLite.loadModelFromBuffer<a href=#mindsporeliteloadmodelfrombuffer class=hash-link aria-label=mindSporeLite.loadModelFromBuffer的直接链接 title=mindSporeLite.loadModelFromBuffer的直接链接 translate=no>​</a></h2>
+<p>loadModelFromBuffer(model: ArrayBuffer, callback: Callback&lt;Model>): void</p>
+<p>从内存加载输入模型，用于CPU推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>ArrayBuffer<td>是<td>包含模型的内存。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadModelFromBuffer(modelBuffer, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('MS_LITE_LOG: ' + modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfrombuffer-1>mindSporeLite.loadModelFromBuffer<a href=#mindsporeliteloadmodelfrombuffer-1 class=hash-link aria-label=mindSporeLite.loadModelFromBuffer的直接链接 title=mindSporeLite.loadModelFromBuffer的直接链接 translate=no>​</a></h2>
+<p>loadModelFromBuffer(model: ArrayBuffer, context: Context, callback: Callback&lt;Model>): void</p>
+<p>从内存加载输入模型用于推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>ArrayBuffer<td>是<td>包含模型的内存。<tr><td>context<td><a href=#context class="">Context</a><td>是<td>运行环境的配置信息。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    context.target = ['cpu'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadModelFromBuffer(modelBuffer, context, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('MS_LITE_LOG: ' + modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfrombuffer-2>mindSporeLite.loadModelFromBuffer<a href=#mindsporeliteloadmodelfrombuffer-2 class=hash-link aria-label=mindSporeLite.loadModelFromBuffer的直接链接 title=mindSporeLite.loadModelFromBuffer的直接链接 translate=no>​</a></h2>
+<p>loadModelFromBuffer(model: ArrayBuffer, context?: Context): Promise&lt;Model></p>
+<p>从内存加载输入模型用于推理。使用Promise异步函数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>ArrayBuffer<td>是<td>包含模型的内存。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadModelFromBuffer(modelBuffer).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('MS_LITE_LOG: ' + modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfd>mindSporeLite.loadModelFromFd<a href=#mindsporeliteloadmodelfromfd class=hash-link aria-label=mindSporeLite.loadModelFromFd的直接链接 title=mindSporeLite.loadModelFromFd的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFd(model: number, callback: Callback&lt;Model>): void</p>
+<p>从文件描述符加载输入模型，用于CPU推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>number<td>是<td>模型的文件描述符。跟随文件系统返回fd值传入。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let file = fileIo.openSync(modelFile, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFd(file.fd, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfd-1>mindSporeLite.loadModelFromFd<a href=#mindsporeliteloadmodelfromfd-1 class=hash-link aria-label=mindSporeLite.loadModelFromFd的直接链接 title=mindSporeLite.loadModelFromFd的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFd(model: number, context: Context, callback: Callback&lt;Model>): void</p>
+<p>从文件描述符加载输入模型用于推理。使用callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>number<td>是<td>模型的文件描述符。跟随文件系统返回fd值传入。<tr><td>context<td><a href=#context class="">Context</a><td>是<td>运行环境的配置信息。<tr><td>callback<td>Callback&lt;<a href=#model class="">Model</a>><td>是<td>回调函数。返回模型对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ['cpu'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let file = fileIo.openSync(modelFile, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFd(file.fd, context, (mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadmodelfromfd-2>mindSporeLite.loadModelFromFd<a href=#mindsporeliteloadmodelfromfd-2 class=hash-link aria-label=mindSporeLite.loadModelFromFd的直接链接 title=mindSporeLite.loadModelFromFd的直接链接 translate=no>​</a></h2>
+<p>loadModelFromFd(model: number, context?: Context): Promise&lt;Model></p>
+<p>从文件描述符加载输入模型用于推理。使用Promise异步函数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>number<td>是<td>模型的文件描述符。跟随文件系统返回fd值传入。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let file = fileIo.openSync(modelFile, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFd(file.fd).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadtrainmodelfromfile12>mindSporeLite.loadTrainModelFromFile12+<a href=#mindsporeliteloadtrainmodelfromfile12 class=hash-link aria-label=mindSporeLite.loadTrainModelFromFile12+的直接链接 title=mindSporeLite.loadTrainModelFromFile12+的直接链接 translate=no>​</a></h2>
+<p>loadTrainModelFromFile(model: string, trainCfg?: TrainCfg, context?: Context): Promise&lt;Model></p>
+<p>根据路径加载训练模型文件。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>string<td>是<td>模型的完整输入路径。字符串长度限制跟随文件系统。<tr><td>trainCfg<td><a href=#traincfg12 class="">TrainCfg</a><td>否<td>模型训练配置。默认值为TrainCfg各属性默认值。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadTrainModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadtrainmodelfrombuffer12>mindSporeLite.loadTrainModelFromBuffer12+<a href=#mindsporeliteloadtrainmodelfrombuffer12 class=hash-link aria-label=mindSporeLite.loadTrainModelFromBuffer12+的直接链接 title=mindSporeLite.loadTrainModelFromBuffer12+的直接链接 translate=no>​</a></h2>
+<p>loadTrainModelFromBuffer(model: ArrayBuffer, trainCfg?: TrainCfg, context?: Context): Promise&lt;Model></p>
+<p>从内存缓冲区加载训练模型。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>ArrayBuffer<td>是<td>包含训练模型的内存。<tr><td>trainCfg<td><a href=#traincfg12 class="">TrainCfg</a><td>否<td>模型训练配置。默认值为TrainCfg各属性默认值。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadTrainModelFromBuffer(modelBuffer).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("MSLITE trainMode: ", mindSporeLiteModel.trainMode);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporeliteloadtrainmodelfromfd12>mindSporeLite.loadTrainModelFromFd12+<a href=#mindsporeliteloadtrainmodelfromfd12 class=hash-link aria-label=mindSporeLite.loadTrainModelFromFd12+的直接链接 title=mindSporeLite.loadTrainModelFromFd12+的直接链接 translate=no>​</a></h2>
+<p>loadTrainModelFromFd(model: number, trainCfg?: TrainCfg, context?: Context): Promise&lt;Model></p>
+<p>从文件描述符加载训练模型文件。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>model<td>number<td>是<td>训练模型的文件描述符。跟随文件系统返回fd值传入。<tr><td>trainCfg<td><a href=#traincfg12 class="">TrainCfg</a><td>否<td>模型训练配置。默认值为TrainCfg各属性默认值。<tr><td>context<td><a href=#context class="">Context</a><td>否<td>运行环境的配置信息。默认使用CpuDevice初始化。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#model class="">Model</a>><td>Promise对象。返回Model对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let file = fileIo.openSync(modelFile, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadTrainModelFromFd(file.fd).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("MSLITE trainMode: ", mindSporeLiteModel.trainMode);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mindsporelitegetallnnrtdevicedescriptions12>mindSporeLite.getAllNNRTDeviceDescriptions12+<a href=#mindsporelitegetallnnrtdevicedescriptions12 class=hash-link aria-label=mindSporeLite.getAllNNRTDeviceDescriptions12+的直接链接 title=mindSporeLite.getAllNNRTDeviceDescriptions12+的直接链接 translate=no>​</a></h2>
+<p>getAllNNRTDeviceDescriptions() : NNRTDeviceDescription[]</p>
+<p>获取NNRt中的所有设备描述。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#nnrtdevicedescription12 class="">NNRTDeviceDescription</a>[]<td>NNRt设备描述信息数组。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let allDevices = mindSporeLite.getAllNNRTDeviceDescriptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (allDevices == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('MS_LITE_LOG: getAllNNRTDeviceDescriptions is NULL.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=context>Context<a href=#context class=hash-link aria-label=Context的直接链接 title=Context的直接链接 translate=no>​</a></h2>
+<p>定义运行环境的配置信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>target<td>string[]<td>否<td>是<td>配置目标后端。可选'cpu'，'nnrt'，默认'cpu'。<tr><td>cpu<td><a href=#cpudevice class="">CpuDevice</a><td>否<td>是<td>CPU后端设备选项。只有当target包含'cpu'时，才能设置此属性。默认值为CpuDevice各属性默认值。<tr><td>nnrt<td><a href=#nnrtdevice class="">NNRTDevice</a><td>否<td>是<td>NNRt后端设备选项。只有当target包含'nnrt'时，才能设置此属性。默认值为NNRTDevice各属性默认值。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ['cpu','nnrt'];</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=cpudevice>CpuDevice<a href=#cpudevice class=hash-link aria-label=CpuDevice的直接链接 title=CpuDevice的直接链接 translate=no>​</a></h2>
+<p>CPU后端设备选项。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>threadNum<td>number<td>否<td>是<td>设置运行时的线程数，默认值：2。<tr><td>threadAffinityMode<td><a href=#threadaffinitymode class="">ThreadAffinityMode</a><td>否<td>是<td>设置运行时的CPU绑核策略模式，默认值为不绑核：mindSporeLite.ThreadAffinityMode.NO_AFFINITIES。<tr><td>threadAffinityCoreList<td>number[]<td>否<td>是<td>设置运行时的CPU绑核列表，设置绑核策略模式后使能，当绑核策略模式为mindSporeLite.ThreadAffinityMode.NO_AFFINITIES时，绑核列表为空。列表中的数字代表核的序号。默认值：[]。<tr><td>precisionMode<td>string<td>否<td>是<td>设置是否使能<strong><strong>Float16推理模式</strong></strong>，设置为'preferred_fp16'代表使能半精度推理，其余设置情况均为不支持，默认设置'enforce_fp32'表示不使能半精度推理。</table>
+<p><strong><strong>Float16推理模式</strong></strong>： Float16又称半精度，它使用16比特表示一个数。Float16推理模式表示推理的时候用半精度进行推理。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.cpu = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ['cpu'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.cpu.threadNum = 2;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.cpu.threadAffinityMode = 0;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.cpu.precisionMode = 'preferred_fp16';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.cpu.threadAffinityCoreList = [0, 1, 2];</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=threadaffinitymode>ThreadAffinityMode<a href=#threadaffinitymode class=hash-link aria-label=ThreadAffinityMode的直接链接 title=ThreadAffinityMode的直接链接 translate=no>​</a></h2>
+<p>设置运行时的CPU绑核策略模式，有效值为0-2，0为默认不绑核，1为绑大核，2为绑中核。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NO_AFFINITIES<td>0<td>不绑核。<tr><td>BIG_CORES_FIRST<td>1<td>绑大核优先。<tr><td>LITTLE_CORES_FIRST<td>2<td>绑中核优先。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nnrtdevice>NNRTDevice<a href=#nnrtdevice class=hash-link aria-label=NNRTDevice的直接链接 title=NNRTDevice的直接链接 translate=no>​</a></h2>
+<p>Neural Network Runtime表示神经网络运行时，简称NNRt。作为中间桥梁，连通上层 AI 推理框架和底层加速芯片，实现 AI 模型的跨芯片推理计算。MindSpore Lite 可配置NNRt后端。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>deviceID12+<td>bigint<td>否<td>是<td>NNRt设备ID。默认值为0。<tr><td>performanceMode12+<td><a href=#performancemode12 class="">PerformanceMode</a><td>否<td>是<td>NNRt设备的工作性能模式。默认值为PERFORMANCE_NONE。<tr><td>priority12+<td><a href=#priority12 class="">Priority</a><td>否<td>是<td>NNRt推理任务优先级。默认值为PRIORITY_MEDIUM。<tr><td>extensions12+<td><a href=#extension12 class="">Extension</a>[]<td>否<td>是<td>NNRt设备的扩展配置。默认为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=performancemode12>PerformanceMode12+<a href=#performancemode12 class=hash-link aria-label=PerformanceMode12+的直接链接 title=PerformanceMode12+的直接链接 translate=no>​</a></h2>
+<p>NNRt设备的工作性能模式枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>PERFORMANCE_NONE<td>0<td>无特殊设置。<tr><td>PERFORMANCE_LOW<td>1<td>低功耗模式。<tr><td>PERFORMANCE_MEDIUM<td>2<td>功耗-性能均衡模式。<tr><td>PERFORMANCE_HIGH<td>3<td>高性能模式。<tr><td>PERFORMANCE_EXTREME<td>4<td>极致性能模式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=priority12>Priority12+<a href=#priority12 class=hash-link aria-label=Priority12+的直接链接 title=Priority12+的直接链接 translate=no>​</a></h2>
+<p>NNRt推理任务优先级枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>PRIORITY_NONE<td>0<td>无优先级偏好。<tr><td>PRIORITY_LOW<td>1<td>低优先级任务。<tr><td>PRIORITY_MEDIUM<td>2<td>中优先级任务。<tr><td>PRIORITY_HIGH<td>3<td>高优先级任务。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=extension12>Extension12+<a href=#extension12 class=hash-link aria-label=Extension12+的直接链接 title=Extension12+的直接链接 translate=no>​</a></h2>
+<p>定义NNRt设备的扩展信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>扩展名称。<tr><td>value<td>ArrayBuffer<td>否<td>否<td>包含扩展的内存。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nnrtdevicedescription12>NNRTDeviceDescription12+<a href=#nnrtdevicedescription12 class=hash-link aria-label=NNRTDeviceDescription12+的直接链接 title=NNRTDeviceDescription12+的直接链接 translate=no>​</a></h2>
+<p>NNRt设备信息描述，包含设备ID，设备名称等信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=deviceid12>deviceID12+<a href=#deviceid12 class=hash-link aria-label=deviceID12+的直接链接 title=deviceID12+的直接链接 translate=no>​</a></h3>
+<p>deviceID() : bigint</p>
+<p>获取NNRt设备ID。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bigint<td>NNRt设备ID。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ["nnrt"];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.nnrt = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let allDevices = mindSporeLite.getAllNNRTDeviceDescriptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (allDevices == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('getAllNNRTDeviceDescriptions is NULL.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i: number = 0; i &lt; allDevices.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(allDevices[i].deviceID().toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=devicetype12>deviceType12+<a href=#devicetype12 class=hash-link aria-label=deviceType12+的直接链接 title=deviceType12+的直接链接 translate=no>​</a></h3>
+<p>deviceType() : NNRTDeviceType</p>
+<p>获取NNRt设备类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#nnrtdevicetype12 class="">NNRTDeviceType</a><td>NNRt设备类型。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ["nnrt"];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.nnrt = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let allDevices = mindSporeLite.getAllNNRTDeviceDescriptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (allDevices == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('getAllNNRTDeviceDescriptions is NULL.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i: number = 0; i &lt; allDevices.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(allDevices[i].deviceType().toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=devicename12>deviceName12+<a href=#devicename12 class=hash-link aria-label=deviceName12+的直接链接 title=deviceName12+的直接链接 translate=no>​</a></h3>
+<p>deviceName() : string</p>
+<p>获取NNRt设备名称。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>NNRt设备名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let context: mindSporeLite.Context = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.target = ["nnrt"];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.nnrt = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let allDevices = mindSporeLite.getAllNNRTDeviceDescriptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (allDevices == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('getAllNNRTDeviceDescriptions is NULL.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for (let i: number = 0; i &lt; allDevices.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(allDevices[i].deviceName().toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nnrtdevicetype12>NNRTDeviceType12+<a href=#nnrtdevicetype12 class=hash-link aria-label=NNRTDeviceType12+的直接链接 title=NNRTDeviceType12+的直接链接 translate=no>​</a></h2>
+<p>NNRt设备类型枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NNRTDEVICE_OTHERS<td>0<td>设备类型不属于以下3种，则属于其它。<tr><td>NNRTDEVICE_CPU<td>1<td>CPU设备。<tr><td>NNRTDEVICE_GPU<td>2<td>GPU设备。<tr><td>NNRTDEVICE_ACCELERATOR<td>3<td>特定的加速设备。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=traincfg12>TrainCfg12+<a href=#traincfg12 class=hash-link aria-label=TrainCfg12+的直接链接 title=TrainCfg12+的直接链接 translate=no>​</a></h2>
+<p>端侧训练相关参数的配置文件。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>lossName<td>string[]<td>否<td>是<td>损失函数的名称列表。默认值为["loss_fct", "_loss_fn", "SigmoidCrossEntropy"]。<tr><td>optimizationLevel<td><a href=#optimizationlevel12 class="">OptimizationLevel</a><td>否<td>是<td>端侧训练的网络优化等级。默认值为O0。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let cfg: mindSporeLite.TrainCfg = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">cfg.lossName = ["loss_fct", "_loss_fn", "SigmoidCrossEntropy"];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">cfg.optimizationLevel = mindSporeLite.OptimizationLevel.O0;</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=optimizationlevel12>OptimizationLevel12+<a href=#optimizationlevel12 class=hash-link aria-label=OptimizationLevel12+的直接链接 title=OptimizationLevel12+的直接链接 translate=no>​</a></h2>
+<p>端侧训练的网络优化等级枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>O0<td>0<td>无优化等级。<tr><td>O2<td>2<td>将网络转换为float16，保持批量归一化层和损失函数为float32。<tr><td>O3<td>3<td>将网络转换为float16，包括批量归一化层。<tr><td>AUTO<td>4<td>根据设备选择优化等级。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quantizationtype12>QuantizationType12+<a href=#quantizationtype12 class=hash-link aria-label=QuantizationType12+的直接链接 title=QuantizationType12+的直接链接 translate=no>​</a></h2>
+<p>量化类型信息，有效值为0-2。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NO_QUANT<td>0<td>不做量化。<tr><td>WEIGHT_QUANT<td>1<td>权重量化。<tr><td>FULL_QUANT<td>2<td>全量化。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=model>Model<a href=#model class=hash-link aria-label=Model的直接链接 title=Model的直接链接 translate=no>​</a></h2>
+<p>模型实例。描述Model对象的属性和方法。</p>
+<p>下例API示例中都需先使用<a href=#mindsporeliteloadmodelfromfile class="">loadModelFromFile()</a>、<a href=#mindsporeliteloadmodelfrombuffer class="">loadModelFromBuffer()</a>、<a href=#mindsporeliteloadmodelfromfd class="">loadModelFromFd()</a>中的任一方法获取到Model实例，再通过此实例调用对应方法。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>learningRate12+<td>number<td>否<td>是<td>训练模型的学习率。默认值从加载的模型中读取。<tr><td>trainMode12+<td>boolean<td>否<td>是<td>模型是否为训练模式。true表示训练模式，false表示非训练模式。如果是训练模型，trainMode默认是true；如果是推理模型，trainMode默认是false。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getinputs>getInputs<a href=#getinputs class=hash-link aria-label=getInputs的直接链接 title=getInputs的直接链接 translate=no>​</a></h3>
+<p>getInputs(): MSTensor[]</p>
+<p>获取模型的输入用于推理。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#mstensor class="">MSTensor</a>[]<td>返回MSTensor对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (modelInputs == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_ERR: getInputs failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predict>predict<a href=#predict class=hash-link aria-label=predict的直接链接 title=predict的直接链接 translate=no>​</a></h3>
+<p>predict(inputs: MSTensor[], callback: Callback&lt;MSTensor[]>): void</p>
+<p>执行推理模型。使用callback异步回调。需要确保调用时模型对象不被资源回收。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>inputs<td><a href=#mstensor class="">MSTensor</a>[]<td>是<td>模型的输入列表。MSTensor对象。<tr><td>callback<td>Callback&lt;<a href=#mstensor class="">MSTensor</a>[]><td>是<td>回调函数。返回MSTensor对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let inputName = 'input_data.bin';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(inputName)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then(async (buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let inputBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelFile: string = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mindSporeLiteModel: mindSporeLite.Model = await mindSporeLite.loadModelFromFile(modelFile);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    modelInputs[0].setData(inputBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLiteModel.predict(modelInputs, (mindSporeLiteTensor: mindSporeLite.MSTensor[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let output = new Float32Array(mindSporeLiteTensor[0].getData());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (let i = 0; i &lt; output.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('MS_LITE_LOG: ' + output[i].toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=predict-1>predict<a href=#predict-1 class=hash-link aria-label=predict的直接链接 title=predict的直接链接 translate=no>​</a></h3>
+<p>predict(inputs: MSTensor[]): Promise&lt;MSTensor[]></p>
+<p>执行推理模型，返回推理结果。使用Promise异步回调。需要确保调用时模型对象不被资源回收。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>inputs<td><a href=#mstensor class="">MSTensor</a>[]<td>是<td>模型的输入列表。MSTensor对象。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#mstensor class="">MSTensor</a>[]><td>Promise对象。返回MSTensor对象列表。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let inputName = 'input_data.bin';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(inputName)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then(async (buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let inputBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mindSporeLiteModel: mindSporeLite.Model = await mindSporeLite.loadModelFromFile(modelFile);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    modelInputs[0].setData(inputBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLiteModel.predict(modelInputs).then((mindSporeLiteTensor: mindSporeLite.MSTensor[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let output = new Float32Array(mindSporeLiteTensor[0].getData());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (let i = 0; i &lt; output.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(output[i].toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=resize>resize<a href=#resize class=hash-link aria-label=resize的直接链接 title=resize的直接链接 translate=no>​</a></h3>
+<p>resize(inputs: MSTensor[], dims: Array&lt;Array&lt;number>>): boolean</p>
+<p>重新设置张量大小。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>inputs<td><a href=#mstensor class="">MSTensor</a>[]<td>是<td>模型的输入列表。<tr><td>dims<td>Array&lt;Array&lt;number>><td>是<td>需要修改的目标张量大小。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回是否设置成功的结果。true表示重新设置张量大小成功；false表示重新设置张量大小失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let new_dim = new Array([1, 32, 32, 1]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  mindSporeLiteModel.resize(modelInputs, new_dim);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=runstep12>runStep12+<a href=#runstep12 class=hash-link aria-label=runStep12+的直接链接 title=runStep12+的直接链接 translate=no>​</a></h3>
+<p>runStep(inputs: MSTensor[]): boolean</p>
+<p>单步训练模型，仅用于端侧训练。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>inputs<td><a href=#mstensor class="">MSTensor</a>[]<td>是<td>模型的输入列表。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回单步训练模型是否成功的结果。true表示单步训练模型成功，false表示单步训练模型失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadTrainModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  mindSporeLiteModel.trainMode = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const modelInputs = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let ret = mindSporeLiteModel.runStep(modelInputs);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (ret == false) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE_LOG: runStep failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getweights12>getWeights12+<a href=#getweights12 class=hash-link aria-label=getWeights12+的直接链接 title=getWeights12+的直接链接 translate=no>​</a></h3>
+<p>getWeights(): MSTensor[]</p>
+<p>获取模型的所有权重，仅用于端侧训练。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#mstensor class="">MSTensor</a>[]<td>返回模型的权重张量。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((modelBuffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadTrainModelFromBuffer(modelBuffer.buffer.slice(0))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mindSporeLiteModel.trainMode = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        const weights = mindSporeLiteModel.getWeights();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        for (let i = 0; i &lt; weights.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let printStr = weights[i].name + ", ";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          printStr += weights[i].shape + ", ";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          printStr += weights[i].dtype + ", ";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          printStr += weights[i].dataSize + ", ";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          printStr += weights[i].getData();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info("MS_LITE weights: ", printStr);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=updateweights12>updateWeights12+<a href=#updateweights12 class=hash-link aria-label=updateWeights12+的直接链接 title=updateWeights12+的直接链接 translate=no>​</a></h3>
+<p>updateWeights(weights: MSTensor[]): boolean</p>
+<p>更新模型的权重，仅用于端侧训练。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>weights<td><a href=#mstensor class="">MSTensor</a>[]<td>是<td>权重张量列表。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回是否更新权重成功的结果。true表示更新权重成功，false表示更新权重失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((modelBuffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadTrainModelFromBuffer(modelBuffer.buffer.slice(0))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mindSporeLiteModel.trainMode = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        const weights = mindSporeLiteModel.getWeights();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let ret = mindSporeLiteModel.updateWeights(weights);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (ret == false) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.error('MS_LITE_LOG: updateWeights failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setupvirtualbatch12>setupVirtualBatch12+<a href=#setupvirtualbatch12 class=hash-link aria-label=setupVirtualBatch12+的直接链接 title=setupVirtualBatch12+的直接链接 translate=no>​</a></h3>
+<p>setupVirtualBatch(virtualBatchMultiplier: number, lr: number, momentum: number): boolean</p>
+<p>设置虚拟批次用于训练，仅用于端侧训练。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>virtualBatchMultiplier<td>number<td>是<td>虚拟批次乘法器，当设置值小于1时，表示禁用虚拟batch。<tr><td>lr<td>number<td>是<td>学习率。<tr><td>momentum<td>number<td>是<td>动量。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回是否设置虚拟批次成功的结果。true表示设置虚拟批次成功，false表示设置虚拟批次失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let modelFile = 'xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(modelFile)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then((modelBuffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLite.loadTrainModelFromBuffer(modelBuffer.buffer.slice(0))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mindSporeLiteModel.trainMode = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let ret = mindSporeLiteModel.setupVirtualBatch(2, -1, -1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (ret == false) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.error('MS_LITE setupVirtualBatch failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=exportmodel12>exportModel12+<a href=#exportmodel12 class=hash-link aria-label=exportModel12+的直接链接 title=exportModel12+的直接链接 translate=no>​</a></h3>
+<p>exportModel(modelFile: string, quantizationType?: QuantizationType, exportInferenceOnly?: boolean, outputTensorName?: string[]): boolean</p>
+<p>导出训练模型，仅用于端侧训练。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>modelFile<td>string<td>是<td>导出模型的文件路径。字符串长度限制跟随文件系统。<tr><td>quantizationType<td><a href=#quantizationtype12 class="">QuantizationType</a><td>否<td>量化类型，默认为NO_QUANT。<tr><td>exportInferenceOnly<td>boolean<td>否<td>是否只导出推理模型。true表示只导出推理模型，false表示导出训练和推理两个模型。默认为true。<tr><td>outputTensorName<td>string[]<td>否<td>设置导出模型的输出张量的名称。默认为空字符串数组，表示全量导出。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回是否导出训练模型成功的结果。true表示导出训练模型成功，false表示导出训练模型失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let newPath = '/newpath/to';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadTrainModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  mindSporeLiteModel.trainMode = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let ret = mindSporeLiteModel.exportModel(newPath + "/new_model.ms", mindSporeLite.QuantizationType.NO_QUANT, true);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (ret == false) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MS_LITE exportModel failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=exportweightscollaboratewithmicro12>exportWeightsCollaborateWithMicro12+<a href=#exportweightscollaboratewithmicro12 class=hash-link aria-label=exportWeightsCollaborateWithMicro12+的直接链接 title=exportWeightsCollaborateWithMicro12+的直接链接 translate=no>​</a></h3>
+<p>exportWeightsCollaborateWithMicro(weightFile: string, isInference?: boolean, enableFp16?: boolean, changeableWeightsName?: string[]): boolean</p>
+<p>导出供<strong><strong>micro推理</strong></strong>使用的模型权重，仅用于端侧训练。</p>
+<p><strong><strong>micro推理</strong></strong>：MindSpore Lite针对MCUs（MicroControllerUnits）部署硬件后端，提供了一种超轻量Micro AI部署解决方案，离线阶段直接将模型生成轻量化代码，不再需要在线解析模型和图编译。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>weightFile<td>string<td>是<td>权重文件路径。字符串长度限制跟随文件系统。<tr><td>isInference<td>boolean<td>否<td>是否从推理模型中导出权重。true表示从推理模型中导出权重，目前只支持true，默认为true。<tr><td>enableFp16<td>boolean<td>否<td>浮点权重是否以float16格式保存。true表示以float16格式保存，false表示不以float16格式保存。默认为false。<tr><td>changeableWeightsName<td>string[]<td>否<td>设置可变权重的名称。默认为空字符串数组。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回是否导出供micro推理使用的模型权重成功的结果。true表示导出供micro推理使用的模型权重成功，false表示导出供micro推理使用的模型权重失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let microWeight = '/path/to/xxx.bin';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadTrainModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let ret = mindSporeLiteModel.exportWeightsCollaborateWithMicro(microWeight);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (ret == false) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('MSLITE exportWeightsCollaborateWithMicro failed.')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mstensor>MSTensor<a href=#mstensor class=hash-link aria-label=MSTensor的直接链接 title=MSTensor的直接链接 translate=no>​</a></h2>
+<p>模型张量实例。描述MSTensor对象的属性和方法。它与数组和矩阵非常相似，是MindSpore Lite网络运算中的基本数据结构。</p>
+<p>下例API示例中都需先使用<a href=#getinputs class="">getInputs()</a>获取到MSTensor实例，再通过此实例调用对应方法。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性-1>属性<a href=#属性-1 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>张量的名称。<tr><td>shape<td>number[]<td>否<td>否<td>张量的维度数组。<tr><td>elementNum<td>number<td>否<td>否<td>张量的维度数组的长度。<tr><td>dataSize<td>number<td>否<td>否<td>张量的数据的长度。<tr><td>dtype<td><a href=#datatype class="">DataType</a><td>否<td>否<td>张量的数据类型。<tr><td>format<td><a href=#format class="">Format</a><td>否<td>否<td>张量的数据排布方式。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">mindSporeLite.loadModelFromFile(modelFile).then((mindSporeLiteModel: mindSporeLite.Model) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].shape.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].elementNum.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].dtype.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].format.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(modelInputs[0].dataSize.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdata>getData<a href=#getdata class=hash-link aria-label=getData的直接链接 title=getData的直接链接 translate=no>​</a></h3>
+<p>getData(): ArrayBuffer</p>
+<p>获取张量的数据。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>ArrayBuffer<td>返回张量的数据指针。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let inputName = 'input_data.bin';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(inputName)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then(async (buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let inputBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mindSporeLiteModel: mindSporeLite.Model = await mindSporeLite.loadModelFromFile(modelFile);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    modelInputs[0].setData(inputBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    mindSporeLiteModel.predict(modelInputs).then((mindSporeLiteTensor: mindSporeLite.MSTensor[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let output = new Float32Array(mindSporeLiteTensor[0].getData());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      for (let i = 0; i &lt; output.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(output[i].toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setdata>setData<a href=#setdata class=hash-link aria-label=setData的直接链接 title=setData的直接链接 translate=no>​</a></h3>
+<p>setData(inputArray: ArrayBuffer): void</p>
+<p>设置张量的数据。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>inputArray<td>ArrayBuffer<td>是<td>张量的输入数据缓冲区。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let inputName = 'input_data.bin';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let globalContext = new UIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">globalContext.getApplicationContext()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .resourceManager</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .getRawFileContent(inputName)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then(async (buffer: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let inputBuffer = buffer.buffer;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelFile = '/path/to/xxx.ms';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let mindSporeLiteModel: mindSporeLite.Model = await mindSporeLite.loadModelFromFile(modelFile);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let modelInputs: mindSporeLite.MSTensor[] = mindSporeLiteModel.getInputs();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    modelInputs[0].setData(inputBuffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("getRawFileContent promise error is " + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=datatype>DataType<a href=#datatype class=hash-link aria-label=DataType的直接链接 title=DataType的直接链接 translate=no>​</a></h2>
+<p>张量的数据类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TYPE_UNKNOWN<td>0<td>未知类型。<tr><td>NUMBER_TYPE_INT8<td>32<td>保持Int8的类型。<tr><td>NUMBER_TYPE_INT16<td>33<td>保持Int16的类型。<tr><td>NUMBER_TYPE_INT32<td>34<td>保持Int32的类型。<tr><td>NUMBER_TYPE_INT64<td>35<td>保持Int64的类型。<tr><td>NUMBER_TYPE_UINT8<td>37<td>保持UInt8的类型。<tr><td>NUMBER_TYPE_UINT16<td>38<td>保持UInt16的类型。<tr><td>NUMBER_TYPE_UINT32<td>39<td>保持UInt32的类型。<tr><td>NUMBER_TYPE_UINT64<td>40<td>保持UInt64的类型。<tr><td>NUMBER_TYPE_FLOAT16<td>42<td>保持Float16的类型。<tr><td>NUMBER_TYPE_FLOAT32<td>43<td>保持Float32的类型。<tr><td>NUMBER_TYPE_FLOAT64<td>44<td>保持Float64的类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=format>Format<a href=#format class=hash-link aria-label=Format的直接链接 title=Format的直接链接 translate=no>​</a></h2>
+<p>张量的数据排布方式。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.MindSporeLite</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>DEFAULT_FORMAT<td>-1<td>未知数据排布方式。<tr><td>NCHW<td>0<td>数据排布方式为NCHW。<tr><td>NHWC<td>1<td>数据排布方式为NHWC。<tr><td>NHWC4<td>2<td>数据排布方式为NHWC4。<tr><td>HWKC<td>3<td>数据排布方式为HWKC。<tr><td>HWCK<td>4<td>数据排布方式为HWCK。<tr><td>KCHW<td>5<td>数据排布方式为KCHW。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/natural-language-api/natural-language-error-code/natural-language-error-code><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS API错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-c/mindspore-lite-module/capi-mindspore/capi-mindspore><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>MindSpore</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#mindsporeliteloadmodelfromfile class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFile</a><li><a href=#mindsporeliteloadmodelfromfile-1 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFile</a><li><a href=#mindsporeliteloadmodelfromfile-2 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFile</a><li><a href=#mindsporeliteloadmodelfrombuffer class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromBuffer</a><li><a href=#mindsporeliteloadmodelfrombuffer-1 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromBuffer</a><li><a href=#mindsporeliteloadmodelfrombuffer-2 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromBuffer</a><li><a href=#mindsporeliteloadmodelfromfd class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFd</a><li><a href=#mindsporeliteloadmodelfromfd-1 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFd</a><li><a href=#mindsporeliteloadmodelfromfd-2 class="table-of-contents__link toc-highlight">mindSporeLite.loadModelFromFd</a><li><a href=#mindsporeliteloadtrainmodelfromfile12 class="table-of-contents__link toc-highlight">mindSporeLite.loadTrainModelFromFile12+</a><li><a href=#mindsporeliteloadtrainmodelfrombuffer12 class="table-of-contents__link toc-highlight">mindSporeLite.loadTrainModelFromBuffer12+</a><li><a href=#mindsporeliteloadtrainmodelfromfd12 class="table-of-contents__link toc-highlight">mindSporeLite.loadTrainModelFromFd12+</a><li><a href=#mindsporelitegetallnnrtdevicedescriptions12 class="table-of-contents__link toc-highlight">mindSporeLite.getAllNNRTDeviceDescriptions12+</a><li><a href=#context class="table-of-contents__link toc-highlight">Context</a><li><a href=#cpudevice class="table-of-contents__link toc-highlight">CpuDevice</a><li><a href=#threadaffinitymode class="table-of-contents__link toc-highlight">ThreadAffinityMode</a><li><a href=#nnrtdevice class="table-of-contents__link toc-highlight">NNRTDevice</a><li><a href=#performancemode12 class="table-of-contents__link toc-highlight">PerformanceMode12+</a><li><a href=#priority12 class="table-of-contents__link toc-highlight">Priority12+</a><li><a href=#extension12 class="table-of-contents__link toc-highlight">Extension12+</a><li><a href=#nnrtdevicedescription12 class="table-of-contents__link toc-highlight">NNRTDeviceDescription12+</a><ul><li><a href=#deviceid12 class="table-of-contents__link toc-highlight">deviceID12+</a><li><a href=#devicetype12 class="table-of-contents__link toc-highlight">deviceType12+</a><li><a href=#devicename12 class="table-of-contents__link toc-highlight">deviceName12+</a></ul><li><a href=#nnrtdevicetype12 class="table-of-contents__link toc-highlight">NNRTDeviceType12+</a><li><a href=#traincfg12 class="table-of-contents__link toc-highlight">TrainCfg12+</a><li><a href=#optimizationlevel12 class="table-of-contents__link toc-highlight">OptimizationLevel12+</a><li><a href=#quantizationtype12 class="table-of-contents__link toc-highlight">QuantizationType12+</a><li><a href=#model class="table-of-contents__link toc-highlight">Model</a><ul><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><li><a href=#getinputs class="table-of-contents__link toc-highlight">getInputs</a><li><a href=#predict class="table-of-contents__link toc-highlight">predict</a><li><a href=#predict-1 class="table-of-contents__link toc-highlight">predict</a><li><a href=#resize class="table-of-contents__link toc-highlight">resize</a><li><a href=#runstep12 class="table-of-contents__link toc-highlight">runStep12+</a><li><a href=#getweights12 class="table-of-contents__link toc-highlight">getWeights12+</a><li><a href=#updateweights12 class="table-of-contents__link toc-highlight">updateWeights12+</a><li><a href=#setupvirtualbatch12 class="table-of-contents__link toc-highlight">setupVirtualBatch12+</a><li><a href=#exportmodel12 class="table-of-contents__link toc-highlight">exportModel12+</a><li><a href=#exportweightscollaboratewithmicro12 class="table-of-contents__link toc-highlight">exportWeightsCollaborateWithMicro12+</a></ul><li><a href=#mstensor class="table-of-contents__link toc-highlight">MSTensor</a><ul><li><a href=#属性-1 class="table-of-contents__link toc-highlight">属性</a><li><a href=#getdata class="table-of-contents__link toc-highlight">getData</a><li><a href=#setdata class="table-of-contents__link toc-highlight">setData</a></ul><li><a href=#datatype class="table-of-contents__link toc-highlight">DataType</a><li><a href=#format class="table-of-contents__link toc-highlight">Format</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

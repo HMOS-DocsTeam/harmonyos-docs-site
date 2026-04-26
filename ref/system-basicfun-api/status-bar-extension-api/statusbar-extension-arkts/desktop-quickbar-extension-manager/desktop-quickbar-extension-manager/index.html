@@ -1,0 +1,998 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>quickBarManager（快捷栏管理服务） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="quickBarManager（快捷栏管理服务） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块为应用提供接入快捷栏能力。应用可以通过接入相应的API，可自定义应用在快捷栏右键菜单。 /><meta data-rh=true property=og:description content=本模块为应用提供接入快捷栏能力。应用可以通过接入相应的API，可自定义应用在快捷栏右键菜单。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager","name":"quickBarManager（快捷栏管理服务）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title="Basic Services Kit（基础服务）" class=categoryLinkLabel_W154>Basic Services Kit（基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-manager/statusbar-extension-manager><span title="Desktop Extension Kit（桌面拓展服务）" class=categoryLinkLabel_W154>Desktop Extension Kit（桌面拓展服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-manager/statusbar-extension-manager><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-manager/statusbar-extension-manager><span title=statusBarManager（状态栏管理服务） class=linkLabel_WmDU>statusBarManager（状态栏管理服务）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-ability/statusbar-extension-ability><span title=StatusBarViewExtensionAbility（状态栏扩展Ability） class=linkLabel_WmDU>StatusBarViewExtensionAbility（状态栏扩展Ability）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/desktop-quickbar-extension-manager/desktop-quickbar-extension-manager><span title=quickBarManager（快捷栏管理服务） class=linkLabel_WmDU>quickBarManager（快捷栏管理服务）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/fast-api/fast-c/fast-kit-index/fast-kit-fast/fast-kit-fast><span title="FAST Kit（算法加速服务）" class=categoryLinkLabel_W154>FAST Kit（算法加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/function-flow-runtime-api/function-flow-runtime-c/function-flow-runtime-module/capi-ffrt/capi-ffrt><span title="Function Flow Runtime Kit" class=categoryLinkLabel_W154>Function Flow Runtime Kit</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/input-api/input-arkts/js-apis-inputdevice/js-apis-inputdevice><span title="Input Kit（多模输入服务）" class=categoryLinkLabel_W154>Input Kit（多模输入服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-accountmanager/js-apis-enterprise-accountmanager><span title="MDM Kit（企业设备管理服务）" class=categoryLinkLabel_W154>MDM Kit（企业设备管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/kernel-api/kernel-c/kernel-module/capi-qos/capi-qos><span title="Kernel Enhance Kit（内核增强能力）" class=categoryLinkLabel_W154>Kernel Enhance Kit（内核增强能力）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>基础功能</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Desktop Extension Kit（桌面拓展服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>quickBarManager（快捷栏管理服务）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>quickBarManager（快捷栏管理服务）</h1></header>
+<p>本模块为应用提供接入快捷栏能力。应用可以通过接入相应的API，可自定义应用在快捷栏右键菜单。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerquicktaskinfo>quickBarManager.QuickTaskInfo<a href=#quickbarmanagerquicktaskinfo class=hash-link aria-label=quickBarManager.QuickTaskInfo的直接链接 title=quickBarManager.QuickTaskInfo的直接链接 translate=no>​</a></h2>
+<p>快捷栏菜单任务的详细参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>taskName<td>string<td>否<td>否<td>快捷栏图标菜单任务的任务名称。  字符串长度范围：[1, 512]，且内容不为空。<tr><td>abilityName<td>string<td>否<td>否<td>点击菜单任务拉起的应用的Ability名称。  字符串长度范围：[1, 512]，且内容不为空。<tr><td>moduleName<td>string<td>否<td>是<td>点击菜单项任务拉起的应用的Ability所在的模块名称。  字符串长度范围：[1, 512]，且内容不为空。  默认值：''。<tr><td>taskIcon<td><a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>image.PixelMap</a><td>否<td>是<td>快捷栏图标菜单任务的图片信息，支持JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG等图片类型。  默认值：undefined。  <strong><strong>说明：</strong></strong> 建议使用512vp * 512vp大小的图片，若不传入图片信息，则使用应用图标作为任务图标。<tr><td>taskDetail<td>string<td>否<td>是<td>快捷栏图标菜单任务的描述信息。  默认值：''。<tr><td>parameters<td><a href=#quickbarmanagerparameteritem class="">ParameterItem</a>[]<td>否<td>是<td>快捷栏图标菜单任务的自定义参数。  数组大小范围：小于等于64。  默认值：undefined。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerquicktask>quickBarManager.QuickTask<a href=#quickbarmanagerquicktask class=hash-link aria-label=quickBarManager.QuickTask的直接链接 title=quickBarManager.QuickTask的直接链接 translate=no>​</a></h2>
+<p>应用的快捷栏菜单任务的信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>taskId<td>number<td>是<td>否<td>快捷栏图标菜单任务的任务Id。<tr><td>categoryId<td>number<td>是<td>否<td>快捷栏图标菜单分组的分组Id。<tr><td>taskInfo<td><a href=#quickbarmanagerquicktaskinfo class="">QuickTaskInfo</a><td>否<td>否<td>接入快捷栏的任务信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerparameteritem>quickBarManager.ParameterItem<a href=#quickbarmanagerparameteritem class=hash-link aria-label=quickBarManager.ParameterItem的直接链接 title=quickBarManager.ParameterItem的直接链接 translate=no>​</a></h2>
+<p>快捷栏菜单任务的自定义参数，表示WantParams，由开发者自行决定传入的键值对。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>key<td>string<td>否<td>否<td>自定义参数的key值。  字符串长度范围：[1, 512]，且内容不为空。<tr><td>value<td>string<td>否<td>否<td>自定义参数的value值。  字符串长度范围：[1, 512]，且内容不为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagercustomcategory>quickBarManager.CustomCategory<a href=#quickbarmanagercustomcategory class=hash-link aria-label=quickBarManager.CustomCategory的直接链接 title=quickBarManager.CustomCategory的直接链接 translate=no>​</a></h2>
+<p>应用的快捷栏菜单分组的信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>categoryId<td>number<td>是<td>否<td>快捷栏图标菜单分组的分组Id。<tr><td>categoryName<td>string<td>否<td>否<td>快捷栏图标菜单分组的分组名称。  字符串长度范围：[1, 512]，且内容不为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerquickbargroup>quickBarManager.QuickBarGroup<a href=#quickbarmanagerquickbargroup class=hash-link aria-label=quickBarManager.QuickBarGroup的直接链接 title=quickBarManager.QuickBarGroup的直接链接 translate=no>​</a></h2>
+<p>快捷栏分组信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>只读</strong></strong><th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>groupKey<td>string<td>否<td>否<td>快捷栏分组名称。  字符串长度范围：[1, 512]，且内容不为空。<tr><td>groupIcon<td><a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>image.PixelMap</a><td>否<td>否<td>快捷栏分组图标信息，图标类型支持JPEG、PNG、GIF、WebP、BMP、SVG、ICO、DNG。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanageraddcustomcategory>quickBarManager.addCustomCategory<a href=#quickbarmanageraddcustomcategory class=hash-link aria-label=quickBarManager.addCustomCategory的直接链接 title=quickBarManager.addCustomCategory的直接链接 translate=no>​</a></h2>
+<p>addCustomCategory(context: common.Context, categoryName: string): Promise&lt;CustomCategory></p>
+<p>添加快捷栏分组。添加一个分组后才可以往分组里添加任务，最多可以添加三个分组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>categoryName<td>string<td>是<td>快捷栏图标菜单分组的分组名称。  字符串长度范围：[1, 512]，且内容不为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#quickbarmanagercustomcategory class="">CustomCategory</a>><td>Promise对象，返回菜单分组信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210001<td>Maximum number of categories reached.<tr><td>1020210002<td>Duplicate category name.<tr><td>1020210008<td>The string length exceeds the threshold.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function addCustomCategory(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const res = await quickBarManager.addCustomCategory(context, '最近任务');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`customCategory info: ${JSON.stringify(res)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`addCustomCategory failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanageraddquicktask>quickBarManager.addQuickTask<a href=#quickbarmanageraddquicktask class=hash-link aria-label=quickBarManager.addQuickTask的直接链接 title=quickBarManager.addQuickTask的直接链接 translate=no>​</a></h2>
+<p>addQuickTask(context: common.Context, categoryId: number, taskInfo: QuickTaskInfo): Promise&lt;QuickTask></p>
+<p>添加快捷栏任务。打开应用图标在快捷栏的右键菜单，即可看到添加后对应的菜单项。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>categoryId<td>number<td>是<td>快捷栏图标菜单分组的分组Id。<tr><td>taskInfo<td><a href=#quickbarmanagerquicktaskinfo class="">QuickTaskInfo</a><td>是<td>快捷栏图标菜单任务的详细信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#quickbarmanagerquicktask class="">QuickTask</a>><td>Promise对象，返回菜单任务信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210003<td>Category not found.<tr><td>1020210008<td>The string length exceeds the threshold.<tr><td>1020210009<td>Invalid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { resourceManager } from '@kit.LocalizationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function addQuickTask(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 获取resourceManager资源管理器</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const resourceMgr: resourceManager.ResourceManager = context.resourceManager;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 创建任务的pixelMap，需在资源rawfile文件夹中预置testImage.png图片</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const whiteFileData = resourceMgr.getRawFileContentSync('testImage.png');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const whiteImageSource = image.createImageSource(whiteFileData.buffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const imagePixelMap = await whiteImageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构建parameters信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let parameters: quickBarManager.ParameterItem = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    key: 'testKey',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: 'testValue'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构建QuickTaskInfo信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let task: quickBarManager.QuickTaskInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskName: '测试任务名称',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    abilityName: 'TestAbility1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    moduleName: 'entry',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 参数可选</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskIcon: imagePixelMap,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 参数可选</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskDetail: '任务的描述',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    parameters: [parameters]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取所有的分组信息，将任务添加到想要的分组中</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const categoryList = await quickBarManager.getCustomCategories(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 选择添加任务到第一个分组中</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let res = await quickBarManager.addQuickTask(context, categoryList[0].categoryId, task);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`quickTask info: ${JSON.stringify(res)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`addQuickTask failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagergetcustomcategories>quickBarManager.getCustomCategories<a href=#quickbarmanagergetcustomcategories class=hash-link aria-label=quickBarManager.getCustomCategories的直接链接 title=quickBarManager.getCustomCategories的直接链接 translate=no>​</a></h2>
+<p>getCustomCategories(context: common.Context): Promise&lt;CustomCategory[]></p>
+<p>获取在快捷栏定义的所有分组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#quickbarmanagercustomcategory class="">CustomCategory</a>[]><td>Promise对象，返回所有菜单分组信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210003<td>Category not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function getCustomCategories(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const res = await quickBarManager.getCustomCategories(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`customCategoryList info: ${JSON.stringify(res)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getCustomCategories failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagergettasksfromcategory>quickBarManager.getTasksFromCategory<a href=#quickbarmanagergettasksfromcategory class=hash-link aria-label=quickBarManager.getTasksFromCategory的直接链接 title=quickBarManager.getTasksFromCategory的直接链接 translate=no>​</a></h2>
+<p>getTasksFromCategory(context: common.Context, categoryId: number): Promise&lt;QuickTask[]></p>
+<p>获取某个快捷栏分组下的所有任务信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>categoryId<td>number<td>是<td>快捷栏图标菜单分组的分组Id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#quickbarmanagerquicktask class="">QuickTask</a>[]><td>Promise对象，返回一个分组下的所有任务信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210003<td>Category not found.<tr><td>1020210004<td>Quick task not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function getTasksFromCategory(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取所有的分组信息，用于获取分组下所有的任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const category = await quickBarManager.getCustomCategories(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 选择获取第一个分组下的所有任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const res = await quickBarManager.getTasksFromCategory(context, category[0].categoryId)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`quickTaskList info: ${JSON.stringify(res)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getTasksFromCategory failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerupdatecustomcategory>quickBarManager.updateCustomCategory<a href=#quickbarmanagerupdatecustomcategory class=hash-link aria-label=quickBarManager.updateCustomCategory的直接链接 title=quickBarManager.updateCustomCategory的直接链接 translate=no>​</a></h2>
+<p>updateCustomCategory(context: common.Context, category: CustomCategory): Promise&lt;void></p>
+<p>更新快捷栏分组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>category<td><a href=#quickbarmanagercustomcategory class="">CustomCategory</a><td>是<td>快捷栏图标的菜单分组信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210002<td>Duplicate category name.<tr><td>1020210003<td>Category not found.<tr><td>1020210008<td>The string length exceeds the threshold</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function updateCustomCategory(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const category: quickBarManager.CustomCategory = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    categoryId: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    categoryName: 'demo'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await quickBarManager.updateCustomCategory(context, category);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`updateCustomCategory failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerupdatequicktask>quickBarManager.updateQuickTask<a href=#quickbarmanagerupdatequicktask class=hash-link aria-label=quickBarManager.updateQuickTask的直接链接 title=quickBarManager.updateQuickTask的直接链接 translate=no>​</a></h2>
+<p>updateQuickTask(context: common.Context, task: QuickTask): Promise&lt;void></p>
+<p>更新快捷栏任务。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>task<td><a href=#quickbarmanagerquicktask class="">QuickTask</a><td>是<td>快捷栏图标的菜单任务信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210004<td>Quick task not found.<tr><td>1020210008<td>The string length exceeds the threshold<tr><td>1020210009<td>Invalid parameter.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { resourceManager } from '@kit.LocalizationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function updateQuickTask(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 获取resourceManager资源管理器</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const resourceMgr: resourceManager.ResourceManager = context.resourceManager;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 创建任务的pixelMap，需在资源rawfile文件夹中预置testUpdateImage.png图片</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const fileData = resourceMgr.getRawFileContentSync('testUpdateImage.png');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const imageSource = image.createImageSource(fileData.buffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const imagePixelMap = await imageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构建parameters</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let parameters: quickBarManager.ParameterItem = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    key: 'testKey',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: 'testValue'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskInfo: quickBarManager.QuickTaskInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskName: 'newTaskName',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    abilityName: 'newEntryAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    moduleName: 'newModuleName',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 参数可选</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskIcon: imagePixelMap,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 参数可选</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskDetail: '任务的描述',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 参数可选</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    parameters: [parameters]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const task: quickBarManager.QuickTask = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    categoryId: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskInfo: taskInfo</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await quickBarManager.updateQuickTask(context,task);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`updateQuickTask failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerdeletequicktask>quickBarManager.deleteQuickTask<a href=#quickbarmanagerdeletequicktask class=hash-link aria-label=quickBarManager.deleteQuickTask的直接链接 title=quickBarManager.deleteQuickTask的直接链接 translate=no>​</a></h2>
+<p>deleteQuickTask(context: common.Context, taskId: number): Promise&lt;void></p>
+<p>删除快捷栏任务。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>taskId<td>number<td>是<td>快捷栏图标的菜单任务的Id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210004<td>Quick task not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function deleteQuickTask(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 删除任务id为1的任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await quickBarManager.deleteQuickTask(context, 1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`deleteQuickTask failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerdeletecustomcategory>quickBarManager.deleteCustomCategory<a href=#quickbarmanagerdeletecustomcategory class=hash-link aria-label=quickBarManager.deleteCustomCategory的直接链接 title=quickBarManager.deleteCustomCategory的直接链接 translate=no>​</a></h2>
+<p>deleteCustomCategory(context: common.Context, categoryId: number): Promise&lt;void></p>
+<p>删除快捷栏分组，其下的所有任务也会随着一起删除。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.2(22)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>categoryId<td>number<td>是<td>快捷栏图标菜单分组的分组Id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210003<td>Category not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/**</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 可以通过自定义组件的内置方法获取Context信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> * 具体方法：this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function deleteCustomCategory(context: Context) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (context === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 删除分组id为1的分组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await quickBarManager.deleteCustomCategory(context, 1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`deleteCustomCategory failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanageraddquickbargroup>quickBarManager.addQuickBarGroup<a href=#quickbarmanageraddquickbargroup class=hash-link aria-label=quickBarManager.addQuickBarGroup的直接链接 title=quickBarManager.addQuickBarGroup的直接链接 translate=no>​</a></h2>
+<p>addQuickBarGroup(context: common.Context, group: QuickBarGroup): Promise&lt;void></p>
+<p>增加快捷栏分组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>group<td><a href=#quickbarmanagerquickbargroup class="">QuickBarGroup</a><td>是<td>快捷栏分组信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回值的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210005<td>Group already exists.<tr><td>1020210008<td>The string length exceeds the threshold.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { resourceManager } from '@kit.LocalizationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取资源管理器</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const resourceMgr: resourceManager.ResourceManager = getContext().resourceManager;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 从rawfile目录中获取图片</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const whiteFileData = resourceMgr.getRawFileContentSync('icon.png');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const whiteImageSource = image.createImageSource(whiteFileData.buffer);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const imagePixelMap = await whiteImageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 增加分组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  await quickBarManager.addQuickBarGroup(getContext(), {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupKey: 'group_one', // 分组名</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupIcon: imagePixelMap // 分组图标</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagerdeletequickbargroup>quickBarManager.deleteQuickBarGroup<a href=#quickbarmanagerdeletequickbargroup class=hash-link aria-label=quickBarManager.deleteQuickBarGroup的直接链接 title=quickBarManager.deleteQuickBarGroup的直接链接 translate=no>​</a></h2>
+<p>deleteQuickBarGroup(context: common.Context, groupKey: string): Promise&lt;void></p>
+<p>增加快捷栏分组。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>groupKey<td>string<td>是<td>分组名。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回值的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210006<td>Group not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 删除分组名为group_one的分组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  await quickBarManager.deleteQuickBarGroup(getContext(), 'group_one');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagergetquickbargroups>quickBarManager.getQuickBarGroups<a href=#quickbarmanagergetquickbargroups class=hash-link aria-label=quickBarManager.getQuickBarGroups的直接链接 title=quickBarManager.getQuickBarGroups的直接链接 translate=no>​</a></h2>
+<p>getQuickBarGroups(context: common.Context): Promise&lt;QuickBarGroup[]></p>
+<p>获取所有分组信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#quickbarmanagerquickbargroup class="">QuickBarGroup</a>[]><td>Promise对象，返回所有分组信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210006<td>Group not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 获取所有分组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const groups = await quickBarManager.getQuickBarGroups(getContext());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=quickbarmanagersetwindowtogroup>quickBarManager.setWindowToGroup<a href=#quickbarmanagersetwindowtogroup class=hash-link aria-label=quickBarManager.setWindowToGroup的直接链接 title=quickBarManager.setWindowToGroup的直接链接 translate=no>​</a></h2>
+<p>setWindowToGroup(context: common.Context, windowid: string, groupKey?: string): Promise&lt;void></p>
+<p>设置分组信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.PCService.QuickBarManager</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>上下文信息。<tr><td>windowid<td>string<td>是<td>窗口id。<tr><td>groupKey<td>string<td>否<td>分组名称。缺省时，窗口将从分组中删除，此窗口不属于任何分组。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回值的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1020210006<td>Group not found.<tr><td>1020210007<td>Window not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { quickBarManager } from '@kit.DeskTopExtensionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 将id为80的窗口，增加到分组名为 group_one 的分组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  await quickBarManager.setWindowToGroup(getContext(), '80', 'group_one');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`deleteCustomCategory failed. error code: ${error.code}, error message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-ability/statusbar-extension-ability><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>StatusBarViewExtensionAbility（状态栏扩展Ability）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-error-code/statusbar-extension-error-code><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>ArkTS API错误码</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#quickbarmanagerquicktaskinfo class="table-of-contents__link toc-highlight">quickBarManager.QuickTaskInfo</a><li><a href=#quickbarmanagerquicktask class="table-of-contents__link toc-highlight">quickBarManager.QuickTask</a><li><a href=#quickbarmanagerparameteritem class="table-of-contents__link toc-highlight">quickBarManager.ParameterItem</a><li><a href=#quickbarmanagercustomcategory class="table-of-contents__link toc-highlight">quickBarManager.CustomCategory</a><li><a href=#quickbarmanagerquickbargroup class="table-of-contents__link toc-highlight">quickBarManager.QuickBarGroup</a><li><a href=#quickbarmanageraddcustomcategory class="table-of-contents__link toc-highlight">quickBarManager.addCustomCategory</a><li><a href=#quickbarmanageraddquicktask class="table-of-contents__link toc-highlight">quickBarManager.addQuickTask</a><li><a href=#quickbarmanagergetcustomcategories class="table-of-contents__link toc-highlight">quickBarManager.getCustomCategories</a><li><a href=#quickbarmanagergettasksfromcategory class="table-of-contents__link toc-highlight">quickBarManager.getTasksFromCategory</a><li><a href=#quickbarmanagerupdatecustomcategory class="table-of-contents__link toc-highlight">quickBarManager.updateCustomCategory</a><li><a href=#quickbarmanagerupdatequicktask class="table-of-contents__link toc-highlight">quickBarManager.updateQuickTask</a><li><a href=#quickbarmanagerdeletequicktask class="table-of-contents__link toc-highlight">quickBarManager.deleteQuickTask</a><li><a href=#quickbarmanagerdeletecustomcategory class="table-of-contents__link toc-highlight">quickBarManager.deleteCustomCategory</a><li><a href=#quickbarmanageraddquickbargroup class="table-of-contents__link toc-highlight">quickBarManager.addQuickBarGroup</a><li><a href=#quickbarmanagerdeletequickbargroup class="table-of-contents__link toc-highlight">quickBarManager.deleteQuickBarGroup</a><li><a href=#quickbarmanagergetquickbargroups class="table-of-contents__link toc-highlight">quickBarManager.getQuickBarGroups</a><li><a href=#quickbarmanagersetwindowtogroup class="table-of-contents__link toc-highlight">quickBarManager.setWindowToGroup</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

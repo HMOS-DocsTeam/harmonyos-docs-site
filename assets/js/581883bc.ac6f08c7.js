@@ -1,0 +1,290 @@
+"use strict";
+(self["webpackChunkharmonyos_docs_site"] = self["webpackChunkharmonyos_docs_site"] || []).push([["24606"], {
+339017(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  metadata: () => (/* reexport */ site_docs_system_security_crypto_architecture_kit_crypto_generate_message_crypto_generate_message_digest_dev_crypto_generate_message_digest_sha_3_ndk_crypto_generate_message_digest_sha_3_ndk_md_581_namespaceObject),
+  "default": () => (/* binding */ MDXContent),
+  frontMatter: () => (/* binding */ frontMatter),
+  contentTitle: () => (/* binding */ contentTitle),
+  toc: () => (/* binding */ toc),
+  assets: () => (/* binding */ assets)
+});
+
+;// CONCATENATED MODULE: ./.docusaurus/docusaurus-plugin-content-docs/default/site-docs-system-security-crypto-architecture-kit-crypto-generate-message-crypto-generate-message-digest-dev-crypto-generate-message-digest-sha-3-ndk-crypto-generate-message-digest-sha-3-ndk-md-581.json
+var site_docs_system_security_crypto_architecture_kit_crypto_generate_message_crypto_generate_message_digest_dev_crypto_generate_message_digest_sha_3_ndk_crypto_generate_message_digest_sha_3_ndk_md_581_namespaceObject = JSON.parse('{"id":"system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk/crypto-generate-message-digest-sha3-ndk","title":"消息摘要计算SHA3-256(C/C++)","description":"从API version 22开始，算法库支持使用该算法进行摘要计算操作。","source":"@site/docs/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk/crypto-generate-message-digest-sha3-ndk.md","sourceDirName":"system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk","slug":"/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk/","permalink":"/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk/","draft":false,"unlisted":false,"tags":[],"version":"current","sidebarPosition":6,"frontMatter":{"title":"消息摘要计算SHA3-256(C/C++)","sidebar_position":6,"original_url":"https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-message-digest-sha3-ndk","kit":"system/security","last_updated":"2026-04-22"},"sidebar":"docs","previous":{"title":"消息摘要计算SHA3(ArkTS)","permalink":"/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3/"},"next":{"title":"消息认证码计算介绍及算法规格","permalink":"/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-compute-mac/crypto-compute-mac-overview/"}}')
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(474848);
+// EXTERNAL MODULE: ./node_modules/@mdx-js/react/lib/index.js
+var lib = __webpack_require__(28453);
+;// CONCATENATED MODULE: ./docs/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-dev/crypto-generate-message-digest-sha3-ndk/crypto-generate-message-digest-sha3-ndk.md
+
+
+const frontMatter = {
+	title: '消息摘要计算SHA3-256(C/C++)',
+	sidebar_position: 6,
+	original_url: 'https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/crypto-generate-message-digest-sha3-ndk',
+	kit: 'system/security',
+	last_updated: '2026-04-22'
+};
+const contentTitle = '消息摘要计算SHA3-256(C/C++)';
+
+const assets = {
+
+};
+
+
+
+const toc = [{
+  "value": "在CMake脚本中链接相关动态库",
+  "id": "在cmake脚本中链接相关动态库",
+  "level": 2
+}, {
+  "value": "开发步骤",
+  "id": "开发步骤",
+  "level": 2
+}, {
+  "value": "摘要算法（一次性传入）",
+  "id": "摘要算法一次性传入",
+  "level": 3
+}, {
+  "value": "分段摘要算法",
+  "id": "分段摘要算法",
+  "level": 3
+}];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    header: "header",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [(0,jsx_runtime.jsx)(_components.header, {
+      children: (0,jsx_runtime.jsx)(_components.h1, {
+        id: "消息摘要计算sha3-256cc",
+        children: "消息摘要计算SHA3-256(C/C++)"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "从API version 22开始，算法库支持使用该算法进行摘要计算操作。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["对应的算法规格请查看", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-overview#%E6%94%AF%E6%8C%81%E7%9A%84%E7%AE%97%E6%B3%95%E4%B8%8E%E8%A7%84%E6%A0%BC",
+        children: "消息摘要计算算法规格"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "在cmake脚本中链接相关动态库",
+      children: "在CMake脚本中链接相关动态库"
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "target_link_libraries(entry PUBLIC libohcrypto.so)\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "开发步骤",
+      children: "开发步骤"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["在调用update接口传入数据时，可以", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95%E4%B8%80%E6%AC%A1%E6%80%A7%E4%BC%A0%E5%85%A5",
+        children: "摘要算法一次性传入"
+      }), "，也可以把数据人工分段，然后", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#%E5%88%86%E6%AE%B5%E6%91%98%E8%A6%81%E7%AE%97%E6%B3%95",
+        children: "分段摘要算法"
+      }), "。对于同一段数据而言，计算结果没有差异。对于数据量较大的数据，开发者可以根据实际需求选择是否分段传入。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "下面分别提供两种方式的示例代码。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "摘要算法一次性传入",
+      children: "摘要算法（一次性传入）"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_create",
+          children: "OH_CryptoDigest_Create"
+        }), "，指定摘要算法SHA3-256，生成摘要实例（OH_CryptoDigest）。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_update",
+          children: "OH_CryptoDigest_Update"
+        }), "，传入自定义消息，进行摘要更新计算。单次update长度没有限制。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_final",
+          children: "OH_CryptoDigest_Final"
+        }), "，获取摘要计算结果。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_getlength",
+          children: "OH_CryptoDigest_GetLength"
+        }), "，获取摘要计算长度，单位为字节。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_digestcrypto_destroy",
+          children: "OH_DigestCrypto_Destroy"
+        }), "，销毁摘要实例（OH_CryptoDigest）。"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "以单次传入数据获取摘要计算结果为例："
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "#include \"CryptoArchitectureKit/crypto_common.h\"\n#include \"CryptoArchitectureKit/crypto_digest.h\"\n#include <cstring>\n\nOH_Crypto_ErrCode doTestSha3Md()\n{\n    OH_Crypto_ErrCode ret;\n    OH_CryptoDigest *ctx = nullptr;\n    char *testData = const_cast<char *>(\"0123456789\");\n    Crypto_DataBlob in = {.data = (uint8_t *)(testData), .len = strlen(testData)};\n    Crypto_DataBlob out = {.data = nullptr, .len = 0};\n    int mdLen = 0;\n    ret = OH_CryptoDigest_Create(\"SHA3-256\", &ctx);\n    if (ret != CRYPTO_SUCCESS) {\n        return ret;\n    }\n    do {\n        ret = OH_CryptoDigest_Update(ctx, &in);\n        if (ret != CRYPTO_SUCCESS) {\n            break;\n        }\n        ret = OH_CryptoDigest_Final(ctx, &out);\n        if (ret != CRYPTO_SUCCESS) {\n            break;\n        }\n        mdLen = OH_CryptoDigest_GetLength(ctx);\n    } while (0);\n    OH_Crypto_FreeDataBlob(&out);\n    OH_DigestCrypto_Destroy(ctx);\n    return ret;\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "分段摘要算法",
+      children: "分段摘要算法"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_create",
+          children: "OH_CryptoDigest_Create"
+        }), "，指定摘要算法SHA3-256，生成摘要实例（OH_CryptoDigest）。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["传入自定义消息，将一次传入数据量设置为20字节，多次调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_update",
+          children: "OH_CryptoDigest_Update"
+        }), "，进行摘要更新计算。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_final",
+          children: "OH_CryptoDigest_Final"
+        }), "，获取摘要计算结果。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_cryptodigest_getlength",
+          children: "OH_CryptoDigest_GetLength"
+        }), "，获取摘要计算长度，单位为字节。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h#oh_digestcrypto_destroy",
+          children: "OH_DigestCrypto_Destroy"
+        }), "，销毁摘要实例（OH_CryptoDigest）。"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "以下使用分段传入数据，获取摘要计算结果为例："
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "#include <cstdlib>\n#include \"CryptoArchitectureKit/crypto_common.h\"\n#include \"CryptoArchitectureKit/crypto_digest.h\"\n#define OH_CRYPTO_DIGEST_DATA_MAX (1024 * 1024 * 100)\n\nstatic constexpr int INT_640 = 640;\n\nOH_Crypto_ErrCode doLoopSha3Md()\n{\n    OH_Crypto_ErrCode ret;\n    OH_CryptoDigest *ctx = nullptr;\n    uint8_t *testData = (uint8_t *)malloc(OH_CRYPTO_DIGEST_DATA_MAX);\n    if (testData == nullptr) {\n        return CRYPTO_MEMORY_ERROR;\n    }\n    Crypto_DataBlob out = {.data = nullptr, .len = 0};\n    int mdLen = 0;\n    int isBlockSize = 20;\n    int offset = 0;\n\n    ret = OH_CryptoDigest_Create(\"SHA3-256\", &ctx);\n    if (ret != CRYPTO_SUCCESS) {\n        free(testData);\n        return ret;\n    }\n    do {\n        for (int i = 0; i < INT_640 / isBlockSize; i++) {\n            Crypto_DataBlob in = {\n                .data = reinterpret_cast<uint8_t *>(testData + offset),\n                .len = static_cast<size_t>(isBlockSize)};\n            ret = OH_CryptoDigest_Update(ctx, &in);\n            if (ret != CRYPTO_SUCCESS) {\n                break;\n            }\n            offset += isBlockSize;\n        }\n        ret = OH_CryptoDigest_Final(ctx, &out);\n        if (ret != CRYPTO_SUCCESS) {\n            break;\n        }\n        mdLen = OH_CryptoDigest_GetLength(ctx);\n    } while (0);\n    OH_Crypto_FreeDataBlob(&out);\n    OH_DigestCrypto_Destroy(ctx);\n    free(testData);\n    return ret;\n}\n"
+      })
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return MDXLayout ? (0,jsx_runtime.jsx)(MDXLayout, {
+    ...props,
+    children: (0,jsx_runtime.jsx)(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+
+
+
+},
+28453(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  R: () => (useMDXComponents),
+  x: () => (MDXProvider)
+});
+/* import */ var react__rspack_import_0 = __webpack_require__(296540);
+/**
+ * @import {MDXComponents} from 'mdx/types.js'
+ * @import {Component, ReactElement, ReactNode} from 'react'
+ */
+
+/**
+ * @callback MergeComponents
+ *   Custom merge function.
+ * @param {Readonly<MDXComponents>} currentComponents
+ *   Current components from the context.
+ * @returns {MDXComponents}
+ *   Additional components.
+ *
+ * @typedef Props
+ *   Configuration for `MDXProvider`.
+ * @property {ReactNode | null | undefined} [children]
+ *   Children (optional).
+ * @property {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @property {boolean | null | undefined} [disableParentContext=false]
+ *   Turn off outer component context (default: `false`).
+ */
+
+
+
+/** @type {Readonly<MDXComponents>} */
+const emptyComponents = {}
+
+const MDXContext = react__rspack_import_0.createContext(emptyComponents)
+
+/**
+ * Get current components from the MDX Context.
+ *
+ * @param {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @returns {MDXComponents}
+ *   Current components.
+ */
+function useMDXComponents(components) {
+  const contextComponents = react__rspack_import_0.useContext(MDXContext)
+
+  // Memoize to avoid unnecessary top-level context changes
+  return react__rspack_import_0.useMemo(
+    function () {
+      // Custom merge via a function prop
+      if (typeof components === 'function') {
+        return components(contextComponents)
+      }
+
+      return {...contextComponents, ...components}
+    },
+    [contextComponents, components]
+  )
+}
+
+/**
+ * Provider for MDX context.
+ *
+ * @param {Readonly<Props>} properties
+ *   Properties.
+ * @returns {ReactElement}
+ *   Element.
+ * @satisfies {Component}
+ */
+function MDXProvider(properties) {
+  /** @type {Readonly<MDXComponents>} */
+  let allComponents
+
+  if (properties.disableParentContext) {
+    allComponents =
+      typeof properties.components === 'function'
+        ? properties.components(emptyComponents)
+        : properties.components || emptyComponents
+  } else {
+    allComponents = useMDXComponents(properties.components)
+  }
+
+  return react__rspack_import_0.createElement(
+    MDXContext.Provider,
+    {value: allComponents},
+    properties.children
+  )
+}
+
+
+},
+
+}]);

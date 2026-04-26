@@ -1,0 +1,985 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>非对称密钥生成和转换规格 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="非对称密钥生成和转换规格 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=当前章节说明系统支持的算法及其对应规格。密钥生成指定规格的方式有两种： /><meta data-rh=true property=og:description content=当前章节说明系统支持的算法及其对应规格。密钥生成指定规格的方式有两种： /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/","name":"非对称密钥生成和转换规格","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=程序访问控制 class=categoryLinkLabel_W154>程序访问控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/passwordvault/passwordvault-overview/><span title=密码自动填充服务 class=categoryLinkLabel_W154>密码自动填充服务</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/code-protect/><span title=应用加密 class=linkLabel_WmDU>应用加密</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/asset-store-kit/asset-store-kit-overview/><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-architecture-kit-intro/><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-architecture-kit-intro/><span title="Crypto Architecture Kit简介" class=linkLabel_WmDU>Crypto Architecture Kit简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-overview/><span title=密钥生成和转换 class=categoryLinkLabel_W154>密钥生成和转换</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-overview/><span title=密钥生成与转换介绍 class=linkLabel_WmDU>密钥生成与转换介绍</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-sym-key-generation-conversion-spec/><span title=密钥生成和转换规格 class=categoryLinkLabel_W154>密钥生成和转换规格</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-sym-key-generation-conversion-spec/><span title=对称密钥生成和转换规格 class=linkLabel_WmDU>对称密钥生成和转换规格</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-asym-key-generation-conversion-spec/><span title=非对称密钥生成和转换规格 class=linkLabel_WmDU>非对称密钥生成和转换规格</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-dev/crypto-generate-sym-key-randomly/><span title=密钥生成和转换开发指导 class=categoryLinkLabel_W154>密钥生成和转换开发指导</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-encryption-decryption/crypto-encryption-decryption-overview/><span title=加解密 class=categoryLinkLabel_W154>加解密</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-sign-sig-verify/crypto-sign-sig-verify-overview/><span title=签名验签 class=categoryLinkLabel_W154>签名验签</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-agreement/crypto-key-agreement-overview/><span title=密钥协商 class=categoryLinkLabel_W154>密钥协商</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-generate-message/crypto-generate-message-digest-overview/><span title=消息摘要计算 class=categoryLinkLabel_W154>消息摘要计算</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-compute-mac/crypto-compute-mac-overview/><span title=消息认证码 class=categoryLinkLabel_W154>消息认证码</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-compute-rand/crypto-generate-random-number/><span title=随机数 class=categoryLinkLabel_W154>随机数</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-derivation/crypto-key-derivation-overview/><span title=密钥派生 class=categoryLinkLabel_W154>密钥派生</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-development-practice/><span title=跨平台数据兼容实践指导 class=linkLabel_WmDU>跨平台数据兼容实践指导</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-faqs/crypto-aes-decryption-error-faq/><span title="Crypto Architecture Kit常见问题" class=categoryLinkLabel_W154>Crypto Architecture Kit常见问题</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/data-protection-kit/dlp/dlp-overview/><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/device-certificate-kit/device-certificate-kit-intro/><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/device-security-kit-guide/devicesecurity-introduction/><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/data-guard-kit-guide/dataguard-introduction/><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/online-authentication-kit-guide/onlineauthentication-introduction/><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/huks-kit/huks-overview/><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/user-authentication-kit/user-authentication-overview/><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Crypto Architecture Kit（加解密算法框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>密钥生成和转换</span><li class=breadcrumbs__item><span class=breadcrumbs__link>密钥生成和转换规格</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>非对称密钥生成和转换规格</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>非对称密钥生成和转换规格</h1></header>
+<p>当前章节说明系统支持的算法及其对应规格。密钥生成指定规格的方式有两种：</p>
+<ul>
+<li class="">字符串参数：以字符串的形式描述开发者需要生成的密钥规格。</li>
+<li class="">密钥参数：使用密钥的详细密码学信息，构造密钥对象。</li>
+</ul>
+<p>对于每种算法采用哪种方式，将会在具体的每个算法规格中介绍。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rsa>RSA<a href=#rsa class=hash-link aria-label=RSA的直接链接 title=RSA的直接链接 translate=no>​</a></h2>
+<p>RSA（Rivest–Shamir–Adleman），当前支持使用字符串参数和密钥参数两种方式生成RSA密钥。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成>使用字符串参数生成<a href=#使用字符串参数生成 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>以字符串参数生成RSA密钥，具体的“字符串参数”由“RSA密钥类型”和“素数个数”使用符号“|”拼接而成，用于在创建非对称密钥生成器时，指定密钥规格。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>生成RSA非对称密钥时，默认素数为2，PRIMES_2参数可省略。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>RSA密钥类型<th>素数个数<th>字符串参数<th>API版本<tbody><tr><td>RSA512<td>2<td>RSA512<td>PRIMES_2<tr><td>RSA768<td>2<td>RSA768<td>PRIMES_2<tr><td>RSA1024<td>2<td>RSA1024<td>PRIMES_2<tr><td>RSA1024<td>3<td>RSA1024<td>PRIMES_3<tr><td>RSA2048<td>2<td>RSA2048<td>PRIMES_2<tr><td>RSA2048<td>3<td>RSA2048<td>PRIMES_3<tr><td>RSA3072<td>2<td>RSA3072<td>PRIMES_2<tr><td>RSA3072<td>3<td>RSA3072<td>PRIMES_3<tr><td>RSA4096<td>2<td>RSA4096<td>PRIMES_2<tr><td>RSA4096<td>3<td>RSA4096<td>PRIMES_3<tr><td>RSA4096<td>4<td>RSA4096<td>PRIMES_4<tr><td>RSA8192<td>2<td>RSA8192<td>PRIMES_2<tr><td>RSA8192<td>3<td>RSA8192<td>PRIMES_3<tr><td>RSA8192<td>4<td>RSA8192<td>PRIMES_4<tr><td>RSA8192<td>5<td>RSA8192<td>PRIMES_5</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>使用同步接口生成RSA2048、RSA3072、RSA4096和RSA8192非对称密钥会增加耗时。</p>
+<p>系统对主线程有时间限制，耗时较长会导致失败。建议生成大位数密钥时，使用异步接口或<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/multi-thread-concurrency-overview>使用多线程并发能力</a>。</p>
+<p>创建RSA非对称密钥生成器时，若用于随机生成密钥，生成的RSA密钥规格与创建时指定的密钥规格一致；若用于密钥转换，生成的RSA密钥规格与转换时指定的密钥数据规格一致。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成>使用密钥参数生成<a href=#使用密钥参数生成 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本10开始，支持使用密钥参数生成RSA密钥。</p>
+<p>RSA密钥参数，涉及三个整数，包括：</p>
+<ul>
+<li class="">n：模数（Modulus），是私钥和公钥的公共参数。</li>
+<li class="">sk：私钥指数（privateExponent），公式中常写作d。</li>
+<li class="">pk：公钥指数（publicExponent），公式中常写作e。</li>
+</ul>
+<p>创建非对称密钥生成器时，支持根据指定的公钥和私钥参数生成RSA密钥，具体情况见下表：</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+<li class="">×：表示这一列中的具体属性对应某种密钥参数，但是当前不支持通过该密钥参数生成密钥。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公共参数<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>n<td>×<td>√<td>×<td>√<tr><td>pk<td>N/A<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>N/A<td>×<td>√</table>
+<p>根据上表：</p>
+<ul>
+<li class="">RSA不支持通过指定公共参数（n）来随机生成密钥。</li>
+<li class="">RSA不支持通过指定私钥参数（n, sk）来生成私钥。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ecc>ECC<a href=#ecc class=hash-link aria-label=ECC的直接链接 title=ECC的直接链接 translate=no>​</a></h2>
+<p>ECC（Elliptic Curve Cryptography），是一种基于椭圆曲线数学的公钥密码算法。</p>
+<p>椭圆曲线算法可以看作是定义在特殊集合下数的运算，当前算法库支持的ECC密钥均为Fp域的椭圆曲线，p为素数，Fp域也称素数域。</p>
+<p>支持使用字符串参数和密钥参数生成ECC密钥，还支持通过曲线名生成公共密钥参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-1>使用字符串参数生成<a href=#使用字符串参数生成-1 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>以字符串参数生成ECC密钥，具体的“字符串参数”由“非对称密钥算法”和“密钥长度”拼接而成，用于在创建非对称密钥生成器时，指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>密钥长度（bit）<th>曲线名<th>字符串参数<th>API版本<tbody><tr><td>ECC<td>224<td>NID_secp224r1<td>ECC224<td>9+<tr><td>ECC<td>256<td>NID_X9_62_prime256v1<td>ECC256<td>9+<tr><td>ECC<td>384<td>NID_secp384r1<td>ECC384<td>9+<tr><td>ECC<td>521<td>NID_secp521r1<td>ECC521<td>9+<tr><td>ECC<td>160<td>NID_brainpoolP160r1<td>ECC_BrainPoolP160r1<td>11+<tr><td>ECC<td>160<td>NID_brainpoolP160t1<td>ECC_BrainPoolP160t1<td>11+<tr><td>ECC<td>192<td>NID_brainpoolP192r1<td>ECC_BrainPoolP192r1<td>11+<tr><td>ECC<td>192<td>NID_brainpoolP192t1<td>ECC_BrainPoolP192t1<td>11+<tr><td>ECC<td>224<td>NID_brainpoolP224r1<td>ECC_BrainPoolP224r1<td>11+<tr><td>ECC<td>224<td>NID_brainpoolP224t1<td>ECC_BrainPoolP224t1<td>11+<tr><td>ECC<td>256<td>NID_brainpoolP256r1<td>ECC_BrainPoolP256r1<td>11+<tr><td>ECC<td>256<td>NID_brainpoolP256t1<td>ECC_BrainPoolP256t1<td>11+<tr><td>ECC<td>320<td>NID_brainpoolP320r1<td>ECC_BrainPoolP320r1<td>11+<tr><td>ECC<td>320<td>NID_brainpoolP320t1<td>ECC_BrainPoolP320t1<td>11+<tr><td>ECC<td>384<td>NID_brainpoolP384r1<td>ECC_BrainPoolP384r1<td>11+<tr><td>ECC<td>384<td>NID_brainpoolP384t1<td>ECC_BrainPoolP384t1<td>11+<tr><td>ECC<td>512<td>NID_brainpoolP512r1<td>ECC_BrainPoolP512r1<td>11+<tr><td>ECC<td>512<td>NID_brainpoolP512t1<td>ECC_BrainPoolP512t1<td>11+<tr><td>ECC<td>256<td>NID_secp256k1<td>ECC_Secp256k1<td>14+</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>创建ECC非对称密钥生成器时，如果用于随机生成密钥，生成的ECC密钥规格与创建密钥生成器时指定的密钥规格一致。如果用于密钥转换，生成的ECC密钥规格与密钥转换时指定的密钥数据规格一致。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-1>使用密钥参数生成<a href=#使用密钥参数生成-1 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本10开始，支持使用密钥参数生成ECC密钥。</p>
+<p>Fp域下的ECC密钥参数包括：</p>
+<ul>
+<li class="">p：素数，用于确定Fp。</li>
+<li class="">a, b：确定椭圆曲线的方程。</li>
+<li class="">g：椭圆曲线的一个基点(base point)，可由gx，gy表示。</li>
+<li class="">n：基点g的阶(order)。</li>
+<li class="">h：余因子(cofactor)。</li>
+<li class="">sk：私钥，是一个随机整数，小于n。</li>
+<li class="">pk：公钥，是椭圆曲线上的一个点， pk = sk * g。</li>
+</ul>
+<p>创建非对称密钥生成器时，支持使用指定的公钥和私钥参数生成ECC密钥，具体情况见下表：</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公共参数<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>fieldType<td>√<td>√<td>√<td>√<tr><td>p<td>√<td>√<td>√<td>√<tr><td>a<td>√<td>√<td>√<td>√<tr><td>b<td>√<td>√<td>√<td>√<tr><td>g<td>√<td>√<td>√<td>√<tr><td>n<td>√<td>√<td>√<td>√<tr><td>h<td>√<td>√<td>√<td>√<tr><td>pk<td>N/A<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>N/A<td>√<td>√</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">当前ECC只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework#ecfieldfp10>ECFieldFp</a>。</li>
+<li class="">g和pk为ECC曲线上的点，属于<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework#point10>Point</a>类型，需要指定具体的X和Y坐标。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用曲线名生成密钥参数>使用曲线名生成密钥参数<a href=#使用曲线名生成密钥参数 class=hash-link aria-label=使用曲线名生成密钥参数的直接链接 title=使用曲线名生成密钥参数的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始，支持使用曲线名来生成ECC公共密钥参数。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">曲线名为要求输入的字符串参数，支持的曲线名请参考<a href=#%E4%BD%BF%E7%94%A8%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%8F%82%E6%95%B0%E7%94%9F%E6%88%90-1 class="">ECC密钥字符串参数表</a>中的“曲线名”一列。</li>
+<li class="">生成的公共密钥参数可以直接用于随机生成公私钥，也可用于构造公钥、私钥及公私钥对密钥参数。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dsa>DSA<a href=#dsa class=hash-link aria-label=DSA的直接链接 title=DSA的直接链接 translate=no>​</a></h2>
+<p>DSA（Digital Signature Algorithm），是一种基于模运算和整数有限域离散对数难题的一种公钥密码算法，常用于数字签名和验签，不能用于加解密。</p>
+<p>当前支持使用字符串参数和密钥参数两种方式生成DSA密钥。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=约束与限制>约束与限制<a href=#约束与限制 class=hash-link aria-label=约束与限制的直接链接 title=约束与限制的直接链接 translate=no>​</a></h3>
+<p>使用同步接口生成DSA2048或DSA3072非对称密钥，或者处理明文长度超过2048位，会导致耗时增加。</p>
+<p>系统对主线程有时间限制，耗时较长会导致失败。建议生成大位数密钥时，使用异步接口或<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/multi-thread-concurrency-overview>使用多线程并发能力</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-2>使用字符串参数生成<a href=#使用字符串参数生成-2 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>使用字符串参数生成DSA密钥，具体的“字符串参数”由“非对称密钥算法”和“密钥长度”拼接而成，用于在创建非对称密钥生成器时，指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>密钥长度（bit）<th>字符串参数<th>API版本<tbody><tr><td>DSA<td>1024<td>DSA1024<td>10+<tr><td>DSA<td>2048<td>DSA2048<td>10+<tr><td>DSA<td>3072<td>DSA3072<td>10+</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>使用同步接口生成DSA2048、DSA3072非对称密钥或明文长度超过2048位会导致耗时增加。</p>
+<p>系统对主线程有时间限制，耗时较长会导致失败。建议生成大位数密钥时，使用异步接口或<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/multithread-concurrency/multi-thread-concurrency-overview>使用多线程并发能力</a>。</p>
+<p>创建的DSA非对称密钥生成器用于随机生成密钥时，生成的密钥规格与创建时指定的密钥规格一致。用于密钥转换时，生成的密钥规格与转换时指定的密钥数据规格一致。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-2>使用密钥参数生成<a href=#使用密钥参数生成-2 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本10开始支持，使用密钥参数生成DSA密钥。</p>
+<p>DSA密钥参数，包括：</p>
+<ul>
+<li class="">p：一个素模数，比特长度为64的整数倍。</li>
+<li class="">q：p-1的素因子，长度与p的长度有关。</li>
+<li class="">g：g = (h ^ ((p - 1) / q)) mod p，h为满足1 &lt; h &lt; p -1的任意整数。</li>
+<li class="">sk：私钥，为随机生成的整数，满足0 &lt; sk &lt; q。</li>
+<li class="">pk：公钥，pk = (g ^ sk) mod p。</li>
+</ul>
+<p>当创建非对称密钥生成器时，支持根据指定的公钥和私钥参数生成DSA密钥，具体情况参见下表：</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+<li class="">×：表示这一列中的具体属性对应某种密钥参数，但是当前不支持通过该密钥参数生成密钥。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公共参数<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>p<td>√<td>√<td>×<td>√<tr><td>q<td>√<td>√<td>×<td>√<tr><td>g<td>√<td>√<td>×<td>√<tr><td>pk<td>N/A<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>N/A<td>×<td>√</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">DSA不支持通过指定私钥参数（p, q, g, sk）来生成私钥。</li>
+<li class="">当使用公共参数（p, q, g）来生成DSA密钥对时，DSA密钥长度至少需要1024位。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sm2>SM2<a href=#sm2 class=hash-link aria-label=SM2的直接链接 title=SM2的直接链接 translate=no>​</a></h2>
+<p>SM2是一种基于椭圆曲线的公钥密码算法，采用Fp域上的椭圆曲线。</p>
+<p>当前支持使用字符串参数和密钥参数生成SM2密钥，并支持通过曲线名生成公共密钥参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-3>使用字符串参数生成<a href=#使用字符串参数生成-3 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>当前支持以字符串参数生成SM2密钥，具体的“字符串参数”由“非对称密钥算法”和“密钥长度”使用符号“_”拼接而成，用于在创建非对称密钥生成器时，指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>密钥长度（bit）<th>曲线名<th>字符串参数<th>API版本<tbody><tr><td>SM2<td>256<td>NID_sm2<td>SM2_256<td>10+</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-3>使用密钥参数生成<a href=#使用密钥参数生成-3 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始，支持使用密钥参数生成SM2密钥。</p>
+<p>Fp域下的SM2密钥参数包括：</p>
+<ul>
+<li class="">p：素数，用于确定Fp。</li>
+<li class="">a, b：确定椭圆曲线的方程。</li>
+<li class="">g：椭圆曲线的一个基点(base point)，可由gx，gy表示。</li>
+<li class="">n：基点g的阶(order)。</li>
+<li class="">h：余因子(cofactor)。</li>
+<li class="">sk：私钥，是一个随机整数，小于n。</li>
+<li class="">pk：公钥，是椭圆曲线上的一个点，pk = sk * g。</li>
+</ul>
+<p>当创建非对称密钥生成器时，支持根据指定的公钥和私钥参数生成SM2密钥，具体支持情况如表所示：</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公共参数<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>fieldType<td>√<td>√<td>√<td>√<tr><td>p<td>√<td>√<td>√<td>√<tr><td>a<td>√<td>√<td>√<td>√<tr><td>b<td>√<td>√<td>√<td>√<tr><td>g<td>√<td>√<td>√<td>√<tr><td>n<td>√<td>√<td>√<td>√<tr><td>h<td>√<td>√<td>√<td>√<tr><td>pk<td>N/A<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>N/A<td>√<td>√</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">当前SM2只支持Fp域，因此fieldType固定为"Fp"。fieldType和p构成了属性field，当前field只支持<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework#ecfieldfp10>ECFieldFp</a>。</li>
+<li class="">g和pk为SM2曲线上的点，属于<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework#point10>Point</a>类型，需要指定具体X，Y坐标。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用曲线名生成密钥参数-1>使用曲线名生成密钥参数<a href=#使用曲线名生成密钥参数-1 class=hash-link aria-label=使用曲线名生成密钥参数的直接链接 title=使用曲线名生成密钥参数的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始，支持使用曲线名称生成SM2公钥参数。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">曲线名为要求输入的字符串参数，支持的曲线名为"NID_sm2"。</li>
+<li class="">生成的公共密钥参数可以直接随机生成公私钥，也可用于构造公、私以及公私钥对密钥参数。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ed25519>Ed25519<a href=#ed25519 class=hash-link aria-label=Ed25519的直接链接 title=Ed25519的直接链接 translate=no>​</a></h2>
+<p>Ed25519算法是基于EdDSA算法的数字签名算法，密钥长度为256位，采用Edwards曲线实现。该算法不支持加解密，主要用于数字签名和验证。</p>
+<p>当前支持使用字符串参数和密钥参数生成Ed25519密钥。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-4>使用字符串参数生成<a href=#使用字符串参数生成-4 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>使用字符串参数生成 Ed25519 密钥，以在创建非对称密钥生成器时指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>字符串参数<th>API版本<tbody><tr><td>Ed25519<td>Ed25519<td>11+</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-4>使用密钥参数生成<a href=#使用密钥参数生成-4 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始，支持使用密钥参数生成Ed25519密钥。</p>
+<p>Ed25519密钥参数包括：</p>
+<ul>
+<li class="">sk：私钥，一个 32 字节的随机值。</li>
+<li class="">pk：公钥，一个 32 字节的值，从私钥派生而来。</li>
+</ul>
+<p>当创建非对称密钥生成器时，支持根据指定的公钥和私钥参数生成Ed25519密钥，具体情况见下表：</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>pk<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>√<td>√</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>Ed25519密钥参数没有公共参数，不支持通过公共参数生成密钥。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=x25519>X25519<a href=#x25519 class=hash-link aria-label=X25519的直接链接 title=X25519的直接链接 translate=no>​</a></h2>
+<p>X25519算法是一种 Diffie-Hellman 密钥交换算法，用于密钥协商。</p>
+<p>支持使用字符串参数和密钥参数生成X25519密钥。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-5>使用字符串参数生成<a href=#使用字符串参数生成-5 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>使用字符串参数生成X25519密钥，指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>字符串参数<th>API版本<tbody><tr><td>X25519<td>X25519<td>11+</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-5>使用密钥参数生成<a href=#使用密钥参数生成-5 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始支持使用密钥参数生成X25519密钥。</p>
+<p>X25519密钥参数包括：</p>
+<ul>
+<li class="">sk：私钥，一个 32 字节的随机值。</li>
+<li class="">pk：公钥，一个 32 字节的值，从私钥派生而来。</li>
+</ul>
+<p>当创建非对称密钥生成器时，指定公/私钥参数生成X25519密钥的支持情况如表所示。</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>pk<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>√<td>√</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>X25519没有公共密钥参数，不支持通过公共参数生成密钥。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dh>DH<a href=#dh class=hash-link aria-label=DH的直接链接 title=DH的直接链接 translate=no>​</a></h2>
+<p>DH（Diffie–Hellman key exchange），是一种密钥协商算法，只涉及公钥的交换，它可以提供前向安全性，即使在通信渠道被监听的情况下，也不会暴露双方的私钥。</p>
+<p>支持使用字符串参数和密钥参数生成DH密钥，支持根据素数长度和私钥长度生成公共密钥参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用字符串参数生成-6>使用字符串参数生成<a href=#使用字符串参数生成-6 class=hash-link aria-label=使用字符串参数生成的直接链接 title=使用字符串参数生成的直接链接 translate=no>​</a></h3>
+<p>以字符串参数生成DH密钥，具体的“字符串参数”由“非对称密钥算法”和“知名安全素数群参数”使用符号“_”拼接而成，用于在创建非对称密钥生成器时，指定密钥规格。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>非对称密钥算法<th>知名安全素数群参数<th>密钥长度（bit）<th>字符串参数<th>API版本<tbody><tr><td>DH<td>modp1536<td>1536<td>DH_modp1536<td>11+<tr><td>DH<td>modp2048<td>2048<td>DH_modp2048<td>11+<tr><td>DH<td>modp3072<td>3072<td>DH_modp3072<td>11+<tr><td>DH<td>modp4096<td>4096<td>DH_modp4096<td>11+<tr><td>DH<td>modp6144<td>6144<td>DH_modp6144<td>11+<tr><td>DH<td>modp8192<td>8192<td>DH_modp8192<td>11+<tr><td>DH<td>ffdhe2048<td>2048<td>DH_ffdhe2048<td>11+<tr><td>DH<td>ffdhe3072<td>3072<td>DH_ffdhe3072<td>11+<tr><td>DH<td>ffdhe4096<td>4096<td>DH_ffdhe4096<td>11+<tr><td>DH<td>ffdhe6144<td>6144<td>DH_ffdhe6144<td>11+<tr><td>DH<td>ffdhe8192<td>8192<td>DH_ffdhe8192<td>11+</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>创建DH非对称密钥生成器时，如果用于随机生成密钥，生成的DH密钥规格与创建密钥生成器时指定的密钥规格一致；如果用于密钥转换，生成的DH密钥规格与密钥转换时指定的密钥数据规格一致。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用密钥参数生成-6>使用密钥参数生成<a href=#使用密钥参数生成-6 class=hash-link aria-label=使用密钥参数生成的直接链接 title=使用密钥参数生成的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始支持使用密钥参数生成DH密钥。</p>
+<p>DH密钥参数，包括：</p>
+<ul>
+<li class="">p：一个足够大的素数，用作有限域的模数。它被所有通信双方共享。</li>
+<li class="">g：g是DH算法的生成元，是素数p的原根。它被所有通信双方共享。</li>
+<li class="">l：length，表示私钥长度，以bit为单位。当l为0时，代表不指定私钥长度。</li>
+<li class="">sk：私钥，一个随机生成的私钥值。</li>
+<li class="">pk：公钥，通过使用公共参数（p 和 g）和私钥进行计算得到。</li>
+</ul>
+<p>当创建非对称密钥生成器时，对于指定公/私钥参数生成DH密钥的支持情况，如表所示。</p>
+<ul>
+<li class="">√：表示需要指定这一列中的具体属性，来构成密钥参数。</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>公共参数<th>公钥参数<th>私钥参数<th>公私钥对参数<tbody><tr><td>p<td>√<td>√<td>√<td>√<tr><td>g<td>√<td>√<td>√<td>√<tr><td>l<td>√<td>√<td>√<td>√<tr><td>pk<td>N/A<td>√<td>N/A<td>√<tr><td>sk<td>N/A<td>N/A<td>√<td>√</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用素数长度和私钥长度生成公共密钥参数>使用素数长度和私钥长度生成公共密钥参数<a href=#使用素数长度和私钥长度生成公共密钥参数 class=hash-link aria-label=使用素数长度和私钥长度生成公共密钥参数的直接链接 title=使用素数长度和私钥长度生成公共密钥参数的直接链接 translate=no>​</a></h3>
+<p>从API版本11开始，使用素数长度和私钥长度生成DH公共密钥参数。</p>
+<p>如果素数长度与安全素数组的素数长度一致，则选用对应的知名安全素数群。对应关系如表所示。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>素数长度（bit）<th>知名安全素数群<tbody><tr><td>2048<td>ffdhe2048<tr><td>3072<td>ffdhe3072<tr><td>4096<td>ffdhe4096<tr><td>6144<td>ffdhe6144<tr><td>8192<td>ffdhe8192</table>
+<ul>
+<li class="">素数p的比特长度必须大于等于512且小于等于10000。</li>
+<li class="">私钥长度l为可选参数，默认为0，l值的设置范围需大于2*(96+(素数P位数-1)/1024*16)。</li>
+<li class="">生成的公共密钥参数可以直接用于随机生成公私钥，也可以用于构造公钥、私钥或公私钥对。</li>
+<li class="">生成非知名群的密钥参数耗时较长，建议优先选用知名安全素数群。</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-spec/crypto-sym-key-generation-conversion-spec/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>对称密钥生成和转换规格</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-security/crypto-architecture-kit/crypto-key-generation-conversion/crypto-key-generation-conversion-dev/crypto-generate-sym-key-randomly/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>随机生成对称密钥(ArkTS)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#rsa class="table-of-contents__link toc-highlight">RSA</a><ul><li><a href=#使用字符串参数生成 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成 class="table-of-contents__link toc-highlight">使用密钥参数生成</a></ul><li><a href=#ecc class="table-of-contents__link toc-highlight">ECC</a><ul><li><a href=#使用字符串参数生成-1 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-1 class="table-of-contents__link toc-highlight">使用密钥参数生成</a><li><a href=#使用曲线名生成密钥参数 class="table-of-contents__link toc-highlight">使用曲线名生成密钥参数</a></ul><li><a href=#dsa class="table-of-contents__link toc-highlight">DSA</a><ul><li><a href=#约束与限制 class="table-of-contents__link toc-highlight">约束与限制</a><li><a href=#使用字符串参数生成-2 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-2 class="table-of-contents__link toc-highlight">使用密钥参数生成</a></ul><li><a href=#sm2 class="table-of-contents__link toc-highlight">SM2</a><ul><li><a href=#使用字符串参数生成-3 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-3 class="table-of-contents__link toc-highlight">使用密钥参数生成</a><li><a href=#使用曲线名生成密钥参数-1 class="table-of-contents__link toc-highlight">使用曲线名生成密钥参数</a></ul><li><a href=#ed25519 class="table-of-contents__link toc-highlight">Ed25519</a><ul><li><a href=#使用字符串参数生成-4 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-4 class="table-of-contents__link toc-highlight">使用密钥参数生成</a></ul><li><a href=#x25519 class="table-of-contents__link toc-highlight">X25519</a><ul><li><a href=#使用字符串参数生成-5 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-5 class="table-of-contents__link toc-highlight">使用密钥参数生成</a></ul><li><a href=#dh class="table-of-contents__link toc-highlight">DH</a><ul><li><a href=#使用字符串参数生成-6 class="table-of-contents__link toc-highlight">使用字符串参数生成</a><li><a href=#使用密钥参数生成-6 class="table-of-contents__link toc-highlight">使用密钥参数生成</a><li><a href=#使用素数长度和私钥长度生成公共密钥参数 class="table-of-contents__link toc-highlight">使用素数长度和私钥长度生成公共密钥参数</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

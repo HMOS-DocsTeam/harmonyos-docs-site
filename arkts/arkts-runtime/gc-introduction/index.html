@@ -1,0 +1,513 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-arkts/arkts-runtime/gc-introduction/gc-introduction" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>GC垃圾回收 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="GC垃圾回收 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="GC（全称 Garbage Collection），即垃圾回收。在计算机领域，GC是指识别并释放内存中的不再使用的对象，以回收内存空间。目前广泛使用的编程语言实现的GC算法主要分为两大类：引用计数和对象追踪（即Tracing GC）。"/><meta data-rh=true property=og:description content="GC（全称 Garbage Collection），即垃圾回收。在计算机领域，GC是指识别并释放内存中的不再使用的对象，以回收内存空间。目前广泛使用的编程语言实现的GC算法主要分为两大类：引用计数和对象追踪（即Tracing GC）。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/","name":"GC垃圾回收","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/accessibility-kit/accessibilitykit-overview/><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkdata/data-mgmt-overview/><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkts/arkts-overview/><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkts/arkts-overview/><span title=ArkTS简介 class=linkLabel_WmDU>ArkTS简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkts/arkts-utils/arkts-utils-overview/><span title=ArkTS基础类库 class=categoryLinkLabel_W154>ArkTS基础类库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkts/arkts-concurrency/concurrency-overview/><span title=ArkTS并发 class=categoryLinkLabel_W154>ArkTS并发</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkts/arkts-cross-language-interaction/><span title=ArkTS跨语言交互 class=linkLabel_WmDU>ArkTS跨语言交互</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-overview/><span title=ArkTS运行时 class=categoryLinkLabel_W154>ArkTS运行时</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-overview/><span title=ArkTS运行时概述 class=linkLabel_WmDU>ArkTS运行时概述</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/arkts/arkts-runtime/gc-introduction/><span title=GC垃圾回收 class=linkLabel_WmDU>GC垃圾回收</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-module/module-principle/><span title=ArkTS模块化 class=categoryLinkLabel_W154>ArkTS模块化</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-faq/><span title=ArkTS运行时常见问题 class=linkLabel_WmDU>ArkTS运行时常见问题</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkts/arkts-compilation-tool-chain/compilation-tool-chain-overview/><span title=ArkTS编译工具链 class=categoryLinkLabel_W154>ArkTS编译工具链</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkui-overview/><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkweb/web-component-overview/><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/background-task-kit/background-task-overview/><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/core-file-kit/core-file-kit-intro/><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/data-augmentation-kit-guide/dataaugmentation-introduction/><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/form-kit/formkit-overview/><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ime-kit/ime-kit-intro/><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ipc-kit/ipc-rpc-overview/><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/localization-kit/i18n-l10n/><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ui-design-kit-guide/ui-design-introduction/><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS（方舟编程语言）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS运行时</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>GC垃圾回收</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>GC垃圾回收</h1></header>
+<p>GC（全称 Garbage Collection），即垃圾回收。在计算机领域，GC是指识别并释放内存中的不再使用的对象，以回收内存空间。目前广泛使用的编程语言实现的GC算法主要分为两大类：引用计数和对象追踪（即Tracing GC）。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc算法简述>GC算法简述<a href=#gc算法简述 class=hash-link aria-label=GC算法简述的直接链接 title=GC算法简述的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc的类型>GC的类型<a href=#gc的类型 class=hash-link aria-label=GC的类型的直接链接 title=GC的类型的直接链接 translate=no>​</a></h3>
+<p><strong><strong>引用计数</strong></strong></p>
+<p>当对象B指向对象A时，A的引用计数加1；当该指向断开时，A的引用计数减1。如果A的引用计数为0，则回收对象A。</p>
+<ul>
+<li class="">优点：引用计数算法设计简单，而且会在对象成为垃圾时及时回收该部分内存，因此无需引入单独的暂停业务代码（Stop The World，STW）阶段。</li>
+<li class="">缺点：在对象操作时插入了计数环节，增加了内存分配和赋值的开销，影响性能。存在因循环引用而导致的内存泄漏问题。</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">class Parent {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  constructor() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.child = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  child: Child | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class Child {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  constructor() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.parent = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  parent: Parent | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function main() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let parent: Parent = new Parent();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let child: Child = new Child();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  parent.child = child;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  child.parent = parent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>在上述代码中，对象parent被对象child持有，parent的引用计数加1。同时，child也被parent持有，child的引用计数也会加1。这形成了循环引用，导致直到main函数结束，parent和child都无法释放，从而引发内存泄漏。</p>
+<p><strong><strong>对象追踪</strong></strong></p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583437581-5fd95d8784ea7ab5ee2e6f0ad6ef83bd.png width=690 height=203 class=img_ev3q /></p>
+<p>根对象包括程序运行中的栈内对象和全局对象等当前时刻一定存活的对象。从根对象开始，通过引用链可以访问到的所有对象（可达对象）也是存活的。通过遍历可以找到所有存活对象。如图所示，从根对象开始遍历，所有可达对象标记为蓝色，即为活对象。剩下的不可达对象标记为黄色，即为垃圾。</p>
+<ul>
+<li class="">优点：对象追踪算法可以解决循环引用问题，并且对内存的分配和赋值没有额外开销。</li>
+<li class="">缺点：和引用计数算法相比，对象追踪算法较为复杂，有短暂的STW阶段。而且回收有延迟，会导致较多的浮动垃圾。</li>
+</ul>
+<p>引用计数和对象追踪算法各有优劣。由于引用计数存在内存泄漏问题，ArkTS运行时选择基于对象追踪（即Tracing GC）算法设计GC。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=对象追踪的三种类型>对象追踪的三种类型<a href=#对象追踪的三种类型 class=hash-link aria-label=对象追踪的三种类型的直接链接 title=对象追踪的三种类型的直接链接 translate=no>​</a></h3>
+<p>对象追踪算法通过遍历对象标记出垃圾，而根据垃圾回收方式的不同，对象追踪可以分为三种基本类型：标记-清扫回收、标记-复制回收、标记-整理回收。下图中蓝色标记为可达对象，黄色标记为不可达对象。</p>
+<p><strong><strong>标记-清扫回收</strong></strong></p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=759 height=233 class=img_ev3q /></p>
+<p>完成对象图遍历后，删除不可达对象内容，并将其放入空闲队列，以便下次对象分配。</p>
+<p>该回收方式不搬移对象，效率高。但回收对象内存地址不连续，导致内存碎片化，降低分配效率。极端情况下，即使有大量空闲内存，也可能无法放入较大对象。</p>
+<p><strong><strong>标记-复制回收</strong></strong></p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583477537-54cce75bbb61af572141073aac946bbf.png width=756 height=221 class=img_ev3q /></p>
+<p>遍历对象图时，将可达对象复制到新内存空间。遍历完成后，回收旧内存空间。</p>
+<p>这种方式可以解决内存碎片问题，通过一次遍历完成整个GC过程，效率较高。但在极端情况下，需要预留一半内存空间以确保所有可达对象都可以被拷贝，这会导致空间利用率较低。</p>
+<p><strong><strong>标记-整理回收</strong></strong></p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552797888-1722d4eea3f9b1b256228251681e86a6.png width=764 height=260 class=img_ev3q /></p>
+<p>完成对象图遍历后，将可达对象（蓝色）复制到本区域或指定区域的头部空闲位置，然后将已复制的对象回收整理到空闲队列中。</p>
+<ul>
+<li class="">优点：解决了“标记-清扫回收”导致的大量内存碎片问题，避免了“标记-复制回收”浪费一半内存空间。</li>
+<li class="">缺点：和“标记-复制回收”相比，性能开销较高。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hpp-gc>HPP GC<a href=#hpp-gc class=hash-link aria-label="HPP GC的直接链接" title="HPP GC的直接链接" translate=no>​</a></h3>
+<p>HPP GC（High Performance Partial Garbage Collection），即高性能部分垃圾回收，其中“High Performance”主要体现在分代模型、混合算法和GC流程优化这三个方面。HPP GC根据不同对象区域采取不同的回收方式。</p>
+<p><strong><strong>分代模型</strong></strong></p>
+<p>ArkTS运行时采用传统的分代模型，将对象进行分类。大多数新分配的对象会在一次GC后被回收，而大多数经过多次GC后依然存活的对象会继续存活。ArkTS运行时将对象划分为年轻代和老年代对象，并分配到不同空间。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583437583-d634f2dc986622194dbb698333997e9c.png width=815 height=377 class=img_ev3q /></p>
+<p>ArkTS运行时将新分配的对象直接分配到年轻代（YoungSpace，又称SemiSpace）的From空间。经过一次GC后依然存活的对象，会移动到To空间。经过再次GC后依然存活的对象，会被移动到老年代（OldSpace）。</p>
+<p><strong><strong>混合算法</strong></strong></p>
+<p>HPP GC是部分复制、部分整理和部分清扫的混合算法。根据年轻代和老年代对象特点，采取不同的回收方式。</p>
+<ul>
+<li class="">部分复制</li>
+</ul>
+<p>考虑到年轻代对象生命周期短、回收频繁且大小有限，ArkTS运行时对年轻代对象采用“标记-复制回收”算法。</p>
+<ul>
+<li class="">部分整理+部分清扫</li>
+</ul>
+<p>根据老年代对象的特点，引入启发式Collection Set（简称CSet）选择算法。该算法在标记阶段统计每个区域的存活对象大小，然后在回收阶段优先选择存活对象少、回收代价小的区域进行对象整理回收，再对剩余区域进行清扫回收。</p>
+<p>回收策略如下：</p>
+<ul>
+<li class="">根据设定的区域存活对象大小阈值，将满足条件的区域纳入初步的CSet队列，并根据存活率进行从低到高的排序（注：存活率=存活对象大小/区域大小）。</li>
+<li class="">根据设定的释放区域个数阈值，选出最终的CSet队列，进行整理回收。</li>
+<li class="">对未被选入CSet队列的区域进行清扫回收。</li>
+</ul>
+<p>启发式CSet选择算法结合了“标记-整理回收”和“标记-清扫回收”算法的优点，避免了内存碎片问题，同时提升了性能。</p>
+<p><strong><strong>流程优化</strong></strong></p>
+<p>HPP GC流程中引入了大量的并发和并行优化，以减少对应用性能的影响。采用了并发+并行标记（Marking）、并发+并行清扫（Sweep）、并行复制/整理（Evacuation）、并行回改（Update）和并发清理（Clear）执行GC任务。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc流程>GC流程<a href=#gc流程 class=hash-link aria-label=GC流程的直接链接 title=GC流程的直接链接 translate=no>​</a></h2>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552957538-0d0c65bfe86c39d7598c5bc418e2ab72.png width=983 height=974 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hpp-gc的类型>HPP GC的类型<a href=#hpp-gc的类型 class=hash-link aria-label="HPP GC的类型的直接链接" title="HPP GC的类型的直接链接" translate=no>​</a></h3>
+<p><strong><strong>Young GC</strong></strong></p>
+<ul>
+<li class="">触发机制：年轻代GC触发阈值在2MB-16MB，根据分配速度和存活率变化。</li>
+<li class="">功能描述：主要回收YoungSpace新分配的年轻代对象。</li>
+<li class="">场景：前台场景。</li>
+<li class="">日志关键词：[ HPP YoungGC ]</li>
+</ul>
+<p><strong><strong>Old GC</strong></strong></p>
+<ul>
+<li class="">触发机制：老年代GC触发阈值在20MB到300MB之间变化。通常，第一次Old GC的阈值约为20MB，之后会根据对象存活率和内存占用情况进行调整。</li>
+<li class="">功能描述：对年轻代和部分老年代空间做整理压缩，其他空间做清理。触发频率比年轻代GC低很多，由于会做全量标记，因此GC时间会比年轻代GC长，单次耗时约5ms~10ms。</li>
+<li class="">场景：前台场景。</li>
+<li class="">日志关键词：[ HPP OldGC ]</li>
+</ul>
+<p><strong><strong>Full GC</strong></strong></p>
+<ul>
+<li class="">触发机制：不会由内存阈值触发。应用切换到后台场景之后，若预测可回收对象大小超过2MB，则会触发一次Full GC。DumpHeapSnapshot和AllocationTracker工具默认会触发Full GC。Native接口和ArkTS接口也可触发。</li>
+<li class="">功能描述：对年轻代和老年代做全量压缩，主要用于性能不敏感场景，最大限度回收内存。</li>
+<li class="">场景：后台场景。</li>
+<li class="">日志关键词：[ CompressGC ]</li>
+</ul>
+<p>此后，Smart GC或Idle GC会从上述三种GC中选择。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=触发策略>触发策略<a href=#触发策略 class=hash-link aria-label=触发策略的直接链接 title=触发策略的直接链接 translate=no>​</a></h3>
+<p><strong><strong>空间阈值触发GC</strong></strong></p>
+<ul>
+<li class="">限制参数：对应的空间阈值。</li>
+<li class="">策略描述：对象申请空间到达阈值时触发GC。</li>
+<li class="">典型日志：日志可区分GCReason::ALLOCATION_LIMIT。</li>
+</ul>
+<p><strong><strong>Native绑定大小达到阈值触发GC</strong></strong></p>
+<ul>
+<li class="">限制参数：globalSpaceNativeLimit</li>
+<li class="">策略描述：按条件进行全量标记和开启并发标记。</li>
+</ul>
+<p><strong><strong>切换后台触发GC</strong></strong></p>
+<ul>
+<li class="">策略描述：切换到后台场景后主动触发一次Full GC。</li>
+<li class="">典型日志：app is inBackground和app is not inBackground。GC日志中可区分GCReason::SWITCH_BACKGROUND。</li>
+</ul>
+<p><strong><strong>空闲时触发GC</strong></strong></p>
+<ul>
+<li class="">触发条件：
+<ul>
+<li class="">Young GC：年轻代对象分配量超过预期，且空间使用率达到阈值。</li>
+<li class="">Old GC：老年代对象增长超过预期，满足以下任一条件：
+<ul>
+<li class="">Native绑定内存增长超过阈值。</li>
+<li class="">老年代空间使用率达到空闲限制阈值。</li>
+<li class="">全局分配限制达到空闲限制阈值。</li>
+</ul>
+</li>
+<li class="">Full GC：满足以下任一条件：
+<ul>
+<li class="">堆对象大小超过预期。</li>
+<li class="">碎片大小超过预期。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="">策略描述：应用空闲时，根据内存使用情况选择合适的GC类型进行回收，避免在性能敏感场景触发GC影响用户体验。</li>
+<li class="">典型日志：IdleGCTrigger: trigger full gc、IdleGCTrigger: trigger young gc。GC日志中可区分GCReason::IDLE。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=执行策略>执行策略<a href=#执行策略 class=hash-link aria-label=执行策略的直接链接 title=执行策略的直接链接 translate=no>​</a></h3>
+<p><strong><strong>ConcurrentMark</strong></strong></p>
+<ul>
+<li class="">策略描述：尝试触发并发标记，将遍历对象进行标记的任务交由线程池中并发运行，减少UI主线程挂起时间。</li>
+<li class="">典型日志：fullMarkRequested、trigger full mark、Trigger the first full mark、Trigger full mark、Trigger the first semi mark、Trigger semi mark。</li>
+</ul>
+<p><strong><strong>YoungSpace GC前后的阈值调整</strong></strong></p>
+<ul>
+<li class="">策略描述：GC后调整YoungSpace的触发阈值，优化空间结构。</li>
+<li class="">典型日志：无直接日志。可以通过GC统计日志看出，GC前YoungSpace的阈值有动态调整。</li>
+</ul>
+<p><strong><strong>第一次Old GC后阈值的调整</strong></strong></p>
+<ul>
+<li class="">策略描述：根据最小增长步长以及平均存活率调整OldSpace阈值限制。</li>
+<li class="">日志关键词：AdjustOldSpaceLimit</li>
+</ul>
+<p><strong><strong>第二次及以后的Old GC对OldSpace和GlobalSpace阈值调整，以及增长因子的调整</strong></strong></p>
+<ul>
+<li class="">策略描述：根据当前GC统计数据的变化，重新计算并调整newOldSpaceLimit、newGlobalSpaceLimit、globalSpaceNativeLimit及增长因子。</li>
+<li class="">日志关键词：RecomputeLimits</li>
+</ul>
+<p><strong><strong>Partial Old GC的CSet 选择策略</strong></strong></p>
+<ul>
+<li class="">策略描述：Partial GC执行时，优先选择存活对象数量少、回收代价小的Region进行回收。</li>
+<li class="">典型日志：
+<ul>
+<li class="">Select CSet failure: number is too few</li>
+<li class="">Max evacuation size is 6_MB. The CSet Region number</li>
+<li class="">Select CSet success: number is</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=heap>Heap<a href=#heap class=hash-link aria-label=Heap的直接链接 title=Heap的直接链接 translate=no>​</a></h2>
+<p>Heap包含两种类型：LocalHeap和SharedHeap。LocalHeap是应用进程中每个ArkTS线程独有的虚拟机堆，SharedHeap是应用进程中所有ArkTS线程共享的虚拟机堆。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=localheap结构>LocalHeap结构<a href=#localheap结构 class=hash-link aria-label=LocalHeap结构的直接链接 title=LocalHeap结构的直接链接 translate=no>​</a></h3>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583477539-c6127f802bb9757f962806ef5feb8e8c.png width=734 height=362 class=img_ev3q /></p>
+<ul>
+<li class="">YoungSpace：年轻代（Young Generation），又称SemiSpace，存放新创建出来的对象，存活率低，主要使用半空间复制算法进行内存回收。</li>
+<li class="">OldSpace：老年代（Old Generation），存放年轻代多次回收仍存活的对象会被移动到该空间，根据场景混合多种算法进行内存回收。</li>
+<li class="">HugeObjectSpace：大对象空间，使用单独的Region存放一个大对象的空间。</li>
+<li class="">ReadOnlySpace：只读空间，存放运行期间的只读数据。</li>
+<li class="">NonMovableSpace：不可移动空间，存放不可移动的对象。</li>
+<li class="">SnapshotSpace：快照空间，转储堆快照时使用的空间。</li>
+<li class="">MachineCodeSpace：机器码空间，存放程序机器码。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>每个空间由一个或多个Region进行分区域管理。Region是空间向内存分配器申请的单位。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=localheap相关参数>LocalHeap相关参数<a href=#localheap相关参数 class=hash-link aria-label=LocalHeap相关参数的直接链接 title=LocalHeap相关参数的直接链接 translate=no>​</a></h3>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>以下参数未提示可配置的均为不可配置项，由系统自行设定。</p>
+<p>根据系统分配堆空间总大小64MB-128MB/128MB-256MB/大于256MB的三个范围，以下参数系统会设置不同的大小。如果表格内范围仅有一个值，则表示该参数值不随堆空间总大小变化。手机设备堆空间总大小默认为大于256MB。</p>
+<p>开发者可以查阅<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hidebug/js-apis-hidebug>hidebug接口文档</a>，使用相关接口查询内存信息。</p>
+<p><strong><strong>堆大小相关参数</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>HeapSize<td>448MB<td>主线程默认堆空间总大小，小内存设备（如手表）会根据设备实际内存大小自动调整该堆空间大小。<tr><td>SemiSpaceSize<td>2MB-4MB/2MB-8MB/2MB-16MB<td>SemiSpace空间大小。<tr><td>NonmovableSpaceSize<td>2MB/6MB/64MB<td>NonmovableSpace空间大小。<tr><td>SnapshotSpaceSize<td>512KB<td>快照空间大小。<tr><td>MachineCodeSpaceSize<td>2MB<td>机器码空间大小。</table>
+<p><strong><strong>Worker线程堆上限</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>HeapSize<td>768 MB<td>Worker类型线程堆空间大小。</table>
+<p><strong><strong>SemiSpace</strong></strong></p>
+<p>Heap中生成两个SemiSpace，供复制使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>semiSpaceSize<td>2MB-4MB/2MB-8MB/2MB-16MB<td>SemiSpace空间大小，会根据堆总大小有不同的范围限制。<tr><td>semiSpaceTriggerConcurrentMark<td>1MB/1.5MB/1.5MB<td>首次单独触发SemiSpace的并发标记的界限值，超过该值则触发。<tr><td>semiSpaceStepOvershootSize<td>2MB<td>允许过冲最大大小。</table>
+<p><strong><strong>OldSpace和HugeObjectSpace</strong></strong></p>
+<p>初始化时均设定为Heap剩余未分配空间的大小，默认手机设备主线程OldSpaceSize上限接近350MB。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>oldSpaceOvershootSize<td>4MB/8MB<td>OldSpace允许过冲最大大小。</table>
+<p><strong><strong>其他空间</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>defaultReadOnlySpaceSize<td>256KB<td>ReadOnlySpace默认空间大小。<tr><td>defaultNonMovableSpaceSize<td>2MB/6MB/64MB<td>NonMovableSpace默认空间大小。<tr><td>defaultSnapshotSpaceSize<td>512KB/4MB<td>SnapshotSpace默认空间大小。<tr><td>defaultMachineCodeSpaceSize<td>2MB/8MB<td>MachineCodeSpace默认空间大小。</table>
+<p><strong><strong>解释器栈大小</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>值<th>作用<tbody><tr><td>maxStackSize<td>128KB<td>控制解释器栈的大小。</table>
+<p><strong><strong>并发参数</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>值<th>作用<tbody><tr><td>gcThreadNum<td>7<td>gc线程数量，默认为7。可通过gc-thread-num参数设置。<tr><td>MIN_TASKPOOL_THREAD_NUM<td>3<td>线程池最小线程数。<tr><td>MAX_TASKPOOL_THREAD_NUM<td>7<td>线程池最大线程数。</table>
+<p>该线程池主要用于执行GC流程中的并发任务。线程池初始化时，会综合考虑gcThreadNum和线程数的上下限。如果gcThreadNum为负值，线程池的线程数将初始化为CPU核心数的一半。</p>
+<p><strong><strong>其他参数</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>值<th>作用<tbody><tr><td>minAllocLimitGrowingStep<td>2MB/4MB/8MB<td>Heap整体重新计算空间大小限制时，此参数用于控制OldSpace、heapObject和globalNative的最小增长步长。<tr><td>minGrowingStep<td>4MB/8MB/16MB<td>调整OldSpace的最小增长步长。<tr><td>longPauseTime<td>40ms<td>判断是否为超长GC界限。超长GC会触发完整GC日志信息的打印，便于开发者定位和分析。可通过gc-long-paused-time进行配置。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sharedheap结构>SharedHeap结构<a href=#sharedheap结构 class=hash-link aria-label=SharedHeap结构的直接链接 title=SharedHeap结构的直接链接 translate=no>​</a></h3>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552797890-ebea6b9d59affee3243a88aaef4c075f.png width=717 height=354 class=img_ev3q /></p>
+<ul>
+<li class="">SharedOldSpace：共享堆老年代空间，存放一般的共享对象。</li>
+<li class="">SharedHugeObjectSpace：共享堆大对象空间，使用单独的Region存放一个大对象的空间。</li>
+<li class="">SharedReadOnlySpace：共享堆只读空间，存放运行期间的只读数据。</li>
+<li class="">SharedNonMovableSpace：共享堆不可移动空间，存放不可移动的共享对象。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>SharedHeap用于存储线程间共享对象，提高效率并节省内存。共享堆不单独属于任何线程，保存具有共享价值的对象，提高对象的存活率。</p>
+<p>SharedHeap去除了SemiSpace类型，因为共享对象通常生命周期较长，不需要年轻代的复制算法。</p>
+<p>每个空间由一个或多个Region进行分区域管理。Region是空间向内存分配器申请的单位。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sharedheap相关参数>SharedHeap相关参数<a href=#sharedheap相关参数 class=hash-link aria-label=SharedHeap相关参数的直接链接 title=SharedHeap相关参数的直接链接 translate=no>​</a></h3>
+<p>以下参数适用于手机等大内存设备。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>SharedOldSpace和SharedHugeObjectSpace的阈值上限在共享堆初始化时均设定为SharedHeap剩余未分配空间的一半，手机设备默认分配的空间上限接近350MB，超过该值会发生内存溢出。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>范围<th>作用<tbody><tr><td>SharedHeapSize<td>778MB<td>SharedHeap默认堆空间总大小。<tr><td>SharedOldSpaceSize<td>约350MB<td>SharedOldSpace空间容量。<tr><td>SharedHugeObjectSpaceSize<td>约350MB<td>SharedHugeObjectSpace空间容量。<tr><td>SharedReadOnlySpaceSize<td>256KB<td>SharedReadOnlySpace空间容量。<tr><td>SharedNonMovableSpaceSize<td>64MB<td>SharedNonMovableSpace空间容量。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=特性>特性<a href=#特性 class=hash-link aria-label=特性的直接链接 title=特性的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=smart-gc>Smart GC<a href=#smart-gc class=hash-link aria-label="Smart GC的直接链接" title="Smart GC的直接链接" translate=no>​</a></h3>
+<p>Smart GC是一种智能GC抑制机制，在冷启动场景和性能敏感场景中通过临时提高GC触发阈值来降低GC触发频率，避免因GC而导致应用掉帧，从而影响用户体验。</p>
+<p><strong><strong>支持场景</strong></strong></p>
+<ul>
+<li class="">应用冷启动（默认支持）。</li>
+<li class="">应用滑动。</li>
+<li class="">应用点击页面跳转。</li>
+<li class="">超长帧。</li>
+</ul>
+<p><strong><strong>注意事项</strong></strong></p>
+<ul>
+<li class="">Smart GC对Worker线程和TaskPool线程不生效，仅对主线程生效。</li>
+<li class="">如果敏感场景持续时间过久，对象分配仍可能达到提高后的GC阈值，仍会触发GC，且由于积累对象较多，GC时间会较长。</li>
+<li class="">该特性由系统侧管控，三方应用暂无接口直接调用。</li>
+</ul>
+<p><strong><strong>日志关键词</strong></strong></p>
+<ul>
+<li class="">敏感场景：SmartGC: set high sensitive status</li>
+<li class="">冷启动场景：SmartGC: app cold start just finished</li>
+</ul>
+<p><strong><strong>交互流程</strong></strong></p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583437585-66dd1f8ee8ec66275b132799ea2f15ec.png width=582 height=650 class=img_ev3q /></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=日志解释>日志解释<a href=#日志解释 class=hash-link aria-label=日志解释的直接链接 title=日志解释的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=开启全量日志>开启全量日志<a href=#开启全量日志 class=hash-link aria-label=开启全量日志的直接链接 title=开启全量日志的直接链接 translate=no>​</a></h3>
+<p>默认情况下，详细的GC日志仅在GC耗时超过40毫秒时才会打印。若需开启所有GC日志，需使用命令在设备中开启。</p>
+<p><strong><strong>使用样例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 设置开启GC全量日志参数，开启参数为0x905d，关闭GC全量日志，设置为默认值为0x105c</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hdc shell param set persist.ark.properties 0x905d</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 重启生效</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hdc shell reboot</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=典型日志>典型日志<a href=#典型日志 class=hash-link aria-label=典型日志的直接链接 title=典型日志的直接链接 translate=no>​</a></h3>
+<p>以下日志统计了GC完整执行后的信息，不同GC类型可能有所差异。在导出的日志文件中搜索关键词[gc]查看GC日志，或搜索关键词ArkCompiler查看更全面的虚拟机日志。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// GC前对象实际占用大小（Region实际占用大小）->GC后对象实际占用大小（Region实际占用大小），总耗时（+concurrentMark耗时），GC触发原因。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc]  [ CompressGC ] 26.1164 (35) -> 7.10049 (10.5) MB, 160.626(+0)ms, Switch to background</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// GC运行时的各种状态以及应用名称</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] IsInBackground: 1; SensitiveStatus: 0; OnStartupEvent: 0; BundleName: com.example.demo;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// GC运行时的各阶段耗时统计</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] /***************** GC Duration statistic: ****************/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] TotalGC:                 160.626 ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Initialize:              0.179   ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Mark:                    159.204 ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: MarkRoots:               6.925   ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: ProcessMarkStack:        158.99  ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Sweep:                   0.957   ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Finish:                  0.277   ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// GC后各个部分占用的内存大小</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] /****************** GC Memory statistic: *****************/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] AllSpaces        used:  7270.9KB     committed:   10752KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: ActiveSemiSpace  used:       0KB     committed:     256KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: OldSpace         used:  4966.9KB     committed:    5888KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: HugeObjectSpace  used:    2304KB     committed:    2304KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: NonMovableSpace  used:       0KB     committed:    2304KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: MachineCodeSpace used:       0KB     committed:       0KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: HugeMachineCodeSpace used:       0KB     committed:       0KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: SnapshotSpace    used:       0KB     committed:       0KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: AppSpawnSpace    used: 4736.34KB     committed:    4864KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] Anno memory usage size:  45      MB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Native memory usage size:2.99652 MB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: NativeBindingSize:       0.577148KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: ArrayBufferNativeSize:   0.0117188KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: RegExpByteCodeNativeSize:0.280273KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: ChunkNativeSize:         19096   KB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] Heap alive rate:         0.202871</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 该虚拟机的此类型GC的整体统计</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] /***************** GC summary statistic: *****************/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: [gc] CompressGC occurs count  6</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: CompressGC max pause:    2672.33 ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: CompressGC min pause:    160.626 ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: CompressGC average pause:1076.06 ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C03F00/ArkCompiler: Heap average alive rate: 0.635325</span><br/></div></code></pre></div></div>
+<ul>
+<li class="">gc类型：[HPP YoungGC]、[HPP OldGC]、[CompressGC]、[SharedGC]。</li>
+<li class="">TotalGC：总耗时。其下相应为各个阶段对应的耗时，基本的包括Initialize、Mark、MarkRoots、ProcessMarkStack、Sweep、Finish，实际根据不同的GC流程不同会有不同的阶段。</li>
+<li class="">IsInBackground：是否在后台场景，0：非后台场景，1：为后台场景。</li>
+<li class="">SensitiveStatus：是否为<a href=#smart-gc class="">敏感场景</a>，0：非敏感场景，1：为敏感场景，2：退出敏感场景。</li>
+<li class="">OnStartupEvent：是否为冷启动场景，0：非冷启动场景，1：为冷启动场景。</li>
+<li class="">used：当前已分配的对象实际占用的内存空间大小。</li>
+<li class="">committed：当前实际分配给heap内存空间的大小。由于各空间按Region分配，而Region通常不会被对象完全占满，因此committedSize大于等于usedSize。hugeSpace会完全相等，因为每个对象单独占用一个Region。</li>
+<li class="">Anno memory usage size：当前进程所有堆申请的内存大小，包括heap与sharedHeap。</li>
+<li class="">Native memory usage size：当前进程所申请的Native内存大小。</li>
+<li class="">NativeBindingSize：当前进程堆内对象绑定的Native内存大小。</li>
+<li class="">ArrayBufferNativeSize：当前进程申请的数组缓存Native内存大小。</li>
+<li class="">RegExpByteCodeNativeSize：当前进程申请的正则表达式字节码Native内存大小。</li>
+<li class="">ChunkNativeSize：当前进程申请的ChunkNative内存大小。</li>
+<li class="">Heap alive rate：堆内对象的存活率。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc开发者调试接口>GC开发者调试接口<a href=#gc开发者调试接口 class=hash-link aria-label=GC开发者调试接口的直接链接 title=GC开发者调试接口的直接链接 translate=no>​</a></h2>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>以下接口仅供调试使用，非正式对外SDK接口，不应在应用正式版本中使用。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arktoolshintgc>ArkTools.hintGC()<a href=#arktoolshintgc class=hash-link aria-label=ArkTools.hintGC()的直接链接 title=ArkTools.hintGC()的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">调用方式：ArkTools.hintGC()</li>
+<li class="">接口类型：ArkTS接口。</li>
+<li class="">调用后，VM会判断是否适合进行full GC。如果后台场景中内存预期存活率低于设定值，则触发full GC；若判断为敏感状态，则不触发。</li>
+<li class="">使用场景：开发者提示系统进行GC。</li>
+<li class="">典型日志：无直接日志，仅区分外部触发（GCReason::TRIGGER_BY_JS）。</li>
+</ul>
+<p><strong><strong>使用参考：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 首先需要声明接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">declare class ArkTools {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  static hintGC(): void;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State message: string = 'Hello World';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize(50)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button("触发HintGC").onClick((event: ClickEvent) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ArkTools.hintGC(); // 方法内直接调用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc常见问题>GC常见问题<a href=#gc常见问题 class=hash-link aria-label=GC常见问题的直接链接 title=GC常见问题的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=gc稳定性问题排查指导>GC稳定性问题排查指导<a href=#gc稳定性问题排查指导 class=hash-link aria-label=GC稳定性问题排查指导的直接链接 title=GC稳定性问题排查指导的直接链接 translate=no>​</a></h3>
+<p>GC稳定性问题主要由两种异常引起：一是非法多线程操作导致的对象异常，二是内存访问错误导致的指针异常。这两种问题在GC任务中通常表现为堆栈中的地址访问异常。</p>
+<p>可以通过线程名称和堆栈中的方法来识别GC任务：OS_GC_Thread线程主要执行GC任务和PGO相关任务（采集型任务）；或者通过堆栈中包含GCTask等关键词识别GC任务。GC任务上报地址异常类型的崩溃时，开发者应首先排查非法多线程问题和内存访问问题。</p>
+<ul>
+<li class="">检测非法多线程操作：<a class="" href=/harmonyos-docs-site/ide-log-and-fault-analysis/ide-fault-analysis/ide-multi-thread-check>方舟运行时检测</a>。</li>
+<li class="">检测踩内存问题：<a class="" href=/harmonyos-docs-site/ide-log-and-fault-analysis/ide-fault-analysis/ide-hwasan>HWASan检测</a>。</li>
+</ul>
+<p>以下示例列举部分情况，实际问题上报的地址异常类型多样，不再赘述。</p>
+<p>对象异常问题常见堆栈信息：</p>
+<p>0xffff000000000048 是对象的异常偏移地址。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Reason:Signal:SIGSEGV(SEGV_MAPERR)@0xffff000000000048</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Fault thread info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Tid:6490, Name:OS_GC_Thread</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#00 pc 0000000000507310 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::JSHClass::SizeFromJSHClass(panda::ecmascript::TaggedObject*)+0)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#01 pc 0000000000521f94 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::CompressGCMarker::EvacuateObject(unsigned int, panda::ecmascript::TaggedObject*, panda::ecmascript::MarkWord const&, panda::ecmascript::ObjectSlot)+80)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#02 pc 0000000000521ee4 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::CompressGCMarker::MarkObject(unsigned int, panda::ecmascript::TaggedObject*, panda::ecmascript::ObjectSlot)+372)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#03 pc 0000000000523e40 /system/lib64/platformsdk/libark_jsruntime.so(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#04 pc 0000000000516d74 /system/lib64/platformsdk/libark_jsruntime.so(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#05 pc 00000000005206d4 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::CompressGCMarker::ProcessMarkStack(unsigned int)+160)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#06 pc 000000000050460c /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::Heap::ParallelGCTask::Run(unsigned int)+228)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#07 pc 000000000064f648 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::Runner::Run(unsigned int)+188)(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#08 pc 000000000064f718 /system/lib64/platformsdk/libark_jsruntime.so(a3d1ba664de66d31faed07d711ee1299)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#09 pc 00000000001ba6b8 /system/lib/ld-musl-aarch64.so.1(start+236)(8102fa8a64ba5e1e9f2257469d3fb251)</span><br/></div></code></pre></div></div>
+<p>指针异常问题常见堆栈信息：</p>
+<p>0x000056c2fffc0008 指针出现异常，指针映射出错。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Reason:Signal:SIGSEGV(SEGV_MAPERR)@0x000056c2fffc0008</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Fault thread info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Tid:2936, Name:OS_GC_Thread</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#00 pc 00000000004d2ec0 /system/lib64/platformsdk/libark_jsruntime.so(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#01 pc 00000000004c6cac /system/lib64/platformsdk/libark_jsruntime.so(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#02 pc 00000000004cd180 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::NonMovableMarker::ProcessMarkStack(unsigned int)+256)(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#03 pc 000000000049d108 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::ConcurrentMarker::ProcessConcurrentMarkTask(unsigned int)+52)(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#04 pc 00000000004b6620 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::Heap::ParallelGCTask::Run(unsigned int)+236)(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#05 pc 00000000005d6e60 /system/lib64/platformsdk/libark_jsruntime.so(panda::ecmascript::Runner::Run(unsigned int)+168)(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#06 pc 00000000005d6f30 /system/lib64/platformsdk/libark_jsruntime.so(733f61d2f51e825872484cc344970fe5)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#07 pc 00000000001bdb84 /system/lib/ld-musl-aarch64.so.1(start+236)(e65f5c83306cf9c7dd4643794946ab9f)</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-overview/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS运行时概述</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/arkts/arkts-runtime/arkts-runtime-module/module-principle/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>模块化运行简介</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#gc算法简述 class="table-of-contents__link toc-highlight">GC算法简述</a><ul><li><a href=#gc的类型 class="table-of-contents__link toc-highlight">GC的类型</a><li><a href=#对象追踪的三种类型 class="table-of-contents__link toc-highlight">对象追踪的三种类型</a><li><a href=#hpp-gc class="table-of-contents__link toc-highlight">HPP GC</a></ul><li><a href=#gc流程 class="table-of-contents__link toc-highlight">GC流程</a><ul><li><a href=#hpp-gc的类型 class="table-of-contents__link toc-highlight">HPP GC的类型</a><li><a href=#触发策略 class="table-of-contents__link toc-highlight">触发策略</a><li><a href=#执行策略 class="table-of-contents__link toc-highlight">执行策略</a></ul><li><a href=#heap class="table-of-contents__link toc-highlight">Heap</a><ul><li><a href=#localheap结构 class="table-of-contents__link toc-highlight">LocalHeap结构</a><li><a href=#localheap相关参数 class="table-of-contents__link toc-highlight">LocalHeap相关参数</a><li><a href=#sharedheap结构 class="table-of-contents__link toc-highlight">SharedHeap结构</a><li><a href=#sharedheap相关参数 class="table-of-contents__link toc-highlight">SharedHeap相关参数</a></ul><li><a href=#特性 class="table-of-contents__link toc-highlight">特性</a><ul><li><a href=#smart-gc class="table-of-contents__link toc-highlight">Smart GC</a></ul><li><a href=#日志解释 class="table-of-contents__link toc-highlight">日志解释</a><ul><li><a href=#开启全量日志 class="table-of-contents__link toc-highlight">开启全量日志</a><li><a href=#典型日志 class="table-of-contents__link toc-highlight">典型日志</a></ul><li><a href=#gc开发者调试接口 class="table-of-contents__link toc-highlight">GC开发者调试接口</a><ul><li><a href=#arktoolshintgc class="table-of-contents__link toc-highlight">ArkTools.hintGC()</a></ul><li><a href=#gc常见问题 class="table-of-contents__link toc-highlight">GC常见问题</a><ul><li><a href=#gc稳定性问题排查指导 class="table-of-contents__link toc-highlight">GC稳定性问题排查指导</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

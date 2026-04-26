@@ -1,0 +1,1871 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>assetDownloadManager（资源包下载管理） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="assetDownloadManager（资源包下载管理） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供资源包下载管理能力。 /><meta data-rh=true property=og:description content=本模块提供资源包下载管理能力。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager","name":"assetDownloadManager（资源包下载管理）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title="AR Engine（AR引擎服务）" class=categoryLinkLabel_W154>AR Engine（AR引擎服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-effectkit/js-apis-effectkit><span title="ArkGraphics 2D（方舟2D图形服务）" class=categoryLinkLabel_W154>ArkGraphics 2D（方舟2D图形服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="ArkGraphics 3D（方舟3D图形）" class=categoryLinkLabel_W154>ArkGraphics 3D（方舟3D图形）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title="Graphics Accelerate Kit（图形加速服务）" class=categoryLinkLabel_W154>Graphics Accelerate Kit（图形加速服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title=assetDownloadManager（资源包下载管理） class=linkLabel_WmDU>assetDownloadManager（资源包下载管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-extensionability/graphics-accelerate-extensionability><span title=AssetAccelerationExtensionAbility（资源加速ExtensionAbility） class=linkLabel_WmDU>AssetAccelerationExtensionAbility（资源加速ExtensionAbility）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-extensioncontext/graphics-accelerate-extensioncontext><span title=AssetAccelerationExtensionContext（资源加速ExtensionContext） class=linkLabel_WmDU>AssetAccelerationExtensionContext（资源加速ExtensionContext）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-launchacceleration/graphics-accelerate-launchacceleration><span title=launchAcceleration（游戏启动加速） class=linkLabel_WmDU>launchAcceleration（游戏启动加速）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics_accelerate_c_api/index/x_graphics_accelerate/x_graphics_accelerate><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/spatial-recon-api/spatial-recon-arkts/spatial-recon-spatialrender/spatial-recon-spatialrender><span title="Spatial Recon Kit（空间建模服务）" class=categoryLinkLabel_W154>Spatial Recon Kit（空间建模服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/xengine-api/xengine-c/xengine-kit-index/xengine-kit-xengine/xengine-kit-xengine><span title="XEngine Kit（GPU加速引擎服务）" class=categoryLinkLabel_W154>XEngine Kit（GPU加速引擎服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>图形</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Graphics Accelerate Kit（图形加速服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>assetDownloadManager（资源包下载管理）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>assetDownloadManager（资源包下载管理）</h1></header>
+<p>本模块提供资源包下载管理能力。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=downloadfault>DownloadFault<a href=#downloadfault class=hash-link aria-label=DownloadFault的直接链接 title=DownloadFault的直接链接 translate=no>​</a></h2>
+<p>资源包下载失败原因的枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>FAULT_FILE_ALREADY_EXISTS<td>0<td>资源包已存在。<tr><td>FAULT_FILE_ERROR<td>1<td>文件操作失败。<tr><td>FAULT_INSUFFICIENT_SPACE<td>2<td>用户设备的内存空间不足。<tr><td>FAULT_DISCONNECT<td>3<td>下载过程中链接丢失或断开。<tr><td>FAULT_TIMEOUT<td>4<td>下载超时，例如HTTP 408请求超时、或504网关超时。<tr><td>FAULT_PROTOCOL<td>5<td>HTTP协议错误，例如HTTP 500服务器内部错误、或HTTP 400错误请求。<tr><td>FAULT_DNS<td>6<td>DNS域名解析错误，无法解析服务器地址。<tr><td>FAULT_SSL<td>7<td>SSL/TLS证书错误。<tr><td>FAULT_REDIRECT<td>8<td>重定向错误，例如超出最大重定向限制或无效的重定向URL。<tr><td>FAULT_UNKNOWN<td>9<td>未知错误。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=state>State<a href=#state class=hash-link aria-label=State的直接链接 title=State的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务状态的枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>CREATED<td>0<td>已创建的下载任务。<tr><td>WAITING<td>1<td>等待执行的下载任务。<tr><td>DOWNLOADING<td>2<td>正在下载中的任务。<tr><td>PAUSED<td>3<td>处于暂停状态的下载任务。<tr><td>FINISHED<td>4<td>下载任务已完成。<tr><td>FAILED<td>5<td>任务下载失败。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadconfig>AssetDownloadConfig<a href=#assetdownloadconfig class=hash-link aria-label=AssetDownloadConfig的直接链接 title=AssetDownloadConfig的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务的配置信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>identifier<td>string<td>否<td>否<td>任务ID。下载任务的唯一标识。  最大长度64个字节。<tr><td>url<td>string<td>否<td>否<td>当前下载任务URL，要求以http或者https开头，最大长度512个字节。  URL的域名需要符合域名白名单要求：  - 三方CDN：请前往AppGallery Connect查看已配置的CDN域名白名单。具体操作步骤请参见<a class="" href=/harmonyos-docs-site/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release#%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1>创建下载任务</a>。  - 华为CDN：域名白名单将基于资源包下载任务自动配置。<tr><td>isEssential<td>boolean<td>否<td>否<td>是否为必需资源：  - false：非必需资源。默认值。  - true：必需资源。  下载必需资源的优先级高于非必需资源。<tr><td>groupId<td>string<td>否<td>是<td>组ID，用于标识资源的版本信息。  最大长度32个字节。  默认值：空字符串。<tr><td>fileName<td>string<td>否<td>是<td>下载资源的文件名。若输入文件名，系统下载的临时文件将以该文件名命名，否则，文件名将以任务ID命名。  最大长度128个字节。  默认值：空字符串。<tr><td>begins<td>number<td>否<td>是<td>HTTP范围请求的起始字节位置。  默认值：0。<tr><td>ends<td>number<td>否<td>是<td>HTTP范围请求的结束字节位置。  默认值：0。  最小值需要大于等于begins。<tr><td>userData<td>string<td>否<td>是<td>允许用户自定义的扩展字段。  最大长度1024个字节。  默认值：空字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadtask>AssetDownloadTask<a href=#assetdownloadtask class=hash-link aria-label=AssetDownloadTask的直接链接 title=AssetDownloadTask的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务的信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>config<td><a href=#assetdownloadconfig class="">AssetDownloadConfig</a><td>是<td>否<td>资源包下载任务的配置信息，包含任务ID、URL、下载优先级等信息。<tr><td>taskId<td>string<td>是<td>否<td>系统自动生成的任务ID，用于唯一标识下载任务。  最大长度36个字节。<tr><td>state<td><a href=#state class="">State</a><td>是<td>否<td>资源包下载任务的状态。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=downloadprogressinfo>DownloadProgressInfo<a href=#downloadprogressinfo class=hash-link aria-label=DownloadProgressInfo的直接链接 title=DownloadProgressInfo的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务的进度信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>downloadTask<td><a href=#assetdownloadtask class="">AssetDownloadTask</a><td>是<td>否<td>资源包下载任务的信息。<tr><td>totalBytesWritten<td>number<td>是<td>否<td>待下载的资源总大小，单位：字节。  默认值：0。<tr><td>totalExpectedBytes<td>number<td>是<td>否<td>已下载的资源总大小，单位：字节。  默认值：0。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=downloadcompletedinfo>DownloadCompletedInfo<a href=#downloadcompletedinfo class=hash-link aria-label=DownloadCompletedInfo的直接链接 title=DownloadCompletedInfo的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务的完成信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>downloadTask<td><a href=#assetdownloadtask class="">AssetDownloadTask</a><td>是<td>否<td>资源包下载任务的信息。<tr><td>filePath<td>string<td>是<td>否<td>下载文件的本地沙箱地址。  最大长度512个字节。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=downloadfailedinfo>DownloadFailedInfo<a href=#downloadfailedinfo class=hash-link aria-label=DownloadFailedInfo的直接链接 title=DownloadFailedInfo的直接链接 translate=no>​</a></h2>
+<p>资源包下载任务的失败信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>downloadTask<td><a href=#assetdownloadtask class="">AssetDownloadTask</a><td>是<td>否<td>资源包下载任务的信息。<tr><td>fault<td><a href=#downloadfault class="">DownloadFault</a><td>是<td>否<td>资源包下载失败的原因。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageronprogress>assetDownloadManager.on('progress')<a href=#assetdownloadmanageronprogress class=hash-link aria-label="assetDownloadManager.on('progress')的直接链接" title="assetDownloadManager.on('progress')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'progress', callback: Callback&lt;DownloadProgressInfo[]>): void</p>
+<p>订阅资源包下载进度事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>事件回调类型，固定为'progress'，表示资源包下载进度。<tr><td>callback<td>Callback&lt;<a href=#downloadprogressinfo class="">DownloadProgressInfo[]</a>><td>是<td>回调函数。返回任务进度信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onProgressCallback = (progressArray: assetDownloadManager.DownloadProgressInfo[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `onProgressCallback progressArray length: ${progressArray.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载进度处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 订阅资源包下载进度事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.on("progress", onProgressCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageroffprogress>assetDownloadManager.off('progress')<a href=#assetdownloadmanageroffprogress class=hash-link aria-label="assetDownloadManager.off('progress')的直接链接" title="assetDownloadManager.off('progress')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'progress', callback?: Callback&lt;DownloadProgressInfo[]>): void</p>
+<p>取消订阅资源包下载进度事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>取消事件回调类型，固定为'progress'，表示资源包下载进度。<tr><td>callback<td>Callback&lt;<a href=#downloadprogressinfo class="">DownloadProgressInfo[]</a>><td>否<td>需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onProgressCallback = (progressArray: assetDownloadManager.DownloadProgressInfo[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `onProgressCallback progressArray length: ${progressArray.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载进度处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 取消订阅资源包下载进度事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.off("progress", onProgressCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageronpause>assetDownloadManager.on('pause')<a href=#assetdownloadmanageronpause class=hash-link aria-label="assetDownloadManager.on('pause')的直接链接" title="assetDownloadManager.on('pause')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'pause', callback: Callback&lt;AssetDownloadTask>): void</p>
+<p>订阅资源包下载暂停事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>事件回调类型，固定为'pause'，表示资源暂停事件。<tr><td>callback<td>Callback&lt;<a href=#assetdownloadtask class="">AssetDownloadTask</a>><td>是<td>回调函数。返回任务信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onPauseCallback = (downloadTaskInfo: assetDownloadManager.AssetDownloadTask) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${downloadTaskInfo.config.identifier} has paused.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载暂停处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 订阅资源包下载暂停事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.on("pause", onPauseCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageroffpause>assetDownloadManager.off('pause')<a href=#assetdownloadmanageroffpause class=hash-link aria-label="assetDownloadManager.off('pause')的直接链接" title="assetDownloadManager.off('pause')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'pause', callback?: Callback&lt;AssetDownloadTask>): void</p>
+<p>取消订阅资源包下载暂停事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>取消事件回调类型，固定为'pause'，表示资源暂停事件。<tr><td>callback<td>Callback&lt;<a href=#assetdownloadtask class="">AssetDownloadTask</a>><td>否<td>需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onPauseCallback = (downloadTaskInfo: assetDownloadManager.AssetDownloadTask) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${downloadTaskInfo.config.identifier} has paused.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载暂停处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 取消订阅资源包下载暂停事件.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.off("pause", onPauseCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageroncomplete>assetDownloadManager.on('complete')<a href=#assetdownloadmanageroncomplete class=hash-link aria-label="assetDownloadManager.on('complete')的直接链接" title="assetDownloadManager.on('complete')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'complete', callback: Callback&lt;DownloadCompletedInfo>): void</p>
+<p>订阅资源包下载成功事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>事件回调类型，固定为'complete'，表示资源包下载成功事件。<tr><td>callback<td>Callback&lt;<a href=#downloadcompletedinfo class="">DownloadCompletedInfo</a>><td>是<td>回调函数。返回任务完成信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onCompleteCallback = (completeInfo: assetDownloadManager.DownloadCompletedInfo) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载成功处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 订阅资源包下载成功事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.on("complete", onCompleteCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageroffcomplete>assetDownloadManager.off('complete')<a href=#assetdownloadmanageroffcomplete class=hash-link aria-label="assetDownloadManager.off('complete')的直接链接" title="assetDownloadManager.off('complete')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'complete', callback?: Callback&lt;DownloadCompletedInfo>): void</p>
+<p>取消订阅资源包下载成功事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>取消事件回调类型，固定为'complete'，表示资源包下载成功事件。<tr><td>callback<td>Callback&lt;<a href=#downloadcompletedinfo class="">DownloadCompletedInfo</a>><td>否<td>需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onCompleteCallback = (completeInfo: assetDownloadManager.DownloadCompletedInfo) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${completeInfo.downloadTask.config.identifier} has completed.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载成功处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 取消订阅资源包下载成功事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.off("complete", onCompleteCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageronfail>assetDownloadManager.on('fail')<a href=#assetdownloadmanageronfail class=hash-link aria-label="assetDownloadManager.on('fail')的直接链接" title="assetDownloadManager.on('fail')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'fail', callback: Callback&lt;DownloadFailedInfo>): void</p>
+<p>订阅资源包下载失败事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>事件回调类型，固定为'fail'，表示资源包下载失败事件。<tr><td>callback<td>Callback&lt;<a href=#downloadfailedinfo class="">DownloadFailedInfo</a>><td>是<td>回调函数。返回任务失败信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onFailedCallback = (failedInfo: assetDownloadManager.DownloadFailedInfo) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载失败处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 订阅资源包下载失败事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.on("fail", onFailedCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerofffail>assetDownloadManager.off('fail')<a href=#assetdownloadmanagerofffail class=hash-link aria-label="assetDownloadManager.off('fail')的直接链接" title="assetDownloadManager.off('fail')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'fail', callback?: Callback&lt;DownloadFailedInfo>): void</p>
+<p>取消订阅资源包下载失败事件。使用callback形式返回结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>type<td>string<td>是<td>取消事件回调类型，固定为'fail'，表示资源包下载失败事件。<tr><td>callback<td>Callback&lt;<a href=#downloadfailedinfo class="">DownloadFailedInfo</a>><td>否<td>需要取消监听的回调函数，需与订阅时传入的回调函数一致。若不填，则取消当前监听该事件的所有回调函数。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let onFailedCallback = (failedInfo: assetDownloadManager.DownloadFailedInfo) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `task identifier = ${failedInfo.downloadTask.config.identifier} has failed.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 添加资源包下载失败处理逻辑。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 取消订阅资源包下载失败事件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">assetDownloadManager.off("fail", onFailedCallback);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerfetchmanifesturl>assetDownloadManager.fetchManifestUrl<a href=#assetdownloadmanagerfetchmanifesturl class=hash-link aria-label=assetDownloadManager.fetchManifestUrl的直接链接 title=assetDownloadManager.fetchManifestUrl的直接链接 translate=no>​</a></h2>
+<p>fetchManifestUrl(): Promise&lt;string></p>
+<p>获取资源包下载列表。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象。  - 若资源托管至华为CDN，返回资源包下载清单manifestUrl。  - 若资源托管至三方CDN，则返回空字符串。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async fetchManifestUrl() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let manifestUrl : string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    manifestUrl = await assetDownloadManager.fetchManifestUrl();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in fetching manifestUrl, manifestUrl = ${manifestUrl}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to fetch manifestUrl, errCode: ${error.code}, errMessage: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanageraddassetdownloadtask>assetDownloadManager.addAssetDownloadTask<a href=#assetdownloadmanageraddassetdownloadtask class=hash-link aria-label=assetDownloadManager.addAssetDownloadTask的直接链接 title=assetDownloadManager.addAssetDownloadTask的直接链接 translate=no>​</a></h2>
+<p>addAssetDownloadTask(context: common.BaseContext, downloadConfig: AssetDownloadConfig): Promise&lt;string></p>
+<p>新增资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>common.BaseContext</a><td>是<td>应用程序上下文。<tr><td>downloadConfig<td><a href=#assetdownloadconfig class="">AssetDownloadConfig</a><td>是<td>资源包下载任务的配置信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象。返回下载任务taskID。  最大长度36个字节。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600001<td>The domain name of the download task is not in the domain name trustlist.<tr><td>1016600004<td>The application task queue is full.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async addAssetDownloadTask() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const taskId: string = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerpauseassetdownloadtask>assetDownloadManager.pauseAssetDownloadTask<a href=#assetdownloadmanagerpauseassetdownloadtask class=hash-link aria-label=assetDownloadManager.pauseAssetDownloadTask的直接链接 title=assetDownloadManager.pauseAssetDownloadTask的直接链接 translate=no>​</a></h2>
+<p>pauseAssetDownloadTask(taskId: string): Promise&lt;void></p>
+<p>暂停资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>taskId<td>string<td>是<td>任务ID。  最大长度36个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600003<td>The current task status does not support the current operator.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async pauseAssetDownloadTask() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据taskId暂停资源包下载任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.pauseAssetDownloadTask(taskId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerresumeassetdownloadtask>assetDownloadManager.resumeAssetDownloadTask<a href=#assetdownloadmanagerresumeassetdownloadtask class=hash-link aria-label=assetDownloadManager.resumeAssetDownloadTask的直接链接 title=assetDownloadManager.resumeAssetDownloadTask的直接链接 translate=no>​</a></h2>
+<p>resumeAssetDownloadTask(taskId: string): Promise&lt;void></p>
+<p>恢复资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>taskId<td>string<td>是<td>任务ID。  最大长度36个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600003<td>The current task status does not support the current operator.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async resumeAssetDownloadTask() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据taskId暂停资源包下载任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    assetDownloadManager.pauseAssetDownloadTask(taskId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据taskId恢复资源包下载任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.resumeAssetDownloadTask(taskId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in resuming assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to resume assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerremoveassetdownloadtask>assetDownloadManager.removeAssetDownloadTask<a href=#assetdownloadmanagerremoveassetdownloadtask class=hash-link aria-label=assetDownloadManager.removeAssetDownloadTask的直接链接 title=assetDownloadManager.removeAssetDownloadTask的直接链接 translate=no>​</a></h2>
+<p>removeAssetDownloadTask(taskId: string): Promise&lt;void></p>
+<p>移除资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>taskId<td>string<td>是<td>任务ID。  最大长度36个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async removeAssetDownloadTask() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据taskId删除资源包下载任务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.removeAssetDownloadTask(taskId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in removing assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to remove assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerfetchallassetdownloadtasks>assetDownloadManager.fetchAllAssetDownloadTasks<a href=#assetdownloadmanagerfetchallassetdownloadtasks class=hash-link aria-label=assetDownloadManager.fetchAllAssetDownloadTasks的直接链接 title=assetDownloadManager.fetchAllAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>fetchAllAssetDownloadTasks(): Promise&lt;AssetDownloadTask[]></p>
+<p>获取所有资源包下载任务，已下载完成的任务除外。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#assetdownloadtask class="">AssetDownloadTask[]</a>><td>Promise对象。返回资源包下载任务列表。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async fetchAllAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let downloadTaskArr: Array&lt;assetDownloadManager.AssetDownloadTask>;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取所有资源包下载任务信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    downloadTaskArr = await assetDownloadManager.fetchAllAssetDownloadTasks();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in fetching allAssetDownloadTasks success, downloadTaskArr length:${downloadTaskArr.length}.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to fetch allAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerpauseallassetdownloadtasks>assetDownloadManager.pauseAllAssetDownloadTasks<a href=#assetdownloadmanagerpauseallassetdownloadtasks class=hash-link aria-label=assetDownloadManager.pauseAllAssetDownloadTasks的直接链接 title=assetDownloadManager.pauseAllAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>pauseAllAssetDownloadTasks(): Promise&lt;void></p>
+<p>暂停所有资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async pauseAllAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 暂停所有资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.pauseAllAssetDownloadTasks();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing allAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause allAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerresumeallassetdownloadtasks>assetDownloadManager.resumeAllAssetDownloadTasks<a href=#assetdownloadmanagerresumeallassetdownloadtasks class=hash-link aria-label=assetDownloadManager.resumeAllAssetDownloadTasks的直接链接 title=assetDownloadManager.resumeAllAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>resumeAllAssetDownloadTasks(): Promise&lt;void></p>
+<p>恢复所有资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async resumeAllAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 暂停所有资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.pauseAllAssetDownloadTasks();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing allAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause allAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 恢复所有资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.resumeAllAssetDownloadTasks();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in resuming allAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to resume allAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerremoveallassetdownloadtasks>assetDownloadManager.removeAllAssetDownloadTasks<a href=#assetdownloadmanagerremoveallassetdownloadtasks class=hash-link aria-label=assetDownloadManager.removeAllAssetDownloadTasks的直接链接 title=assetDownloadManager.removeAllAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>removeAllAssetDownloadTasks(): Promise&lt;void></p>
+<p>移除所有资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async removeAllAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 移除所有资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.removeAllAssetDownloadTasks();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in removing allAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to remove allAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerfetchgroupassetdownloadtasks>assetDownloadManager.fetchGroupAssetDownloadTasks<a href=#assetdownloadmanagerfetchgroupassetdownloadtasks class=hash-link aria-label=assetDownloadManager.fetchGroupAssetDownloadTasks的直接链接 title=assetDownloadManager.fetchGroupAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>fetchGroupAssetDownloadTasks(groupId: string): Promise&lt;AssetDownloadTask[]></p>
+<p>获取同一组的资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>groupId<td>string<td>是<td>组ID，用于标识资源的版本信息。  最大长度32个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#assetdownloadtask class="">AssetDownloadTask[]</a>><td>Promise对象。返回资源包下载任务列表。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async fetchGroupAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let groupId = 'groupId';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let downloadTaskArr: Array&lt;assetDownloadManager.AssetDownloadTask>;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取同一groupId下的资源包下载任务信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    downloadTaskArr = await assetDownloadManager.fetchGroupAssetDownloadTasks(groupId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in fetching groupAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to fetch groupAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerpausegroupassetdownloadtasks>assetDownloadManager.pauseGroupAssetDownloadTasks<a href=#assetdownloadmanagerpausegroupassetdownloadtasks class=hash-link aria-label=assetDownloadManager.pauseGroupAssetDownloadTasks的直接链接 title=assetDownloadManager.pauseGroupAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>pauseGroupAssetDownloadTasks(groupId: string): Promise&lt;void></p>
+<p>暂停同一组的资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>groupId<td>string<td>是<td>组ID，用于标识资源的版本信息。  最大长度32个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async pauseGroupAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let groupId = 'groupId';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 暂停同一groupId下的资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.pauseGroupAssetDownloadTasks(groupId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing groupAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause groupAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerresumegroupassetdownloadtasks>assetDownloadManager.resumeGroupAssetDownloadTasks<a href=#assetdownloadmanagerresumegroupassetdownloadtasks class=hash-link aria-label=assetDownloadManager.resumeGroupAssetDownloadTasks的直接链接 title=assetDownloadManager.resumeGroupAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>resumeGroupAssetDownloadTasks(groupId: string): Promise&lt;void></p>
+<p>恢复同一组的资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>groupId<td>string<td>是<td>组ID，用于标识资源的版本信息。  最大长度32个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600000<td>The API call from an ExtensionAbility is not allowed.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async resumeGroupAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let groupId = 'groupId';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 暂停同一groupId下的资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.pauseGroupAssetDownloadTasks(groupId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in pausing groupAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to pause groupAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 恢复同一groupId下的资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.resumeGroupAssetDownloadTasks(groupId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in resuming groupAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to resume groupAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerremovegroupassetdownloadtasks>assetDownloadManager.removeGroupAssetDownloadTasks<a href=#assetdownloadmanagerremovegroupassetdownloadtasks class=hash-link aria-label=assetDownloadManager.removeGroupAssetDownloadTasks的直接链接 title=assetDownloadManager.removeGroupAssetDownloadTasks的直接链接 translate=no>​</a></h2>
+<p>removeGroupAssetDownloadTasks(groupId: string): Promise&lt;void></p>
+<p>移除同一组的资源包下载任务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>groupId<td>string<td>是<td>组ID，用于标识资源的版本信息。  最大长度32个字节。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>1016600002<td>The task ID or group ID entered during operations such as pause, resume, and fetch does not exist.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async removeGroupAssetDownloadTasks() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let groupId = 'groupId';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 移除同一groupId下的资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await assetDownloadManager.removeGroupAssetDownloadTasks(groupId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in removing groupAssetDownloadTasks`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to remove groupAssetDownloadTasks, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netspeedlevel>NetSpeedLevel<a href=#netspeedlevel class=hash-link aria-label=NetSpeedLevel的直接链接 title=NetSpeedLevel的直接链接 translate=no>​</a></h2>
+<p>网络限速等级的枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NO_LIMIT<td>0<td>无速度限制。<tr><td>LIMIT_MEDIUM<td>1<td>中等速度限制。<tr><td>LIMIT_LOW<td>2<td>低等速度限制。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerlimitdownloadtaskspeed>assetDownloadManager.limitDownloadTaskSpeed<a href=#assetdownloadmanagerlimitdownloadtaskspeed class=hash-link aria-label=assetDownloadManager.limitDownloadTaskSpeed的直接链接 title=assetDownloadManager.limitDownloadTaskSpeed的直接链接 translate=no>​</a></h2>
+<p>limitDownloadTaskSpeed(taskIds: string[], speedLimit: NetSpeedLevel): Promise&lt;void></p>
+<p>限制资源包下载的速度。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.INTERNET</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>taskIds<td>string[]<td>是<td>任务ID列表。<tr><td>speedLimit<td><a href=#netspeedlevel class="">NetSpeedLevel</a><td>是<td>网络限速等级。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>No Internet permission.<tr><td>401<td>Parameter error.<tr><td>1016600094<td>Task service ability error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async limitDownloadTaskSpeed() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 构造资源包下载配置信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let assetDownload: assetDownloadManager.AssetDownloadConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fileName: 'fileName', // 下载资源的文件名。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    url: 'url', // 下载资源url。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isEssential: false, // 是否是必要下载资源。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    identifier: 'identifier', // 下载资源标识信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    groupId: 'groupId' // 组ID，用于标识资源的版本信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let taskId: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 添加资源包下载任务。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 根据实际代码上下文自行传入合适的context。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    taskId = await assetDownloadManager.addAssetDownloadTask(this.getUIContext().getHostContext() as common.Context, assetDownload);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in adding assetDownloadTask`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to add assetDownloadTask, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const taskIds: string[] = [taskId];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 限制资源包下载任务的下载速度。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    assetDownloadManager.limitDownloadTaskSpeed(taskIds, assetDownloadManager.NetSpeedLevel.LIMIT_MEDIUM);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('AssetAccelDemo', `Succeeded in limiting downloadTaskSpeed`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('AssetAccelDemo', `Failed to limit downloadTaskSpeed, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appdownloadstatus>AppDownloadStatus<a href=#appdownloadstatus class=hash-link aria-label=AppDownloadStatus的直接链接 title=AppDownloadStatus的直接链接 translate=no>​</a></h2>
+<p>应用自身下载器中资源包下载状态的枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.1(19)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>IN_PROGRESS<td>0<td>下载中。<tr><td>FINISH<td>1<td>已完成下载。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=resourcetype>ResourceType<a href=#resourcetype class=hash-link aria-label=ResourceType的直接链接 title=ResourceType的直接链接 translate=no>​</a></h2>
+<p>资源类型，影响下载完成通知的内容样式。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>RELEASED<td>0<td>已发布的资源，即已公开发布过的资源。  完成下载后，通知栏展示“xxx 游戏资源包已更新”。<tr><td>PRE_RELEASE<td>1<td>预发布的资源，即未公开发布过的资源。  完成下载后，通知栏展示“xxx 游戏资源包预下载已完成”</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appdownloadprogress>AppDownloadProgress<a href=#appdownloadprogress class=hash-link aria-label=AppDownloadProgress的直接链接 title=AppDownloadProgress的直接链接 translate=no>​</a></h2>
+<p>应用自身下载器中资源包的下载进度信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.1(19)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>totalBytesWritten<td>number<td>否<td>否<td>已下载的资源总大小，单位：字节。取值范围：大于等于0。  默认值：0。<tr><td>totalExpectedBytes<td>number<td>否<td>否<td>待下载的资源总大小，单位：字节。取值大于等于0，异常值按0处理。  默认值：0。<tr><td>totalFiles<td>number<td>否<td>否<td>资源文件总数。取值大于等于0，异常值按0处理。  默认值：0。<tr><td>successCount<td>number<td>否<td>否<td>已成功下载的文件数。取值大于等于0，异常值按0处理。  默认值：0。<tr><td>failureCount<td>number<td>否<td>否<td>下载失败的文件数。取值大于等于0，异常值按0处理。  默认值：0。<tr><td>status<td><a href=#appdownloadstatus class="">AppDownloadStatus</a><td>否<td>否<td>当前应用自身下载器中的下载状态。<tr><td>resourceType<td><a href=#resourcetype class="">ResourceType</a><td>否<td>是<td>后台正在下载的资源类型，不同的资源类型决定了后台下载通知的内容样式。  默认值为RELEASED。  <strong><strong>起始版本：</strong></strong> 6.1.0(23)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=assetdownloadmanagerreportdownloadprogress>assetDownloadManager.reportDownloadProgress<a href=#assetdownloadmanagerreportdownloadprogress class=hash-link aria-label=assetDownloadManager.reportDownloadProgress的直接链接 title=assetDownloadManager.reportDownloadProgress的直接链接 translate=no>​</a></h2>
+<p>reportDownloadProgress(progressInfo: AppDownloadProgress): void</p>
+<p>上报应用自身下载器中资源包的下载进度信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.GraphicsGame.AssetAcceleration</p>
+<p><strong><strong>模型约束：</strong></strong> 本模块接口仅可在Stage模型下使用。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.1(19)</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>参数名</strong></strong><th><strong><strong>类型</strong></strong><th><strong><strong>必填</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>progressInfo<td><a href=#appdownloadprogress class="">AppDownloadProgress</a><td>是<td>应用自身下载器中的下载进度信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-arkts-errorcode/graphics-accelerate-arkts-errorcode>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1016600094<td>Task service ability error.<tr><td>1016600401<td>Parameter error.</table>
+<p><strong><strong>示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { assetDownloadManager } from '@kit.GraphicsAccelerateKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { deviceInfo } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let progressInfo: assetDownloadManager.AppDownloadProgress = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    totalBytesWritten: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    totalExpectedBytes: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    totalFiles: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    successCount: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    failureCount: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    status:assetDownloadManager.AppDownloadStatus.IN_PROGRESS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 判断当前HarmonyOS SDK版本是否为6.1.0(23)及以上版本</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (deviceInfo.sdkApiVersion >= 23) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    progressInfo.resourceType = assetDownloadManager.ResourceType.RELEASED</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  assetDownloadManager.reportDownloadProgress(progressInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('AssetAccelDemo', `Succeeded in reporting downloadProgress`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('AssetAccelDemo', `Failed to report downloadProgress, errCode:${error.code}, errMessage:${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-post-process-settings/js-apis-inner-scene-post-process-settings><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ScenePostProcessSettings</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-extensionability/graphics-accelerate-extensionability><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>AssetAccelerationExtensionAbility（资源加速ExtensionAbility）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#downloadfault class="table-of-contents__link toc-highlight">DownloadFault</a><li><a href=#state class="table-of-contents__link toc-highlight">State</a><li><a href=#assetdownloadconfig class="table-of-contents__link toc-highlight">AssetDownloadConfig</a><li><a href=#assetdownloadtask class="table-of-contents__link toc-highlight">AssetDownloadTask</a><li><a href=#downloadprogressinfo class="table-of-contents__link toc-highlight">DownloadProgressInfo</a><li><a href=#downloadcompletedinfo class="table-of-contents__link toc-highlight">DownloadCompletedInfo</a><li><a href=#downloadfailedinfo class="table-of-contents__link toc-highlight">DownloadFailedInfo</a><li><a href=#assetdownloadmanageronprogress class="table-of-contents__link toc-highlight">assetDownloadManager.on('progress')</a><li><a href=#assetdownloadmanageroffprogress class="table-of-contents__link toc-highlight">assetDownloadManager.off('progress')</a><li><a href=#assetdownloadmanageronpause class="table-of-contents__link toc-highlight">assetDownloadManager.on('pause')</a><li><a href=#assetdownloadmanageroffpause class="table-of-contents__link toc-highlight">assetDownloadManager.off('pause')</a><li><a href=#assetdownloadmanageroncomplete class="table-of-contents__link toc-highlight">assetDownloadManager.on('complete')</a><li><a href=#assetdownloadmanageroffcomplete class="table-of-contents__link toc-highlight">assetDownloadManager.off('complete')</a><li><a href=#assetdownloadmanageronfail class="table-of-contents__link toc-highlight">assetDownloadManager.on('fail')</a><li><a href=#assetdownloadmanagerofffail class="table-of-contents__link toc-highlight">assetDownloadManager.off('fail')</a><li><a href=#assetdownloadmanagerfetchmanifesturl class="table-of-contents__link toc-highlight">assetDownloadManager.fetchManifestUrl</a><li><a href=#assetdownloadmanageraddassetdownloadtask class="table-of-contents__link toc-highlight">assetDownloadManager.addAssetDownloadTask</a><li><a href=#assetdownloadmanagerpauseassetdownloadtask class="table-of-contents__link toc-highlight">assetDownloadManager.pauseAssetDownloadTask</a><li><a href=#assetdownloadmanagerresumeassetdownloadtask class="table-of-contents__link toc-highlight">assetDownloadManager.resumeAssetDownloadTask</a><li><a href=#assetdownloadmanagerremoveassetdownloadtask class="table-of-contents__link toc-highlight">assetDownloadManager.removeAssetDownloadTask</a><li><a href=#assetdownloadmanagerfetchallassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.fetchAllAssetDownloadTasks</a><li><a href=#assetdownloadmanagerpauseallassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.pauseAllAssetDownloadTasks</a><li><a href=#assetdownloadmanagerresumeallassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.resumeAllAssetDownloadTasks</a><li><a href=#assetdownloadmanagerremoveallassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.removeAllAssetDownloadTasks</a><li><a href=#assetdownloadmanagerfetchgroupassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.fetchGroupAssetDownloadTasks</a><li><a href=#assetdownloadmanagerpausegroupassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.pauseGroupAssetDownloadTasks</a><li><a href=#assetdownloadmanagerresumegroupassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.resumeGroupAssetDownloadTasks</a><li><a href=#assetdownloadmanagerremovegroupassetdownloadtasks class="table-of-contents__link toc-highlight">assetDownloadManager.removeGroupAssetDownloadTasks</a><li><a href=#netspeedlevel class="table-of-contents__link toc-highlight">NetSpeedLevel</a><li><a href=#assetdownloadmanagerlimitdownloadtaskspeed class="table-of-contents__link toc-highlight">assetDownloadManager.limitDownloadTaskSpeed</a><li><a href=#appdownloadstatus class="table-of-contents__link toc-highlight">AppDownloadStatus</a><li><a href=#resourcetype class="table-of-contents__link toc-highlight">ResourceType</a><li><a href=#appdownloadprogress class="table-of-contents__link toc-highlight">AppDownloadProgress</a><li><a href=#assetdownloadmanagerreportdownloadprogress class="table-of-contents__link toc-highlight">assetDownloadManager.reportDownloadProgress</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

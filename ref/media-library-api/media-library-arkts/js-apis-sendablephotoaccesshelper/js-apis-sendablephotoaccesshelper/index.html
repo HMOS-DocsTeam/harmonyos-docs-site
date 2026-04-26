@@ -1,0 +1,1451 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=该模块基于Sendable对象，提供相册管理功能，包括创建相册和访问、修改相册中的媒体数据。 /><meta data-rh=true property=og:description content=该模块基于Sendable对象，提供相册管理功能，包括创建相册和访问、修改相册中的媒体数据。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper","name":"@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title="Audio Kit（音频服务）" class=categoryLinkLabel_W154>Audio Kit（音频服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/avcodec-api/avcodec-c/avcodec-module/capi-avcapability/capi-avcapability><span title="AVCodec Kit（音视频编解码服务）" class=categoryLinkLabel_W154>AVCodec Kit（音视频编解码服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/avsession-api/avsession-arkts/js-apis-avsession/arkts-apis-avsession/arkts-apis-avsession><span title="AVSession Kit（音视频播控服务）" class=categoryLinkLabel_W154>AVSession Kit（音视频播控服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/camera-api/camera-arkts/js-apis-camera/arkts-apis-camera/arkts-apis-camera><span title="Camera Kit（相机服务）" class=categoryLinkLabel_W154>Camera Kit（相机服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/drm-api/drm-arkts/js-apis-drm/arkts-apis-drm/arkts-apis-drm><span title="DRM Kit（数字版权保护服务）" class=categoryLinkLabel_W154>DRM Kit（数字版权保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image/arkts-apis-image><span title="Image Kit（图片处理服务）" class=categoryLinkLabel_W154>Image Kit（图片处理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/media-api/media-arkts/js-apis-media/arkts-apis-media/arkts-apis-media><span title="Media Kit（媒体服务）" class=categoryLinkLabel_W154>Media Kit（媒体服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper/arkts-apis-photoaccesshelper><span title="Media Library Kit（媒体文件管理服务）" class=categoryLinkLabel_W154>Media Library Kit（媒体文件管理服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper/arkts-apis-photoaccesshelper><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper/arkts-apis-photoaccesshelper><span title="@ohos.file.photoAccessHelper (相册管理模块)" class=categoryLinkLabel_W154>@ohos.file.photoAccessHelper (相册管理模块)</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-sendablephotoaccesshelper/js-apis-sendablephotoaccesshelper><span title="@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块)" class=linkLabel_WmDU>@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块)</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-comp/ohos-file-albumpickercomponent/ohos-file-albumpickercomponent><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-c/media-library-module/capi-mediaassetmanager/capi-mediaassetmanager><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/media-library-api/media-library-errcode/errorcode-medialibrary/errorcode-medialibrary><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ringtone-api/ringtone-arkts/ringtone-ringtone/ringtone-ringtone><span title="Ringtone Kit（铃声服务）" class=categoryLinkLabel_W154>Ringtone Kit（铃声服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/scan-api/scan-arkts/scan-customscan-api/scan-customscan-api><span title="Scan Kit（统一扫码服务）" class=categoryLinkLabel_W154>Scan Kit（统一扫码服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>媒体</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Media Library Kit（媒体文件管理服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.file.sendablePhotoAccessHelper (基于Sendable对象的相册管理模块)</h1></header>
+<p>该模块基于<a class="" href=/harmonyos-docs-site/arkts/arkts-concurrency/interthread-communication/interthread-communication-object/sendable-object/arkts-sendable>Sendable</a>对象，提供相册管理功能，包括创建相册和访问、修改相册中的媒体数据。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { sendablePhotoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sendablephotoaccesshelpergetphotoaccesshelper>sendablePhotoAccessHelper.getPhotoAccessHelper<a href=#sendablephotoaccesshelpergetphotoaccesshelper class=hash-link aria-label=sendablePhotoAccessHelper.getPhotoAccessHelper的直接链接 title=sendablePhotoAccessHelper.getPhotoAccessHelper的直接链接 translate=no>​</a></h2>
+<p>getPhotoAccessHelper(context: Context): PhotoAccessHelper</p>
+<p>获取相册管理模块的实例，用于访问和修改相册中的媒体文件。</p>
+<p><strong><strong>模型约束</strong></strong>： 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context>Context</a><td>是<td>传入Ability实例的Context。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#photoaccesshelper class="">PhotoAccessHelper</a><td>相册管理模块的实例。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 此处获取的phAccessHelper实例为全局对象，后续使用到phAccessHelper的地方默认为使用此处获取的对象，如未添加此段代码报phAccessHelper未定义的错误请自行添加。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 请在组件内获取context，确保this.getUiContext().getHostContext()返回结果为UIAbilityContext</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button("example").onClick(async () => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let context: Context = this.getUIContext().getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let phAccessHelper = sendablePhotoAccessHelper.getPhotoAccessHelper(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }).width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('90%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoaccesshelper>PhotoAccessHelper<a href=#photoaccesshelper class=hash-link aria-label=PhotoAccessHelper的直接链接 title=PhotoAccessHelper的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getassets>getAssets<a href=#getassets class=hash-link aria-label=getAssets的直接链接 title=getAssets的直接链接 translate=no>​</a></h3>
+<p>getAssets(options: photoAccessHelper.FetchOptions): Promise&lt;FetchResult&lt;PhotoAsset>></p>
+<p>获取图片和视频资源。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p>对于未申请'ohos.permission.READ_IMAGEVIDEO'权限的应用，可以通过picker的方式调用该接口来查询指定URI对应的图片或视频资源，详情请参考<a class="" href=/harmonyos-docs-site/medialibrary-kit/photoaccesshelper-photoviewpicker#%E6%8C%87%E5%AE%9Auri%E8%8E%B7%E5%8F%96%E5%9B%BE%E7%89%87%E6%88%96%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90>指定URI获取图片或视频资源</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#fetchoptions>photoAccessHelper.FetchOptions</a><td>是<td>图片和视频检索选项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#fetchresult class="">FetchResult</a>&lt;<a href=#photoasset class="">PhotoAsset</a>>><td>Promise对象，返回图片和视频数据结果集。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getAssets');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOptions);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fetchResult !== undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('fetchResult success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (photoAsset !== undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('photoAsset.displayName :' + photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getAssets failed, error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getburstassets>getBurstAssets<a href=#getburstassets class=hash-link aria-label=getBurstAssets的直接链接 title=getBurstAssets的直接链接 translate=no>​</a></h3>
+<p>getBurstAssets(burstKey: string, options: photoAccessHelper.FetchOptions): Promise&lt;FetchResult&lt;PhotoAsset>></p>
+<p>获取连拍照片资源。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>burstKey<td>string<td>是<td>一组连拍照片的唯一标识：uuid（可传入<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-e/arkts-apis-photoaccesshelper-e#photokeys>PhotoKeys</a>的BURST_KEY）。字符串长度为36字节。<tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#fetchoptions>photoAccessHelper.FetchOptions</a><td>是<td>连拍照片检索选项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#fetchresult class="">FetchResult</a>&lt;<a href=#photoasset class="">PhotoAsset</a>>><td>Promise对象，返回连拍照片数据结果集。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getBurstAssets');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAssetList: Array&lt;sendablePhotoAccessHelper.PhotoAsset> = await fetchResult.getAllObjects();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // burstKey为36位的uuid，可以根据photoAccessHelper.PhotoKeys获取。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  for(photoAsset of photoAssetList){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let burstKey: string = photoAccessHelper.PhotoKeys.BURST_KEY.toString();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoAccessBurstKey: photoAccessHelper.MemberType = photoAsset.get(burstKey).toString();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      phAccessHelper.getBurstAssets(photoAccessBurstKey, fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (fetchResult !== undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('fetchResult success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (photoAsset !== undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info('photoAsset.displayName :' + photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`getBurstAssets failed, error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createasset>createAsset<a href=#createasset class=hash-link aria-label=createAsset的直接链接 title=createAsset的直接链接 translate=no>​</a></h3>
+<p>createAsset(photoType: PhotoType, extension: string, options?: photoAccessHelper.CreateOptions): Promise&lt;string></p>
+<p>指定文件类型、后缀和创建选项，创建图片或视频资源。使用Promise异步回调。</p>
+<p>此接口在未申请相册管理模块权限'ohos.permission.WRITE_IMAGEVIDEO'时，可以使用安全控件创建媒体资源，详情请参考<a class="" href=/harmonyos-docs-site/medialibrary-kit/photoaccesshelper-savebutton>保存媒体库资源</a>。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.WRITE_IMAGEVIDEO</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>photoType<td><a href=#phototype class="">PhotoType</a><td>是<td>创建的文件类型，IMAGE或者VIDEO类型。<tr><td>extension<td>string<td>是<td>文件名后缀参数，例如：'jpg'。字符串长度的取值范围为[1, 255]。<tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#createoptions>photoAccessHelper.CreateOptions</a><td>否<td>创建选项，例如{title: 'testPhoto'}。  文件名中不允许出现非法英文字符。  API18开始，非法字符包括： \ / : * ? " &lt; ></table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回创建的图片和视频的uri。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('createAssetDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoType: sendablePhotoAccessHelper.PhotoType = sendablePhotoAccessHelper.PhotoType.IMAGE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let extension: string = 'jpg';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let options: photoAccessHelper.CreateOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      title: 'testPhoto'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let uri: string = await phAccessHelper.createAsset(photoType, extension, options);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('createAsset uri' + uri);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('createAsset successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`createAsset failed, error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getalbums>getAlbums<a href=#getalbums class=hash-link aria-label=getAlbums的直接链接 title=getAlbums的直接链接 translate=no>​</a></h3>
+<p>getAlbums(type: AlbumType, subtype: AlbumSubtype, options?: photoAccessHelper.FetchOptions): Promise&lt;FetchResult&lt;Album>></p>
+<p>根据检索选项和相册类型获取相册。使用Promise异步回调。</p>
+<p>获取相册前需先保证相册存在。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td><a href=#albumtype class="">AlbumType</a><td>是<td>相册类型。<tr><td>subtype<td><a href=#albumsubtype class="">AlbumSubtype</a><td>是<td>相册子类型。<tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#fetchoptions>photoAccessHelper.FetchOptions</a><td>否<td>检索选项，不填时默认根据相册类型检索。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#fetchresult class="">FetchResult</a>&lt;<a href=#album class="">Album</a>>><td>Promise对象，返回获取相册的结果集。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 示例代码中为获取相册名为newAlbumName的相册。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getAlbumsDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  predicates.equalTo('album_name', 'newAlbumName');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  phAccessHelper.getAlbums(sendablePhotoAccessHelper.AlbumType.USER, sendablePhotoAccessHelper.AlbumSubtype.USER_GENERIC, fetchOptions).then( async (fetchResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fetchResult === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('getAlbumsPromise fetchResult is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let album: sendablePhotoAccessHelper.Album = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('getAlbumsPromise successfully, albumName: ' + album.albumName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchResult.close();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getAlbumsPromise failed with err: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getalbums-1>getAlbums<a href=#getalbums-1 class=hash-link aria-label=getAlbums的直接链接 title=getAlbums的直接链接 translate=no>​</a></h3>
+<p>getAlbums(options: photoAccessHelper.FetchOptions): Promise&lt;FetchResult&lt;Album>></p>
+<p>根据检索选项获取相册。使用Promise异步回调。</p>
+<p>获取相册前需先保证相册存在。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#fetchoptions>photoAccessHelper.FetchOptions</a><td>是<td>检索选项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#fetchresult class="">FetchResult</a>&lt;<a href=#album class="">Album</a>>><td>Promise对象，返回获取相册的结果集。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 示例代码中为获取相册名为newAlbumName的相册。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getAlbumsDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  predicates.equalTo('album_name', 'newAlbumName');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  phAccessHelper.getAlbums(fetchOptions).then( async (fetchResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fetchResult === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('getAlbumsPromise fetchResult is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let album: sendablePhotoAccessHelper.Album = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('getAlbumsPromise successfully, albumName: ' + album.albumName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchResult.close();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getAlbumsPromise failed with err: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=release>release<a href=#release class=hash-link aria-label=release的直接链接 title=release的直接链接 translate=no>​</a></h3>
+<p>release(): Promise&lt;void></p>
+<p>释放PhotoAccessHelper实例，当后续不需要使用PhotoAccessHelper实例中的方法时调用。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('releaseDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('use function...');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`function error ...`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }finally{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      try{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          phAccessHelper?.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info(`release success`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } catch(e){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.error(`release error :${e}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoasset>PhotoAsset<a href=#photoasset class=hash-link aria-label=PhotoAsset的直接链接 title=PhotoAsset的直接链接 translate=no>​</a></h2>
+<p>提供封装文件属性的方法。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>uri12+<td>string<td>是<td>否<td>媒体文件资源URI（如：file://media/Photo/1/IMG_datetime_0001/displayName.jpg），详情参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri>媒体文件URI</a>。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>photoType<td><a href=#phototype class="">PhotoType</a><td>是<td>否<td>媒体文件类型。<tr><td>displayName<td>string<td>是<td>否<td>显示文件名，包含后缀名。字符串长度的取值范围为[1, 255]。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=converttophotoasset>convertToPhotoAsset<a href=#converttophotoasset class=hash-link aria-label=convertToPhotoAsset的直接链接 title=convertToPhotoAsset的直接链接 translate=no>​</a></h3>
+<p>convertToPhotoAsset(): photoAccessHelper.PhotoAsset</p>
+<p>将Sendable类型PhotoAsset转换为非Sendable类型PhotoAsset。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>photoAccessHelper.PhotoAsset<td>返回非Sendable类型的<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoasset/arkts-apis-photoaccesshelper-photoasset>PhotoAsset</a>。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('convertToPhotoAssetDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      fetchColumns: ['title'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let sendablePhotoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoAsset: photoAccessHelper.PhotoAsset = sendablePhotoAsset.convertToPhotoAsset();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`get no sendable uri success : ${photoAsset.uri}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`convertToPhotoAsset failed. error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=get>get<a href=#get class=hash-link aria-label=get的直接链接 title=get的直接链接 translate=no>​</a></h3>
+<p>get(member: string): photoAccessHelper.MemberType</p>
+<p>获取PhotoAsset成员参数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>member<td>string<td>是<td>成员参数名称，在get时，除了'uri'、'media_type'、'subtype'和'display_name'四个属性之外，其他的属性都需要在fetchColumns中填入需要get的<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-e/arkts-apis-photoaccesshelper-e#photokeys>PhotoKeys</a>，例如：get title属性fetchColumns: ['title']。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-t/arkts-apis-photoaccesshelper-t#membertype>photoAccessHelper.MemberType</a><td>获取PhotoAsset成员参数的值。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAssetGetDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      fetchColumns: ['title'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fetchResult === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('photoAssetGet fetchResult is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let title: photoAccessHelper.PhotoKeys = photoAccessHelper.PhotoKeys.TITLE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoAssetTitle: photoAccessHelper.MemberType = photoAsset.get(title.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('photoAsset Get photoAssetTitle = ', photoAssetTitle);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`get failed. error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=set>set<a href=#set class=hash-link aria-label=set的直接链接 title=set的直接链接 translate=no>​</a></h3>
+<p>set(member: string, value: string): void</p>
+<p>设置PhotoAsset成员参数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>member<td>string<td>是<td>成员参数名称例如：<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-e/arkts-apis-photoaccesshelper-e#photokeys>PhotoKeys</a>.TITLE。字符串长度的取值范围为[1, 255]。<tr><td>value<td>string<td>是<td>设置成员参数名称，只能修改<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-e/arkts-apis-photoaccesshelper-e#photokeys>PhotoKeys</a>.TITLE的值。title的参数规格为：  - 不应包含扩展名。  - 文件名字符串长度的取值范围为[1, 255]（资产文件名为标题+扩展名）。  - 不允许出现的非法英文字符，包括：. \ / : * ? " ' ` &lt; ></table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAssetSetDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      fetchColumns: ['title'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let title: string = photoAccessHelper.PhotoKeys.TITLE.toString();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoAsset.set(title, 'newTitle');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`set failed. error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=commitmodify>commitModify<a href=#commitmodify class=hash-link aria-label=commitModify的直接链接 title=commitModify的直接链接 translate=no>​</a></h3>
+<p>commitModify(): Promise&lt;void></p>
+<p>修改文件的元数据。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.WRITE_IMAGEVIDEO</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('commitModifyDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: ['title'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let title: string = photoAccessHelper.PhotoKeys.TITLE.toString();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAssetTitle: photoAccessHelper.MemberType = photoAsset.get(title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAsset get photoAssetTitle = ', photoAssetTitle);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  photoAsset.set(title, 'newTitle3');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await photoAsset.commitModify();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let newPhotoAssetTitle: photoAccessHelper.MemberType = photoAsset.get(title);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('photoAsset get newPhotoAssetTitle = ', newPhotoAssetTitle);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`commitModify failed. error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getthumbnail>getThumbnail<a href=#getthumbnail class=hash-link aria-label=getThumbnail的直接链接 title=getThumbnail的直接链接 translate=no>​</a></h3>
+<p>getThumbnail(size?: image.Size): Promise&lt;image.PixelMap></p>
+<p>获取文件的缩略图，传入缩略图尺寸。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>size<td><a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-i/arkts-apis-image-i#size>image.Size</a><td>否<td>缩略图尺寸。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>image.PixelMap</a>><td>Promise对象，返回缩略图的PixelMap。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getThumbnailDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let size: image.Size = { width: 720, height: 720 };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let asset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (asset === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('getThumbnailPromise albums is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('asset displayName = ', asset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  asset.getThumbnail(size).then((pixelMap) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('getThumbnail successful ' + pixelMap);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getThumbnail fail with error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=fetchresult>FetchResult<a href=#fetchresult class=hash-link aria-label=FetchResult的直接链接 title=FetchResult的直接链接 translate=no>​</a></h2>
+<p>文件检索结果集。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcount>getCount<a href=#getcount class=hash-link aria-label=getCount的直接链接 title=getCount的直接链接 translate=no>​</a></h3>
+<p>getCount(): number</p>
+<p>获取文件检索结果中的文件总数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>检索到的文件总数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getCountDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchCount = fetchResult.getCount();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('fetchCount = ', fetchCount);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=isafterlast>isAfterLast<a href=#isafterlast class=hash-link aria-label=isAfterLast的直接链接 title=isAfterLast的直接链接 translate=no>​</a></h3>
+<p>isAfterLast(): boolean</p>
+<p>检查结果集是否指向最后一行。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当读到最后一条记录后，后续没有记录返回true，否则返回false。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchCount = fetchResult.getCount();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('count:' + fetchCount);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getLastObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (fetchResult.isAfterLast()) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('photoAsset isAfterLast displayName = ', photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('photoAsset not isAfterLast.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=close>close<a href=#close class=hash-link aria-label=close的直接链接 title=close的直接链接 translate=no>​</a></h3>
+<p>close(): void</p>
+<p>释放FetchResult实例并使其失效。无法调用其他方法。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>详细错误码请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('fetchResultCloseDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchResult.close();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('close succeed.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`close fail. error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getfirstobject>getFirstObject<a href=#getfirstobject class=hash-link aria-label=getFirstObject的直接链接 title=getFirstObject的直接链接 translate=no>​</a></h3>
+<p>getFirstObject(): Promise&lt;T></p>
+<p>获取文件检索结果中的第一个文件资产。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;T><td>Promise对象，返回结果集中第一个对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getFirstObjectDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAsset displayName: ', photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getnextobject>getNextObject<a href=#getnextobject class=hash-link aria-label=getNextObject的直接链接 title=getNextObject的直接链接 translate=no>​</a></h3>
+<p>getNextObject(): Promise&lt;T></p>
+<p>获取文件检索结果中的下一个文件资产。使用Promise异步回调。</p>
+<p>在调用此方法之前，必须使用<a href=#isafterlast class="">isAfterLast()</a>来检查当前位置是否为最后一行。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;T><td>Promise对象，返回结果集中下一个对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getNextObjectDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  await fetchResult.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getNextObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAsset displayName: ', photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getlastobject>getLastObject<a href=#getlastobject class=hash-link aria-label=getLastObject的直接链接 title=getLastObject的直接链接 translate=no>​</a></h3>
+<p>getLastObject(): Promise&lt;T></p>
+<p>获取文件检索结果中的最后一个文件资产。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;T><td>Promise对象，返回结果集中最后一个对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getLastObjectDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getLastObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAsset displayName: ', photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getobjectbyposition>getObjectByPosition<a href=#getobjectbyposition class=hash-link aria-label=getObjectByPosition的直接链接 title=getObjectByPosition的直接链接 translate=no>​</a></h3>
+<p>getObjectByPosition(index: number): Promise&lt;T></p>
+<p>获取文件检索结果中具有指定索引的文件资产。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>要获取的文件的索引，从0开始。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;T><td>Promise对象，返回结果集中指定索引的一个对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getObjectByPositionDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAsset: sendablePhotoAccessHelper.PhotoAsset = await fetchResult.getObjectByPosition(0);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAsset displayName: ', photoAsset.displayName);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getallobjects>getAllObjects<a href=#getallobjects class=hash-link aria-label=getAllObjects的直接链接 title=getAllObjects的直接链接 translate=no>​</a></h3>
+<p>getAllObjects(): Promise&lt;Array&lt;T>></p>
+<p>获取文件检索结果中的所有文件资产。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;T>><td>Promise对象，返回结果集中所有文件资产数组。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getAllObjectDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchResult: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.PhotoAsset> = await phAccessHelper.getAssets(fetchOption);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let photoAssetList: Array&lt;sendablePhotoAccessHelper.PhotoAsset> = await fetchResult.getAllObjects();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('photoAssetList length: ', photoAssetList.length);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=album>Album<a href=#album class=hash-link aria-label=Album的直接链接 title=Album的直接链接 translate=no>​</a></h2>
+<p>实体相册</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性-1>属性<a href=#属性-1 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>albumType<td><a href=#albumtype class="">AlbumType</a><td>是<td>否<td>相册类型。<tr><td>albumSubtype<td><a href=#albumsubtype class="">AlbumSubtype</a><td>是<td>否<td>相册子类型。<tr><td>albumName<td>string<td>用户相册可写，预置相册不可写<td>否<td>相册名称。<tr><td>albumUri<td>string<td>是<td>否<td>相册Uri。<tr><td>count<td>number<td>是<td>否<td>相册中文件数量。<tr><td>coverUri<td>string<td>是<td>否<td>封面文件Uri。<tr><td>imageCount<td>number<td>是<td>是<td>相册中图片数量。<tr><td>videoCount<td>number<td>是<td>是<td>相册中视频数量。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=converttophotoalbum>convertToPhotoAlbum<a href=#converttophotoalbum class=hash-link aria-label=convertToPhotoAlbum的直接链接 title=convertToPhotoAlbum的直接链接 translate=no>​</a></h3>
+<p>convertToPhotoAlbum(): photoAccessHelper.Album</p>
+<p>将Sendable类型Album转换为非Sendable类型Album。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-album/arkts-apis-photoaccesshelper-album>photoAccessHelper.Album</a><td>返回非Sendable类型的Album。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('convertToPhotoAlbumDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumFetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumList: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.Album> = await phAccessHelper.getAlbums(sendablePhotoAccessHelper.AlbumType.USER, sendablePhotoAccessHelper.AlbumSubtype.USER_GENERIC, albumFetchOptions);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let sendableAlbum: sendablePhotoAccessHelper.Album = await albumList.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let album: photoAccessHelper.Album = sendableAlbum.convertToPhotoAlbum();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  album.getAssets(fetchOption).then((albumFetchResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('convertToPhotoAlbum successfully, getCount: ' + albumFetchResult.getCount());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`convertToPhotoAlbum failed with error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getassets-1>getAssets<a href=#getassets-1 class=hash-link aria-label=getAssets的直接链接 title=getAssets的直接链接 translate=no>​</a></h3>
+<p>getAssets(options: photoAccessHelper.FetchOptions): Promise&lt;FetchResult&lt;PhotoAsset>></p>
+<p>获取相册中的文件。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.READ_IMAGEVIDEO</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-i/arkts-apis-photoaccesshelper-i#fetchoptions>photoAccessHelper.FetchOptions</a><td>是<td>检索选项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#fetchresult class="">FetchResult</a>&lt;<a href=#photoasset class="">PhotoAsset</a>>><td>Promise对象，返回图片和视频数据结果集。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('albumGetAssetsDemoPromise');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumFetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let fetchOption: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumList: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.Album> = await phAccessHelper.getAlbums(sendablePhotoAccessHelper.AlbumType.USER, sendablePhotoAccessHelper.AlbumSubtype.USER_GENERIC, albumFetchOptions);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let album: sendablePhotoAccessHelper.Album = await albumList.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  album.getAssets(fetchOption).then((albumFetchResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('album getAssets successfully, getCount: ' + albumFetchResult.getCount());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`album getAssets failed with error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=commitmodify-1>commitModify<a href=#commitmodify-1 class=hash-link aria-label=commitModify的直接链接 title=commitModify的直接链接 translate=no>​</a></h3>
+<p>commitModify(): Promise&lt;void></p>
+<p>更新相册属性修改到数据库中。使用Promise异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.WRITE_IMAGEVIDEO</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement>文件管理错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>14000011<td>Internal system error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>phAccessHelper的创建请参考<a href=#sendablephotoaccesshelpergetphotoaccesshelper class="">sendablePhotoAccessHelper.getPhotoAccessHelper</a>的示例使用。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { dataSharePredicates } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example(phAccessHelper: sendablePhotoAccessHelper.PhotoAccessHelper) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('albumCommitModifyDemo');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let predicates: dataSharePredicates.DataSharePredicates = new dataSharePredicates.DataSharePredicates();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumFetchOptions: photoAccessHelper.FetchOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    fetchColumns: [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    predicates: predicates</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let albumList: sendablePhotoAccessHelper.FetchResult&lt;sendablePhotoAccessHelper.Album> = await phAccessHelper.getAlbums(sendablePhotoAccessHelper.AlbumType.USER, sendablePhotoAccessHelper.AlbumSubtype.USER_GENERIC, albumFetchOptions);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let album: sendablePhotoAccessHelper.Album = await albumList.getFirstObject();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  album.albumName = 'hello';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  album.commitModify().then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('commitModify successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`commitModify failed with error: ${err.code}, ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=phototype>PhotoType<a href=#phototype class=hash-link aria-label=PhotoType的直接链接 title=PhotoType的直接链接 translate=no>​</a></h2>
+<p>枚举，媒体文件类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>IMAGE<td>1<td>图片。<tr><td>VIDEO<td>2<td>视频。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photosubtype14>PhotoSubtype14+<a href=#photosubtype14 class=hash-link aria-label=PhotoSubtype14+的直接链接 title=PhotoSubtype14+的直接链接 translate=no>​</a></h2>
+<p>枚举，不同<a href=#photoasset class="">PhotoAsset</a>的类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>DEFAULT<td>0<td>默认照片类型。<tr><td>MOVING_PHOTO<td>3<td>动态照片文件类型。<tr><td>BURST<td>4<td>连拍照片文件类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dynamicrangetype14>DynamicRangeType14+<a href=#dynamicrangetype14 class=hash-link aria-label=DynamicRangeType14+的直接链接 title=DynamicRangeType14+的直接链接 translate=no>​</a></h2>
+<p>枚举，媒体文件的动态范围类型。</p>
+<p><strong><strong>系统能力</strong></strong>: SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SDR<td>0<td>标准动态范围类型。<tr><td>HDR<td>1<td>高动态范围类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=albumtype>AlbumType<a href=#albumtype class=hash-link aria-label=AlbumType的直接链接 title=AlbumType的直接链接 translate=no>​</a></h2>
+<p>枚举，相册类型，表示是用户相册还是系统预置相册。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>USER<td>0<td>用户相册。<tr><td>SYSTEM<td>1024<td>系统预置相册。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=albumsubtype>AlbumSubtype<a href=#albumsubtype class=hash-link aria-label=AlbumSubtype的直接链接 title=AlbumSubtype的直接链接 translate=no>​</a></h2>
+<p>枚举，相册子类型，表示具体的相册类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.PhotoAccessHelper.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>USER_GENERIC<td>1<td>用户相册。<tr><td>FAVORITE<td>1025<td>收藏夹。<tr><td>VIDEO<td>1026<td>视频相册。<tr><td>IMAGE<td>1031<td>图片相册。<tr><td>ANY<td>2147483647<td>任意相册。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-t/arkts-apis-photoaccesshelper-t><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Types</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/media-library-api/media-library-comp/ohos-file-albumpickercomponent/ohos-file-albumpickercomponent><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.file.AlbumPickerComponent (Album Picker组件)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#sendablephotoaccesshelpergetphotoaccesshelper class="table-of-contents__link toc-highlight">sendablePhotoAccessHelper.getPhotoAccessHelper</a><li><a href=#photoaccesshelper class="table-of-contents__link toc-highlight">PhotoAccessHelper</a><ul><li><a href=#getassets class="table-of-contents__link toc-highlight">getAssets</a><li><a href=#getburstassets class="table-of-contents__link toc-highlight">getBurstAssets</a><li><a href=#createasset class="table-of-contents__link toc-highlight">createAsset</a><li><a href=#getalbums class="table-of-contents__link toc-highlight">getAlbums</a><li><a href=#getalbums-1 class="table-of-contents__link toc-highlight">getAlbums</a><li><a href=#release class="table-of-contents__link toc-highlight">release</a></ul><li><a href=#photoasset class="table-of-contents__link toc-highlight">PhotoAsset</a><ul><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><li><a href=#converttophotoasset class="table-of-contents__link toc-highlight">convertToPhotoAsset</a><li><a href=#get class="table-of-contents__link toc-highlight">get</a><li><a href=#set class="table-of-contents__link toc-highlight">set</a><li><a href=#commitmodify class="table-of-contents__link toc-highlight">commitModify</a><li><a href=#getthumbnail class="table-of-contents__link toc-highlight">getThumbnail</a></ul><li><a href=#fetchresult class="table-of-contents__link toc-highlight">FetchResult</a><ul><li><a href=#getcount class="table-of-contents__link toc-highlight">getCount</a><li><a href=#isafterlast class="table-of-contents__link toc-highlight">isAfterLast</a><li><a href=#close class="table-of-contents__link toc-highlight">close</a><li><a href=#getfirstobject class="table-of-contents__link toc-highlight">getFirstObject</a><li><a href=#getnextobject class="table-of-contents__link toc-highlight">getNextObject</a><li><a href=#getlastobject class="table-of-contents__link toc-highlight">getLastObject</a><li><a href=#getobjectbyposition class="table-of-contents__link toc-highlight">getObjectByPosition</a><li><a href=#getallobjects class="table-of-contents__link toc-highlight">getAllObjects</a></ul><li><a href=#album class="table-of-contents__link toc-highlight">Album</a><ul><li><a href=#属性-1 class="table-of-contents__link toc-highlight">属性</a><li><a href=#converttophotoalbum class="table-of-contents__link toc-highlight">convertToPhotoAlbum</a><li><a href=#getassets-1 class="table-of-contents__link toc-highlight">getAssets</a><li><a href=#commitmodify-1 class="table-of-contents__link toc-highlight">commitModify</a></ul><li><a href=#phototype class="table-of-contents__link toc-highlight">PhotoType</a><li><a href=#photosubtype14 class="table-of-contents__link toc-highlight">PhotoSubtype14+</a><li><a href=#dynamicrangetype14 class="table-of-contents__link toc-highlight">DynamicRangeType14+</a><li><a href=#albumtype class="table-of-contents__link toc-highlight">AlbumType</a><li><a href=#albumsubtype class="table-of-contents__link toc-highlight">AlbumSubtype</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

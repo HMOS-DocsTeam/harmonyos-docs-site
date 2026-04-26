@@ -1,0 +1,1215 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>retrieval（智慧化数据平台） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="retrieval（智慧化数据平台） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="智慧数据平台（ArkData Intelligence Platform，AIP）提供端侧的数据智慧化能力，实现数据和AI智能在端侧闭环。作为端侧智慧化能力底座，将支持以下能力："/><meta data-rh=true property=og:description content="智慧数据平台（ArkData Intelligence Platform，AIP）提供端侧的数据智慧化能力，实现数据和AI智能在端侧闭环。作为端侧智慧化能力底座，将支持以下能力："/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api","name":"retrieval（智慧化数据平台）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title=rag（检索增强生成） class=linkLabel_WmDU>rag（检索增强生成）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-retrieval-api/dataaugmentation-retrieval-api><span title=retrieval（智慧化数据平台） class=linkLabel_WmDU>retrieval（智慧化数据平台）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-knowledgeprocessor-api/dataaugmentation-knowledgeprocessor-api><span title=knowledgeProcessor（知识加工） class=linkLabel_WmDU>knowledgeProcessor（知识加工）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-localchatmodel-api/dataaugmentation-localchatmodel-api><span title=localChatModel（端侧问答模型） class=linkLabel_WmDU>localChatModel（端侧问答模型）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-capi/dataaugmentation-capi-module/dataaugmentation-capi-aip/dataaugmentation-capi-aip><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Data Augmentation Kit（数据增强服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>retrieval（智慧化数据平台）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>retrieval（智慧化数据平台）</h1></header>
+<p>智慧数据平台（ArkData Intelligence Platform，AIP）提供端侧的数据智慧化能力，实现数据和AI智能在端侧闭环。作为端侧智慧化能力底座，将支持以下能力：</p>
+<ul>
+<li class="">
+<p>多模态嵌入模型：使用嵌入模型（Embedding Model）对多模态数据生成向量表征，将文本、图片等数据映射到同一向量空间，支撑基于语义的多模态知识检索。</p>
+</li>
+<li class="">
+<p>多模态数据存储：支持端侧向量、倒排索引等多模态数据存储，避免将原始数据发送到服务器进行处理，减少了数据泄露的风险。</p>
+</li>
+<li class="">
+<p>知识检索：逐步构建语义索引、知识图谱、召回、重排等功能，支持用户知识的语义化检索。</p>
+</li>
+<li class="">
+<p>知识生成与整理：基于用户文档、消息、电子邮件、照片、视频、日历事件、屏幕上下文等数据，支持高效数据整理与知识生成，实现数据到知识的转换。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { retrieval } from '@kit.DataAugmentationKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getretriever>getRetriever<a href=#getretriever class=hash-link aria-label=getRetriever的直接链接 title=getRetriever的直接链接 translate=no>​</a></h2>
+<p>getRetriever(config: RetrievalConfig): Promise&lt;Retriever></p>
+<p>获取检索器，进行多路检索召回。使用promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#retrievalconfig class="">RetrievalConfig</a><td>是<td>检索器的配置信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#retriever class="">Retriever</a>><td>Promise对象，返回检索器对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { retrieval } from '@kit.DataAugmentationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { relationalStore } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  async retrieve() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let vectorDBConfig:retrieval.DbConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name:"vector_store_test.db",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      securityLevel:relationalStore.SecurityLevel.S3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let invidxDBConfig:retrieval.DbConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name:"invidx_store_test.db",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      securityLevel:relationalStore.SecurityLevel.S3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let context: Context | undefined = this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (context == undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getHostContext failed.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let channelConfigVector:retrieval.ChannelConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelType:retrieval.ChannelType.VECTOR_DATABASE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      context:context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      dbConfig:vectorDBConfig</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let channelConfigInvIdx:retrieval.ChannelConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelType:retrieval.ChannelType.INVERTED_INDEX_DATABASE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      context:context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      dbConfig:invidxDBConfig</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let retrievalConfig:retrieval.RetrievalConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelConfigs:[channelConfigInvIdx, channelConfigVector]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let globalRetriever:retrieval.Retriever | undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 获取检索器</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await retrieval.getRetriever(retrievalConfig)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((retriever:retrieval.Retriever) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        globalRetriever = retriever;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("globalRetriever is success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .catch((err:BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        globalRetriever = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("Failed to get Retriever and code is " + err.code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=retrievalconfig>RetrievalConfig<a href=#retrievalconfig class=hash-link aria-label=RetrievalConfig的直接链接 title=RetrievalConfig的直接链接 translate=no>​</a></h2>
+<p>管理召回的配置</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>channelConfigs<td>Array&lt;<a href=#channelconfig class="">ChannelConfig</a>><td>是<td>不同检索回路的配置信息数组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=channelconfig>ChannelConfig<a href=#channelconfig class=hash-link aria-label=ChannelConfig的直接链接 title=ChannelConfig的直接链接 translate=no>​</a></h2>
+<p>管理每个检索回路的配置信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>channelType<td><a href=#channeltype class="">ChannelType</a><td>否<td>否<td>当前检索回路的数据库类型。<tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>common.BaseContext</a><td>否<td>否<td>应用的上下文。  FA模型的应用Context定义。  Stage模型的应用Context定义。<tr><td>dbConfig<td><a href=#dbconfig class="">DbConfig</a><td>否<td>否<td>当前检索回路的数据库配置。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=channeltype>ChannelType<a href=#channeltype class=hash-link aria-label=ChannelType的直接链接 title=ChannelType的直接链接 translate=no>​</a></h2>
+<p>数据库类型枚举。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>VECTOR_DATABASE<td>0<td>向量数据库。<tr><td>INVERTED_INDEX_DATABASE<td>1<td>倒排数据库。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dbconfig>DbConfig<a href=#dbconfig class=hash-link aria-label=DbConfig的直接链接 title=DbConfig的直接链接 translate=no>​</a></h2>
+<p>type DbConfig = relationalStore.StoreConfig</p>
+<p>数据库配置。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-relationalstore/arkts-apis-data-relationalstore-i/arkts-apis-data-relationalstore-i#storeconfig>relationalStore.StoreConfig</a><td>数据库配置。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=retriever>Retriever<a href=#retriever class=hash-link aria-label=Retriever的直接链接 title=Retriever的直接链接 translate=no>​</a></h2>
+<p>检索器，用于多路检索召回。</p>
+<p>下列接口都需先使用<a href=#getretriever class="">retrieval.getRetriever</a>获取到检索器实例，再通过此实例调用对应接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=retrieverdb>retrieveRdb<a href=#retrieverdb class=hash-link aria-label=retrieveRdb的直接链接 title=retrieveRdb的直接链接 translate=no>​</a></h3>
+<p>retrieveRdb(query: string, condition: RetrievalCondition): Promise&lt;RdbRecords></p>
+<p>给定检索条件（包含查询词分词、召回条件），从一个关系型数据库检索召回满足条件的数据，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>query<td>string<td>是<td>当前检索的查询词,长度上限为1000字节。<tr><td>condition<td><a href=#retrievalcondition class="">RetrievalCondition</a><td>是<td>检索条件。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#rdbrecords class="">RdbRecords</a>><td>Promise对象，返回检索召回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200001-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E6%8D%9F%E5%9D%8F>1021200001</a><td>The database is corrupted.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200002-%E6%95%B0%E6%8D%AE%E5%BA%93%E6%88%96%E4%BA%8B%E5%8A%A1%E5%85%B3%E9%97%AD>1021200002</a><td>The database is closed.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200003-%E6%95%B0%E6%8D%AE%E5%BA%93busy>1021200003</a><td>The database is busy.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200004-%E6%95%B0%E6%8D%AE%E5%BA%93%E5%86%85%E5%AD%98%E4%B8%8D%E8%B6%B3>1021200004</a><td>The database is out of memory.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200100-sqlite-%E9%80%9A%E7%94%A8%E9%94%99%E8%AF%AF>1021200100</a><td>SQLite: Generic error.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200101-sqlite%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90%E8%A2%AB%E6%8B%92%E7%BB%9D>1021200101</a><td>SQLite: Access permission denied.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200102-sqlite%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6%E5%B7%B2%E9%94%81%E5%AE%9A>1021200102</a><td>SQLite: The database file is locked.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200103-sqlite%E5%8F%91%E7%94%9F%E4%BA%86%E6%9F%90%E7%A7%8D%E7%A3%81%E7%9B%98io%E9%94%99%E8%AF%AF>1021200103</a><td>SQLite: Some kind of disk I/O error occurred.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200104-wal%E6%96%87%E4%BB%B6%E5%A4%A7%E5%B0%8F%E8%B6%85%E8%BF%87%E9%BB%98%E8%AE%A4%E4%B8%8A%E9%99%90>1021200104</a><td>SQLite: The WAL file size exceeds the default limit.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200105-%E6%97%A0%E6%B3%95%E6%89%93%E5%BC%80%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%87%E4%BB%B6>1021200105</a><td>SQLite: Unable to open the database file.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201000-retrieval-recall-error>1021201000</a><td>Retrieval: An error occurred during the reacall phase.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201001-retrieval-re-ranking-error>1021201001</a><td>Retrieval: An error occurred during the re-ranking phase.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201002-retrieval-numerical-parameter-out-of-range>1021201002</a><td>Retrieval: The value of the numerical parameter is outside the constrained range.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201003-retrieval-invalid-primary-keys>1021201003</a><td>Retrieval: There are invalid primary keys.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201004-retrieval-unsupport-composite-primary-key-in-re-ranking>1021201004</a><td>Retrieval: A re-ranking algorithm that does not support composite primary keys was used.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201005-retrieval-empty-string-field>1021201005</a><td>Retrieval: There are fields with empty strings.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201006-retrieval-illegal-filter-input>1021201006</a><td>Retrieval: The filter input is invalid.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201007-retrieval-invalid-recall-field-name>1021201007</a><td>Retrieval: There are invalid recall names in RecallCondition.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201008-retrieval-vector-similarity-threshold-too-high>1021201008</a><td>Retrieval: The vector similarity threshold in VectorQuery is higher than the tiered threshold in VectorRerankParameter.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201009-retrieval-rerankmethod-parameters-do-not-match-the-channel-type>1021201009</a><td>Retrieval: RerankMethod parameters do not match the channel type.<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021201010-retrieval-empty-parameter-value>1021201010</a><td>Retrieval: There exists a parameter value that should not be empty but is actually empty<tr><td><a class="" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-error-code/dataaugmentation-error-code#section1021200012-unable-to-generate-embeddings>1021200012</a><td>Unable to generate embeddings.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { retrieval } from '@kit.DataAugmentationKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { relationalStore } from '@kit.ArkData';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> </span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async retrieve() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let vectorDBConfig:retrieval.DbConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name:"vector_test.db",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      securityLevel:relationalStore.SecurityLevel.S3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let invidxDBConfig:retrieval.DbConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name:"files_test.db",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      securityLevel:relationalStore.SecurityLevel.S3</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let context: Context | undefined = this.getUIContext().getHostContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (context == undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("getHostContext failed.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let channelConfigVector:retrieval.ChannelConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelType:retrieval.ChannelType.VECTOR_DATABASE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      context:context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      dbConfig:vectorDBConfig</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let channelConfigInvIdx:retrieval.ChannelConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelType:retrieval.ChannelType.INVERTED_INDEX_DATABASE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      context:context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      dbConfig:invidxDBConfig</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let retrievalConfig:retrieval.RetrievalConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      channelConfigs:[channelConfigInvIdx, channelConfigVector]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let globalRetriever:retrieval.Retriever | undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await retrieval.getRetriever(retrievalConfig)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((retriever:retrieval.Retriever) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        globalRetriever = retriever;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("globalRetriever is success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .catch((err:BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        globalRetriever = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("Failed to get Retriever and code is " + err.code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fieldWeight:Record&lt;string, number> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "filename":4.0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fieldSlops:Record&lt;string, number> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "filename":5</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let bm25Strategy:retrieval.Bm25Strategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bm25Weight:1.5,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      columnWeight:fieldWeight</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let exactStrategy:retrieval.ExactMatchingStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      exactMatchingWeight:1.2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      columnWeight:fieldWeight</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let outOfOrderStrategy:retrieval.ProximityStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      proximityWeight:1.0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      columnWeight:fieldWeight,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      columnSlops:fieldSlops</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let invertedIndexStrategies:Array&lt;retrieval.InvertedIndexStrategy> = [bm25Strategy, exactStrategy, outOfOrderStrategy]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let recallConditionInvIdx:retrieval.InvertedIndexRecallCondition ={</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ftsTableName:"files",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      primaryKey:["fileid"],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      fromClause:"files",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      responseColumns:["fileid", "filename", "keywords"],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deepSize:2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      invertedIndexStrategies:invertedIndexStrategies,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      recallName:"invIdxRecall"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 这里 floatArray 时输入的 query 的表征向量，根据实际情况需要修改</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let floatArray = new Float32Array([0.006954, -0.079041, 0.046173, 0.157959, -0.017212, 0.037018, -0.072083, -0.028488, -0.099854, 0.044037, -0.008911, -0.063049, 0.035950, -0.105835, 0.057739, 0.060364, -0.062042, 0.044159, 0.143188, 0.123901, -0.069641, -0.061920, -0.086731, -0.092468, 0.092957, -0.027649, -0.005497, -0.039276, 0.017502, -0.046570, -0.115906, 0.081177, -0.153931, -0.040588, 0.123474, -0.099060, 0.062042, 0.026352, -0.041382, -0.099548, 0.071167, -0.120850, 0.082642, 0.026398, -0.035614, -0.008545, -0.076660, -0.031067, 0.192017, -0.052582, 0.005310, 0.052734, 0.199463, 0.075195, -0.070740, -0.035950, 0.073120, 0.089172, 0.075989, 0.003582, 0.050201, -0.012787, 0.016647, -0.053619, 0.001906, -0.060181, -0.068359, -0.114502, -0.045013, 0.004547, -0.004673, -0.148071, 0.126343, 0.019394, -0.063110, -0.055908, 0.071228, 0.002369, 0.041412, 0.126709, -0.053467, 0.127808, 0.055420, 0.206177, 0.002169, -0.001452, 0.095520, -0.042511, 0.099243, -0.164185, 0.093384, -0.014618, -0.129150, -0.238770, -0.085327, 0.051300, -0.020004, 0.010063, -0.084351, -0.003567, 0.064941, -0.205322, -0.158936, -0.074768, 0.104370, 0.197021, -0.080688, -0.066772, -0.036346, 0.034912, -0.019760, 0.110474, 0.128662, 0.094727, 0.024948, -0.033356, -0.081848, 0.054474, -0.065857, -0.156494, 0.002527, 0.097595, -0.027420, 0.039185, 0.063965, 0.220093, 0.029556, -0.115417]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let vectorQuery:retrieval.VectorQuery = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      column:"keywords",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      value:floatArray,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      similarityThreshold:0.35</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let recallConditionVector:retrieval.VectorRecallCondition = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      vectorQuery:vectorQuery,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      fromClause:"vector",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      primaryKey:["fileid"],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      responseColumns:["filename_text", "filename", "int64_value", "double_value", "bool_value", "blob_value"],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      recallName:"vectorRecall",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deepSize:2</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let vectorWeights:Record&lt;string, number> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "vectorRecall":0.5</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let invidxWeights:Record&lt;string, number> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "vectorRecall":0.5</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let vectorRerankParameter:retrieval.VectorRerankParameter = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      vectorWeights:vectorWeights,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      thresholds:[0.55, 0.45]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let invidxRerankParameter:retrieval.InvertedIndexRerankParameter = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      invertedIndexWeights:invidxWeights,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let parameters:Record&lt;retrieval.ChannelType, retrieval.RerankParameter> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      0:vectorRerankParameter,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      1:invidxRerankParameter</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let rerankMethod:retrieval.RerankMethod = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      rerankType:retrieval.RerankType.RRF,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      parameters:parameters,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isSoftmaxNormalized:true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let groundTruthIds: Array&lt;string> = ['1','2', '3'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let explain : retrieval.ExplanationConfig ={</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      groundTruths: groundTruthIds</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let retrievalCondition:retrieval.RetrievalCondition = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      rerankMethod:rerankMethod,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      recallConditions:[recallConditionInvIdx, recallConditionVector],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resultCount:2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      explanation:explain</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (globalRetriever != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let query:string = "运动直播场景";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 执行检索</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      globalRetriever.retrieveRdb(query, retrievalCondition)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .then((rdbdata:retrieval.RdbRecords) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info(`#########  retrieval result ############`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          for (let i = 0; i &lt; rdbdata.records.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(` primaryKey is ${rdbdata.records[i].primaryKey}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Object.keys(rdbdata.records[i].columns).forEach((key) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              if (rdbdata.records && rdbdata.records[i]) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                let value = rdbdata.records[i].columns[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.info(`recall Scores Key: ${key}, Value: ${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`score is ${rdbdata.records[i].score}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Object.keys(rdbdata.records[i].recallScores).forEach((channelType) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              if (rdbdata.records) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                let scores:Record&lt;string, retrieval.RecallScore>  = rdbdata.records[i].recallScores[channelType];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                Object.keys(scores).forEach((key)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  let value = scores[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  console.info(`recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info("recall Scores", rdbdata.records[i].recallScores.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Object.keys(rdbdata.records[i].features).forEach((key) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              if (rdbdata.records && rdbdata.records[i]) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                let value = rdbdata.records[i].features[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.info(`features Key: ${key}, Value: ${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`similarityLevel is ${rdbdata.records[i].similarityLevel}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info(`#########  missdGroundTruthsPrimaryKey ############`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if(rdbdata.missedGroundTruths != undefined && rdbdata.missedGroundTruths.length != 0){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            for (let i = 0; i &lt; rdbdata.missedGroundTruths.length; i++) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              console.info(`missdGroundTruthsPrimaryKey is ${rdbdata.missedGroundTruths[i].primaryKey}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              Object.keys(rdbdata.missedGroundTruths[i].columns).forEach((key) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  let value = rdbdata.missedGroundTruths[i].columns[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  console.info(`missdGroundTruths recall Scores Key: ${key}, Value: ${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              console.info(` missdGroundTruths score is ${rdbdata.missedGroundTruths[i].score}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              Object.keys(rdbdata.missedGroundTruths[i].recallScores).forEach((channelType) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                if (rdbdata.missedGroundTruths) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  let scores:Record&lt;string, retrieval.RecallScore>  = rdbdata.missedGroundTruths[i].recallScores[channelType];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  Object.keys(scores).forEach((key)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    let value = scores[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    console.info(`missdGroundTruths recall Scores channelType is ${channelType}, Key: ${key}, score: ${value.score}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              console.info("missdGroundTruths recall Scores", rdbdata.missedGroundTruths[i].recallScores.toString());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              Object.keys(rdbdata.missedGroundTruths[i].features).forEach((key) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                if (rdbdata.missedGroundTruths && rdbdata.missedGroundTruths[i]) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  let value = rdbdata.missedGroundTruths[i].features[key];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  console.info(`missdGroundTruths features Key: ${key}, Value: ${value}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              console.info(`missdGroundTruths similarityLevel is ${rdbdata.missedGroundTruths[i].similarityLevel}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info("retrieval success.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .catch((err:BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.error("Failure in retrieveRdb and code is " + err.code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=retrievalcondition>RetrievalCondition<a href=#retrievalcondition class=hash-link aria-label=RetrievalCondition的直接链接 title=RetrievalCondition的直接链接 translate=no>​</a></h2>
+<p>检索条件。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>recallConditions<td>Array&lt;<a href=#recallcondition class="">RecallCondition</a>><td>否<td>否<td>召回的条件，数组中的每个元素对应一个召回操作。<tr><td>rerankMethod<td><a href=#rerankmethod class="">RerankMethod</a><td>否<td>是<td>重排方法。其参数rerankType默认值为RRF算法，参数parameters默认值遵循<a href=#recallcondition class="">RecallCondition</a>中相应检索回路的参数。<tr><td>resultCount<td>number<td>否<td>是<td>重排后允许返回结果的最大数量。默认值为500。必须为正整数。<tr><td>explanation<td><a href=#explanationconfig class="">ExplanationConfig</a><td>否<td>是<td>检索解释</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=explanationconfig>ExplanationConfig<a href=#explanationconfig class=hash-link aria-label=ExplanationConfig的直接链接 title=ExplanationConfig的直接链接 translate=no>​</a></h2>
+<p>检索解释配置</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>groundTruths<td>Array&lt;string><td>否<td>否<td>待解释的文档id，为字符串类型可取任意值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=recallcondition>Recallcondition<a href=#recallcondition class=hash-link aria-label=Recallcondition的直接链接 title=Recallcondition的直接链接 translate=no>​</a></h2>
+<p>type RecallCondition = InvertedIndexRecallCondition | VectorRecallCondition</p>
+<p>召回操作的条件。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#invertedindexrecallcondition class="">InvertedIndexRecallCondition</a><td>倒排召回条件。<tr><td><a href=#vectorrecallcondition class="">VectorRecallCondition</a><td>向量召回条件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=invertedindexrecallcondition>InvertedIndexRecallCondition<a href=#invertedindexrecallcondition class=hash-link aria-label=InvertedIndexRecallCondition的直接链接 title=InvertedIndexRecallCondition的直接链接 translate=no>​</a></h2>
+<p>倒排检索的召回条件。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>ftsTableName<td>string<td>否<td>否<td>倒排检索所用的fts（Full-Text Search）数据表的名称，用于执行bm25函数输入。必须为存在的表名且不能为空字符串。<tr><td>fromClause<td>string<td>否<td>否<td>查询目标索引名。不能为空字符串。  fromClause指定的表中包含filters中涉及的所有字段，允许两种输入：  1. 和ftsTableName填一样的值，则倒排检索将仅局限在倒排表内进行检索。  2. 提供完整select...join语句的方式，来连接fts表之外的元素表，作为检索表（注意，使用此模式时，该select语句中必须有rowid字段且必须是fts表的rowid。例如当ftsTableName为“files”时，存在一个元素表metadata需要参与filters过滤，则应如下定义fromClause："SELECT files.rowid as rowid, * FROM metadata JOIN files ON metadata.fileid = files.fileid"。）<tr><td>primaryKey<td>Array&lt;<a href=#columnname class="">ColumnName</a>><td>否<td>否<td>召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有召回操作的主键字段数量之和必须和相等且不能为空。<tr><td>responseColumns<td>Array&lt;<a href=#columnname class="">ColumnName</a>><td>否<td>否<td>需要额外召回的字段集合。Array&lt;<a href=#columnname class="">ColumnName</a>>中<a href=#columnname class="">ColumnName</a>不得为空。<tr><td>invertedIndexStrategies<td>Array&lt;<a href=#invertedindexstrategy class="">InvertedIndexStrategy</a>><td>否<td>是<td>召回策略列表，决定了倒排表应当如何打分。如果为空，则默认执行全表匹配。<tr><td>recallName<td><a href=#recallname class="">RecallName</a><td>否<td>是<td>当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串。构造方法中可以不构建该参数，如果有这个参数则值不能为空字符串。<tr><td>filters<td>Array&lt;<a href=#filterinfo class="">FilterInfo</a>><td>否<td>是<td>附加的过滤条件。<tr><td>deepSize<td>number<td>否<td>是<td>重排阶段包含当前召回过程的最大结果数。默认值500，必须为正整数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=columnname>ColumnName<a href=#columnname class=hash-link aria-label=ColumnName的直接链接 title=ColumnName的直接链接 translate=no>​</a></h2>
+<p>type ColumnName = string</p>
+<p>数据表的列名，类型为字符串。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>数据表列名对应的类型，为字符串类型可取任意值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=recallname>RecallName<a href=#recallname class=hash-link aria-label=RecallName的直接链接 title=RecallName的直接链接 translate=no>​</a></h2>
+<p>type RecallName = string</p>
+<p>召回回路名称，类型为字符串，用于给倒排和向量两路召回取名。例如出现两路向量召回时，给两路向量取名做区分。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>召回路径名称对应的类型，类型为字符串，可取任意值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=filterinfo>FilterInfo<a href=#filterinfo class=hash-link aria-label=FilterInfo的直接链接 title=FilterInfo的直接链接 translate=no>​</a></h2>
+<p>过滤器信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>columns<td>Array&lt;<a href=#columnname class="">ColumnName</a>><td>否<td>否<td>被过滤的列名称。<tr><td>operator<td><a href=#operator class="">Operator</a><td>否<td>是<td>过滤条件中的操作算子。operator和filterValue、operator和filterRange至少有一组同时设置，过滤功能才能生效。<tr><td>filterValue<td><a href=#filtervalue class="">FilterValue</a><td>否<td>是<td>过滤条件中的过滤值。<tr><td>filterRange<td><a href=#filterrange class="">FilterRange</a><td>否<td>是<td>过滤条件中的过滤范围。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=filtervalue>FilterValue<a href=#filtervalue class=hash-link aria-label=FilterValue的直接链接 title=FilterValue的直接链接 translate=no>​</a></h2>
+<p>type FilterValue = number | string | bigint</p>
+<p>过滤条件中的过滤值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>FilterValue 收到的类型为number则过滤条件为数字类型<tr><td>string<td>FilterValue 收到的类型为string则过滤条件为字符串类型<tr><td>bigint<td>FilterValue 收到的类型为bigint则过滤条件为int64类型</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=filterrange>FilterRange<a href=#filterrange class=hash-link aria-label=FilterRange的直接链接 title=FilterRange的直接链接 translate=no>​</a></h2>
+<p>过滤条件中的过滤值范围。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>必填<th>说明<tbody><tr><td>max<td>number<td>是<td>最大过滤值。<tr><td>min<td>number<td>是<td>最小过滤值，取值需小于最大过滤值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=operator>Operator<a href=#operator class=hash-link aria-label=Operator的直接链接 title=Operator的直接链接 translate=no>​</a></h2>
+<p>过滤条件中的操作算子。column为数据库表中的字段名，filterValue为该字段的取值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>操作<th>说明<tbody><tr><td>OP_EQ = '='<td>&lt;column>等于&lt;filterValue>。<tr><td>OP_NE = '!='<td>&lt;column>不等于&lt;filterValue>。<tr><td>OP_LT = '&lt;'<td>&lt;column>小于&lt;filterValue>，其中&lt;filterValue>为数值。<tr><td>OP_LE = '&lt;='<td>&lt;column>小于等于&lt;filterValue>，其中&lt;filterValue>为数值。<tr><td>OP_GT = '>'<td>&lt;column>大于&lt;filterValue>，其中&lt;filterValue>为数值。<tr><td>OP_GE = '>='<td>&lt;column>大于等于&lt;filterValue>，其中&lt;filterValue>为数值。<tr><td>OP_IN = 'IN'<td>&lt;column> IN &lt;filterValue>，其中&lt;filterValue>为string且通过','组合。<tr><td>OP_NOT_IN = 'NOT_IN'<td>&lt;column> NOT IN &lt;filterValue>，其中&lt;filterValue>为string且通过','拼接。<tr><td>OP_BETWEEN = 'BETWEEN'<td><column>的值在 &lt;filterRange.min> 和 &lt;filterRange.max>之间。</column><tr><td>OP_LIKE = 'LIKE'<td>通过LIKE匹配含有&lt;filterValue>的&lt;column> ,其中&lt;filterValue>为string。<tr><td>OP_NOT_LIKE = 'NOT_LIKE'<td>&lt;column> NOT LIKE &lt;filterValue>，其中&lt;filterValue>为string。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=invertedindexstrategy>InvertedIndexStrategy<a href=#invertedindexstrategy class=hash-link aria-label=InvertedIndexStrategy的直接链接 title=InvertedIndexStrategy的直接链接 translate=no>​</a></h2>
+<p>type InvertedIndexStrategy = Bm25Strategy | ExactMatchingStrategy | ProximityStrategy</p>
+<p>倒排召回策略。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#bm25strategy class="">Bm25Strategy</a><td>部分命中策略，检索目标只要命中查询词中的80%核心词就可以被召回，召回结果基于bm25算法进行评分，适用于对检索目标匹配要求较宽松的场景。<tr><td><a href=#exactmatchingstrategy class="">ExactMatchingStrategy</a><td>精确命中策略，要求检索目标和查询词完全匹配才能被召回，适用于对检索目标匹配要求较严格的场景。<tr><td><a href=#proximitystrategy class="">ProximityStrategy</a><td>乱序命中策略，查询词的分词结果在检索目标中不必严格按照原本顺序出现，各个分词结果在指定间隔内都出现即可召回，适用于对检索目标匹配要求中等的场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bm25strategy>Bm25Strategy<a href=#bm25strategy class=hash-link aria-label=Bm25Strategy的直接链接 title=Bm25Strategy的直接链接 translate=no>​</a></h2>
+<p>倒排检索所用的bm25策略。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>bm25Weight<td>number<td>否<td>否<td>bm25策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。<tr><td>columnWeight<td>Record&lt;<a href=#columnname class="">ColumnName</a>, number><td>否<td>是<td>指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度）  如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。  如果不为空，则字段名不为空字符串，权重值为非负数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=exactmatchingstrategy>ExactMatchingStrategy<a href=#exactmatchingstrategy class=hash-link aria-label=ExactMatchingStrategy的直接链接 title=ExactMatchingStrategy的直接链接 translate=no>​</a></h2>
+<p>倒排检索所用的精确场景匹配策略。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>exactMatchingWeight<td>number<td>否<td>否<td>精确场景匹配策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。<tr><td>columnWeight<td>Record&lt;<a href=#columnname class="">ColumnName</a>, number><td>否<td>是<td>指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度）  如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。  如果不为空，则字段名不为空字符串，权重值为非负数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=proximitystrategy>ProximityStrategy<a href=#proximitystrategy class=hash-link aria-label=ProximityStrategy的直接链接 title=ProximityStrategy的直接链接 translate=no>​</a></h2>
+<p>倒排检索所用的近似与乱序匹配策略。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>proximityWeight<td>number<td>否<td>否<td>近似与乱序匹配策略的打分权重，在多种倒排策略并存的情况下，控制该策略对最终召回结果的评分影响程度。<tr><td>columnWeight<td>Record&lt;<a href=#columnname class="">ColumnName</a>, number><td>否<td>是<td>指定该策略运用于倒排表的哪些字段，以及这些字段对应的权重（用于控制字段匹配情况对最终结果的影响程度）  如果字段为空，则默认该策略运用于倒排表的全部字段，会默认增加1个配置，字段名为倒排表名，权重值为1.0。  如果不为空，则字段名不为空字符串，权重值为非负数。<tr><td>columnSlops<td>Record&lt;<a href=#columnname class="">ColumnName</a>, number><td>否<td>是<td>每个字段使用的偏移量配置。默认值和columnWeight相同的字段，值为10。字段不能为空，对应值必须为非负数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vectorrecallcondition>VectorRecallCondition<a href=#vectorrecallcondition class=hash-link aria-label=VectorRecallCondition的直接链接 title=VectorRecallCondition的直接链接 translate=no>​</a></h2>
+<p>向量检索的召回条件。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>vectorQuery<td><a href=#vectorquery class="">VectorQuery</a><td>否<td>否<td>用于向量检索的查询词向量。<tr><td>fromClause<td>string<td>否<td>否<td>查询目标索引名。不能为空字符串。  fromClause指定的表中包含filters中涉及的所有字段，接受两种输入：  1. 和ftsTableName填一样的值，则倒排检索将仅局限在倒排表内进行检索；  2. 提供完整select...join语句的方式，来连接fts表之外的元素表，作为倒排这一路的被检索表。（使用此模式时，该select语句中必须有rowid字段且必须定义为fts表的rowid。例如：当ftsTableName为“files”时，存在一个元素表metadata需要参与filters过滤，则应如下定义fromClause："SELECT files.rowid as rowid, * FROM metadata JOIN files ON metadata.fileid = files.fileid"。）。<tr><td>primaryKey<td>Array&lt;<a href=#columnname class="">ColumnName</a>><td>否<td>否<td>召回结果主键字段，会作为召回字段之一，作为多路召回文档聚合依据。一次查询中所有RecallCondition的主键字段数量必须相等且不能为空。<tr><td>responseColumns<td>Array&lt;<a href=#columnname class="">ColumnName</a>><td>否<td>否<td>需要额外召回的字段集合。ColumnName不得为空。<tr><td>recallName<td><a href=#recallname class="">RecallName</a><td>否<td>是<td>当前检索回路的名称，作为重排阶段识别依据。默认值为随机字符串，不能为空字符串<tr><td>filters<td>Array&lt;<a href=#filterinfo class="">FilterInfo</a>><td>否<td>是<td>额外的过滤条件。<tr><td>deepSize<td>number<td>否<td>是<td>当前召回过程给重排阶段返回的最大结果数。默认值500，必须为正整数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vectorquery>VectorQuery<a href=#vectorquery class=hash-link aria-label=VectorQuery的直接链接 title=VectorQuery的直接链接 translate=no>​</a></h2>
+<p>根据查询词生成的向量。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>column<td><a href=#columnname class="">ColumnName</a><td>否<td>否<td>待匹配向量字段名。必须为指定的向量数据库中存在的向量类型字段。<tr><td>value<td>Float32Array<td>否<td>是<td>向量列的向量值。  如果未定义value字段，系统将尝试将原始query生成向量。目前在PC上支持自动生成。  从HarmonyOS 6.0.0 Beta2版本开始，此参数由“必填”变更为“可选”。<tr><td>similarityThreshold<td>number<td>否<td>是<td>向量阈值，用于过滤不相似向量的阈值。默认值为1，取值范围最小值为0，最大值为<a href=#vectorrerankparameter class="">VectorRerankParameter</a>中有效thresholds的最小值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rerankmethod>RerankMethod<a href=#rerankmethod class=hash-link aria-label=RerankMethod的直接链接 title=RerankMethod的直接链接 translate=no>​</a></h2>
+<p>重排策略的参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>rerankType<td><a href=#reranktype class="">RerankType</a><td>否<td>否<td>重排算法，取值类型为枚举类<a href=#reranktype class="">RerankType</a>，可选项为RRF、FUSED_SCORE，分别指向rrf排序算法以及分数融合排序算法。默认值为RRF。<tr><td>parameters<td>Record&lt;<a href=#channeltype class="">ChannelType</a>, <a href=#rerankparameter class="">RerankParameter</a>><td>否<td>是<td>每个召回回路对应的重排参数。如果上述检索参数RetrievalCondition中的存在的channelType未在parameters中配置重排参数，则会自动填充该channelType对应的重排参数默认值。倒排的重排参数默认值参考<a href=#invertedindexrerankparameter class="">InvertedIndexRerankParameter</a>，向量的重排参数默认值参考<a href=#vectorrerankparameter class="">VectorRerankParameter</a>。<tr><td>isSoftmaxNormalized<td>boolean<td>否<td>是<td>FUSED_SCORE模式下，是否使用softmax函数归一化计算重排最终得分。默认为false。true表示使用softmax函数归一化计算重排最终得分，false表示不使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reranktype>RerankType<a href=#reranktype class=hash-link aria-label=RerankType的直接链接 title=RerankType的直接链接 translate=no>​</a></h2>
+<p>重排算法的类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>值<th>说明<tbody><tr><td>RRF<td>0<td>Reciprocal Rank Fusion(RRF)方法。根据各路召回位置信息进行分档排序。  适用场景：对结果多样性要求较高的场景，希望每路结果平等输出。<tr><td>FUSION_SCORE<td>1<td>基于得分的召回融合方法。根据各路相关性分数进行分档排序。适用场景：对相关性准确性要求高、召回分数可靠且注重结果的排序稳定性的场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rerankparameter>RerankParameter<a href=#rerankparameter class=hash-link aria-label=RerankParameter的直接链接 title=RerankParameter的直接链接 translate=no>​</a></h2>
+<p>type RerankParameter = InvertedIndexRerankParameter| VectorRerankParameter</p>
+<p>重排算法的参数配置。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#invertedindexrerankparameter class="">InvertedIndexRerankParameter</a><td>重排参数为InvertedIndexRerankParameter。<tr><td><a href=#vectorrerankparameter class="">VectorRerankParameter</a><td>重排参数为VectorRerankParameter。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=invertedindexrerankparameter>InvertedIndexRerankParameter<a href=#invertedindexrerankparameter class=hash-link aria-label=InvertedIndexRerankParameter的直接链接 title=InvertedIndexRerankParameter的直接链接 translate=no>​</a></h2>
+<p>用于倒排索引的重排算法的参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>invertedIndexWeights<td>Record&lt;<a href=#recallname class="">RecallName</a>, number><td>否<td>否<td>每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的<a href=#recallname class="">RecallName</a>，value为对应那一路召回的权重。  权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=vectorrerankparameter>VectorRerankParameter<a href=#vectorrerankparameter class=hash-link aria-label=VectorRerankParameter的直接链接 title=VectorRerankParameter的直接链接 translate=no>​</a></h2>
+<p>用于向量数据的重排算法的参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>vectorWeights<td>Record&lt;<a href=#recallname class="">RecallName</a>, number><td>否<td>否<td>每路召回的重排权重，体现各路召回在重排过程中的重要性。key为各路召回RecallCondition的<a href=#recallname class="">RecallName</a>，value为对应那一路召回的权重。权重值必须为非负数。如果未定义某一路召回的权重，则默认值为1。<tr><td>thresholds<td>Array&lt;number><td>否<td>是<td>向量召回的分档阈值，用户应当从[0, 1]范围内给3个值，高、中、低档最低分，赋值对应cosine()相似度得分，越高越相关；  如果是2个值，则分出高、中两档，剩下结果都是低档；  如果是1个值，则除了高档剩下结果都是低档。  当给出多于3个值，则使用从大到小排序后前3个数值，后面忽略。如果未定义，默认值为[0.6, 0.45, 0.4]。<tr><td>numberInspector<td>Record&lt;<a href=#recallname class="">RecallName</a>, <a href=#columnname class="">ColumnName</a>><td>否<td>是<td>向量召回数字匹配降档策略配置，如果查询中存在数字，但是对应目标字段中的数字和查询数字不匹配，则将该检索结果的相关性降低。key为对应向量召回条件中的<a href=#recallname class="">RecallName</a>，value为对应模式匹配字段名。默认值为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rdbrecords>RdbRecords<a href=#rdbrecords class=hash-link aria-label=RdbRecords的直接链接 title=RdbRecords的直接链接 translate=no>​</a></h2>
+<p>检索结果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>records<td>Array&lt;<a href=#iteminfo class="">ItemInfo</a>><td>否<td>否<td>检索结果<tr><td>missedGroundTruths<td>Array&lt;<a href=#iteminfo class="">ItemInfo</a>><td>否<td>是<td>未检索到指定文档的信息</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=iteminfo>ItemInfo<a href=#iteminfo class=hash-link aria-label=ItemInfo的直接链接 title=ItemInfo的直接链接 translate=no>​</a></h2>
+<p>检索结果中每条数据的特定内容。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>primaryKey<td>string<td>否<td>否<td>检索结果的主键。<tr><td>columns<td>Record&lt;string, <a class="" href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-relationalstore/arkts-apis-data-relationalstore-t/arkts-apis-data-relationalstore-t#valuetype>relationalStore.ValueType</a>><td>否<td>否<td>召回列及其内容。<tr><td>score<td>number<td>否<td>否<td>检索重排后的最终得分，其反映了重排记录与查询词之间的相似度。score取值大于等于0。<tr><td>recallScores<td>Record&lt;<a href=#channeltype class="">ChannelType</a>, Record&lt;string, <a href=#recallscore class="">RecallScore</a>>><td>否<td>否<td>每路召回的得分，其反映了每路召回对该结果的相关性评估。key为该路RecallCondition的scoreKey；  - 如果这里没有体现RetrievalCondition中的某一路RecallCondition的scoreKey，则代表该路召回认为该结果相关性过低不予召回。<tr><td>features<td>Record&lt;string, number><td>否<td>否<td>不同倒排策略的得分。目前支持的倒排策略及得分为：  - "exact_phase"：文档字段精确命中查询语句的得分。  - "out_of_order_phase"：文档字段命中近似乱序匹配策略的得分。  - "token_bm25"：文档字段bm25策略得分。  - "core_count"：文档单个匹配字段内核心词总数。<tr><td>similarityLevel<td><a href=#similaritylevel class="">SimilarityLevel</a><td>否<td>否<td>根据语义向量距离以及文本匹配程度，对检索结果按照相关性分档，方便对结果进行进一步筛选并且过滤。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=recallscore>RecallScore<a href=#recallscore class=hash-link aria-label=RecallScore的直接链接 title=RecallScore的直接链接 translate=no>​</a></h2>
+<p>召回过程的得分。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>score<td>number<td>否<td>否<td>召回得分。<tr><td>isReverseQuery<td>boolean<td>否<td>否<td>表示得分是否来自反查过程。true表示来自反查过程，flase表示来自原始召回过程。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=similaritylevel>SimilarityLevel<a href=#similaritylevel class=hash-link aria-label=SimilarityLevel的直接链接 title=SimilarityLevel的直接链接 translate=no>​</a></h2>
+<p>根据语义向量距离以及文本匹配程度，对检索结果按照相关性的高中低分档，方便对结果进行进一步筛选并且过滤。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.DataAugmentation.Retrieval</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NONE<td>0<td>保留值，暂无特定含义。<tr><td>LOW<td>1<td>结果和Query的语义向量距离小，表示语义更相似。<tr><td>MEDIUM<td>2<td>结果和Query的语义向量距离中等，表示语义相似性中等。<tr><td>HIGH<td>3<td>结果和Query的语义向量距离大，表示语义差异较大，相关性低。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>rag（检索增强生成）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-knowledgeprocessor-api/dataaugmentation-knowledgeprocessor-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>knowledgeProcessor（知识加工）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#getretriever class="table-of-contents__link toc-highlight">getRetriever</a><li><a href=#retrievalconfig class="table-of-contents__link toc-highlight">RetrievalConfig</a><li><a href=#channelconfig class="table-of-contents__link toc-highlight">ChannelConfig</a><li><a href=#channeltype class="table-of-contents__link toc-highlight">ChannelType</a><li><a href=#dbconfig class="table-of-contents__link toc-highlight">DbConfig</a><li><a href=#retriever class="table-of-contents__link toc-highlight">Retriever</a><ul><li><a href=#retrieverdb class="table-of-contents__link toc-highlight">retrieveRdb</a></ul><li><a href=#retrievalcondition class="table-of-contents__link toc-highlight">RetrievalCondition</a><li><a href=#explanationconfig class="table-of-contents__link toc-highlight">ExplanationConfig</a><li><a href=#recallcondition class="table-of-contents__link toc-highlight">Recallcondition</a><li><a href=#invertedindexrecallcondition class="table-of-contents__link toc-highlight">InvertedIndexRecallCondition</a><li><a href=#columnname class="table-of-contents__link toc-highlight">ColumnName</a><li><a href=#recallname class="table-of-contents__link toc-highlight">RecallName</a><li><a href=#filterinfo class="table-of-contents__link toc-highlight">FilterInfo</a><li><a href=#filtervalue class="table-of-contents__link toc-highlight">FilterValue</a><li><a href=#filterrange class="table-of-contents__link toc-highlight">FilterRange</a><li><a href=#operator class="table-of-contents__link toc-highlight">Operator</a><li><a href=#invertedindexstrategy class="table-of-contents__link toc-highlight">InvertedIndexStrategy</a><li><a href=#bm25strategy class="table-of-contents__link toc-highlight">Bm25Strategy</a><li><a href=#exactmatchingstrategy class="table-of-contents__link toc-highlight">ExactMatchingStrategy</a><li><a href=#proximitystrategy class="table-of-contents__link toc-highlight">ProximityStrategy</a><li><a href=#vectorrecallcondition class="table-of-contents__link toc-highlight">VectorRecallCondition</a><li><a href=#vectorquery class="table-of-contents__link toc-highlight">VectorQuery</a><li><a href=#rerankmethod class="table-of-contents__link toc-highlight">RerankMethod</a><li><a href=#reranktype class="table-of-contents__link toc-highlight">RerankType</a><li><a href=#rerankparameter class="table-of-contents__link toc-highlight">RerankParameter</a><li><a href=#invertedindexrerankparameter class="table-of-contents__link toc-highlight">InvertedIndexRerankParameter</a><li><a href=#vectorrerankparameter class="table-of-contents__link toc-highlight">VectorRerankParameter</a><li><a href=#rdbrecords class="table-of-contents__link toc-highlight">RdbRecords</a><li><a href=#iteminfo class="table-of-contents__link toc-highlight">ItemInfo</a><li><a href=#recallscore class="table-of-contents__link toc-highlight">RecallScore</a><li><a href=#similaritylevel class="table-of-contents__link toc-highlight">SimilarityLevel</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

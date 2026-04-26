@@ -1,0 +1,631 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-debug-optimize/debugging-commands/hilog/hilog" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>hilog | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="hilog | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=HiLog日志系统，提供给系统框架、服务、以及应用，用于打印日志，记录用户操作、系统运行状态等。开发者可以通过hilog命令行查询相关日志信息。 /><meta data-rh=true property=og:description content=HiLog日志系统，提供给系统框架、服务、以及应用，用于打印日志，记录用户操作、系统运行状态等。开发者可以通过hilog命令行查询相关日志信息。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/","name":"hilog","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/test-kit/test-kit-overview/><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=调试命令 class=categoryLinkLabel_W154>调试命令</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=SDK命令行工具简介 class=linkLabel_WmDU>SDK命令行工具简介</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc/><span title=hdc class=linkLabel_WmDU>hdc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/aa-tool/><span title=aa工具 class=linkLabel_WmDU>aa工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/bm-tool/><span title=bm工具 class=linkLabel_WmDU>bm工具</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/packing-unpacking/packing-tool/><span title=打包拆包工具 class=categoryLinkLabel_W154>打包拆包工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/app-check-tool/><span title=扫描工具 class=linkLabel_WmDU>扫描工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/cem-tool/><span title=cem工具 class=linkLabel_WmDU>cem工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/anm-tool/><span title=anm工具 class=linkLabel_WmDU>anm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/edm-tool/><span title=edm工具 class=linkLabel_WmDU>edm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/><span title=restool工具 class=linkLabel_WmDU>restool工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/param-tool/><span title=param工具 class=linkLabel_WmDU>param工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/power-shell/><span title=power-shell工具 class=linkLabel_WmDU>power-shell工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/atm-tool/><span title=atm工具 class=linkLabel_WmDU>atm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/network-cfg/><span title=network-cfg工具 class=linkLabel_WmDU>network-cfg工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/><span title=hilog class=linkLabel_WmDU>hilog</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool/><span title=hilogtool class=linkLabel_WmDU>hilogtool</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hidumper-tool/hidumper/><span title=hidumper class=categoryLinkLabel_W154>hidumper</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/><span title=hitrace class=linkLabel_WmDU>hitrace</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/><span title=hiperf class=linkLabel_WmDU>hiperf</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiprofiler/><span title=hiprofiler class=linkLabel_WmDU>hiprofiler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/uinput/><span title=uinput class=linkLabel_WmDU>uinput</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/toybox/><span title=命令行工具 class=categoryLinkLabel_W154>命令行工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/binary-sign-tool/><span title=二进制签名工具 class=linkLabel_WmDU>二进制签名工具</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调试命令</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>hilog</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>hilog</h1></header>
+<p>HiLog日志系统，提供给系统框架、服务、以及应用，用于打印日志，记录用户操作、系统运行状态等。开发者可以通过hilog命令行查询相关日志信息。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=环境要求>环境要求<a href=#环境要求 class=hash-link aria-label=环境要求的直接链接 title=环境要求的直接链接 translate=no>​</a></h2>
+<ul>
+<li class="">根据hdc命令行工具指导，完成<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87>环境准备</a>。</li>
+<li class="">确保设备已正常连接，并执行hdc shell。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hilog概述>hilog概述<a href=#hilog概述 class=hash-link aria-label=hilog概述的直接链接 title=hilog概述的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hilog日志生成>hilog日志生成<a href=#hilog日志生成 class=hash-link aria-label=hilog日志生成的直接链接 title=hilog日志生成的直接链接 translate=no>​</a></h3>
+<p>业务代码中，如果调用了HiLog接口，那么业务运行时就会生成对应的hilog日志。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hilog日志查看>hilog日志查看<a href=#hilog日志查看 class=hash-link aria-label=hilog日志查看的直接链接 title=hilog日志查看的直接链接 translate=no>​</a></h3>
+<p><strong><strong>在线查看</strong></strong></p>
+<ul>
+<li class="">使用hdc shell hilog命令在线查看日志。</li>
+<li class="">使用DevEco Studio工具在线查看日志，参考：<a class="" href=/harmonyos-docs-site/ide-log-and-fault-analysis/ide-setup-hilog>日志分析</a>。</li>
+</ul>
+<p><strong><strong>查看落盘的文件</strong></strong></p>
+<ul>
+<li class=""><a href=#%E6%9F%A5%E7%9C%8Blog%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF class="">log版本</a>：hilog日志默认开启落盘，不同产品之间落盘数量可能存在差异，具体可以使用<a href=#%E6%9F%A5%E7%9C%8B%E5%92%8C%E8%AE%BE%E7%BD%AE%E8%90%BD%E7%9B%98%E4%BB%BB%E5%8A%A1 class="">查看和设置落盘任务</a>命令进行查询。</li>
+<li class=""><a href=#%E6%9F%A5%E7%9C%8Blog%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF class="">nolog版本</a>：hilog日志默认不落盘，需要手动开启落盘，参考<a href=#%E6%9F%A5%E7%9C%8B%E5%92%8C%E8%AE%BE%E7%BD%AE%E8%90%BD%E7%9B%98%E4%BB%BB%E5%8A%A1 class="">查看和设置落盘任务</a>；设备打开开发者模式后自动开启落盘。</li>
+<li class="">日志保存位置：设备data/log/hilog目录下，可以导出日志进行查看。导出及解析工具参考：<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool>hilogtool</a>。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hilog日志格式说明>hilog日志格式说明<a href=#hilog日志格式说明 class=hash-link aria-label=hilog日志格式说明的直接链接 title=hilog日志格式说明的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>第一列<th>第二列<th>第三列<th>第四列<th>第五列<th>第六列<th>第七列<tbody><tr><td>日期<td>时间戳<td>进程号<td>线程号<td>日志级别<td>domainID/进程名/日志tag:<td>日志内容<tr><td>04-19<td>17:02:14.735<td>5394<td>5394<td>I<td>A03200/test_server/testTag:<td>this is a info level hilog</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>日志级别：I表示Info级别，其余级别参考<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-c/performance-analysis-headerfile/capi-log-h/capi-log-h#loglevel>日志等级</a>首字母。</p>
+<p>domainID：A03200中A表示应用日志（LOG_APP），3200表示domainID为0x3200，domainID具体定义详见接口指导。</p>
+<p>进程名：最大长度为30字节，超出后会从开头开始截断，保留尾部完整内容。</p>
+<p>日志tag：最大长度为31字节，超出后会从末尾开始截断，保留前部完整内容，不建议使用中文字符，可能出现乱码或者对齐问题。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看log版本信息>查看log版本信息<a href=#查看log版本信息 class=hash-link aria-label=查看log版本信息的直接链接 title=查看log版本信息的直接链接 translate=no>​</a></h3>
+<p>在设备中， 点击 “设置”->搜索关键字“关于本机”->“软件版本”进行查看，log版本会以“log”结尾。</p>
+<p>如：BRA-AL00 5.0.0.36(xxxlog)是log版本，BRA-AL00 5.0.0.36(xxxR4P1)是nolog版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=命令行说明>命令行说明<a href=#命令行说明 class=hash-link aria-label=命令行说明的直接链接 title=命令行说明的直接链接 translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>短选项<th>长选项<th>参数<th>说明<tbody><tr><td>-h<td>--help<td>-<td>帮助命令。<tr><td>缺省<td>缺省<td>-<td>阻塞读日志，不退出。<tr><td>-x<td>--exit<td>-<td>非阻塞读日志，读完退出。<tr><td>-a<td>--head<td><n></n><td>只显示前&lt;n>行日志。<tr><td>-z<td>--tail<td><n></n><td>只显示后&lt;n>行日志。<tr><td>-t<td>--type<td><type></type><td>查看指定类型的日志。<tr><td>-<td>-<td>app<td>查看应用日志。<tr><td>-<td>-<td>core<td>查看系统日志。<tr><td>-<td>-<td>init<td>查看启动日志。<tr><td>-<td>-<td>kmsg<td>查看内核日志。<tr><td>-<td>-<td>only_prerelease<td>查看仅在系统release版本前打印的日志，应用开发者无需关注。<tr><td>-L<td>--level<td><level></level><td>指定级别的日志，示例：-L D/I/W/E/F。<tr><td>-D<td>--domain<td><domain></domain><td>指定domain。<tr><td>-T<td>--tag<td><tag></tag><td>指定tag。<tr><td>-P<td>--pid<td><pid></pid><td>标识不同的pid。<tr><td>-e<td>--regex<td><expr></expr><td>只打印日志消息与&lt;expr>匹配的行，其中&lt;expr>是一个正则表达式。<tr><td>-v<td>--format<td><format></format><td>显示格式控制。<tr><td>-<td>-<td>color/colour<td>不同级别显示不同颜色，缺省时按照黑白颜色模式处理。<tr><td>-<td>-<td>time<td>显示本地时间。<tr><td>-<td>-<td>epoch<td>显示相对1970时间。<tr><td>-<td>-<td>monotonic<td>显示相对启动时间。<tr><td>-<td>-<td>msec<td>显示毫秒精度时间。<tr><td>-<td>-<td>usec<td>显示微秒精度时间。<tr><td>-<td>-<td>nsec<td>显示纳秒精度时间。<tr><td>-<td>-<td>year<td>显示将年份添加到显示的时间。<tr><td>-<td>-<td>zone<td>显示将本地时区添加到显示的时间。<tr><td>-<td>-<td>wrap<td>日志换行显示时，新行不增加时间戳等前缀。<tr><td>-<td>-<td>long<td>显示所有数据字段，用空格分隔信息。<tr><td>-r<td>-<td>-<td>清除buffer日志，配合-t指定某一类型使用，默认app和core。<tr><td>-g<td>-<td>-<td>查询buffer的大小，配合-t指定某一类型使用，默认app和core。<tr><td>-G<td>--buffer-size<td><size></size><td>设置指定&lt;type>日志类型缓冲区的大小，配合-t指定某一类型使用，默认app和core， 可使用B/K/M为单位，范围为64K-16M。<tr><td>-s<td>--statistics<td>-<td>查询统计信息，需配合-t或-D使用。<tr><td>-S<td>-<td>-<td>清除统计信息，需配合-t或-D使用。<tr><td>-w<td>--write<td><control></control><td>落盘任务控制。<tr><td>-<td>-<td>query<td>落盘任务查询。<tr><td>-<td>-<td>start<td>落盘任务开始，命令行参数为文件名、单文件大小、落盘算法、rotate文件数目。<tr><td>-<td>-<td>stop<td>落盘任务停止。<tr><td>-<td>-<td>refresh<td>刷新缓冲区的日志到落盘文件。<tr><td>-<td>-<td>clear<td>删除已经落盘的日志文件。<tr><td>-f<td>--filename<td><filename></filename><td>设置落盘的文件名。<tr><td>-l<td>--length<td><length></length><td>设置落盘的文件大小，需要大于等于64K。<tr><td>-n<td>--number<td><number></number><td>设置落盘文件的个数。<tr><td>-m<td>--stream<td><algorithm></algorithm><td>落盘方式控制。<tr><td>-<td>-<td>none<td>无压缩方式落盘。<tr><td>-<td>-<td>zlib<td>zlib压缩算法落盘，落盘文件为.gz。<tr><td>-j<td>--jobid<td><jobid></jobid><td>设置落盘任务的ID。<tr><td>-k<td>-<td>&lt;on/off><td>Kernel日志读取开关控制。<tr><td>-<td>-<td>on<td>打开读取kernel日志。<tr><td>-<td>-<td>off<td>关闭读取kernel日志。<tr><td>-Q<td>-<td><control-type></control-type><td>超限缺省配额开关控制。<tr><td>-<td>-<td>pidon<td>打开进程超限管控开关。<tr><td>-<td>-<td>pidoff<td>关闭进程超限管控开关。<tr><td>-<td>-<td>domainon<td>打开domain超限管控开关。<tr><td>-<td>-<td>domainoff<td>关闭domain超限管控开关。<tr><td>-<td>-<td>domainverifyon<td>开启domain白名单校验。<tr><td>-<td>-<td>domainverifyoff<td>关闭domain白名单校验。<tr><td>-b<td>--baselevel<td><loglevel></loglevel><td>设置可打印日志的最低等级：D(DEBUG)/I(INFO)/W(WARN)/E(ERROR)/F(FATAL)。可以和-D、-T结合使用，设置指定日志可打印的最低等级。<tr><td>-<td>--persist<td>-<td>配置日志级别设置命令持久化（重启设置不会丢失）。<tr><td>-d<td>--dictionary<td><path></path><td>扫描elf文件生成对应的数据字典。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看帮助命令>查看帮助命令<a href=#查看帮助命令 class=hash-link aria-label=查看帮助命令的直接链接 title=查看帮助命令的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -h</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"> $ hilog -h</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> Usage:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> -h --help</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   Show all help information.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   Show single help information with option:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   query/clear/buffer/stats/persist/private/kmsg/flowcontrol/baselevel/domain/combo</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> Querying logs options:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   No option performs a blocking read and keeps printing.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   -x --exit</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     Performs a non-blocking read and exits when all logs in buffer are printed.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   -a &lt;n>, --head=&lt;n></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     Show n lines logs on head of buffer.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   -z &lt;n>, --tail=&lt;n></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     Show n lines logs on tail of buffer.</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=非阻塞读日志><strong><strong>非阻塞读日志</strong></strong><a href=#非阻塞读日志 class=hash-link aria-label=非阻塞读日志的直接链接 title=非阻塞读日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -x</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -x</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.087  2823  2823 I A01B05/com.ohos.sceneboard/AOD: AodClockFullScreen --> timeTextLineHeight:313.3333333333333 clockMarginTop:99</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.087  2823  2823 I A01B05/com.ohos.sceneboard/AOD: AodClockFullScreen --> timeFontSize:114.48717948717947</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.090  2823  2823 I A01B05/com.ohos.sceneboard/AOD: AodClockFullScreen --> timeTextWidth:202,timeTextHeight:292</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.100  2823  2823 I A01B05/com.ohos.sceneboard/AOD: ComponentUtil --> Component(ComponentId-AodClockNumber) draw complete.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.110  1197  1197 E C01406/render_service/OHOS::RS: [LoadImgsbyResolution] Can't find resolution (1084 x 2412) in config file</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 15:51:02.127  1197  1197 E C01406/render_service/OHOS::RS: [LoadImgsbyResolution] Can't find resolution (1084 x 2412) in config file</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看指定级别日志><strong><strong>查看指定级别日志</strong></strong><a href=#查看指定级别日志 class=hash-link aria-label=查看指定级别日志的直接链接 title=查看指定级别日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -L D/I/W/E/F</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -L E</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:25.730  2678  2678 E A00F00/com.aidataservice/AiDataService_5.10.7.320: DataChangeNotifyManager: notifyDataChange CommonEntity no valid entity to notify</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.058  8560  8560 E A00500/com.ohos.settingsdata/SettingsData: DB not ready request = datashare:///com.ohos.settingsdata/entry/settingsdata/SETTINGSDATA?Proxy=true&key=analysis_service_switch_on , retry after DB startup</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.082  8560  8560 E A00500/com.ohos.settingsdata/SettingsData: decoder failure: /data/migrate/settings_global.xml , error code:-1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.082  8560  8560 E A00500/com.ohos.settingsdata/SettingsData: clearXml failed:No such file or directory, error code:13900002</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.083  8560  8560 E A00500/com.ohos.settingsdata/SettingsData: readText failed:No such file or directory, error code:13900002</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.371  8586  8586 E A00500/com.ohos.settingsdata/SettingsData: DB not ready request =    datashare:///com.ohos.settingsdata/entry/settingsdata/SETTINGSDATA?Proxy=true&key=photo_network_connection_status , retry after DB startup</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:01:56.408  8586  8586 E A00500/com.ohos.settingsdata/SettingsData: decoder failure: /data/migrate/settings_global.xml , error code:-1</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看指定类型日志><strong><strong>查看指定类型日志</strong></strong><a href=#查看指定类型日志 class=hash-link aria-label=查看指定类型日志的直接链接 title=查看指定类型日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -t app</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -t app</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:45.903  5630  5630 I A0A5A5/os.hiviewcare:staticSubscriber/Diagnosis: [DetectionFilter]820001084: switch off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:45.905  5630  5630 I A0A5A5/os.hiviewcare:staticSubscriber/Diagnosis: [DetectionFilter]847005050: frequency limit</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:45.905  5630  5630 I A0A5A5/os.hiviewcare:staticSubscriber/Diagnosis: [SmartNotifyHandler]detections after filter: []</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:45.905  5630  5630 I A0A5A5/os.hiviewcare:staticSubscriber/Diagnosis: [SmartNotifyHandler]no detections to detect</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:45.924  5687  5687 I A01B06/common/KG: MetaBalls-SystemTopPanelController --> init charging status = 3</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看指定domain日志><strong><strong>查看指定domain日志</strong></strong><a href=#查看指定domain日志 class=hash-link aria-label=查看指定domain日志的直接链接 title=查看指定domain日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -D 01B06</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -D 01B06</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:54.981  5687  5687 I A01B06/common/KG: MetaBalls-MetaBallRenderer --> pressTime = 0 appearTime = 1731657885972</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:54.981  5687  5687 I A01B06/common/KG: MetaBalls-MetaBallRenderer --> backAnimator on finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:54.982  5687  5687 I A01B06/common/KG: MetaBalls-MetaBallRenderer --> setTimeout over 9s and begin animate on finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:55.297  5687  5687 I A01B06/common/KG: MetaBalls-MetaBallRenderer --> chargingTextExitAnimation onFinish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:55.494  5687  5687 I A01B06/common/KG: MetaBalls-MetaBallRenderer --> uiExtension session send data success,type: exitAnimationFinish</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看指定tag日志><strong><strong>查看指定TAG日志</strong></strong><a href=#查看指定tag日志 class=hash-link aria-label=查看指定tag日志的直接链接 title=查看指定tag日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -T tag</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -T SAMGR</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.581   610 11504 I C01800/samgr/SAMGR: CommonEventCollect save extraData 1661</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.581   610 11504 I C01800/samgr/SAMGR: OnReceiveEvent get action: usual.event.BATTERY_CHANGED code: 0, extraDataId 1661</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.582   610 11504 I C01800/samgr/SAMGR: DoEvent:4 name:usual.event.BATTERY_CHANGED value:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.582   610 11504 W C01800/samgr/SAMGR: LoadSa SA:10120 AddDeath fail,cnt:1,callpid:610</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.583   610 11504 I C01800/samgr/SAMGR: LoadSa SA:10120 size:1,count:1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.601   610 11504 I C01800/samgr/SAMGR: Scheduler SA:10120 loading</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.965 11518 11518 I C01800/media_analysis_service/SAMGR: SA:10120 OpenSo spend 315ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 09:27:59.965   610  4064 I C01800/samgr/SAMGR: AddProc:media_analysis_service. size:75</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看缓冲区前n行日志><strong><strong>查看缓冲区前n行日志</strong></strong><a href=#查看缓冲区前n行日志 class=hash-link aria-label=查看缓冲区前n行日志的直接链接 title=查看缓冲区前n行日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -a 8</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -a 8</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:08.628     0     0 I I00000/HiLog: ========Zeroth log of type: init</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:08.603   506   506 I I02C01/cust_carrier_mount/CustCarrierMount: MountCarrierToShared start</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:08.604   506   506 I I02C01/cust_carrier_mount/CustCarrierMount: success to mount carrier to shared</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:15.394   972   972 I I02C01/cust_carrier_mount/CustCarrierMount: UpdateCotaOpkeyLink start</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:15.396   972   972 W I02C01/cust_carrier_mount/CustCarrierMount: not exist CUST_GLOBAL_CARRIER_DIR or COTA_PARAM_CARRIER_DIR</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:15.887   972   972 I I02C01/cust_carrier_mount/CustCarrierMount: success to update cota carrier</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:48.749  5777  5901 I A00001/com.hiai.core/HiAI_Metadata: metadata is null</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:04:48.749  5777  5901 I A00001/com.hiai.core/HiAI_PluginAbilityInfo: abilityInfo is null</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看缓冲区后n行日志><strong><strong>查看缓冲区后n行日志</strong></strong><a href=#查看缓冲区后n行日志 class=hash-link aria-label=查看缓冲区后n行日志的直接链接 title=查看缓冲区后n行日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -z 8</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -z 8</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.015  1899  7867 W C01719/wifi_manager_service/ffrt: 423:FFRTQosApplyForOther:244 tid 7867, Operation not permitted, ret:-1, eno:1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.125  1043  1072 I C01C42/time_service/TimeService: uid: 1010 id:428551571 name:wifi_manager_service wk:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.125  1043  1072 I C01C42/time_service/TimeService: bat: -1 id:428551571 we:505225000000 mwe:512725000000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.125  1043  1072 I C01C42/time_service/TimeService: typ:3 trig: 505 225000000, bt: 495230369193</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.125  1043  1072 I C01C42/time_service/TimeService: cb: 428551571 ret: 0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.435  3086  7813 I C01719/com.ohos.contactsdataability/ffrt: 45:~WorkerThread:72 to exit, qos[3]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.691   800  1404 I C01713/resource_schedule_service/SUSPEND_MANAGER: [(HasSpecialStateFromBgtask):759] 20020107_com.ohos.medialibrary.medialibrarydata</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:12:19.691   800  1404 I C01713/resource_schedule_service/SUSPEND_MANAGER: [(DozeFreezeUnit):890] Doze has special:ERR_HAS_PID_EFFICIENCY_RESOURCE</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看指定进程日志><strong><strong>查看指定进程日志</strong></strong><a href=#查看指定进程日志 class=hash-link aria-label=查看指定进程日志的直接链接 title=查看指定进程日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -P pid</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -P 618</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:16.872   618 17729 I C02D15/hiview/XPower: [task_52]#current system load is: 0.028767</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:23.997   618 17580 I C02D10/hiview/CpuCollector: CalculateProcessCpuStatInfos: startTime=1724811553746, endTime=1724811563996, startBootTime=47001084, endBootTime=47011335, period=10251</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:23.999   618 17580 I C02D10/hiview/CpuCollector: CollectProcessCpuStatInfos: collect process cpu statistics information size=234, isNeedUpdate=1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:24.002   618 17580 W C01650/hiview/Rdb:  DB :</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:24.002   618 17580 W C01650/hiview/Rdb:  device: 12583051 inode: 40230 mode: 432 size: 569344 natime: Wed Aug 28 00:00:06 2024</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:24.002   618 17580 W C01650/hiview/Rdb:  smtime: Wed Aug 28 00:34:30 2024</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   08-28 10:19:24.002   618 17580 W C01650/hiview/Rdb:  sctime: Wed Aug 28 00:34:30 2024</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看符合正则匹配关键字的日志><strong><strong>查看符合正则匹配关键字的日志</strong></strong><a href=#查看符合正则匹配关键字的日志 class=hash-link aria-label=查看符合正则匹配关键字的日志的直接链接 title=查看符合正则匹配关键字的日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -e start</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -e start</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.578   547  4504 I C01800/SAMGR: AddProc start proc:media_analysis_service spend 223ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.578   547  4504 I C01800/SAMGR: Scheduler proc:media_analysis_service handle started event</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.578   547  4504 I C01800/SAMGR: Scheduler proc:media_analysis_service started</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.580  8877  8877 I C01810/media_analysis_service/SAFWK: start tasks proc:media_analysis_service end,spend 1ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.582  8877  8877 I C01651/media_analysis_service/DataShare: [operator()()-data_share_manager_impl.cpp:134]: RecoverObs start</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:17.589  8877  8893 I C01651/media_analysis_service/DataShare: [Connect()-ams_mgr_proxy.cpp:67]: connect start, uri = ******/media</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:18.225  1155  1633 I C02943/power_host/ThermalHdi: CreateLogFile start</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:17:18.264  1155  1633 I C02943/power_host/ThermalHdi: CompressFile start</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看不同显示格式的日志><strong><strong>查看不同显示格式的日志</strong></strong><a href=#查看不同显示格式的日志 class=hash-link aria-label=查看不同显示格式的日志的直接链接 title=查看不同显示格式的日志的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -v time/color/epoch/monotonic/usec/nsec/year/zone/wrap</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<p>显示本地时间，以毫秒为单位显示时间。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">   $ hilog -v time</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.027  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterTel-(hril_manager_ext.cpp:440)] RilExt:Notify to booster tel finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.027  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterNet-(hril_manager_ext.cpp:450)] RilExt: HNOTI_BOOSTER_NET_IND report to booster net</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.027  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterNet-(hril_manager_ext.cpp:454)] RilExt: HNOTI_BOOSTER_NET_IND report to booster net finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.027  1134  1723 I P01FFF/riladapter_host/Rilvendor: CHAN [HandleUnsolicited] HandleUnsolicited done for modem:0, index:0, atResponse:^BOOSTERNTF: 3, 20,"0600100001000004000000000102A4FF0202F6FF"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.802  2809  2831 E C02D06/com.ohos.sceneboard/XCollie: Send kick,foundation to hungtask Successful</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.911   882  3016 I C01F0B/telephony/TelephonyVSim: state machine ProcessEvent Id: 125</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   11-15 16:36:21.911   882  3016 I C01F0B/telephony/TelephonyVSim: StateProcess</span><br/></div></code></pre></div></div>
+<p>以纳秒为单位显示时间。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -v nsec</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.010658555  1134  1723 I C02B01/riladapter_host/HrilExt: [BoosterRawInd-(hril_booster.cpp:296)] RilExt: BoosterRawInd</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.010676263  1134  1723 I C02B01/riladapter_host/HrilExt: [BoosterRawInd-(hril_booster.cpp:328)] check need notify to satellite:indType 6</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.010800221  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterTel-(hril_manager_ext.cpp:436)] RilExt: report to telephony ext, requestNum: 4201</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.011011680  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterTel-(hril_manager_ext.cpp:440)] RilExt:Notify to booster tel finish</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.011064805  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterNet-(hril_manager_ext.cpp:450)] RilExt: HNOTI_BOOSTER_NET_IND report to booster net</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">11-15 16:37:09.011200742  1134  1723 I C02B01/riladapter_host/HrilExt: [NotifyToBoosterNet-(hril_manager_ext.cpp:454)] RilExt: HNOTI_BOOSTER_NET_IND report to booster net finish</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看和设置落盘任务>查看和设置落盘任务<a href=#查看和设置落盘任务 class=hash-link aria-label=查看和设置落盘任务的直接链接 title=查看和设置落盘任务的直接链接 translate=no>​</a></h2>
+<p><strong><strong>查看落盘任务</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -w query</span><br/></div></code></pre></div></div>
+<p>当前不存在落盘任务：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w query</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task query failed</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">No running persistent task [CODE: -63]</span><br/></div></code></pre></div></div>
+<p>当前存在落盘任务：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w query</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 init,core,app,only_prerelease zlib /data/log/hilog/hilog 4.0M 1000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2 kmsg zlib /data/log/hilog/hilog_kmsg 4.0M 100</span><br/></div></code></pre></div></div>
+<p><strong><strong>设置落盘任务</strong></strong></p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>当前没有落盘任务时，才能开启落盘任务，如果已经存在落盘任务，需要先停止落盘任务。</p>
+<p>开启hilog落盘任务，并且设置落盘文件数量为1000个：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w start -n 1000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task [jobid:1][fileNum:1000][fileSize:4194304] start successfully</span><br/></div></code></pre></div></div>
+<p>开启kmsglog落盘任务，并且设置落盘文件数量为100个：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w start -n 100 -t kmsg</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task [jobid:2][fileNum:100][fileSize:4194304] start successfully</span><br/></div></code></pre></div></div>
+<p>开启落盘任务时可以自定义落盘规则，其中压缩方式可以为zlib、zstd、none。</p>
+<p>以设置落盘文件名为kmsglog，大小为2M，数量为100个，其压缩方式为zlib压缩为例，命令行为：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w start -t kmsg -f kmsglog -l 2M -n 100 -m zlib</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task [jobid:2][fileNum:100][fileSize:2097152] start successfully</span><br/></div></code></pre></div></div>
+<p><strong><strong>关闭落盘任务</strong></strong></p>
+<p>停止当前落盘任务：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -w stop</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task [jobid:1] stop successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Persist task [jobid:2] stop successfully</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看和设置日志级别>查看和设置日志级别<a href=#查看和设置日志级别 class=hash-link aria-label=查看和设置日志级别的直接链接 title=查看和设置日志级别的直接链接 translate=no>​</a></h2>
+<p><strong><strong>查看全局日志级别</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ param get hilog.loggable.global</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">I</span><br/></div></code></pre></div></div>
+<p><a href=#%E6%9F%A5%E7%9C%8Blog%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF class="">log版本</a>：</p>
+<ul>
+<li class="">全局日志级别默认为INFO；</li>
+</ul>
+<p><a href=#%E6%9F%A5%E7%9C%8Blog%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF class="">nolog版本</a>：</p>
+<ul>
+<li class="">默认不打印日志。</li>
+<li class="">开启开发者模式后，API versoin 15及之后版本，全局日志级别为WARN，API version 14及之前版本，全局日志级别为INFO；关闭开发者模式后，默认不打印日志。</li>
+<li class="">连接DevEco Studio 5.0.4 Release（5.0.11.100）及之后版本时，全局日志级别为INFO；断开DevEco Studio状态下重启设备，全局日志级别恢复为WARN。</li>
+</ul>
+<p><strong><strong>设置日志级别</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 设置全局日志级别，重启后失效</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b D/I/W/E/F</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置全局日志级别，重启仍生效</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b D/I/W/E/F --persist</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置LOG_APP类型[DOMAINID]可打印的日志级别</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b D/I/W/E/F -D 0x[DOMAINID]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置LOG_CORE类型[DOMAINID]可打印的日志级别</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b D/I/W/E/F -D d0[DOMAINID]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 设置[TAG]可打印的日志级别</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b D/I/W/E/F -T [TAG]</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -b E</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set global log level to E successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -b E --persist</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set global log level to E successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set persist global log level to E successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -b D -D 0x2d00</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set domain 0x2d00 log level to D successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -b D -D d001719</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set domain 0xd001719 log level to D successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -b E -T testTag</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set tag testTag log level to E successfully</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=其他常用命令>其他常用命令<a href=#其他常用命令 class=hash-link aria-label=其他常用命令的直接链接 title=其他常用命令的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=查看日志缓冲区大小>查看日志缓冲区大小<a href=#查看日志缓冲区大小 class=hash-link aria-label=查看日志缓冲区大小的直接链接 title=查看日志缓冲区大小的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -g</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -g</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log type app buffer size is 16.0M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log type init buffer size is 16.0M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log type core buffer size is 16.0M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log type only_prerelease buffer size is 16.0M</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=修改日志缓冲区大小>修改日志缓冲区大小<a href=#修改日志缓冲区大小 class=hash-link aria-label=修改日志缓冲区大小的直接链接 title=修改日志缓冲区大小的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -G size</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -G 16M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set log type app buffer size to 16.0M successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set log type init buffer size to 16.0M successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set log type core buffer size to 16.0M successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set log type only_prerelease buffer size to 16.0M successfully</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=清除缓冲区日志>清除缓冲区日志<a href=#清除缓冲区日志 class=hash-link aria-label=清除缓冲区日志的直接链接 title=清除缓冲区日志的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -r</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -r</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log type core,app,only_prerelease buffer clear successfully</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内核日志读取开关控制>内核日志读取开关控制<a href=#内核日志读取开关控制 class=hash-link aria-label=内核日志读取开关控制的直接链接 title=内核日志读取开关控制的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -k on/off</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -k on</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set hilogd storing kmsg log on successfully</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -k off</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set hilogd storing kmsg log off successfully</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=查询统计信息>查询统计信息<a href=#查询统计信息 class=hash-link aria-label=查询统计信息的直接链接 title=查询统计信息的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -s</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>需要先执行 param set persist.sys.hilog.stats true 设置该属性开启统计功能，并且重启后，才能正式开始统计。</p>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ param set persist.sys.hilog.stats true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set parameter persist.sys.hilog.stats true success</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ reboot</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">$ hilog -s</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Log statistic report (Duration: 0h0m32s.564, From: 11-15 16:04:08.628):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Total lines: 137517, length: 8.0M</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">DEBUG lines: 0(0%), length: 0.0B(0%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">INFO lines: 101795(74%), length: 6.1M(76%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">WARN lines: 10268(7.5%), length: 719.9K(8.8%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ERROR lines: 25452(19%), length: 1.2M(15%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">FATAL lines: 2(0.0015%), length: 259.0B(0.0031%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Domain Table:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGTYPE- DOMAIN---- TAG----------------------------- MAX_FREQ-- TIME---------------- MAX_TP---- TIME---------------- LINES----- LENGTH---- DROPPED---</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">app----- 0xf00----- -------------------------------- 924.00---- 11-15 16:04:25.594-- 111975.00- 11-15 16:04:25.594-- 3386------ 371.5K---- 0---------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">app----- 0x0------- -------------------------------- 285.00---- 11-15 16:04:34.877-- 44242.00-- 11-15 16:04:34.877-- 990------- 129.2K---- 0---------</span><br/></div></code></pre></div></div>
+<p><strong><strong>统计信息说明</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">MAX_FREQ：日志打印频率最高的每秒行数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">TIME：    对应发生时间。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MAX_TP：  日志打印频率最高的每秒字节数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LINES：   统计周期内的总行数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LENGTH：  统计周期内的总字节数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">DROPPED： 统计周期内丢失的行数。</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=清除统计信息>清除统计信息<a href=#清除统计信息 class=hash-link aria-label=清除统计信息的直接链接 title=清除统计信息的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -S</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -S</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Statistic info clear successfully</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=进程超限开关>进程超限开关<a href=#进程超限开关 class=hash-link aria-label=进程超限开关的直接链接 title=进程超限开关的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -Q pidon/pidoff</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<p>开启进程超限管控：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -Q pidon</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set flow control by process to enabled successfully</span><br/></div></code></pre></div></div>
+<p>关闭进程超限管控：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -Q pidoff</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set flow control by process to disabled successfully</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=domain超限开关>domain超限开关<a href=#domain超限开关 class=hash-link aria-label=domain超限开关的直接链接 title=domain超限开关的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -Q domainon/domainoff</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<p>开启domain超限管控：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -Q domainon</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set flow control by domain to enabled successfully</span><br/></div></code></pre></div></div>
+<p>关闭domain超限管控：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hilog -Q domainoff</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Set flow control by domain to disabled successfully</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hilog超限机制介绍>hilog超限机制介绍<a href=#hilog超限机制介绍 class=hash-link aria-label=hilog超限机制介绍的直接链接 title=hilog超限机制介绍的直接链接 translate=no>​</a></h2>
+<p>日志打印量过大时，会触发hilog超限管控机制。触发后，超出部分的日志会被丢弃，并且打印超限提示日志。debug应用默认关闭此机制。</p>
+<p>超限机制介绍如下：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=应用日志>应用日志<a href=#应用日志 class=hash-link aria-label=应用日志的直接链接 title=应用日志的直接链接 translate=no>​</a></h3>
+<p>进程维度管控，打印到LOG_APP buffer里面的应用日志适配了pid超限机制，当某进程打印的LOG_APP类型日志量在一秒内超过阈值时会触发管控，超限提示日志示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">04-19 17:02:34.219  5394  5394 W A00032/com.example.myapplication/LOGLIMIT: ==com.example.myapplication LOGS OVER PROC QUOTA, 3091 DROPPED==</span><br/></div></code></pre></div></div>
+<p>本条日志表示进程com.example.myapplication存在日志打印超限，在17:02:34.219时间点前，有3091行日志由于超限管控丢弃，未打印出来。</p>
+<p><strong><strong>处理方式</strong></strong>：可参考<a href=#%E8%BF%9B%E7%A8%8B%E8%B6%85%E9%99%90%E5%BC%80%E5%85%B3 class="">进程超限开关</a>，关闭对应管控机制。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=系统日志>系统日志<a href=#系统日志 class=hash-link aria-label=系统日志的直接链接 title=系统日志的直接链接 translate=no>​</a></h3>
+<p>domainID维度管控，打印到LOG_CORE buffer里面的系统日志适配了domain超限机制，当某domainID打印的LOG_CORE类型日志量在一秒内超过阈值时触发管控，超限提示日志示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">04-19 17:02:34.219  5394  5394 W C02C02/system_test/LOGLIMIT: 108 line(s) dropped in a second!</span><br/></div></code></pre></div></div>
+<p>本条日志表示domainID为02C02的日志存在日志打印超限，在17:02:34.219时间点前，有108行日志由于超限管控丢弃，未打印出来。</p>
+<p><strong><strong>处理方式</strong></strong>：可参考<a href=#domain%E8%B6%85%E9%99%90%E5%BC%80%E5%85%B3 class="">domain超限开关</a>，关闭对应管控机制。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=日志丢失处理方法>日志丢失处理方法<a href=#日志丢失处理方法 class=hash-link aria-label=日志丢失处理方法的直接链接 title=日志丢失处理方法的直接链接 translate=no>​</a></h2>
+<p>目前日志丢失场景都有相应的维测信息，可以在hilog日志里面搜索对应关键字查看日志具体丢失的原因。</p>
+<p>可以使用正则表达式来搜索包含这些关键字的日志行：LOGLIMIT|Slow reader missed|write socket failed。</p>
+<p>LOGLIMIT是进程或domainID超限管控的丢失；Slow reader missed是全局的日志丢失；write socket failed是进程对应的日志丢失。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>当出现这些打印时，说明日志已经丢失，无法恢复找回。</p>
+<p>如果是在线运维场景出现，需要参考下方处理方式并且本地复现，然后查看完整日志。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=loglimit>LOGLIMIT<a href=#loglimit class=hash-link aria-label=LOGLIMIT的直接链接 title=LOGLIMIT的直接链接 translate=no>​</a></h3>
+<p><strong><strong>含义</strong></strong>：日志打印超限，该进程或者domainID被管控。属于领域日志量超出hilog规格后的主动管控，需要领域对日志进行精简和整改。提示日志示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">04-19 17:02:34.219  5394  5394 W A00032/com.example.myapplication/LOGLIMIT: ==com.example.myapplication LOGS OVER PROC QUOTA, 3091 DROPPED==</span><br/></div></code></pre></div></div>
+<p><strong><strong>处理方式</strong></strong>：可参考<a href=#hilog%E8%B6%85%E9%99%90%E6%9C%BA%E5%88%B6%E4%BB%8B%E7%BB%8D class="">hilog超限机制介绍</a>，关闭对应管控机制。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=slow-reader-missed>Slow reader missed<a href=#slow-reader-missed class=hash-link aria-label="Slow reader missed的直接链接" title="Slow reader missed的直接链接" translate=no>​</a></h3>
+<p><strong><strong>含义</strong></strong>：打印时间点前后日志量太大，hilog buffer中的日志还未落盘已经被循环覆盖了。提示日志示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">04-19 17:02:34.219     0     0 I C00000/HiLog: ========Slow reader missed log lines: 137</span><br/></div></code></pre></div></div>
+<p><strong><strong>原因</strong></strong>：以下任意一种情况，均有可能导致全局日志丢失。</p>
+<ul>
+<li class="">日志级别设置为D。</li>
+<li class="">关闭了超限管控。</li>
+<li class="">有模块在循环打印日志。</li>
+</ul>
+<p><strong><strong>处理方式</strong></strong>：</p>
+<ul>
+<li class="">
+<p>通过hilog -g命令查询当前buffer大小。</p>
+</li>
+<li class="">
+<p>通过hilog -G命令扩大hilog buffer大小。如下命令表示将buffer大小修改为16MB（当前允许的最大规格为16MB）。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -G 16M</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>同时查看是否后台有领域频繁打印日志。若发现某个领域日志频繁打印，影响正常日志读取，可参考“write socket failed”的规避方式，通过命令关闭其领域的日志打印。</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=write-socket-failed>write socket failed<a href=#write-socket-failed class=hash-link aria-label="write socket failed的直接链接" title="write socket failed的直接链接" translate=no>​</a></h3>
+<p><strong><strong>含义</strong></strong>：日志写入socket失败，出现丢包问题。提示日志示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">04-19 17:02:34.219  5394  5394 W A00032/com.example.myapplication/HiLog: write socket failed, 8 line(s) dropped!</span><br/></div></code></pre></div></div>
+<p><strong><strong>原因</strong></strong>：以下任意一种情况，均有可能导致进程日志丢失。</p>
+<ul>
+<li class="">日志级别设置为D。</li>
+<li class="">关闭了超限管控。</li>
+<li class="">有模块在循环打印日志。</li>
+<li class="">存在高负载问题，如果出现CPU高负载或者低内存问题，会导致socket服务端处理日志过慢，socket通道中日志堆积严重，也会导致客户端写入socket数据失败。</li>
+</ul>
+<p><strong><strong>处理方式</strong></strong>：关闭其他领域的日志打印，只打印本模块的日志。</p>
+<ul>
+<li class="">
+<p>关闭其他领域日志：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -b X</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>打开本模块的日志打印：</p>
+<p>LOG_APP类型：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -b I -D 0x3200（将03200 domain能够打印出来的日志级别设为INFO）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b I -D 0x3201（将03201 domain能够打印出来的日志级别设为INFO）</span><br/></div></code></pre></div></div>
+<p>LOG_CORE类型：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hilog -b I -D d003200（将03200 domain能够打印出来的日志级别设为INFO）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hilog -b I -D d003201（将03201 domain能够打印出来的日志级别设为INFO）</span><br/></div></code></pre></div></div>
+</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/network-cfg/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>network-cfg工具</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>hilogtool</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#环境要求 class="table-of-contents__link toc-highlight">环境要求</a><li><a href=#hilog概述 class="table-of-contents__link toc-highlight">hilog概述</a><ul><li><a href=#hilog日志生成 class="table-of-contents__link toc-highlight">hilog日志生成</a><li><a href=#hilog日志查看 class="table-of-contents__link toc-highlight">hilog日志查看</a><li><a href=#hilog日志格式说明 class="table-of-contents__link toc-highlight">hilog日志格式说明</a><li><a href=#查看log版本信息 class="table-of-contents__link toc-highlight">查看log版本信息</a></ul><li><a href=#命令行说明 class="table-of-contents__link toc-highlight">命令行说明</a><li><a href=#查看帮助命令 class="table-of-contents__link toc-highlight">查看帮助命令</a><li><a href=#非阻塞读日志 class="table-of-contents__link toc-highlight"><strong><strong>非阻塞读日志</strong></strong></a><li><a href=#查看指定级别日志 class="table-of-contents__link toc-highlight"><strong><strong>查看指定级别日志</strong></strong></a><li><a href=#查看指定类型日志 class="table-of-contents__link toc-highlight"><strong><strong>查看指定类型日志</strong></strong></a><li><a href=#查看指定domain日志 class="table-of-contents__link toc-highlight"><strong><strong>查看指定domain日志</strong></strong></a><li><a href=#查看指定tag日志 class="table-of-contents__link toc-highlight"><strong><strong>查看指定TAG日志</strong></strong></a><li><a href=#查看缓冲区前n行日志 class="table-of-contents__link toc-highlight"><strong><strong>查看缓冲区前n行日志</strong></strong></a><li><a href=#查看缓冲区后n行日志 class="table-of-contents__link toc-highlight"><strong><strong>查看缓冲区后n行日志</strong></strong></a><li><a href=#查看指定进程日志 class="table-of-contents__link toc-highlight"><strong><strong>查看指定进程日志</strong></strong></a><li><a href=#查看符合正则匹配关键字的日志 class="table-of-contents__link toc-highlight"><strong><strong>查看符合正则匹配关键字的日志</strong></strong></a><li><a href=#查看不同显示格式的日志 class="table-of-contents__link toc-highlight"><strong><strong>查看不同显示格式的日志</strong></strong></a><li><a href=#查看和设置落盘任务 class="table-of-contents__link toc-highlight">查看和设置落盘任务</a><li><a href=#查看和设置日志级别 class="table-of-contents__link toc-highlight">查看和设置日志级别</a><li><a href=#其他常用命令 class="table-of-contents__link toc-highlight">其他常用命令</a><ul><li><a href=#查看日志缓冲区大小 class="table-of-contents__link toc-highlight">查看日志缓冲区大小</a><li><a href=#修改日志缓冲区大小 class="table-of-contents__link toc-highlight">修改日志缓冲区大小</a><li><a href=#清除缓冲区日志 class="table-of-contents__link toc-highlight">清除缓冲区日志</a><li><a href=#内核日志读取开关控制 class="table-of-contents__link toc-highlight">内核日志读取开关控制</a><li><a href=#查询统计信息 class="table-of-contents__link toc-highlight">查询统计信息</a><li><a href=#清除统计信息 class="table-of-contents__link toc-highlight">清除统计信息</a><li><a href=#进程超限开关 class="table-of-contents__link toc-highlight">进程超限开关</a><li><a href=#domain超限开关 class="table-of-contents__link toc-highlight">domain超限开关</a></ul><li><a href=#hilog超限机制介绍 class="table-of-contents__link toc-highlight">hilog超限机制介绍</a><ul><li><a href=#应用日志 class="table-of-contents__link toc-highlight">应用日志</a><li><a href=#系统日志 class="table-of-contents__link toc-highlight">系统日志</a></ul><li><a href=#日志丢失处理方法 class="table-of-contents__link toc-highlight">日志丢失处理方法</a><ul><li><a href=#loglimit class="table-of-contents__link toc-highlight">LOGLIMIT</a><li><a href=#slow-reader-missed class="table-of-contents__link toc-highlight">Slow reader missed</a><li><a href=#write-socket-failed class="table-of-contents__link toc-highlight">write socket failed</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

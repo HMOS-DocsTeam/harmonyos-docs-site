@@ -1,0 +1,496 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>interactiveLiveness（人脸活体检测） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="interactiveLiveness（人脸活体检测） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=人脸活体检测是指在一些身份验证场景中，确定对象真实生理特征的方法。 /><meta data-rh=true property=og:description content=人脸活体检测是指在一些身份验证场景中，确定对象真实生理特征的方法。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness","name":"interactiveLiveness（人脸活体检测）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title="Agent Framework Kit（智能体框架服务）" class=categoryLinkLabel_W154>Agent Framework Kit（智能体框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cann-api/hiai-foundation-c/cannkit-index/cannkit/cannkit><span title="CANN Kit（CANN异构计算框架服务）" class=categoryLinkLabel_W154>CANN Kit（CANN异构计算框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-speech-api/core-speech-arkts/hms-ai-texttospeech/hms-ai-texttospeech><span title="Core Speech Kit（基础语音服务）" class=categoryLinkLabel_W154>Core Speech Kit（基础语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title="Core Vision Kit（基础视觉服务）" class=categoryLinkLabel_W154>Core Vision Kit（基础视觉服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title="Intents Kit（意图框架服务）" class=categoryLinkLabel_W154>Intents Kit（意图框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/natural-language-api/natural-language-arkts/natural-language-text-processing-api/natural-language-text-processing-api><span title="Natural Language Kit（自然语言理解服务）" class=categoryLinkLabel_W154>Natural Language Kit（自然语言理解服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="MindSpore Lite Kit（昇思推理框架服务）" class=categoryLinkLabel_W154>MindSpore Lite Kit（昇思推理框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/neural-network-runtime-api/neural-network-runtime-c/neural-network-runtime-module/capi-neuralnetworkruntime/capi-neuralnetworkruntime><span title="Neural Network Runtime Kit（Neural Network运行时服务）" class=categoryLinkLabel_W154>Neural Network Runtime Kit（Neural Network运行时服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/speech-api/speech-arkts/speech-textreader-api/speech-textreader-api><span title="Speech Kit（场景化语音服务）" class=categoryLinkLabel_W154>Speech Kit（场景化语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title="Vision Kit（场景化视觉服务）" class=categoryLinkLabel_W154>Vision Kit（场景化视觉服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title=interactiveLiveness（人脸活体检测） class=linkLabel_WmDU>interactiveLiveness（人脸活体检测）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-image-analyzer/vision-image-analyzer><span title=visionImageAnalyzer（AI识图控件） class=linkLabel_WmDU>visionImageAnalyzer（AI识图控件）</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-component/vision-card-recognition/vision-card-recognition><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-error-code/vision-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>AI</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Vision Kit（场景化视觉服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>interactiveLiveness（人脸活体检测）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>interactiveLiveness（人脸活体检测）</h1></header>
+<p>人脸活体检测是指在一些身份验证场景中，确定对象真实生理特征的方法。</p>
+<p>在人脸识别应用中，活体检测能实时捕捉人脸或者通过眨眼、张嘴、摇头、点头等组合动作，使用人脸关键点定位和人脸追踪等技术，验证用户是否为真实活体操作。可有效抵御照片、视频、面具、遮挡以及屏幕翻拍等常见的攻击手段，从而帮助用户甄别欺诈行为，保障用户的利益。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { interactiveLiveness } from '@kit.VisionKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=detectionmode>DetectionMode<a href=#detectionmode class=hash-link aria-label=DetectionMode的直接链接 title=DetectionMode的直接链接 translate=no>​</a></h2>
+<p>检测模式的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SILENT_MODE<td>SILENT_MODE<td>表示静默活体检测模式，暂未支持。<tr><td>INTERACTIVE_MODE<td>INTERACTIVE_MODE<td>表示动作活体检测模式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=actionsnumber>ActionsNumber<a href=#actionsnumber class=hash-link aria-label=ActionsNumber的直接链接 title=ActionsNumber的直接链接 translate=no>​</a></h2>
+<p>人脸活体检测的动作检测个数的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>ONE_ACTION<td>1<td>随机选择一个动作，暂未支持。<tr><td>TWO_ACTION<td>2<td>随机选择两个动作，暂未支持。<tr><td>THREE_ACTION<td>3<td>随机选择三个动作。<tr><td>FOUR_ACTION<td>4<td>随机选择四个动作。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=routeredirectionmode>RouteRedirectionMode<a href=#routeredirectionmode class=hash-link aria-label=RouteRedirectionMode的直接链接 title=RouteRedirectionMode的直接链接 translate=no>​</a></h2>
+<p>人脸活体检测完成的路由跳转模式的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>BACK_MODE<td>back<td>表示人脸活体检测完成后返回到上一页。<tr><td>REPLACE_MODE<td>replace<td>表示人脸活体检测完跳转到成功或失败页面。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactivelivenessconfig>InteractiveLivenessConfig<a href=#interactivelivenessconfig class=hash-link aria-label=InteractiveLivenessConfig的直接链接 title=InteractiveLivenessConfig的直接链接 translate=no>​</a></h2>
+<p>人脸活体检测的配置项。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>isSilentMode<td><a href=#detectionmode class="">DetectionMode</a><td>否<td>否<td>表示的是人脸活体检测模式，默认动作活体检测模式。  INTERACTIVE_MODE表示动作活体检测模式。<tr><td>actionsNum<td><a href=#actionsnumber class="">ActionsNumber</a><td>否<td>是<td>表示动作活体检测的动作数量，数量范围3或4个，默认3个动作。随机生成，规则如下：  当actionsNum=3时，[眨眼，注视]组合中的动作元素不会同时存在并且相邻的动作元素不会相同。  当actionsNum=4时，眨眼动作元素有且仅有1次，注视动作元素最多出现1次，[眨眼，注视]组合中的动作元素不会相邻，相邻的动作元素不会相同。  该参数只有当isSilentMode是INTERACTIVE_MODE的时候有效。<tr><td>successfulRouteUrl<td>string<td>否<td>是<td>表示人脸活体检测成功后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。  如果不填，系统有默认的检测成功页面。<tr><td>failedRouteUrl<td>string<td>否<td>是<td>表示人脸活体检测失败后跳转的页面路径。如果自定义界面，routeMode值为replace时生效。  如果不填，系统有默认的检测失败页面。<tr><td>routeMode<td><a href=#routeredirectionmode class="">RouteRedirectionMode</a><td>否<td>是<td>人脸活体检测完成后跳转模式。<tr><td>challenge<td>string<td>否<td>是<td>挑战值。仅用于安全摄像头场景（对应<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api#section166716269293>initializeAttestContext</a>方法中的“userData”字段）的活体检测。  使用安全摄像头场景的前提需要<a class="" href=/harmonyos-docs-site/system-security/device-security-kit-guide/devicesecurity-prepare/devicesecurity-deviceverify-activateservice>开通Device Security服务</a>。  长度范围是[16,128]之间（challenge传空或者undefined表示不使用安全摄像头）。  安全摄像头目前支持的设备详情请查看<a class="" href=/harmonyos-docs-site/system-security/device-security-kit-guide/devicesecurity-taas-dev/devicesecurity-taas-securecamera#section104414218221>约束与限制</a>。<tr><td>speechSwitch<td>boolean<td>否<td>是<td>语音播报的开关。  - true表示开启语音播报。  - false表示关闭语音播报。  默认开启语音播报。<tr><td>isPrivacyMode<td>boolean<td>否<td>是<td>是否设置隐私模式。  - true：设置隐私模式。  - false：不设置隐私模式。  默认值为false。  <strong><strong>说明：</strong></strong>  当设置隐私模式时，需要申请ohos.permission.PRIVACY_WINDOW权限。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { interactiveLiveness } from '@kit.VisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let routeMode = "replace" as interactiveLiveness.RouteRedirectionMode;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let actionsNum = 3 as interactiveLiveness.ActionsNumber;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let routerOptions: interactiveLiveness.InteractiveLivenessConfig= {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  isSilentMode: isSilentMode,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  routeMode: routeMode,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  actionsNum: actionsNum,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  failedRouteUrl: "pages/FailPage",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  successfulRouteUrl: "pages/SuccessPage"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=startlivenessdetection>startLivenessDetection<a href=#startlivenessdetection class=hash-link aria-label=startLivenessDetection的直接链接 title=startLivenessDetection的直接链接 translate=no>​</a></h2>
+<p>startLivenessDetection(config: InteractiveLivenessConfig): Promise&lt;boolean></p>
+<p>跳转到人脸活体检测页面的入口。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.CAMERA</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#interactivelivenessconfig class="">InteractiveLivenessConfig</a><td>是<td>跳转到人脸活体检测页面的配置项</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise方式返回的结果，用于判断跳转到人脸活体检测页面是否成功。  - true表示跳转人脸活体检测页面成功。  - false表示跳转人脸活体检测页面失败。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/vision-api/vision-error-code/vision-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>1008301002<td>Route switching failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { interactiveLiveness } from '@kit.VisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let actionsNum = 3 as interactiveLiveness.ActionsNumber;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let routerOptions: interactiveLiveness.InteractiveLivenessConfig= {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  actionsNum: actionsNum,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  isSilentMode: isSilentMode</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">interactiveLiveness.startLivenessDetection(routerOptions).then((isSuccess) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (isSuccess) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0001, "LivenessCollectionIndex", `Succeeded in jumping.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0001, "LivenessCollectionIndex", `Redirection failed.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0001, "LivenessCollectionIndex", `Failed to jump. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=startlivenessdetection-1>startLivenessDetection<a href=#startlivenessdetection-1 class=hash-link aria-label=startLivenessDetection的直接链接 title=startLivenessDetection的直接链接 translate=no>​</a></h2>
+<p>startLivenessDetection(config: InteractiveLivenessConfig, callback: AsyncCallback&lt;InteractiveLivenessResult | undefined>): Promise&lt;boolean></p>
+<p>跳转到人脸活体检测页面的入口。使用Promise异步回调获取跳转结果，使用callback回调获取检测结果。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.CAMERA</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#interactivelivenessconfig class="">InteractiveLivenessConfig</a><td>是<td>跳转到人脸活体检测页面的配置项。<tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/basic-services-others/js-apis-base/js-apis-base#asynccallback>AsyncCallback</a>&lt;<a href=#interactivelivenessresult class="">InteractiveLivenessResult</a><td>undefined><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise方式返回的结果，用于判断跳转到人脸活体检测页面是否成功。  - true表示跳转人脸活体检测页面成功。  - false表示跳转人脸活体检测页面失败。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/vision-api/vision-error-code/vision-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>1008301002<td>Route switching failed.<tr><td>1008302000<td>Detection algorithm initialization.<tr><td>1008302001<td>Detection timeout.<tr><td>1008302002<td>Action mutual exclusion error.<tr><td>1008302003<td>Continuity Check Failure.<tr><td>1008302004<td>The test is not complete.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { interactiveLiveness } from '@kit.VisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let isSilentMode = "INTERACTIVE_MODE" as interactiveLiveness.DetectionMode;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let actionsNum = 3 as interactiveLiveness.ActionsNumber;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let routerOptions: interactiveLiveness.InteractiveLivenessConfig= {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  actionsNum: actionsNum,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  isSilentMode: isSilentMode,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  routeMode: "back" as interactiveLiveness.RouteRedirectionMode</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">void interactiveLiveness.startLivenessDetection(routerOptions, (err: BusinessError,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  result: interactiveLiveness.InteractiveLivenessResult | undefined) => { // 当路由跳转错误时，获取结果失败，result返回undefined</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if(err.code !== 0 && !result) { // 在发生错误如路由跳转失败/参数错误/权限被拒绝时，会抛出错误码，详见ArkTS API错误码</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0001, "LivenessCollectionIndex", `Failed to detect. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0001, 'LivenessCollectionIndex', `Succeeded in detecting result: ${result}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=livenesstype>LivenessType<a href=#livenesstype class=hash-link aria-label=LivenessType的直接链接 title=LivenessType的直接链接 translate=no>​</a></h2>
+<p>活体检测模式的枚举值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>INTERACTIVE_LIVENESS<td>0<td>表示当前检测的结果是动作活体检测。<tr><td>SILENT_LIVENESS<td>1<td>表示当前检测的结果是静默活体检测，暂未支持。<tr><td>NOT_LIVENESS<td>2<td>表示当前检测的结果是非活体，跳转的是失败页面，不会返回错误信息。如果配置了失败页面或者back路由跳转，不建议有重新检测的场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=interactivelivenessresult>InteractiveLivenessResult<a href=#interactivelivenessresult class=hash-link aria-label=InteractiveLivenessResult的直接链接 title=InteractiveLivenessResult的直接链接 translate=no>​</a></h2>
+<p>返回人脸活体检测结果的相关参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>livenessType<td><a href=#livenesstype class="">LivenessType</a><td>否<td>否<td>活体检测模式。<tr><td>mPixelMap<td><a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>image.PixelMap</a><td>否<td>是<td>检测成功后返回最具有活体特征的图片。<tr><td>securedImageBuffer<td>ArrayBuffer<td>否<td>是<td>安全摄像头场景返回的安全流。<tr><td>certificate<td>Array&lt;string><td>否<td>是<td>安全摄像头场景返回的证书链。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getinteractivelivenessresult>getInteractiveLivenessResult<a href=#getinteractivelivenessresult class=hash-link aria-label=getInteractiveLivenessResult的直接链接 title=getInteractiveLivenessResult的直接链接 translate=no>​</a></h2>
+<p>getInteractiveLivenessResult(): Promise&lt;InteractiveLivenessResult></p>
+<p>获取人脸活体检测的结果。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.Component.LivenessDetect</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#interactivelivenessresult class="">InteractiveLivenessResult</a>><td>Promise方式返回人脸活体检测的结果。成功会获取活体检测的方式和一张检测图片。失败获取错误码ID和描述信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/vision-api/vision-error-code/vision-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1008302000<td>Detection algorithm initialization.<tr><td>1008302001<td>Detection timeout.<tr><td>1008302002<td>Action mutual exclusion error.<tr><td>1008302003<td>Continuity Check Failure.<tr><td>1008302004<td>The test is not complete.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { interactiveLiveness } from '@kit.VisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">interactiveLiveness.getInteractiveLivenessResult().then(data => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0001, "LivenessCollectionIndex", `Succeeded in detecting.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0001, "LivenessCollectionIndex", `Failed to detect. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=动作说明>动作说明<a href=#动作说明 class=hash-link aria-label=动作说明的直接链接 title=动作说明的直接链接 translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>动作<th>描述<tbody><tr><td>1<td>点头<tr><td>2<td>张嘴<tr><td>3<td>眨眼<tr><td>4<td>左摇头<tr><td>5<td>右摇头<tr><td>6<td>注视</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/speech-api/speech-errorcode/speech-errorcode><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS API错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-image-analyzer/vision-image-analyzer><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>visionImageAnalyzer（AI识图控件）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#detectionmode class="table-of-contents__link toc-highlight">DetectionMode</a><li><a href=#actionsnumber class="table-of-contents__link toc-highlight">ActionsNumber</a><li><a href=#routeredirectionmode class="table-of-contents__link toc-highlight">RouteRedirectionMode</a><li><a href=#interactivelivenessconfig class="table-of-contents__link toc-highlight">InteractiveLivenessConfig</a><li><a href=#startlivenessdetection class="table-of-contents__link toc-highlight">startLivenessDetection</a><li><a href=#startlivenessdetection-1 class="table-of-contents__link toc-highlight">startLivenessDetection</a><li><a href=#livenesstype class="table-of-contents__link toc-highlight">LivenessType</a><li><a href=#interactivelivenessresult class="table-of-contents__link toc-highlight">InteractiveLivenessResult</a><li><a href=#getinteractivelivenessresult class="table-of-contents__link toc-highlight">getInteractiveLivenessResult</a><li><a href=#动作说明 class="table-of-contents__link toc-highlight">动作说明</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

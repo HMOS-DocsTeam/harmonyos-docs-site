@@ -1,0 +1,304 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/arkts-fullscreencomponent" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>全屏启动元服务组件（FullScreenLaunchComponent） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="全屏启动元服务组件（FullScreenLaunchComponent） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=FullScreenLaunchComponent允许开发者以全屏方式拉起元服务，使得应用能够提供更友好的用户体验。 /><meta data-rh=true property=og:description content=FullScreenLaunchComponent允许开发者以全屏方式拉起元服务，使得应用能够提供更友好的用户体验。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/","name":"全屏启动元服务组件（FullScreenLaunchComponent）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/accessibility-kit/accessibilitykit-overview/><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkdata/data-mgmt-overview/><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkts/arkts-overview/><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkui/arkui-overview/><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkui-overview/><span title=ArkUI简介 class=linkLabel_WmDU>ArkUI简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-development-overview/><span title="UI开发 (ArkTS声明式开发范式)" class=categoryLinkLabel_W154>UI开发 (ArkTS声明式开发范式)</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-development-overview/><span title=UI开发（ArkTS声明式开发范式）概述 class=linkLabel_WmDU>UI开发（ArkTS声明式开发范式）概述</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-paradigm-basic-syntax/arkts-basic-syntax-overview/><span title=学习UI范式基本语法 class=categoryLinkLabel_W154>学习UI范式基本语法</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-overview/><span title=学习UI范式状态管理 class=categoryLinkLabel_W154>学习UI范式状态管理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-rendering-control/arkts-rendering-control-overview/><span title=学习UI范式渲染控制 class=categoryLinkLabel_W154>学习UI范式渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-env-property/arkts-env-system-property/><span title=学习响应式环境变量 class=categoryLinkLabel_W154>学习响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-set-navigation-routing/arkts-navigation-introduction/><span title=设置组件导航和页面路由 class=categoryLinkLabel_W154>设置组件导航和页面路由</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-layout-development/arkts-layout-development-overview/><span title=组件布局 class=categoryLinkLabel_W154>组件布局</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-list-and-grid/arkts-list-grid-development-overview/><span title=列表与网格 class=categoryLinkLabel_W154>列表与网格</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-use-text/arkts-text-introduction/><span title=使用文本 class=categoryLinkLabel_W154>使用文本</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-media-display/arkts-graphics-display/><span title=媒体展示 class=categoryLinkLabel_W154>媒体展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-form-selection/arkts-forms-overview/><span title=表单选择 class=categoryLinkLabel_W154>表单选择</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-add-component/napi-xcomponent-guidelines/><span title=添加组件 class=categoryLinkLabel_W154>添加组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-use-dialog/arkts-dialog-overview/><span title=使用弹窗 class=categoryLinkLabel_W154>使用弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-draw-graphics/arkts-shape-overview/><span title=几何图形绘制 class=categoryLinkLabel_W154>几何图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-interaction-development-guide-overview/arkts-interaction-capability-overview/><span title=添加交互响应 class=categoryLinkLabel_W154>添加交互响应</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-use-animation/arkts-animation/><span title=使用动画 class=categoryLinkLabel_W154>使用动画</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-user-defined-capabilities/arkts-user-defined/><span title=使用自定义能力 class=categoryLinkLabel_W154>使用自定义能力</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-internationalization/><span title=UI国际化 class=linkLabel_WmDU>UI国际化</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-support-accessibility-friendliness/arkts-universal-attributes-accessibility/><span title=无障碍与适老化 class=categoryLinkLabel_W154>无障碍与适老化</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-theme/ui-dark-light-color-adaptation/><span title=主题设置 class=categoryLinkLabel_W154>主题设置</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-global-interface/><span title=UI系统场景化能力 class=categoryLinkLabel_W154>UI系统场景化能力</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-global-interface/><span title=使用UI上下文接口操作界面（UIContext） class=linkLabel_WmDU>使用UI上下文接口操作界面（UIContext）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-uicontext-component-snapshot/><span title=使用组件截图（ComponentSnapshot） class=linkLabel_WmDU>使用组件截图（ComponentSnapshot）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-manage-components-visibility/><span title=感知组件可见性 class=linkLabel_WmDU>感知组件可见性</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-inspector-overview/><span title=检查页面布局 class=linkLabel_WmDU>检查页面布局</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-layout-development-media-query/><span title="媒体查询 (@ohos.mediaquery)" class=linkLabel_WmDU>媒体查询 (@ohos.mediaquery)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/><span title=嵌入式组件 class=categoryLinkLabel_W154>嵌入式组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-fullscreencomponent/><span title=全屏启动元服务组件（FullScreenLaunchComponent） class=linkLabel_WmDU>全屏启动元服务组件（FullScreenLaunchComponent）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-embedded-components/><span title="同应用进程嵌入式组件 (EmbeddedComponent)" class=linkLabel_WmDU>同应用进程嵌入式组件 (EmbeddedComponent)</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/arkts-use-ndk/ndk-build-ui-overview/><span title="UI开发 (基于NDK构建UI)" class=categoryLinkLabel_W154>UI开发 (基于NDK构建UI)</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/ui-js-dev/ui-js-overview/><span title="UI开发 (兼容JS的类Web开发范式)" class=categoryLinkLabel_W154>UI开发 (兼容JS的类Web开发范式)</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/ui-debug-optimize/ui-stability/arkts-stability-guide/><span title=UI开发调试调优 class=categoryLinkLabel_W154>UI开发调试调优</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/window-manager/window-overview/><span title=窗口管理 class=categoryLinkLabel_W154>窗口管理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkui/display-manager/displaymanager-overview/><span title=屏幕管理 class=categoryLinkLabel_W154>屏幕管理</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/arkui/arkui-glossary/><span title=ArkUI术语 class=linkLabel_WmDU>ArkUI术语</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/arkweb/web-component-overview/><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/background-task-kit/background-task-overview/><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/core-file-kit/core-file-kit-intro/><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/data-augmentation-kit-guide/dataaugmentation-introduction/><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/form-kit/formkit-overview/><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ime-kit/ime-kit-intro/><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ipc-kit/ipc-rpc-overview/><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/localization-kit/i18n-l10n/><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ui-design-kit-guide/ui-design-introduction/><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>UI开发 (ArkTS声明式开发范式)</span><li class=breadcrumbs__item><span class=breadcrumbs__link>UI系统场景化能力</span><li class=breadcrumbs__item><span class=breadcrumbs__link>嵌入式组件</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>全屏启动元服务组件（FullScreenLaunchComponent）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>全屏启动元服务组件（FullScreenLaunchComponent）</h1></header>
+<p>FullScreenLaunchComponent允许开发者以全屏方式拉起元服务，使得应用能够提供更友好的用户体验。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552798410-c7f8063979262a1bad3ec98efc06466d.png width=742 height=175 class=img_ev3q /></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=基本概念>基本概念<a href=#基本概念 class=hash-link aria-label=基本概念的直接链接 title=基本概念的直接链接 translate=no>​</a></h2>
+<ul>
+<li class="">
+<p><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-fullscreenlaunchcomponent/ohos-arkui-advanced-fullscreenlaunchcomponent>FullScreenLaunchComponent</a>组件</p>
+<p>FullScreenLaunchComponent是由ArkUI提供的组件，允许在使用方应用中通过ArkTS的声明式范式进行定义和使用。FullScreenLaunchComponent向第三方应用开放使用权限，当被拉起方授权使用方应用嵌入式运行元服务时，使用方应用可全屏嵌入式运行该服务。若未授权，则使用方应用将以跳出式方式拉起元服务。</p>
+</li>
+<li class="">
+<p><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-embeddableuiability/js-apis-app-ability-embeddableuiability>EmbeddableUIAbility</a>组件</p>
+<p>提供方应用中定义使用，用于运行提供方应用在一个独立进程中，同时具备跳转启动和嵌入式启动两种启动方式。</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=实现原理>实现原理<a href=#实现原理 class=hash-link aria-label=实现原理的直接链接 title=实现原理的直接链接 translate=no>​</a></h2>
+<p>FullScreenLaunchComponent提供的一种全屏启动元服务的能力。需要拉起元服务时，拉起方向AMS查询拉起方是否授权使用方可以嵌入式运行元服务。已授权时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。</p>
+<p>跳出式运行元服务是指，非组件化的方式拉起EmbeddableUIAbility，交互体验接近独立窗口。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438105-49571373ce735ca0361616aee4548ceb.png width=976 height=577 class=img_ev3q /></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=能力范围>能力范围<a href=#能力范围 class=hash-link aria-label=能力范围的直接链接 title=能力范围的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=组件基本能力>组件基本能力<a href=#组件基本能力 class=hash-link aria-label=组件基本能力的直接链接 title=组件基本能力的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">当被拉起方授权使用方可以嵌入式运行元服务时，使用方全屏嵌入式运行元服务</li>
+<li class="">当被拉起方未授权使用方可以嵌入式运行元服务时，使用方跳出式拉起元服务</li>
+<li class="">提供图标占位自定义组件功能，控件展示图标占位，点击图标后拉起元服务</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=embeddableuiability进程应用可用能力范围>EmbeddableUIAbility进程应用可用能力范围<a href=#embeddableuiability进程应用可用能力范围 class=hash-link aria-label=EmbeddableUIAbility进程应用可用能力范围的直接链接 title=EmbeddableUIAbility进程应用可用能力范围的直接链接 translate=no>​</a></h3>
+<p>FullScreenLaunchComponent为了实现跨应用的能力共享，存在较开放的灵活性，通过跨进程的方式拉起提供方应用提供的能力供当前使用方（宿主方）使用。在运行机制上，是两个进程之间的业务交互行为，和一般组件和宿主方存在根本上的差异。</p>
+<p>以下给出针对FullScreenLaunchComponent，在EmbeddableUIAbility内提供方应用能够使用的属性、事件、组件、Node-API接口等方面的范围，便于使用方应用与提供方应用在使用FullScreenLaunchComponent组件时进行参照。</p>
+<p>以下为当前组件不支持及部分支持的能力。</p>
+<p><strong><strong>通用属性</strong></strong></p>
+<p>不支持通用属性。</p>
+<p><strong><strong>组件</strong></strong></p>
+<p>应用提供方使用组件时，需要和使用方（宿主方）的组件、应用进程上下文交互的场景，默认不支持。主要包括如下场景：</p>
+<ul>
+<li class="">组件展示效果范围超过组件本身的范围、控制影响到使用方应用侧的场景，如Navigation展示到安全区的场景；</li>
+<li class="">组件能力依赖其他组件或者支持跨组件、跨应用控制与访问的场景，如PluginComponent提供访问其他组件，FormComponent卡片提供跨进程载体展示其他应用页面的能力；</li>
+<li class="">组件能力依赖宿主方窗口信息、进程实例UIContext上下文实现能力、交互、动效等场景，如FolderStack组件；</li>
+</ul>
+<p>详情如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>组件<th>能力规格<th>功能说明<th>规格补充说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-fullscreenlaunchcomponent/ohos-arkui-advanced-fullscreenlaunchcomponent>FullScreenLaunchComponent (全屏启动元服务组件)</a><td>不支持<td>全屏启动元服务组件，当被拉起方授权使用方可以嵌入式运行元服务时，使用方全屏嵌入式运行元服务；未授权时，使用方跳出式拉起元服务。<td>由于是一种跨应用调度的能力，FullScreenLaunchComponent中暂不支持嵌套拉起。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-container-embedded-component/ts-container-embedded-component>EmbeddedComponent</a><td>不支持<td>EmbeddedComponent用于支持在当前页面嵌入本应用内其他<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-embeddeduiextensionability/js-apis-app-ability-embeddeduiextensionability>EmbeddedUIExtensionAbility</a>提供的UI。EmbeddedUIExtensionAbility在独立进程中运行，完成页面布局和渲染。<td>由于是一种跨应用调度的能力，FullScreenLaunchComponent中暂不支持嵌套拉起。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-richtext/ts-basic-components-richtext>RichText</a><td>不支持<td>富文本组件，解析并显示HTML格式文本。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ts-container-folderstack/ts-container-folderstack>FolderStack</a><td>不支持<td>通常用于有Abc热更新（可动态替换Isolated加载的abc文件，无需通过重新安装应用的方式实现内容更新）诉求的模块化开发场景。FolderStack继承于Stack(层叠布局)控件，新增了折叠屏悬停能力，通过识别upperItems自动避让折叠屏折痕区后移到上半屏。<td>折叠屏划分组件能力，需要和宿主方窗口形成联动，从而需要在提供方内获取宿主主窗的信息，目前无法支持。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent>XComponent</a><td>不支持<td>可用于EGL/OpenGLES和媒体数据写入，并显示在XComponent组件。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink>FormLink</a><td>不支持<td>提供静态卡片交互组件，用于静态卡片内部和提供方应用间的交互，当前支持router、message和call三种类型的事件。<td>卡片提供的是跨进程的组件调用能力，FullScreenLaunchComponent中嵌套使用会导致进程关系复杂，导致功能性能方面的问题。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-container-hyperlink/ts-container-hyperlink>HyperLink</a><td>不支持<td>超链接组件，组件宽高范围内点击实现跳转。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-methods-menu/ts-methods-menu>ContextMenu</a><td>不支持<td>在页面范围内关闭通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/popup-property/ts-universal-attributes-menu/ts-universal-attributes-menu#bindcontextmenu12>bindContextMenu</a>属性绑定的菜单。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box>警告弹窗</a><td>部分支持<td>显示警告弹窗组件，可设置文本内容与响应回调。若在FullScreenLaunchComponent中设置showInSubWindow为true, 弹窗将基于FullScreenLaunchComponent的宿主窗口对齐。<td>需要依赖主窗的信息实现弹窗对齐，弹窗组件基于FullScreenLaunchComponent提供的信息获取宿主应用的窗口信息实现了对齐应用窗口的能力。仅限于窗口对齐。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-action-sheet/ts-methods-action-sheet>列表选择弹窗</a><td>部分支持<td>列表弹窗。若在FullScreenLaunchComponent中设置showInSubWindow为true, 弹窗将基于FullScreenLaunchComponent的宿主窗口对齐。<td>需要依赖主窗的信息实现弹窗对齐，弹窗组件基于FullScreenLaunchComponent提供的信息获取宿主应用的窗口信息实现了对齐应用窗口的能力。仅限于窗口对齐。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-custom-dialog-box/ts-methods-custom-dialog-box>自定义弹窗</a><td>部分支持<td>通过CustomDialogController类显示自定义弹窗。使用弹窗组件时，可优先考虑自定义弹窗，便于自定义弹窗的样式与内容。若在FullScreenLaunchComponent中设置showInSubWindow为true, 弹窗将基于FullScreenLaunchComponent的宿主窗口对齐。<td>需要依赖主窗的信息实现弹窗对齐，弹窗组件基于FullScreenLaunchComponent提供的信息获取宿主应用的窗口信息实现了对齐应用窗口的能力。仅限于窗口对齐。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navigation/ts-basic-components-navigation>Navigation</a><td>部分支持<td>该组件从API Version 11开始默认支持安全区避让特性(默认值为：expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]))，开发者可以重写该属性覆盖默认行为。<td>1、如果FullScreenLaunchComponent未设置模态或沉浸式，Navigation无法扩展到安全区。  2、无法路由到宿主方的页面中。</table>
+<p><strong><strong>Node-API接口</strong></strong></p>
+<p>Native API接口提供能力，在FullScreenLaunchComponent场景下也需要考虑是否是跨出当前组件的能力，以及和使用方（宿主方）组件、应用进程上下文交互的场景。主要包括如下场景：</p>
+<ul>
+<li class="">接口功能所需的信息依赖使用方的上下文、窗口等信息，如UIContext。</li>
+<li class="">接口功能控制非组件本身，需要控制影响其他组件或者使用方应用侧的场景，如用户界面外观。</li>
+</ul>
+<p>详情如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>模块<th>能力规格<th>功能说明<th>规格补充说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-page-transition-animation/ts-page-transition-animation>页面间转场</a><td>不支持<td>当路由进行切换时，可以通过在pageTransition函数中自定义页面入场和页面退场的转场动效。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-geometrytransition/ts-transition-animation-geometrytransition>组件内隐式共享元素转场</a><td>不支持<td>在视图切换过程中提供丝滑的上下文传承过渡。通用transition机制提供了opacity、scale等转场效果，geometryTransition通过安排绑定的in/out组件(in指新视图、out指旧视图)的frame、position使得原本独立的transition动画在空间位置上发生联系，将视觉焦点由旧视图位置引导到新视图位置。<td>—<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-componentutils/js-apis-arkui-componentutils>componentUtils</a><td>不支持<td>提供获取组件绘制区域坐标和大小的能力。<td>获取信息来自于窗口，默认情况下直接获取到的位置信息是EmbeddableUIAbility的WindowProxy的信息，非宿主应用的主窗口信息。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext>UIContext</a><td>不支持<td>@ohos.window在API version 10 新增<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-window/arkts-apis-window-window/arkts-apis-window-window#getuicontext10>getUIContext</a>接口，获取UI上下文实例UIContext对象，使用UIContext对象提供的替代方法，可以直接作用在对应的UI实例上。<td>基于window获取，但FullScreenLaunchComponent内部默认方式下，提供方无真正的窗口承载，无法使用该接口获取到正确的UIContext。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-dragcontroller/js-apis-arkui-dragcontroller>DragController</a><td>不支持<td>本模块提供发起主动拖拽的能力，当应用接收到触摸或长按等事件时可以主动发起拖拽的动作，并在其中携带拖拽信息。  本模块功能依赖UI的执行上下文，不可在<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-global-interface>UI上下文不明确</a>的地方使用，参见UIContext说明。<td>拖拽时通过UIContext上下文传递组件间的事件传递，使用方应用和提供方应用不共享UIContext内容，默认能力下无法支持拖拽事件的传递。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-inspector/js-apis-arkui-inspector>布局回调</a><td>部分支持<td>提供注册组件布局和绘制完成回调通知的能力。<td>如果指定FullScreenLaunchComponent组件，预期是获得所有FullScreenLaunchComponent中的组件信息，尚未支持该能力；提供方内部可以正常使用。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-font/js-apis-font>注册自定义字体</a><td>不支持<td>本模块提供注册自定义字体。<td>注册字体存在影响范围的问题，提供方侧无法影响使用方应用的字体。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-plugincomponent/js-apis-plugincomponent>PluginComponentManager</a><td>不支持<td>用于给插件组件的使用者请求组件与数据，使用者发送组件模板和数据。<td>依赖获取其他组件的数据，提供方组件在另一个进程中，无法提供访问宿主组件的能力。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=约束与限制>约束与限制<a href=#约束与限制 class=hash-link aria-label=约束与限制的直接链接 title=约束与限制的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=安全能力约束>安全能力约束<a href=#安全能力约束 class=hash-link aria-label=安全能力约束的直接链接 title=安全能力约束的直接链接 translate=no>​</a></h3>
+<p>FullScreenLaunchComponent组件（使用方）可以访问调用集成了EmbeddableUIAbility的应用（提供方），提供了一种通用应用共享能力。FullScreenLaunchComponent能力无法独立提供安全保障机制，作为提供服务的应用（提供方）需要结合使用其他ArkUI的能力进行安全保护，以保护自己不被使用方应用攻击。</p>
+<p>由于FullScreenLaunchComponent能力（包含基于FullScreenLaunchComponent衍生的相关能力）机制的灵活性，如果提供方应用存在安全方面的诉求，无法在现有FullScreenLaunchComponent的场景下解决的，建议优先使用其他方案。如选择继续采用FullScreenLaunchComponent能力，提供方应用以及使用方应用都需要承担一定的安全风险。</p>
+<p>使用模式</p>
+<ul>
+<li class="">当被拉起方授权使用方可以嵌入式运行元服务时，使用方全屏嵌入式运行元服务。</li>
+<li class="">未授权时，使用方跳出式拉起元服务。</li>
+</ul>
+<p>嵌入式模式下为了避免被使用方的子窗遮挡，使用方的交互行为将受限，使用方无法再创建任何子窗覆盖到提供方的窗口上。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=嵌套约束>嵌套约束<a href=#嵌套约束 class=hash-link aria-label=嵌套约束的直接链接 title=嵌套约束的直接链接 translate=no>​</a></h3>
+<p>FullScreenLaunchComponent暂不支持嵌套，比如A应用(UIAbility)->B应用(EmbeddableUIAbility)->C应用(EmbeddableUIAbility)这种嵌套能力依赖。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=事件处理机制约束>事件处理机制约束<a href=#事件处理机制约束 class=hash-link aria-label=事件处理机制约束的直接链接 title=事件处理机制约束的直接链接 translate=no>​</a></h3>
+<p>FullScreenLaunchComponent不支持通用事件，会将事件经过坐标转换后传递给提供方EmbeddableUIAbility处理。</p>
+<p>对事件传递处理方式进行区分，针对不同事件使用场景确定同步或异步方式：</p>
+<ul>
+<li class="">宿主进程与提供方进程的交互默认均是异步处理：优先考虑从默认机制上避免性能（影响整体交互体验）和死锁问题。</li>
+<li class="">同步事件处理原则：能够支持同步的事件，触发频率较低，性能影响较小；尽量满足应用实际场景。</li>
+</ul>
+<p>应用开发者使用FullScreenLaunchComponent能力时，需要遵守如下设计场景约束：</p>
+<p>异步处理的事件场景：FullScreenLaunchComponent组件以及宿主应用侧组件可以同时收到事件。需要应用开发者结合应用场景进行处理，如宿主应用侧组件不做事件处理。如果无法避免，建议替换FullScreenLaunchComponent组件来保障交互体验。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>场景<th>分类<th>是否支持<th>同步/异步（宿主与提供方）<th>备注<tbody><tr><td>通用事件<td>点击事件（Click）<td>支持<td>异步<td>—<tr><td>通用事件<td>触摸事件（Touch）<td>支持<td>异步<td>—<tr><td>通用事件<td>拖拽事件（onDragXXX）<td>支持<td>异步<td>—<tr><td>通用事件<td>按键事件（KeyEvent）<td>支持<td>同步<td>支持超时等待机制，超时后会结束等待，对上层来说相当于事件未处理。<tr><td>通用事件<td>焦点事件（onFocus/onBlur）<td>支持<td>同步<td>支持超时等待机制，超时后会结束等待，对上层来说相当于事件未处理。<tr><td>通用事件<td>鼠标事件（onHover/onMouse）<td>支持<td>异步<td>—<tr><td>手势处理<td>—<td>支持<td>异步<td>—<tr><td>无障碍<td>—<td>支持<td>同步<td>支持超时等待机制，超时后会结束等待，对上层来说相当于事件未处理。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=页面渲染效果体验约束>页面渲染效果体验约束<a href=#页面渲染效果体验约束 class=hash-link aria-label=页面渲染效果体验约束的直接链接 title=页面渲染效果体验约束的直接链接 translate=no>​</a></h3>
+<p>由于FullScreenLaunchComponent是一种跨进程的应用调用，使用方应用进程和提供方应用进程的处理不能实现同步，会导致在交互体验上存在和一般组件不同的体验问题。应用开发者应知悉本组件存在跨多个进程渲染页面的性能约束，从而进行针对性的处理。</p>
+<ul>
+<li class=""><strong><strong>闪白现象</strong></strong>：FullScreenLaunchComponent创建并拉起另一个进程为应用提供能力，创建、拉起进程并完成页面渲染是一个耗时的过程，使用方在等待的过程中会感知到FullScreenLaunchComponent的背景色（默认是白色），所以会有闪白的现象。</li>
+<li class=""><strong><strong>渲染显示不同步现象</strong></strong>：当使用方应用页面快速变化时（如横竖屏切换、拖拽窗口大小），会出现使用方页面渲染过程和FullScreenLaunchComponent组件中展示的内容不同步的情况。这种现象是跨进程交互带来的，提供方进程任务是使用方触发，而对于布局等任务均是在各自进程的JS线程中，无法保障使用方和提供方的渲染任务同步，最终导致了不同步的效果。</li>
+</ul>
+<p>应用开发者（提供方）需要考虑如下设计约束：</p>
+<ul>
+<li class="">尽量使用布局变化少的场景。</li>
+<li class="">当由布局变化时，提供方js线程尽量少的执行任务，确保js线程能够及时响应布局变化的任务。</li>
+</ul>
+<p>应用开发者（使用方）可以通过如下方式消减闪白问题：</p>
+<ul>
+<li class="">根据使用方应用的页面以及提供方页面的背景色，更改FullScreenLaunchComponent的背景色（<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-background/ts-universal-attributes-background>背景设置</a>），做到在加载过程中配合场景过渡显示，从而实现无跳变感知。</li>
+</ul>
+<p>如果消减后效果不能完全满足应用交互诉求，由于跨进程的能力约束，建议应用优先考虑其他方案。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=其他约束>其他约束<a href=#其他约束 class=hash-link aria-label=其他约束的直接链接 title=其他约束的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">不支持在运行过程中修改切换后端拉起的元服务EmbeddableUIAbility。</li>
+<li class="">不支持预览，不在开发DevEco Studio中提供预览能力。</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-layout-development-media-query/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>媒体查询 (@ohos.mediaquery)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-ui-system-scenarization-capability/arkts-ui-cross-process/arkts-embedded-components/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>同应用进程嵌入式组件 (EmbeddedComponent)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#基本概念 class="table-of-contents__link toc-highlight">基本概念</a><li><a href=#实现原理 class="table-of-contents__link toc-highlight">实现原理</a><li><a href=#能力范围 class="table-of-contents__link toc-highlight">能力范围</a><ul><li><a href=#组件基本能力 class="table-of-contents__link toc-highlight">组件基本能力</a><li><a href=#embeddableuiability进程应用可用能力范围 class="table-of-contents__link toc-highlight">EmbeddableUIAbility进程应用可用能力范围</a></ul><li><a href=#约束与限制 class="table-of-contents__link toc-highlight">约束与限制</a><ul><li><a href=#安全能力约束 class="table-of-contents__link toc-highlight">安全能力约束</a><li><a href=#嵌套约束 class="table-of-contents__link toc-highlight">嵌套约束</a><li><a href=#事件处理机制约束 class="table-of-contents__link toc-highlight">事件处理机制约束</a><li><a href=#页面渲染效果体验约束 class="table-of-contents__link toc-highlight">页面渲染效果体验约束</a><li><a href=#其他约束 class="table-of-contents__link toc-highlight">其他约束</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

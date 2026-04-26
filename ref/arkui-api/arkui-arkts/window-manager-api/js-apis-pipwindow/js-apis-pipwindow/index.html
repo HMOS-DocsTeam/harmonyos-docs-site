@@ -1,0 +1,1681 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.PiPWindow (画中画窗口) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.PiPWindow (画中画窗口) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。 /><meta data-rh=true property=og:description content=该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow","name":"@ohos.PiPWindow (画中画窗口)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=UI界面 class=categoryLinkLabel_W154>UI界面</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow><span title=窗口管理 class=categoryLinkLabel_W154>窗口管理</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-pipwindow/js-apis-pipwindow><span title="@ohos.PiPWindow (画中画窗口)" class=linkLabel_WmDU>@ohos.PiPWindow (画中画窗口)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-floatingball/js-apis-floatingball><span title="@ohos.window.floatingBall (闪控球窗口)" class=linkLabel_WmDU>@ohos.window.floatingBall (闪控球窗口)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-window/arkts-apis-window/arkts-apis-window><span title="@ohos.window (窗口)" class=categoryLinkLabel_W154>@ohos.window (窗口)</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/display-manager-api/js-apis-display/js-apis-display><span title=屏幕管理 class=categoryLinkLabel_W154>屏幕管理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/arkui-arkts-dep/js-apis-prompt/js-apis-prompt><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>窗口管理</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.PiPWindow (画中画窗口)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.PiPWindow (画中画窗口)</h1></header>
+<p>该模块提供画中画基础功能，包括判断当前系统是否支持画中画功能，以及创建画中画控制器用于启动或停止画中画等。适用于视频播放、视频通话或视频会议场景下，以小窗（画中画）模式呈现内容。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">本模块首批接口从API version 11开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</li>
+<li class="">在HarmonyOS 6.0.0之前，支持在Phone、Tablet设备使用画中画功能，其他设备不可用；从HarmonyOS 6.0.0开始，支持在Phone、PC/2in1、Tablet设备使用画中画功能，其他设备不可用。</li>
+<li class="">针对系统能力SystemCapability.Window.SessionManager，请先使用<a class="" href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-syscap/js-apis-syscap#caniuse>canIUse()</a>接口判断当前设备是否支持此syscap及对应接口。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { PiPWindow } from '@kit.ArkUI';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipwindowispipenabled>PiPWindow.isPiPEnabled<a href=#pipwindowispipenabled class=hash-link aria-label=PiPWindow.isPiPEnabled的直接链接 title=PiPWindow.isPiPEnabled的直接链接 translate=no>​</a></h2>
+<p>isPiPEnabled(): boolean</p>
+<p>判断当前设备是否支持画中画功能。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>当前系统是否支持画中画功能。true表示支持，false则表示不支持。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let enable: boolean = PiPWindow.isPiPEnabled();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">console.info('isPipEnabled:' + enable);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipwindowcreate>PiPWindow.create<a href=#pipwindowcreate class=hash-link aria-label=PiPWindow.create的直接链接 title=PiPWindow.create的直接链接 translate=no>​</a></h2>
+<p>create(config: PiPConfiguration): Promise&lt;PiPController></p>
+<p>创建画中画控制器，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#pipconfiguration class="">PiPConfiguration</a><td>是<td>创建画中画控制器的参数。该参数不能为空，并且构造该参数的context和componentController不能为空。构造该参数时，如果指定了templateType，需保证templateType是<a href=#piptemplatetype class="">PiPTemplateType</a>类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见<a href=#pipcontrolgroup12 class="">PiPControlGroup</a>。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#pipcontroller class="">PiPController</a>><td>Promise对象。返回当前创建的画中画控制器。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported.Failed to call the API due to limited device capabilities.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BuilderNode, FrameNode, NodeController, UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class Params {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  text: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  constructor(text: string) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.text = text;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者可以通过@Builder装饰器实现布局构建</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Builder</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function buildText(params: Params) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Text(params.text)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontSize(20)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fontColor(Color.Red)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .width('100%') // 宽度方向充满画中画窗口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .height('100%') // 高度方向充满画中画窗口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者可通过继承NodeController实现自定义UI控制器</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class TextNodeController extends NodeController {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private message: string;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private textNode: BuilderNode&lt;[Params]> | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  constructor(message: string) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    super();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.message = message;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 通过BuilderNode加载自定义布局</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  makeNode(context: UIContext): FrameNode | null {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.textNode = new BuilderNode(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.textNode.build(wrapBuilder&lt;[Params]>(buildText), new Params(this.message));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return this.textNode.getFrameNode();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者可自定义该方法实现布局更新</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  update(message: string) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`update message: ${message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (this.textNode !== null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      this.textNode.update(new Params(message));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private message: string = 'createPiP';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private pipController: PiPWindow.PiPController | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private mXComponentController: XComponentController = new XComponentController(); // 开发者应使用该mXComponentController初始化XComponent: XComponent( {id: 'video', type: 'surface', controller: mXComponentController} )，保证XComponent的内容可以被迁移到画中画窗口。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private nodeController: TextNodeController = new TextNodeController('this is custom UI');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private navId: string = "page_1"; // 假设当前页面的导航id为page_1，详见PiPConfiguration定义，具体导航名称由开发者自行定义。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private contentWidth: number = 800; // 假设当前内容宽度800px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private contentHeight: number = 600; // 假设当前内容高度600px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private pageId: number = this.getUniqueId(); // 获取当前页面Id。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private para: Record&lt;string, number> = { 'PropA': 47 };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private localStorage: LocalStorage = new LocalStorage(this.para);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private res: boolean = this.localStorage.setOrCreate('PropB', 121);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private defaultWindowSizeType: number = 1; // 指定画中画第一次拉起窗口为小窗口。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private cornerAdsorptionEnabled: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private config: PiPWindow.PiPConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        context: this.getUIContext().getHostContext() as Context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        componentController: this.mXComponentController,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        navigationId: this.navId,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        handleId: this.pageId,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        contentWidth: this.contentWidth,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        contentHeight: this.contentHeight,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        controlGroups: [PiPWindow.VideoPlayControlGroup.VIDEO_PREVIOUS_NEXT],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        customUIController: this.nodeController, // 可选，如果需要在画中画显示内容上方展示自定义UI，可设置该参数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        localStorage: this.localStorage, // 可选，如果需要跟踪主窗实例，可设置此参数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        defaultWindowSizeType: this.defaultWindowSizeType, // 可选，如果需要配置默认启动窗口档位，可设置此参数。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        cornerAdsorptionEnabled: this.cornerAdsorptionEnabled, // 可选，默认为true，如果不需要画中画窗口四角吸附，可设置此参数为false。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    createPiP() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let promise: Promise&lt;PiPWindow.PiPController> = PiPWindow.create(this.config);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        promise.then((data: PiPWindow.PiPController) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.pipController = data;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`Succeeded in creating pip controller. Data:${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        RelativeContainer() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Button(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    this.createPiP();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipwindowcreate12>PiPWindow.create12+<a href=#pipwindowcreate12 class=hash-link aria-label=PiPWindow.create12+的直接链接 title=PiPWindow.create12+的直接链接 translate=no>​</a></h2>
+<p>create(config: PiPConfiguration, contentNode: typeNode.XComponent): Promise&lt;PiPController></p>
+<p>创建画中画控制器，使用typeNode为画中画添加自定义UI节点。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#pipconfiguration class="">PiPConfiguration</a><td>是<td>创建画中画控制器的参数。该参数不能为空，并且构造该参数的context不能为空。构造该参数时，如果指定了templateType，需保证templateType是<a href=#piptemplatetype class="">PiPTemplateType</a>类型；如果指定了controlGroups，需保证controlGroups与templateType匹配，详见<a href=#pipcontrolgroup12 class="">PiPControlGroup</a>。<tr><td>contentNode<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-framenode/js-apis-arkui-framenode#xcomponent12>typeNode.XComponent</a><td>是<td>用于渲染画中画窗口中的内容。该参数不能为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#pipcontroller class="">PiPController</a>><td>Promise对象。返回当前创建的画中画控制器。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: 1.Mandatory parameters are left unspecified. 2.Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported.Failed to call the API due to limited device capabilities.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { PiPWindow, typeNode, UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private message = 'createPiP'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private pipController: PiPWindow.PiPController | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private xComponentController: XComponentController = new XComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private context: UIContext | undefined = this.getUIContext(); // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private contentWidth: number = 800; // 假设当前内容宽度800px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private contentHeight: number = 600; // 假设当前内容高度600px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private config: PiPWindow.PiPConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        context: this.getUIContext().getHostContext() as Context,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        componentController: this.xComponentController,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        templateType: PiPWindow.PiPTemplateType.VIDEO_PLAY,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        contentWidth: this.contentWidth,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        contentHeight: this.contentHeight,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private options: XComponentOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        type: XComponentType.SURFACE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        controller: this.xComponentController</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    private xComponent = typeNode.createNode(this.context, 'XComponent', this.options);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    createPiP() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let promise: Promise&lt;PiPWindow.PiPController> = PiPWindow.create(this.config, this.xComponent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        promise.then((data: PiPWindow.PiPController) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.pipController = data;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`Succeeded in creating pip controller. Data:${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error(`Failed to create pip controller. Cause:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 仅用于功能测试，实际开发过程中开发者按功能需求设计组件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        RelativeContainer() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Button(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    this.createPiP();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipconfiguration>PiPConfiguration<a href=#pipconfiguration class=hash-link aria-label=PiPConfiguration的直接链接 title=PiPConfiguration的直接链接 translate=no>​</a></h2>
+<p>创建画中画控制器时的参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>否<td>否<td>表示上下文环境。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>componentController<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent#xcomponentcontroller>XComponentController</a><td>否<td>否<td>表示原始<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent>XComponent</a>控制器。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>navigationId<td>string<td>否<td>是<td>navigation控件ID，不传值则默认不需要缓存页面。  1、UIAbility使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navigation/ts-basic-components-navigation>Navigation</a>管理页面时，需要设置Navigation控件的id属性，并将该id设置给画中画控制器，确保还原场景下能够从画中画窗口恢复到原页面。  2、UIAbility使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-router/js-apis-router>Router</a>管理页面时，无需设置navigationId。  3、UIAbility只有单页面时，无需设置navigationId，还原场景下也能够从画中画窗口恢复到原页面。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>handleId22+<td>number<td>否<td>是<td>navigation控件下的子页面ID，点击<a class="" href=/harmonyos-docs-site/arkui/window-manager/window-pipwindow/pipwindow-overview#section13787164103315>"恢复全屏窗口"</a>按钮后，恢复到指定的页面。只适用于UIAbility使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navigation/ts-basic-components-navigation>Navigation</a>管理页面的场景，可以设置为Navigation下的子页面ID。默认为-1，恢复Navigation栈顶页面。推荐使用方法<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-api/ts-custom-component-api#getuniqueid12>getUniqueId()</a>获取页面ID。使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-basic-components-navigation/ts-basic-components-navigation>Navigation</a>模块内页面路由时，推荐使用<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arkts-navigation-cross-package#%E7%B3%BB%E7%BB%9F%E8%B7%AF%E7%94%B1%E8%A1%A8 target=_blank rel="noopener noreferrer" class="">系统路由表</a>，否则可能会出现<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-api/ts-custom-component-api#getuniqueid12>getUniqueId()</a>获取页面ID不准确的情况。  <strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。<tr><td>templateType<td><a href=#piptemplatetype class="">PiPTemplateType</a><td>否<td>是<td>模板类型，用以区分视频播放、视频通话、视频会议或视频直播，不传值则默认为视频播放模板。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>contentWidth<td>number<td>否<td>是<td>原始内容宽度，单位为px。用于确定画中画窗口比例。当<a href=#pipwindowcreate12 class="">使用typeNode的方式</a>创建PiPController时，不传值则默认为1920。当<a href=#pipwindowcreate class="">不使用typeNode的方式</a>创建PiPController时，不传值则默认为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent>XComponent</a>组件的宽度。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>contentHeight<td>number<td>否<td>是<td>原始内容高度，单位为px。用于确定画中画窗口比例。当<a href=#pipwindowcreate12 class="">使用typeNode的方式</a>创建PiPController时，不传值则默认为1080。当<a href=#pipwindowcreate class="">不使用typeNode的方式</a>创建PiPController时，不传值则默认为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent>XComponent</a>组件的高度。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>controlGroups12+<td>Array&lt;<a href=#pipcontrolgroup12 class="">PiPControlGroup</a>><td>否<td>是<td>画中画控制面板的可选控件组列表，应用可以对此进行配置以决定是否显示。应用未配置时，面板显示基础控件（如视频播放控件组的播放/暂停控件）；应用选择配置时，则最多可以选择三个控件，超出三个create接口抛出401错误码。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>customUIController12+<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-nodecontroller/js-apis-arkui-nodecontroller>NodeController</a><td>否<td>是<td>自定义UI控制器，用于实现在画中画界面的自定义UI功能。此参数不填时，默认不使用自定义UI功能  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>localStorage17+<td><a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-state-management/arkts-state-management-v1/arkts-v1-application-state-management/arkts-localstorage>LocalStorage</a><td>否<td>是<td>页面级别的UI状态存储单元。多实例下可用来跟踪主窗实例的UI状态存储对象，不传值则无法通过画中画窗口获取主窗的UI状态存储对象。  <strong><strong>元服务API：</strong></strong> 从API version 17开始，该接口支持在元服务中使用。<tr><td>defaultWindowSizeType19+<td>number<td>否<td>是<td>当前应用第一次拉起画中画的窗口大小。  0：代表不设置大小。按照上个应用的画中画关闭前的大小启动；  1：代表小窗；  2：代表大窗；  不传值则为默认值0。  <strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。<tr><td>cornerAdsorptionEnabled22+<td>boolean<td>否<td>是<td>是否开启画中画四角吸附功能。当开启画中画四角吸附功能后，屏幕将被划分为四个热区：以屏幕的上下中线和左右中线为界，形成左上、右上、左下、右下四个区域。用户拖动画中画窗口并松手后，系统将根据窗口中心点所处的热区，自动将窗口吸附到对应角落。  true：表示开启画中画四角吸附功能。  false：表示关闭画中画四角吸附功能。  不传值则为默认值true。  <strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备上可正常调用，在其他设备上不生效。  <strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipwindowsize15>PiPWindowSize15+<a href=#pipwindowsize15 class=hash-link aria-label=PiPWindowSize15+的直接链接 title=PiPWindowSize15+的直接链接 translate=no>​</a></h2>
+<p>画中画窗口大小。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>width<td>number<td>否<td>否<td>窗口宽度，单位为px，该参数应为正整数，不大于屏幕宽度。<tr><td>height<td>number<td>否<td>否<td>窗口高度，单位为px，该参数应为正整数，不大于屏幕高度。<tr><td>scale<td>number<td>否<td>否<td>窗口缩放比，显示大小相对于width和height的缩放比，该参数为浮点数，取值范围大于0.0，小于等于1.0。等于1表示与width和height一样大。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipwindowinfo15>PiPWindowInfo15+<a href=#pipwindowinfo15 class=hash-link aria-label=PiPWindowInfo15+的直接链接 title=PiPWindowInfo15+的直接链接 translate=no>​</a></h2>
+<p>画中画窗口信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>windowId<td>number<td>否<td>否<td>画中画窗口ID。<tr><td>size<td><a href=#pipwindowsize15 class="">PiPWindowSize</a><td>否<td>否<td>画中画窗口大小。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=piptemplatetype>PiPTemplateType<a href=#piptemplatetype class=hash-link aria-label=PiPTemplateType的直接链接 title=PiPTemplateType的直接链接 translate=no>​</a></h2>
+<p>画中画模板类型枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>VIDEO_PLAY<td>0<td>表示将要切换为画中画播放的媒体类型是视频，系统依此加载视频播放模板，该模板默认存在播放/暂停控件。<tr><td>VIDEO_CALL<td>1<td>表示将要切换为画中画播放的媒体类型是视频通话，系统依此加载视频通话模板。<tr><td>VIDEO_MEETING<td>2<td>表示将要切换为画中画播放的媒体类型是视频会议，系统依此加载视频会议模板。<tr><td>VIDEO_LIVE<td>3<td>表示将要切换为画中画播放的媒体类型是直播，系统依此加载直播模板。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipstate>PiPState<a href=#pipstate class=hash-link aria-label=PiPState的直接链接 title=PiPState的直接链接 translate=no>​</a></h2>
+<p>画中画生命周期状态枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>ABOUT_TO_START<td>1<td>表示画中画将要启动。<tr><td>STARTED<td>2<td>表示画中画已经启动。<tr><td>ABOUT_TO_STOP<td>3<td>表示画中画将要停止。<tr><td>STOPPED<td>4<td>表示画中画已经停止。<tr><td>ABOUT_TO_RESTORE<td>5<td>表示画中画将从小窗播放恢复到原始播放界面。<tr><td>ERROR<td>6<td>表示画中画生命周期执行过程出现了异常。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipcontrolgroup12>PiPControlGroup12+<a href=#pipcontrolgroup12 class=hash-link aria-label=PiPControlGroup12+的直接链接 title=PiPControlGroup12+的直接链接 translate=no>​</a></h2>
+<p>type PiPControlGroup = VideoPlayControlGroup | VideoCallControlGroup | VideoMeetingControlGroup | VideoLiveControlGroup</p>
+<p>画中画控制面板的可选控件组列表，应用可以配置是否显示可选控件。使用时必须和<a href=#piptemplatetype class="">PiPTemplateType</a>对应，否则<a href=#pipwindowcreate class="">create</a>接口抛出401错误码。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#videoplaycontrolgroup12 class="">VideoPlayControlGroup</a><td>视频播放控件组。<tr><td><a href=#videocallcontrolgroup12 class="">VideoCallControlGroup</a><td>视频通话控件组。<tr><td><a href=#videomeetingcontrolgroup12 class="">VideoMeetingControlGroup</a><td>视频会议控件组。<tr><td><a href=#videolivecontrolgroup12 class="">VideoLiveControlGroup</a><td>视频直播控件组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=videoplaycontrolgroup12>VideoPlayControlGroup12+<a href=#videoplaycontrolgroup12 class=hash-link aria-label=VideoPlayControlGroup12+的直接链接 title=VideoPlayControlGroup12+的直接链接 translate=no>​</a></h2>
+<p>视频播放控件组枚举。仅当<a href=#piptemplatetype class="">PiPTemplateType</a>为VIDEO_PLAY时使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>VIDEO_PREVIOUS_NEXT<td>101<td>视频上一个/下一个控件组。  与视频快进/后退控件组为互斥控件组。如添加视频快进/后退控件组，则不可添加该控件组。<tr><td>FAST_FORWARD_BACKWARD<td>102<td>视频快进/后退控件组。  与视频上一个/下一个控件组为互斥控件组。如添加视频上一个/下一个控件组，则不可添加该控件组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=videocallcontrolgroup12>VideoCallControlGroup12+<a href=#videocallcontrolgroup12 class=hash-link aria-label=VideoCallControlGroup12+的直接链接 title=VideoCallControlGroup12+的直接链接 translate=no>​</a></h2>
+<p>视频通话控件组枚举。仅当<a href=#piptemplatetype class="">PiPTemplateType</a> 为VIDEO_CALL时使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>MICROPHONE_SWITCH<td>201<td>打开/关闭麦克风控件组。<tr><td>HANG_UP_BUTTON<td>202<td>挂断控件组。<tr><td>CAMERA_SWITCH<td>203<td>打开/关闭摄像头控件组。<tr><td>MUTE_SWITCH<td>204<td>静音控件组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=videomeetingcontrolgroup12>VideoMeetingControlGroup12+<a href=#videomeetingcontrolgroup12 class=hash-link aria-label=VideoMeetingControlGroup12+的直接链接 title=VideoMeetingControlGroup12+的直接链接 translate=no>​</a></h2>
+<p>视频会议控件组枚举。仅当<a href=#piptemplatetype class="">PiPTemplateType</a> 为VIDEO_MEETING时使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>HANG_UP_BUTTON<td>301<td>挂断控件组。<tr><td>CAMERA_SWITCH<td>302<td>打开/关闭摄像头控件组。<tr><td>MUTE_SWITCH<td>303<td>静音控件组。<tr><td>MICROPHONE_SWITCH<td>304<td>打开/关闭麦克风控件组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=videolivecontrolgroup12>VideoLiveControlGroup12+<a href=#videolivecontrolgroup12 class=hash-link aria-label=VideoLiveControlGroup12+的直接链接 title=VideoLiveControlGroup12+的直接链接 translate=no>​</a></h2>
+<p>视频直播控件组枚举。仅当<a href=#piptemplatetype class="">PiPTemplateType</a> 为VIDEO_LIVE时使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>VIDEO_PLAY_PAUSE<td>401<td>播放/暂停直播控件组。<tr><td>MUTE_SWITCH<td>402<td>静音控件组。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipactioneventtype>PiPActionEventType<a href=#pipactioneventtype class=hash-link aria-label=PiPActionEventType的直接链接 title=PiPActionEventType的直接链接 translate=no>​</a></h2>
+<p>type PiPActionEventType = PiPVideoActionEvent | PiPCallActionEvent | PiPMeetingActionEvent | PiPLiveActionEvent</p>
+<p>画中画控制面板控件动作事件类型，支持以下四种。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#pipvideoactionevent class="">PiPVideoActionEvent</a><td>视频播放控制面板控件事件类型。<tr><td><a href=#pipcallactionevent class="">PiPCallActionEvent</a><td>视频通话控制面板控件事件类型。<tr><td><a href=#pipmeetingactionevent class="">PiPMeetingActionEvent</a><td>视频会议控制面板控件事件类型。<tr><td><a href=#pipliveactionevent class="">PiPLiveActionEvent</a><td>直播控制面板控件事件类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipvideoactionevent>PiPVideoActionEvent<a href=#pipvideoactionevent class=hash-link aria-label=PiPVideoActionEvent的直接链接 title=PiPVideoActionEvent的直接链接 translate=no>​</a></h2>
+<p>type PiPVideoActionEvent = 'playbackStateChanged' | 'nextVideo' | 'previousVideo' | 'fastForward' | 'fastBackward'</p>
+<p>视频播放控制事件类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'playbackStateChanged'<td>播放状态发生了变化。<tr><td>'nextVideo'<td>播放下一个视频。<tr><td>'previousVideo'<td>播放上一个视频。<tr><td>'fastForward'12+<td>视频进度快进。从API version 12 开始支持。<tr><td>'fastBackward'12+<td>视频进度后退。从API version 12 开始支持。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipcallactionevent>PiPCallActionEvent<a href=#pipcallactionevent class=hash-link aria-label=PiPCallActionEvent的直接链接 title=PiPCallActionEvent的直接链接 translate=no>​</a></h2>
+<p>type PiPCallActionEvent = 'hangUp' | 'micStateChanged' | 'videoStateChanged' | 'voiceStateChanged'</p>
+<p>视频通话控制事件类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'hangUp'<td>挂断视频通话。<tr><td>'micStateChanged'<td>打开或关闭麦克风。<tr><td>'videoStateChanged'<td>打开或关闭摄像头。<tr><td>'voiceStateChanged'12+<td>静音或解除静音。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipmeetingactionevent>PiPMeetingActionEvent<a href=#pipmeetingactionevent class=hash-link aria-label=PiPMeetingActionEvent的直接链接 title=PiPMeetingActionEvent的直接链接 translate=no>​</a></h2>
+<p>type PiPMeetingActionEvent = 'hangUp' | 'voiceStateChanged' | 'videoStateChanged' | 'micStateChanged'</p>
+<p>视频会议控制事件类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'hangUp'<td>挂断视频会议。<tr><td>'voiceStateChanged'<td>静音或解除静音。<tr><td>'videoStateChanged'<td>打开或关闭摄像头。<tr><td>'micStateChanged'12+<td>打开或关闭麦克风。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipliveactionevent>PiPLiveActionEvent<a href=#pipliveactionevent class=hash-link aria-label=PiPLiveActionEvent的直接链接 title=PiPLiveActionEvent的直接链接 translate=no>​</a></h2>
+<p>type PiPLiveActionEvent = 'playbackStateChanged' | 'voiceStateChanged'</p>
+<p>直播控制事件类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'playbackStateChanged'<td>播放或暂停直播。<tr><td>'voiceStateChanged'12+<td>静音或解除静音。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipcontrolstatus12>PiPControlStatus12+<a href=#pipcontrolstatus12 class=hash-link aria-label=PiPControlStatus12+的直接链接 title=PiPControlStatus12+的直接链接 translate=no>​</a></h2>
+<p>控制面板控件状态枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>PLAY<td>1<td>播放。<tr><td>PAUSE<td>0<td>暂停。<tr><td>OPEN<td>1<td>打开。<tr><td>CLOSE<td>0<td>关闭。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipcontroltype12>PiPControlType12+<a href=#pipcontroltype12 class=hash-link aria-label=PiPControlType12+的直接链接 title=PiPControlType12+的直接链接 translate=no>​</a></h2>
+<p>控制面板控件类型枚举。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>VIDEO_PLAY_PAUSE<td>0<td>播放/暂停控件。<tr><td>VIDEO_PREVIOUS<td>1<td>视频上一个控件。<tr><td>VIDEO_NEXT<td>2<td>视频下一个控件。<tr><td>FAST_FORWARD<td>3<td>视频快进控件<tr><td>FAST_BACKWARD<td>4<td>视频快退控件。<tr><td>HANG_UP_BUTTON<td>5<td>挂断控件。<tr><td>MICROPHONE_SWITCH<td>6<td>打开/关闭麦克风控件。<tr><td>CAMERA_SWITCH<td>7<td>打开/关闭摄像头控件。<tr><td>MUTE_SWITCH<td>8<td>打开/关闭静音控件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=controlpanelactioneventcallback12>ControlPanelActionEventCallback12+<a href=#controlpanelactioneventcallback12 class=hash-link aria-label=ControlPanelActionEventCallback12+的直接链接 title=ControlPanelActionEventCallback12+的直接链接 translate=no>​</a></h2>
+<p>type ControlPanelActionEventCallback = (event: PiPActionEventType, status?: number) => void</p>
+<p>描述画中画控制面板控件动作事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td><a href=#pipactioneventtype class="">PiPActionEventType</a><td>是<td>回调画中画控制面板控件动作事件类型。  应用依据控件动作事件做相应处理，如触发'playbackStateChanged'事件时，需要开始或停止视频。<tr><td>status<td>number<td>否<td>表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为1，关闭为0。其余控件该参数返回默认值-1。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=controleventparam12>ControlEventParam12+<a href=#controleventparam12 class=hash-link aria-label=ControlEventParam12+的直接链接 title=ControlEventParam12+的直接链接 translate=no>​</a></h2>
+<p>画中画控制面板控件动作回调的参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>controlType<td><a href=#pipcontroltype12 class="">PiPControlType</a><td>否<td>否<td>回调画中画控制面板控件动作事件类型。应用依据控件类型做相应处理，如视频模板中暂停/播放控件被点击时，需要开始或停止视频。<tr><td>status<td><a href=#pipcontrolstatus12 class="">PiPControlStatus</a><td>否<td>是<td>表示可切换状态的控件当前的状态，如具备打开和关闭两种状态的麦克风控件组、摄像头控件组和静音控件组，打开为PiPControlStatus.PLAY，关闭为PiPControlStatus.PAUSE。如不具备开/关和播放/暂停状态的挂断控件默认返回值为-1。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pipcontroller>PiPController<a href=#pipcontroller class=hash-link aria-label=PiPController的直接链接 title=PiPController的直接链接 translate=no>​</a></h2>
+<p>画中画控制器实例。用于启动、停止画中画以及更新回调注册等。</p>
+<p>下列API示例中都需先使用<a href=#pipwindowcreate class="">PiPWindow.create()</a>方法获取到PiPController实例，再通过此实例调用对应方法。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=startpip>startPiP<a href=#startpip class=hash-link aria-label=startPiP的直接链接 title=startPiP的直接链接 translate=no>​</a></h3>
+<p>startPiP(): Promise&lt;void></p>
+<p>启动画中画，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1300012<td>The PiP window state is abnormal.<tr><td>1300013<td>Failed to create the PiP window.<tr><td>1300014<td>PiP internal error.<tr><td>1300015<td>Repeated PiP operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 开发者可根据pipController的定义方式自行实现pipController的调用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let promise : Promise&lt;void> = this.pipController.startPiP();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in starting pip.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to start pip. Cause:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=stoppip>stopPiP<a href=#stoppip class=hash-link aria-label=stopPiP的直接链接 title=stopPiP的直接链接 translate=no>​</a></h3>
+<p>stopPiP(): Promise&lt;void></p>
+<p>停止画中画，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1300011<td>Failed to destroy the PiP window.<tr><td>1300012<td>The PiP window state is abnormal.<tr><td>1300015<td>Repeated PiP operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let promise : Promise&lt;void> = this.pipController.stopPiP();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in stopping pip.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to stop pip. Cause:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setautostartenabled>setAutoStartEnabled<a href=#setautostartenabled class=hash-link aria-label=setAutoStartEnabled的直接链接 title=setAutoStartEnabled的直接链接 translate=no>​</a></h3>
+<p>setAutoStartEnabled(enable: boolean): void</p>
+<p>设置是否在返回桌面时自动启动画中画，默认不自动拉起。</p>
+<p>在使用XComponent方案实现画中画功能并结合Navigation进行路由管理时，首次调用setAutoStartEnabled(true)方法，系统会缓存当前应用传入的NavigationId的栈顶信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>enable<td>boolean<td>是<td>如返回桌面时需自动启动画中画，则该参数配置为true，否则为false。若设置-系统-智慧多窗-自动启动画中画开关为关闭状态，就算该参数配置为true，应用返回桌面时也不会自动启动画中画窗口。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let enable: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.setAutoStartEnabled(enable);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatecontentsize>updateContentSize<a href=#updatecontentsize class=hash-link aria-label=updateContentSize的直接链接 title=updateContentSize的直接链接 translate=no>​</a></h3>
+<p>updateContentSize(width: number, height: number): void</p>
+<p>当媒体源切换时，向画中画控制器更新媒体源尺寸信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>width<td>number<td>是<td>表示媒体内容宽度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。<tr><td>height<td>number<td>是<td>表示媒体内容高度，必须为大于0的整数，单位为px。用于更新画中画窗口比例。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: The PiPController is not created or destroyed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let width: number = 540; // 假设当前内容宽度变为540px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let height: number = 960; // 假设当前内容高度变为960px。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.updateContentSize(width, height);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatepipcontrolstatus12>updatePiPControlStatus12+<a href=#updatepipcontrolstatus12 class=hash-link aria-label=updatePiPControlStatus12+的直接链接 title=updatePiPControlStatus12+的直接链接 translate=no>​</a></h3>
+<p>updatePiPControlStatus(controlType: PiPControlType, status: PiPControlStatus): void</p>
+<p>更新画中画控制面板控件功能状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>controlType<td><a href=#pipcontroltype12 class="">PiPControlType</a><td>是<td>表示画中画控制面板控件类型。目前仅支持VIDEO_PLAY_PAUSE、MICROPHONE_SWITCH、CAMERA_SWITCH和MUTE_SWITCH这几种控件类型，传入其他控件类型不生效也不报错。<tr><td>status<td><a href=#pipcontrolstatus12 class="">PiPControlStatus</a><td>是<td>表示画中画控制面板控件状态。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: The PiPController is not created or destroyed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let status: PiPWindow.PiPControlStatus = PiPWindow.PiPControlStatus.PLAY; // 视频播放控制面板中播放/暂停控件为播放状态。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.updatePiPControlStatus(controlType, status);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=updatecontentnode18>updateContentNode18+<a href=#updatecontentnode18 class=hash-link aria-label=updateContentNode18+的直接链接 title=updateContentNode18+的直接链接 translate=no>​</a></h3>
+<p>updateContentNode(contentNode: typeNode.XComponent): Promise&lt;void></p>
+<p>更新画中画节点内容，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>contentNode<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-framenode/js-apis-arkui-framenode#xcomponent12>typeNode.XComponent</a><td>是<td>用于渲染画中画窗口中的内容。该参数不能为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed<tr><td>801<td>Capability not supported.Failed to call the API due to limited device capabilities.<tr><td>1300014<td>PiP internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { typeNode, UIContext } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: UIContext | undefined = undefined; // 可传入UIContext或在布局中通过this.getUIContext()为context赋有效值</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let contentNode = typeNode.createNode(context, "XComponent");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  this.pipController.updateContentNode(contentNode);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to update content node. Cause: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setpipcontrolenabled12>setPiPControlEnabled12+<a href=#setpipcontrolenabled12 class=hash-link aria-label=setPiPControlEnabled12+的直接链接 title=setPiPControlEnabled12+的直接链接 translate=no>​</a></h3>
+<p>setPiPControlEnabled(controlType: PiPControlType, enabled: boolean): void</p>
+<p>更新控制面板控件使能状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>controlType<td><a href=#pipcontroltype12 class="">PiPControlType</a><td>是<td>表示画中画控制面板控件类型。<tr><td>enabled<td>boolean<td>是<td>表示画中画控制面板控件使能状态。true表示控件为可使用状态，false则为禁用状态。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: The PiPController is not created or destroyed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let controlType: PiPWindow.PiPControlType = PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE; // 视频播放控制面板中播放/暂停控件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let enabled: boolean = false; // 视频播放控制面板中播放/暂停控件为禁用状态。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.setPiPControlEnabled(controlType, enabled);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getpipwindowinfo15>getPiPWindowInfo15+<a href=#getpipwindowinfo15 class=hash-link aria-label=getPiPWindowInfo15+的直接链接 title=getPiPWindowInfo15+的直接链接 translate=no>​</a></h3>
+<p>getPiPWindowInfo(): Promise&lt;<a href=#pipwindowinfo15 class="">PiPWindowInfo</a>></p>
+<p>获取画中画窗口信息，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#pipwindowinfo15 class="">PiPWindowInfo</a>><td>Promise对象，返回当前画中画窗口信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Capability not supported. Failed to call the API due to limited device capabilities.<tr><td>1300014<td>PiP internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let pipWindowInfo: PiPWindow.PiPWindowInfo | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let promise : Promise&lt;PiPWindow.PiPWindowInfo> = this.pipController.getPiPWindowInfo();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  promise.then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    pipWindowInfo = data;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Success in get pip window info. Info: ' + JSON.stringify(data));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to get pip window info. Cause code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get pip window info. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getpipsettingswitch20>getPiPSettingSwitch20+<a href=#getpipsettingswitch20 class=hash-link aria-label=getPiPSettingSwitch20+的直接链接 title=getPiPSettingSwitch20+的直接链接 translate=no>​</a></h3>
+<p>getPiPSettingSwitch(): Promise&lt;boolean></p>
+<p>获取设置中自动启动画中画开关的状态，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone设备、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回当前自动启动画中画开关状态，true表示开启，false表示关闭。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Capability not supported. Failed to call the API due to limited device capabilities.<tr><td>1300014<td>PiP internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let pipSwitchStatus: boolean | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let promise : Promise&lt;boolean> = this.pipController.getPiPSettingSwitch();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  promise.then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    pipSwitchStatus = data;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in getting pip switch status. switchStatus: ' + JSON.stringify(data));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to get pip switch status. Cause code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get pip switch status. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ispipactive23>isPiPActive23+<a href=#ispipactive23 class=hash-link aria-label=isPiPActive23+的直接链接 title=isPiPActive23+的直接链接 translate=no>​</a></h3>
+<p>isPiPActive(): Promise&lt;boolean></p>
+<p>获取画中画的隐藏状态。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。画中画生命周期不为<a href=#pipstate class="">STARTED</a>时调用本接口总是返回false。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1300014<td>PiP internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let pipActiveStatus: boolean | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let promise : Promise&lt;boolean> | undefined = this.pipController?.isPiPActive();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  promise?.then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    pipActiveStatus = data;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in getting pip active status. activeStatus: ' + JSON.stringify(data));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to get pip active status. Cause code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get pip active status. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onstatechange>on('stateChange')<a href=#onstatechange class=hash-link aria-label="on('stateChange')的直接链接" title="on('stateChange')的直接链接" translate=no>​</a></h3>
+<p>on(type: 'stateChange', callback: (state: PiPState, reason: string) => void): void</p>
+<p>开启画中画生命周期状态变化的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。<tr><td>callback<td>function<td>是<td>回调生命周期状态变化事件以及原因。  state：<a href=#pipstate class="">PiPState</a>，表示当前画中画生命周期状态。  reason：string，表示当前生命周期的切换原因。  在HarmonyOS 6.1.0之前，reason始终为“0”，无需关注。  从HarmonyOS 6.1.0开始，reason为当前生命周期的切换原因：  "requestStart"：应用调用startPip接口；  "autoStart"：应用退后台触发画中画自动启动；  "requestDelete"：应用调用stopPip接口；  "panelActionDelete"：用户点击画中画窗口的关闭按钮；  "dragDelete"：用户将画中画窗口拖入垃圾桶；  "panelActionRestore"：用户点击画中画窗口的还原按钮（无还原按钮时可点击画中画窗口）触发还原；  "other"：其他原因，如新的画中画窗口拉起导致当前窗口被关闭、应用主窗口被关闭等场景。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">this.pipController.on('stateChange', (state: PiPWindow.PiPState, reason: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let curState: string = '';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  switch (state) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.ABOUT_TO_START:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'ABOUT_TO_START';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.STARTED:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'STARTED';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.ABOUT_TO_STOP:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'ABOUT_TO_STOP';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.STOPPED:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'STOPPED';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.ABOUT_TO_RESTORE:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'ABOUT_TO_RESTORE';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPState.ERROR:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      curState = 'ERROR';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    default:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('stateChange:' + curState + ' reason:' + reason);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offstatechange>off('stateChange')<a href=#offstatechange class=hash-link aria-label="off('stateChange')的直接链接" title="off('stateChange')的直接链接" translate=no>​</a></h3>
+<p>off(type: 'stateChange'): void</p>
+<p>关闭画中画生命周期状态变化的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'stateChange'，即画中画生命周期状态变化事件。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">this.pipController.off('stateChange');</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oncontrolpanelactionevent>on('controlPanelActionEvent')<a href=#oncontrolpanelactionevent class=hash-link aria-label="on('controlPanelActionEvent')的直接链接" title="on('controlPanelActionEvent')的直接链接" translate=no>​</a></h3>
+<p>on(type: 'controlPanelActionEvent', callback: ControlPanelActionEventCallback): void</p>
+<p>开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。推荐使用<a href=#oncontrolevent12 class="">on('controlEvent')</a>来开启画中画控制面板控件动作事件的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。<tr><td>callback<td><a href=#controlpanelactioneventcallback12 class="">ControlPanelActionEventCallback</a><td>是<td>描述画中画控制面板控件动作事件回调。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">this.pipController.on('controlPanelActionEvent', (event: PiPWindow.PiPActionEventType, status?: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  switch (event) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case 'playbackStateChanged':</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (status === 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 停止视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else if (status === 1) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 播放视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case 'nextVideo':</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 切换到下一个视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case 'previousVideo':</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 切换到上一个视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case 'fastForward':</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 视频进度快进</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case 'fastBackward':</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 视频进度后退</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    default:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('registerActionEventCallback, event:' + event);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oncontrolevent12>on('controlEvent')12+<a href=#oncontrolevent12 class=hash-link aria-label="on('controlEvent')12+的直接链接" title="on('controlEvent')12+的直接链接" translate=no>​</a></h3>
+<p>on(type: 'controlEvent', callback: Callback&lt;ControlEventParam>): void</p>
+<p>开启画中画控制面板控件动作事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。<tr><td>callback<td>Callback&lt;<a href=#controleventparam12 class="">ControlEventParam</a>><td>是<td>描述画中画控制面板控件动作事件回调。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">this.pipController.on('controlEvent', (control) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  switch (control.controlType) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPControlType.VIDEO_PLAY_PAUSE:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (control.status === PiPWindow.PiPControlStatus.PAUSE) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 停止视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else if (control.status === PiPWindow.PiPControlStatus.PLAY) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 播放视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPControlType.VIDEO_NEXT:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 切换到下一个视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPControlType.VIDEO_PREVIOUS:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 切换到上一个视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPControlType.FAST_FORWARD:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 视频进度快进</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    case PiPWindow.PiPControlType.FAST_BACKWARD:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 视频进度后退</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    default:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      break;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('registerControlEventCallback, controlType:' + control.controlType + ', status' + control.status);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offcontrolpanelactionevent>off('controlPanelActionEvent')<a href=#offcontrolpanelactionevent class=hash-link aria-label="off('controlPanelActionEvent')的直接链接" title="off('controlPanelActionEvent')的直接链接" translate=no>​</a></h3>
+<p>off(type: 'controlPanelActionEvent'): void</p>
+<p>关闭画中画控制面板控件动作事件的监听。推荐使用<a href=#offcontrolevent12 class="">off('controlEvent')</a>来关闭画中画控制面板控件动作事件的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'controlPanelActionEvent'，即画中画控制面板控件动作事件。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">this.pipController.off('controlPanelActionEvent');</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offcontrolevent12>off('controlEvent')12+<a href=#offcontrolevent12 class=hash-link aria-label="off('controlEvent')12+的直接链接" title="off('controlEvent')12+的直接链接" translate=no>​</a></h3>
+<p>off(type: 'controlEvent', callback?: Callback&lt;ControlEventParam>): void</p>
+<p>关闭画中画控制面板控件动作事件的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'controlEvent'，即画中画控制面板控件动作事件。<tr><td>callback<td>Callback&lt;<a href=#controleventparam12 class="">ControlEventParam</a>><td>否<td>描述画中画控制面板控件动作事件回调。如果未传入参数，解除type为'controlEvent'的所有回调。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let callbackFunc = (event: PiPWindow.ControlEventParam) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`receive control event: ${event.controlType}, ${event.status}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.off('controlEvent', callbackFunc);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onpipwindowsizechange15>on('pipWindowSizeChange')15+<a href=#onpipwindowsizechange15 class=hash-link aria-label="on('pipWindowSizeChange')15+的直接链接" title="on('pipWindowSizeChange')15+的直接链接" translate=no>​</a></h3>
+<p>on(type: 'pipWindowSizeChange', callback: Callback&lt;PiPWindowSize>): void</p>
+<p>开启画中画窗口尺寸变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。<tr><td>callback<td>Callback&lt;<a href=#pipwindowsize15 class="">PiPWindowSize</a>><td>是<td>回调函数。返回当前画中画窗口的尺寸。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-graphics-images-arkts-errcode/errorcode-window/errorcode-window>窗口错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: Callback is already registered.<tr><td>801<td>Capability not supported.Failed to call the API due to limited device capabilities.<tr><td>1300014<td>PiP internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  this.pipController.on('pipWindowSizeChange', (size: PiPWindow.PiPWindowSize) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('Succeeded in enabling the listener for pip window size changes. size: ' + JSON.stringify(size));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offpipwindowsizechange15>off('pipWindowSizeChange')15+<a href=#offpipwindowsizechange15 class=hash-link aria-label="off('pipWindowSizeChange')15+的直接链接" title="off('pipWindowSizeChange')15+的直接链接" translate=no>​</a></h3>
+<p>off(type: 'pipWindowSizeChange', callback?: Callback&lt;PiPWindowSize>): void</p>
+<p>关闭画中画窗口尺寸变化事件的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'pipWindowSizeChange'，即画中画窗口尺寸变化事件。<tr><td>callback<td>Callback&lt;<a href=#pipwindowsize15 class="">PiPWindowSize</a>><td>否<td>回调函数。返回当前画中画窗口的尺寸。如果传入参数，则关闭该监听。如果未传入参数，解除type为'pipWindowSizeChange'的所有回调。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Params error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.<tr><td>801<td>Capability not supported.Failed to call the API due to limited device capabilities.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">const callback = (size: PiPWindow.PiPWindowSize) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 通过on接口开启监听</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  this.pipController.on('pipWindowSizeChange', callback);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to enable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 关闭指定callback的监听</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  this.pipController.off('pipWindowSizeChange', callback);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 如果通过on开启多个callback进行监听，同时关闭所有监听：</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  this.pipController.off('pipWindowSizeChange');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (exception) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to disable the listener for pip window size changes. Cause code: ${exception.code}, message: ${exception.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onactivestatuschange22>on('activeStatusChange')22+<a href=#onactivestatuschange22 class=hash-link aria-label="on('activeStatusChange')22+的直接链接" title="on('activeStatusChange')22+的直接链接" translate=no>​</a></h3>
+<p>on(type: 'activeStatusChange', callback: Callback&lt;boolean>): void</p>
+<p>开启画中画窗口隐藏状态变化事件的监听，建议在不需要使用时关闭监听，否则可能存在内存泄漏。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。<tr><td>callback<td>Callback&lt;boolean><td>是<td>返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let callback = (activeStatus: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`pip window is visible: ${activeStatus}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.on('activeStatusChange', callback);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offactivestatuschange22>off('activeStatusChange')22+<a href=#offactivestatuschange22 class=hash-link aria-label="off('activeStatusChange')22+的直接链接" title="off('activeStatusChange')22+的直接链接" translate=no>​</a></h3>
+<p>off(type: 'activeStatusChange', callback?: Callback&lt;boolean>): void</p>
+<p>关闭画中画窗口隐藏状态变化事件的监听。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Window.SessionManager</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>事件类型，固定为'activeStatusChange'，即画中画隐藏状态变化事件。<tr><td>callback<td>Callback&lt;boolean><td>否<td>返回当前画中画的隐藏状态。true表示前台可见，false表示前台不可见（收入侧边栏）。如果未传入参数，解除type为'activeStatusChange'的所有回调。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let callback = (activeStatus: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`pip window is visible: ${activeStatus}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">this.pipController.off('activeStatusChange', callback);</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-resource/js-apis-arkui-resource><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Resource</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-floatingball/js-apis-floatingball><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.window.floatingBall (闪控球窗口)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#pipwindowispipenabled class="table-of-contents__link toc-highlight">PiPWindow.isPiPEnabled</a><li><a href=#pipwindowcreate class="table-of-contents__link toc-highlight">PiPWindow.create</a><li><a href=#pipwindowcreate12 class="table-of-contents__link toc-highlight">PiPWindow.create12+</a><li><a href=#pipconfiguration class="table-of-contents__link toc-highlight">PiPConfiguration</a><li><a href=#pipwindowsize15 class="table-of-contents__link toc-highlight">PiPWindowSize15+</a><li><a href=#pipwindowinfo15 class="table-of-contents__link toc-highlight">PiPWindowInfo15+</a><li><a href=#piptemplatetype class="table-of-contents__link toc-highlight">PiPTemplateType</a><li><a href=#pipstate class="table-of-contents__link toc-highlight">PiPState</a><li><a href=#pipcontrolgroup12 class="table-of-contents__link toc-highlight">PiPControlGroup12+</a><li><a href=#videoplaycontrolgroup12 class="table-of-contents__link toc-highlight">VideoPlayControlGroup12+</a><li><a href=#videocallcontrolgroup12 class="table-of-contents__link toc-highlight">VideoCallControlGroup12+</a><li><a href=#videomeetingcontrolgroup12 class="table-of-contents__link toc-highlight">VideoMeetingControlGroup12+</a><li><a href=#videolivecontrolgroup12 class="table-of-contents__link toc-highlight">VideoLiveControlGroup12+</a><li><a href=#pipactioneventtype class="table-of-contents__link toc-highlight">PiPActionEventType</a><li><a href=#pipvideoactionevent class="table-of-contents__link toc-highlight">PiPVideoActionEvent</a><li><a href=#pipcallactionevent class="table-of-contents__link toc-highlight">PiPCallActionEvent</a><li><a href=#pipmeetingactionevent class="table-of-contents__link toc-highlight">PiPMeetingActionEvent</a><li><a href=#pipliveactionevent class="table-of-contents__link toc-highlight">PiPLiveActionEvent</a><li><a href=#pipcontrolstatus12 class="table-of-contents__link toc-highlight">PiPControlStatus12+</a><li><a href=#pipcontroltype12 class="table-of-contents__link toc-highlight">PiPControlType12+</a><li><a href=#controlpanelactioneventcallback12 class="table-of-contents__link toc-highlight">ControlPanelActionEventCallback12+</a><li><a href=#controleventparam12 class="table-of-contents__link toc-highlight">ControlEventParam12+</a><li><a href=#pipcontroller class="table-of-contents__link toc-highlight">PiPController</a><ul><li><a href=#startpip class="table-of-contents__link toc-highlight">startPiP</a><li><a href=#stoppip class="table-of-contents__link toc-highlight">stopPiP</a><li><a href=#setautostartenabled class="table-of-contents__link toc-highlight">setAutoStartEnabled</a><li><a href=#updatecontentsize class="table-of-contents__link toc-highlight">updateContentSize</a><li><a href=#updatepipcontrolstatus12 class="table-of-contents__link toc-highlight">updatePiPControlStatus12+</a><li><a href=#updatecontentnode18 class="table-of-contents__link toc-highlight">updateContentNode18+</a><li><a href=#setpipcontrolenabled12 class="table-of-contents__link toc-highlight">setPiPControlEnabled12+</a><li><a href=#getpipwindowinfo15 class="table-of-contents__link toc-highlight">getPiPWindowInfo15+</a><li><a href=#getpipsettingswitch20 class="table-of-contents__link toc-highlight">getPiPSettingSwitch20+</a><li><a href=#ispipactive23 class="table-of-contents__link toc-highlight">isPiPActive23+</a><li><a href=#onstatechange class="table-of-contents__link toc-highlight">on('stateChange')</a><li><a href=#offstatechange class="table-of-contents__link toc-highlight">off('stateChange')</a><li><a href=#oncontrolpanelactionevent class="table-of-contents__link toc-highlight">on('controlPanelActionEvent')</a><li><a href=#oncontrolevent12 class="table-of-contents__link toc-highlight">on('controlEvent')12+</a><li><a href=#offcontrolpanelactionevent class="table-of-contents__link toc-highlight">off('controlPanelActionEvent')</a><li><a href=#offcontrolevent12 class="table-of-contents__link toc-highlight">off('controlEvent')12+</a><li><a href=#onpipwindowsizechange15 class="table-of-contents__link toc-highlight">on('pipWindowSizeChange')15+</a><li><a href=#offpipwindowsizechange15 class="table-of-contents__link toc-highlight">off('pipWindowSizeChange')15+</a><li><a href=#onactivestatuschange22 class="table-of-contents__link toc-highlight">on('activeStatusChange')22+</a><li><a href=#offactivestatuschange22 class="table-of-contents__link toc-highlight">off('activeStatusChange')22+</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

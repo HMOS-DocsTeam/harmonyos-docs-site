@@ -1,0 +1,901 @@
+"use strict";
+(self["webpackChunkharmonyos_docs_site"] = self["webpackChunkharmonyos_docs_site"] || []).push([["986367"], {
+37068(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  metadata: () => (/* reexport */ site_docs_graphics_accelerate_kit_guide_graphics_accelerate_assetdownload_graphics_accelerate_assetdownload_service_graphics_accelerate_assetdownload_release_graphics_accelerate_assetdownload_release_md_b7f_namespaceObject),
+  "default": () => (/* binding */ MDXContent),
+  frontMatter: () => (/* binding */ frontMatter),
+  contentTitle: () => (/* binding */ contentTitle),
+  toc: () => (/* binding */ toc),
+  assets: () => (/* binding */ assets)
+});
+
+;// CONCATENATED MODULE: ./.docusaurus/docusaurus-plugin-content-docs/default/site-docs-graphics-accelerate-kit-guide-graphics-accelerate-assetdownload-graphics-accelerate-assetdownload-service-graphics-accelerate-assetdownload-release-graphics-accelerate-assetdownload-release-md-b7f.json
+var site_docs_graphics_accelerate_kit_guide_graphics_accelerate_assetdownload_graphics_accelerate_assetdownload_service_graphics_accelerate_assetdownload_release_graphics_accelerate_assetdownload_release_md_b7f_namespaceObject = JSON.parse('{"id":"graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release/graphics-accelerate-assetdownload-release","title":"发布资源包下载任务","description":"在AppGallery Connect支持创建“使用华为CDN”或“使用三方CDN”的游戏资源包下载任务。","source":"@site/docs/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release/graphics-accelerate-assetdownload-release.md","sourceDirName":"graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release","slug":"/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release/","permalink":"/harmonyos-docs-site/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release/","draft":false,"unlisted":false,"tags":[],"version":"current","sidebarPosition":6,"frontMatter":{"title":"发布资源包下载任务","sidebar_position":6,"original_url":"https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-release","kit":"graphics","last_updated":"2026-04-22"},"sidebar":"docs","previous":{"title":"系统后台切应用前台接续下载资源包","permalink":"/harmonyos-docs-site/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-back-fore/"},"next":{"title":"查看资源包分发数据","permalink":"/harmonyos-docs-site/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-data/"}}')
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(474848);
+// EXTERNAL MODULE: ./node_modules/@mdx-js/react/lib/index.js
+var lib = __webpack_require__(28453);
+;// CONCATENATED MODULE: ./docs/graphics-accelerate-kit-guide/graphics-accelerate-assetdownload/graphics-accelerate-assetdownload-service/graphics-accelerate-assetdownload-release/graphics-accelerate-assetdownload-release.md
+
+
+const frontMatter = {
+	title: '发布资源包下载任务',
+	sidebar_position: 6,
+	original_url: 'https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/graphics-accelerate-assetdownload-release',
+	kit: 'graphics',
+	last_updated: '2026-04-22'
+};
+const contentTitle = '发布资源包下载任务';
+
+const assets = {
+
+};
+
+
+
+const toc = [{
+  "value": "前提条件",
+  "id": "前提条件",
+  "level": 2
+}, {
+  "value": "进入申请页面",
+  "id": "进入申请页面",
+  "level": 2
+}, {
+  "value": "创建下载任务",
+  "id": "创建下载任务",
+  "level": 2
+}, {
+  "value": "资源包下载方式一：使用三方CDN",
+  "id": "资源包下载方式一使用三方cdn",
+  "level": 3
+}, {
+  "value": "资源包下载方式二：使用华为CDN",
+  "id": "资源包下载方式二使用华为cdn",
+  "level": 3
+}, {
+  "value": "提交下载任务",
+  "id": "提交下载任务",
+  "level": 2
+}, {
+  "value": "测试下载功能",
+  "id": "测试下载功能",
+  "level": 2
+}, {
+  "value": "打开资源包自动更新开关",
+  "id": "打开资源包自动更新开关",
+  "level": 3
+}, {
+  "value": "配置设备号",
+  "id": "配置设备号",
+  "level": 3
+}, {
+  "value": "验证方式",
+  "id": "验证方式",
+  "level": 3
+}, {
+  "value": "发布下载任务",
+  "id": "发布下载任务",
+  "level": 2
+}, {
+  "value": "下载任务状态说明",
+  "id": "下载任务状态说明",
+  "level": 2
+}];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    header: "header",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [(0,jsx_runtime.jsx)(_components.header, {
+      children: (0,jsx_runtime.jsx)(_components.h1, {
+        id: "发布资源包下载任务",
+        children: "发布资源包下载任务"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "在AppGallery Connect支持创建“使用华为CDN”或“使用三方CDN”的游戏资源包下载任务。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "前提条件",
+      children: "前提条件"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["已准备好游戏资源包并加密，且自行保证游戏资源包的可用性。资源包支持的格式请参见", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/graphics-accelerate-kit-guide/graphics-accelerate-faq/graphics-accelerate-assetdownload-faq/graphics-accelerate-assetdownload-faq-1",
+          children: "上传至华为CDN的资源包文件支持哪些格式类型"
+        }), "。"]
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "游戏资源包支持使用三方CDN或托管至华为CDN。若使用三方CDN，请提前将资源包上传至三方CDN服务器。若托管至华为CDN，将在AppGallery Connect上传资源包，一个下载任务中的每个资源包大小不超过2GB，所有任务的资源包总大小不超过150GB。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "进入申请页面",
+      children: "进入申请页面"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["登录", (0,jsx_runtime.jsx)(_components.a, {
+        href: "https://developer.huawei.com/consumer/cn/service/josp/agc/index.html",
+        children: "AppGallery Connect"
+      }), "，点击“APP与元服务 ”，在游戏列表中选择游戏后，选择“分发 > 服务 > 资源包后台下载申请”，在页面右侧点击“申请”。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(717117)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "若列表中有“审核中”、“预上线”、“已发布”、“任务暂停”中的任一状态任务，将无法点击“申请”，需要终止该任务后才能申请。"
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["资源包下载任务的状态说明请参见", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1%E7%8A%B6%E6%80%81%E8%AF%B4%E6%98%8E",
+          children: "下载任务状态说明"
+        }), "。"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(831142)/* ["default"] */.A) + "",
+        width: "1304",
+        height: "394"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "创建下载任务",
+      children: "创建下载任务"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "资源包下载方式一使用三方cdn",
+      children: "资源包下载方式一：使用三方CDN"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(167360)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "已提前将资源包上传至三方CDN服务器。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "在“资源包后台下载申请”页面填写资源包信息后，点击“提交申请”，提交资源包下载任务。若暂不提交该任务，点击“保存草稿”，允许继续编辑后再提交申请。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(733947)/* ["default"] */.A) + "",
+        width: "964",
+        height: "494"
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "配置项"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "填写说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "下载类型"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "请选择下载器，建议根据应用自身是否有下载器进行选择：  - 应用自身无下载器，建议选择“extension系统托管下载”。选择后，将由华为提供的系统下载器下载游戏资源包。  - 应用自身有下载器，建议选择“extension协同下载”。选择后，将由应用自身下载器下载游戏资源包。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "CDN"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "选择“使用三方CDN”。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "指定下载时间段"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "用户向三方CDN服务器请求下载游戏资源包的时间段。步骤如下：  1. 打开“指定下载时间段”开关。  2. 点击“添加时间段”，指定开始时间和结束时间，最多可支持添加20个时间段，且多个时间段不能重叠。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "包体大小"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "填写已上传至三方CDN服务器的资源包大小。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "CDN域名白名单"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "英文逗号隔开，最多添加20个。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "资源包下载方式二使用华为cdn",
+      children: "资源包下载方式二：使用华为CDN"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(338610)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["除了支持在AppGallery Connect“页面”方式创建“华为CDN”的资源包下载任务，还支持开发者使用“API”方式创建“华为CDN”的资源包下载任务，详情请参见", (0,jsx_runtime.jsx)(_components.a, {
+        href: "https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agcapi-res-pkg-preload-0000002362269981",
+        children: "API接口"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "在“资源包后台下载申请”页面填写资源包信息，具体步骤如下："
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(183909)/* ["default"] */.A) + "",
+        width: "861",
+        height: "856"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: ["“下载类型”请选择“", (0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "extension系统托管下载"
+            })
+          }), "”。"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: ["“CDN”选择“", (0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "使用华为CDN"
+            })
+          }), "”。"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "设置资源包下载的开始时间和结束时间"
+            })
+          }), "。要求如下："]
+        }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+          children: [(0,jsx_runtime.jsx)(_components.thead, {
+            children: (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.th, {
+                children: "要求"
+              }), (0,jsx_runtime.jsx)(_components.th, {
+                children: "举例"
+              })]
+            })
+          }), (0,jsx_runtime.jsxs)(_components.tbody, {
+            children: [(0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "开始时间和结束时间的生效时间均为用户设备的本地时间。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "-"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "开始时间和结束时间只能选择到天。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "- 开始时间选择2024年4月2日，则默认开始时间为2024年4月2日0点。  - 结束时间选择2024年4月10日，则默认结束时间为2024年4月10日23点59分。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "开始时间和结束时间最长间隔为14天。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "-"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "资源包下载申请只有华为运营审批通过后，才能正式对外发布，因此请提前1~3天申请资源包下载任务，给华为运营预留时间进行审批。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "申请资源包下载任务时，开始时间选择2024年4月2日，结束时间选择2024年4月10日。  若华为运营审核通过，正式对外发布的时间为2024年4月5日，则当前资源包下载任务只能从2024年4月5日开始执行。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "游戏资源包在用户客户端最长保留时间为14天，开始时间需要根据游戏首发或游戏发布更新版本的时间合理安排。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "申请资源包下载任务时，开始时间选择2024年4月2日，结束时间选择2024年4月10日。  下载任务在2024年4月2日审核通过并对外正式发布，此后符合条件的用户设备就会将资源包下载到设备本地，直到2024年4月10日任务结束。  但您在4月25日才在华为应用市场上架游戏的最新版本，而此时用户设备的游戏资源包已经过了14天的最大保留时间，系统会自动删除设备本地的游戏资源包，从而导致用户下载游戏后无法加载下载的游戏资源包。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "开始时间设置后如果更改，则结束时间自动清除，需要重新选择。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "-"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "如果审核通过的时间已经晚于下载结束时间，则审核通过后任务会直接变为“任务结束”状态。"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "-"
+              })]
+            })]
+          })]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "填写资源包版本号"
+            })
+          }), "。版本号用于跟踪不同资源包的下载任务，版本号要求不超过9位的整数，且必须高于已创建任务的版本号。重新编辑“草稿”、“预上线”、“任务结束”状态的资源包下载任务时，资源包版本号也不能低于已有的版本号。"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "上传资源包"
+            })
+          }), "。在“上传资源包”栏点击“选择文件”，上传提前准备好的游戏资源包。"]
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(712919)/* ["default"] */.A) + "",
+            width: "102",
+            height: "38"
+          })
+        }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+          children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+            children: "同一个开发者支持上传至华为CDN的资源包总大小不超过150GB，且历史任务的资源包文件最多保留半年。"
+          }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+            children: "上传资源包文件的过程中，若提示华为CDN空间已满，开发者应删除历史无用的资源包文件或下载任务。"
+          }), "\n"]
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "资源包上传过程及最终状态分为如下几种："
+        }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+          children: [(0,jsx_runtime.jsx)(_components.thead, {
+            children: (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.th, {
+                children: "游戏资源包的文件状态"
+              }), (0,jsx_runtime.jsx)(_components.th, {
+                children: "处理说明"
+              })]
+            })
+          }), (0,jsx_runtime.jsxs)(_components.tbody, {
+            children: [(0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "上传中...进度x%"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "等待资源包上传完成，如需停止上传，可以点击“取消上传”。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "上传失败"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "检查网络是否正常、资源包大小是否超过上限，如无异常，可点击“删除”将游戏资源包删除，并重新上传资源包。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "扫描中"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "等待游戏资源包扫描完成。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "扫描不通过，可能存在病毒"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "点击“删除”将游戏资源包删除，并检查包体中是否存在病毒，修复资源包后重新上传。"
+              })]
+            }), (0,jsx_runtime.jsxs)(_components.tr, {
+              children: [(0,jsx_runtime.jsx)(_components.td, {
+                children: "扫描通过"
+              }), (0,jsx_runtime.jsx)(_components.td, {
+                children: "表示游戏资源包上传成功。"
+              })]
+            })]
+          })]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "（可选）填写hotversion。开发者可以通过hotversion版本号指定下一级文件的存储路径。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(223007)/* ["default"] */.A) + "",
+            width: "1084",
+            height: "144"
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "例如，资源包版本号为2.1，hotversion为2.1.0，资源包文件的存储路径如下："
+        }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+          children: (0,jsx_runtime.jsx)(_components.code, {
+            children: "└──appid  10035                              // 游戏APP ID\n   ├──v2.1/                                  // 资源包版本号\n   │  ├──v2.1.0/                              // hotversion\n   │  │  ├──button.png?v=20240223            // 资源包文件\n   │  │  ├──font.ttf?v=20240210              // 资源包文件\n   │  │  └──font.ttf?v=20240213              // 资源包文件\n   │  └──v2.1.1/                             // hotversion\n   │     └──font.ttf?v=20240214             // 资源包文件\n   └──v2.0/\n"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "提交资源包下载任务"
+            })
+          }), "。点击“提交申请”提交资源包下载任务。若暂不提交该任务，点击“保存草稿”，允许继续编辑后再提交申请。"]
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "提交下载任务",
+      children: "提交下载任务"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["在", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1",
+        children: "创建下载任务"
+      }), "时已提交申请，可跳过当前步骤。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["在", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1",
+        children: "创建下载任务"
+      }), "时保存为草稿，请继续编辑后再提交申请。具体步骤如下："]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "在任务列表中找到“草稿”状态的任务，点击“操作”列中的“编辑”进入申请详情页。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(60154)/* ["default"] */.A) + "",
+            width: "1344",
+            height: "183"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: ["在申请页填写资源包信息，填写要求请参见", (0,jsx_runtime.jsx)(_components.a, {
+            href: "#%E5%88%9B%E5%BB%BA%E4%B8%8B%E8%BD%BD%E4%BB%BB%E5%8A%A1",
+            children: "创建下载任务"
+          }), "。完成后，点击“提交申请”提交资源包下载任务，当前任务状态变更为“预上线”。"]
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(861078)/* ["default"] */.A) + "",
+            width: "544",
+            height: "144"
+          })
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "测试下载功能",
+      children: "测试下载功能"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "正式发布下载任务前， 请在本地测试“预上线”状态的任务是否可以成功下载资源包。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "打开资源包自动更新开关",
+      children: "打开资源包自动更新开关"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "请在HarmonyOS 5.1.0及以上版本测试设备的“游戏中心”客户端打开“我的 > 设置 > 服务管理 > 游戏服务”，打开“允许资源包自动更新”开关。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(150075)/* ["default"] */.A) + "",
+        title: "点击放大",
+        width: "307",
+        height: "628"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "配置设备号",
+      children: "配置设备号"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "输入如下命令行，获取测试设备的设备号。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+          children: (0,jsx_runtime.jsx)(_components.code, {
+            children: "hdc shell bm get --udid\n"
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(962007)/* ["default"] */.A) + "",
+            width: "555",
+            height: "70"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "在AppGallery Connect页面点击“测试设备”后的“编辑”。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(767719)/* ["default"] */.A) + "",
+            width: "1324",
+            height: "178"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "在输入框中最多添加10台测试设备的设备号，且使用英文逗号（,）间隔开，完成后点击“保存”。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(89996)/* ["default"] */.A) + "",
+            width: "1304",
+            height: "179"
+          })
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "验证方式",
+      children: "验证方式"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "如果游戏未安装，则安装游戏。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+          children: (0,jsx_runtime.jsx)(_components.code, {
+            children: "// 输入命令行，安装游戏。\n// \"entry-default-signed.hap\"为示例包名，请根据您项目的实际包名替换使用。\nhdc install .\\entry-default-signed.hap\n"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "如果游戏已安装，则执行模拟设备闲时命令。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+          children: (0,jsx_runtime.jsx)(_components.code, {
+            children: "// 输入命令行，模拟设备满足闲时条件。\nhdc shell hidumper -s 1904 -a \"-s 66272 7800\"\n"
+          })
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "验证以上两个场景是否触发系统后台下载资源包：查看测试设备的通知栏出现下载任务，则系统后台下载资源包功能验证通过。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(518091)/* ["default"] */.A) + "",
+            title: "点击放大",
+            width: "307",
+            height: "628"
+          })
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "发布下载任务",
+      children: "发布下载任务"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "在任务列表找到“预上线”状态的任务，点击“操作”列中的“发布”。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(409174)/* ["default"] */.A) + "",
+            width: "1344",
+            height: "177"
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "在弹出的提示窗中点击“确认”。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(387903)/* ["default"] */.A) + "",
+            width: "404",
+            height: "154"
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "发布该任务后，华为运营人员将在1~3个工作日内完成审批，请耐心等待。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "任务通过审批后，游戏资源包将在指定时间内向满足条件的用户设备进行推送。"
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "若需要终止已发布的任务，可以在任务列表中主动点击“终止”。"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.img, {
+            src: (__webpack_require__(242404)/* ["default"] */.A) + "",
+            width: "1374",
+            height: "182"
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "此时，系统将不再对该资源包进行自动下载。对于用户设备上已开始下载的游戏资源包不会立刻删除，而是在下一次启动自动更新时，删除下载时间大于7*24小时的游戏资源包。"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "下载任务状态说明",
+      children: "下载任务状态说明"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "序号"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "状态"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "草稿"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "填写信息后保存为草稿后的状态，草稿状态的任务支持“编辑”和“删除”。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "2"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "预上线"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "提交申请后的状态，任务可以在这个状态下进行资源包下载测试。预上线状态的任务支持“发布”和“终止”。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "3"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "审核中"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "“预上线”状态的任务点击“发布”后的状态。审核中的任务不支持执行任何操作。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "4"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "审核不通过"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "任务点击“发布”后提交到华为运营人员审核，审核不通过的状态。审核不通过的任务支持重新“编辑”。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "5"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "已发布"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "任务审核通过后任务正式发布的状态，发布中的任务仅支持“终止”。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "6"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "任务结束"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "本次下载任务执行结束或者被华为运营人员终止了任务。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "7"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "任务暂停"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "被华为运营人员暂停了任务。"
+          })]
+        })]
+      })]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return MDXLayout ? (0,jsx_runtime.jsx)(MDXLayout, {
+    ...props,
+    children: (0,jsx_runtime.jsx)(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+
+
+
+},
+167360(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+767719(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552799074-37b1dd9e594d0020ee0d27884afab206.png");
+
+},
+387903(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+733947(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583438765-1af655947e50d307d3f27a6a73b50d8c.png");
+
+},
+518091(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552958724-993e4d94f97aa571f7dd314ce53c0bcd.png");
+
+},
+962007(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAisAAABGCAIAAACCOUPSAAAACXBIWXMAAA7EAAAOxAGVKw4bAAAF5GlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNy4xLWMwMDAgNzkuYTg3MzFiOSwgMjAyMS8wOS8wOS0wMDozNzozOCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOnBob3Rvc2hvcD0iaHR0cDovL25zLmFkb2JlLmNvbS9waG90b3Nob3AvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0RXZ0PSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VFdmVudCMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIyLjUgKFdpbmRvd3MpIiB4bXA6Q3JlYXRlRGF0ZT0iMjAyNC0xMi0xMFQxNjo1ODoxMiswODowMCIgeG1wOk1vZGlmeURhdGU9IjIwMjQtMTItMTBUMTY6NTk6MzIrMDg6MDAiIHhtcDpNZXRhZGF0YURhdGU9IjIwMjQtMTItMTBUMTY6NTk6MzIrMDg6MDAiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0ic1JHQiBJRUM2MTk2Ni0yLjEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MjlhYmZmYjQtZDgzOC00YzRlLWFhNGUtMTA0ZWQ2OGYwOTg0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjBmNjA3YThlLTBmMmItNmE0OC1iODg4LTdhY2UwMzdkNmY3ZSIgeG1wTU06T3JpZ2luYWxEb2N1bWVudElEPSJ4bXAuZGlkOjBmNjA3YThlLTBmMmItNmE0OC1iODg4LTdhY2UwMzdkNmY3ZSI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6MGY2MDdhOGUtMGYyYi02YTQ4LWI4ODgtN2FjZTAzN2Q2ZjdlIiBzdEV2dDp3aGVuPSIyMDI0LTEyLTEwVDE2OjU4OjEyKzA4OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjIuNSAoV2luZG93cykiLz4gPHJkZjpsaSBzdEV2dDphY3Rpb249InNhdmVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjI5YWJmZmI0LWQ4MzgtNGM0ZS1hYTRlLTEwNGVkNjhmMDk4NCIgc3RFdnQ6d2hlbj0iMjAyNC0xMi0xMFQxNjo1OTozMiswODowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIyLjUgKFdpbmRvd3MpIiBzdEV2dDpjaGFuZ2VkPSIvIi8+IDwvcmRmOlNlcT4gPC94bXBNTTpIaXN0b3J5PiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pk7kRtQAAAhCSURBVHic7d09c9NKFIdx3TuXFCEFDRRJkyYUgYKGikYVn9sNPQ0pSJMmDAMNDRkGmlt40Cjnvy9nV5JXtp9f5ZzI+yZ5V5JX63/Ozs46AAB27t/WBQAAHClGIABAG4xAAIA2GIEAAG0wAgEA2mAEAgC0wQgEAGiDEQgA0AYjEACgDUYgAEAbjEAAgDb+mz3FzWbT9/3syVYLluf8/Hz8558/f7LpnJycmMjp6amJ/Pjxw0SePn1qIhcXFyby+fPn7Daa8tXVlYnc3d2ZyO3tbQcAa+W6Bto8lt6473vd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");
+
+},
+861078(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+150075(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552958722-ca04b9986a9bcd3042a7d4c63eed5cf9.png");
+
+},
+223007(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583478721-ef557a0f44fb8a98c42b2941e8317a6b.png");
+
+},
+717117(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+409174(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583478725-2b103d6093a835ec959ab0d0dfe86dd4.png");
+
+},
+60154(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552799072-42c9e14d64aee763cdf1cd170dbdc7e0.png");
+
+},
+712919(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+242404(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583438771-ac1fc038f40571cae40f6afc8a399af4.png");
+
+},
+338610(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+831142(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552799070-00b9eb86a6854b031b22e8fd72e85176.png");
+
+},
+89996(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583438769-fbd6147f06d69f3e23e590a4ba5419aa.png");
+
+},
+183909(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552958720-3062c7376f3176c510fa663cb052dd1c.png");
+
+},
+28453(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  R: () => (useMDXComponents),
+  x: () => (MDXProvider)
+});
+/* import */ var react__rspack_import_0 = __webpack_require__(296540);
+/**
+ * @import {MDXComponents} from 'mdx/types.js'
+ * @import {Component, ReactElement, ReactNode} from 'react'
+ */
+
+/**
+ * @callback MergeComponents
+ *   Custom merge function.
+ * @param {Readonly<MDXComponents>} currentComponents
+ *   Current components from the context.
+ * @returns {MDXComponents}
+ *   Additional components.
+ *
+ * @typedef Props
+ *   Configuration for `MDXProvider`.
+ * @property {ReactNode | null | undefined} [children]
+ *   Children (optional).
+ * @property {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @property {boolean | null | undefined} [disableParentContext=false]
+ *   Turn off outer component context (default: `false`).
+ */
+
+
+
+/** @type {Readonly<MDXComponents>} */
+const emptyComponents = {}
+
+const MDXContext = react__rspack_import_0.createContext(emptyComponents)
+
+/**
+ * Get current components from the MDX Context.
+ *
+ * @param {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @returns {MDXComponents}
+ *   Current components.
+ */
+function useMDXComponents(components) {
+  const contextComponents = react__rspack_import_0.useContext(MDXContext)
+
+  // Memoize to avoid unnecessary top-level context changes
+  return react__rspack_import_0.useMemo(
+    function () {
+      // Custom merge via a function prop
+      if (typeof components === 'function') {
+        return components(contextComponents)
+      }
+
+      return {...contextComponents, ...components}
+    },
+    [contextComponents, components]
+  )
+}
+
+/**
+ * Provider for MDX context.
+ *
+ * @param {Readonly<Props>} properties
+ *   Properties.
+ * @returns {ReactElement}
+ *   Element.
+ * @satisfies {Component}
+ */
+function MDXProvider(properties) {
+  /** @type {Readonly<MDXComponents>} */
+  let allComponents
+
+  if (properties.disableParentContext) {
+    allComponents =
+      typeof properties.components === 'function'
+        ? properties.components(emptyComponents)
+        : properties.components || emptyComponents
+  } else {
+    allComponents = useMDXComponents(properties.components)
+  }
+
+  return react__rspack_import_0.createElement(
+    MDXContext.Provider,
+    {value: allComponents},
+    properties.children
+  )
+}
+
+
+},
+
+}]);

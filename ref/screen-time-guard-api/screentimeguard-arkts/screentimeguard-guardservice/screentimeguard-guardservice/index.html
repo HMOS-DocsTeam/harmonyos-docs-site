@@ -1,0 +1,1092 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>GuardService（屏幕时间守护服务） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="GuardService（屏幕时间守护服务） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块提供管控Screen Time Guard Kit对外开放能力，包括应用授权能力、使用时长管控、应用访问限制等功能。"/><meta data-rh=true property=og:description content="本模块提供管控Screen Time Guard Kit对外开放能力，包括应用授权能力、使用时长管控、应用访问限制等功能。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice","name":"GuardService（屏幕时间守护服务）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title="Account Kit（华为账号服务）" class=categoryLinkLabel_W154>Account Kit（华为账号服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ads-api/ads-arkts/js-apis-advertising/js-apis-advertising><span title="Ads Kit（广告服务）" class=categoryLinkLabel_W154>Ads Kit（广告服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/store-api/store-arkts/store-moduleinstallmanager/store-moduleinstallmanager><span title="AppGallery Kit（应用市场服务）" class=categoryLinkLabel_W154>AppGallery Kit（应用市场服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/app-linking-api/applinking-arkts-api/applinking-deferredlink-api/applinking-deferredlink-api><span title="App Linking Kit（应用链接服务）" class=categoryLinkLabel_W154>App Linking Kit（应用链接服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/calendar-api/calendar-arkts/js-apis-calendarmanager/js-apis-calendarmanager><span title="Calendar Kit（日历服务）" class=categoryLinkLabel_W154>Calendar Kit（日历服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/call-api/call-arkts/call-voipcall/call-voipcall><span title="Call Service Kit（通话服务）" class=categoryLinkLabel_W154>Call Service Kit（通话服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cloud-foundation-api/cloudfoundation-arkts-api/cloudfoundation-cloudcommon/cloudfoundation-cloudcommon><span title="Cloud Foundation Kit（云开发服务）" class=categoryLinkLabel_W154>Cloud Foundation Kit（云开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/contacts-api/contacts-arkts/js-apis-contact/js-apis-contact><span title="Contacts Kit（联系人服务）" class=categoryLinkLabel_W154>Contacts Kit（联系人服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/enterprise-space-api/enterprisespace-arkts/enterprisespace-spacedatatransfer/enterprisespace-spacedatatransfer><span title="Enterprise Space Kit（企业数字空间服务）" class=categoryLinkLabel_W154>Enterprise Space Kit（企业数字空间服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/file-manager-service-api/filemanagerservice-arkts/filemanagerservice-arkts-filemanagerservice/filemanagerservice-arkts-filemanagerservice><span title="File Manager Service Kit（文件管理服务）" class=categoryLinkLabel_W154>File Manager Service Kit（文件管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-controller-api/game-controller-c/game-controller-module/capi-game-controller/capi-game-controller><span title="Game Controller Kit（游戏控制器服务）" class=categoryLinkLabel_W154>Game Controller Kit（游戏控制器服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-service-api/gameservice-arkts/gameservice-gameplayer/gameservice-gameplayer><span title="Game Service Kit（游戏服务）" class=categoryLinkLabel_W154>Game Service Kit（游戏服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/health-service-api/health-api-arkts/health-api-healthstore/health-api-healthstore><span title="Health Service Kit（运动健康服务）" class=categoryLinkLabel_W154>Health Service Kit（运动健康服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/iap-api/iap-arkts/iap-iap/iap-iap><span title="IAP Kit（应用内支付服务）" class=categoryLinkLabel_W154>IAP Kit（应用内支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager><span title="Live View Kit（实况窗服务）" class=categoryLinkLabel_W154>Live View Kit（实况窗服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/location-api/location-arkts/js-apis-geolocationmanager/js-apis-geolocationmanager><span title="Location Kit（位置服务）" class=categoryLinkLabel_W154>Location Kit（位置服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/map-api/map-arkts/map-map/map-module-desc/map-module-desc><span title="Map Kit（地图服务）" class=categoryLinkLabel_W154>Map Kit（地图服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager><span title="Notification Kit（用户通知服务）" class=categoryLinkLabel_W154>Notification Kit（用户通知服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/payment-api/payment-arkts/payment-paymentservice/payment-paymentservice><span title="Payment Kit（鸿蒙支付服务）" class=categoryLinkLabel_W154>Payment Kit（鸿蒙支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/pdf-api/pdf-arkts/pdf-arkts-pdfservice/pdf-arkts-pdfservice><span title="PDF Kit（PDF服务）" class=categoryLinkLabel_W154>PDF Kit（PDF服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/preview-api/preview-api-reference/preview-arkts/preview-arkts><span title="Preview Kit（文件预览服务）" class=categoryLinkLabel_W154>Preview Kit（文件预览服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/push-api/push-arkts/push-aaid-api/push-aaid-api><span title="Push Kit（推送服务）" class=categoryLinkLabel_W154>Push Kit（推送服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/reader-api/reader-arkts/reader-book-parser/reader-book-parser><span title="Reader Kit（阅读服务）" class=categoryLinkLabel_W154>Reader Kit（阅读服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/scenario-fusion-api/scenario-fusion-arktsapi/scenario-fusion-atomicservice/scenario-fusion-atomicservice><span title="Scenario Fusion Kit（融合场景服务）" class=categoryLinkLabel_W154>Scenario Fusion Kit（融合场景服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice><span title="Screen Time Guard Kit（屏幕时间守护服务）" class=categoryLinkLabel_W154>Screen Time Guard Kit（屏幕时间守护服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice><span title=GuardService（屏幕时间守护服务） class=linkLabel_WmDU>GuardService（屏幕时间守护服务）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-app-picker/screentimeguard-app-picker><span title=AppPicker（应用选择页） class=linkLabel_WmDU>AppPicker（应用选择页）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-timeguardextensionability/screentimeguard-timeguardextensionability><span title=TimeGuardExtensionAbility（屏幕时间守护扩展Ability） class=linkLabel_WmDU>TimeGuardExtensionAbility（屏幕时间守护扩展Ability）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-timeguardextensioncontext/screentimeguard-timeguardextensioncontext><span title=TimeGuardExtensionContext（屏幕时间守护扩展Context） class=linkLabel_WmDU>TimeGuardExtensionContext（屏幕时间守护扩展Context）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/share-api/share-arkts/share-system-share/share-system-share><span title="Share Kit（分享服务）" class=categoryLinkLabel_W154>Share Kit（分享服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-arkts/wallet-walletpass/wallet-walletpass><span title="Wallet Kit（钱包服务）" class=categoryLinkLabel_W154>Wallet Kit（钱包服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/weather-service-api/weather-service-arkts/weather-service-weatherservice/weather-service-weatherservice><span title="Weather Service Kit（天气服务）" class=categoryLinkLabel_W154>Weather Service Kit（天气服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用服务</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Screen Time Guard Kit（屏幕时间守护服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>GuardService（屏幕时间守护服务）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>GuardService（屏幕时间守护服务）</h1></header>
+<p>本模块提供管控Screen Time Guard Kit对外开放能力，包括应用授权能力、使用时长管控、应用访问限制等功能。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=guardserviceerrorcode>GuardServiceErrorCode<a href=#guardserviceerrorcode class=hash-link aria-label=GuardServiceErrorCode的直接链接 title=GuardServiceErrorCode的直接链接 translate=no>​</a></h2>
+<p>该枚举定义了Screen Time Guard Kit屏幕时间守护服务错误码。</p>
+<p><strong><strong>模型约束：</strong></strong> 此枚举仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>INTERNAL_ERROR<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000001-%E5%86%85%E9%83%A8%E9%94%99%E8%AF%AF>1019000001</a><td>内部错误。<tr><td>USER_NOT_AUTHORIZED<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000002-%E7%94%A8%E6%88%B7%E6%9C%AA%E6%8E%88%E6%9D%83>1019000002</a><td>用户未授权。<tr><td>USER_CANCELED<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000003-%E7%94%A8%E6%88%B7%E5%8F%96%E6%B6%88>1019000003</a><td>用户取消。<tr><td>STRATEGIES_EXCEED_LIMIT<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000004-%E7%AD%96%E7%95%A5%E6%95%B0%E9%87%8F%E8%B6%85%E9%99%90>1019000004</a><td>策略数量超限。<tr><td>STRATEGY_NAME_ALREADY_EXIST<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000005-%E7%AD%96%E7%95%A5%E5%90%8D%E7%A7%B0%E9%87%8D%E5%A4%8D>1019000005</a><td>策略名称重复。<tr><td>NONEXISTENT_STRATEGY<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000006-%E7%AD%96%E7%95%A5%E4%B8%8D%E5%AD%98%E5%9C%A8>1019000006</a><td>策略不存在。<tr><td>STRATEGY_ALREADY_EXECUTED<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000007-%E7%AD%96%E7%95%A5%E9%87%8D%E5%A4%8D%E6%89%A7%E8%A1%8C>1019000007</a><td>策略重复执行。<tr><td>STRATEGY_NOT_STARTED<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000008-%E7%AD%96%E7%95%A5%E6%9C%AA%E6%89%A7%E8%A1%8C>1019000008</a><td>策略未执行。<tr><td>INVALID_PARAM<td><a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code#section1019000009-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>1019000009</a><td>无效参数。  <strong><strong>起始版本：</strong></strong> 6.0.2(22)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=requestuserauth>requestUserAuth<a href=#requestuserauth class=hash-link aria-label=requestUserAuth的直接链接 title=requestUserAuth的直接链接 translate=no>​</a></h2>
+<p>requestUserAuth(context: common.UIAbilityContext): Promise&lt;void></p>
+<p>请求用户授权访问Screen Time Guard Kit的所有管控接口，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-uiabilitycontext/js-apis-inner-application-uiabilitycontext>common.UIAbilityContext</a><td>是<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-uiability/js-apis-app-ability-uiability>UIAbility</a>的上下文环境。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function requestUserAuth can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct TestPage {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button("TestRequestUserAuth")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            guardService.requestUserAuth(this.getUIContext().getHostContext() as common.UIAbilityContext)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">               .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  console.info('requestUserAuth invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">               })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=revokeuserauth>revokeUserAuth<a href=#revokeuserauth class=hash-link aria-label=revokeUserAuth的直接链接 title=revokeUserAuth的直接链接 translate=no>​</a></h2>
+<p>revokeUserAuth(): Promise&lt;void></p>
+<p>取消用户授权访问Screen Time Guard Kit的相关管控接口，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>801<td>Capability not supported. function revokeUserAuth can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testRevokeUserAuth() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.revokeUserAuth()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('revokeUserAuth invoke success.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getuserauthstatus>getUserAuthStatus<a href=#getuserauthstatus class=hash-link aria-label=getUserAuthStatus的直接链接 title=getUserAuthStatus的直接链接 translate=no>​</a></h2>
+<p>getUserAuthStatus(): Promise&lt;AuthStatus></p>
+<p>获取用户授权状态，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#authstatus class="">AuthStatus</a>><td>Promise对象，返回用户授权状态。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>801<td>Capability not supported. function getUserAuthStatus can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testGetUserAuthStatus() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.getUserAuthStatus()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((status) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         const statusToMsg = ['AUTH_INIT', 'AUTH_GRANTED', 'AUTH_DENIED'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('getUserAuthStatus invoke success. ' + statusToMsg[status + 1]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authstatus>AuthStatus<a href=#authstatus class=hash-link aria-label=AuthStatus的直接链接 title=AuthStatus的直接链接 translate=no>​</a></h2>
+<p>用户授权状态类型的枚举。</p>
+<p><strong><strong>模型约束：</strong></strong> 此枚举仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>AUTH_INIT<td>-1<td>初始状态<tr><td>AUTH_GRANTED<td>0<td>用户已授权<tr><td>AUTH_DENIED<td>1<td>用户已拒绝</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appinfo>AppInfo<a href=#appinfo class=hash-link aria-label=AppInfo的直接链接 title=AppInfo的直接链接 translate=no>​</a></h2>
+<p>该接口为应用token信息。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>appTokens<td>string[]<td>否<td>否<td>应用token数组。  数组数量上限：100。  <strong><strong>说明</strong></strong>：  1. appTokens数组中存在错误的token，若只是部分错误，则取其中正常的token做显示和应用。  2. 该数组可以为空数组，即用户不设置任何应用在禁止/允许清单中，是正常场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=addguardstrategy>addGuardStrategy<a href=#addguardstrategy class=hash-link aria-label=addGuardStrategy的直接链接 title=addGuardStrategy的直接链接 translate=no>​</a></h2>
+<p>addGuardStrategy(guardStrategy: GuardStrategy): Promise&lt;void></p>
+<p>添加屏幕时间管控策略，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>guardStrategy<td><a href=#guardstrategy class="">GuardStrategy</a><td>是<td>管控策略。  <strong><strong>说明</strong></strong>：  添加管控策略时策略数量的上限为50条。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function addGuardStrategy can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.<tr><td>1019000004<td>The number of strategies exceeds the upper limit.<tr><td>1019000005<td>The strategy name is already existed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testAddGuardStrategy() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const time: guardService.TimeStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: guardService.TimeStrategyType.START_END_TIME_TYPE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      startTime: "08:00",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      endTime: "19:00",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      repeat: [1,2,3]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const info: guardService.AppInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appTokens: [] // 可以通过调用startAppPicker接口获取相应的应用token</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const strategy: guardService.GuardStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name: "TestStrategy",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      timeStrategy: time,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appInfo: info,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appRestrictionType: guardService.RestrictionType.BLOCKLIST_TYPE</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.addGuardStrategy(strategy)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('addGuardStrategy invoke success.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=guardstrategy>GuardStrategy<a href=#guardstrategy class=hash-link aria-label=GuardStrategy的直接链接 title=GuardStrategy的直接链接 translate=no>​</a></h2>
+<p>该接口为守护策略对象。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>name<td>string<td>否<td>否<td>策略名称。长度不超过64字符，仅支持字母、数字和下划线，超出范围时返回401错误码。<tr><td>timeStrategy<td><a href=#timestrategy class="">TimeStrategy</a><td>否<td>否<td>时间策略。<tr><td>appInfo<td><a href=#appinfo class="">AppInfo</a><td>否<td>否<td>应用信息。<tr><td>appRestrictionType<td><a href=#restrictiontype class="">RestrictionType</a><td>否<td>否<td>限制类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=timestrategy>TimeStrategy<a href=#timestrategy class=hash-link aria-label=TimeStrategy的直接链接 title=TimeStrategy的直接链接 translate=no>​</a></h2>
+<p>该接口为时间策略对象。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>type<td><a href=#timestrategytype class="">TimeStrategyType</a><td>否<td>否<td>时间管控策略类型。<tr><td>startTime<td>string<td>否<td>是<td>起始时间，需采用"HH:mm"格式，有效范围为"00:00"至"23:59"。格式错误或超出范围将返回401错误码。  <strong><strong>说明</strong></strong>：  若TimeStrategyType为START_END_TIME_TYPE，此参数必填，置空将返回401错误码；若TimeStrategyType为其它，此参数不生效。<tr><td>endTime<td>string<td>否<td>是<td>结束时间，需采用"HH:mm"格式，有效范围为"00:00"至"23:59"。格式错误或超出范围将返回401错误码。  <strong><strong>说明</strong></strong>：  1. 若TimeStrategyType为START_END_TIME_TYPE，此参数必填，置空将返回401错误码；若TimeStrategyType为其它，此参数不生效。  2. 若结束时间小于起始时间，则代表的是次日。  3. 起始时间和结束时间不能相同。<tr><td>totalDuration<td>number<td>否<td>是<td>总时长，单位为min。参数范围：0-1440。  <strong><strong>说明</strong></strong>：  若TimeStrategyType为TOTAL_DURATION_TYPE或INCLUSIVE_DURATION_TYPE，此参数必填，置空将返回401错误码；若TimeStrategyType为其它，此参数不生效。<tr><td>repeat<td>number[]<td>否<td>是<td>重复执行时间，支持填写1~7，代表周一到周日。如果传入的是空数组则表示只执行一次。  默认值：[]。  <strong><strong>说明</strong></strong>：  TimeStrategyType为START_END_TIME_TYPE和INCLUSIVE_DURATION_TYPE时此参数才生效。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=timestrategytype>TimeStrategyType<a href=#timestrategytype class=hash-link aria-label=TimeStrategyType的直接链接 title=TimeStrategyType的直接链接 translate=no>​</a></h2>
+<p>时长策略类型的枚举。</p>
+<p><strong><strong>模型约束：</strong></strong> 此枚举仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>START_END_TIME_TYPE<td>1<td>起始时间策略类型，表示策略在配置的起始时间和结束时间内生效。如果为此类型，则<a href=#timestrategy class="">TimeStrategy</a>接口中的startTime、endTime必填，totalDuration非必填。<tr><td>TOTAL_DURATION_TYPE<td>2<td>总时长策略类型，表示策略生效的总时长，从调用<a href=#startguardstrategy class="">startGuardStrategy</a>接口成功后开始计时。如果为此类型，则<a href=#timestrategy class="">TimeStrategy</a>接口中的startTime、endTime非必填，totalDuration必填。<tr><td>INCLUSIVE_DURATION_TYPE<td>3<td>共享时长策略类型，表示策略关联的所有应用共享同一可用时长配额，超额后所有应用均受时长限制，从调用<a href=#startguardstrategy class="">startGuardStrategy</a>接口成功后开始计时。如果为此类型，则<a href=#timestrategy class="">TimeStrategy</a>接口中的startTime、endTime非必填，totalDuration必填，RestrictionType只支持TRUSTLIST_TYPE。  <strong><strong>起始版本：</strong></strong> 6.0.2(22)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=restrictiontype>RestrictionType<a href=#restrictiontype class=hash-link aria-label=RestrictionType的直接链接 title=RestrictionType的直接链接 translate=no>​</a></h2>
+<p>限制类型的枚举。</p>
+<p><strong><strong>模型约束：</strong></strong> 此枚举仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TRUSTLIST_TYPE<td>1<td>按允许清单做限制。<tr><td>BLOCKLIST_TYPE<td>2<td>按禁止清单做限制。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=updateguardstrategy>updateGuardStrategy<a href=#updateguardstrategy class=hash-link aria-label=updateGuardStrategy的直接链接 title=updateGuardStrategy的直接链接 translate=no>​</a></h2>
+<p>updateGuardStrategy(strategyName: string, guardStrategy: GuardStrategy): Promise&lt;void></p>
+<p>更新已存在的守护策略。更新策略立即生效，如果策略已被启动，管控效果会立即刷新。使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>strategyName<td>string<td>是<td>待更新的时间管控策略名称。长度不超过64字符，仅支持字母、数字和下划线，超出范围时返回401错误码。<tr><td>guardStrategy<td><a href=#guardstrategy class="">GuardStrategy</a><td>是<td>新的时间管控策略。  <strong><strong>说明</strong></strong>：  如想修改策略名称，可以在guardStrategy的name属性中传入新名称。但不能是已存在的名称，如果名称已存在则返回401错误码。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function updateGuardStrategy can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.<tr><td>1019000006<td>Nonexistent strategy.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testUpdateGuardService() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const time: guardService.TimeStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: guardService.TimeStrategyType.START_END_TIME_TYPE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      startTime: "08:00",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      endTime: "19:00",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      repeat: [1,2,3,4,5]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const info: guardService.AppInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appTokens: [] // 可以通过调用startAppPicker接口获取相应的应用token</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   const strategy: guardService.GuardStrategy = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      name: "TestStrategyChanged",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      timeStrategy: time,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appInfo: info,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      appRestrictionType: guardService.RestrictionType.BLOCKLIST_TYPE</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // "TestStrategy"策略需提前通过addGuardStrategy接口添加</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.updateGuardStrategy("TestStrategy", strategy)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('updateGuardStrategy invoke success.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=queryguardstrategies>queryGuardStrategies<a href=#queryguardstrategies class=hash-link aria-label=queryGuardStrategies的直接链接 title=queryGuardStrategies的直接链接 translate=no>​</a></h2>
+<p>queryGuardStrategies(): Promise&lt;GuardStrategy[]></p>
+<p>查询该应用下的所有管控策略，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#guardstrategy class="">GuardStrategy[]</a>><td>Promise对象，返回该应用下所有管控策略的数组。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>801<td>Capability not supported. function queryGuardStrategies can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testQueryGuardService() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.queryGuardStrategies()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then((guardStrategy: guardService.GuardStrategy[]) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('queryGuardStrategies invoke success, GuardStrategies: ' + guardStrategy);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=removeguardstrategy>removeGuardStrategy<a href=#removeguardstrategy class=hash-link aria-label=removeGuardStrategy的直接链接 title=removeGuardStrategy的直接链接 translate=no>​</a></h2>
+<p>removeGuardStrategy(strategyName: string): Promise&lt;void></p>
+<p>移除指定的守护策略。策略移除后，该策略将无法再被启动，如果策略正在执行中，会先自动停止策略再移除。使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>strategyName<td>string<td>是<td>时间管控策略名称。长度不超过64字符，仅支持字母、数字和下划线，超出范围时返回401错误码。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function removeGuardStrategy can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.<tr><td>1019000006<td>Nonexistent strategy.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testRemoveGuardService() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.removeGuardStrategy("TestStrategy")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('removeGuardStrategy invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=startguardstrategy>startGuardStrategy<a href=#startguardstrategy class=hash-link aria-label=startGuardStrategy的直接链接 title=startGuardStrategy的直接链接 translate=no>​</a></h2>
+<p>startGuardStrategy(strategyName: string): Promise&lt;void></p>
+<p>根据策略名称，立即启动指定的管控策略，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>strategyName<td>string<td>是<td>时间管控策略名称。长度不超过64字符，仅支持字母、数字和下划线，超出范围时返回401错误码。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function startGuardStrategy can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.<tr><td>1019000006<td>Nonexistent strategy.<tr><td>1019000007<td>The strategy is already being executed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testGuardService() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.startGuardStrategy("TestStrategy")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('startGuardStrategy invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=stopguardstrategy>stopGuardStrategy<a href=#stopguardstrategy class=hash-link aria-label=stopGuardStrategy的直接链接 title=stopGuardStrategy的直接链接 translate=no>​</a></h2>
+<p>stopGuardStrategy(strategyName: string): Promise&lt;void></p>
+<p>根据策略名称，立即停止指定的管控策略，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>strategyName<td>string<td>是<td>时间管控策略名称。长度不超过64字符，仅支持字母、数字和下划线，超出范围时返回401错误码。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function stopGuardStrategy can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.<tr><td>1019000006<td>Nonexistent strategy.<tr><td>1019000008<td>This strategy has not been started yet.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testStopGuardService() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.stopGuardStrategy("TestStrategy")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('stopGuardStrategy invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=setappsrestriction>setAppsRestriction<a href=#setappsrestriction class=hash-link aria-label=setAppsRestriction的直接链接 title=setAppsRestriction的直接链接 translate=no>​</a></h2>
+<p>setAppsRestriction(appInfo: AppInfo, restrictionType: RestrictionType): Promise&lt;void></p>
+<p>可根据传入的应用token数组，以及限制类型（允许/禁用清单），实现对相应的应用添加访问限制，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>appInfo<td><a href=#appinfo class="">AppInfo</a><td>是<td>被选择的应用token集合，是一个字符串数组。<tr><td>restrictionType<td><a href=#restrictiontype class="">RestrictionType</a><td>是<td>限制类型  TRUSTLIST_TYPE表示对appInfo外的应用进行限制，BLOCKLIST_TYPE表示对appInfo内的应用进行限制。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function setAppsRestriction can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testSetAppsRestriction() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let selectedTokens: string[] = []; // 可以通过调用startAppPicker接口获取相应的应用token</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let appInfo: guardService.AppInfo = { appTokens: selectedTokens };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let restrictionType: guardService.RestrictionType = guardService.RestrictionType.BLOCKLIST_TYPE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.setAppsRestriction(appInfo, restrictionType)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('setAppsRestriction invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=releaseappsrestriction>releaseAppsRestriction<a href=#releaseappsrestriction class=hash-link aria-label=releaseAppsRestriction的直接链接 title=releaseAppsRestriction的直接链接 translate=no>​</a></h2>
+<p>releaseAppsRestriction(appInfo: AppInfo, restrictionType: RestrictionType): Promise&lt;void></p>
+<p>可根据传入的应用token数组，以及限制类型（允许/禁用清单），实现对相应的应用解除访问限制，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.MANAGE_SCREEN_TIME_GUARD</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ScreenTimeGuard.GuardService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet设备中可正常调用，在其他设备中返回801错误码。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>appInfo<td><a href=#appinfo class="">AppInfo</a><td>是<td>被选择的应用token集合，是一个字符串数组。<tr><td>restrictionType<td><a href=#restrictiontype class="">RestrictionType</a><td>是<td>限制类型  TRUSTLIST_TYPE表示对appInfo外的应用进行限制，BLOCKLIST_TYPE表示对appInfo内的应用进行限制。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-error-code/screentimeguard-error-code>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>801<td>Capability not supported. function releaseAppsRestriction can not work correctly due to limited device capabilities.<tr><td>1019000001<td>Internal error.<tr><td>1019000002<td>The user has not authorized the application to access this interface.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { guardService } from '@kit.ScreenTimeGuardKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function testReleaseAppsRestriction() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let selectedTokens: string[] = []; // 可以通过调用startAppPicker获取相应应用的token</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let appInfo: guardService.AppInfo = { appTokens: selectedTokens };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   let restrictionType: guardService.RestrictionType = guardService.RestrictionType.BLOCKLIST_TYPE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   guardService.releaseAppsRestriction(appInfo, restrictionType)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         console.info('releaseAppsRestriction invoke success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/scenario-fusion-api/scenario-fusion-kit-arkts-components/scenario-fusion-error-code/scenario-fusion-error-code><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS组件错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-app-picker/screentimeguard-app-picker><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>AppPicker（应用选择页）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#guardserviceerrorcode class="table-of-contents__link toc-highlight">GuardServiceErrorCode</a><li><a href=#requestuserauth class="table-of-contents__link toc-highlight">requestUserAuth</a><li><a href=#revokeuserauth class="table-of-contents__link toc-highlight">revokeUserAuth</a><li><a href=#getuserauthstatus class="table-of-contents__link toc-highlight">getUserAuthStatus</a><li><a href=#authstatus class="table-of-contents__link toc-highlight">AuthStatus</a><li><a href=#appinfo class="table-of-contents__link toc-highlight">AppInfo</a><li><a href=#addguardstrategy class="table-of-contents__link toc-highlight">addGuardStrategy</a><li><a href=#guardstrategy class="table-of-contents__link toc-highlight">GuardStrategy</a><li><a href=#timestrategy class="table-of-contents__link toc-highlight">TimeStrategy</a><li><a href=#timestrategytype class="table-of-contents__link toc-highlight">TimeStrategyType</a><li><a href=#restrictiontype class="table-of-contents__link toc-highlight">RestrictionType</a><li><a href=#updateguardstrategy class="table-of-contents__link toc-highlight">updateGuardStrategy</a><li><a href=#queryguardstrategies class="table-of-contents__link toc-highlight">queryGuardStrategies</a><li><a href=#removeguardstrategy class="table-of-contents__link toc-highlight">removeGuardStrategy</a><li><a href=#startguardstrategy class="table-of-contents__link toc-highlight">startGuardStrategy</a><li><a href=#stopguardstrategy class="table-of-contents__link toc-highlight">stopGuardStrategy</a><li><a href=#setappsrestriction class="table-of-contents__link toc-highlight">setAppsRestriction</a><li><a href=#releaseappsrestriction class="table-of-contents__link toc-highlight">releaseAppsRestriction</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

@@ -1,0 +1,832 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.ability.featureAbility (FeatureAbility模块) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.ability.featureAbility (FeatureAbility模块) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=FeatureAbility模块提供与用户进行交互的Ability的能力，包括启动新的Ability、停止Ability、获取dataAbilityHelper对象、获取当前Ability对应的窗口，连接断连Service等。 /><meta data-rh=true property=og:description content=FeatureAbility模块提供与用户进行交互的Ability的能力，包括启动新的Ability、停止Ability、获取dataAbilityHelper对象、获取当前Ability对应的窗口，连接断连Service等。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability","name":"@ohos.ability.featureAbility (FeatureAbility模块)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=Stage模型能力的接口 class=categoryLinkLabel_W154>Stage模型能力的接口</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-ability/js-apis-ability-ability><span title=FA模型能力的接口 class=categoryLinkLabel_W154>FA模型能力的接口</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-ability/js-apis-ability-ability><span title="@ohos.ability.ability (Ability模块)" class=linkLabel_WmDU>@ohos.ability.ability (Ability模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability><span title="@ohos.ability.featureAbility (FeatureAbility模块)" class=linkLabel_WmDU>@ohos.ability.featureAbility (FeatureAbility模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-particleability/js-apis-ability-particleability><span title="@ohos.ability.particleAbility (ParticleAbility模块)" class=linkLabel_WmDU>@ohos.ability.particleAbility (ParticleAbility模块)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-dataabilityoperation/js-apis-inner-ability-dataabilityoperation><span title=ability class=categoryLinkLabel_W154>ability</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo><span title=app class=categoryLinkLabel_W154>app</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-abilityaccessctrl/js-apis-abilityaccessctrl><span title=通用能力的接口(推荐) class=categoryLinkLabel_W154>通用能力的接口(推荐)</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult><span title=接口依赖的元素及定义 class=categoryLinkLabel_W154>接口依赖的元素及定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-ability-datauriutils/js-apis-ability-datauriutils><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-c/ability-module/capi-abilityaccesscontrol/capi-abilityaccesscontrol><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts-errcode/errorcode-ability/errorcode-ability><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Ability Kit（程序框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>FA模型能力的接口</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.ability.featureAbility (FeatureAbility模块)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.ability.featureAbility (FeatureAbility模块)</h1></header>
+<p>FeatureAbility模块提供与用户进行交互的Ability的能力，包括启动新的Ability、停止Ability、获取dataAbilityHelper对象、获取当前Ability对应的窗口，连接断连Service等。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<p>本模块接口仅可在FA模型下使用。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用限制>使用限制<a href=#使用限制 class=hash-link aria-label=使用限制的直接链接 title=使用限制的直接链接 translate=no>​</a></h2>
+<p>FeatureAbility模块的接口只能在Page类型的Ability中调用。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitystartability>featureAbility.startAbility<a href=#featureabilitystartability class=hash-link aria-label=featureAbility.startAbility的直接链接 title=featureAbility.startAbility的直接链接 translate=no>​</a></h2>
+<p>startAbility(parameter: StartAbilityParameter, callback: AsyncCallback&lt;number>): void</p>
+<p>启动新的Ability。使用callback异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-startabilityparameter/js-apis-inner-ability-startabilityparameter>StartAbilityParameter</a><td>是<td>表示被启动的Ability。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数。当启动Ability成功，err为undefined，data为0表示启动成功，data为其他表示启动失败；否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.startAbility(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: [''],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri: ''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`startAbility fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`startAbility success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitystartability-1>featureAbility.startAbility<a href=#featureabilitystartability-1 class=hash-link aria-label=featureAbility.startAbility的直接链接 title=featureAbility.startAbility的直接链接 translate=no>​</a></h2>
+<p>startAbility(parameter: StartAbilityParameter): Promise&lt;number></p>
+<p>启动新的Ability。使用Promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-startabilityparameter/js-apis-inner-ability-startabilityparameter>StartAbilityParameter</a><td>是<td>表示被启动的Ability。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;number><td>Promise对象。返回0表示启动成功，返回其他表示启动失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.startAbility(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: 'ohos.want.action.home',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: ['entity.system.home'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: 'MIMETYPE',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri: ''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`startAbility data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityacquiredataabilityhelper7>featureAbility.acquireDataAbilityHelper7+<a href=#featureabilityacquiredataabilityhelper7 class=hash-link aria-label=featureAbility.acquireDataAbilityHelper7+的直接链接 title=featureAbility.acquireDataAbilityHelper7+的直接链接 translate=no>​</a></h2>
+<p>acquireDataAbilityHelper(uri: string): DataAbilityHelper</p>
+<p>获取dataAbilityHelper对象。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p>跨应用访问dataAbility，对端应用需配置关联启动。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>uri<td>string<td>是<td>表示要打开的文件的路径。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-dataabilityhelper/js-apis-inner-ability-dataabilityhelper>DataAbilityHelper</a><td>用来协助其他Ability访问DataAbility的工具类。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let dataAbilityHelper = featureAbility.acquireDataAbilityHelper(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  'dataability:///com.example.DataAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitystartabilityforresult7>featureAbility.startAbilityForResult7+<a href=#featureabilitystartabilityforresult7 class=hash-link aria-label=featureAbility.startAbilityForResult7+的直接链接 title=featureAbility.startAbilityForResult7+的直接链接 translate=no>​</a></h2>
+<p>startAbilityForResult(parameter: StartAbilityParameter, callback: AsyncCallback&lt;AbilityResult>): void</p>
+<p>启动一个Ability。使用callback异步回调。启动Ability后，存在如下几种情况：</p>
+<ul>
+<li class="">正常情况下可通过调用<a href=#featureabilityterminateselfwithresult7 class="">terminateSelfWithResult</a>接口使之终止并且返回结果给调用方。</li>
+<li class="">异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。</li>
+<li class="">如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用<a href=#featureabilityterminateselfwithresult7 class="">terminateSelfWithResult</a>接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-startabilityparameter/js-apis-inner-ability-startabilityparameter>StartAbilityParameter</a><td>是<td>表示被启动的Ability。<tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult>AbilityResult</a>><td>是<td>回调函数。当启动Ability成功，err为undefined，data为ability的启动结果；否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.startAbilityForResult(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: 'ohos.want.action.home',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: ['entity.system.home'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: 'MIMETYPE',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri: ''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`startAbilityForResult fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`startAbilityForResult success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitystartabilityforresult7-1>featureAbility.startAbilityForResult7+<a href=#featureabilitystartabilityforresult7-1 class=hash-link aria-label=featureAbility.startAbilityForResult7+的直接链接 title=featureAbility.startAbilityForResult7+的直接链接 translate=no>​</a></h2>
+<p>startAbilityForResult(parameter: StartAbilityParameter): Promise&lt;AbilityResult></p>
+<p>启动一个Ability。使用Promise异步回调。启动Ability后，存在如下几种情况：</p>
+<ul>
+<li class="">正常情况下可通过调用<a href=#featureabilityterminateselfwithresult7 class="">terminateSelfWithResult</a>接口使之终止并且返回结果给调用方。</li>
+<li class="">异常情况下比如杀死Ability会返回异常信息给调用方, 异常信息中resultCode为-1。</li>
+<li class="">如果被启动的Ability模式是单实例模式, 不同应用多次调用该接口启动这个Ability，当这个Ability调用<a href=#featureabilityterminateselfwithresult7 class="">terminateSelfWithResult</a>接口使之终止时，只将正常结果返回给最后一个调用方, 其它调用方返回异常信息, 异常信息中resultCode为-1。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-startabilityparameter/js-apis-inner-ability-startabilityparameter>StartAbilityParameter</a><td>是<td>表示被启动的Ability。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult>AbilityResult</a>><td>Promise对象，返回启动Ability的结果。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.startAbilityForResult(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: 'ohos.want.action.home',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: ['entity.system.home'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: 'MIMETYPE',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      parameters:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey0: 1111,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey1: [1, 2, 3],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey2: '[1, 2, 3]',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey3: 'xxxxxxxxxxxxxxxxxxxxxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey4: [1, 15],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey5: [false, true, false],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey6: ['aaaaaa', 'bbbbb', 'ccccccccccc'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey7: true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`startAbilityForResult data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityterminateselfwithresult7>featureAbility.terminateSelfWithResult7+<a href=#featureabilityterminateselfwithresult7 class=hash-link aria-label=featureAbility.terminateSelfWithResult7+的直接链接 title=featureAbility.terminateSelfWithResult7+的直接链接 translate=no>​</a></h2>
+<p>terminateSelfWithResult(parameter: AbilityResult, callback: AsyncCallback&lt;void>): void</p>
+<p>停止当前的Ability。使用callback异步回调。如果该Ability是通过调用<a href=#featureabilitystartabilityforresult7 class="">startAbilityForResult</a>接口被拉起的，调用terminateSelfWithResult接口时会将结果返回给调用者，如果该Ability不是通过调用<a href=#featureabilitystartabilityforresult7 class="">startAbilityForResult</a>接口被拉起的，调用terminateSelfWithResult接口时不会有结果返回给调用者。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult>AbilityResult</a><td>是<td>表示停止Ability之后返回的结果。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当停止当前Ability成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.terminateSelfWithResult(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    resultCode: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: 'ohos.want.action.home',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: ['entity.system.home'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: 'MIMETYPE',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      parameters: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey0: 2222,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey1: [1, 2, 3],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey2: '[1, 2, 3]',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey3: 'ssssssssssssssssssssssssss',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey4: [1, 15],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey5: [false, true, false],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey6: ['qqqqq', 'wwwwww', 'aaaaaaaaaaaaaaaaa'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey7: true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityterminateselfwithresult7-1>featureAbility.terminateSelfWithResult7+<a href=#featureabilityterminateselfwithresult7-1 class=hash-link aria-label=featureAbility.terminateSelfWithResult7+的直接链接 title=featureAbility.terminateSelfWithResult7+的直接链接 translate=no>​</a></h2>
+<p>terminateSelfWithResult(parameter: AbilityResult): Promise&lt;void></p>
+<p>停止当前的Ability。使用Promise异步回调。如果该Ability是通过调用<a href=#featureabilitystartabilityforresult7 class="">startAbilityForResult</a>接口被拉起的，调用terminateSelfWithResult接口时会将结果返回给调用者，如果该Ability不是通过调用<a href=#featureabilitystartabilityforresult7 class="">startAbilityForResult</a>接口被拉起的，调用terminateSelfWithResult接口时不会有结果返回给调用者。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>parameter<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult>AbilityResult</a><td>是<td>表示停止Ability之后返回的结果。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility, wantConstant } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.terminateSelfWithResult(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    resultCode: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    want:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      action: 'ohos.want.action.home',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      entities: ['entity.system.home'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: 'MIMETYPE',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      flags: wantConstant.Flags.FLAG_AUTH_READ_URI_PERMISSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      /* FA模型中abilityName由package + Ability name组成 */</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      abilityName: 'com.example.myapplication.secondAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      uri:'',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      parameters: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey0: 2222,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey1: [1, 2, 3],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey2: '[1, 2, 3]',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey3: 'ssssssssssssssssssssssssss',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey4: [1, 15],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey5: [false, true, false],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey6: ['qqqqq', 'wwwwww', 'aaaaaaaaaaaaaaaaa'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        mykey7: true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('==========================>terminateSelfWithResult=======================>');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityhaswindowfocus7>featureAbility.hasWindowFocus7+<a href=#featureabilityhaswindowfocus7 class=hash-link aria-label=featureAbility.hasWindowFocus7+的直接链接 title=featureAbility.hasWindowFocus7+的直接链接 translate=no>​</a></h2>
+<p>hasWindowFocus(callback: AsyncCallback&lt;boolean>): void</p>
+<p>检查Ability的主窗口是否具有窗口焦点。使用callback异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;boolean><td>是<td>回调函数。  如果此Ability当前具有视窗焦点，则返回true；否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.hasWindowFocus((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`hasWindowFocus fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`hasWindowFocus success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityhaswindowfocus7-1>featureAbility.hasWindowFocus7+<a href=#featureabilityhaswindowfocus7-1 class=hash-link aria-label=featureAbility.hasWindowFocus7+的直接链接 title=featureAbility.hasWindowFocus7+的直接链接 translate=no>​</a></h2>
+<p>hasWindowFocus(): Promise&lt;boolean></p>
+<p>检查Ability的主窗口是否具有窗口焦点。使用Promise异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象。如果此Ability当前具有视窗焦点，则返回true；否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.hasWindowFocus().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`hasWindowFocus data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitygetwant>featureAbility.getWant<a href=#featureabilitygetwant class=hash-link aria-label=featureAbility.getWant的直接链接 title=featureAbility.getWant的直接链接 translate=no>​</a></h2>
+<p>getWant(callback: AsyncCallback&lt;Want>): void</p>
+<p>获取要拉起的Ability对应的Want。使用callback异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-application-want/js-apis-application-want>Want</a>><td>是<td>回调函数，当获取要拉起的Ability对应的Want成功，err为undefined，data为当前Ability对应的Want；否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.getWant((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getWant fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getWant success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitygetwant-1>featureAbility.getWant<a href=#featureabilitygetwant-1 class=hash-link aria-label=featureAbility.getWant的直接链接 title=featureAbility.getWant的直接链接 translate=no>​</a></h2>
+<p>getWant(): Promise&lt;Want></p>
+<p>获取要拉起的Ability对应的Want。使用Promise异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-application-want/js-apis-application-want>Want</a>><td>Promise对象，返回want信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.getWant().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`getWant data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitygetcontext>featureAbility.getContext<a href=#featureabilitygetcontext class=hash-link aria-label=featureAbility.getContext的直接链接 title=featureAbility.getContext的直接链接 translate=no>​</a></h2>
+<p>getContext(): Context</p>
+<p>获取应用上下文。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Context<td>返回应用程序上下文。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getBundleName((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getBundleName fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getBundleName success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityterminateself7>featureAbility.terminateSelf7+<a href=#featureabilityterminateself7 class=hash-link aria-label=featureAbility.terminateSelf7+的直接链接 title=featureAbility.terminateSelf7+的直接链接 translate=no>​</a></h2>
+<p>terminateSelf(callback: AsyncCallback&lt;void>): void</p>
+<p>停止当前的Ability。使用callback异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当停止当前的Ability成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.terminateSelf(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">)</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityterminateself7-1>featureAbility.terminateSelf7+<a href=#featureabilityterminateself7-1 class=hash-link aria-label=featureAbility.terminateSelf7+的直接链接 title=featureAbility.terminateSelf7+的直接链接 translate=no>​</a></h2>
+<p>terminateSelf(): Promise&lt;void></p>
+<p>停止当前的Ability。使用Promise异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.terminateSelf().then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('==========================>terminateSelf=======================>');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`terminateSelf failed, error.code: ${error.code}, error.message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilityconnectability7>featureAbility.connectAbility7+<a href=#featureabilityconnectability7 class=hash-link aria-label=featureAbility.connectAbility7+的直接链接 title=featureAbility.connectAbility7+的直接链接 translate=no>​</a></h2>
+<p>connectAbility(request: Want, options:ConnectOptions): number</p>
+<p>将当前Ability与指定的ServiceAbility进行连接。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>组件启动规则详见：<a class="" href=/harmonyos-docs-site/ability-kit/fa-model-development/fa-model-application-components/component-startup-rules-fa>组件启动规则（FA模型）</a>。</p>
+<p>跨应用连接serviceAbility，对端应用需配置关联启动。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>request<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-application-want/js-apis-application-want>Want</a><td>是<td>表示被连接的ServiceAbility。<tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-connectoptions/js-apis-inner-ability-connectoptions>ConnectOptions</a><td>是<td>表示连接回调函数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>连接的ServiceAbility的ID(ID从0开始自增，每连接成功一次ID加1)。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { rpc } from '@kit.IPCKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connectId = featureAbility.connectAbility(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    deviceId: '',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    bundleName: 'com.ix.ServiceAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    abilityName: 'com.ix.ServiceAbility.ServiceAbilityA',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onConnect: (element, remote) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onDisconnect: (element) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onFailed: (code) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitydisconnectability7>featureAbility.disconnectAbility7+<a href=#featureabilitydisconnectability7 class=hash-link aria-label=featureAbility.disconnectAbility7+的直接链接 title=featureAbility.disconnectAbility7+的直接链接 translate=no>​</a></h2>
+<p>disconnectAbility(connection: number, callback:AsyncCallback&lt;void>): void</p>
+<p>断开与指定ServiceAbility的连接。使用callback异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>connection<td>number<td>是<td>表示断开连接的ServiceAbility的ID。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当断开与指定ServiceAbility的连接成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { rpc } from '@kit.IPCKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connectId = featureAbility.connectAbility(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    bundleName: 'com.ix.ServiceAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    abilityName: 'com.ix.ServiceAbility.ServiceAbilityA',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onConnect: (element, remote) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onDisconnect: (element) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onFailed: (code) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.disconnectAbility(connectId, (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`disconnectAbility fail, connectId: ${connectId}, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`disconnectAbility success， connectId: ${connectId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitydisconnectability7-1>featureAbility.disconnectAbility7+<a href=#featureabilitydisconnectability7-1 class=hash-link aria-label=featureAbility.disconnectAbility7+的直接链接 title=featureAbility.disconnectAbility7+的直接链接 translate=no>​</a></h2>
+<p>disconnectAbility(connection: number): Promise&lt;void></p>
+<p>断开与指定ServiceAbility的连接。使用Promise异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>connection<td>number<td>是<td>表示断开连接的ServiceAbility的ID。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { rpc } from '@kit.IPCKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connectId = featureAbility.connectAbility(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    bundleName: 'com.ix.ServiceAbility',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    abilityName: 'com.ix.ServiceAbility.ServiceAbilityA',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onConnect: (element, remote) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onConnect remote is proxy: ${(remote instanceof rpc.RemoteProxy)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onDisconnect: (element) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`ConnectAbility onDisconnect element.deviceId : ${element.deviceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onFailed: (code) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`featureAbilityTest ConnectAbility onFailed errCode : ${code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.disconnectAbility(connectId).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('disconnectAbility success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`featureAbilityTest result errCode : ${error.code}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitygetwindow7>featureAbility.getWindow7+<a href=#featureabilitygetwindow7 class=hash-link aria-label=featureAbility.getWindow7+的直接链接 title=featureAbility.getWindow7+的直接链接 translate=no>​</a></h2>
+<p>getWindow(callback: AsyncCallback&lt;window.Window>): void</p>
+<p>获取当前Ability对应的窗口。使用callback异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-window/arkts-apis-window-window/arkts-apis-window-window>window.Window</a>><td>是<td>回调函数。当获取窗口成功，err为undefined，data为当前Ability对应的窗口；否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { window } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.getWindow((error: BusinessError, data: window.Window) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`getWindow fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getWindow success, data: ${typeof(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=featureabilitygetwindow7-1>featureAbility.getWindow7+<a href=#featureabilitygetwindow7-1 class=hash-link aria-label=featureAbility.getWindow7+的直接链接 title=featureAbility.getWindow7+的直接链接 translate=no>​</a></h2>
+<p>getWindow(): Promise&lt;window.Window></p>
+<p>获取当前Ability对应的窗口。使用Promise异步回调。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-window/arkts-apis-window-window/arkts-apis-window-window>window.Window</a>><td>Promise对象，返回当前Ability对应的窗口。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { window } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.getWindow().then((data: window.Window) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`getWindow success, data: ${typeof(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((error: BusinessError)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`getWindow fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=abilitywindowconfiguration7>AbilityWindowConfiguration7+<a href=#abilitywindowconfiguration7 class=hash-link aria-label=AbilityWindowConfiguration7+的直接链接 title=AbilityWindowConfiguration7+的直接链接 translate=no>​</a></h2>
+<p>表示当前Ability对应的窗口配置项，使用时通过featureAbility.AbilityWindowConfiguration获取。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>WINDOW_MODE_UNDEFINED<td>0<td>未定义。<tr><td>WINDOW_MODE_FULLSCREEN<td>1<td>全屏。<tr><td>WINDOW_MODE_SPLIT_PRIMARY<td>100<td>屏幕如果是水平方向表示左分屏，屏幕如果是竖直方向表示上分屏。<tr><td>WINDOW_MODE_SPLIT_SECONDARY<td>101<td>屏幕如果是水平方向表示右分屏，屏幕如果是竖直方向表示下分屏。<tr><td>WINDOW_MODE_FLOATING<td>102<td>悬浮窗。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.AbilityWindowConfiguration.WINDOW_MODE_UNDEFINED</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=abilitystartsetting7>AbilityStartSetting7+<a href=#abilitystartsetting7 class=hash-link aria-label=AbilityStartSetting7+的直接链接 title=AbilityStartSetting7+的直接链接 translate=no>​</a></h2>
+<p>表示当前Ability对应的窗口属性，abilityStartSetting属性是一个定义为[key: string]: any的对象，key对应设定类型为：AbilityStartSetting枚举类型，value对应设定类型为：AbilityWindowConfiguration枚举类型。</p>
+<p>使用时通过featureAbility.AbilityStartSetting获取。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>BOUNDS_KEY<td>'abilityBounds'<td>窗口显示大小属性的参数名。<tr><td>WINDOW_MODE_KEY<td>'windowMode'<td>窗口显示模式属性的参数名。<tr><td>DISPLAY_ID_KEY<td>'displayId'<td>窗口显示设备ID属性的参数名。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { featureAbility } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">featureAbility.AbilityStartSetting.BOUNDS_KEY</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=errorcode7>ErrorCode7+<a href=#errorcode7 class=hash-link aria-label=ErrorCode7+的直接链接 title=ErrorCode7+的直接链接 translate=no>​</a></h2>
+<p>定义启动Ability时返回的错误码。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>NO_ERROR<td>0<td>没有异常。<tr><td>INVALID_PARAMETER<td>-1<td>无效的参数。<tr><td>ABILITY_NOT_FOUND<td>-2<td>找不到ABILITY。<tr><td>PERMISSION_DENY<td>-3<td>权限拒绝。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dataabilityoperationtype7>DataAbilityOperationType7+<a href=#dataabilityoperationtype7 class=hash-link aria-label=DataAbilityOperationType7+的直接链接 title=DataAbilityOperationType7+的直接链接 translate=no>​</a></h2>
+<p>表示数据的操作类型。DataAbility批量操作数据时可以通过该枚举值指定操作类型。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.FAModel</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TYPE_INSERT<td>1<td>插入类型。<tr><td>TYPE_UPDATE<td>2<td>修改类型。<tr><td>TYPE_DELETE<td>3<td>删除类型。<tr><td>TYPE_ASSERT<td>4<td>声明类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=context9>Context9+<a href=#context9 class=hash-link aria-label=Context9+的直接链接 title=Context9+的直接链接 translate=no>​</a></h2>
+<p>type Context = _Context</p>
+<p>Context模块。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context>_Context</a><td>Context模块。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appversioninfo9>AppVersionInfo9+<a href=#appversioninfo9 class=hash-link aria-label=AppVersionInfo9+的直接链接 title=AppVersionInfo9+的直接链接 translate=no>​</a></h2>
+<p>type AppVersionInfo = _AppVersionInfo</p>
+<p>应用版本信息。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo>_AppVersionInfo</a><td>应用版本信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=processinfo9>ProcessInfo9+<a href=#processinfo9 class=hash-link aria-label=ProcessInfo9+的直接链接 title=ProcessInfo9+的直接链接 translate=no>​</a></h2>
+<p>type ProcessInfo = _ProcessInfo</p>
+<p>进程信息。</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在FA模型下使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-processinfo/js-apis-inner-app-processinfo>_ProcessInfo</a><td>进程信息。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-ability/js-apis-ability-ability><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.ability.ability (Ability模块)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-particleability/js-apis-ability-particleability><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.ability.particleAbility (ParticleAbility模块)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#使用限制 class="table-of-contents__link toc-highlight">使用限制</a><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#featureabilitystartability class="table-of-contents__link toc-highlight">featureAbility.startAbility</a><li><a href=#featureabilitystartability-1 class="table-of-contents__link toc-highlight">featureAbility.startAbility</a><li><a href=#featureabilityacquiredataabilityhelper7 class="table-of-contents__link toc-highlight">featureAbility.acquireDataAbilityHelper7+</a><li><a href=#featureabilitystartabilityforresult7 class="table-of-contents__link toc-highlight">featureAbility.startAbilityForResult7+</a><li><a href=#featureabilitystartabilityforresult7-1 class="table-of-contents__link toc-highlight">featureAbility.startAbilityForResult7+</a><li><a href=#featureabilityterminateselfwithresult7 class="table-of-contents__link toc-highlight">featureAbility.terminateSelfWithResult7+</a><li><a href=#featureabilityterminateselfwithresult7-1 class="table-of-contents__link toc-highlight">featureAbility.terminateSelfWithResult7+</a><li><a href=#featureabilityhaswindowfocus7 class="table-of-contents__link toc-highlight">featureAbility.hasWindowFocus7+</a><li><a href=#featureabilityhaswindowfocus7-1 class="table-of-contents__link toc-highlight">featureAbility.hasWindowFocus7+</a><li><a href=#featureabilitygetwant class="table-of-contents__link toc-highlight">featureAbility.getWant</a><li><a href=#featureabilitygetwant-1 class="table-of-contents__link toc-highlight">featureAbility.getWant</a><li><a href=#featureabilitygetcontext class="table-of-contents__link toc-highlight">featureAbility.getContext</a><li><a href=#featureabilityterminateself7 class="table-of-contents__link toc-highlight">featureAbility.terminateSelf7+</a><li><a href=#featureabilityterminateself7-1 class="table-of-contents__link toc-highlight">featureAbility.terminateSelf7+</a><li><a href=#featureabilityconnectability7 class="table-of-contents__link toc-highlight">featureAbility.connectAbility7+</a><li><a href=#featureabilitydisconnectability7 class="table-of-contents__link toc-highlight">featureAbility.disconnectAbility7+</a><li><a href=#featureabilitydisconnectability7-1 class="table-of-contents__link toc-highlight">featureAbility.disconnectAbility7+</a><li><a href=#featureabilitygetwindow7 class="table-of-contents__link toc-highlight">featureAbility.getWindow7+</a><li><a href=#featureabilitygetwindow7-1 class="table-of-contents__link toc-highlight">featureAbility.getWindow7+</a><li><a href=#abilitywindowconfiguration7 class="table-of-contents__link toc-highlight">AbilityWindowConfiguration7+</a><li><a href=#abilitystartsetting7 class="table-of-contents__link toc-highlight">AbilityStartSetting7+</a><li><a href=#errorcode7 class="table-of-contents__link toc-highlight">ErrorCode7+</a><li><a href=#dataabilityoperationtype7 class="table-of-contents__link toc-highlight">DataAbilityOperationType7+</a><li><a href=#context9 class="table-of-contents__link toc-highlight">Context9+</a><li><a href=#appversioninfo9 class="table-of-contents__link toc-highlight">AppVersionInfo9+</a><li><a href=#processinfo9 class="table-of-contents__link toc-highlight">ProcessInfo9+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

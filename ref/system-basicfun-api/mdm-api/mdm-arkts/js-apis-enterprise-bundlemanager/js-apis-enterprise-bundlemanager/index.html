@@ -1,0 +1,1734 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.enterprise.bundleManager（包管理） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.enterprise.bundleManager（包管理） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供包管理能力，包括添加包安装允许名单、获取包安装允许名单、移除包安装允许名单等。 /><meta data-rh=true property=og:description content=本模块提供包管理能力，包括添加包安装允许名单、获取包安装允许名单、移除包安装允许名单等。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager","name":"@ohos.enterprise.bundleManager（包管理）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title="Basic Services Kit（基础服务）" class=categoryLinkLabel_W154>Basic Services Kit（基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/status-bar-extension-api/statusbar-extension-arkts/statusbar-extension-manager/statusbar-extension-manager><span title="Desktop Extension Kit（桌面拓展服务）" class=categoryLinkLabel_W154>Desktop Extension Kit（桌面拓展服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/fast-api/fast-c/fast-kit-index/fast-kit-fast/fast-kit-fast><span title="FAST Kit（算法加速服务）" class=categoryLinkLabel_W154>FAST Kit（算法加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/function-flow-runtime-api/function-flow-runtime-c/function-flow-runtime-module/capi-ffrt/capi-ffrt><span title="Function Flow Runtime Kit" class=categoryLinkLabel_W154>Function Flow Runtime Kit</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/input-api/input-arkts/js-apis-inputdevice/js-apis-inputdevice><span title="Input Kit（多模输入服务）" class=categoryLinkLabel_W154>Input Kit（多模输入服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-accountmanager/js-apis-enterprise-accountmanager><span title="MDM Kit（企业设备管理服务）" class=categoryLinkLabel_W154>MDM Kit（企业设备管理服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-accountmanager/js-apis-enterprise-accountmanager><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-accountmanager/js-apis-enterprise-accountmanager><span title=@ohos.enterprise.accountManager（账户管理） class=linkLabel_WmDU>@ohos.enterprise.accountManager（账户管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-adminmanager/js-apis-enterprise-adminmanager><span title=@ohos.enterprise.adminManager（admin权限管理） class=linkLabel_WmDU>@ohos.enterprise.adminManager（admin权限管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-applicationmanager/js-apis-enterprise-applicationmanager><span title=@ohos.enterprise.applicationManager（应用管理） class=linkLabel_WmDU>@ohos.enterprise.applicationManager（应用管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bluetoothmanager/js-apis-enterprise-bluetoothmanager><span title=@ohos.enterprise.bluetoothManager（蓝牙管理） class=linkLabel_WmDU>@ohos.enterprise.bluetoothManager（蓝牙管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-browser/js-apis-enterprise-browser><span title=@ohos.enterprise.browser（浏览器管理） class=linkLabel_WmDU>@ohos.enterprise.browser（浏览器管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager><span title=@ohos.enterprise.bundleManager（包管理） class=linkLabel_WmDU>@ohos.enterprise.bundleManager（包管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-common/js-apis-enterprise-common><span title=@ohos.enterprise.common（Enterprise公共模块） class=linkLabel_WmDU>@ohos.enterprise.common（Enterprise公共模块）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-devicecontrol/js-apis-enterprise-devicecontrol><span title=@ohos.enterprise.deviceControl（设备控制管理） class=linkLabel_WmDU>@ohos.enterprise.deviceControl（设备控制管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-deviceinfo/js-apis-enterprise-deviceinfo><span title=@ohos.enterprise.deviceInfo（设备信息管理） class=linkLabel_WmDU>@ohos.enterprise.deviceInfo（设备信息管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-devicesettings/js-apis-enterprise-devicesettings><span title="@ohos.enterprise.deviceSettings （设备设置管理）" class=linkLabel_WmDU>@ohos.enterprise.deviceSettings （设备设置管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-locationmanager/js-apis-enterprise-locationmanager><span title=@ohos.enterprise.locationManager（位置服务管理） class=linkLabel_WmDU>@ohos.enterprise.locationManager（位置服务管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-networkmanager/js-apis-enterprise-networkmanager><span title=@ohos.enterprise.networkManager（网络管理） class=linkLabel_WmDU>@ohos.enterprise.networkManager（网络管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-restrictions/js-apis-enterprise-restrictions><span title="@ohos.enterprise.restrictions （限制类策略）" class=linkLabel_WmDU>@ohos.enterprise.restrictions （限制类策略）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-securitymanager/js-apis-enterprise-securitymanager><span title=@ohos.enterprise.securityManager（安全管理） class=linkLabel_WmDU>@ohos.enterprise.securityManager（安全管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-systemmanager/js-apis-enterprise-systemmanager><span title="@ohos.enterprise.systemManager （系统管理）" class=linkLabel_WmDU>@ohos.enterprise.systemManager （系统管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-usbmanager/js-apis-enterprise-usbmanager><span title=@ohos.enterprise.usbManager（USB管理） class=linkLabel_WmDU>@ohos.enterprise.usbManager（USB管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-wifimanager/js-apis-enterprise-wifimanager><span title=@ohos.enterprise.wifiManager（Wi-Fi管理） class=linkLabel_WmDU>@ohos.enterprise.wifiManager（Wi-Fi管理）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterpriseadminextensionability/js-apis-enterpriseadminextensionability><span title=@ohos.enterprise.EnterpriseAdminExtensionAbility（企业设备管理扩展能力） class=linkLabel_WmDU>@ohos.enterprise.EnterpriseAdminExtensionAbility（企业设备管理扩展能力）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-telephonymanager/js-apis-enterprise-telephonymanager><span title=@ohos.enterprise.telephonyManager（通话管理） class=linkLabel_WmDU>@ohos.enterprise.telephonyManager（通话管理）</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/mdm-arkts-application/s-apis-application-enterpriseadminextensioncontext/s-apis-application-enterpriseadminextensioncontext><span title=application class=categoryLinkLabel_W154>application</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/kernel-api/kernel-c/kernel-module/capi-qos/capi-qos><span title="Kernel Enhance Kit（内核增强能力）" class=categoryLinkLabel_W154>Kernel Enhance Kit（内核增强能力）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>基础功能</span><li class=breadcrumbs__item><span class=breadcrumbs__link>MDM Kit（企业设备管理服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.enterprise.bundleManager（包管理）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.enterprise.bundleManager（包管理）</h1></header>
+<p>本模块提供包管理能力，包括添加包安装允许名单、获取包安装允许名单、移除包安装允许名单等。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 12开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<p>本模块接口仅可在Stage模型下使用。</p>
+<p>本模块接口仅对设备管理应用开放，且调用接口前需激活设备管理应用，具体请参考<a class="" href=/harmonyos-docs-site/system-basicfun/mdm-kit/mdm-kit-guide>MDM Kit开发指南</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanageraddallowedinstallbundlessync>bundleManager.addAllowedInstallBundlesSync<a href=#bundlemanageraddallowedinstallbundlessync class=hash-link aria-label=bundleManager.addAllowedInstallBundlesSync的直接链接 title=bundleManager.addAllowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>addAllowedInstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>添加应用至应用程序包安装允许名单，添加至允许名单的应用允许在当前/指定用户下安装，其它非允许名单应用不允许安装。系统应用卸载后重新安装不会受到接口限制；而普通应用在卸载后重新安装时，则会受到接口限制。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，支持传入应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，推荐使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>。API version 20及之前版本，仅支持<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.addAllowedInstallBundlesSync(wantTemp, appIds, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in adding allowed install bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to add allowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerremoveallowedinstallbundlessync>bundleManager.removeAllowedInstallBundlesSync<a href=#bundlemanagerremoveallowedinstallbundlessync class=hash-link aria-label=bundleManager.removeAllowedInstallBundlesSync的直接链接 title=bundleManager.removeAllowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>removeAllowedInstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>在应用程序包安装允许名单中移除应用，在允许名单存在的情况下，不在应用程序包安装允许名单中的应用不允许在当前/指定用户下安装。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，数组中的元素支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，仅移除传入的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>），不会移除同一应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>）。API version 20及之前版本，数组中的元素只支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.removeAllowedInstallBundlesSync(wantTemp, appIds, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in removing allowed install bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to remove allowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetallowedinstallbundlessync>bundleManager.getAllowedInstallBundlesSync<a href=#bundlemanagergetallowedinstallbundlessync class=hash-link aria-label=bundleManager.getAllowedInstallBundlesSync的直接链接 title=bundleManager.getAllowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>getAllowedInstallBundlesSync(admin: Want, accountId?: number): Array&lt;string></p>
+<p>获取当前/指定用户下的应用程序包安装允许名单。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Array&lt;string><td>返回当前用户下的应用程序包安装允许名单。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let result: Array&lt;string> = bundleManager.getAllowedInstallBundlesSync(wantTemp, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in getting allowed install bundles, result : ${JSON.stringify(result)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get allowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanageradddisallowedinstallbundlessync>bundleManager.addDisallowedInstallBundlesSync<a href=#bundlemanageradddisallowedinstallbundlessync class=hash-link aria-label=bundleManager.addDisallowedInstallBundlesSync的直接链接 title=bundleManager.addDisallowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>addDisallowedInstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>添加应用至应用程序包安装禁止名单，添加至禁止名单的应用不允许在当前/指定用户下安装。系统应用卸载后重新安装不会受到接口限制；而普通应用在卸载后重新安装时，则会受到接口限制。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，支持传入应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，推荐使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>。API version 20及之前版本，仅支持<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.addDisallowedInstallBundlesSync(wantTemp, appIds, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in adding disallowed install bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to add disallowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerremovedisallowedinstallbundlessync>bundleManager.removeDisallowedInstallBundlesSync<a href=#bundlemanagerremovedisallowedinstallbundlessync class=hash-link aria-label=bundleManager.removeDisallowedInstallBundlesSync的直接链接 title=bundleManager.removeDisallowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>removeDisallowedInstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>在应用程序包安装禁止名单中移除应用，在禁止名单存在的情况下，在应用程序包安装禁止名单中的应用不允许在当前/指定用户下安装。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，数组中的元素支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，仅移除传入的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>），不会移除同一应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>）。API version 20及之前版本，数组中的元素只支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.removeDisallowedInstallBundlesSync(wantTemp, appIds, 100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in removing disallowed install bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to remove disallowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetdisallowedinstallbundlessync>bundleManager.getDisallowedInstallBundlesSync<a href=#bundlemanagergetdisallowedinstallbundlessync class=hash-link aria-label=bundleManager.getDisallowedInstallBundlesSync的直接链接 title=bundleManager.getDisallowedInstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>getDisallowedInstallBundlesSync(admin: Want, accountId?: number): Array&lt;string></p>
+<p>获取当前/指定用户下的应用程序包安装禁止名单。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Array&lt;string><td>返回当前用户下的应用程序包安装禁止名单。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 参数需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let result: Array&lt;string> = bundleManager.getDisallowedInstallBundlesSync(wantTemp, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in getting disallowed install bundles, result : ${JSON.stringify(result)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get disallowed install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanageradddisalloweduninstallbundlessync>bundleManager.addDisallowedUninstallBundlesSync<a href=#bundlemanageradddisalloweduninstallbundlessync class=hash-link aria-label=bundleManager.addDisallowedUninstallBundlesSync的直接链接 title=bundleManager.addDisallowedUninstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>addDisallowedUninstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>添加应用至包卸载禁止名单，添加至禁止名单的应用不允许在当前/指定用户下卸载。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  取值范围：单个用户下该名单总数不能超过200。例如100用户下已经设置了50个、101用户未设置，则100用户还能再设置150个，101用户还能再设置200个。不建议一次性设置个数大于50个，可能引入性能问题。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，支持传入应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，推荐使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>。API version 20及之前版本，仅支持<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 参数需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.addDisallowedUninstallBundlesSync(wantTemp, appIds, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in adding disallowed uninstall bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to add disallowed uninstall bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerremovedisalloweduninstallbundlessync>bundleManager.removeDisallowedUninstallBundlesSync<a href=#bundlemanagerremovedisalloweduninstallbundlessync class=hash-link aria-label=bundleManager.removeDisallowedUninstallBundlesSync的直接链接 title=bundleManager.removeDisallowedUninstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>removeDisallowedUninstallBundlesSync(admin: Want, appIds: Array&lt;string>, accountId?: number): void</p>
+<p>在包卸载禁止名单中移除应用。在禁止名单存在的情况下，在包卸载禁止名单中的应用不允许在当前/指定用户下卸载。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appIds<td>Array&lt;string><td>是<td>应用ID数组。  取值范围：不建议一次性设置个数大于50个，可能引入性能问题。  <strong><strong>说明：</strong></strong> 从API version 21版本开始，数组中的元素支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>和<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>，仅移除传入的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>），不会移除同一应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>appIdentifier</a>（或<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>）。API version 20及之前版本，数组中的元素只支持使用<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>appId</a>。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let appIds: Array&lt;string> = ['com.example.******_******/******5t5CoBM='];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 参数需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.removeDisallowedUninstallBundlesSync(wantTemp, appIds, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in removing disallowed uninstall bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to remove disallowed uninstall bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetdisalloweduninstallbundlessync>bundleManager.getDisallowedUninstallBundlesSync<a href=#bundlemanagergetdisalloweduninstallbundlessync class=hash-link aria-label=bundleManager.getDisallowedUninstallBundlesSync的直接链接 title=bundleManager.getDisallowedUninstallBundlesSync的直接链接 translate=no>​</a></h2>
+<p>getDisallowedUninstallBundlesSync(admin: Want, accountId?: number): Array&lt;string></p>
+<p>获取当前/指定用户下包卸载禁止名单。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>accountId<td>number<td>否<td>用户ID，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。  - 调用接口时，若传入accountId，表示指定用户。  - 调用接口时，若未传入accountId，表示当前用户。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Array&lt;string><td>返回当前用户下的包卸载禁止名单。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 参数需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let result: Array&lt;String> = bundleManager.getDisallowedUninstallBundlesSync(wantTemp, 100);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in getting disallowed uninstall bundles, result : ${JSON.stringify(result)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get disallowed uninstall bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanageruninstall>bundleManager.uninstall<a href=#bundlemanageruninstall class=hash-link aria-label=bundleManager.uninstall的直接链接 title=bundleManager.uninstall的直接链接 translate=no>​</a></h2>
+<p>uninstall(admin: Want, bundleName: string, userId?: number, isKeepData?: boolean): Promise&lt;void></p>
+<p>卸载当前/指定用户下的指定包接口，选择是否保留包数据（由isKeepData指定）。使用promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>当应用为不可卸载的预置应用或者通过<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager#bundlemanageradddisalloweduninstallbundlessync>addDisallowedUninstallBundlesSync</a>接口设置了不允许卸载时，调用此接口卸载应用会返回401错误码。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_INSTALL_BUNDLE</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>bundleName<td>string<td>是<td>应用程序包名。<tr><td>userId<td>number<td>否<td>用户ID，取值范围：大于等于0。  - 调用接口时，若传入userId，表示指定用户。  - 调用接口时，若未传入userId，表示当前用户。<tr><td>isKeepData<td>boolean<td>否<td>是否保留包数据，true表示保留，false表示不保留。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。当包卸载失败时抛出错误对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 参数需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundleManager.uninstall(wantTemp, 'bundleName', 100, true).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in uninstalling bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to uninstall bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerinstall>bundleManager.install<a href=#bundlemanagerinstall class=hash-link aria-label=bundleManager.install的直接链接 title=bundleManager.install的直接链接 translate=no>​</a></h2>
+<p>install(admin: Want, hapFilePaths: Array&lt;string>, installParam?: InstallParam): Promise&lt;void></p>
+<p>安装指定路径下的应用包。使用promise异步回调。</p>
+<p>此接口只能安装分发类型为enterprise_mdm（MDM应用）和enterprise_normal（普通企业应用）类型的应用，可以通过<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager#bundlemanagergetbundleinfoforself>getBundleInfoForSelf</a>接口查询应用自身的<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-bundleinfo/js-apis-bundlemanager-bundleinfo>BundleInfo</a>，其中BundleInfo.appInfo.appDistributionType为应用的分发类型。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口比较耗时，当调用此接口后，后续如果在应用主线程调用其他同步接口时需要等待该接口异步返回。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_INSTALL_BUNDLE</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>hapFilePaths<td>Array&lt;string><td>是<td>待安装应用包路径数组。应用包路径为应用沙箱路径(应用沙箱路径和真实路径的对应关系可参见：<a class="" href=/harmonyos-docs-site/core-file-kit/app-file/app-sandbox-directory#%E5%BA%94%E7%94%A8%E6%B2%99%E7%AE%B1%E8%B7%AF%E5%BE%84%E5%92%8C%E7%9C%9F%E5%AE%9E%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84%E7%9A%84%E5%AF%B9%E5%BA%94%E5%85%B3%E7%B3%BB>应用沙箱路径和真实物理路径的对应关系</a>)等应用有权限访问的路径。<tr><td>installParam<td><a href=#installparam class="">InstallParam</a><td>否<td>应用包安装参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。当应用程序包安装失败时，抛出错误对象。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>9201002<td>Failed to install the application.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 为当前用户安装应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hapFilePaths: Array&lt;string> = ['/data/storage/el2/base/haps/entry/testinstall/ExtensionTest.hap'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundleManager.install(wantTemp, hapFilePaths).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in installing bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 为所有用户安装应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let hapFilePaths: Array&lt;string> = ['/data/storage/el2/base/haps/entry/testinstall/ExtensionTest.hap'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const params: Record&lt;string, string> = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  'ohos.bms.param.enterpriseForAllUser': 'true'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let installParam: bundleManager.InstallParam = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  userId: 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  installFlag: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  parameters: params</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundleManager.install(wantTemp, hapFilePaths, installParam).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in installing bundles.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to install bundles. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetinstalledbundlelist20>bundleManager.getInstalledBundleList20+<a href=#bundlemanagergetinstalledbundlelist20 class=hash-link aria-label=bundleManager.getInstalledBundleList20+的直接链接 title=bundleManager.getInstalledBundleList20+的直接链接 translate=no>​</a></h2>
+<p>getInstalledBundleList(admin: Want, accountId: number): Promise&lt;Array&lt;BundleInfo>></p>
+<p>获取设备指定用户下已安装应用列表。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>accountId<td>number<td>是<td>用户ID，取值为正整数，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;<a href=#bundleinfo20 class="">BundleInfo</a>>><td>Promise对象，返回已安装应用包信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let accountId: number = 100;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundleManager.getInstalledBundleList(wantTemp, accountId).then((result) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in getting installed bundle list.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get installed bundle list. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetinstalledbundlelist23>bundleManager.getInstalledBundleList23+<a href=#bundlemanagergetinstalledbundlelist23 class=hash-link aria-label=bundleManager.getInstalledBundleList23+的直接链接 title=bundleManager.getInstalledBundleList23+的直接链接 translate=no>​</a></h2>
+<p>getInstalledBundleList(admin: Want, accountId: number, bundleInfoGetFlag: number): Promise&lt;Array&lt;BundleInfo>></p>
+<p>根据给定的bundleInfoGetFlag获取设备指定用户下已安装应用列表。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_GET_ALL_BUNDLE_INFO</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>accountId<td>number<td>是<td>用户ID，取值为正整数，取值范围：大于等于0。  accountId可以通过@ohos.account.osAccount中的<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-osaccount/js-apis-osaccount#getosaccountlocalid9-1>getOsAccountLocalId</a>等接口来获取。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-bundlemanager/js-apis-enterprise-bundlemanager#bundleinfogetflag23>bundleInfoGetFlag</a><td>number<td>是<td>指定返回的BundleInfo所包含的信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;<a href=#bundleinfo20 class="">BundleInfo</a>>><td>Promise对象，返回已安装应用包信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let accountId: number = 100;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let bundleInfoGetFlag: number = bundleManager.BundleInfoGetFlag.WITH_APPLICATION_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  | bundleManager.BundleInfoGetFlag.WITH_SIGNATURE_INFO;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundleManager.getInstalledBundleList(wantTemp, accountId, bundleInfoGetFlag).then((result) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in getting installed bundle list.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get installed bundle list. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanageraddinstallationallowedappdistributiontypes20>bundleManager.addInstallationAllowedAppDistributionTypes20+<a href=#bundlemanageraddinstallationallowedappdistributiontypes20 class=hash-link aria-label=bundleManager.addInstallationAllowedAppDistributionTypes20+的直接链接 title=bundleManager.addInstallationAllowedAppDistributionTypes20+的直接链接 translate=no>​</a></h2>
+<p>addInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array&lt;AppDistributionType>): void</p>
+<p>添加可安装应用的分发类型。添加成功后，当前设备可以安装对应分发类型的应用，但无法安装<a href=#appdistributiontype20 class="">AppDistributionType</a>中未添加的分发类型的应用。</p>
+<p>应用程序签名证书的分发类型详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-applicationinfo/js-apis-bundlemanager-applicationinfo#applicationinfo-1>ApplicationInfo</a>的appDistributionType属性。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appDistributionTypes<td>Array&lt;<a href=#appdistributiontype20 class="">AppDistributionType</a>><td>是<td>应用程序签名证书的分发类型数组。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>9200012<td>Parameter verification failed.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let appDistributionTypes: Array&lt;bundleManager.AppDistributionType> = [bundleManager.AppDistributionType.APP_GALLERY];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.addInstallationAllowedAppDistributionTypes(wantTemp, appDistributionTypes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in adding allowed appDistributionTypes.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to add allowed appDistributionTypes. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerremoveinstallationallowedappdistributiontypes20>bundleManager.removeInstallationAllowedAppDistributionTypes20+<a href=#bundlemanagerremoveinstallationallowedappdistributiontypes20 class=hash-link aria-label=bundleManager.removeInstallationAllowedAppDistributionTypes20+的直接链接 title=bundleManager.removeInstallationAllowedAppDistributionTypes20+的直接链接 translate=no>​</a></h2>
+<p>removeInstallationAllowedAppDistributionTypes(admin: Want, appDistributionTypes: Array&lt;AppDistributionType>): void</p>
+<p>移除应用的分发类型。若只移除了数组中部分的分发类型，则当前设备可以安装数组中剩下的分发类型的应用，但无法安装<a href=#appdistributiontype20 class="">AppDistributionType</a>中未添加的分发类型的应用。</p>
+<p>应用程序签名证书的分发类型详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-applicationinfo/js-apis-bundlemanager-applicationinfo#applicationinfo-1>ApplicationInfo</a>的appDistributionType属性。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>冲突规则：</strong></strong> <a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/mdm-kit-multi-mdm#%E8%A7%84%E5%88%994%E5%90%88%E5%B9%B6 target=_blank rel="noopener noreferrer" class="">合并</a>。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>appDistributionTypes<td>Array&lt;<a href=#appdistributiontype20 class="">AppDistributionType</a>><td>是<td>应用程序签名证书的分发类型数组。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>9200012<td>Parameter verification failed.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let appDistributionTypes: Array&lt;bundleManager.AppDistributionType> = [bundleManager.AppDistributionType.APP_GALLERY];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleManager.removeInstallationAllowedAppDistributionTypes(wantTemp, appDistributionTypes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('Succeeded in removing allowed appDistributionTypes.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to remove allowed appDistributionTypes. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagergetinstallationallowedappdistributiontypes20>bundleManager.getInstallationAllowedAppDistributionTypes20+<a href=#bundlemanagergetinstallationallowedappdistributiontypes20 class=hash-link aria-label=bundleManager.getInstallationAllowedAppDistributionTypes20+的直接链接 title=bundleManager.getInstallationAllowedAppDistributionTypes20+的直接链接 translate=no>​</a></h2>
+<p>getInstallationAllowedAppDistributionTypes(admin: Want): Array&lt;AppDistributionType></p>
+<p>获取可安装的应用程序签名证书的分发类型。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_SET_BUNDLE_INSTALL_POLICY</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Array&lt;<a href=#appdistributiontype20 class="">AppDistributionType</a>><td>应用程序签名证书的分发类型数组。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.edmtest',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let result: Array&lt;bundleManager.AppDistributionType> = bundleManager.getInstallationAllowedAppDistributionTypes(wantTemp);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info(`Succeeded in getting allowed appDistributionTypes. Result: ${JSON.stringify(result)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to get allowed appDistributionTypes. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundlemanagerinstallmarketapps22>bundleManager.installMarketApps22+<a href=#bundlemanagerinstallmarketapps22 class=hash-link aria-label=bundleManager.installMarketApps22+的直接链接 title=bundleManager.installMarketApps22+的直接链接 translate=no>​</a></h2>
+<p>installMarketApps(admin: Want, bundleNames: Array&lt;string>): void</p>
+<p>下载并安装应用市场应用。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本接口调用成功后会在桌面上生成应用下载任务，此任务与从应用市场下载所创建任务一致。下载安装结束后，安装结果会通过回调<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterpriseadminextensionability/js-apis-enterpriseadminextensionability#onmarketappinstallresult22>EnterpriseAdminExtensionAbility.onMarketAppInstallResult</a>返回。</p>
+<p><strong><strong>注意事项：</strong></strong></p>
+<p>1、调用该接口时必须保证网络畅通，否则会抛出9201002错误码。</p>
+<p>2、传入的包名必须是应用市场已上架的应用包名，并且需要<a href=https://developer.huawei.com/business/cn/doc/HEM/hem_user-guide_equipment_app-management-0000002468952084 target=_blank rel="noopener noreferrer" class="">在HEM平台上加入企业应用</a></p>
+<p>3、调用此接口前，此设备必须通过<a href=https://developer.huawei.com/business/cn/doc/HEM/hem_user-guide_add-reseller_management-resellerr-0000002469112100 target=_blank rel="noopener noreferrer" class="">HEM部署</a>。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.ENTERPRISE_INSTALL_BUNDLE</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>admin<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-want/js-apis-app-ability-want>Want</a><td>是<td>企业设备管理扩展组件。Want中必须包含企业设备管理扩展能力的abilityName和所在应用的bundleName。<tr><td>bundleNames<td>Array&lt;string><td>是<td>应用包名列表，一次最多传入10个。包名需与应用市场中包名一致，否则无法创建下载任务，并抛出错误码9201002。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts-errcode/errorcode-enterprisedevicemanager/errorcode-enterprisedevicemanager>企业设备管理错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>9200001<td>The application is not an administrator application of the device.<tr><td>9200002<td>The administrator application does not have permission to manage the device.<tr><td>9200012<td>Parameter verification failed.<tr><td>9201002<td>Failed to install the application.<tr><td>201<td>Permission verification failed. The application does not have the permission required to call the API.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { bundleManager } from '@kit.MDMKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wantTemp: Want = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  bundleName: 'com.example.myapplication',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  abilityName: 'EnterpriseAdminAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 需根据实际情况进行替换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let bundleNames: Array&lt;string> = [ 'com.huaweicloud.m' ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    bundleManager.installMarketApps(wantTemp, bundleNames);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`Succeeded in installing market apps.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch(err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to install market apps. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=installparam>InstallParam<a href=#installparam class=hash-link aria-label=InstallParam的直接链接 title=InstallParam的直接链接 translate=no>​</a></h2>
+<p>应用包安装需指定的参数信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>userId<td>number<td>否<td>是<td>指示用户id，默认值：调用方所在用户，取值范围：大于等于0。<tr><td>installFlag<td>number<td>否<td>是<td>安装标志。枚举值：0：应用初次安装，1：应用覆盖安装，2：应用免安装，默认值为应用初次安装。<tr><td>parameters19+<td>Record&lt;string, string><td>否<td>是<td>扩展参数，默认值为空。key取值支持"ohos.bms.param.enterpriseForAllUser"，若对应的value值为"true"，表示为所有用户安装应用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appdistributiontype20>AppDistributionType20+<a href=#appdistributiontype20 class=hash-link aria-label=AppDistributionType20+的直接链接 title=AppDistributionType20+的直接链接 translate=no>​</a></h2>
+<p>应用程序签名证书的分发类型。详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-applicationinfo/js-apis-bundlemanager-applicationinfo#applicationinfo-1>ApplicationInfo</a>的appDistributionType属性。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>APP_GALLERY<td>1<td>应用市场安装的应用。<tr><td>ENTERPRISE<td>2<td>企业应用。<tr><td>ENTERPRISE_NORMAL<td>3<td>普通企业应用。<tr><td>ENTERPRISE_MDM<td>4<td>企业MDM应用。<tr><td>INTERNALTESTING<td>5<td>应用市场内测的应用。<tr><td>CROWDTESTING<td>6<td>众包测试应用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundleinfo20>BundleInfo20+<a href=#bundleinfo20 class=hash-link aria-label=BundleInfo20+的直接链接 title=BundleInfo20+的直接链接 translate=no>​</a></h2>
+<p>描述应用包信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>是<td>否<td>应用包的名称，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的bundleName字段。<tr><td>vendor<td>string<td>是<td>否<td>应用包的供应商，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的vendor字段。<tr><td>versionCode<td>number<td>是<td>否<td>应用包的版本号，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的versionCode字段。<tr><td>versionName<td>string<td>是<td>否<td>应用包的版本文本描述信息，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的versionName字段。<tr><td>minCompatibleVersionCode<td>number<td>是<td>否<td>分布式场景下的应用包兼容的最低版本，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的minCompatibleVersionCode字段。<tr><td>targetVersion<td>number<td>是<td>否<td>应用运行目标版本，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的targetAPIVersion字段。<tr><td>appInfo<td><a href=#applicationinfo20 class="">ApplicationInfo</a><td>是<td>否<td>应用程序的配置信息。<tr><td>signatureInfo<td><a href=#signatureinfo20 class="">SignatureInfo</a><td>是<td>否<td>应用包的签名信息。<tr><td>installTime<td>number<td>是<td>否<td>应用包安装时间戳，表示从1970-01-01 08:00:00 UTC+8逝去的毫秒数，单位毫秒。<tr><td>updateTime<td>number<td>是<td>否<td>应用包更新时间戳，表示从1970-01-01 08:00:00 UTC+8逝去的毫秒数，单位毫秒。<tr><td>appIndex<td>number<td>是<td>否<td>应用包的分身索引标识，仅在分身应用中生效。<tr><td>firstInstallTime<td>number<td>是<td>是<td>应用在当前设备的首次安装时间戳，表示从1970-01-01 08:00:00 UTC+8逝去的毫秒数，单位毫秒，预置应用的首次安装时间戳为1533657660000。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=signatureinfo20>SignatureInfo20+<a href=#signatureinfo20 class=hash-link aria-label=SignatureInfo20+的直接链接 title=SignatureInfo20+的直接链接 translate=no>​</a></h2>
+<p>描述应用包的签名信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>appId<td>string<td>是<td>否<td>应用的appId，表示应用的唯一标识，详情信息可参考<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappid>什么是appId</a>。<tr><td>fingerprint<td>string<td>是<td>否<td>应用包的指纹信息，由签名证书通过SHA-256算法计算哈希值生成。使用的签名证书发生变化时，该字段也会发生变化。<tr><td>appIdentifier<td>string<td>是<td>否<td>应用的唯一标识。详情信息可参考<a class="" href=/harmonyos-docs-site/development-fundamentals/common-problem-of-application#%E4%BB%80%E4%B9%88%E6%98%AFappidentifier>什么是appIdentifier</a>。<tr><td>certificate<td>string<td>是<td>是<td>应用的证书公钥。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=applicationinfo20>ApplicationInfo20+<a href=#applicationinfo20 class=hash-link aria-label=ApplicationInfo20+的直接链接 title=ApplicationInfo20+的直接链接 translate=no>​</a></h2>
+<p>应用程序信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>是<td>否<td>应用包的名称，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的bundleName字段。<tr><td>description<td>string<td>是<td>否<td>标识应用的描述信息，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的description字段。关于description的详细信息详见本表中的descriptionResource字段说明。<tr><td>descriptionId<td>number<td>是<td>否<td>标识应用的描述信息的资源id，是编译构建时根据应用配置的description自动生成的资源id。<tr><td>enabled<td>boolean<td>是<td>否<td>判断应用程序是否可以使用，取值为true表示可以使用，取值为false表示不可使用。<tr><td>label<td>string<td>是<td>否<td>标识应用的名称。<tr><td>labelId<td>number<td>是<td>否<td>标识应用名称的资源id，是编译构建时根据应用配置的label自动生成的资源id。<tr><td>icon<td>string<td>是<td>否<td>应用程序的图标，对应<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/app-configuration-file>app.json5</a>中配置的icon字段。关于icon的详细信息详见本表中的iconResource字段说明。<tr><td>iconData23+<td>string<td>是<td>否<td>应用程序的图标，为base64编码格式。<tr><td>iconId<td>number<td>是<td>否<td>应用程序图标的资源id，是编译构建时根据应用配置的icon自动生成的资源id。<tr><td>process<td>string<td>是<td>否<td>应用程序的进程名称。<tr><td>codePath<td>string<td>是<td>否<td>应用程序的安装目录。<tr><td>removable<td>boolean<td>是<td>否<td>应用程序是否可以被移除，取值为true表示可以被移除，取值为false表示不可以被移除。<tr><td>accessTokenId<td>number<td>是<td>否<td>应用程序的accessTokenId，应用的身份标识，在<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-abilityaccessctrl/js-apis-abilityaccessctrl#checkaccesstoken9>程序访问控制校验接口</a>中使用。<tr><td>uid<td>number<td>是<td>否<td>应用程序的UID。<tr><td>iconResource<td><a href=#resource20 class="">Resource</a><td>是<td>否<td>应用程序的图标资源信息，包含了该资源的信息的bundleName、moduleName和id。<tr><td>labelResource<td><a href=#resource20 class="">Resource</a><td>是<td>否<td>应用程序的标签资源信息，包含了该资源的信息的bundleName、moduleName和id。<tr><td>descriptionResource<td><a href=#resource20 class="">Resource</a><td>是<td>否<td>应用程序的描述资源信息，包含了该资源的信息的bundleName、moduleName和id。<tr><td>appDistributionType<td>string<td>是<td>否<td>应用程序签名证书的分发类型，详细信息请参考<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-applicationinfo/js-apis-bundlemanager-applicationinfo#applicationinfo-1>ApplicationInfo</a>的appProvisionType字段。<tr><td>appProvisionType<td>string<td>是<td>否<td>应用程序签名证书文件的类型，分为debug和release两种类型。<tr><td>systemApp<td>boolean<td>是<td>否<td>标识应用是否为系统应用，取值为true表示系统应用，取值为false表示非系统应用。<tr><td>debug<td>boolean<td>是<td>否<td>标识应用是否处于调试模式，取值为true表示应用处于调试模式，取值为false表示应用处于非调试模式。<tr><td>dataUnclearable<td>boolean<td>是<td>否<td>标识应用数据是否可被删除。true表示不可删除，false表示可以删除。<tr><td>nativeLibraryPath<td>string<td>是<td>否<td>应用程序的本地库文件路径。<tr><td>appIndex<td>number<td>是<td>否<td>应用包的分身索引标识，仅在分身应用中生效。<tr><td>installSource<td>string<td>是<td>否<td>应用程序的安装来源，支持的取值如下：  - pre-installed表示应用为第一次开机时安装的预置应用。  - ota表示应用为系统升级时新增的预置应用。  - recovery表示卸载后再恢复的预置应用。  - bundleName表示应用由此包名对应的应用安装。  - unknown表示应用安装来源未知。<tr><td>releaseType<td>string<td>是<td>否<td>标识应用打包时使用的SDK的发布类型。当前SDK的发布类型可能为Canary、Beta、Release，其中Canary和Beta可能通过序号进一步细分，例如Canary1、Canary2、Beta1、Beta2等。开发者可通过对比应用打包依赖的SDK发布类型和OS的发布类型（<a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/device-management-arkts/js-apis-device-info/js-apis-device-info>deviceInfo.distributionOSReleaseType</a>）来判断兼容性。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=resource20>Resource20+<a href=#resource20 class=hash-link aria-label=Resource20+的直接链接 title=Resource20+的直接链接 translate=no>​</a></h2>
+<p>资源相关信息，包括应用包名、应用模块名、资源id。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>bundleName<td>string<td>否<td>否<td>应用的bundle名称。<tr><td>moduleName<td>string<td>否<td>否<td>应用的module名称。<tr><td>id<td>number<td>否<td>否<td>资源的id值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bundleinfogetflag23>BundleInfoGetFlag23+<a href=#bundleinfogetflag23 class=hash-link aria-label=BundleInfoGetFlag23+的直接链接 title=BundleInfoGetFlag23+的直接链接 translate=no>​</a></h2>
+<p>包信息获取标志，指示需要获取的包信息的内容。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Customization.EnterpriseDeviceManager</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>DEFAULT<td>0<td>用于获取默认包信息，不包含applicationInfo、signatureInfo的信息。<tr><td>WITH_APPLICATION_INFO<td>1 &lt;&lt; 0<td>用于获取默认包信息和applicationInfo的信息，获取的applicationInfo中不包含iconData的信息。<tr><td>WITH_SIGNATURE_INFO<td>1 &lt;&lt; 1<td>用于获取默认包信息和signatureInfo的信息。<tr><td>WITH_APPLICATION_ICON_INFO<td>1 &lt;&lt; 2<td>用于获取默认包信息和applicationInfo的iconData信息。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-browser/js-apis-enterprise-browser><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.enterprise.browser（浏览器管理）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-basicfun-api/mdm-api/mdm-arkts/js-apis-enterprise-common/js-apis-enterprise-common><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.enterprise.common（Enterprise公共模块）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#bundlemanageraddallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.addAllowedInstallBundlesSync</a><li><a href=#bundlemanagerremoveallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.removeAllowedInstallBundlesSync</a><li><a href=#bundlemanagergetallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.getAllowedInstallBundlesSync</a><li><a href=#bundlemanageradddisallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.addDisallowedInstallBundlesSync</a><li><a href=#bundlemanagerremovedisallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.removeDisallowedInstallBundlesSync</a><li><a href=#bundlemanagergetdisallowedinstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.getDisallowedInstallBundlesSync</a><li><a href=#bundlemanageradddisalloweduninstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.addDisallowedUninstallBundlesSync</a><li><a href=#bundlemanagerremovedisalloweduninstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.removeDisallowedUninstallBundlesSync</a><li><a href=#bundlemanagergetdisalloweduninstallbundlessync class="table-of-contents__link toc-highlight">bundleManager.getDisallowedUninstallBundlesSync</a><li><a href=#bundlemanageruninstall class="table-of-contents__link toc-highlight">bundleManager.uninstall</a><li><a href=#bundlemanagerinstall class="table-of-contents__link toc-highlight">bundleManager.install</a><li><a href=#bundlemanagergetinstalledbundlelist20 class="table-of-contents__link toc-highlight">bundleManager.getInstalledBundleList20+</a><li><a href=#bundlemanagergetinstalledbundlelist23 class="table-of-contents__link toc-highlight">bundleManager.getInstalledBundleList23+</a><li><a href=#bundlemanageraddinstallationallowedappdistributiontypes20 class="table-of-contents__link toc-highlight">bundleManager.addInstallationAllowedAppDistributionTypes20+</a><li><a href=#bundlemanagerremoveinstallationallowedappdistributiontypes20 class="table-of-contents__link toc-highlight">bundleManager.removeInstallationAllowedAppDistributionTypes20+</a><li><a href=#bundlemanagergetinstallationallowedappdistributiontypes20 class="table-of-contents__link toc-highlight">bundleManager.getInstallationAllowedAppDistributionTypes20+</a><li><a href=#bundlemanagerinstallmarketapps22 class="table-of-contents__link toc-highlight">bundleManager.installMarketApps22+</a><li><a href=#installparam class="table-of-contents__link toc-highlight">InstallParam</a><li><a href=#appdistributiontype20 class="table-of-contents__link toc-highlight">AppDistributionType20+</a><li><a href=#bundleinfo20 class="table-of-contents__link toc-highlight">BundleInfo20+</a><li><a href=#signatureinfo20 class="table-of-contents__link toc-highlight">SignatureInfo20+</a><li><a href=#applicationinfo20 class="table-of-contents__link toc-highlight">ApplicationInfo20+</a><li><a href=#resource20 class="table-of-contents__link toc-highlight">Resource20+</a><li><a href=#bundleinfogetflag23 class="table-of-contents__link toc-highlight">BundleInfoGetFlag23+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

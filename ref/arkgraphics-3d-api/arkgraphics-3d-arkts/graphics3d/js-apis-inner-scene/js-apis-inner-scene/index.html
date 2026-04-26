@@ -1,0 +1,1398 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>Scene | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="Scene | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块作为ArkGraphics 3D基础模块，提供SceneResourceParameters、SceneNodeParameters等通用数据类型。同时提供glTF模型加载，场景元素、资源创建等基础方法。"/><meta data-rh=true property=og:description content="本模块作为ArkGraphics 3D基础模块，提供SceneResourceParameters、SceneNodeParameters等通用数据类型。同时提供glTF模型加载，场景元素、资源创建等基础方法。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene","name":"Scene","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title="AR Engine（AR引擎服务）" class=categoryLinkLabel_W154>AR Engine（AR引擎服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-effectkit/js-apis-effectkit><span title="ArkGraphics 2D（方舟2D图形服务）" class=categoryLinkLabel_W154>ArkGraphics 2D（方舟2D图形服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="ArkGraphics 3D（方舟3D图形）" class=categoryLinkLabel_W154>ArkGraphics 3D（方舟3D图形）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="@ohos.graphics.scene (ArkGraphics 3D模块)" class=linkLabel_WmDU>@ohos.graphics.scene (ArkGraphics 3D模块)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene><span title=graphics3d class=categoryLinkLabel_W154>graphics3d</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene><span title=Scene class=linkLabel_WmDU>Scene</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes><span title=SceneNode class=linkLabel_WmDU>SceneNode</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types><span title=SceneType class=linkLabel_WmDU>SceneType</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources><span title=SceneResource class=linkLabel_WmDU>SceneResource</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-post-process-settings/js-apis-inner-scene-post-process-settings><span title=ScenePostProcessSettings class=linkLabel_WmDU>ScenePostProcessSettings</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title="Graphics Accelerate Kit（图形加速服务）" class=categoryLinkLabel_W154>Graphics Accelerate Kit（图形加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/spatial-recon-api/spatial-recon-arkts/spatial-recon-spatialrender/spatial-recon-spatialrender><span title="Spatial Recon Kit（空间建模服务）" class=categoryLinkLabel_W154>Spatial Recon Kit（空间建模服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/xengine-api/xengine-c/xengine-kit-index/xengine-kit-xengine/xengine-kit-xengine><span title="XEngine Kit（GPU加速引擎服务）" class=categoryLinkLabel_W154>XEngine Kit（GPU加速引擎服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>图形</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkGraphics 3D（方舟3D图形）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>graphics3d</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Scene</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Scene</h1></header>
+<p>本模块作为ArkGraphics 3D基础模块，提供SceneResourceParameters、SceneNodeParameters等通用数据类型。同时提供glTF模型加载，场景元素、资源创建等基础方法。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">本模块首批接口从API version 12开始支持，后续版本的新增接口，采用上角标标记接口的起始版本。</li>
+<li class="">关于.shader资源文件，具体请见<a class="" href=/harmonyos-docs-site/arkgraphics-3d/arkgraphics3d-resource/arkgraphics3d-shader-resource>.shader资源文件格式要求</a>。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceParameters, SceneNodeParameters, RaycastResult, RaycastParameters,RenderResourceFactory,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  SceneResourceFactory, SceneComponent, RenderContext, RenderConfiguration, RenderParameters, Scene } from '@kit.ArkGraphics3D';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sceneresourceparameters>SceneResourceParameters<a href=#sceneresourceparameters class=hash-link aria-label=SceneResourceParameters的直接链接 title=SceneResourceParameters的直接链接 translate=no>​</a></h2>
+<p>场景资源参数对象，包含name和uri，用于提供场景资源的名称以及3D场景所需的资源文件路径。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>要创建资源的名称，可由开发者自定填写，用于标识该场景资源。<tr><td>uri<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>是<td>3D场景所需的资源文件路径。默认值为undefined。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Shader, SceneResourceParameters, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createShaderPromise(): Promise&lt;Shader> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建shader资源（通过SceneResourceParameters配置），路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneResourceParameter: SceneResourceParameters = { name: "shaderResource",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        uri: $rawfile("shaders/custom_shader/custom_material_sample.shader") };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let shader: Shader = await sceneFactory.createShader(sceneResourceParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(shader);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scenenodeparameters>SceneNodeParameters<a href=#scenenodeparameters class=hash-link aria-label=SceneNodeParameters的直接链接 title=SceneNodeParameters的直接链接 translate=no>​</a></h2>
+<p>场景节点参数对象，它用于提供场景节点层次中的名称和路径。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>要创建的节点名称，可由开发者自定义填写，用于标识场景节点。<tr><td>path<td>string<td>否<td>是<td>场景节点层次中的路径。用于指定创建的摄影机、灯光或节点在场景节点层次中的放置位置。每层之间使用'/'符号进行分割。如果未提供，则将其设置为根节点的子节点。默认值为undefined。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneNodeParameters, SceneResourceFactory, Scene, Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createNodePromise() : Promise&lt;Node> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建SceneNodeParameters类型变量并以此创建node</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneNodeParameter: SceneNodeParameters = { name: "empty_node",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        path:"/rootNode_/empty_node" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let node: Node = await sceneFactory.createNode(sceneNodeParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(node);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=raycastresult20>RaycastResult20+<a href=#raycastresult20 class=hash-link aria-label=RaycastResult20+的直接链接 title=RaycastResult20+的直接链接 translate=no>​</a></h2>
+<p>射线检测命中结果对象，包含被射线击中的3D物体详细信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>否<td>否<td>被射线击中的3D场景节点，可通过该节点操作目标物体（如移动、旋转、隐藏）。<tr><td>centerDistance<td>number<td>否<td>否<td>命中物体包围盒中心到摄像机中心的距离，单位为世界坐标系下的场景单位（比如cm、m、km等），取值范围大于0。<tr><td>hitPosition<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#position3>Position3</a><td>否<td>否<td>射线与物体碰撞点的精确世界坐标（{x: number, y: number, z: number}），单位为世界坐标系下的场景单位（比如cm、m、km等）。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=raycastparameters20>RaycastParameters20+<a href=#raycastparameters20 class=hash-link aria-label=RaycastParameters20+的直接链接 title=RaycastParameters20+的直接链接 translate=no>​</a></h2>
+<p>射线检测参数配置，用于定义射线检测的行为。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>rootNode<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>否<td>是<td>限定检测范围：仅检测该节点及其子节点。未设置时检测全场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=renderresourcefactory20>RenderResourceFactory20+<a href=#renderresourcefactory20 class=hash-link aria-label=RenderResourceFactory20+的直接链接 title=RenderResourceFactory20+的直接链接 translate=no>​</a></h2>
+<p>用于创建可在共享<a href=#rendercontext20 class="">RenderContext</a>的多个场景（<a href=#scene-1 class="">Scene</a>）中共享的渲染资源。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createshader20>createShader20+<a href=#createshader20 class=hash-link aria-label=createShader20+的直接链接 title=createShader20+的直接链接 translate=no>​</a></h3>
+<p>createShader(params: SceneResourceParameters): Promise&lt;Shader></p>
+<p>根据指定场景资源参数创建一个着色器，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>创建着色器的参数。详细.shader文件格式请参考<a class="" href=/harmonyos-docs-site/arkgraphics-3d/arkgraphics3d-resource/arkgraphics3d-shader-resource>.shader资源文件格式要求</a>。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#shader>Shader</a>><td>Promise对象，返回创建的着色器对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Shader, SceneResourceParameters, Scene, RenderContext, RenderResourceFactory } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createShaderResource(): Promise&lt;Shader> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 创建shader资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let shaderParams: SceneResourceParameters = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: "custom_shader",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uri: $rawfile("shaders/custom_shader/custom_material_sample.shader")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return renderResourceFactory.createShader(shaderParams);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createimage20>createImage20+<a href=#createimage20 class=hash-link aria-label=createImage20+的直接链接 title=createImage20+的直接链接 translate=no>​</a></h3>
+<p>createImage(params: SceneResourceParameters): Promise&lt;Image></p>
+<p>根据指定场景资源参数创建一个图像资源，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>创建图像的参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#image>Image</a>><td>Promise对象，返回创建的图像对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Image, SceneResourceParameters, Scene, RenderContext, RenderResourceFactory } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createImageResource(): Promise&lt;Image> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载图片资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let imageParams: SceneResourceParameters = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: "sampleImage",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uri: $rawfile("image/Cube_BaseColor.png")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return renderResourceFactory.createImage(imageParams);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createmesh20>createMesh20+<a href=#createmesh20 class=hash-link aria-label=createMesh20+的直接链接 title=createMesh20+的直接链接 translate=no>​</a></h3>
+<p>createMesh(params: SceneResourceParameters, geometry: GeometryDefinition): Promise&lt;MeshResource></p>
+<p>根据指定场景资源参数和几何体定义（GeometryDefinition）创建一个网格资源（MeshResource），使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>创建网格资源的参数。<tr><td>geometry<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#geometrydefinition18>GeometryDefinition</a><td>是<td>几何形状定义，描述要创建的网格形状。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#meshresource18>MeshResource</a>><td>Promise对象，返回创建的网格资源对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceParameters, Scene, CustomGeometry, PrimitiveTopology, RenderContext, RenderResourceFactory,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  MeshResource }  from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createMeshResource(): Promise&lt;MeshResource> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const geometry = new CustomGeometry();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.vertices = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 0, z: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 1, z: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 1, z: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 1, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 1, z: 1 }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.indices = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0, 1, 2, 2, 3, 0,     // front</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    4, 5, 6, 6, 7, 4,     // back</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0, 4, 5, 5, 1, 0,     // bottom</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    1, 5, 6, 6, 2, 1,     // right</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    3, 2, 6, 6, 7, 3,     // top</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    3, 7, 4, 4, 0, 3      // left</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.topology = PrimitiveTopology.TRIANGLE_LIST;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.normals = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0, z: 1 }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.uvs = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 0 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 1, y: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { x: 0, y: 1 }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  geometry.colors = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 1, g: 0, b: 0, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 0, g: 1, b: 0, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 0, g: 0, b: 1, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 1, g: 1, b: 0, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 1, g: 0, b: 1, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 0, g: 1, b: 1, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 1, g: 1, b: 1, a: 1 },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    { r: 0, g: 0, b: 0, a: 1 }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载图片资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let sceneResourceParameter: SceneResourceParameters = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: "cubeMesh",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uri: $rawfile("image/Cube_BaseColor.png")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return renderResourceFactory.createMesh(sceneResourceParameter, geometry);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createsampler20>createSampler20+<a href=#createsampler20 class=hash-link aria-label=createSampler20+的直接链接 title=createSampler20+的直接链接 translate=no>​</a></h3>
+<p>createSampler(params:SceneResourceParameters): Promise&lt;Sampler></p>
+<p>根据指定场景资源参数创建一个采样器资源，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>创建采样器的参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#sampler20>Sampler</a>><td>Promise对象，返回创建的采样器对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceParameters, Scene, RenderContext, RenderResourceFactory, Sampler } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createSamplerResource(): Promise&lt;Sampler> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载图片资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let samplerParams: SceneResourceParameters = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    name: "sampler1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uri: $rawfile("image/Cube_BaseColor.png")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return renderResourceFactory.createSampler(samplerParams);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createscene20>createScene20+<a href=#createscene20 class=hash-link aria-label=createScene20+的直接链接 title=createScene20+的直接链接 translate=no>​</a></h3>
+<p>createScene(uri?: ResourceStr): Promise&lt;Scene></p>
+<p>从指定的资源URI创建一个新的场景。如果不指定URI，则创建一个空场景，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>uri<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>创建场景使用的资源路径，如果未传入资源路径，则默认创建一个空场景。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#scene-1 class="">Scene</a>><td>Promise对象，返回创建的场景对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, RenderContext, RenderResourceFactory } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// fromFile=true：从指定glb文件加载场景，fromFile=false：创建一个空场景，此参数是为了示例展示两种常见场景创建方式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createScenePromise(fromFile: boolean = false): Promise&lt;Scene> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (fromFile) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 创建场景并加载.gltf或.glb文件作为初始内容，路径和名称可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return renderResourceFactory.createScene($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 创建空场景</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return renderResourceFactory.createScene();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=cameraparameters21>CameraParameters21+<a href=#cameraparameters21 class=hash-link aria-label=CameraParameters21+的直接链接 title=CameraParameters21+的直接链接 translate=no>​</a></h2>
+<p>相机创建参数配置，用于定义相机创建的额外选项。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>msaa22+<td>boolean<td>否<td>是<td>相机是否使能MSAA，true表示使能MSAA，false表示不使能MSAA。默认值为false。<tr><td>renderingPipeline21+<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#renderingpipelinetype21>RenderingPipelineType</a><td>否<td>是<td>选择初始渲染管线类型，默认为轻量级前向渲染管线类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=effectparameters21>EffectParameters21+<a href=#effectparameters21 class=hash-link aria-label=EffectParameters21+的直接链接 title=EffectParameters21+的直接链接 translate=no>​</a></h2>
+<p>特效参数配置，用于指定创建特效时所需的特效ID，作为<a href=#createeffect21 class="">createEffect</a>接口的入参来创建特效对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>effectId<td>string<td>否<td>否<td>用于创建特效的ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=sceneresourcefactory>SceneResourceFactory<a href=#sceneresourcefactory class=hash-link aria-label=SceneResourceFactory的直接链接 title=SceneResourceFactory的直接链接 translate=no>​</a></h2>
+<p>用于创建3D场景中资源的接口，例如相机、光源等，继承自<a href=#renderresourcefactory20 class="">RenderResourceFactory</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createcamera>createCamera<a href=#createcamera class=hash-link aria-label=createCamera的直接链接 title=createCamera的直接链接 translate=no>​</a></h3>
+<p>createCamera(params: SceneNodeParameters): Promise&lt;Camera></p>
+<p>根据节点参数创建相机，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#scenenodeparameters class="">SceneNodeParameters</a><td>是<td>场景节点参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#camera>Camera</a>><td>Promise对象，返回相机对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneNodeParameters, Camera, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createCameraPromise(): Promise&lt;Camera> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneCameraParameter: SceneNodeParameters = { name: "camera1" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建相机</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let camera: Camera = await sceneFactory.createCamera(sceneCameraParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(camera);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createcamera21>createCamera21+<a href=#createcamera21 class=hash-link aria-label=createCamera21+的直接链接 title=createCamera21+的直接链接 translate=no>​</a></h3>
+<p>createCamera(params: SceneNodeParameters, cameraParams: CameraParameters): Promise&lt;Camera></p>
+<p>根据节点参数与相机参数创建相机，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#scenenodeparameters class="">SceneNodeParameters</a><td>是<td>场景节点参数。<tr><td>cameraParams<td><a href=#cameraparameters21 class="">CameraParameters</a><td>是<td>相机参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#camera>Camera</a>><td>Promise对象，返回相机对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneNodeParameters, Camera, SceneResourceFactory, Scene, CameraParameters,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  RenderingPipelineType } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createCameraPromise(): Promise&lt;Camera> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let nodeParameter: SceneNodeParameters = { name: "camera1" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let camParameter: CameraParameters = {renderingPipeline: RenderingPipelineType.FORWARD};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建相机</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let camera: Camera = await sceneFactory.createCamera(nodeParameter, camParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(camera);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createlight>createLight<a href=#createlight class=hash-link aria-label=createLight的直接链接 title=createLight的直接链接 translate=no>​</a></h3>
+<p>createLight(params: SceneNodeParameters, lightType: LightType): Promise&lt;Light></p>
+<p>根据节点参数和灯光类型创建灯光，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#scenenodeparameters class="">SceneNodeParameters</a><td>是<td>场景节点参数。<tr><td>lightType<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#lighttype>LightType</a><td>是<td>灯光类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#light>Light</a>><td>Promise对象，返回灯光对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneNodeParameters, LightType, Light, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createLightPromise() : Promise&lt;Light> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneLightParameter: SceneNodeParameters = { name: "light" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建平行光</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let light: Light = await sceneFactory.createLight(sceneLightParameter, LightType.DIRECTIONAL);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(light);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createnode>createNode<a href=#createnode class=hash-link aria-label=createNode的直接链接 title=createNode的直接链接 translate=no>​</a></h3>
+<p>createNode(params: SceneNodeParameters): Promise&lt;Node></p>
+<p>创建节点，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#scenenodeparameters class="">SceneNodeParameters</a><td>是<td>场景节点参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a>><td>Promise对象，返回节点对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneNodeParameters, SceneResourceFactory, Scene, Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createNodePromise(): Promise&lt;Node> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneNodeParameter: SceneNodeParameters = { name: "empty_node",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        path:"/rootNode_/empty_node" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建节点</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let node: Node = await sceneFactory.createNode(sceneNodeParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(node);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=creatematerial>createMaterial<a href=#creatematerial class=hash-link aria-label=createMaterial的直接链接 title=createMaterial的直接链接 translate=no>​</a></h3>
+<p>createMaterial(params: SceneResourceParameters, materialType: MaterialType): Promise&lt;Material></p>
+<p>根据场景资源参数和材质类型创建材质，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>场景资源参数。<tr><td>materialType<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#materialtype>MaterialType</a><td>是<td>材质类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#material>Material</a>><td>Promise对象，返回材质对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { MaterialType, Material, SceneResourceParameters, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createMaterialPromise() : Promise&lt;Material> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneMaterialParameter: SceneResourceParameters = { name: "material" };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建材质</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let material: Material = await sceneFactory.createMaterial(sceneMaterialParameter, MaterialType.SHADER);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(material);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createenvironment>createEnvironment<a href=#createenvironment class=hash-link aria-label=createEnvironment的直接链接 title=createEnvironment的直接链接 translate=no>​</a></h3>
+<p>createEnvironment(params: SceneResourceParameters): Promise&lt;Environment></p>
+<p>根据场景资源参数创建环境，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#sceneresourceparameters class="">SceneResourceParameters</a><td>是<td>场景资源参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#environment>Environment</a>><td>Promise对象，返回环境对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Environment, SceneResourceParameters, SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createEnvironmentPromise(): Promise&lt;Environment> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 加载环境贴图资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneEnvironmentParameter: SceneResourceParameters = { name: "env", uri: $rawfile("KTX/quarry_02_2k_radiance.ktx") };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建Environment</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let env: Environment = await sceneFactory.createEnvironment(sceneEnvironmentParameter);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(env);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=creategeometry18>createGeometry18+<a href=#creategeometry18 class=hash-link aria-label=createGeometry18+的直接链接 title=createGeometry18+的直接链接 translate=no>​</a></h3>
+<p>createGeometry(params: SceneNodeParameters, mesh:MeshResource): Promise&lt;Geometry></p>
+<p>根据场景节点参数和网格数据创建几何对象，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#scenenodeparameters class="">SceneNodeParameters</a><td>是<td>场景节点参数。<tr><td>mesh<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#meshresource18>MeshResource</a><td>是<td>网格数据参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#geometry>Geometry</a>><td>Promise对象，返回几何对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceFactory, Scene, Geometry, CubeGeometry } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createGeometryPromise() : Promise&lt;Geometry> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 创建立方体几何数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let cubeGeom = new CubeGeometry();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      cubeGeom.size = { x: 1, y: 1, z: 1 };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 根据立方体几何数据创建网格资源</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let meshRes = await sceneFactory.createMesh({ name: "MeshName" }, cubeGeom);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("TEST createGeometryPromise");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 根据场景节点参数和网格资源创建几何对象</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let geometry: Geometry = await sceneFactory.createGeometry({ name: "GeometryName" }, meshRes);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(geometry);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createeffect21>createEffect21+<a href=#createeffect21 class=hash-link aria-label=createEffect21+的直接链接 title=createEffect21+的直接链接 translate=no>​</a></h3>
+<p>createEffect(params: EffectParameters): Promise&lt;Effect></p>
+<p>根据特效参数创建特效对象，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#effectparameters21 class="">EffectParameters</a><td>是<td>特效参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#effect21>Effect</a>><td>Promise对象，返回特效对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceFactory, Scene, Effect, EffectParameters } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createEffect() : Promise&lt;Effect> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return new Promise((resolve, reject) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let scene: Promise&lt;Scene> = Scene.load();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    scene.then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 特效ID，固定格式为'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX'，比如'e68a7f45-2d21-4a0d-9aef-7d9c825d3f12'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let params: EffectParameters = {effectId: "e68a7f45-2d21-4a0d-9aef-7d9c825d3f12"}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let effect: Effect = await sceneFactory.createEffect(params);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      resolve(effect);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((error: Error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Scene load failed:', error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      reject(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scenecomponent20>SceneComponent20+<a href=#scenecomponent20 class=hash-link aria-label=SceneComponent20+的直接链接 title=SceneComponent20+的直接链接 translate=no>​</a></h2>
+<p>表示基础场景组件，用于描述场景节点的组件信息，包括组件名称及其对应的属性集合。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>要创建场景组件的名称，可由开发者自定填写，用于标识场景组件。<tr><td>property<td>Record&lt;string, string<td>number<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#vec2>Vec2</a><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#vec3>Vec3</a></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rendercontext20>RenderContext20+<a href=#rendercontext20 class=hash-link aria-label=RenderContext20+的直接链接 title=RenderContext20+的直接链接 translate=no>​</a></h2>
+<p>定义了所有渲染资源的上下文。在同一渲染上下文中创建的多个场景之间，可以共享渲染资源。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getrenderresourcefactory20>getRenderResourceFactory20+<a href=#getrenderresourcefactory20 class=hash-link aria-label=getRenderResourceFactory20+的直接链接 title=getRenderResourceFactory20+的直接链接 translate=no>​</a></h3>
+<p>getRenderResourceFactory() : RenderResourceFactory</p>
+<p>获取渲染资源工厂，提供创建不同渲染资源的功能。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#renderresourcefactory20 class="">RenderResourceFactory</a><td>返回一个RenderResourceFactory实例，用于创建渲染资源。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, RenderContext, RenderResourceFactory } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function getRenderResourceFactory(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("RenderContext is null");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderResourceFactory: RenderResourceFactory = renderContext.getRenderResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("TEST getRenderResourceFactory");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=loadplugin20>loadPlugin20+<a href=#loadplugin20 class=hash-link aria-label=loadPlugin20+的直接链接 title=loadPlugin20+的直接链接 translate=no>​</a></h3>
+<p>loadPlugin(name: string): Promise&lt;boolean></p>
+<p>用于加载指定名称的插件，通过插件名称查找并加载对应的插件资源，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>要加载的插件名称，必须是系统预定义或已注册且可用的插件名称，且符合命名规范。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>返回一个Promise对象，解析结果为boolean类型，表示插件加载是否成功。true表示加载成功，false表示加载失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, RenderContext } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function loadPlugin(): Promise&lt;boolean> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("RenderContext is null");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return Promise.reject(new Error("RenderContext is null"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return renderContext.loadPlugin("pluginName");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=registerresourcepath20>registerResourcePath20+<a href=#registerresourcepath20 class=hash-link aria-label=registerResourcePath20+的直接链接 title=registerResourcePath20+的直接链接 translate=no>​</a></h3>
+<p>registerResourcePath(protocol: string, uri: string): boolean</p>
+<p>注册shader等资产文件所在的路径目录及其检索名，通过检索名查找并替换shader内部关联文件的路径描述，找到对应的资产路径目录，实现资产及其关联文件的正确加载。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>protocol<td>string<td>是<td>要注册的路径检索名，用作shader内部关联文件路径的前缀标识，必须是系统未预定义或未注册且非空的检索名称。<tr><td>uri<td>string<td>是<td>要注册的资产路径目录，与检索名对应，shader加载时会将路径中的检索名前缀替换为该目录，必须是资产文件所在文件夹路径。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回资产文件路径是否注册成功。true表示注册成功；false表示注册失败，可能原因为检索名已被注册或输入参数不可用。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, RenderContext } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function registerResourcePath(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 创建shader资源，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load($rawfile("shaders/custom_shader/custom_material_sample.shader"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("RenderContext is null");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 注册路径检索名"myproto"及其对应的资产路径目录"OhosRawFile://shaders/custom_shader/"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 当shader内部通过检索名引用关联文件，如路径为"myproto://textures/base.png"，</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 系统会将"myproto://"替换为"OhosRawFile://shaders/custom_shader/"，</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 最终从"OhosRawFile://shaders/custom_shader/textures/base.png"加载关联文件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return renderContext.registerResourcePath("myproto", "OhosRawFile://shaders/custom_shader/");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("resource path registration success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("resource path registration failed");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=renderconfiguration23>RenderConfiguration23+<a href=#renderconfiguration23 class=hash-link aria-label=RenderConfiguration23+的直接链接 title=RenderConfiguration23+的直接链接 translate=no>​</a></h2>
+<p>渲染配置接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>shadowResolution<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#vec2>Vec2</a><td>否<td>是<td>表示全局阴影贴图分辨率，单位为像素（px）。默认值为undefined，表示阴影贴图分辨率设置为1024 * 1024。输入的值需要大于0才能正确生效。如果输入值为浮点数则自动截取整数部分；如果输入值小于或等于0则无视该输入，维持原有配置。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=renderparameters15>RenderParameters15+<a href=#renderparameters15 class=hash-link aria-label=RenderParameters15+的直接链接 title=RenderParameters15+的直接链接 translate=no>​</a></h2>
+<p>渲染参数接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>alwaysRender15+<td>boolean<td>否<td>是<td>表示是否每一帧都渲染。true表示每一帧都渲染，false表示按需渲染。默认值为true。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scene-1>Scene<a href=#scene-1 class=hash-link aria-label=Scene的直接链接 title=Scene的直接链接 translate=no>​</a></h2>
+<p>用于设置场景。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>environment<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#environment>Environment</a><td>否<td>否<td>环境对象。<tr><td>animations<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-resources/js-apis-inner-scene-resources#animation>Animation</a>[]<td>是<td>否<td>动画数组，用于保存3D场景中的动画对象。<tr><td>root<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>null<td>是<td>否<tr><td>renderConfiguration23+<td><a href=#renderconfiguration23 class="">RenderConfiguration</a><td>是<td>否<td>渲染配置接口。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=load>load<a href=#load class=hash-link aria-label=load的直接链接 title=load的直接链接 translate=no>​</a></h3>
+<p>static load(uri?: ResourceStr): Promise&lt;Scene></p>
+<p>通过传入的资源路径加载资源，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>uri<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>否<td>待加载的模型文件资源路径，默认值为undefined。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#scene-1 class="">Scene</a>><td>Promise对象，返回场景对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>示例1：通过rawfile加载（相对路径）</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function loadModel(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scene.then((result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Scene loaded, root node: " + result.root?.name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>示例2：通过绝对路径加载（从应用沙盒目录/data/storage/el2/base/files加载模型）</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function loadModelFromAbsolutePath(context: common.UIAbilityContext): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 获取应用沙盒目录（Scene.load仅能读取应用自身写入的文件，不能读取hdc/adb push写入的文件）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const appCtx = context.getApplicationContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const filesDir = appCtx.filesDir; // /data/storage/el2/base/files</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 从rawfile读取模型内容（实际使用中也可以替换为其他来源的数据）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用.glb文件更易于复制加载；若为.gltf，请将其.bin和贴图文件一并复制到同一目录</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const src = 'gltf/CubeWithFloor/glTF/AnimatedCube.glb';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const load_uri = `${filesDir}/AnimatedCube.glb`;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 写入模型文件到应用沙盒目录，生成可被Scene.load(绝对路径)访问的实际文件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const rawData = await context.resourceManager.getRawFileContent(src);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const file = fileIo.openSync(load_uri, fileIo.OpenMode.CREATE | fileIo.OpenMode.TRUNC | fileIo.OpenMode.WRITE_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fileIo.writeSync(file.fd, rawData.buffer.slice(rawData.byteOffset, rawData.byteOffset + rawData.byteLength));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  fileIo.closeSync(file);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用绝对路径加载模型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load(load_uri).then((scene: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载成功后的逻辑处理</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((error: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('Scene load failed: ' + error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getnodebypath>getNodeByPath<a href=#getnodebypath class=hash-link aria-label=getNodeByPath的直接链接 title=getNodeByPath的直接链接 translate=no>​</a></h3>
+<p>getNodeByPath(path: string, type?: NodeType): Node | null</p>
+<p>通过路径获取节点。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>path<td>string<td>是<td>场景节点层次中的路径。每层之间使用'/'符号进行分割。<tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#nodetype>NodeType</a><td>否<td>预期返回的节点类型。默认值为空。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>null</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function getNode(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         // 寻找指定路径的节点</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let node : Node | null = result.getNodeByPath("rootNode_");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getresourcefactory>getResourceFactory<a href=#getresourcefactory class=hash-link aria-label=getResourceFactory的直接链接 title=getResourceFactory的直接链接 translate=no>​</a></h3>
+<p>getResourceFactory(): SceneResourceFactory</p>
+<p>获取场景资源工厂对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene#sceneresourcefactory>SceneResourceFactory</a><td>返回场景资源工厂对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { SceneResourceFactory, Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function getFactory(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         // 获得SceneResourceFactory对象</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let sceneFactory: SceneResourceFactory = result.getResourceFactory();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=destroy>destroy<a href=#destroy class=hash-link aria-label=destroy的直接链接 title=destroy的直接链接 translate=no>​</a></h3>
+<p>destroy(): void</p>
+<p>销毁场景，释放所有的场景资源。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function destroy(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let scene: Promise&lt;Scene> = Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.glb"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scene.then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">         // 销毁scene</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        result.destroy();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=importnode18>importNode18+<a href=#importnode18 class=hash-link aria-label=importNode18+的直接链接 title=importNode18+的直接链接 translate=no>​</a></h3>
+<p>importNode(name: string, node: Node, parent: Node | null): Node</p>
+<p>一般用于从其他场景导入节点。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>导入节点后的名称，由开发者自定义，无特殊要求。<tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>被导入的节点。<tr><td>parent<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>null<td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>被导入的节点。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function ImportNodeTest() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load().then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Scene.load($rawfile("gltf/AnimatedCube/glTF/AnimatedCube.glb"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .then(async (extScene: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let extNode = extScene.getNodeByPath("rootNode_/Unnamed Node 1/AnimatedCube");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("TEST ImportNodeTest");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let node = result.importNode("scene", extNode, result.root);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (node) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          node.position.x = 5;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=importscene18>importScene18+<a href=#importscene18 class=hash-link aria-label=importScene18+的直接链接 title=importScene18+的直接链接 translate=no>​</a></h3>
+<p>importScene(name: string, scene: Scene, parent: Node | null): Node</p>
+<p>在当前场景中导入其他场景。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>name<td>string<td>是<td>导入场景的根节点名称，由开发者自定义，无特殊要求。<tr><td>scene<td><a href=#scene-1 class="">Scene</a><td>是<td>被导入的场景。<tr><td>parent<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>null<td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>被导入场景的根节点。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function ImportSceneTest() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load().then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let content = await result.getResourceFactory().createScene($rawfile("gltf/DamagedHelmet/glTF/DamagedHelmet.glb"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("TEST ImportSceneTest");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    result.importScene("helmet", content, null);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=renderframe15>renderFrame15+<a href=#renderframe15 class=hash-link aria-label=renderFrame15+的直接链接 title=renderFrame15+的直接链接 translate=no>​</a></h3>
+<p>renderFrame(params?: RenderParameters): boolean</p>
+<p>通过该接口可以实现按需渲染，例如控制渲染帧率。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#renderparameters15 class="">RenderParameters</a><td>否<td>渲染参数，默认值为undefined。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>渲染被成功调度返回true，否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function RenderFrameTest() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load($rawfile("gltf/DamagedHelmet/glTF/DamagedHelmet.glb"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("TEST RenderFrameTest");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      result.renderFrame({ alwaysRender: true });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=createcomponent20>createComponent20+<a href=#createcomponent20 class=hash-link aria-label=createComponent20+的直接链接 title=createComponent20+的直接链接 translate=no>​</a></h3>
+<p>createComponent(node: Node, name: string): Promise&lt;SceneComponent></p>
+<p>在指定节点上创建新的组件，根据组件名称异步创建并附加到节点上，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>组件需要附加到的节点。<tr><td>name<td>string<td>是<td>要创建的组件名称，由各插件定义有效名称。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#scenecomponent20 class="">SceneComponent</a>><td>Promise对象，返回新创建的场景组件。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, SceneComponent } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function createComponentTest(): Promise&lt;SceneComponent> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  return Scene.load($rawfile("gltf/DamagedHelmet/glTF/DamagedHelmet.glb"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(scene => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!scene) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return Promise.reject(new Error("Scene load failed"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // RenderConfigurationComponent为引擎内置组件，创建时无需依赖插件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return scene.createComponent(scene.root, "RenderConfigurationComponent");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(component => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!component) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return Promise.reject(new Error("createComponent failed"));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return component;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcomponent20>getComponent20+<a href=#getcomponent20 class=hash-link aria-label=getComponent20+的直接链接 title=getComponent20+的直接链接 translate=no>​</a></h3>
+<p>getComponent(node: Node, name: string): SceneComponent | null</p>
+<p>根据指定的组件名称，从给定节点上获取对应的组件实例。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>组件附加的节点。<tr><td>name<td>string<td>是<td>需要获取的组件名称，必须为系统预定义或已注册的自定义组件名称，且需符合命名规范。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#scenecomponent20 class="">SceneComponent</a><td>null</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function getComponentTest() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load($rawfile("gltf/DamagedHelmet/glTF/DamagedHelmet.glb"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(async (result: Scene | undefined) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!result) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("Scene load failed");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("TEST getComponentTest");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let component = result.getComponent(result.root, "myComponent");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (component) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("getComponent success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.warn("Component not found");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getdefaultrendercontext20>getDefaultRenderContext20+<a href=#getdefaultrendercontext20 class=hash-link aria-label=getDefaultRenderContext20+的直接链接 title=getDefaultRenderContext20+的直接链接 translate=no>​</a></h3>
+<p>static getDefaultRenderContext(): RenderContext | null</p>
+<p>获取当前图形对象所关联的渲染环境信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#rendercontext20 class="">RenderContext</a><td>null</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, RenderContext } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function getDefaultRenderContextTest() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("TEST getDefaultRenderContextTest");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const renderContext: RenderContext | null = Scene.getDefaultRenderContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (renderContext) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("getDefaultRenderContext success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error("RenderContext is null");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clonenode23>cloneNode23+<a href=#clonenode23 class=hash-link aria-label=cloneNode23+的直接链接 title=cloneNode23+的直接链接 translate=no>​</a></h3>
+<p>cloneNode(node: Node, parent: Node, name: string): Node | null</p>
+<p>在当前所在场景中克隆节点，不支持跨场景克隆节点。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUi.Graphics3D</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>被克隆的节点。<tr><td>parent<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>被克隆的节点在当前所在场景中的目标父节点。被克隆的节点node和目标父节点parent需要属于同一个场景scene。<tr><td>name<td>string<td>是<td>克隆节点的名称，由开发者自定义，无特殊要求。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>null</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene, Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function CloneNode() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 加载场景资源，支持.gltf和.glb格式，路径和文件名可根据项目实际资源自定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  Scene.load($rawfile("gltf/CubeWithFloor/glTF/AnimatedCube.gltf"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .then(async (result: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let node = result.getNodeByPath("rootNode_/Unnamed Node 1/AnimatedCube") as Node;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let parent = result.root as Node;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let name = "cloneNode_";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let clone = result.cloneNode(node, parent, name);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (clone) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info("cloneNode success");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error("cloneNode failed");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.graphics.scene (ArkGraphics 3D模块)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>SceneNode</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#sceneresourceparameters class="table-of-contents__link toc-highlight">SceneResourceParameters</a><li><a href=#scenenodeparameters class="table-of-contents__link toc-highlight">SceneNodeParameters</a><li><a href=#raycastresult20 class="table-of-contents__link toc-highlight">RaycastResult20+</a><li><a href=#raycastparameters20 class="table-of-contents__link toc-highlight">RaycastParameters20+</a><li><a href=#renderresourcefactory20 class="table-of-contents__link toc-highlight">RenderResourceFactory20+</a><ul><li><a href=#createshader20 class="table-of-contents__link toc-highlight">createShader20+</a><li><a href=#createimage20 class="table-of-contents__link toc-highlight">createImage20+</a><li><a href=#createmesh20 class="table-of-contents__link toc-highlight">createMesh20+</a><li><a href=#createsampler20 class="table-of-contents__link toc-highlight">createSampler20+</a><li><a href=#createscene20 class="table-of-contents__link toc-highlight">createScene20+</a></ul><li><a href=#cameraparameters21 class="table-of-contents__link toc-highlight">CameraParameters21+</a><li><a href=#effectparameters21 class="table-of-contents__link toc-highlight">EffectParameters21+</a><li><a href=#sceneresourcefactory class="table-of-contents__link toc-highlight">SceneResourceFactory</a><ul><li><a href=#createcamera class="table-of-contents__link toc-highlight">createCamera</a><li><a href=#createcamera21 class="table-of-contents__link toc-highlight">createCamera21+</a><li><a href=#createlight class="table-of-contents__link toc-highlight">createLight</a><li><a href=#createnode class="table-of-contents__link toc-highlight">createNode</a><li><a href=#creatematerial class="table-of-contents__link toc-highlight">createMaterial</a><li><a href=#createenvironment class="table-of-contents__link toc-highlight">createEnvironment</a><li><a href=#creategeometry18 class="table-of-contents__link toc-highlight">createGeometry18+</a><li><a href=#createeffect21 class="table-of-contents__link toc-highlight">createEffect21+</a></ul><li><a href=#scenecomponent20 class="table-of-contents__link toc-highlight">SceneComponent20+</a><li><a href=#rendercontext20 class="table-of-contents__link toc-highlight">RenderContext20+</a><ul><li><a href=#getrenderresourcefactory20 class="table-of-contents__link toc-highlight">getRenderResourceFactory20+</a><li><a href=#loadplugin20 class="table-of-contents__link toc-highlight">loadPlugin20+</a><li><a href=#registerresourcepath20 class="table-of-contents__link toc-highlight">registerResourcePath20+</a></ul><li><a href=#renderconfiguration23 class="table-of-contents__link toc-highlight">RenderConfiguration23+</a><li><a href=#renderparameters15 class="table-of-contents__link toc-highlight">RenderParameters15+</a><li><a href=#scene-1 class="table-of-contents__link toc-highlight">Scene</a><ul><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><li><a href=#load class="table-of-contents__link toc-highlight">load</a><li><a href=#getnodebypath class="table-of-contents__link toc-highlight">getNodeByPath</a><li><a href=#getresourcefactory class="table-of-contents__link toc-highlight">getResourceFactory</a><li><a href=#destroy class="table-of-contents__link toc-highlight">destroy</a><li><a href=#importnode18 class="table-of-contents__link toc-highlight">importNode18+</a><li><a href=#importscene18 class="table-of-contents__link toc-highlight">importScene18+</a><li><a href=#renderframe15 class="table-of-contents__link toc-highlight">renderFrame15+</a><li><a href=#createcomponent20 class="table-of-contents__link toc-highlight">createComponent20+</a><li><a href=#getcomponent20 class="table-of-contents__link toc-highlight">getComponent20+</a><li><a href=#getdefaultrendercontext20 class="table-of-contents__link toc-highlight">getDefaultRenderContext20+</a><li><a href=#clonenode23 class="table-of-contents__link toc-highlight">cloneNode23+</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

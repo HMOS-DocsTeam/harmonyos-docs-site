@@ -1,0 +1,724 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>insightIntent | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="insightIntent | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="insightIntent是Intents Kit的子模块，提供意图开放能力，包括共享和删除InsightIntent。应用/元服务可以通过调用本模块接口，向系统共享数据。意图框架根据共享的数据学习规律，在合适的时机在系统入口将对应的InsightIntent推荐给用户，用户点击后，根据应用/元服务声明的InsightIntent API，跳转到对应页面。"/><meta data-rh=true property=og:description content="insightIntent是Intents Kit的子模块，提供意图开放能力，包括共享和删除InsightIntent。应用/元服务可以通过调用本模块接口，向系统共享数据。意图框架根据共享的数据学习规律，在合适的时机在系统入口将对应的InsightIntent推荐给用户，用户点击后，根据应用/元服务声明的InsightIntent API，跳转到对应页面。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent","name":"insightIntent","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title="Agent Framework Kit（智能体框架服务）" class=categoryLinkLabel_W154>Agent Framework Kit（智能体框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cann-api/hiai-foundation-c/cannkit-index/cannkit/cannkit><span title="CANN Kit（CANN异构计算框架服务）" class=categoryLinkLabel_W154>CANN Kit（CANN异构计算框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-speech-api/core-speech-arkts/hms-ai-texttospeech/hms-ai-texttospeech><span title="Core Speech Kit（基础语音服务）" class=categoryLinkLabel_W154>Core Speech Kit（基础语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title="Core Vision Kit（基础视觉服务）" class=categoryLinkLabel_W154>Core Vision Kit（基础视觉服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title="Intents Kit（意图框架服务）" class=categoryLinkLabel_W154>Intents Kit（意图框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title=insightIntent class=linkLabel_WmDU>insightIntent</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent-uiextension/intents-arkts-api-insightintent-uiextension><span title="InsightIntentUIExtensionAbility (意图调用UI扩展能力)" class=linkLabel_WmDU>InsightIntentUIExtensionAbility (意图调用UI扩展能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-rest-api/intents-rest-api-intent-share/intents-rest-api-intent-share><span title="REST API" class=categoryLinkLabel_W154>REST API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/natural-language-api/natural-language-arkts/natural-language-text-processing-api/natural-language-text-processing-api><span title="Natural Language Kit（自然语言理解服务）" class=categoryLinkLabel_W154>Natural Language Kit（自然语言理解服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="MindSpore Lite Kit（昇思推理框架服务）" class=categoryLinkLabel_W154>MindSpore Lite Kit（昇思推理框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/neural-network-runtime-api/neural-network-runtime-c/neural-network-runtime-module/capi-neuralnetworkruntime/capi-neuralnetworkruntime><span title="Neural Network Runtime Kit（Neural Network运行时服务）" class=categoryLinkLabel_W154>Neural Network Runtime Kit（Neural Network运行时服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/speech-api/speech-arkts/speech-textreader-api/speech-textreader-api><span title="Speech Kit（场景化语音服务）" class=categoryLinkLabel_W154>Speech Kit（场景化语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title="Vision Kit（场景化视觉服务）" class=categoryLinkLabel_W154>Vision Kit（场景化视觉服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>AI</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Intents Kit（意图框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>insightIntent</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>insightIntent</h1></header>
+<p>insightIntent是Intents Kit的子模块，提供意图开放能力，包括共享和删除InsightIntent。应用/元服务可以通过调用本模块接口，向系统共享数据。意图框架根据共享的数据学习规律，在合适的时机在系统入口将对应的InsightIntent推荐给用户，用户点击后，根据应用/元服务声明的InsightIntent API，跳转到对应页面。</p>
+<p>举例说明：视频类应用通过InsightIntent提供共享数据（如用户每天看视频的时间点、视频信息）和对应的开放API。意图框架将在用户每天看视频的时间点通过卡片推荐视频，用户点击卡片后，意图框架将调用该开放API打开视频。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintent-1>InsightIntent<a href=#insightintent-1 class=hash-link aria-label=InsightIntent的直接链接 title=InsightIntent的直接链接 translate=no>​</a></h2>
+<p>InsightIntent，包括意图名称、意图版本号、标识、Action信息、Entity信息。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>： SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>intentName<td>string<td>否<td>否<td>表示意图名称，例如：'PlayMusic'。<tr><td>intentVersion<td>string<td>否<td>否<td>表示意图版本，当前为初始版本'1.0'。<tr><td>identifier<td>string<td>否<td>否<td>表示意图的标识符，开发者按照自身业务需要生成，作为单条共享记录的唯一标识符。该字段的生成方式可参考UUID生成方式，或基于时间戳生成随机字符串。例如：'52dac3b0-6520-4974-81e5-25f0879449b5'。<tr><td>intentActionInfo<td><a href=#intentactioninfo class="">IntentActionInfo</a><td>否<td>否<td>表示意图的执行信息，例如：已执行或预测将要执行意图的时间。示例请参考<a href=#insightintentshareintent class="">shareIntent</a>的示例代码。  <strong><strong>说明：</strong></strong>  - 在4.0.0(10)版本，参数类型为{[key: string]: Object}。  - 从5.0.0(12)版本开始，参数类型为IntentActionInfo。该类型定义与5.0.0(12)前版本兼容。<tr><td>intentEntityInfo<td><a href=#intententityinfo class="">IntentEntityInfo</a><td>否<td>否<td>表示意图的实体信息，包含行为和事件。示例请参考<a href=#insightintentshareintent class="">shareIntent</a>的示例代码。  <strong><strong>说明：</strong></strong>  在4.0.0(10)版本，参数类型为{entityId: string; entityName: string; [key: string]: Object}。  从5.0.0(12)版本开始，参数类型为IntentEntityInfo。该类型定义与5.0.0(12)前版本兼容。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=intentactioninfo>IntentActionInfo<a href=#intentactioninfo class=hash-link aria-label=IntentActionInfo的直接链接 title=IntentActionInfo的直接链接 translate=no>​</a></h2>
+<p>IntentActionInfo，表示意图的执行信息。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>： SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>[key: string]<td>Object<td>否<td>否<td>表示值的类型为包含一个或多个键值对的对象。其中键的类型为字符，值的类型为Object，键和值的取值范围因意图名称而异，具体请参考<a href=https://developer.huawei.com/consumer/cn/doc/service/intents-schema-0000001901962713 target=_blank rel="noopener noreferrer" class="">各垂域意图Schema</a>。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=intententityinfo>IntentEntityInfo<a href=#intententityinfo class=hash-link aria-label=IntentEntityInfo的直接链接 title=IntentEntityInfo的直接链接 translate=no>​</a></h2>
+<p>IntentEntityInfo，表示意图的实体信息。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>： SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>entityId<td>string<td>否<td>否<td>表示意图实体的标识符，开发者按照自身业务需要生成，作为单条实体的唯一标识符。该字段的生成方式可参考UUID生成方式，或基于时间戳生成随机字符串。例如：'C10194368'。<tr><td>entityName<td>string<td>否<td>否<td>表示意图实体的名称。取值请参考<a href=https://developer.huawei.com/consumer/cn/doc/service/intents-schema-0000001901962713 target=_blank rel="noopener noreferrer" class="">各垂域意图Schema</a>。<tr><td>[key: string]<td>Object<td>否<td>否<td>意图实体的其他信息，表示为一个或多个键值对。其中键的类型为字符，值的类型为Object，键和值的取值范围因意图名称而异，具体请参考<a href=https://developer.huawei.com/consumer/cn/doc/service/intents-schema-0000001901962713 target=_blank rel="noopener noreferrer" class="">各垂域意图Schema</a>。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentshareintent>insightIntent.shareIntent<a href=#insightintentshareintent class=hash-link aria-label=insightIntent.shareIntent的直接链接 title=insightIntent.shareIntent的直接链接 translate=no>​</a></h2>
+<p>shareIntent(context: common.BaseContext, intents: InsightIntent[], callback: AsyncCallback&lt;void>): void</p>
+<p>共享已执行或预期的InsightIntent ，使用callback异步回调。</p>
+<p>为避免共享能力滥用，默认每个应用每天最多共享20次，超出限制后会返回错误码：1000101104。每次共享的数据条数不限，但是每次最多50KB数据量，单次数据量超出限制后会返回错误码：1000101105。所有接入方每天共享总次数上限为3000次，超出总次数限制会返回错误码：1000101106。建议积攒一定量的数据后一次全部共享并控制共享次数。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>intents<td><a href=#insightintent-1 class="">InsightIntent</a>[]<td>是<td>表示共享的InsightIntent。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当具体的操作（视具体接口功能描述）成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>和<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101104<td>The number of sharing times exceeds the limit.<tr><td>1000101105<td>The size of a single shared data exceeds the limit.<tr><td>1000101106<td>Exceeded the maximum number of sharing times of all applications.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let playMusicIntent: insightIntent.InsightIntent = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentName: 'PlayMusic',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentVersion: '1.0',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  identifier: '52dac3b0-6520-4974-81e5-25f0879449b5',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentActionInfo: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionMode: 'EXECUTED',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    currentPercentage: 50,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    executedTimeSlots: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      executedEndTime: 1637393112000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      executedStartTime: 1637393212000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentEntityInfo: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityName: 'Music',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityId: 'C10194368',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityGroupId: '热门',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    displayName: '歌曲名称',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    description: '歌曲解释',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    logoURL: 'https://www-file.abc.com/-/media/corporate/images/home/logo/abc_logo.png',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    keywords: ['华为音乐','化妆'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    rankingHint: 99,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    expirationDate: 1637393212000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    metadataModificationDate: 1637393212000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    activityType: ['1', '2', '3'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    artist: ['张三','李四'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    lyricist: ['李四','张三'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    composer: ['张三','李四'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    albumName: '专辑名称',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    duration: 123456789,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    playCount: 456213123,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    musicalGenre: ['民族风','摇滚'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isPublicData: false</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 共享数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  insightIntent.shareIntent(context, [playMusicIntent], (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error?.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 处理业务逻辑错误</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`shareIntent failed, error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 执行正常业务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('shareIntent succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 处理异常</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentshareintent-1>insightIntent.shareIntent<a href=#insightintentshareintent-1 class=hash-link aria-label=insightIntent.shareIntent的直接链接 title=insightIntent.shareIntent的直接链接 translate=no>​</a></h2>
+<p>shareIntent(context: common.BaseContext, intents: InsightIntent[]): Promise&lt;void></p>
+<p>共享已执行或预期的InsightIntent 。使用Promise异步回调。</p>
+<p>为避免共享能力滥用，默认每个应用每天最多共享20次，超出限制后会返回错误码：1000101104。每次共享的数据条数不限，但是每次最多50KB数据量，单次数据量超出限制后会返回错误码：1000101105。所有接入方每天共享总次数上限为3000次，超出总次数限制会返回错误码：1000101106。建议积攒一定量的数据后一次全部共享并控制共享次数。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>intents<td><a href=#insightintent-1 class="">InsightIntent</a>[]<td>是<td>表示共享的InsightIntent 。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101104<td>The number of sharing times exceeds the limit.<tr><td>1000101105<td>The size of a single shared data exceeds the limit.<tr><td>1000101106<td>Exceeded the maximum number of sharing times of all applications.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from'@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let playMusicIntent: insightIntent.InsightIntent = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentName: 'PlayMusic',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentVersion: '1.0',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  identifier: '52dac3b0-6520-4974-81e5-25f0879449b5',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentActionInfo: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionMode: 'EXECUTED',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    currentPercentage: 50,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    executedTimeSlots: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      executedEndTime: 1637393112000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      executedStartTime: 1637393212000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  intentEntityInfo: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityName: 'Music',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityId: 'C10194368',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    entityGroupId: '热门',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    displayName: '歌曲名称',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    description: '歌曲解释',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    logoURL: 'https://www-file.abc.com/-/media/corporate/images/home/logo/abc_logo.png',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    keywords: ['华为音乐','化妆'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    rankingHint: 99,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    expirationDate: 1637393212000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    metadataModificationDate: 1637393212000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    activityType: ['1', '2', '3'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    artist: ['张三','李四'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    lyricist: ['李四','张三'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    composer: ['张三','李四'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    albumName: '专辑名称',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    duration: 123456789,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    playCount: 456213123,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    musicalGenre: ['民族风','摇滚'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    isPublicData: false</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 共享数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">insightIntent.shareIntent(context, [playMusicIntent]).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('shareIntent succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${err?.code}, failed because ${err?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentdeleteintent>insightIntent.deleteIntent<a href=#insightintentdeleteintent class=hash-link aria-label=insightIntent.deleteIntent的直接链接 title=insightIntent.deleteIntent的直接链接 translate=no>​</a></h2>
+<p>deleteIntent(context: common.BaseContext, intentName: string, identifiers: string[], callback: AsyncCallback&lt;void>): void</p>
+<p>删除InsightIntent。如果设置了identifiers参数，则删除intent名称下的identifiers对应的记录。否则，删除意图名称下的所有记录。结果以Callback的形式返回。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>intentName<td>string<td>是<td>表示意图的名称。<tr><td>identifiers<td>string[]<td>是<td>表示意图的标识符。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，返回删除InsightIntent接口调用是否成功的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 删除意图下的某些记录</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  insightIntent.deleteIntent(context, 'PlayMusic', ['52dac3b0-6520-4974-81e5-25f0879449b5'], (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error?.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 处理业务逻辑错误</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`deleteIntent failed, error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 执行正常业务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('deleteIntent succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 处理异常</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentdeleteintent-1>insightIntent.deleteIntent<a href=#insightintentdeleteintent-1 class=hash-link aria-label=insightIntent.deleteIntent的直接链接 title=insightIntent.deleteIntent的直接链接 translate=no>​</a></h2>
+<p>deleteIntent(context: common.BaseContext, intentName: string, callback: AsyncCallback&lt;void>): void</p>
+<p>删除InsightIntent。删除意图名称下的所有记录。结果以Callback的形式返回。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>intentName<td>string<td>是<td>表示意图的名称。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，返回删除InsightIntent接口调用是否成功的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 删除整个意图的数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  insightIntent.deleteIntent(context, 'PlayMusic', (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error?.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 处理业务逻辑错误</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`deleteIntent failed, error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 执行正常业务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('deleteIntent succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 处理异常</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentdeleteintent-2>insightIntent.deleteIntent<a href=#insightintentdeleteintent-2 class=hash-link aria-label=insightIntent.deleteIntent的直接链接 title=insightIntent.deleteIntent的直接链接 translate=no>​</a></h2>
+<p>deleteIntent(context: common.BaseContext, intentName: string, identifiers?: string[]): Promise&lt;void></p>
+<p>删除InsightIntent。如果设置了identifiers参数，则删除intent名称下的identifiers对应的记录。否则，删除意图名称下的所有记录。结果以Promise的形式返回。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>intentName<td>string<td>是<td>表示意图的名称。<tr><td>identifiers<td>string[]<td>否<td>表示意图的标识符。如果填写该字段，则删除指定标识符的意图；如果未填写该字段，则删除意图名称下的所有记录。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 删除意图下的某些记录</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">insightIntent.deleteIntent(context, 'PlayMusic', ['52dac3b0-6520-4974-81e5-25f0879449b5']).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('deleteIntent succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${err?.code}, failed because ${err?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentdeleteentity>insightIntent.deleteEntity<a href=#insightintentdeleteentity class=hash-link aria-label=insightIntent.deleteEntity的直接链接 title=insightIntent.deleteEntity的直接链接 translate=no>​</a></h2>
+<p>deleteEntity(context: common.BaseContext, entityName: string, entityIds: string[], callback: AsyncCallback&lt;void>): void</p>
+<p>按实体名称下的实体ID删除InsightIntent实体。结果以Callback的形式返回。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>entityName<td>string<td>是<td>表示实体的名称。<tr><td>entityIds<td>string[]<td>是<td>表示实体的id。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数，返回删除InsightIntent实体接口调用是否成功的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 删除Entity数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  insightIntent.deleteEntity(context, 'PlayMusic', ['a5c9e9e3-3d0a-4e6a-9f3d-6b7c6b8d6b9f'], (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error?.code) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 处理业务逻辑错误</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`deleteEntity failed, error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 执行正常业务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('deleteEntity succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 处理异常</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${error?.code}, error.message: ${error?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentdeleteentity-1>insightIntent.deleteEntity<a href=#insightintentdeleteentity-1 class=hash-link aria-label=insightIntent.deleteEntity的直接链接 title=insightIntent.deleteEntity的直接链接 translate=no>​</a></h2>
+<p>deleteEntity(context: common.BaseContext, entityName: string, entityIds: string[]): Promise&lt;void></p>
+<p>按实体名称下的实体ID删除InsightIntent实体。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>entityName<td>string<td>是<td>表示实体的名称。<tr><td>entityIds<td>string[]<td>是<td>表示实体的id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 删除Entity数据</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">insightIntent.deleteEntity(context, 'PlayMusic', ['a5c9e9e3-3d0a-4e6a-9f3d-6b7c6b8d6b9f']).then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('deleteEntity succeed');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${err?.code}, failed because ${err?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=insightintentgetsid>insightIntent.getSid<a href=#insightintentgetsid class=hash-link aria-label=insightIntent.getSid的直接链接 title=insightIntent.getSid的直接链接 translate=no>​</a></h2>
+<p>getSid(context: common.BaseContext, renew: boolean): Promise&lt;string></p>
+<p>获取Service Open ID。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>： 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.InsightIntent</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>common.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-basecontext/js-apis-inner-application-basecontext>BaseContext</a><td>是<td>表示应用上下文。<tr><td>renew<td>boolean<td>是<td>是否强制从云端获取新的服务开放ID。如果为true，从云端获取新的服务开放ID；如果为false，则优先获取本地存储的服务开放ID。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回获取到的Service Open ID。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-errorcodes-insightintent/intents-arkts-api-errorcodes-insightintent>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>The parameter check failed.<tr><td>1000101101<td>The application has not been registered with the InsightIntent.<tr><td>1000101102<td>HUAWEI Assistant has stopped providing services.<tr><td>1000101107<td>Too many Service Open ID renew requests.<tr><td>1000101201<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { insightIntent } from '@kit.IntentsKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import common from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 获取SID</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 此处仅为示例，请根据实际代码上下文自行传入合适的context</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context = AppStorage.get&lt;common.UIAbilityContext>("Context") as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">insightIntent.getSid(context, false).then((sid: string) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info('getSid succeed!');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`error.code: ${err?.code}, failed because ${err?.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS API错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent-uiextension/intents-arkts-api-insightintent-uiextension><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>InsightIntentUIExtensionAbility (意图调用UI扩展能力)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#insightintent-1 class="table-of-contents__link toc-highlight">InsightIntent</a><li><a href=#intentactioninfo class="table-of-contents__link toc-highlight">IntentActionInfo</a><li><a href=#intententityinfo class="table-of-contents__link toc-highlight">IntentEntityInfo</a><li><a href=#insightintentshareintent class="table-of-contents__link toc-highlight">insightIntent.shareIntent</a><li><a href=#insightintentshareintent-1 class="table-of-contents__link toc-highlight">insightIntent.shareIntent</a><li><a href=#insightintentdeleteintent class="table-of-contents__link toc-highlight">insightIntent.deleteIntent</a><li><a href=#insightintentdeleteintent-1 class="table-of-contents__link toc-highlight">insightIntent.deleteIntent</a><li><a href=#insightintentdeleteintent-2 class="table-of-contents__link toc-highlight">insightIntent.deleteIntent</a><li><a href=#insightintentdeleteentity class="table-of-contents__link toc-highlight">insightIntent.deleteEntity</a><li><a href=#insightintentdeleteentity-1 class="table-of-contents__link toc-highlight">insightIntent.deleteEntity</a><li><a href=#insightintentgetsid class="table-of-contents__link toc-highlight">insightIntent.getSid</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

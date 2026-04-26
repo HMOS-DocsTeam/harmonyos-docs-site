@@ -1,0 +1,1221 @@
+"use strict";
+(self["webpackChunkharmonyos_docs_site"] = self["webpackChunkharmonyos_docs_site"] || []).push([["601194"], {
+564639(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  metadata: () => (/* reexport */ site_docs_ref_arkui_api_arkui_declarative_comp_canvas_drawing_ts_components_canvas_matrix_2_d_ts_components_canvas_matrix_2_d_md_89d_namespaceObject),
+  "default": () => (/* binding */ MDXContent),
+  frontMatter: () => (/* binding */ frontMatter),
+  contentTitle: () => (/* binding */ contentTitle),
+  toc: () => (/* binding */ toc),
+  assets: () => (/* binding */ assets)
+});
+
+;// CONCATENATED MODULE: ./.docusaurus/docusaurus-plugin-content-docs/ref/site-docs-ref-arkui-api-arkui-declarative-comp-canvas-drawing-ts-components-canvas-matrix-2-d-ts-components-canvas-matrix-2-d-md-89d.json
+var site_docs_ref_arkui_api_arkui_declarative_comp_canvas_drawing_ts_components_canvas_matrix_2_d_ts_components_canvas_matrix_2_d_md_89d_namespaceObject = JSON.parse('{"id":"arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d","title":"Matrix2D","description":"用于画布绘制CanvasRenderingContext2D、OffscreenCanvasRenderingContext2D、CanvasPattern和Path2D的矩阵对象，可以对矩阵进行缩放、旋转和平移等变换。","source":"@site/docs-ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d.md","sourceDirName":"arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d","slug":"/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d","draft":false,"unlisted":false,"tags":[],"version":"current","sidebarPosition":8,"frontMatter":{"title":"Matrix2D","sidebar_position":8,"original_url":"https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-matrix2d","kit":"应用框架","last_updated":"2026-04-22","slug":"ts-components-canvas-matrix2d"},"sidebar":"ref","previous":{"title":"ImageData","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata"},"next":{"title":"OffscreenCanvas","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-offscreencanvas/ts-components-offscreencanvas"}}')
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(474848);
+// EXTERNAL MODULE: ./node_modules/@mdx-js/react/lib/index.js
+var lib = __webpack_require__(28453);
+;// CONCATENATED MODULE: ./docs-ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d.md
+
+
+const frontMatter = {
+	title: 'Matrix2D',
+	sidebar_position: 8,
+	original_url: 'https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-components-canvas-matrix2d',
+	kit: '应用框架',
+	last_updated: '2026-04-22',
+	slug: 'ts-components-canvas-matrix2d'
+};
+const contentTitle = 'Matrix2D';
+
+const assets = {
+
+};
+
+
+
+const toc = [{
+  "value": "构造函数",
+  "id": "构造函数",
+  "level": 2
+}, {
+  "value": "constructor10+",
+  "id": "constructor10",
+  "level": 3
+}, {
+  "value": "constructor12+",
+  "id": "constructor12",
+  "level": 3
+}, {
+  "value": "属性",
+  "id": "属性",
+  "level": 2
+}, {
+  "value": "方法",
+  "id": "方法",
+  "level": 2
+}, {
+  "value": "identity",
+  "id": "identity",
+  "level": 3
+}, {
+  "value": "invert",
+  "id": "invert",
+  "level": 3
+}, {
+  "value": "multiply(deprecated)",
+  "id": "multiplydeprecated",
+  "level": 3
+}, {
+  "value": "rotate(deprecated)",
+  "id": "rotatedeprecated",
+  "level": 3
+}, {
+  "value": "rotate10+",
+  "id": "rotate10",
+  "level": 3
+}, {
+  "value": "translate",
+  "id": "translate",
+  "level": 3
+}, {
+  "value": "scale",
+  "id": "scale",
+  "level": 3
+}];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    header: "header",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [(0,jsx_runtime.jsx)(_components.header, {
+      children: (0,jsx_runtime.jsx)(_components.h1, {
+        id: "matrix2d",
+        children: "Matrix2D"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["用于画布绘制", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d",
+        children: "CanvasRenderingContext2D"
+      }), "、", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-offscreencanvasrenderingcontext2d/ts-offscreencanvasrenderingcontext2d",
+        children: "OffscreenCanvasRenderingContext2D"
+      }), "、", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+        children: "CanvasPattern"
+      }), "和", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+        children: "Path2D"
+      }), "的矩阵对象，可以对矩阵进行缩放、旋转和平移等变换。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "Matrix2D的使用场景包括："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: [(0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d",
+          children: "CanvasRenderingContext2D"
+        }), "和", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-offscreencanvasrenderingcontext2d/ts-offscreencanvasrenderingcontext2d",
+          children: "OffscreenCanvasRenderingContext2D"
+        }), "中调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d#gettransform",
+          children: "getTransform"
+        }), "接口获取画布的图形变换矩阵Matrix2D对象，调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d#settransform-1",
+          children: "setTransform"
+        }), "接口对后续绘制内容进行Matrix2D对象对应的图形变换。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: [(0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+          children: "CanvasPattern"
+        }), "中调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern#settransform",
+          children: "setTransform"
+        }), "接口对", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+          children: "CanvasPattern"
+        }), "对象进行Matrix2D对象对应的图形变换。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: [(0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+          children: "Path2D"
+        }), "中调用", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d#addpath",
+          children: "addPath"
+        }), "接口对", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+          children: "Path2D"
+        }), "对象进行Matrix2D对象对应的图形变换。"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(196230)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "从 API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "构造函数",
+      children: "构造函数"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "constructor10",
+      children: "constructor10+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "constructor()"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "构造二维变换矩阵对象，默认值是属性全为0的矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 10开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "constructor12",
+      children: "constructor12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "constructor(unit: LengthMetricsUnit)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "构造二维变换矩阵对象，默认值是属性全为0的矩阵，支持配置Matrix2D对象的单位模式。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 12开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 12开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "unit"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetricsunit12",
+              children: "LengthMetricsUnit"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["用来配置Matrix2D对象的单位模式，配置后无法动态更改，配置方法同", (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d",
+              children: "CanvasRenderingContext2D"
+            }), "。  异常值NaN和Infinity按默认值处理。  默认值：DEFAULT"]
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "属性",
+      children: "属性"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "名称"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "scaleX"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "水平缩放系数，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "scaleY"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "垂直缩放系数，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rotateX"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "水平倾斜系数，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rotateY"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "垂直倾斜系数，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "translateX"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "水平平移距离，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "translateY"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "垂直平移距离，取值范围无限制。  异常值undefined按无效值处理，NaN和Infinity会导致Matrix2D异常，设置后绘制内容不显示。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(113892)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["可使用", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#px2vp12",
+        children: "px2vp"
+      }), "接口进行单位转换。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Parameter {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(100, 20, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = -0.5\n          this.matrix.rotateY = 0.5\n          this.matrix.translateX = 10\n          this.matrix.translateY = 10\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(100, 20, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(396339)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "方法",
+      children: "方法"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "identity",
+      children: "identity"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "identity(): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建单位矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "单位矩阵。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Identity {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(100, 20, 50, 50)\n          this.matrix = this.matrix.identity()\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(100, 100, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(511330)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "invert",
+      children: "invert"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "invert(): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "获取当前矩阵的逆矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "逆矩阵结果。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Invert {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(100, 110, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = -0.5\n          this.matrix.rotateY = 0.5\n          this.matrix.translateX = 10\n          this.matrix.translateY = 10\n          this.matrix.invert()\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(100, 110, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(36580)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "multiplydeprecated",
+      children: "multiply(deprecated)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "multiply(other?: Matrix2D): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当前矩阵与目标矩阵相乘。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。该接口为空接口。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该接口从API version 10开始废弃，且无实际绘制效果，故不提供示例。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "other"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "目标矩阵。  异常值undefined和null按无效值处理。  默认值：null"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "相乘结果矩阵。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "rotatedeprecated",
+      children: "rotate(deprecated)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "rotate(rx?: number, ry?: number): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "对当前矩阵进行旋转运算。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。该接口为空接口。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["该接口从API version 10开始废弃，推荐使用", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#rotate10",
+        children: "rotate"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转点的水平方向坐标，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ry"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转点的垂直方向坐标，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转后结果矩阵对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Rotate {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(50, 110, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = -0.5\n          this.matrix.rotateY = 0.5\n          this.matrix.translateX = 10\n          this.matrix.translateY = 10\n          this.matrix.rotate(5, 5)\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(50, 110, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(589433)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "rotate10",
+      children: "rotate10+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "rotate(degree: number, rx?: number, ry?: number): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "以旋转点为中心，对当前矩阵进行右乘旋转运算。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 10开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "degree"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转角度，取值范围无限制。顺时针方向为正角度，可以通过 degree * Math.PI / 180 将角度转换为弧度值。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转点的水平方向坐标，取值范围无限制。  默认单位：vp  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认值：0"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ry"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转点的垂直方向坐标，取值范围无限制。  默认单位：vp  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认值：0"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "旋转后结果矩阵对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Rotate {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(60, 80, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = -0.5\n          this.matrix.rotateY = 0.5\n          this.matrix.translateX = 10\n          this.matrix.translateY = 10\n          this.matrix.rotate(-60 * Math.PI / 180, 5, 5)\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(60, 80, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(351181)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "translate",
+      children: "translate"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "translate(tx?: number, ty?: number): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "对当前矩阵进行左乘平移运算。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "tx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "水平方向平移距离，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认单位：vp  默认值：0"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ty"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "垂直方向平移距离，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认单位：vp  默认值：0"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "平移后结果矩阵对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Translate {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(40, 20, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = 0\n          this.matrix.rotateY = 0\n          this.matrix.translateX = 0\n          this.matrix.translateY = 0\n          this.matrix.translate(100, 100)\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(40, 20, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(305717)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "scale",
+      children: "scale"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "scale(sx?: number, sy?: number): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "对当前矩阵进行右乘缩放运算。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "水平缩放比例系数，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认值：1.0"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "垂直缩放比例系数，取值范围无限制。  异常值undefined和null按无效值处理，NaN和Infinity会导致Matrix2D异常。  默认值：1.0"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Matrix2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "缩放结果矩阵对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Scale {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private matrix: Matrix2D = new Matrix2D();\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('240vp')\n        .height('180vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(120, 70, 50, 50)\n          this.matrix.scaleX = 1\n          this.matrix.scaleY = 1\n          this.matrix.rotateX = -0.5\n          this.matrix.rotateY = 0.5\n          this.matrix.translateX = 10\n          this.matrix.translateY = 10\n          this.matrix.scale(0.5, 0.5)\n          this.context.setTransform(this.matrix)\n          this.context.fillRect(120, 70, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(587715)/* ["default"] */.A) + "",
+        width: "179",
+        height: "134"
+      })
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return MDXLayout ? (0,jsx_runtime.jsx)(MDXLayout, {
+    ...props,
+    children: (0,jsx_runtime.jsx)(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+
+
+
+},
+36580(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+587715(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+511330(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+396339(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+305717(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+113892(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+196230(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+351181(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALMAAACGCAYAAACWo7vtAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAABqxSURBVHhe7Z15rB3Vfce/s93tvecdDDgYOzhQMKSOSwIlJEpaCAqVqJo/WilSEzVqmkActgKFrECQE5ZCbFnNgpJUqvpH1T8aVWpICITimgiapAsJm7HZDBiCd7/37jJbv9/f3Gsbgk3zzPOdNz5f+7yZO3Pm3jPnfOY3v7PMGW8yG8truY8APnIvBxBCf+HF+uvkVD7lkS08JAwe0jxDz8vgTWR+3kINyBiBG3JDOWBwMDuVVYI5hZd7XPr8H2MSPXidPMgjbvQzAUyUucMsc/+vk1P5JHss2yuoPWR+iphehZfQGAe0zAY5rbFFE8e00k5OpRTd4gJTgkqXQ+imtMy+MbxPzho7zSTt51UcE3Enp2rIwexUGTmYnSojB7NTZeRgdqqMHMxHnVTvf20bVlXkYJ7hUuNURjgzFmVuPbcFqDmX+0MRr1iPuBJanKrJwTwjNbCuPjyC6eUR/LxR9IgJVINVvWO1/nJQzEI64aFp8bFicjDPSAlKFl02AqSzCbMscoeQdrmL2/M6wwBsLQW1ANcFoJ7davbuOphnoHIWm3CGR4D9ca709KmQ3yPPbe4bBAIu2UgzQV9dOZhnovImQ4OgymUQyDlyWulOp4nJbhNpFiJLA7Q7PmJGsXiyyhUH2sE8EzWwuhodRrdCVjrzCHR0HF54aQle3baIcEcIgxyhnyPLBn6yiluuRjXlYJ6BEo6GZEYLnc6lz3wsOt1FuOtbwPvOfQxfu3EP4s6JqIWzGZH+cRGZQUCbg1JJeWmma3swBLTH8ybfOl83BLS8EsQilO5Dno3i2afn4ZK/eh7rN/QQ040YCVN8/1/eiXM/uBNB+DL8ILVyzW3opNZneGvGviGgZJSVW6GbaQhosdepTFKbcUIoVdFTwWUx1+k2pAl9YfnDeYyEnzvxGbh9zSjefd4m/PiBHO1kBAmt02Qc4dIrf4kdk6OIaaXylP41g7V60G9We3MV5WAuodQFEvCvl44RwhFaVsGcEOLQnnpL8/nY/NQiXHT+E7j5i89j5w5eAEHMut0EYW2wAhhh06YcX7nhJfrNx/J66NhFoaY6j0svI9wVlIO5hJLd9NKIhDLog+8hYUi9Brq9k7D26wnOf/9j+M+HJzHRkbVtEfo646stOeal0IbnBfj7b+7GvT8e4Tr3+X3XwlzmavrNzmcuo/Q8pvmFKoMmuik/Bx6e2DiGqz79Ch5enyPxfKR+16JmvRHGn8u4k/D8HeZGeNxfoyVetizGfQ8twfy5zyJMRxmZ0YK9hHsGA215I0ydz1xSmT3ur9LRoHXRmIuYFbZOMg+3fS3C+e95EQ9vSNGls9HNM/rH9J/pT1sznb+Vy50qYR4V0k/Wg/g9PPNMhttWb0NM1yLJRACL/HUPy1VFzjKXUBkra2lWQ8KS2fjUAlzyyefw3z9LkNKyajBR6o2zvBJGVCcI5dNflllSkWU+WQ1YUcwQRjnyJEOdLvIP7luCc85q8+guAn8XGGXmylnmmaGchiTNA3S678CaWxbgA2dtxv/8Auh6LLr6XlpbgpvRR5aVtblN9JmLhEWpbWaEYoS06Cm3ZbTyaexh1V8+h4mJ47mfP+BXs9gdzEOVzAuLQIE2E2ggTkbx6COLcdEHfoXVN21Cu+ujG/POmTYNzrA1iTzYw2M0iCggm8WoOS2L7+LXWDDTRfmI6Y5sehy445ZN5rr0Z53QztdJ6Zi5SDg3Y5pVDAoqCBsgpG1xrJHFaoXgtoBugRdhV+dE3HrH81h7+w50NX6IhxVjkAfgcYNNoabVN4JR6u/XxaG4YYFvkHgYrWf41x+fivees5ueyTZeD6xEMoo6VfyAIGi8B9PmaQBTmTtWDuJmOJinRX3rZhZXc/elBESDfbStGASkKCn9Wc/net7Ez382glWf2YpHfsl4fkjY+/GnoAJzXgR0MeALZh9R3iLe4/jdlRHu/uEyzJ6zBUl3EkFdk6io9UNUxwa0qp42Iq+sOgjM/Vx3ekul7uZstP9BBoJgqgBUYWPFziesXp6aPzvRmY8v35jgjz/8Ah57hNgRuoQ+7uFIhar+Q3M9+Js5K4VeqJ7DiC5MjLVrXkSv10TQUIVSFrluRzAyjxEg+paZJ2eZp0EaL6HmNc/byw/MWEEsYHxZ3S6tLmH2ZuHhh+bi0k9vwWNP9JDSMnpZyNwfQZp1WARTt4z7h+HTzyakchvsBpDkaNYaaEQTuPu+d+CMlVtR17gNS6t+zwq+vywx0c4yH0H5k8zccVo82kf1zBFQqUvLERP0ifETcPP1Pv7kQ5vx5MYYiAq/OvNiJPmExT0cFRiqaOVi0FoxpHliEwxO9mKMT4a48vKnWbk8AYmX8nprF0fZRScLXWKQDyEH8zQo561ag3o0BsLzBepuxF6XoC7C+vWL8f6zn8cdf/sq9nZydOMIyeBBEVlx+a0aS3EYyninTWmfZa10t93HpqwzfffUa+EXP8+w9s7t3HUs0yuQ9WhVcQHMVCwczNOgPI3oF48REoKkSdv9JsbHT8QXr99D3/hX2PxcHW0/ImZ1+AQryOeRIToHoagj0DbGYurKBbJuwwHtvQ3K1/zbLOq+55jkbfRSD2tu3Y7/eqhJF2Os2GG+ptIwM11M5zMflizTqIHpK2CQe+GhqHilyXz89IEWVl3yJJ5+nq6GXI9ILRq8vcuF1vhiWUaWQoaGjuZ36Lm9w8l/VkDln2sknZr+stncptaRSQbeKfycF5uHOn93xTt9/GTDctRbjxEGuUT8fY2++41zK5Gcz/zWqWj71T2bFi/XOAhtrCFL1LkRcBmyEjcHr25bgWuuzfGhi5/Eo88CExovQYjTbpcgq4WDfmzGIiEv8myLSt/hgizxO/SolPhVeWMvQ9t+wQBg6WdMdIcX3COPp1h96zZ0khNprXs8TE94qy1E7pGCzlXfMQjqnDm8O8d0yVnmKSgXxMwvT13Jsqi8p2epLJ4KmYAmb8cD93q4+trHselpVfwIj9qWLZONfH3N8OSxjGXcPI8uToo5s4B7frISy0/fiChQubNCqHrgPh2YXt11JJ3HkHQQy+xgnpKYR5Jq/lkLKX1j+agxP4+Pn4bVn9+Cf/juy+jEtMQefeNEA4KUn4SfS9m6wp0YkjTKKFDaeWtmMupM0VnvCfGj9ScT1ecQhuRgMP7ZVOBbgLH/09Dk3Iy3UgJTGansY1Z6GnM8G/c/MA/nnv0z3HXXy5johehlY4jTWQSDFlsVQfnHw4S4L4MxTcxAq3KY5XPxv7+IsfbOrfw4u799IMXWXUUX5GvMdenkLPOUNCjUAug0PRZXXTGB7961xwbSJ9psoKu5i5np0w9VqwJXbWgFM3u4lrm/NEhHEPJzkI9jztwM92w4A8tO2YwGK4/Wrc2/OhePd5jidXraPmQpb5kIZ5nfAmmshYLW5DvqaefFi1p0l+U7zyW8DQZZ4kkGdUj0b9lWAEUYqgaJkJtEOBNWEFOvjj27m7jss5t4DqcwyWpaVAWQEffRO3SMDykH85RU1PQt+1jgftDFJz51LFaeV0MQ7UaeyYJJoldxykJxIRtYZBMq8iIL9JQKkaWr1MmaeGhDB99e+zJ873h6IgfcgSzonMsLtIN5CspZZbLpsfqExvEkmqPbcPua5RiZEyOM1OsmgFW1atmAH/PazJdjGDoPKnb58VyQV9+nq5RlCHz60TyvdXe+gscf3cXtcpMUjZXWvptUZmQczFOQjy6NGYHVWAaCENQS+OFOvPOMFNddsVDPnsKjI+oHmqOCWWyWjwdqsJENyxyuiZavmastWiPkeBPJ5ORjD339cXTiHl7a2sJll7+C2Btj5ZDpV0N4LtB1ZCC0iy8qmRzMU5IKX1IFymdZ52SUcPtbsOqKpVjxe6owKY563DSXRT++xlyoWzktLN7wpItJaRKk/Y/2uQip18GD61N8Y12bF+EIijHXDLTOPq/KwkUpnxzMU9XgiQ8WLdFFpGGUtG5+7VGsXXcmRlgf9LIUtTBHoI6IfdEFgrqNy6vEVxNXHbfdtBdPP3UiK4jqJJI1Lrrerfu9hHIwT1myYmqlUCFrliG6GgTc9yax4l17ccWVC8x+yZKliiqIs1lcSbiuZ6LKK52RppLZviPEqkue4voiWmv1jRMX67sfVHDLJQfzVGWPGalSJMscEeKQvnKOKJCXvIUwH4+VK+uo0coFGstg4xnkM/M4ximz8jTkafFOU/Px4IYuvvOtV9FNx5AktNC6MEuKjYP5sMSStVp+f+yyQh5BT/3NHn0Kd37jBEQRb9mDlg9vBwMtnAFRYvEiVRtzL+mo6RxfXb0bzzyz0OxxcRmW82J0ME9JhWtRACq3QcWs27BuwVymGlOXYcXKSVx6zXz4gTpPuD0owEdWbp9ZZ4Ystm54PVf78ovANZdvQeifyeSPsT7rYK6QVLuX29AHWjZL7w6xVzII6Axp6rHwd+MzV52A01eoikgqFFUj7qwCqKw3bPrLIgy2HDnpF5WW/emR4xSGmhVJF2mTUEe4/54OvvPNl7iN+0tKjYN5SiKYViHqWyjjUFZages+LTODn2c4ZtZGfHvtYsxm/a+Wz4EvjmWprYWgAMjjxUF87O8Aq+kVf0G/bS0U+n1dmLrIio6UnMSmSQoyzKhtXp7FoKR//N4LSLsL6IIofvk0/flWWfVBfiMZJMpa4Zlg5Tk9rLrqWIS03lmXdk+PRw0GH1mHSsJv03gPHUerb8vpFMG1MdlMhyZ/8fV4Vz89/G09ieLRJcp1w2Glr8Y0ffRjC/HP/7aMbsYL+5rNyyY3am46ZD6xYC5gTeh27NpzKj7w+09g85NNdFKCo8eaDpC4soqkysLAlssyTRpcKyp0s9DyHfoXp7ZlPiLCXOOuk04CvnLrKbjwj8ZRC/cyWo+WuYtomMZZvZJMphs1d0TUz1aNnNMtmXA3W5ux7q7FqNfavJmrzZlxBvMwkyNjuSge/h3QNj3StxcpHOWPzWJQ755tYJpaiOgLNaIIH/+L43D/g6fg4ou3oBVuI8iT9lRNGLb6kcslB/N0SN3WciPMfLDyR6AjWr93n70Hn1nVQJ1+qO/VaP3mIPD0hlX5q4oulAeVyOmTnJ9aKIvGdCgtPrcQ6IbHEHSxbFmG7/3TEtz+d3XMm7eFroamTkhZoaV3H+muoWGt5ZODeVokUyuLrD7tlHfyDsEJ0GLF7+pr34alp7CqVevwdi23TiD3m+rMZArk6YVZ9j/NejZAKlePXjoPQTpm0+B++tIR3LP+BFz44V200L/mRaf5nBsWx6YWY9rK8LTMG8n5zNMh3batIsdVVu70BHbgR0iZ2R4aeODBxbjwoseQd33k6SjRkoMxTpAH/oYs+vQBo1F9Aa81DZYL9EgXXYeTl6a4c81p+IML9tjr1vSwq9IbBXUu2zyGF53m0FPzo01FMEQdxGcuMcyWIOq1hZrnowyyZGoDHZKK2ppWGIo25NdMA6unTbQv2MlY2s/YynfLUh8970xced1WfHfdVuRxhFhPbguSQZ5PGeb9eWa/Ofis9AoAk1JEt4fW1o9YmQu7+NRn5+Lqq2fhhHk7eT3RheDv03bDJ/UxlwHvHDamWRN9KG1K56DCOAzNOJgJrJ549pQmZS6DknX/f7wDD943n0zsLuINQ6zYpaztpx5BTep0HyZw2WV7MdISvMxcgmlTxFpT128qzRv49bbj8IfnPYtnNjV4hiwMg1fxNW64KIKDysqK2hdJGwRrsUOugD4Jw1xfxg++Grj1vWnXRvjVWb5LT8mwZt1ivO88Ah7sojuknkqlQd9zYAp+4weHq5kHc8NgtjSleqiStjjIcdvqRbjlK1sQD9Ewm63l/4SgiJUR3oFf3fleAvEY4l4btZby7uBNa3Yu6Xz8+/1vw0cu/iXa3QCZmuo0ztme4ubxb5b9ljfUPr60YQA0NwpKW9VUYbTC1lFDfzehl858/Oxli3HlNYtxzILn6Aa9ikCzHzF+MZ1XcWhpdRCYdfYllUqpKCmPtWj5cHpvR8J/XZa72gqGFXr0HRNWiJJklP5kzbp49cRJBk3eHVjl6lCyc8m6eN8Hd+GTq1oI1YSn8Q7Wq0jtA/QQ2p89B6i/UaWr95aodAWpWi3iGho0Cr9zWo67f/IufOHGWZi/4En+7Av0kRVHJyHfXQfPTJUY5v0qBrb4LB9aLlkvK0QlfTgh8yaR+ttp9MaRBT3E3DzZ22O7s7wD37qpD6481VBRDejfjus+P4K3n6w5E3le5mYIpqn0SChTBKSCvovfoWRwc8RNo/UeLv/r4/DAhuU4++yn0Gxu5F1lNyuAvOul+l1FVqX10Gkvs2ZEyj3rXuWSAOhljV6mEA0taHikkBEoA1e3Fs5hZsrK2iMm2ntQWaeb10ZISzxvzh7c8fVTMRrFqAcRraSAejOYBfxrLageSpXFj6IQNdWP+SMBK5bCevmZIb7/o6X40s0R5s55FmGgdu6Yx8giM2/1WJR+03ogZy7QJU71oMBIixxTszwD6VXp3SEGpkvNVHaXKO4Uen2CWjQ8r/s6zN5A9hI+nU+CkBfHBRcAf/6Jufw+uRuykoXfemjpV1R8hQum9/6ZJ5bEyJI2rXGHvnyKa68/BvduWIRzz3uFEG9lvLaltWg+1Egi4c515TEvQnssiltmombAJTgAWdbO6v39TxoxPKxAWVOaLJtaLpiR/dl+bJ5aJfDNZBwmZsR979e4/oaFOHEJ7SMrYFYJP6T2g6ygycLrdZpjfpTVV2vFyhXAj+4/GV/4Uo7R5kvw83Hu1u/JEtMKG7xMKpe5Omqs4qlw6LtKmVVimAcQSyq0/mdlvgrBHrocTiiarwSArBizUOWfNRhGiuWbaP+MSJQ/ye9oY8HCLbhj3Um8VAYo669CAaxUrA3+9fNGaSC8KS1yLfAxwhvG5284HnffdzLOOms36tFOwk1rrLEgueZt1kAmngfPQa+dyBUsPf38tcbw/nfPMBX5Vjqx2MzSqamQt8B9A+EJgPHMdTmrQwpm1JQGDRRiFqqlKKMfmgcd3rETu9gOJe0uoujcGvxKfWcb519Qx8c/NgdNVipDb9T874B+tEy//mm0s8ZVRIRRL3nQu/vCJrEOaJnDDGctj/BTWuPrr+3RN36ebsUO/gbzzDwKuhBMn+fTDTLrbynvh0F6KJ2cg/mtVpGhsn0HZHVf/DzI8yGE/anpr1kSzTwzKNKbSdnOoGPorvi8zWuejSjcjs/duAwLFxEwG19M8EK6Mxpz7AnhMVpT2dCIRzfoOjB3eP3MGwlw3ZcX4e6fLsKyM7YSWHU3yxgoPQMpXQd+rp5KDHOFpZfh2AtxdGXoVk9flv/idDeOW/QibllzKqKmWrS5L6Xbkqj3Tk9MTyCjm5P6umPlaBLqc88B7l2/FNdc00a9Rmtcl9+rY48+OZiHLfN59e6TwoXodHfiwova+MifjiGUj5vOM3fChpVqjmT6vponfPaCDr5w8zz84J4zcObpLxHr3Tw+RKrXUAzuGEeZHMzDkLUayA0obv5ypcKggYiVs5GG/OVduOmG07B4Ca1tMME6WRNqrKjV2hipZTjnPaP4wf1LcdXfZGi1NiNMWvDTBSzM3Ga9LyqoR58czMOQwUaMVXM0h0FSR5Dm3ogI8F4sXPgCVn91Bf3i3WjRp67FARaMAV++cRF+eN+pWL58NzK6JeYbR7voV+/tf0tRoTsa5WAehswcqyWjxaCOC8KtmpzarrUvzdGItuPDF+/Bn310Dl2ICfrGTTzw4Om4/Io2muFGWuOY1pxehzpaNENSoAojfWleIHqh5tEoB/PQxKw3kPtd19YJo5FtMa3zLGRxi67FVnzuplHcvGYU37/3JCw5eTNq4QT3txFEjKtpZkO9pk1tx2rfFsRqsXBuRilVyaqMTkqP9wd7WPnrWCHYedqLKAliNI6gxgqd18bSJa/g0ktTgv04/WFaXx0XClYNnldVL0ZgbcdtfgmPt0ZwfdnRp9LDXPiTVZT5Ewxv0PZr7c/FdsEqUG1GJNsgWF+fK4qrUN3c+v/IuRlOlZGD2akycjA7VUYOZqfKyMHsVBk5mJ0qo9LDfJQ2mTpNQaWH+ehuOXX6beTcDKfKyMHsVBk5mJ0qIwezU2XkYHaqjEoL8/4H4PN+k0Yx3UB5Wjf6adNoNS1sfgHXkDhMlRLmjHQkaHLZIh4pbBqs3jHcM7Jvv3EzrIAI+ybgZtCQeN/mv+vP11aeK+6oUilhFi96I8K+ceZ6Zi7YQ4TbZgA1MYweDRpWUAps9HBeY4hsNlqb1NvGIA8S7XSkVVqYA8RMXGyWzmD29YajlPAUezUP57CCXgKZRUxP2DWI7S1ovmYy0tRhcoUczcNQKWGWcdPrQT09jm/zFmuiPz2VwQVhFiwpwRlWsOvJHu5oMH1jlt7Cxx887eFgHobKCbNkt2wF+aHF5CdeFiDI6KOKFXuyeTghSH2EekcFk1dMccvVJEbONOrdJHnxJh6nI6zywkxZ9UoW2eMtvEd48iZajR5qfgeNoDe00PQitJiWJh37ht9FXZ5Qrnfq6Tk93TfkVzsdaZX2BT05gSjemcQrjtbYz1o2oXYvPQ5+OA9Z+IrtG4YCm5vCQ1dT3KKFSC+njF9BLeTFJ5fDm0Sgp6ydpkeaPEe2TbfGA17QU1qYM6YppYuhV6eFoNXr0HfWK3LDGGmaIlBzx7Ck9xAyfxKvy3Q2mT7mWdphoEXWq3tDVVaHmL6qa6bBbKntJ7OQJZAqAyQHpuVg607TpoPAzK1llYA48ILS57JAcmBaDrbudKRVYpidnH47OZidKiMHs1Nl5GB2qowczE6VkYPZqTJyMDtVRg5mp8rIwexUGTmYnSojB7NTZeRgdqqMHMxOlZGD2akycjA7VUYOZqfKyMHsVBk5mJ0qIwezU2XkYHaqjBzMTpWRg9mpMnIwO1VGDmanysjB7FQZOZidKiMHs1Nl5GB2qowczE6V0etmOR5MyerkNBO0n1dx7HXyMI+45md6dUGO3I/7k7K6qVmdyirPMPayyNYzP0XMDd5E5uct1ADt8PRaA0EssGMGJ6cyShCn9ioO85RpgCc1Uf5kNpbX8gCBvb9OCrgU5g5mp5JKbx8zSgk019I8R89L8X/yl4eR7I94OQAAAABJRU5ErkJggg==");
+
+},
+589433(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+28453(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  R: () => (useMDXComponents),
+  x: () => (MDXProvider)
+});
+/* import */ var react__rspack_import_0 = __webpack_require__(296540);
+/**
+ * @import {MDXComponents} from 'mdx/types.js'
+ * @import {Component, ReactElement, ReactNode} from 'react'
+ */
+
+/**
+ * @callback MergeComponents
+ *   Custom merge function.
+ * @param {Readonly<MDXComponents>} currentComponents
+ *   Current components from the context.
+ * @returns {MDXComponents}
+ *   Additional components.
+ *
+ * @typedef Props
+ *   Configuration for `MDXProvider`.
+ * @property {ReactNode | null | undefined} [children]
+ *   Children (optional).
+ * @property {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @property {boolean | null | undefined} [disableParentContext=false]
+ *   Turn off outer component context (default: `false`).
+ */
+
+
+
+/** @type {Readonly<MDXComponents>} */
+const emptyComponents = {}
+
+const MDXContext = react__rspack_import_0.createContext(emptyComponents)
+
+/**
+ * Get current components from the MDX Context.
+ *
+ * @param {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @returns {MDXComponents}
+ *   Current components.
+ */
+function useMDXComponents(components) {
+  const contextComponents = react__rspack_import_0.useContext(MDXContext)
+
+  // Memoize to avoid unnecessary top-level context changes
+  return react__rspack_import_0.useMemo(
+    function () {
+      // Custom merge via a function prop
+      if (typeof components === 'function') {
+        return components(contextComponents)
+      }
+
+      return {...contextComponents, ...components}
+    },
+    [contextComponents, components]
+  )
+}
+
+/**
+ * Provider for MDX context.
+ *
+ * @param {Readonly<Props>} properties
+ *   Properties.
+ * @returns {ReactElement}
+ *   Element.
+ * @satisfies {Component}
+ */
+function MDXProvider(properties) {
+  /** @type {Readonly<MDXComponents>} */
+  let allComponents
+
+  if (properties.disableParentContext) {
+    allComponents =
+      typeof properties.components === 'function'
+        ? properties.components(emptyComponents)
+        : properties.components || emptyComponents
+  } else {
+    allComponents = useMDXComponents(properties.components)
+  }
+
+  return react__rspack_import_0.createElement(
+    MDXContext.Provider,
+    {value: allComponents},
+    properties.children
+  )
+}
+
+
+},
+
+}]);

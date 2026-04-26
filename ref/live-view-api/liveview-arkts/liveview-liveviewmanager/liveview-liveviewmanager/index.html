@@ -1,0 +1,2453 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>liveViewManager | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="liveViewManager | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块提供Live View Kit的基础能力，包括创建、更新和结束实况窗、获取实况窗和检查实况窗开关的功能。"/><meta data-rh=true property=og:description content="本模块提供Live View Kit的基础能力，包括创建、更新和结束实况窗、获取实况窗和检查实况窗开关的功能。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager","name":"liveViewManager","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title="Account Kit（华为账号服务）" class=categoryLinkLabel_W154>Account Kit（华为账号服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ads-api/ads-arkts/js-apis-advertising/js-apis-advertising><span title="Ads Kit（广告服务）" class=categoryLinkLabel_W154>Ads Kit（广告服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/store-api/store-arkts/store-moduleinstallmanager/store-moduleinstallmanager><span title="AppGallery Kit（应用市场服务）" class=categoryLinkLabel_W154>AppGallery Kit（应用市场服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/app-linking-api/applinking-arkts-api/applinking-deferredlink-api/applinking-deferredlink-api><span title="App Linking Kit（应用链接服务）" class=categoryLinkLabel_W154>App Linking Kit（应用链接服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/calendar-api/calendar-arkts/js-apis-calendarmanager/js-apis-calendarmanager><span title="Calendar Kit（日历服务）" class=categoryLinkLabel_W154>Calendar Kit（日历服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/call-api/call-arkts/call-voipcall/call-voipcall><span title="Call Service Kit（通话服务）" class=categoryLinkLabel_W154>Call Service Kit（通话服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cloud-foundation-api/cloudfoundation-arkts-api/cloudfoundation-cloudcommon/cloudfoundation-cloudcommon><span title="Cloud Foundation Kit（云开发服务）" class=categoryLinkLabel_W154>Cloud Foundation Kit（云开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/contacts-api/contacts-arkts/js-apis-contact/js-apis-contact><span title="Contacts Kit（联系人服务）" class=categoryLinkLabel_W154>Contacts Kit（联系人服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/enterprise-space-api/enterprisespace-arkts/enterprisespace-spacedatatransfer/enterprisespace-spacedatatransfer><span title="Enterprise Space Kit（企业数字空间服务）" class=categoryLinkLabel_W154>Enterprise Space Kit（企业数字空间服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/file-manager-service-api/filemanagerservice-arkts/filemanagerservice-arkts-filemanagerservice/filemanagerservice-arkts-filemanagerservice><span title="File Manager Service Kit（文件管理服务）" class=categoryLinkLabel_W154>File Manager Service Kit（文件管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-controller-api/game-controller-c/game-controller-module/capi-game-controller/capi-game-controller><span title="Game Controller Kit（游戏控制器服务）" class=categoryLinkLabel_W154>Game Controller Kit（游戏控制器服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-service-api/gameservice-arkts/gameservice-gameplayer/gameservice-gameplayer><span title="Game Service Kit（游戏服务）" class=categoryLinkLabel_W154>Game Service Kit（游戏服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/health-service-api/health-api-arkts/health-api-healthstore/health-api-healthstore><span title="Health Service Kit（运动健康服务）" class=categoryLinkLabel_W154>Health Service Kit（运动健康服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/iap-api/iap-arkts/iap-iap/iap-iap><span title="IAP Kit（应用内支付服务）" class=categoryLinkLabel_W154>IAP Kit（应用内支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager><span title="Live View Kit（实况窗服务）" class=categoryLinkLabel_W154>Live View Kit（实况窗服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager><span title=liveViewManager class=linkLabel_WmDU>liveViewManager</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-lock-screen-ability/liveview-lock-screen-ability><span title=LiveViewLockScreenExtensionAbility class=linkLabel_WmDU>LiveViewLockScreenExtensionAbility</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-lock-screen-context/liveview-lock-screen-context><span title=LiveViewLockScreenExtensionContext class=linkLabel_WmDU>LiveViewLockScreenExtensionContext</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/location-api/location-arkts/js-apis-geolocationmanager/js-apis-geolocationmanager><span title="Location Kit（位置服务）" class=categoryLinkLabel_W154>Location Kit（位置服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/map-api/map-arkts/map-map/map-module-desc/map-module-desc><span title="Map Kit（地图服务）" class=categoryLinkLabel_W154>Map Kit（地图服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager><span title="Notification Kit（用户通知服务）" class=categoryLinkLabel_W154>Notification Kit（用户通知服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/payment-api/payment-arkts/payment-paymentservice/payment-paymentservice><span title="Payment Kit（鸿蒙支付服务）" class=categoryLinkLabel_W154>Payment Kit（鸿蒙支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/pdf-api/pdf-arkts/pdf-arkts-pdfservice/pdf-arkts-pdfservice><span title="PDF Kit（PDF服务）" class=categoryLinkLabel_W154>PDF Kit（PDF服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/preview-api/preview-api-reference/preview-arkts/preview-arkts><span title="Preview Kit（文件预览服务）" class=categoryLinkLabel_W154>Preview Kit（文件预览服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/push-api/push-arkts/push-aaid-api/push-aaid-api><span title="Push Kit（推送服务）" class=categoryLinkLabel_W154>Push Kit（推送服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/reader-api/reader-arkts/reader-book-parser/reader-book-parser><span title="Reader Kit（阅读服务）" class=categoryLinkLabel_W154>Reader Kit（阅读服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/scenario-fusion-api/scenario-fusion-arktsapi/scenario-fusion-atomicservice/scenario-fusion-atomicservice><span title="Scenario Fusion Kit（融合场景服务）" class=categoryLinkLabel_W154>Scenario Fusion Kit（融合场景服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice><span title="Screen Time Guard Kit（屏幕时间守护服务）" class=categoryLinkLabel_W154>Screen Time Guard Kit（屏幕时间守护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/share-api/share-arkts/share-system-share/share-system-share><span title="Share Kit（分享服务）" class=categoryLinkLabel_W154>Share Kit（分享服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-arkts/wallet-walletpass/wallet-walletpass><span title="Wallet Kit（钱包服务）" class=categoryLinkLabel_W154>Wallet Kit（钱包服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/weather-service-api/weather-service-arkts/weather-service-weatherservice/weather-service-weatherservice><span title="Weather Service Kit（天气服务）" class=categoryLinkLabel_W154>Weather Service Kit（天气服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用服务</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Live View Kit（实况窗服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>liveViewManager</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>liveViewManager</h1></header>
+<p>本模块提供Live View Kit的基础能力，包括创建、更新和结束实况窗、获取实况窗和检查实况窗开关的功能。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div></code></pre></div></div>
+<p><strong><strong>设备行为差异：</strong></strong> 该模块在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerisliveviewenabled>liveViewManager.isLiveViewEnabled<a href=#liveviewmanagerisliveviewenabled class=hash-link aria-label=liveViewManager.isLiveViewEnabled的直接链接 title=liveViewManager.isLiveViewEnabled的直接链接 translate=no>​</a></h2>
+<p>isLiveViewEnabled(): Promise&lt;boolean></p>
+<p>查看应用实况窗开关，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>以Promise形式返回当前应用实况窗的开关状态。  <strong><strong>●</strong></strong> true表示实况窗开关开启。  <strong><strong>●</strong></strong> false表示实况窗开关关闭。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  liveViewManager.isLiveViewEnabled().then((isEnabled: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'testTag', 'Succeeded in checking whether liveView is enabled, liveView is : %{public}s', isEnabled);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to check whether liveView is enabled: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'testTag', 'Failed to check whether liveView is enabled: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerstartliveview>liveViewManager.startLiveView<a href=#liveviewmanagerstartliveview class=hash-link aria-label=liveViewManager.startLiveView的直接链接 title=liveViewManager.startLiveView的直接链接 translate=no>​</a></h2>
+<p>startLiveView(liveView: LiveView): Promise&lt;LiveViewResult></p>
+<p>创建实况窗，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>liveView<td><a href=#liveview class="">LiveView</a><td>是<td>一个实况窗实例。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveviewresult class="">LiveViewResult</a>><td>Promise对象，返回创建实况窗的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500004-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500004</a><td>LiveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500005-%E5%AE%9E%E5%86%B5%E7%AA%97%E6%9D%83%E7%9B%8A%E6%9C%AA%E7%94%B3%E8%AF%B7>1003500005</a><td>The right of liveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500006-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%B7%B2%E5%AD%98%E5%9C%A8>1003500006</a><td>The liveView already exists.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500007-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8>1003500007</a><td>Couldn't connect to server.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500008-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A2%91%E5%BA%A6%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6>1003500008</a><td>Over max number liveViews per second.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want, wantAgent } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function startLiveView(): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 定义创建的liveView</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let liveView: liveViewManager.LiveView = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      id: 123,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      event: "PICK_UP",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      sequence: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isMute: false,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      liveViewData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        primary: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "餐品已备好",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "请前往" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "一号窗口", textColor: "#FFFF0000" }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          keepTime: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          clickAction: await buildWantAgent(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          extensionData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            text: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            type: liveViewManager.ExtensionType.EXTENSION_TYPE_COMMON_TEXT</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          layoutData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            layoutType: liveViewManager.LayoutType.LAYOUT_TYPE_PICKUP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            title: "取餐码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            content: "72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            underlineColor: "#FFFF0000",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            descPic: "coffee.jpg"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        capsule: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: liveViewManager.CapsuleType.CAPSULE_TYPE_TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          status: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          icon: "coffee.jpg",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: "取餐码：72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          backgroundColor: "#FF308977"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    liveViewManager.startLiveView(liveView).then((liveViewResult: liveViewManager.LiveViewResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in starting liveView, result: %{public}s', JSON.stringify(liveViewResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', 'Failed to start liveView: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to start liveView: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function buildWantAgent(): Promise&lt;Want> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const wantAgentInfo: wantAgent.WantAgentInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    wants: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        bundleName: 'xxx.xxx.xxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        abilityName: 'EntryAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } as Want</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionType: wantAgent.OperationType.START_ABILITIES,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestCode: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const agent = await wantAgent.getWantAgent(wantAgentInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return agent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = e as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get wantAgent: %{public}s', err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    throw e as Error;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerupdateliveview>liveViewManager.updateLiveView<a href=#liveviewmanagerupdateliveview class=hash-link aria-label=liveViewManager.updateLiveView的直接链接 title=liveViewManager.updateLiveView的直接链接 translate=no>​</a></h2>
+<p>updateLiveView(liveView: LiveView): Promise&lt;LiveViewResult></p>
+<p>更新实况窗，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>liveView<td><a href=#liveview class="">LiveView</a><td>是<td>一个实况窗实例。对于非必填字段，若无特殊说明，则不携带时默认继承上一次的状态。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveviewresult class="">LiveViewResult</a>><td>Promise对象，返回更新实况窗的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500004-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500004</a><td>LiveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500008-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A2%91%E5%BA%A6%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6>1003500008</a><td>Over max number liveViews per second.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500009-%E5%AE%9E%E5%86%B5%E7%AA%97id%E4%B8%8D%E5%AD%98%E5%9C%A8>1003500009</a><td>The liveView does not exist.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500010-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%B7%B2%E7%BB%93%E6%9D%9F>1003500010</a><td>The liveView has ended.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500011-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A1%BA%E5%BA%8F%E4%B8%8D%E6%AD%A3%E7%A1%AE>1003500011</a><td>The liveView sequence is incorrect.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want, wantAgent } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function updateLiveView(): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 定义更新的liveView</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let liveView: liveViewManager.LiveView = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      id: 123,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      event: "PICK_UP",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      sequence: 2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isMute: false,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      liveViewData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        primary: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "餐品已备好",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "请前往" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "一号窗口", textColor: "#FFFF0000" }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          keepTime: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          clickAction: await buildWantAgent(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          extensionData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            text: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            type: liveViewManager.ExtensionType.EXTENSION_TYPE_COMMON_TEXT</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          layoutData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            layoutType: liveViewManager.LayoutType.LAYOUT_TYPE_PICKUP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            title: "取餐码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            content: "72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            underlineColor: "#FFFF0000",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            descPic: "coffee.jpg"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        capsule: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: liveViewManager.CapsuleType.CAPSULE_TYPE_TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          status: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          icon: "coffee.jpg",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: "取餐码：72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          backgroundColor: "#FF308977"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    liveViewManager.updateLiveView(liveView).then((liveViewResult: liveViewManager.LiveViewResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in updating liveView, result: %{public}s', JSON.stringify(liveViewResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', 'Failed to update liveView: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to update liveView: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function buildWantAgent(): Promise&lt;Want> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const wantAgentInfo: wantAgent.WantAgentInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    wants: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        bundleName: 'xxx.xxx.xxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        abilityName: 'EntryAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } as Want</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionType: wantAgent.OperationType.START_ABILITIES,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestCode: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const agent = await wantAgent.getWantAgent(wantAgentInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return agent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = e as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get wantAgent: %{public}s', err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    throw e as Error;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerstopliveview>liveViewManager.stopLiveView<a href=#liveviewmanagerstopliveview class=hash-link aria-label=liveViewManager.stopLiveView的直接链接 title=liveViewManager.stopLiveView的直接链接 translate=no>​</a></h2>
+<p>stopLiveView(liveView: LiveView): Promise&lt;LiveViewResult></p>
+<p>结束实况窗，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>liveView<td><a href=#liveview class="">LiveView</a><td>是<td>一个实况窗实例。对于非必填字段，若无特殊说明，则不携带时默认继承上一次的状态。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveviewresult class="">LiveViewResult</a>><td>Promise对象，返回结束实况窗的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types; 3. Parameter verification failed.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500004-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500004</a><td>LiveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500008-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A2%91%E5%BA%A6%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6>1003500008</a><td>Over max number liveViews per second.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500009-%E5%AE%9E%E5%86%B5%E7%AA%97id%E4%B8%8D%E5%AD%98%E5%9C%A8>1003500009</a><td>The liveView does not exist.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500010-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%B7%B2%E7%BB%93%E6%9D%9F>1003500010</a><td>The liveView has ended.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500011-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A1%BA%E5%BA%8F%E4%B8%8D%E6%AD%A3%E7%A1%AE>1003500011</a><td>The liveView sequence is incorrect.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want, wantAgent } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function stopLiveView(): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 定义要结束的liveView</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let liveView: liveViewManager.LiveView = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      id: 123,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      event: "PICK_UP",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      sequence: 3,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isMute: false,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      liveViewData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        primary: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "餐品已备好",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "请前往" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "一号窗口", textColor: "#FFFF0000" }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          keepTime: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          clickAction: await buildWantAgent(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          extensionData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            text: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            type: liveViewManager.ExtensionType.EXTENSION_TYPE_COMMON_TEXT</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          layoutData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            layoutType: liveViewManager.LayoutType.LAYOUT_TYPE_PICKUP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            title: "取餐码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            content: "72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            underlineColor: "#FFFF0000",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            descPic: "coffee.jpg"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        capsule: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: liveViewManager.CapsuleType.CAPSULE_TYPE_TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          status: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          icon: "coffee.jpg",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "待取餐",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: "取餐码：72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          backgroundColor: "#FF308977"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    liveViewManager.stopLiveView(liveView).then((liveViewResult: liveViewManager.LiveViewResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in stopping liveView, result: %{public}s', JSON.stringify(liveViewResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', 'Failed to stop liveView: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to stop liveView: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function buildWantAgent(): Promise&lt;Want> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const wantAgentInfo: wantAgent.WantAgentInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    wants: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        bundleName: 'xxx.xxx.xxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        abilityName: 'EntryAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } as Want</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionType: wantAgent.OperationType.START_ABILITIES,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestCode: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const agent = await wantAgent.getWantAgent(wantAgentInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return agent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = e as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get wantAgent: %{public}s', err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    throw e as Error;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagergetactiveliveview>liveViewManager.getActiveLiveView<a href=#liveviewmanagergetactiveliveview class=hash-link aria-label=liveViewManager.getActiveLiveView的直接链接 title=liveViewManager.getActiveLiveView的直接链接 translate=no>​</a></h2>
+<p>getActiveLiveView(id: number): Promise&lt;LiveView></p>
+<p>获取活动的liveView，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>id<td>number<td>是<td>实况窗的id，取值范围为[-2147483648, 2147483647]。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveview class="">LiveView</a>><td>Promise对象，返回活动的实况窗实例。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500009-%E5%AE%9E%E5%86%B5%E7%AA%97id%E4%B8%8D%E5%AD%98%E5%9C%A8>1003500009</a><td>The liveView does not exist.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 定义需要查询的实况窗id</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const id = 1;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  liveViewManager.getActiveLiveView(id).then((liveView: liveViewManager.LiveView) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'testTag', 'Succeeded in getting active liveView, liveView is : %{public}s', JSON.stringify(liveView));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get active liveView: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'testTag', 'Failed to get active liveView: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerisgeofencetriggerenabled>liveViewManager.isGeofenceTriggerEnabled<a href=#liveviewmanagerisgeofencetriggerenabled class=hash-link aria-label=liveViewManager.isGeofenceTriggerEnabled的直接链接 title=liveViewManager.isGeofenceTriggerEnabled的直接链接 translate=no>​</a></h2>
+<p>isGeofenceTriggerEnabled(): Promise&lt;boolean></p>
+<p>查询基于地理位置的实况窗提醒开关，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>以Promise形式返回当前基于地理位置的实况窗提醒的开关状态。  <strong><strong>●</strong></strong> true表示基于地理位置的实况窗提醒开关开启。  <strong><strong>●</strong></strong> false表示基于地理位置的实况窗提醒开关关闭。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  liveViewManager.isGeofenceTriggerEnabled().then((isEnabled: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'testTag', 'Succeeded in checking whether geofence trigger is enabled, geofence trigger is : %{public}s', isEnabled);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to check whether geofence trigger is enabled: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'testTag', 'Failed to check whether geofence trigger is enabled: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerstartliveviewbytrigger>liveViewManager.startLiveViewByTrigger<a href=#liveviewmanagerstartliveviewbytrigger class=hash-link aria-label=liveViewManager.startLiveViewByTrigger的直接链接 title=liveViewManager.startLiveViewByTrigger的直接链接 translate=no>​</a></h2>
+<p>startLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult></p>
+<p>增加由条件触发创建实况的消息，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>liveView<td><a href=#liveview class="">LiveView</a><td>是<td>一个实况窗实例。<tr><td>trigger<td><a href=#trigger class="">Trigger</a><td>是<td>触发实况窗的条件对象。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveviewresult class="">LiveViewResult</a>><td>Promise对象，返回添加基于地理位置触发创建实况窗的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section801-%E8%AF%A5%E8%AE%BE%E5%A4%87%E4%B8%8D%E6%94%AF%E6%8C%81%E6%AD%A4api>801</a><td>Capability not supported. The device model does not support geofencing.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500004-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500004</a><td>LiveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500005-%E5%AE%9E%E5%86%B5%E7%AA%97%E6%9D%83%E7%9B%8A%E6%9C%AA%E7%94%B3%E8%AF%B7>1003500005</a><td>The right of liveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500006-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%B7%B2%E5%AD%98%E5%9C%A8>1003500006</a><td>The liveView already exists.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500007-%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%99%A8>1003500007</a><td>Couldn't connect to server.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500008-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A2%91%E5%BA%A6%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6>1003500008</a><td>Over max number liveViews per second.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500017-%E8%B6%85%E8%BF%87%E6%9D%A1%E4%BB%B6%E5%AE%9E%E5%86%B5%E7%AA%97%E6%AC%A1%E6%95%B0%E9%99%90%E5%88%B6>1003500017</a><td>Over max number liveViews by trigger.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500018-%E5%9F%BA%E4%BA%8E%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AE%9E%E5%86%B5%E7%AA%97%E6%8F%90%E9%86%92%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500018</a><td>Geofencing-based liveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500019-%E4%BD%8D%E7%BD%AE%E5%8A%9F%E8%83%BD%E7%9A%84%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500019</a><td>The location switch is off.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500020-%E6%84%9F%E7%9F%A5%E4%B8%8E%E6%8F%90%E9%86%92%E7%9A%84%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500020</a><td>The "Awareness & suggestions" switch of the location-based service is turned off.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want, wantAgent } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function startLiveViewByTrigger(): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 定义创建的liveView</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let liveView: liveViewManager.LiveView = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      id: 0, // 实况窗ID，开发者生成。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      event: "EXPRESS", // 实况窗的应用场景。EXPRESS：快递。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      liveViewData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        primary: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "快递已送达",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "请前往" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: " XXX店 ", textColor: "#FF0A59F7" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "取快递" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          keepTime: 15,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          clickAction: await buildWantAgent(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          layoutData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            layoutType: liveViewManager.LayoutType.LAYOUT_TYPE_PICKUP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            title: "快递码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            content: "72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            underlineColor: "#FF0A59F7",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            descPic: "express.png" // 扩展区右侧产品描述图，取值为“/resources/rawfile”路径下的文件名或image.PixelMap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        capsule: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: liveViewManager.CapsuleType.CAPSULE_TYPE_TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          status: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          icon: "express.jpg",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "快递码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: "快递码：72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          backgroundColor: "#FF308977"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let trigger: liveViewManager.Trigger = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: liveViewManager.TriggerType.TRIGGER_TYPE_GEOFENCE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      displayTime: 15,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      condition: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        longitude: 116.3971356415625,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        latitude: 39.91800603311188,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        coordinateSystemType: liveViewManager.CoordinateSystemType.COORDINATE_TYPE_GCJ02,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        monitorEvent: liveViewManager.MonitorEvent.MONITOR_TYPE_ENTRY,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        radius: 2000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        delayTime: 0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    liveViewManager.startLiveViewByTrigger(liveView, trigger).then((liveViewResult: liveViewManager.LiveViewResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in starting liveView by trigger, result: %{public}s', JSON.stringify(liveViewResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', 'Failed to start liveView by trigger: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to start liveView by trigger: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function buildWantAgent(): Promise&lt;Want> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const wantAgentInfo: wantAgent.WantAgentInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    wants: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        bundleName: 'xxx.xxx.xxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        abilityName: 'EntryAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } as Want</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionType: wantAgent.OperationType.START_ABILITIES,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestCode: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const agent = await wantAgent.getWantAgent(wantAgentInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return agent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = e as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get wantAgent: %{public}s', err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    throw e as Error;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewmanagerstopliveviewbytrigger>liveViewManager.stopLiveViewByTrigger<a href=#liveviewmanagerstopliveviewbytrigger class=hash-link aria-label=liveViewManager.stopLiveViewByTrigger的直接链接 title=liveViewManager.stopLiveViewByTrigger的直接链接 translate=no>​</a></h2>
+<p>stopLiveViewByTrigger(liveView: LiveView, trigger:Trigger): Promise&lt;LiveViewResult></p>
+<p>增加由条件触发结束实况的消息，使用Promise异步返回结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>liveView<td><a href=#liveview class="">LiveView</a><td>是<td>一个实况窗实例。<tr><td>trigger<td><a href=#trigger class="">Trigger</a><td>是<td>触发实况窗的条件对象。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#liveviewresult class="">LiveViewResult</a>><td>Promise对象，返回添加基于地理位置触发结束实况窗的结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code>ArkTS API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section401-%E5%8F%82%E6%95%B0%E6%A3%80%E6%9F%A5%E5%A4%B1%E8%B4%A5>401</a><td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameter types.<tr><td><a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal#section801-%E8%AF%A5%E8%AE%BE%E5%A4%87%E4%B8%8D%E6%94%AF%E6%8C%81%E6%AD%A4api>801</a><td>Capability not supported. The device model does not support geofencing.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500001-%E7%B3%BB%E7%BB%9F%E9%94%99%E8%AF%AF>1003500001</a><td>Internal error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500002-%E5%BA%8F%E5%88%97%E5%8C%96%E6%88%96%E5%8F%8D%E5%BA%8F%E5%88%97%E5%8C%96%E5%A4%B1%E8%B4%A5>1003500002</a><td>Marshalling or unmarshalling error.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500003-%E8%BF%9E%E6%8E%A5%E6%9C%8D%E5%8A%A1%E5%A4%B1%E8%B4%A5>1003500003</a><td>Failed to connect service.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500004-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500004</a><td>LiveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500008-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A2%91%E5%BA%A6%E8%B6%85%E8%BF%87%E9%99%90%E5%88%B6>1003500008</a><td>Over max number liveViews per second.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500009-%E5%AE%9E%E5%86%B5%E7%AA%97id%E4%B8%8D%E5%AD%98%E5%9C%A8>1003500009</a><td>The liveView does not exist.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500010-%E5%AE%9E%E5%86%B5%E7%AA%97%E5%B7%B2%E7%BB%93%E6%9D%9F>1003500010</a><td>The liveView has ended.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500011-%E5%AE%9E%E5%86%B5%E7%AA%97%E9%A1%BA%E5%BA%8F%E4%B8%8D%E6%AD%A3%E7%A1%AE>1003500011</a><td>The liveView sequence is incorrect.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500017-%E8%B6%85%E8%BF%87%E6%9D%A1%E4%BB%B6%E5%AE%9E%E5%86%B5%E7%AA%97%E6%AC%A1%E6%95%B0%E9%99%90%E5%88%B6>1003500017</a><td>Over max number liveViews by trigger.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500018-%E5%9F%BA%E4%BA%8E%E5%9C%B0%E7%90%86%E4%BD%8D%E7%BD%AE%E7%9A%84%E5%AE%9E%E5%86%B5%E7%AA%97%E6%8F%90%E9%86%92%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500018</a><td>Geofencing-based liveView is not enabled.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500019-%E4%BD%8D%E7%BD%AE%E5%8A%9F%E8%83%BD%E7%9A%84%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500019</a><td>The location switch is off.<tr><td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-error-code/liveview-error-code#section1003500020-%E6%84%9F%E7%9F%A5%E4%B8%8E%E6%8F%90%E9%86%92%E7%9A%84%E5%BC%80%E5%85%B3%E5%85%B3%E9%97%AD>1003500020</a><td>The "Awareness & suggestions" switch of the location-based service is turned off.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { liveViewManager } from '@kit.LiveViewKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Want, wantAgent } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function stopLiveViewByTrigger(): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 定义要结束的liveView</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let liveView: liveViewManager.LiveView = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      id: 0, // 实况窗ID，开发者生成。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      event: "EXPRESS", // 实况窗的应用场景。EXPRESS：快递。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      liveViewData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        primary: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "快递已送达",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "请前往" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: " XXX店 ", textColor: "#FF0A59F7" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            { text: "取快递" },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          keepTime: 15,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          clickAction: await buildWantAgent(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          layoutData: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            layoutType: liveViewManager.LayoutType.LAYOUT_TYPE_PICKUP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            title: "快递码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            content: "72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            underlineColor: "#FF0A59F7",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            descPic: "express.png" // 扩展区右侧产品描述图，取值为“/resources/rawfile”路径下的文件名或image.PixelMap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        capsule: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: liveViewManager.CapsuleType.CAPSULE_TYPE_TEXT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          status: 1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          icon: "express.jpg",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          title: "快递码",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          content: "快递码：72988",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          backgroundColor: "#FF308977"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let trigger: liveViewManager.Trigger = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      type: liveViewManager.TriggerType.TRIGGER_TYPE_GEOFENCE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      displayTime: 15,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      condition: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        longitude: 116.3971356415625,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        latitude: 39.91800603311188,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        coordinateSystemType: liveViewManager.CoordinateSystemType.COORDINATE_TYPE_GCJ02,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        monitorEvent: liveViewManager.MonitorEvent.MONITOR_TYPE_LEAVE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        radius: 2000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        delayTime: 0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    liveViewManager.stopLiveViewByTrigger(liveView, trigger).then((liveViewResult: liveViewManager.LiveViewResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in stopping liveView by trigger, result: %{public}s', JSON.stringify(liveViewResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', 'Failed to stop liveView by trigger: %{public}d %{public}s', err.code, err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let e: BusinessError = err as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to stop liveView by trigger: %{public}d %{public}s', e.code, e.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function buildWantAgent(): Promise&lt;Want> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const wantAgentInfo: wantAgent.WantAgentInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    wants: [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        bundleName: 'xxx.xxx.xxx',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        abilityName: 'EntryAbility'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } as Want</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionType: wantAgent.OperationType.START_ABILITIES,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestCode: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    actionFlags: [wantAgent.WantAgentFlags.UPDATE_PRESENT_FLAG]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const agent = await wantAgent.getWantAgent(wantAgentInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return agent;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (e) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = e as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', 'Failed to get wantAgent: %{public}s', err.message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    throw e as Error;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=trigger>Trigger<a href=#trigger class=hash-link aria-label=Trigger的直接链接 title=Trigger的直接链接 translate=no>​</a></h2>
+<p>触发创建或结束实况窗的条件对象参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#triggertype class="">TriggerType</a><td>否<td>否<td>触发创建或结束实况窗的条件类型<tr><td>condition<td><a href=#geofence class="">Geofence</a><td>否<td>否<td>触发创建或结束实况窗的条件具体描述<tr><td>displayTime<td>number<td>否<td>是<td>条件触发实况的展示持续时间，取值范围为[15，1800]，默认值为900，单位：s</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=geofence>Geofence<a href=#geofence class=hash-link aria-label=Geofence的直接链接 title=Geofence的直接链接 translate=no>​</a></h2>
+<p>地理围栏对象参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>longitude<td>number<td>否<td>否<td>地理围栏中心点经度，取值范围为[-180，180]<tr><td>latitude<td>number<td>否<td>否<td>地理围栏中心点纬度，取值范围为[-90，90]<tr><td>coordinateSystemType<td><a href=#coordinatesystemtype class="">CoordinateSystemType</a><td>否<td>否<td>地理围栏中心点的坐标系类型<tr><td>radius<td>number<td>否<td>否<td>地理围栏半径，取值范围为[200，2000] ，单位：m<tr><td>monitorEvent<td><a href=#monitorevent class="">MonitorEvent</a><td>否<td>否<td>触发地理围栏的事件类型<tr><td>delayTime<td>number<td>否<td>是<td>延迟触发时间，即：进入/离开围栏后持续多长时间触发围栏，取值范围为[0，300]，默认值为0，单位：s</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">经、纬度传入值不允许同时为0。</li>
+<li class="">当<a href=#coordinatesystemtype class="">coordinateSystemType</a>为COORDINATE_TYPE_GCJ02时，经度传入值不允许为-180或180，纬度传入值不允许为-90或90。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=triggertype>TriggerType<a href=#triggertype class=hash-link aria-label=TriggerType的直接链接 title=TriggerType的直接链接 translate=no>​</a></h2>
+<p>触发创建或结束实况窗的条件类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TRIGGER_TYPE_GEOFENCE<td>1<td>地理围栏条件类型</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=coordinatesystemtype>CoordinateSystemType<a href=#coordinatesystemtype class=hash-link aria-label=CoordinateSystemType的直接链接 title=CoordinateSystemType的直接链接 translate=no>​</a></h2>
+<p>地理围栏中心点坐标系类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>COORDINATE_TYPE_WGS84<td>1<td>WGS84坐标系<tr><td>COORDINATE_TYPE_GCJ02<td>2<td>GCJ02坐标系</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=monitorevent>MonitorEvent<a href=#monitorevent class=hash-link aria-label=MonitorEvent的直接链接 title=MonitorEvent的直接链接 translate=no>​</a></h2>
+<p>触发地理围栏的事件类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>MONITOR_TYPE_ENTRY<td>1<td>进入围栏<tr><td>MONITOR_TYPE_LEAVE<td>2<td>退出围栏</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveview>LiveView<a href=#liveview class=hash-link aria-label=LiveView的直接链接 title=LiveView的直接链接 translate=no>​</a></h2>
+<p>实况窗对象参数，具体示例请见<a class="" href=/harmonyos-docs-site/live-view-kit-guide/liveview-scenes/liveview-create-locally#%E5%88%9B%E5%BB%BA%E5%AE%9E%E5%86%B5%E7%AA%97>构建本地实况窗</a>。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>number<td>否<td>否<td>实况窗唯一标识，取值范围为[-2147483648, 2147483647]，由开发者自行生成。对应Push Kit中LiveViewPayload的<a class="" href=/harmonyos-docs-site/ref/push-api/push-rest-api/push-rest-api-scenes/push-scenariozed-api-request-param/push-scenariozed-api-request-param#section66881469306>activityId</a>字段。<tr><td>event<td>string<td>否<td>否<td>实况窗的应用场景。  <strong><strong>●</strong></strong> TAXI：出行打车。  <strong><strong>●</strong></strong> DELIVERY：即时配送（外卖、生鲜）。  <strong><strong>●</strong></strong> FLIGHT：航班。  <strong><strong>●</strong></strong> TRAIN：高铁/火车。  <strong><strong>●</strong></strong> QUEUE：排队。  <strong><strong>●</strong></strong> PICK_UP：取餐。  <strong><strong>●</strong></strong> SCORE：赛事比分。  <strong><strong>●</strong></strong> RENT：共享租赁。  <strong><strong>●</strong></strong> TIMER：计时。  <strong><strong>●</strong></strong> WORKOUT：运动锻炼。  <strong><strong>●</strong></strong> NAVIGATION：导航。  <strong><strong>●</strong></strong> CHECK_IN：打卡。  <strong><strong>●</strong></strong> EXPRESS：快递。  使用对应场景需要申请权益，详情请参见<a class="" href=/harmonyos-docs-site/live-view-kit-guide/liveview-preparations/liveview-rights>实况窗权益说明</a>。<tr><td>sequence<td>number<td>否<td>是<td>支持实况窗消息更新和结束保序能力，取值范围为[0, 2147483647]，新的实况窗版本号需大于当前展示实况窗版本号，否则更新和结束会失败。若不传入参数值，Live View Kit不会自动生成（此时，调用getActiveLiveView接口查询实况信息，返回结果中sequence：4294967295为无效值，该无效值不允许用来更新实况），也不会校验实况窗版本号。对应Push Kit中的<a class="" href=/harmonyos-docs-site/ref/push-api/push-rest-api/push-rest-api-scenes/push-scenariozed-api-request-param/push-scenariozed-api-request-param#section66881469306>version</a>字段。<tr><td>isMute<td>boolean<td>否<td>是<td>消息提醒方式。若您在创建或更改实况窗状态时不传入此字段，则始终默认静默提醒。  <strong><strong>●</strong></strong> true：静默提醒。  <strong><strong>●</strong></strong> false：铃声震动提醒。<tr><td>timer<td><a href=#liveviewtimer class="">LiveViewTimer</a><td>否<td>是<td>实况窗计时器，展示时每秒刷新一次。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)。  配置了计时器后，可以在部分字段中使用占位符：<strong><strong>${placeholder.timer}</strong></strong>，系统会将占位符替换为计时器。  当前支持使用占位符的字段：  <strong><strong>●</strong></strong> liveViewData.primary.<a href=#primarydata class="">title</a>  <strong><strong>●</strong></strong> liveViewData.primary.<a href=#primarydata class="">content</a>  <strong><strong>●</strong></strong> liveViewData.primary.layoutData.<a href=#pickuplayout class="">content</a>  <strong><strong>●</strong></strong> liveViewData.primary.layoutData.<a href=#scorelayout class="">competitionTime</a><tr><td>liveViewData<td><a href=#liveviewdata class="">LiveViewData</a><td>否<td>否<td>实况窗详细信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewtimer>LiveViewTimer<a href=#liveviewtimer class=hash-link aria-label=LiveViewTimer的直接链接 title=LiveViewTimer的直接链接 translate=no>​</a></h2>
+<p>实况窗计时器参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>time<td>number<td>否<td>是<td>计时器初始值，单位为毫秒，默认为0，取值范围为[0,9223372036854775807]。每秒刷新一次。<tr><td>isCountdown<td>boolean<td>否<td>是<td>计时器是否为倒计时，默认为false。  <strong><strong>●</strong></strong> true：计时器为倒计时类型  <strong><strong>●</strong></strong> false：计时器为正计时类型<tr><td>isPaused<td>boolean<td>否<td>是<td>计时器是否暂停，默认false。计时器暂停时，会显示暂停的那一秒。  <strong><strong>●</strong></strong> true：暂停。  <strong><strong>●</strong></strong> false：不暂停（默认值）。<tr><td>countdownPreset<td><a href=#countdownpreset class="">CountdownPreset</a><td>否<td>是<td>当倒计时到0时，系统将自动更新实况窗卡片模板扩展区标题（title）和扩展区内容（content）字段为卡片预置结构体（countdownPreset）中的标题（presetTitle）和内容（presetContent）。  仅当满足以下条件时，上述功能生效：  <strong><strong>●</strong></strong> <a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_PICKUP强调文本模板；  <strong><strong>●</strong></strong> liveViewData.primary.layoutData.<a href=#pickuplayout class="">content</a>中使用占位符${placeholder.timer}。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)。<tr><td>capsuleCountdownPreset<td><a href=#countdownpreset class="">CountdownPreset</a><td>否<td>是<td>当倒计时到0时，系统将自动更新计时器类型实况胶囊主文本（time）和实况胶囊副文本（content）为实况胶囊预设结构体（capsuleCountdownPreset）中的主文本（presetTitle）和副文本（presetContent）。仅当满足以下条件时，上述功能生效：  <strong><strong>●</strong></strong> <a href=#capsuletype class="">capsuleType</a>为CAPSULE_TYPE_TIMER计时器类型实况胶囊。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=countdownpreset>CountdownPreset<a href=#countdownpreset class=hash-link aria-label=CountdownPreset的直接链接 title=CountdownPreset的直接链接 translate=no>​</a></h2>
+<p>实况窗计时器预置参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>presetTitle<td>string<td>否<td>是<td>自动更新扩展区标题或实况胶囊主文本为预设主文本。不支持时间占位符，若填值时不能为空，长度小于128。<tr><td>presetContent<td>string<td>否<td>是<td>自动更新扩展区文本内容或实况胶囊副文本为预设副文本，若填值时不能为空，长度小于128。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewdata>LiveViewData<a href=#liveviewdata class=hash-link aria-label=LiveViewData的直接链接 title=LiveViewData的直接链接 translate=no>​</a></h2>
+<p>实况窗详细信息。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>primary<td><a href=#primarydata class="">PrimaryData</a><td>否<td>否<td>卡片形态内容。<tr><td>capsule<td><a href=#textcapsule class="">TextCapsule</a><td><a href=#timercapsule class="">TimerCapsule</a><td><a href=#progresscapsule class="">ProgressCapsule</a><td>否<tr><td>external<td><a href=#externaldata class="">ExternalData</a><td>否<td>是<td>小折叠外屏形态内容。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=primarydata>PrimaryData<a href=#primarydata class=hash-link aria-label=PrimaryData的直接链接 title=PrimaryData的直接链接 translate=no>​</a></h2>
+<p>卡片形态参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>否<td>创建：否  更新或结束：是<td>固定区标题，若填值时不能为空，长度小于1024。<tr><td>content<td>Array&lt;<a href=#richtext class="">RichText</a>><td>否<td>创建：否  更新或结束：是<td>固定区内容，若填值时不能为空。  <strong><strong>●</strong></strong> 数组中所有对象的text字段字符串长度总和需小于1024。  <strong><strong>●</strong></strong> 数组中对象不设置textColor字段时，文本颜色默认为#99000000；设置textColor字段时，所有拥有textColor字段的对象仅能设置同一种颜色。<tr><td>keepTime<td>number<td>否<td>是<td>实况窗存档时间，在结束实况窗后，通知仍保留在通知中心的时长，<strong><strong>默认0不保留</strong></strong>，范围[0,3600]秒(s)。<tr><td>clickAction<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent>WantAgent</a><td>否<td>创建：否  更新或结束：是<td>点击实况窗默认动作，请调用wantAgent.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent#wantagentgetwantagent-1>getWantAgent()</a>来构造。<tr><td>extensionData<td><a href=#extensiondata class="">ExtensionData</a><td>否<td>是<td>辅助区内容。<tr><td><a href=#layoutdata class="">layoutData</a><td><a href=#progresslayout class="">ProgressLayout</a><td><a href=#pickuplayout class="">PickupLayout</a><td><a href=#flightlayout class="">FlightLayout</a><td><a href=#scorelayout class="">ScoreLayout</a><tr><td>liveViewLockScreenPicture<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>是<tr><td>liveViewLockScreenAbilityName<td>string<td>否<td>是<td><a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-lock-screen-ability/liveview-lock-screen-ability>LiveViewLockScreenExtensionAbility</a>（锁屏沉浸实况窗扩展Ability）的名称，仅创建实况窗时生效，传入时值不可为空，长度最大为128。若在创建实况窗时与liveViewLockScreenPicture同时传入，则仅本字段生效。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)。<tr><td>liveViewLockScreenAbilityParameters<td>Record&lt;string, string><td>否<td>是<td>用户自定义向<a class="" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-lock-screen-ability/liveview-lock-screen-ability>LiveViewLockScreenExtensionAbility</a>（锁屏沉浸实况窗扩展Ability）传入的参数，填值时不能为空，key-value键值对最多50个，传入后可在ability的onSessionCreate()中，通过want.parameters获取。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)。<tr><td>backgroundType<td><a href=#backgroundtype class="">BackgroundType</a><td>否<td>是<td>表示实况窗卡片的背景氛围类型，仅支持左右文本模板(即<a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_FLIGHT)展示背景。  当传入实况窗卡片的背景氛围类型参数backgroundType值为赏月航班或夕阳航班时，且同时传入天气类型（<a href=#weatherinfo class="">WeatherInfo</a>）为雨、雪特殊天气，卡片上优先展示天气背景，其余非特殊天气在卡片上展示赏月航班或夕阳航班背景氛围。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=backgroundtype>BackgroundType<a href=#backgroundtype class=hash-link aria-label=BackgroundType的直接链接 title=BackgroundType的直接链接 translate=no>​</a></h2>
+<p>航班场景下卡片背景类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SYS_BACKGROUND_UNDEFINED<td>0<td>未定义，表示在卡片上不展示背景氛围。<tr><td>SYS_BACKGROUND_FLIGHT_MOON<td>100<td>赏月航班，表示在卡片上展示赏月的背景氛围。<tr><td>SYS_BACKGROUND_FLIGHT_SUNSET<td>101<td>夕阳航班，表示在卡片上展示夕阳的背景氛围。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=extensiondata>ExtensionData<a href=#extensiondata class=hash-link aria-label=ExtensionData的直接链接 title=ExtensionData的直接链接 translate=no>​</a></h2>
+<p>辅助区参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#extensiontype class="">ExtensionType</a><td>否<td>是<td>辅助区显示类型，默认为<a href=#extensiontype class="">EXTENSION_TYPE_DEFAULT</a>不显示辅助区。<tr><td>text<td>string<td>否<td>创建：否（仅当type值为ExtensionType.EXTENSION_TYPE_COMMON_TEXT或ExtensionType.EXTENSION_TYPE_CAPSULE_TEXT时）  更新或结束：是<td>辅助区显示的文本信息，若填值时不能为空，长度小于128。<tr><td>pic<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建：否（仅当type值为ExtensionType.EXTENSION_TYPE_PIC或ExtensionType.EXTENSION_TYPE_ICON时）  更新或结束：是<tr><td>clickAction<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent>WantAgent</a><td>否<td>是<td>点击辅助区的跳转动作，请调用wantAgent.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent#wantagentgetwantagent-1>getWantAgent()</a>来构造。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=layoutdata>LayoutData<a href=#layoutdata class=hash-link aria-label=LayoutData的直接链接 title=LayoutData的直接链接 translate=no>​</a></h2>
+<p>定义扩展区模板类型及公共参数。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_DEFAULT时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>layoutType<td><a href=#layouttype class="">LayoutType</a><td>否<td>否<td>模板类型。<tr><td>serviceButtons<td>Array&lt;<a href=#servicebutton class="">ServiceButton</a>><td>否<td>是<td>传入连续服务按钮结构体数组。 更新连续服务按钮时，需要同时更新辅助区<a href=#extensiondata class="">ExtensionData</a>的clickAction字段和连续服务按钮。  <strong><strong>起始版本：</strong></strong> 5.1.1(19)。<tr><td>isServiceButtonsDisplayed<td>boolean<td>否<td>是<td>是否显示连续服务按钮，默认false。  <strong><strong>●</strong></strong> true：显示按钮  <strong><strong>●</strong></strong> false：不显示按钮  <strong><strong>起始版本：</strong></strong> 5.1.1(19)。<tr><td>weatherInfo<td><a href=#weatherinfo class="">WeatherInfo</a><td>否<td>是<td>传入天气信息结构体。  目的地天气类型仅支持左右文本模板（即<a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_FLIGHT）；  本地天气类型仅支持基础模板、进度可视化模板和强调文本模板（即<a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_DEFAULT/LAYOUT_TYPE_PROGRESS/LAYOUT_TYPE_PICKUP）。  当传入天气信息，且同时传入实况窗卡片的背景氛围类型参数<a href=#backgroundtype class="">backgroundType</a>值为赏月航班（SYS_BACKGROUND_FLIGHT_MOON）或夕阳航班（SYS_BACKGROUND_FLIGHT_SUNSET）时，若天气类型为雨、雪特殊天气，卡片上优先展示天气背景，其余非特殊天气在卡片上优先展示赏月航班或夕阳航班背景氛围。  <strong><strong>说明：</strong></strong>  从6.0.0(20)开始支持展示目的地天气效果；  从6.0.2(22)开始支持展示本地天气效果。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=weatherinfo>WeatherInfo<a href=#weatherinfo class=hash-link aria-label=WeatherInfo的直接链接 title=WeatherInfo的直接链接 translate=no>​</a></h2>
+<p>应用传入天气信息的基类。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>weatherType<td><a href=#weathertype class="">WeatherType</a><td>否<td>是<td>天气类型。创建实况窗时，若weatherType不传入或传入非法值，则不展示天气效果。<tr><td>locationType<td><a href=#weatherlocationtype class="">WeatherLocationType</a><td>否<td>是<td>天气位置类型。创建实况窗时，若locationType不传入或传入非法值，则不展示天气效果。<tr><td>highTemperature<td>number<td>否<td>是<td>天气最高温度，当前仅支持摄氏度，需小于等于58℃且大于传入的最低温度值（lowTemperature）。创建实况窗时，若不传入或传入非法值，则不展示温度信息。<tr><td>lowTemperature<td>number<td>否<td>是<td>天气最低温度，当前仅支持摄氏度，需大于等于-95℃且小于传入的最高温度值（highTemperature）。创建实况窗时，若不传入或传入非法值，则不展示温度信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=weathertype>WeatherType<a href=#weathertype class=hash-link aria-label=WeatherType的直接链接 title=WeatherType的直接链接 translate=no>​</a></h2>
+<p>天气类型，为枚举值，雨、雪天气支持在实况卡片上展示天气动效背景，其余天气类型（WEATHER_TYPE_UNDEFINED除外）仅支持在实况卡片上展示天气图标和温度，不支持在实况卡片上展示天气动效背景。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>WEATHER_TYPE_UNDEFINED<td>0<td>表示不展示天气效果。<tr><td>WEATHER_TYPE_SUNNY<td>1<td>晴天气类型，展示天晴天气效果。<tr><td>WEATHER_TYPE_HAZY<td>5<td>霾天气类型，展示霾天气效果。<tr><td>WEATHER_TYPE_CLOUDY<td>7<td>多云天气类型，展示多云天气效果。<tr><td>WEATHER_TYPE_OVERCAST<td>8<td>阴天气类型，展示阴天气效果。<tr><td>WEATHER_TYPE_FOG<td>11<td>雾天气类型，展示雾天气效果。<tr><td>WEATHER_TYPE_SHOWERS<td>12<td>阵雨天气类型，展示阵雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_T_STORMS<td>15<td>雷阵雨天气类型，展示雷阵雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_RAIN<td>18<td>雨天气类型，展示雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_SNOW<td>22<td>雪天气类型，展示雪天气效果。实况卡片支持雪动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_RAIN_AND_SNOW<td>29<td>雨夹雪天气类型，展示雨夹雪天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_HOT<td>30<td>高温天气类型，展示高温天气效果。<tr><td>WEATHER_TYPE_COLD<td>31<td>低温天气类型，展示低温天气效果。<tr><td>WEATHER_TYPE_WINDY<td>32<td>大风天气类型，展示大风天气效果。<tr><td>WEATHER_TYPE_THUNDERSHOWER_WITH_HAIL<td>45<td>冰雹天气类型，展示冰雹天气效果。<tr><td>WEATHER_TYPE_LIGHT_RAIN<td>46<td>小雨天气类型，展示小雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_MODERATE_RAIN<td>47<td>中雨天气类型，展示中雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_HEAVY_RAIN<td>48<td>大雨天气类型，展示大雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_STORM<td>49<td>暴雨天气类型，展示暴雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_SEVERE_STORM<td>51<td>特大暴雨天气类型，展示特大暴雨天气效果。实况卡片支持雨动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_LIGHT_SNOW<td>52<td>小雪天气类型，展示小雪天气效果。实况卡片支持雪动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_MODERATE_SNOW<td>53<td>中雪天气类型，展示中雪天气效果。实况卡片支持雪动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_HEAVY_SNOW<td>54<td>大雪天气类型，展示大雪天气效果。实况卡片支持雪动效背景。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_SNOW_STORM<td>55<td>暴雪天气类型，展示暴雪天气效果。实况卡片支持雪动效背景。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示天气动效背景<tr><td>WEATHER_TYPE_DUST_STORM<td>56<td>沙尘暴天气类型，展示沙尘暴天气效果。<tr><td>WEATHER_TYPE_DUST<td>65<td>浮尘天气类型，展示浮尘天气效果。<tr><td>WEATHER_TYPE_SAND<td>66<td>扬沙天气类型，展示扬沙天气效果。<tr><td>WEATHER_TYPE_SAND_STORM<td>67<td>强沙尘暴天气类型，展示强沙尘暴天气效果。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=weatherlocationtype>WeatherLocationType<a href=#weatherlocationtype class=hash-link aria-label=WeatherLocationType的直接链接 title=WeatherLocationType的直接链接 translate=no>​</a></h2>
+<p>天气位置类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.0.0(20)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>LOCATION_TYPE_LOCAL<td>1<td>表示展示本地天气效果，仅支持基础模板、进度可视化模板和强调文本模板（即<a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_DEFAULT/LAYOUT_TYPE_PROGRESS/LAYOUT_TYPE_PICKUP）。天气图标将展示在固定区标题右侧，不支持显示温度。  <strong><strong>说明：</strong></strong> 从6.0.2(22)开始支持展示本地天气效果。<tr><td>LOCATION_TYPE_DESTINATION<td>2<td>表示展示目的地天气效果，仅支持左右文本模板（即<a href=#layouttype class="">layoutType</a>为LAYOUT_TYPE_FLIGHT）。天气图标及温度信息将展示在左右文本模板扩展区右侧，扩展区右侧标题及右侧内容的左侧。  <strong><strong>说明：</strong></strong> 从6.0.0(20)开始支持展示目的地天气效果；</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=servicebutton>ServiceButton<a href=#servicebutton class=hash-link aria-label=ServiceButton的直接链接 title=ServiceButton的直接链接 translate=no>​</a></h2>
+<p>应用传入连续服务按钮的基类。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.1(19)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>是<td>连续服务按钮名字，长度小于128，超过该长度的字符将被截断。<tr><td>clickAction<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent>WantAgent</a><td>否<td>是<td>点击连续服务按钮时触发的跳转动作，请调用wantAgent.<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-app-ability-wantagent/js-apis-app-ability-wantagent#wantagentgetwantagent-1>getWantAgent()</a>来构造。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=progresslayout>ProgressLayout<a href=#progresslayout class=hash-link aria-label=ProgressLayout的直接链接 title=ProgressLayout的直接链接 translate=no>​</a></h2>
+<p>进度可视化模板扩展区参数，继承<a href=#layoutdata class="">LayoutData</a>。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_PROGRESS时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>progress<td>number<td>否<td>否<td>进度百分比，决定指示器在进度条中的位置，值范围：[0,100]。<tr><td>color<td>string<td>否<td>是<td>进度条颜色，"#ARGB"16进制格式，长度为9。默认颜色为#FF317AF7。<tr><td>backgroundColor<td>string<td>否<td>是<td>进度条背景颜色，"#ARGB"16进制格式，长度为9。默认颜色为#19000000，深色模式默认颜色#19FFFFFF。<tr><td>indicatorType<td><a href=#indicatortype class="">IndicatorType</a><td>否<td>是<td>扩展区指示器小图标显示类型，默认不显示指示器小图标。<tr><td>indicatorIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：否（仅当indicatorType值为IndicatorType.INDICATOR_TYPE_UP或IndicatorType.INDICATOR_TYPE_OVERLAY时）  更新或结束：是<tr><td>lineType<td><a href=#linetype class="">LineType</a><td>否<td>是<td>扩展区进度条显示类型，默认为虚线进度。<tr><td>nodeIcons<td>Array&lt;string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a>><td>否<td>创建或模板切换：否  更新或结束：是</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pickuplayout>PickupLayout<a href=#pickuplayout class=hash-link aria-label=PickupLayout的直接链接 title=PickupLayout的直接链接 translate=no>​</a></h2>
+<p>强调文本模板扩展区参数，继承<a href=#layoutdata class="">LayoutData</a>。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_PICKUP时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区标题，若填值时不能为空，长度小于128。<tr><td>content<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区内容，若填值时不能为空，长度小于128。<tr><td>underlineColor<td>string<td>否<td>是<td>扩展区内容下划线颜色，"#ARGB"16进制格式，长度为9，默认不显示下划线。<tr><td>descPic<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：否  更新或结束：是</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=flightlayout>FlightLayout<a href=#flightlayout class=hash-link aria-label=FlightLayout的直接链接 title=FlightLayout的直接链接 translate=no>​</a></h2>
+<p>左右文本模板扩展区参数，继承<a href=#layoutdata class="">LayoutData</a>。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_FLIGHT时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>style<td><a href=#flightlayoutstyle class="">FlightLayoutStyle</a><td>否<td>是<td>左右文本子样式类型，若未填默认为强调型子样式。  <strong><strong>●</strong></strong> 0：强调型子样式类型。  <strong><strong>●</strong></strong> 1：均衡型子样式类型。  <strong><strong>起始版本：</strong></strong> 5.0.2(14)。<tr><td>firstTitle<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区左侧标题，若填值时不能为空，长度小于128。<tr><td>firstContent<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区左侧内容，若填值时不能为空，长度小于128。<tr><td>lastTitle<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区右侧标题，若填值时不能为空，长度小于128。<tr><td>lastContent<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区右侧内容，若填值时不能为空，长度小于128。<tr><td>lastTitleSuperscript<td>string<td>否<td>是<td>扩展区右侧标题的右上角展示内容，若填值时不能为空，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。  <strong><strong>起始版本：</strong></strong> 5.0.2(14)。<tr><td>lastContentSuperscript<td>string<td>否<td>是<td>扩展区右侧内容的右上角展示内容，若填值时不能为空，长度小于128。若用于表示到达时间跨天，传入值长度等于2，格式为"+X", 其中X为数字，例如"+1", "+2"等。  <strong><strong>起始版本：</strong></strong> 5.0.2(14)。<tr><td>spaceType<td><a href=#spacetype class="">SpaceType</a><td>否<td>是<td>左右文本模板扩展区中间的显示类型。  <strong><strong>●</strong></strong> 未携带该字段或0：显示spaceIcon指定的中间间隔图标。  <strong><strong>●</strong></strong> 1：显示由spaceText指定的中间间隔文本。  <strong><strong>起始版本：</strong></strong> 5.0.2(14)。<tr><td>spaceIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：未填spaceType或spaceType为SpaceType.SPACE_TYPE_ICON时必填<tr><td>spaceText<td>string<td>否<td>创建或模板切换：spaceType为SpaceType.SPACE_TYPE_TEXT时必填<td>扩展区中间间隔文本，用于展示日期，例如10/28 周六、2025/09/15等。  限制为6个中文字符长度或12个英文字符长度，若超长则截断展示。  更新或结束不携带时显示上次的文本。  <strong><strong>说明：</strong></strong> 起始版本：5.0.2(14)。<tr><td>isHorizontalLineDisplayed<td>boolean<td>否<td>是<td>是否显示扩展区分割线，默认显示分割线。  <strong><strong>●</strong></strong> true：显示。  <strong><strong>●</strong></strong> false：不显示。<tr><td>additionalText<td>string<td>否<td>是<td>扩展区底部内容，长度小于1024。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scorelayout>ScoreLayout<a href=#scorelayout class=hash-link aria-label=ScoreLayout的直接链接 title=ScoreLayout的直接链接 translate=no>​</a></h2>
+<p>赛事比分模板扩展区参数，继承<a href=#layoutdata class="">LayoutData</a>。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_SCORE时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>hostName<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区左侧名称，若填值时不能为空，长度小于128。<tr><td>hostIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：否  更新或结束：是<tr><td>hostScore<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区左侧比分，若填值时不能为空，长度小于128。<tr><td>guestName<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区右侧名称，若填值时不能为空，长度小于128。<tr><td>guestIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：否  更新或结束：是<tr><td>guestScore<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区右侧比分，若填值时不能为空，长度小于128。<tr><td>competitionDesc<td>string<td>Array&lt;<a href=#richtext class="">RichText</a>><td>否<td>创建或模板切换：否  更新或结束：是<tr><td>competitionTime<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>扩展区中间下方比赛时间，若填值时不能为空，长度小于128。<tr><td>isHorizontalLineDisplayed<td>boolean<td>否<td>是<td>是否显示扩展区分割线，默认显示分割线。  <strong><strong>●</strong></strong> true：显示。  <strong><strong>●</strong></strong> false：不显示。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=navigationlayout>NavigationLayout<a href=#navigationlayout class=hash-link aria-label=NavigationLayout的直接链接 title=NavigationLayout的直接链接 translate=no>​</a></h2>
+<p>导航模板扩展区参数，继承<a href=#layoutdata class="">LayoutData</a>。当<a href=#layouttype class="">layoutType</a>为LayoutType.LAYOUT_TYPE_NAVIGATION时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>currentNavigationIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建或模板切换：否  更新或结束：是<tr><td>navigationIcons<td>Array&lt;string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a>><td>否<td>是<tr><td>isNavigationIconsDisplayed<td>boolean<td>否<td>是<td>控制导航方向的箭头集合图片是否展示。更新或结束未填时，继承上一次状态变更时的值。其他情况不传值时默认为展示。  <strong><strong>●</strong></strong> true：展示  <strong><strong>●</strong></strong> false：不展示  <strong><strong>起始版本</strong></strong>：5.0.3(15)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=capsuledata>CapsuleData<a href=#capsuledata class=hash-link aria-label=CapsuleData的直接链接 title=CapsuleData的直接链接 translate=no>​</a></h2>
+<p>定义实况胶囊基本属性的基类。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#capsuletype class="">CapsuleType</a><td>否<td>否<td>实况胶囊的类型。<tr><td>status<td>number<td>否<td>否<td>实况胶囊的显示状态。  <strong><strong>●</strong></strong> 1：显示实况胶囊。  <strong><strong>●</strong></strong> -1：结束显示实况胶囊。<tr><td>icon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建：否  更新或结束：是<tr><td>tailIcon<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>是<tr><td>backgroundColor<td>string<td>否<td>创建：否  更新或结束：是<td>实况胶囊的背景颜色，"#ARGB"16进制格式，长度为9。更新或结束未填时，继承上一次状态变更时的颜色。  不建议使用以下颜色：  <strong><strong>●</strong></strong> #FF000000  <strong><strong>●</strong></strong> #FFFFFFFF  <strong><strong>●</strong></strong> #FFF1F3F5<tr><td>isContentDisplayed<td>boolean<td>否<td>是<td>实况胶囊的副文本是否展示。该参数未填时，继承上一次创建或更新实况窗时传入的值。其他情况不传值时默认为展示。  <strong><strong>●</strong></strong> true：展示  <strong><strong>●</strong></strong> false：不展示  isContentDisplayed与isTailIconDisplayed均为false时，实况胶囊的副文本及尾部图标区域不展示。  <strong><strong>起始版本：</strong></strong> 5.0.3(15)<tr><td>isTailIconDisplayed<td>boolean<td>否<td>是<td>实况胶囊的尾部图标是否展示。该参数未填时，继承上一次创建或更新实况窗时传入的值。其他情况不传值时默认不展示。  <strong><strong>●</strong></strong> true：展示  <strong><strong>●</strong></strong> false：不展示  isContentDisplayed与isTailIconDisplayed均为false时，实况胶囊的副文本及尾部图标区域不展示。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textcapsule>TextCapsule<a href=#textcapsule class=hash-link aria-label=TextCapsule的直接链接 title=TextCapsule的直接链接 translate=no>​</a></h2>
+<p>文本实况胶囊参数，继承<a href=#capsuledata class="">CapsuleData</a>。当<a href=#capsuledata class="">type</a>为CapsuleType.CAPSULE_TYPE_TEXT时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>否<td>创建或模板切换：否  更新或结束：是<td>实况胶囊的主文本，长度小于128，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串。  <strong><strong>说明：</strong></strong> 从6.0.0(20)版本开始，支持当传入值为"数值:数值"，且<a href=#layouttype class="">layoutType</a>为赛事类型LAYOUT_TYPE_SCORE时，系统将自动提取实况卡片扩展区两侧图片和比分，更新实况胶囊样式，显示为赛事队伍图标及比分情况。<tr><td>content<td>string<td>否<td>是<td>实况胶囊的副文本，长度小于128，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=timercapsule>TimerCapsule<a href=#timercapsule class=hash-link aria-label=TimerCapsule的直接链接 title=TimerCapsule的直接链接 translate=no>​</a></h2>
+<p>计时器实况胶囊参数，继承<a href=#capsuledata class="">CapsuleData</a>。当<a href=#capsuledata class="">type</a>为CapsuleType.CAPSULE_TYPE_TIMER时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>content<td>string<td>否<td>是<td>实况胶囊的副文本，长度小于128，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串。<tr><td>time<td>number<td>否<td>是<td>实况胶囊计时器初始值，每秒刷新一次，单位：ms，默认为0。<tr><td>isCountdown<td>boolean<td>否<td>是<td>是否显示倒计时器。  <strong><strong>●</strong></strong> true：倒计时。  <strong><strong>●</strong></strong> false：正计时（默认值）。<tr><td>isPaused<td>boolean<td>否<td>是<td>实况胶囊计时器是否暂停，计时器暂停时，实况胶囊会显示暂停的那一秒。  <strong><strong>●</strong></strong> true：暂停。  <strong><strong>●</strong></strong> false：不暂停（默认值）。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=progresscapsule>ProgressCapsule<a href=#progresscapsule class=hash-link aria-label=ProgressCapsule的直接链接 title=ProgressCapsule的直接链接 translate=no>​</a></h2>
+<p>进度实况胶囊参数，继承<a href=#capsuledata class="">CapsuleData</a>。当<a href=#capsuledata class="">type</a>为CapsuleType.CAPSULE_TYPE_PROGRESS时，使用此类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>max<td>number<td>否<td>是<td>进度条最大进度值，默认为1，范围为[1, 2147483647]。<tr><td>progress<td>number<td>否<td>是<td>进度条当前进度值，默认为0，范围为[0, 2147483647]。进度的值为progress/max的比值。<tr><td>indeterminate<td>boolean<td>否<td>是<td>进度显示类型，默认显示为数值占比。  <strong><strong>●</strong></strong> true：百分比。  <strong><strong>●</strong></strong> false：数值占比（默认）。<tr><td>content<td>string<td>否<td>是<td>实况胶囊的副文本，长度小于128，若传入该参数，其值不能为以下值：null/undefined/空字符串/全为空格的字符串。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=externaldata>ExternalData<a href=#externaldata class=hash-link aria-label=ExternalData的直接链接 title=ExternalData的直接链接 translate=no>​</a></h2>
+<p>外屏形态模板参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>否<td>创建：否  更新或结束：是<td>外屏标题，若填值时不能为空，长度小于128。<tr><td>content<td>Array&lt;<a href=#richtext class="">RichText</a>><td>否<td>创建：否  更新或结束：是<td>外屏内容，应用可以设置字符串中部分文本的颜色，若填值时不能为空。  <strong><strong>●</strong></strong> 数组中所有对象的text字段字符串长度总和需小于128。  <strong><strong>●</strong></strong> 数组中对象不设置textColor字段时，文本颜色默认为#99000000；设置textColor字段时，所有拥有textColor字段的对象仅能设置同一种颜色。<tr><td>type<td><a href=#externaltype class="">ExternalType</a><td>否<td>是<td>外屏背景样式类型，默认为背景色。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)。<tr><td>backgroundColor<td>string<td>否<td>是<td>外屏背景颜色，"#RGB"16进制格式， 长度为7，默认颜色为#F1F3F5。<tr><td>backgroundPicture<td>string<td>image.<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a><td>否<td>创建：否（仅当type为ExternalType.BACKGROUND_PICTURE时）  更新或结束：是（当type为ExternalType.BACKGROUND_PICTURE时，此参数生效）</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=richtext>RichText<a href=#richtext class=hash-link aria-label=RichText的直接链接 title=RichText的直接链接 translate=no>​</a></h2>
+<p>富文本参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>text<td>string<td>否<td>否<td>文本内容，长度小于128。<tr><td>textColor<td>string<td>否<td>是<td>文本颜色，"#ARGB"16进制格式，长度为9。不设置textColor时，文本颜色默认为#99000000；设置textColor时，数组中的所有对象仅能设置一种颜色。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=liveviewresult>LiveViewResult<a href=#liveviewresult class=hash-link aria-label=LiveViewResult的直接链接 title=LiveViewResult的直接链接 translate=no>​</a></h2>
+<p>实况窗结果。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>说明<tbody><tr><td>resultCode<td>number<td>实况窗结果码。  <strong><strong>●</strong></strong> 0：成功。  <strong><strong>●</strong></strong> 1：固定区更新或结束失败。  <strong><strong>●</strong></strong> 2：辅助区更新或结束失败。  <strong><strong>●</strong></strong> 3：扩展区更新或结束失败。  <strong><strong>●</strong></strong> 4：实况胶囊更新或结束失败。  <strong><strong>●</strong></strong> 5：外屏更新或结束失败。<tr><td>message<td>String<td>实况窗结果信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=layouttype>LayoutType<a href=#layouttype class=hash-link aria-label=LayoutType的直接链接 title=LayoutType的直接链接 translate=no>​</a></h2>
+<p>扩展区类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>LAYOUT_TYPE_DEFAULT<td>-1<td>不显示扩展区。<tr><td>LAYOUT_TYPE_PROGRESS<td>3<td>进度可视化类型。<tr><td>LAYOUT_TYPE_PICKUP<td>4<td>强调文本类型。<tr><td>LAYOUT_TYPE_FLIGHT<td>5<td>左右文本类型。<tr><td>LAYOUT_TYPE_SCORE<td>7<td>赛事类型。<tr><td>LAYOUT_TYPE_NAVIGATION<td>8<td>导航类型。  <strong><strong>起始版本：</strong></strong> 5.0.0(12)</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=extensiontype>ExtensionType<a href=#extensiontype class=hash-link aria-label=ExtensionType的直接链接 title=ExtensionType的直接链接 translate=no>​</a></h2>
+<p>辅助区类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>EXTENSION_TYPE_DEFAULT<td>0<td>不显示辅助区。<tr><td>EXTENSION_TYPE_COMMON_TEXT<td>1<td>普通文本。<tr><td>EXTENSION_TYPE_CAPSULE_TEXT<td>2<td>实况胶囊文本。<tr><td>EXTENSION_TYPE_PIC<td>3<td>显示图片。<tr><td>EXTENSION_TYPE_ICON<td>4<td>显示图标。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=indicatortype>IndicatorType<a href=#indicatortype class=hash-link aria-label=IndicatorType的直接链接 title=IndicatorType的直接链接 translate=no>​</a></h2>
+<p>指示器类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>INDICATOR_TYPE_UNDISPLAYED<td>0<td>不显示指示器小图标。<tr><td>INDICATOR_TYPE_UP<td>1<td>显示在进度线上方。<tr><td>INDICATOR_TYPE_OVERLAY<td>2<td>显示覆盖在进度线上。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=linetype>LineType<a href=#linetype class=hash-link aria-label=LineType的直接链接 title=LineType的直接链接 translate=no>​</a></h2>
+<p>扩展区进度条类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>LINE_TYPE_DOTTED_LINE<td>0<td>虚线进度。<tr><td>LINE_TYPE_NORMAL_SOLID_LINE<td>1<td>实线进度。<tr><td>LINE_TYPE_THICK_SOLID_LINE<td>2<td>粗实线进度。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=capsuletype>CapsuleType<a href=#capsuletype class=hash-link aria-label=CapsuleType的直接链接 title=CapsuleType的直接链接 translate=no>​</a></h2>
+<p>实况胶囊类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>CAPSULE_TYPE_TEXT<td>1<td>文本实况胶囊。<tr><td>CAPSULE_TYPE_TIMER<td>2<td>计时器实况胶囊。<tr><td>CAPSULE_TYPE_PROGRESS<td>3<td>进度实况胶囊。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=externaltype>ExternalType<a href=#externaltype class=hash-link aria-label=ExternalType的直接链接 title=ExternalType的直接链接 translate=no>​</a></h2>
+<p>外屏背景样式类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>BACKGROUND_COLOR<td>0<td>显示背景色。<tr><td>BACKGROUND_PICTURE<td>1<td>显示背景图片。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=flightlayoutstyle>FlightLayoutStyle<a href=#flightlayoutstyle class=hash-link aria-label=FlightLayoutStyle的直接链接 title=FlightLayoutStyle的直接链接 translate=no>​</a></h2>
+<p>左右文本子样式类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.2(14)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>STYLE_FLIGHT_EMPHASIS<td>0<td>强调型子样式类型。<tr><td>STYLE_FLIGHT_BALANCE<td>1<td>均衡型子样式类型。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>扩展区支持强调型和均衡型两种子样式，两种子样式区别在于左右文本标题和内容字号大小不同，均衡型左右文本标题字号缩小，内容字号增大，展示效果更均衡。详细模板设计样式请参考：<a href=https://developer.huawei.com/consumer/cn/doc/design-guides/system-features-live-view-0000001955186861#section1511241615274 target=_blank rel="noopener noreferrer" class="">实况窗设计指南>通用卡片模板>模板类型>左右文本模板</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=spacetype>SpaceType<a href=#spacetype class=hash-link aria-label=SpaceType的直接链接 title=SpaceType的直接链接 translate=no>​</a></h2>
+<p>左右文本模板扩展区中间的显示类型，为枚举值。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.LiveView.LiveViewService</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在Phone、Tablet中可正常调用，在其他设备类型中无效果。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.2(14)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SPACE_TYPE_ICON<td>0<td>扩展区中间显示图标。<tr><td>SPACE_TYPE_TEXT<td>1<td>扩展区中间显示文本。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/iap-api/iap-rest/iap-server-error-code/iap-server-error-code><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>REST API错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-lock-screen-ability/liveview-lock-screen-ability><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>LiveViewLockScreenExtensionAbility</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#liveviewmanagerisliveviewenabled class="table-of-contents__link toc-highlight">liveViewManager.isLiveViewEnabled</a><li><a href=#liveviewmanagerstartliveview class="table-of-contents__link toc-highlight">liveViewManager.startLiveView</a><li><a href=#liveviewmanagerupdateliveview class="table-of-contents__link toc-highlight">liveViewManager.updateLiveView</a><li><a href=#liveviewmanagerstopliveview class="table-of-contents__link toc-highlight">liveViewManager.stopLiveView</a><li><a href=#liveviewmanagergetactiveliveview class="table-of-contents__link toc-highlight">liveViewManager.getActiveLiveView</a><li><a href=#liveviewmanagerisgeofencetriggerenabled class="table-of-contents__link toc-highlight">liveViewManager.isGeofenceTriggerEnabled</a><li><a href=#liveviewmanagerstartliveviewbytrigger class="table-of-contents__link toc-highlight">liveViewManager.startLiveViewByTrigger</a><li><a href=#liveviewmanagerstopliveviewbytrigger class="table-of-contents__link toc-highlight">liveViewManager.stopLiveViewByTrigger</a><li><a href=#trigger class="table-of-contents__link toc-highlight">Trigger</a><li><a href=#geofence class="table-of-contents__link toc-highlight">Geofence</a><li><a href=#triggertype class="table-of-contents__link toc-highlight">TriggerType</a><li><a href=#coordinatesystemtype class="table-of-contents__link toc-highlight">CoordinateSystemType</a><li><a href=#monitorevent class="table-of-contents__link toc-highlight">MonitorEvent</a><li><a href=#liveview class="table-of-contents__link toc-highlight">LiveView</a><li><a href=#liveviewtimer class="table-of-contents__link toc-highlight">LiveViewTimer</a><li><a href=#countdownpreset class="table-of-contents__link toc-highlight">CountdownPreset</a><li><a href=#liveviewdata class="table-of-contents__link toc-highlight">LiveViewData</a><li><a href=#primarydata class="table-of-contents__link toc-highlight">PrimaryData</a><li><a href=#backgroundtype class="table-of-contents__link toc-highlight">BackgroundType</a><li><a href=#extensiondata class="table-of-contents__link toc-highlight">ExtensionData</a><li><a href=#layoutdata class="table-of-contents__link toc-highlight">LayoutData</a><li><a href=#weatherinfo class="table-of-contents__link toc-highlight">WeatherInfo</a><li><a href=#weathertype class="table-of-contents__link toc-highlight">WeatherType</a><li><a href=#weatherlocationtype class="table-of-contents__link toc-highlight">WeatherLocationType</a><li><a href=#servicebutton class="table-of-contents__link toc-highlight">ServiceButton</a><li><a href=#progresslayout class="table-of-contents__link toc-highlight">ProgressLayout</a><li><a href=#pickuplayout class="table-of-contents__link toc-highlight">PickupLayout</a><li><a href=#flightlayout class="table-of-contents__link toc-highlight">FlightLayout</a><li><a href=#scorelayout class="table-of-contents__link toc-highlight">ScoreLayout</a><li><a href=#navigationlayout class="table-of-contents__link toc-highlight">NavigationLayout</a><li><a href=#capsuledata class="table-of-contents__link toc-highlight">CapsuleData</a><li><a href=#textcapsule class="table-of-contents__link toc-highlight">TextCapsule</a><li><a href=#timercapsule class="table-of-contents__link toc-highlight">TimerCapsule</a><li><a href=#progresscapsule class="table-of-contents__link toc-highlight">ProgressCapsule</a><li><a href=#externaldata class="table-of-contents__link toc-highlight">ExternalData</a><li><a href=#richtext class="table-of-contents__link toc-highlight">RichText</a><li><a href=#liveviewresult class="table-of-contents__link toc-highlight">LiveViewResult</a><li><a href=#layouttype class="table-of-contents__link toc-highlight">LayoutType</a><li><a href=#extensiontype class="table-of-contents__link toc-highlight">ExtensionType</a><li><a href=#indicatortype class="table-of-contents__link toc-highlight">IndicatorType</a><li><a href=#linetype class="table-of-contents__link toc-highlight">LineType</a><li><a href=#capsuletype class="table-of-contents__link toc-highlight">CapsuleType</a><li><a href=#externaltype class="table-of-contents__link toc-highlight">ExternalType</a><li><a href=#flightlayoutstyle class="table-of-contents__link toc-highlight">FlightLayoutStyle</a><li><a href=#spacetype class="table-of-contents__link toc-highlight">SpaceType</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

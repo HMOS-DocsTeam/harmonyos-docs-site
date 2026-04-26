@@ -1,0 +1,582 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>textRecognition（文字识别） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="textRecognition（文字识别） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=通用文字识别服务提供图像信息转换为字符信息的能力。通过拍照、扫描等光学输入方式，把各种票据、卡证、表格、报刊、书籍等印刷品文字转化为图像信息，再利用文字识别技术将图像信息转化为计算机等设备可以使用的字符信息，便于用户提取字符内容、屏幕坐标及外框。目前本服务支持识别的语言有：简体中文、英文、日文、韩文、繁体中文五种语言。 /><meta data-rh=true property=og:description content=通用文字识别服务提供图像信息转换为字符信息的能力。通过拍照、扫描等光学输入方式，把各种票据、卡证、表格、报刊、书籍等印刷品文字转化为图像信息，再利用文字识别技术将图像信息转化为计算机等设备可以使用的字符信息，便于用户提取字符内容、屏幕坐标及外框。目前本服务支持识别的语言有：简体中文、英文、日文、韩文、繁体中文五种语言。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api","name":"textRecognition（文字识别）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title="Agent Framework Kit（智能体框架服务）" class=categoryLinkLabel_W154>Agent Framework Kit（智能体框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cann-api/hiai-foundation-c/cannkit-index/cannkit/cannkit><span title="CANN Kit（CANN异构计算框架服务）" class=categoryLinkLabel_W154>CANN Kit（CANN异构计算框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-speech-api/core-speech-arkts/hms-ai-texttospeech/hms-ai-texttospeech><span title="Core Speech Kit（基础语音服务）" class=categoryLinkLabel_W154>Core Speech Kit（基础语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title="Core Vision Kit（基础视觉服务）" class=categoryLinkLabel_W154>Core Vision Kit（基础视觉服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-text-recognition-api/core-vision-text-recognition-api><span title=textRecognition（文字识别） class=linkLabel_WmDU>textRecognition（文字识别）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-face-detector-api/core-vision-face-detector-api><span title=faceDetector（人脸检测） class=linkLabel_WmDU>faceDetector（人脸检测）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-facecomparator-api/core-vision-facecomparator-api><span title=faceComparator（人脸比对） class=linkLabel_WmDU>faceComparator（人脸比对）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-subjectsegmentation-api/core-vision-subjectsegmentation-api><span title=subjectSegmentation（主体分割） class=linkLabel_WmDU>subjectSegmentation（主体分割）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-vision-base-api/core-vision-vision-base-api><span title="VisionBase（Core Vision Kit基类）" class=linkLabel_WmDU>VisionBase（Core Vision Kit基类）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-object-detection-api/core-vision-object-detection-api><span title=objectDetection（多目标识别） class=linkLabel_WmDU>objectDetection（多目标识别）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-skeleton-detection-api/core-vision-skeleton-detection-api><span title=skeletonDetection（骨骼点检测） class=linkLabel_WmDU>skeletonDetection（骨骼点检测）</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/intents-api/intents-arkts-api/intents-arkts-api-insightintent/intents-arkts-api-insightintent><span title="Intents Kit（意图框架服务）" class=categoryLinkLabel_W154>Intents Kit（意图框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/natural-language-api/natural-language-arkts/natural-language-text-processing-api/natural-language-text-processing-api><span title="Natural Language Kit（自然语言理解服务）" class=categoryLinkLabel_W154>Natural Language Kit（自然语言理解服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/mindspore-lite-api/mindspore-lite-arkts/js-apis-mindsporelite/js-apis-mindsporelite><span title="MindSpore Lite Kit（昇思推理框架服务）" class=categoryLinkLabel_W154>MindSpore Lite Kit（昇思推理框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/neural-network-runtime-api/neural-network-runtime-c/neural-network-runtime-module/capi-neuralnetworkruntime/capi-neuralnetworkruntime><span title="Neural Network Runtime Kit（Neural Network运行时服务）" class=categoryLinkLabel_W154>Neural Network Runtime Kit（Neural Network运行时服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/speech-api/speech-arkts/speech-textreader-api/speech-textreader-api><span title="Speech Kit（场景化语音服务）" class=categoryLinkLabel_W154>Speech Kit（场景化语音服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/vision-api/vision-arkts/vision-interactive-liveness/vision-interactive-liveness><span title="Vision Kit（场景化视觉服务）" class=categoryLinkLabel_W154>Vision Kit（场景化视觉服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>AI</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Core Vision Kit（基础视觉服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>textRecognition（文字识别）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>textRecognition（文字识别）</h1></header>
+<p>通用文字识别服务提供图像信息转换为字符信息的能力。通过拍照、扫描等光学输入方式，把各种票据、卡证、表格、报刊、书籍等印刷品文字转化为图像信息，再利用文字识别技术将图像信息转化为计算机等设备可以使用的字符信息，便于用户提取字符内容、屏幕坐标及外框。目前本服务支持识别的语言有：简体中文、英文、日文、韩文、繁体中文五种语言。</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionconfiguration>TextRecognitionConfiguration<a href=#textrecognitionconfiguration class=hash-link aria-label=TextRecognitionConfiguration的直接链接 title=TextRecognitionConfiguration的直接链接 translate=no>​</a></h2>
+<p>通用文本识别的配置项，用于配置是否支持朝向检测。</p>
+<p>系统能力：SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>isDirectionDetectionSupported<td>boolean<td>否<td>是<td>表示是否支持文字朝向检测。  true：表示支持朝向检测；false：表示不支持朝向检测。  默认是true，支持朝向检测。如果能判断当前图片是正向的，则可考虑将该属性设置为false，以提升性能。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=visioninfo>VisionInfo<a href=#visioninfo class=hash-link aria-label=VisionInfo的直接链接 title=VisionInfo的直接链接 translate=no>​</a></h2>
+<p>待识别的视觉信息，目前仅支持颜色数据格式为RGBA_8888的<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>PixelMap</a>类型的视觉信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pixelMap<td><a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap>image.PixelMap</a><td>是<td>否<td>待识别的图片。  具体规格请参考<a class="" href=/harmonyos-docs-site/core-vision-kit-guide/core-vision-introduction#%E7%BA%A6%E6%9D%9F%E4%B8%8E%E9%99%90%E5%88%B6>约束与限制</a>。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pixelpoint>PixelPoint<a href=#pixelpoint class=hash-link aria-label=PixelPoint的直接链接 title=PixelPoint的直接链接 translate=no>​</a></h2>
+<p>指示像素点的位置。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>x<td>number<td>是<td>否<td>像素点横向x坐标。<tr><td>y<td>number<td>是<td>否<td>像素点纵向y坐标。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textword>TextWord<a href=#textword class=hash-link aria-label=TextWord的直接链接 title=TextWord的直接链接 translate=no>​</a></h2>
+<p>描述一个单词的信息，包括内容，以及外框的坐标。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td>string<td>是<td>否<td>单词的文本内容。<tr><td>cornerPoints<td>Array&lt;<a href=#pixelpoint class="">PixelPoint</a>><td>是<td>否<td>以顺时针返回的单词外框位置点列表。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textline>TextLine<a href=#textline class=hash-link aria-label=TextLine的直接链接 title=TextLine的直接链接 translate=no>​</a></h2>
+<p>描述图像中的一行文本。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td>string<td>是<td>否<td>文本行的文本内容。<tr><td>cornerPoints<td>Array&lt;<a href=#pixelpoint class="">PixelPoint</a>><td>是<td>否<td>以顺时针返回该文本行的外框位置点列表。<tr><td>words<td>Array&lt;<a href=#textword class="">TextWord</a>><td>是<td>否<td>该行包含的单词信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textblock>TextBlock<a href=#textblock class=hash-link aria-label=TextBlock的直接链接 title=TextBlock的直接链接 translate=no>​</a></h2>
+<p>描述图像中的文本块。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td>string<td>是<td>否<td>段落的文本内容。<tr><td>lines<td>Array&lt;<a href=#textline class="">TextLine</a>><td>是<td>否<td>该段落包含的文本行内容。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionresult>TextRecognitionResult<a href=#textrecognitionresult class=hash-link aria-label=TextRecognitionResult的直接链接 title=TextRecognitionResult的直接链接 translate=no>​</a></h2>
+<p>文本识别的结果信息，包括文本内容和坐标信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>value<td>string<td>是<td>否<td>所识别的文本内容。<tr><td>blocks<td>Array&lt;<a href=#textblock class="">TextBlock</a>><td>是<td>否<td>文本内容中的具体段落信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitioninit>textRecognition.init<a href=#textrecognitioninit class=hash-link aria-label=textRecognition.init的直接链接 title=textRecognition.init的直接链接 translate=no>​</a></h2>
+<p>init(): Promise&lt;boolean></p>
+<p>初始化文字识别服务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回初始化是否成功。  true：初始化成功；false：初始化失败。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function initAndReleaseOCR() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 初始化 OCR 服务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const initResult = await textRecognition.init();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'textRecognitionSample', `OCR service initialization result:${initResult}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (initResult) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'textRecognitionSample', 'OCR service initialized successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 这里可以添加使用 OCR 服务的代码</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 例如：await textRecognition.recognizeText(...);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 使用完毕后，释放 OCR 服务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await textRecognition.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'textRecognitionSample', 'OCR service released successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'textRecognitionSample', 'Failed to initialize OCR service');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('initAndReleaseOCR').onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 调用函数</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void initAndReleaseOCR();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionrelease>textRecognition.release<a href=#textrecognitionrelease class=hash-link aria-label=textRecognition.release的直接链接 title=textRecognition.release的直接链接 translate=no>​</a></h2>
+<p>release(): Promise&lt;void></p>
+<p>释放文字识别服务。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，释放接口无返回值。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function initAndReleaseOCR() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 初始化 OCR 服务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const initResult = await textRecognition.init();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'textRecognitionSample', `OCR service initialization result:${initResult}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (initResult) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'textRecognitionSample', 'OCR service initialized successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 这里可以添加使用 OCR 服务的代码</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 例如：await textRecognition.recognizeText(...);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 使用完毕后，释放 OCR 服务</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await textRecognition.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'textRecognitionSample', 'OCR service released successfully');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'textRecognitionSample', 'Failed to initialize OCR service');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('initAndReleaseOCR').onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 调用函数</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void initAndReleaseOCR();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionrecognizetext>textRecognition.recognizeText<a href=#textrecognitionrecognizetext class=hash-link aria-label=textRecognition.recognizeText的直接链接 title=textRecognition.recognizeText的直接链接 translate=no>​</a></h2>
+<p>recognizeText(visionInfo: VisionInfo, callback: AsyncCallback&lt;TextRecognitionResult>): void</p>
+<p>识别视觉信息内包含的文本。使用Callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>visionInfo<td><a href=#visioninfo class="">VisionInfo</a><td>是<td>待识别的视觉信息。<tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/basic-services-others/js-apis-base/js-apis-base#asynccallback>AsyncCallback</a>&lt;<a href=#textrecognitionresult class="">TextRecognitionResult</a>><td>是<td>回调函数，返回文字识别的对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code>Core Vision Kit错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>200<td>Run timed out, please try again later.<tr><td>401<td>The parameter check failed.<tr><td>1001400001<td>Failed to run, please try again.<tr><td>1001400002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let imageSource: image.ImageSource | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let chooseImage: PixelMap | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 将图片转换为PixelMap，可以通过图库获取</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">photoPicker.select({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  MIMEType: photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE, maxSelectNumber: 1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).then((res: photoAccessHelper.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uri = res.photoUris[0];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (uri === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'OCRDemo', 'Failed to get uri.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  setTimeout(async () => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fileSource = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    imageSource = image.createImageSource(fileSource.fd);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    chooseImage = await imageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!chooseImage) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 调用文本识别接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let visionInfo: textRecognition.VisionInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      pixelMap: chooseImage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    textRecognition.recognizeText(visionInfo, (error: BusinessError, data: textRecognition.TextRecognitionResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'OCRDemo', `Failed to recognize text. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 识别成功，获取对应的结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let recognitionString = JSON.stringify(data);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'OCRDemo', `Succeeded in recognizing text: ${recognitionString}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if(chooseImage && imageSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void chooseImage.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void imageSource.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fileSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        await fileIo.close(fileSource);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'OCRDemo', `Failed to close fileSource. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }, 100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'OCRDemo', `Failed to get photo image uri. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionrecognizetext-1>textRecognition.recognizeText<a href=#textrecognitionrecognizetext-1 class=hash-link aria-label=textRecognition.recognizeText的直接链接 title=textRecognition.recognizeText的直接链接 translate=no>​</a></h2>
+<p>recognizeText(visionInfo: VisionInfo, configuration ?: TextRecognitionConfiguration): Promise&lt;TextRecognitionResult></p>
+<p>识别视觉信息内包含的文本，可以通过自定义配置项进行更详细的设置。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>visionInfo<td><a href=#visioninfo class="">VisionInfo</a><td>是<td>待识别的视觉信息。<tr><td>configuration<td><a href=#textrecognitionconfiguration class="">TextRecognitionConfiguration</a><td>否<td>识别的配置项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#textrecognitionresult class="">TextRecognitionResult</a>><td>Promise对象，返回文字识别的结果对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code>Core Vision Kit错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>200<td>Run timed out, please try again later.<tr><td>401<td>The parameter check failed.<tr><td>1001400001<td>Failed to run, please try again.<tr><td>1001400002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let imageSource: image.ImageSource | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let chooseImage: PixelMap | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 将图片转换为PixelMap，可以通过图库获取</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">photoPicker.select({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  MIMEType: photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE, maxSelectNumber: 1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).then((res: photoAccessHelper.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uri = res.photoUris[0];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (uri === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'OCRDemo', 'Failed to get uri.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  setTimeout(async () => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fileSource = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    imageSource = image.createImageSource(fileSource.fd);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    chooseImage = await imageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!chooseImage) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 调用文本识别接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let visionInfo: textRecognition.VisionInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      pixelMap: chooseImage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let recognitionResult = await textRecognition.recognizeText(visionInfo);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 识别成功，获取对应的结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let recognitionString = JSON.stringify(recognitionResult);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'OCRDemo', `Succeeded in recognizing text: ${recognitionString}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if(chooseImage && imageSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      void chooseImage.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      void imageSource.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fileSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        await fileIo.close(fileSource);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'OCRDemo', `Failed to close fileSource. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }, 100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'OCRDemo', `Failed to get photo image uri. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitionrecognizetext-2>textRecognition.recognizeText<a href=#textrecognitionrecognizetext-2 class=hash-link aria-label=textRecognition.recognizeText的直接链接 title=textRecognition.recognizeText的直接链接 translate=no>​</a></h2>
+<p>recognizeText(visionInfo: VisionInfo, configuration: TextRecognitionConfiguration, callback: AsyncCallback&lt;TextRecognitionResult>): void</p>
+<p>通过自定义配置项对识别能力进行更详细的设置，识别视觉信息内包含的文本。使用Callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>visionInfo<td><a href=#visioninfo class="">VisionInfo</a><td>是<td>待识别的视觉信息。<tr><td>configuration<td><a href=#textrecognitionconfiguration class="">TextRecognitionConfiguration</a><td>是<td>识别的配置项。<tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/basic-services-others/js-apis-base/js-apis-base#asynccallback>AsyncCallback</a>&lt;<a href=#textrecognitionresult class="">TextRecognitionResult</a>><td>是<td>识别结果的回调，可以用于界面显示或交互。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code>Core Vision Kit错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>200<td>Run timed out, please try again later.<tr><td>401<td>The parameter check failed.<tr><td>1001400001<td>Failed to run, please try again.<tr><td>1001400002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { image } from '@kit.ImageKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { fileIo } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { photoAccessHelper } from '@kit.MediaLibraryKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let imageSource: image.ImageSource | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let chooseImage: PixelMap | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 将图片转换为PixelMap，可以通过图库获取</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let photoPicker: photoAccessHelper.PhotoViewPicker = new photoAccessHelper.PhotoViewPicker();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">photoPicker.select({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  MIMEType: photoAccessHelper.PhotoViewMIMETypes.IMAGE_TYPE, maxSelectNumber: 1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).then((res: photoAccessHelper.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uri = res.photoUris[0];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (uri === undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'OCRDemo', 'Failed to get uri.');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  setTimeout(async () => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let fileSource = await fileIo.open(uri, fileIo.OpenMode.READ_ONLY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    imageSource = image.createImageSource(fileSource.fd);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    chooseImage = await imageSource.createPixelMap();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!chooseImage) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 调用文本识别接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let visionInfo: textRecognition.VisionInfo = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      pixelMap: chooseImage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let textConfiguration: textRecognition.TextRecognitionConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isDirectionDetectionSupported: false</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    textRecognition.recognizeText(visionInfo, textConfiguration, (error: BusinessError, data: textRecognition.TextRecognitionResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'OCRDemo', `Failed to recognize text. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 识别成功，获取对应的结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let recognitionString = JSON.stringify(data);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'OCRDemo', `Succeeded in recognizing text: ${recognitionString}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if(chooseImage && imageSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void chooseImage.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        void imageSource.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (fileSource) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        await fileIo.close(fileSource);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'OCRDemo', `Failed to close fileSource. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }, 100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'OCRDemo', `Failed to get photo image uri. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitiongetsupportedlanguages>textRecognition.getSupportedLanguages<a href=#textrecognitiongetsupportedlanguages class=hash-link aria-label=textRecognition.getSupportedLanguages的直接链接 title=textRecognition.getSupportedLanguages的直接链接 translate=no>​</a></h2>
+<p>getSupportedLanguages(): Promise&lt;Array&lt;string>></p>
+<p>获取当前文本识别所支持的语言类型列表。使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象，返回所支持的<a href=#%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8 class="">语言类型列表</a>。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code>Core Vision Kit错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1001400001<td>Failed to run, please try again.<tr><td>1001400002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">textRecognition.getSupportedLanguages().then((data: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let languageString = data.join(', ');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'OCRDemo', `Succeeded in obtaining the language: ${languageString}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}, (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'OCRDemo', `Failed to obtain the language. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=textrecognitiongetsupportedlanguages-1>textRecognition.getSupportedLanguages<a href=#textrecognitiongetsupportedlanguages-1 class=hash-link aria-label=textRecognition.getSupportedLanguages的直接链接 title=textRecognition.getSupportedLanguages的直接链接 translate=no>​</a></h2>
+<p>getSupportedLanguages(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>获取当前文本识别所支持的语言类型列表。使用Callback异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AI.OCR.TextRecognition</p>
+<p><strong><strong>起始版本：</strong></strong> 4.0.0(10)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/basic-services-others/js-apis-base/js-apis-base#asynccallback>AsyncCallback</a>&lt;Array&lt;string>><td>是<td>所支持的<a href=#%E8%AF%AD%E8%A8%80%E7%B1%BB%E5%9E%8B%E5%88%97%E8%A1%A8 class="">语言类型列表</a>。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-error-code/core-vision-error-code>Core Vision Kit错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1001400001<td>Failed to run, please try again.<tr><td>1001400002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { textRecognition } from '@kit.CoreVisionKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">textRecognition.getSupportedLanguages((error: BusinessError, data: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (!error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'OCRDemo', `Succeeded in obtaining the language: ${data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'OCRDemo', `Failed to obtain the language. Code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Page {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column(){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=语言类型列表>语言类型列表<a href=#语言类型列表 class=hash-link aria-label=语言类型列表的直接链接 title=语言类型列表的直接链接 translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>语言（英）<th>语言（中）<tbody><tr><td>zh-CN<td>简体中文<tr><td>en<td>英文<tr><td>ja<td>日文<tr><td>ko<td>韩文<tr><td>zh-TW<td>繁体中文</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/core-speech-api/errorcode-corespeech/errorcode-corespeech><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS API错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/core-vision-api/core-vision-arkts/core-vision-face-detector-api/core-vision-face-detector-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>faceDetector（人脸检测）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#textrecognitionconfiguration class="table-of-contents__link toc-highlight">TextRecognitionConfiguration</a><li><a href=#visioninfo class="table-of-contents__link toc-highlight">VisionInfo</a><li><a href=#pixelpoint class="table-of-contents__link toc-highlight">PixelPoint</a><li><a href=#textword class="table-of-contents__link toc-highlight">TextWord</a><li><a href=#textline class="table-of-contents__link toc-highlight">TextLine</a><li><a href=#textblock class="table-of-contents__link toc-highlight">TextBlock</a><li><a href=#textrecognitionresult class="table-of-contents__link toc-highlight">TextRecognitionResult</a><li><a href=#textrecognitioninit class="table-of-contents__link toc-highlight">textRecognition.init</a><li><a href=#textrecognitionrelease class="table-of-contents__link toc-highlight">textRecognition.release</a><li><a href=#textrecognitionrecognizetext class="table-of-contents__link toc-highlight">textRecognition.recognizeText</a><li><a href=#textrecognitionrecognizetext-1 class="table-of-contents__link toc-highlight">textRecognition.recognizeText</a><li><a href=#textrecognitionrecognizetext-2 class="table-of-contents__link toc-highlight">textRecognition.recognizeText</a><li><a href=#textrecognitiongetsupportedlanguages class="table-of-contents__link toc-highlight">textRecognition.getSupportedLanguages</a><li><a href=#textrecognitiongetsupportedlanguages-1 class="table-of-contents__link toc-highlight">textRecognition.getSupportedLanguages</a><li><a href=#语言类型列表 class="table-of-contents__link toc-highlight">语言类型列表</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

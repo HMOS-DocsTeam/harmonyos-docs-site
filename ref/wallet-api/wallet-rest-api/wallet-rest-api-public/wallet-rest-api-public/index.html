@@ -1,0 +1,786 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>公共接口 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="公共接口 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=获取AccessToken /><meta data-rh=true property=og:description content=获取AccessToken /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public","name":"公共接口","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title="Account Kit（华为账号服务）" class=categoryLinkLabel_W154>Account Kit（华为账号服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ads-api/ads-arkts/js-apis-advertising/js-apis-advertising><span title="Ads Kit（广告服务）" class=categoryLinkLabel_W154>Ads Kit（广告服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/store-api/store-arkts/store-moduleinstallmanager/store-moduleinstallmanager><span title="AppGallery Kit（应用市场服务）" class=categoryLinkLabel_W154>AppGallery Kit（应用市场服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/app-linking-api/applinking-arkts-api/applinking-deferredlink-api/applinking-deferredlink-api><span title="App Linking Kit（应用链接服务）" class=categoryLinkLabel_W154>App Linking Kit（应用链接服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/calendar-api/calendar-arkts/js-apis-calendarmanager/js-apis-calendarmanager><span title="Calendar Kit（日历服务）" class=categoryLinkLabel_W154>Calendar Kit（日历服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/call-api/call-arkts/call-voipcall/call-voipcall><span title="Call Service Kit（通话服务）" class=categoryLinkLabel_W154>Call Service Kit（通话服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/cloud-foundation-api/cloudfoundation-arkts-api/cloudfoundation-cloudcommon/cloudfoundation-cloudcommon><span title="Cloud Foundation Kit（云开发服务）" class=categoryLinkLabel_W154>Cloud Foundation Kit（云开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/contacts-api/contacts-arkts/js-apis-contact/js-apis-contact><span title="Contacts Kit（联系人服务）" class=categoryLinkLabel_W154>Contacts Kit（联系人服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/enterprise-space-api/enterprisespace-arkts/enterprisespace-spacedatatransfer/enterprisespace-spacedatatransfer><span title="Enterprise Space Kit（企业数字空间服务）" class=categoryLinkLabel_W154>Enterprise Space Kit（企业数字空间服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/file-manager-service-api/filemanagerservice-arkts/filemanagerservice-arkts-filemanagerservice/filemanagerservice-arkts-filemanagerservice><span title="File Manager Service Kit（文件管理服务）" class=categoryLinkLabel_W154>File Manager Service Kit（文件管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-controller-api/game-controller-c/game-controller-module/capi-game-controller/capi-game-controller><span title="Game Controller Kit（游戏控制器服务）" class=categoryLinkLabel_W154>Game Controller Kit（游戏控制器服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/game-service-api/gameservice-arkts/gameservice-gameplayer/gameservice-gameplayer><span title="Game Service Kit（游戏服务）" class=categoryLinkLabel_W154>Game Service Kit（游戏服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/health-service-api/health-api-arkts/health-api-healthstore/health-api-healthstore><span title="Health Service Kit（运动健康服务）" class=categoryLinkLabel_W154>Health Service Kit（运动健康服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/iap-api/iap-arkts/iap-iap/iap-iap><span title="IAP Kit（应用内支付服务）" class=categoryLinkLabel_W154>IAP Kit（应用内支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/live-view-api/liveview-arkts/liveview-liveviewmanager/liveview-liveviewmanager><span title="Live View Kit（实况窗服务）" class=categoryLinkLabel_W154>Live View Kit（实况窗服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/location-api/location-arkts/js-apis-geolocationmanager/js-apis-geolocationmanager><span title="Location Kit（位置服务）" class=categoryLinkLabel_W154>Location Kit（位置服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/map-api/map-arkts/map-map/map-module-desc/map-module-desc><span title="Map Kit（地图服务）" class=categoryLinkLabel_W154>Map Kit（地图服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/notification-api/notification-arkts/js-apis-notificationmanager/js-apis-notificationmanager><span title="Notification Kit（用户通知服务）" class=categoryLinkLabel_W154>Notification Kit（用户通知服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/payment-api/payment-arkts/payment-paymentservice/payment-paymentservice><span title="Payment Kit（鸿蒙支付服务）" class=categoryLinkLabel_W154>Payment Kit（鸿蒙支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/pdf-api/pdf-arkts/pdf-arkts-pdfservice/pdf-arkts-pdfservice><span title="PDF Kit（PDF服务）" class=categoryLinkLabel_W154>PDF Kit（PDF服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/preview-api/preview-api-reference/preview-arkts/preview-arkts><span title="Preview Kit（文件预览服务）" class=categoryLinkLabel_W154>Preview Kit（文件预览服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/push-api/push-arkts/push-aaid-api/push-aaid-api><span title="Push Kit（推送服务）" class=categoryLinkLabel_W154>Push Kit（推送服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/reader-api/reader-arkts/reader-book-parser/reader-book-parser><span title="Reader Kit（阅读服务）" class=categoryLinkLabel_W154>Reader Kit（阅读服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/scenario-fusion-api/scenario-fusion-arktsapi/scenario-fusion-atomicservice/scenario-fusion-atomicservice><span title="Scenario Fusion Kit（融合场景服务）" class=categoryLinkLabel_W154>Scenario Fusion Kit（融合场景服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/screen-time-guard-api/screentimeguard-arkts/screentimeguard-guardservice/screentimeguard-guardservice><span title="Screen Time Guard Kit（屏幕时间守护服务）" class=categoryLinkLabel_W154>Screen Time Guard Kit（屏幕时间守护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/share-api/share-arkts/share-system-share/share-system-share><span title="Share Kit（分享服务）" class=categoryLinkLabel_W154>Share Kit（分享服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-arkts/wallet-walletpass/wallet-walletpass><span title="Wallet Kit（钱包服务）" class=categoryLinkLabel_W154>Wallet Kit（钱包服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-arkts/wallet-walletpass/wallet-walletpass><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-introduction/wallet-rest-api-introduction><span title="REST API" class=categoryLinkLabel_W154>REST API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-introduction/wallet-rest-api-introduction><span title=公共说明 class=linkLabel_WmDU>公共说明</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-public/wallet-rest-api-public><span title=公共接口 class=linkLabel_WmDU>公共接口</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-carkey/wallet-rest-api-carkey><span title=数字车钥匙接口 class=linkLabel_WmDU>数字车钥匙接口</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-error-code/wallet-rest-api-error-code><span title="REST API错误码" class=linkLabel_WmDU>REST API错误码</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/weather-service-api/weather-service-arkts/weather-service-weatherservice/weather-service-weatherservice><span title="Weather Service Kit（天气服务）" class=categoryLinkLabel_W154>Weather Service Kit（天气服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用服务</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Wallet Kit（钱包服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>REST API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>公共接口</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>公共接口</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=获取accesstoken>获取AccessToken<a href=#获取accesstoken class=hash-link aria-label=获取AccessToken的直接链接 title=获取AccessToken的直接链接 translate=no>​</a></h2>
+<p>此接口用于获取访问token，向钱包云服务的每次https请求都需要传入访问的token，该token相当于一个访问许可，钱包云服务器收到其请求时会对其进行校验。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口原型>接口原型<a href=#接口原型 class=hash-link aria-label=接口原型的直接链接 title=接口原型的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>承载协议</strong></strong>：HTTPS POST</p>
+</li>
+<li class="">
+<p><strong><strong>接口方向</strong></strong>：三方业务管理服务->钱包云服务</p>
+</li>
+<li class="">
+<p><strong><strong>接口URL</strong></strong>：<code>https://oauth-login.cloud.huawei.com/oauth2/v3/token</code></p>
+</li>
+<li class="">
+<p><strong><strong>数据格式</strong></strong>：</p>
+<p>请求消息：Content-Type: application/x-www-form-urlencoded</p>
+<p>响应消息：Content-Type: application/json;charset=UTF-8</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求参数>请求参数<a href=#请求参数 class=hash-link aria-label=请求参数的直接链接 title=请求参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Request Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/x-www-form-urlencoded</table>
+<p><strong><strong>Request Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>grant_type<td>是<td>String<td>填写为“client_credentials”，表示为客户端模式。<tr><td>client_id<td>是<td>String<td>在<a class="" href=/harmonyos-docs-site/application-dev-overview>应用开发准备</a>中得到的OAuth 2.0客户端ID，对于AppGallery Connect类应用，该值为应用的Client ID<tr><td>client_secret<td>是<td>String<td>在<a class="" href=/harmonyos-docs-site/application-dev-overview>应用开发准备</a>中给客户端ID分配的密钥，对于AppGallery Connect类应用，该值为应用的Client Secret。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求示例>请求示例<a href=#请求示例 class=hash-link aria-label=请求示例的直接链接 title=请求示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">grant_type=client_credentials&client_id=&lt;客户端ID>&client_secret=&lt;客户端密钥></span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应参数>响应参数<a href=#响应参数 class=hash-link aria-label=响应参数的直接链接 title=响应参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Response Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8</table>
+<p><strong><strong>Response Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>token_type<td>是<td>String<td>固定字符串“Bearer”。<tr><td>access_token<td>是<td>String<td>Access Token。<tr><td>expires_in<td>否<td>Long<td>Access Token的过期时间，以秒为单位。默认60分钟过期。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应示例>响应示例<a href=#响应示例 class=hash-link aria-label=响应示例的直接链接 title=响应示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "access_token": "&lt;返回的Access Token>",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "expires_in": 3600,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "token_type": "Bearer"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=调用示例>调用示例<a href=#调用示例 class=hash-link aria-label=调用示例的直接链接 title=调用示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">    public static String getToken(String clientId, String clientSecret) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        HttpHeaders header = new HttpHeaders();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        header.setContentType(MediaType.APPLICATION_FORM_URLENCODED);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        MultiValueMap&lt;String, String> map = new LinkedMultiValueMap&lt;>();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        map.add("grant_type", "client_credentials");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        map.add("client_id", clientId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        map.add("client_secret", clientSecret);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String tokenUrl = ConfigUtil.instants().getValue("gw.tokenUrl");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        HttpEntity&lt;MultiValueMap&lt;String, String>> entity = new HttpEntity&lt;>(map, header);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ResponseEntity&lt;JSONObject> exchange =</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            REST_TEMPLATE.exchange(tokenUrl, HttpMethod.POST, entity, JSONObject.class);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        JSONObject response = exchange.getBody();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (response == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            throw new NullPointerException("Get null token response.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String accessToken = response.getString("access_token");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (Strings.isEmpty(accessToken)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            throw new NullPointerException("Get null access token.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return accessToken;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=设备认证>设备认证<a href=#设备认证 class=hash-link aria-label=设备认证的直接链接 title=设备认证的直接链接 translate=no>​</a></h2>
+<p>预个人化执行完成后，华为钱包App经由钱包云服务中转后请求认证设备，将applet身份公钥以及身份公钥的钱包服务器签名携带在请求体中，向三方业务管理服务请求三方业务管理服务认证授权证书。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口原型-1>接口原型<a href=#接口原型-1 class=hash-link aria-label=接口原型的直接链接 title=接口原型的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>承载协议</strong></strong>：HTTPS POST</p>
+</li>
+<li class="">
+<p><strong><strong>接口方向</strong></strong>：钱包云服务->三方业务管理服务</p>
+</li>
+<li class="">
+<p><strong><strong>接口URL</strong></strong>：<code>https://\{webServiceURL\}/v1/passes/registrations</code></p>
+</li>
+<li class="">
+<p><strong><strong>数据格式</strong></strong>：</p>
+<p>请求消息：Content-Type: application/json;charset=UTF-8</p>
+<p>响应消息：Content-Type: application/json;charset=UTF-8</p>
+</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>webServiceURL为DK业务管理服务域名。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求参数-1>请求参数<a href=#请求参数-1 class=hash-link aria-label=请求参数的直接链接 title=请求参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Request Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8<tr><td>Authorization<td>是<td>String<td><a class="" href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-carkey/wallet-rest-api-carkey#%E7%94%B3%E8%AF%B7%E9%92%A5%E5%8C%99%E5%8D%A1%E7%89%87>申请钥匙卡片</a>时linkDevicePass参数中的token值，用于校验该请求是否合法。</table>
+<p><strong><strong>Request Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>requestBody<td>passTypeIdentifier<td>String<td>必选<td><a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>时注册的服务号，需要开发者到华为AGC网站申请。<tr><td>requestBody<td>serialNumber<td>String<td>必选<td>车钥匙卡片在华为钱包云服务器中的卡号，回调时以便发卡方根据此值识别具体的卡券记录。<tr><td>requestBody<td>passVersion<td>String<td>可选<td>版本号，固定10.0。<tr><td>requestBody<td>userDeviceId<td>String<td>必选<td>用户在当前设备上的唯一标识。<tr><td>requestBody<td>transId<td>String<td>必选<td>随机数。<tr><td>signature<td>-<td>String<td>必选<td>Applet的身份私钥对requestBody的Hash值的签名。<tr><td>certificate<td>signature<td>String<td>必选<td>钱包云服务使用钱包服务器私钥对publicKey的签名值。DK业务管理服务收到该请求后，需要使用钱包云服务公钥对其进行验签。<tr><td>certificate<td>publicKey<td>String<td>必选<td>Applet的身份公钥。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求示例-1>请求示例<a href=#请求示例-1 class=hash-link aria-label=请求示例的直接链接 title=请求示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "requestBody": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passTypeIdentifier": "Replace with the Service ID you applied on AGC",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passVersion": "10.0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "serialNumber": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "transId": "16198381994485116358",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "userDeviceId": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "certificate": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "publicKey": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应参数-1>响应参数<a href=#响应参数-1 class=hash-link aria-label=响应参数的直接链接 title=响应参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Response Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8</table>
+<p><strong><strong>Response Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>Httpstatus<td>-<td>String<td>必选<td>接口网络状态码。<tr><td>response<td>certificate<td>Certificate<td>可选<td>DK业务管理服务使用<a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>步骤5生成的私钥对publicKey进行签名后返回。</table>
+<p><strong><strong>Certificate参数类型说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>certificate子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>signature<td>String<td>必选<td>钱包云服务使用钱包服务器私钥对publicKey的签名值。DK业务管理服务收到该请求后，需要使用钱包云服务公钥对其进行验签。<tr><td>publicKey<td>String<td>必选<td>Applet的身份公钥。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应示例-1>响应示例<a href=#响应示例-1 class=hash-link aria-label=响应示例的直接链接 title=响应示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "httpStatus": "0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "response": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "certificate": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "signature": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "publicKey": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=三方业务管理服务处理调用示例>三方业务管理服务处理调用示例<a href=#三方业务管理服务处理调用示例 class=hash-link aria-label=三方业务管理服务处理调用示例的直接链接 title=三方业务管理服务处理调用示例的直接链接 translate=no>​</a></h3>
+<p>完整的调用示例，请参见<a href=https://gitcode.com/harmonyos_samples/wallet-kit-sample-code-severdemo-nfc-java target=_blank rel="noopener noreferrer" class="">钱包服务-服务端卡片激活</a>示例代码。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">    public RegistrationsResponse dealWithRegisterRequest(String token, RegistrationsRequest request) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        RegistrationsResponse response = new RegistrationsResponse();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (token == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!ParamChecker.isValidRegistrationsRequest(request)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate walletCertificate = request.getCertificate();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!verifyWalletCert(walletCertificate)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!ParamChecker.hashSignatureCheck(request.toJsonString(), request.getSignature(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                appletAuthPublicKey, DataConvertUtil.SIGN_MODE_SHA256_RSA_MGF1)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String userDeviceId = request.getRequestBody().getUserDeviceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_OK));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Response responseBody = new Response();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate serverCert = PassData.getServerCert(appletAuthPublicKey);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        responseBody.setCertificate(serverCert);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setResponse(responseBody);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        deviceIdCertMap.put(userDeviceId, serverCert);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=获取个人化数据token>获取个人化数据Token<a href=#获取个人化数据token class=hash-link aria-label=获取个人化数据Token的直接链接 title=获取个人化数据Token的直接链接 translate=no>​</a></h2>
+<p>华为钱包APP经由钱包云服务中转后向三方业务管理服务平台获取token（个人化数据请求报文里参与计算hash）。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口原型-2>接口原型<a href=#接口原型-2 class=hash-link aria-label=接口原型的直接链接 title=接口原型的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>承载协议</strong></strong>：HTTPS POST</p>
+</li>
+<li class="">
+<p><strong><strong>接口方向</strong></strong>：钱包云服务->三方业务管理服务</p>
+</li>
+<li class="">
+<p><strong><strong>接口URL</strong></strong>：<code>https://\{webServiceURL\}/v1/passes/requestPersonalizeToken</code></p>
+</li>
+<li class="">
+<p><strong><strong>数据格式</strong></strong>：</p>
+<p>请求消息：Content-Type: application/json;charset=UTF-8</p>
+<p>响应消息：Content-Type: application/json;charset=UTF-8</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求参数-2>请求参数<a href=#请求参数-2 class=hash-link aria-label=请求参数的直接链接 title=请求参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Request Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8<tr><td>Authorization<td>是<td>String<td><a class="" href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-carkey/wallet-rest-api-carkey#%E7%94%B3%E8%AF%B7%E9%92%A5%E5%8C%99%E5%8D%A1%E7%89%87>申请钥匙卡片</a>时linkDevicePass参数中的token值，用于校验该请求是否合法。</table>
+<p><strong><strong>Request Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>requestBody<td>passTypeIdentifier<td>String<td>必选<td><a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>时注册的服务号，需要开发者到华为AGC网站申请。<tr><td>requestBody<td>serialNumber<td>String<td>必选<td>车钥匙卡片在华为钱包云服务器中的卡号，回调时以便发卡方根据此值识别具体的卡券记录。<tr><td>requestBody<td>passVersion<td>String<td>可选<td>版本号，固定10.0。<tr><td>requestBody<td>userDeviceId<td>String<td>必选<td>用户在当前设备上的唯一标识。<tr><td>requestBody<td>transId<td>String<td>必选<td>随机数。<tr><td>signature<td>-<td>String<td>必选<td>Applet的身份私钥对requestBody的Hash值的签名。<tr><td>certificate<td>signature<td>String<td>必选<td>在<a href=#%E8%AE%BE%E5%A4%87%E8%AE%A4%E8%AF%81 class="">设备认证</a>接口返回的certificate的签名。  DK业务管理服务使用<a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>步骤5生成的私钥对Applet的身份公钥签名信息。<tr><td>certificate<td>publicKey<td>String<td>必选<td>在<a href=#%E8%AE%BE%E5%A4%87%E8%AE%A4%E8%AF%81 class="">设备认证</a>接口返回的certificate里的Applet的身份公钥。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求示例-2>请求示例<a href=#请求示例-2 class=hash-link aria-label=请求示例的直接链接 title=请求示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "requestBody": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passTypeIdentifier": "Replace with the Service ID you applied on AGC",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passVersion": "10.0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "serialNumber": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "transId": "16198381994485116358",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "userDeviceId": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "certificate": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "publicKey": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应参数-2>响应参数<a href=#响应参数-2 class=hash-link aria-label=响应参数的直接链接 title=响应参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Response Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8</table>
+<p><strong><strong>Response Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>Httpstatus<td>-<td>String<td>必选<td>接口网络状态码。<tr><td>response<td>token<td>String<td>必选<td>个人化token。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应示例-2>响应示例<a href=#响应示例-2 class=hash-link aria-label=响应示例的直接链接 title=响应示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "httpStatus": "0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "response": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "token": "sp.token.1619838979341"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=三方业务管理服务处理调用示例-1>三方业务管理服务处理调用示例<a href=#三方业务管理服务处理调用示例-1 class=hash-link aria-label=三方业务管理服务处理调用示例的直接链接 title=三方业务管理服务处理调用示例的直接链接 translate=no>​</a></h3>
+<p>完整的调用示例，请参见<a href=https://gitcode.com/harmonyos_samples/wallet-kit-sample-code-severdemo-nfc-java target=_blank rel="noopener noreferrer" class="">钱包服务-服务端卡片激活</a>示例代码。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">    public RequestTokenResponse dealWithTokenRequest(RequestTokenRequest request) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        RequestTokenResponse response = new RequestTokenResponse();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String userDeviceId = request.getRequestBody().getUserDeviceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate spCertFromRequest = request.getCertificate();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (CommonUtils.isStringEmpty(userDeviceId) || !ParamChecker.checkSpServerCertificate(spCertFromRequest)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate cachedCert = deviceIdCertMap.get(userDeviceId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (cachedCert == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!ParamChecker.hashSignatureCheck(request.toJsonString(), request.getSignature(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                appletAuthPublicKey, DataConvertUtil.SIGN_MODE_SHA256_RSA_MGF1)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_OK));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Response responseBody = new Response();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String personalizeToken = PassData.getPersonalizeToken();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        responseBody.setToken(personalizeToken);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        deviceIdTokenMap.put(userDeviceId, personalizeToken);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setResponse(responseBody);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=获取个人化数据>获取个人化数据<a href=#获取个人化数据 class=hash-link aria-label=获取个人化数据的直接链接 title=获取个人化数据的直接链接 translate=no>​</a></h2>
+<p>华为钱包APP经由钱包云服务中转后向三方业务管理服务获取个人化数据。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口原型-3>接口原型<a href=#接口原型-3 class=hash-link aria-label=接口原型的直接链接 title=接口原型的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>承载协议</strong></strong>：HTTPS POST</p>
+</li>
+<li class="">
+<p><strong><strong>接口方向</strong></strong>：钱包云服务->三方业务管理服务</p>
+</li>
+<li class="">
+<p><strong><strong>接口URL</strong></strong>：<code>https://\{webServiceURL\}/v1/passes/requestPersonalize</code></p>
+</li>
+<li class="">
+<p><strong><strong>数据格式</strong></strong>：</p>
+<p>请求消息：Content-Type: application/json;charset=UTF-8</p>
+<p>响应消息：Content-Type: application/json;charset=UTF-8</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求参数-3>请求参数<a href=#请求参数-3 class=hash-link aria-label=请求参数的直接链接 title=请求参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Request Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8<tr><td>Authorization<td>是<td>String<td><a href=#%E8%8E%B7%E5%8F%96%E4%B8%AA%E4%BA%BA%E5%8C%96%E6%95%B0%E6%8D%AEtoken class="">获取个人化数据Token</a>返回的token值，用于校验该请求是否合法。</table>
+<p><strong><strong>Request Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>requestBody<td>cardSEId<td>String<td>必选<td>Applet唯一标识，可以用于车端秘钥分散<tr><td>requestBody<td>passTypeIdentifier<td>String<td>必选<td><a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>时注册的服务号，需要开发者到华为AGC网站申请。<tr><td>requestBody<td>serialNumber<td>String<td>必选<td>车钥匙卡片在华为钱包云服务器中的卡号，回调时以便发卡方根据此值识别具体的卡券记录。<tr><td>requestBody<td>passVersion<td>String<td>可选<td>版本号，固定10.0。<tr><td>requestBody<td>userDeviceId<td>String<td>必选<td>用户在当前设备上的唯一标识。<tr><td>requestBody<td>personalizePublicKey<td>String<td>必选<td>Applet的个人化公钥，用于加密个人化字段值。<tr><td>requestBody<td>personalizeCert<td>String<td>必选<td>Applet身份私钥对个人化公钥personalizePublicKey的签名。<tr><td>requestBody<td>personalizeCertType<td>String<td>必选<td>固定值，默认为私钥签名。<tr><td>requestBody<td>transPublicKey<td>String<td>必选<td>用于加密返回的对称秘钥，用于对返回的数据做数字信封。<tr><td>requestBody<td>transId<td>String<td>必选<td>事务流水，用于拼接返回的对称秘钥。<tr><td>signature<td>-<td>String<td>必选<td>Applet的身份私钥对requestBody的Hash值的签名。<a href=#%E8%8E%B7%E5%8F%96%E4%B8%AA%E4%BA%BA%E5%8C%96%E6%95%B0%E6%8D%AEtoken class="">获取个人化数据Token</a>作为其中requestbody一个key参与Hash值计算。<tr><td>certificate<td>signature<td>String<td>必选<td>在<a href=#%E8%AE%BE%E5%A4%87%E8%AE%A4%E8%AF%81 class="">设备认证</a>接口返回的certificate的签名。  DK业务管理服务使用<a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>步骤5生成的私钥对Applet的身份公钥签名信息。<tr><td>certificate<td>publicKey<td>String<td>必选<td>在<a href=#%E8%AE%BE%E5%A4%87%E8%AE%A4%E8%AF%81 class="">设备认证</a>接口返回的certificate里的Applet的身份公钥。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=请求示例-3>请求示例<a href=#请求示例-3 class=hash-link aria-label=请求示例的直接链接 title=请求示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "requestBody": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "cardSEId": "xxxxxxxxxxxxxxxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "personalizeCert": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "personalizeCertType": "",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "personalizePublicKey": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "transPublicKey": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passTypeIdentifier": "Replace with the Service ID you applied on AGC",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "passVersion": "10.0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "serialNumber": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "transId": "858947076d58a5e66ee22b9ed1c43c4d",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "userDeviceId": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "certificate": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "publicKey": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应参数-3>响应参数<a href=#响应参数-3 class=hash-link aria-label=响应参数的直接链接 title=响应参数的直接链接 translate=no>​</a></h3>
+<p><strong><strong>Response Header</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否必选<th>参数类型<th>描述<tbody><tr><td>Content-Type<td>是<td>String<td>取值为：application/json;charset=UTF-8</table>
+<p><strong><strong>Response Body</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>父节点参数<th>子节点参数<th>参数类型<th>是否可选<th>描述<tbody><tr><td>Httpstatus<td>-<td>String<td>必选<td>接口网络状态码。<tr><td>response<td>encryptSessionKey<td>String<td>必选<td>DK业务管理服务使用请求中的transPublicKey加密生成的sessionKey。采用Base64编码，加密前的字段说明：三方生成AES128的aesKey和aesIv，用于加密生成encryptAppletPersonalizeFields和encryptDevicePass。使用请求中transPublicKey字段加密transId+aesKey+aesIv，对结果进行base64编码即得到encryptSessionKey。加密算法: RSA/ECB/OAEPWithSHA-256AndMGF1Padding。<tr><td>response<td>encryptDevicePass<td>String<td>可选<td>空字符串""<tr><td>response<td>encryptAppletPersonalizeFields<td>String<td>必选<td>用于蓝牙/NFC刷卡时的认证以及数据加解密操作。DK业务管理服务通过生成的sessionKey加密Applet的个人化参数密文。采用Base64编码<tr><td>signature<td>-<td>String<td>必选<td>DK业务管理服务使用<a class="" href=/harmonyos-docs-site/wallet-kit-guide/wallet-preparations>创建Wallet Kit服务</a>步骤5生成的私钥对response的Hash值进行签名。</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>encryptAppletPersonalizeFields子节点参数<th>类型<th>是否可选<th>存储格式<th>描述<tbody><tr><td>temp_key<td>String<td>必选<td>-<td>aesKey(AES128的key)，长度16字节，用于加密CardId，cardPrivateInfo信息。temp_key：aesKey明文之前拼接一个固定的十六进制字符前缀"34810233"后，使用Applet个人化公钥appletPublicKey对其进行加密。加密算法RSA/NONE/OAEPWithSHA1AndMGF1Padding。<tr><td>temp_iv<td>String<td>必选<td>-<td>aesIv(AES128的iv)，长度16字节，用于applet解密写卡数据。temp_iv：aesIv使用Applet个人化公钥appletPublicKey加密。加密算法RSA/NONE/OAEPWithSHA1AndMGF1Padding。<tr><td>card_id<td>String<td>必选<td>9F3B + Lc + CardId<td>CardId即发卡方发放的卡片唯一标识（和"生成钥匙卡片"中的serialNumber保持一致），长度16字节。使用TLV格式存储：T=9F3B，Lc=10，V=CardId；加密方式：使用aesKey，aesIv对整个TLV加密，并转换成十六进制字符串。CBC模式加密，加密算法：AES/CBC/NoPadding。<tr><td>card_key<td>String<td>必选<td>-<td>发卡方发放的卡片密钥，16字节，一张卡支持1个秘钥，计算SessionKey时使用。使用"34010133"作为前缀拼接后加密；使用Applet个人化公钥appletPublicKey对拼接后的十六进制字符进行加密。加密算法RSA/NONE/OAEPWithSHA1AndMGF1Padding。<tr><td>card_info<td>String<td>必选<td>9F05 + Lc + CardInfo1 + 9F31 + Lc + CardAuthParameter<td>发卡方发放的卡片私有信息，允许在AUTH认证之前读取（GetProcessData步骤），TLV格式存储（多个TLV数据拼接）。加密方式：TLV明文数据补800...00到16字节整数倍，使用aesKey，aesIv加密后的结果，并转换成十六进制字符串。CBC模式加密，加密算法：AES/CBC/NoPadding。<tr><td>card_privateInfo<td>String<td>必选<td>-<td>发卡方发放的卡片私有信息，如卡片有效期、权限等信息，在AUTH认证之后读取（ReadBinary步骤），三方自行解析。加密方式：数据明文后补800...00到16字节整数倍，使用aesKey，aesIv加密后的结果，并转换成十六进制字符串。CBC模式加密，加密算法：AES/CBC/NoPadding。<tr><td>card_key_iv<td>String<td>必选<td>Lc + CardKeyIV<td>交易流程协商的SessionKey使用（需要同步下发到车端），16字节，如您无需使用此值，请传入全0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=响应示例-3>响应示例<a href=#响应示例-3 class=hash-link aria-label=响应示例的直接链接 title=响应示例的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "httpStatus": "0",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "response": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "encryptDevicePass": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "encryptAppletPersonalizeFields": "xxx",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "encryptSessionKey": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "signature": "xxx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=三方业务管理服务处理调用示例-2>三方业务管理服务处理调用示例<a href=#三方业务管理服务处理调用示例-2 class=hash-link aria-label=三方业务管理服务处理调用示例的直接链接 title=三方业务管理服务处理调用示例的直接链接 translate=no>​</a></h3>
+<p>完整的调用示例，请参见<a href=https://gitcode.com/harmonyos_samples/wallet-kit-sample-code-severdemo-nfc-java target=_blank rel="noopener noreferrer" class="">钱包服务-服务端卡片激活</a>示例代码。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">    public PersonalizeResponse dealWithPersonalizeDataRequest(String token, PersonalizeRequest request) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        PersonalizeResponse response = new PersonalizeResponse();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        RequestBody requestBody = request.getRequestBody();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String userDeviceId = requestBody.getUserDeviceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate spCertFromRequest = request.getCertificate();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String cachedToken = deviceIdTokenMap.remove(userDeviceId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (cachedToken == null || !cachedToken.equals(token)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (CommonUtils.isStringEmpty(userDeviceId) || !ParamChecker.checkSpServerCertificate(spCertFromRequest)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Certificate cachedCert = deviceIdCertMap.get(userDeviceId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (cachedCert == null) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_PARAM_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!ParamChecker.hashSignatureCheck(request.toJsonString(token), request.getSignature(),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                appletAuthPublicKey, DataConvertUtil.SIGN_MODE_SHA256_RSA_MGF1)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String personalizePKSign = requestBody.getPersonalizeCert();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        byte[] srcBytes = DataConvertUtil.base64Decode(requestBody.getPersonalizePublicKey());</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (!DataConvertUtil.checkSign(srcBytes, personalizePKSign,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                appletAuthPublicKey, DataConvertUtil.SIGN_MODE_SHA256_RSA_MGF1)) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_SIGN_ERROR));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setHttpStatus(String.valueOf(Constants.RESULT_CODE_OK));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        PassDataResponse passData = getDevicePassData(requestBody);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setResponse(passData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String passDataStr = passData.toJsonString();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String passHashValue = DataConvertUtil.encodeSHA256(passDataStr);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        String signature = DataConvertUtil.signData(passHashValue, Constants.SERVER_SECRET_KEY);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        response.setSignature(signature);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return response;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-introduction/wallet-rest-api-introduction><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>公共说明</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/wallet-api/wallet-rest-api/wallet-rest-api-carkey/wallet-rest-api-carkey><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>数字车钥匙接口</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#获取accesstoken class="table-of-contents__link toc-highlight">获取AccessToken</a><ul><li><a href=#接口原型 class="table-of-contents__link toc-highlight">接口原型</a><li><a href=#请求参数 class="table-of-contents__link toc-highlight">请求参数</a><li><a href=#请求示例 class="table-of-contents__link toc-highlight">请求示例</a><li><a href=#响应参数 class="table-of-contents__link toc-highlight">响应参数</a><li><a href=#响应示例 class="table-of-contents__link toc-highlight">响应示例</a><li><a href=#调用示例 class="table-of-contents__link toc-highlight">调用示例</a></ul><li><a href=#设备认证 class="table-of-contents__link toc-highlight">设备认证</a><ul><li><a href=#接口原型-1 class="table-of-contents__link toc-highlight">接口原型</a><li><a href=#请求参数-1 class="table-of-contents__link toc-highlight">请求参数</a><li><a href=#请求示例-1 class="table-of-contents__link toc-highlight">请求示例</a><li><a href=#响应参数-1 class="table-of-contents__link toc-highlight">响应参数</a><li><a href=#响应示例-1 class="table-of-contents__link toc-highlight">响应示例</a><li><a href=#三方业务管理服务处理调用示例 class="table-of-contents__link toc-highlight">三方业务管理服务处理调用示例</a></ul><li><a href=#获取个人化数据token class="table-of-contents__link toc-highlight">获取个人化数据Token</a><ul><li><a href=#接口原型-2 class="table-of-contents__link toc-highlight">接口原型</a><li><a href=#请求参数-2 class="table-of-contents__link toc-highlight">请求参数</a><li><a href=#请求示例-2 class="table-of-contents__link toc-highlight">请求示例</a><li><a href=#响应参数-2 class="table-of-contents__link toc-highlight">响应参数</a><li><a href=#响应示例-2 class="table-of-contents__link toc-highlight">响应示例</a><li><a href=#三方业务管理服务处理调用示例-1 class="table-of-contents__link toc-highlight">三方业务管理服务处理调用示例</a></ul><li><a href=#获取个人化数据 class="table-of-contents__link toc-highlight">获取个人化数据</a><ul><li><a href=#接口原型-3 class="table-of-contents__link toc-highlight">接口原型</a><li><a href=#请求参数-3 class="table-of-contents__link toc-highlight">请求参数</a><li><a href=#请求示例-3 class="table-of-contents__link toc-highlight">请求示例</a><li><a href=#响应参数-3 class="table-of-contents__link toc-highlight">响应参数</a><li><a href=#响应示例-3 class="table-of-contents__link toc-highlight">响应示例</a><li><a href=#三方业务管理服务处理调用示例-2 class="table-of-contents__link toc-highlight">三方业务管理服务处理调用示例</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

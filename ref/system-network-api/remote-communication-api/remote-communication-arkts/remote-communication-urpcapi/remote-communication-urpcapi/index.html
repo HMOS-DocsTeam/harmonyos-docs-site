@@ -1,0 +1,710 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>urpc | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="urpc | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供URPC功能。应用程序可通过URPC提供的生成代码接口发起RPC请求。常见的URPC方法包括urpcStubCreate、UrpcCall、UrpcCancel、UrpcDestroy。 /><meta data-rh=true property=og:description content=本模块提供URPC功能。应用程序可通过URPC提供的生成代码接口发起RPC请求。常见的URPC方法包括urpcStubCreate、UrpcCall、UrpcCancel、UrpcDestroy。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi","name":"urpc","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="Connectivity Kit（短距通信服务）" class=categoryLinkLabel_W154>Connectivity Kit（短距通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/distributed-service-api/distributed-service-arkts/js-apis-distributeddevicemanager/js-apis-distributeddevicemanager><span title="Distributed Service Kit（分布式管理服务）" class=categoryLinkLabel_W154>Distributed Service Kit（分布式管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/nearlink-api/nearlink-arkts/nearlink-manager/nearlink-manager><span title="NearLink Kit（星闪服务）" class=categoryLinkLabel_W154>NearLink Kit（星闪服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection><span title="Network Kit（网络服务）" class=categoryLinkLabel_W154>Network Kit（网络服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="Network Boost Kit（网络加速服务）" class=categoryLinkLabel_W154>Network Boost Kit（网络加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="Remote Communication Kit（远场通信服务）" class=categoryLinkLabel_W154>Remote Communication Kit（远场通信服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title=rcp class=linkLabel_WmDU>rcp</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-urpcapi/remote-communication-urpcapi><span title=urpc class=linkLabel_WmDU>urpc</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-module/remote-communication-overview/remote-communication-overview><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code><span title=API错误码 class=linkLabel_WmDU>API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/service-collaboration-api/servicecollaboration-arkts/servicecollaboration-collaborationcamera/servicecollaboration-collaborationcamera><span title="Service Collaboration Kit（协同服务）" class=categoryLinkLabel_W154>Service Collaboration Kit（协同服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/telephony-api/telephony-arkts/js-apis-call/js-apis-call><span title="Telephony Kit（蜂窝通信服务）" class=categoryLinkLabel_W154>Telephony Kit（蜂窝通信服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>网络</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Remote Communication Kit（远场通信服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>urpc</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>urpc</h1></header>
+<p>本模块提供URPC功能。应用程序可通过URPC提供的生成代码接口发起RPC请求。常见的URPC方法包括<a href=#urpcstubcreate class="">urpcStubCreate</a>、<a href=#urpccall class="">UrpcCall</a>、<a href=#urpccancel class="">UrpcCancel</a>、<a href=#urpcdestroy class="">UrpcDestroy</a>。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit";</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=flowbuftype>FlowbufType<a href=#flowbuftype class=hash-link aria-label=FlowbufType的直接链接 title=FlowbufType的直接链接 translate=no>​</a></h2>
+<p>type FlowbufType =</p>
+<p>'INT8' | 'UINT8' | 'INT16' | 'UINT16' | 'INT32' | 'UINT32' | 'INT64' | 'UINT64' | 'BOOL' | 'FLOAT' | 'DOUBLE' | 'STRING' | 'BYTES' | 'MESSAGE' | 'REPEATED_INT8' | 'REPEATED_UINT8' | 'REPEATED_INT16' | 'REPEATED_UINT16' | 'REPEATED_INT32' | 'REPEATED_UINT32' | 'REPEATED_INT64' | 'REPEATED_UINT64' | 'REPEATED_BOOL' | 'REPEATED_FLOAT' | 'REPEATED_DOUBLE' | 'REPEATED_STRING' | 'REPEATED_BYTES' | 'REPEATED_MESSAGE' | 'ARRAY_INT8' | 'ARRAY_UINT8' | 'ARRAY_INT16' | 'ARRAY_UINT16' | 'ARRAY_INT32' | 'ARRAY_UINT32' | 'ARRAY_INT64' | 'ARRAY_UINT64' | 'ARRAY_BOOL' | 'ARRAY_FLOAT' | 'ARRAY_DOUBLE';</p>
+<p>表示通过URPC通信允许传入和接收返回值的类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'INT8'<td>表示参数类型为'INT8'。<tr><td>'UINT8'<td>表示参数类型为'UINT8'。<tr><td>'INT16'<td>表示参数类型为'INT16'。<tr><td>'UINT16'<td>表示参数类型为'UINT16'。<tr><td>'INT32'<td>表示参数类型为'INT32'。<tr><td>'UINT32'<td>表示参数类型为'UINT32'。<tr><td>'INT64'<td>表示参数类型为'INT64'。<tr><td>'UINT64'<td>表示参数类型为'UINT64'。<tr><td>'BOOL'<td>表示参数类型为'BOOL'。<tr><td>'FLOAT'<td>表示参数类型为'FLOAT'。<tr><td>'DOUBLE'<td>表示参数类型为'DOUBLE'。<tr><td>'STRING'<td>表示参数类型为'STRING'。<tr><td>'BYTES'<td>表示参数类型为'BYTES'。<tr><td>'MESSAGE'<td>表示参数类型为自定义的'MESSAGE'。<tr><td>'REPEATED_INT8'<td>表示参数类型为可变长度的'INT8'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_UINT8'<td>表示参数类型为可变长度的'UINT8'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_INT16'<td>表示参数类型为可变长度的'INT16'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_UINT16'<td>表示参数类型为可变长度的'UINT16'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_INT32'<td>表示参数类型为可变长度的'INT32'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_UINT32'<td>表示参数类型为可变长度的'UINT32'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_INT64'<td>表示参数类型为可变长度的'INT64'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_UINT64'<td>表示参数类型为可变长度的'UINT64'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_BOOL'<td>表示参数类型为可变长度的'BOOL'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_FLOAT'<td>表示参数类型为可变长度的'INT8'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_DOUBLE'<td>表示参数类型为可变长度的'DOUBLE'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_STRING'<td>表示参数类型为可变长度的'STRING'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_BYTES'<td>表示参数类型为可变长度的'BYTES'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'REPEATED_MESSAGE'<td>表示参数类型为可变长度的自定义'MESSAGE'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_INT8'<td>表示参数类型为固定长度的'INT8'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_UINT8'<td>表示参数类型为固定长度的'UINT8'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_INT16'<td>表示参数类型为固定长度的'INT16'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_UINT16'<td>表示参数类型为固定长度的'UINT16'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_INT32'<td>表示参数类型为固定长度的'INT32'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_UINT32'<td>表示参数类型为固定长度的'UINT32'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_INT64'<td>表示参数类型为固定长度的'INT64'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_UINT64'<td>表示参数类型为固定长度的'UINT64'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_BOOL'<td>表示参数类型为固定长度的'BOOL'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_FLOAT'<td>表示参数类型为固定长度的'FLOAT'数组，该字段为预留字段，在当前版本不能使用。<tr><td>'ARRAY_DOUBLE'<td>表示参数类型为固定长度的'DOUBLE'数组，该字段为预留字段，在当前版本不能使用。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=flowbufelementt>FlowbufElement&lt;T><a href=#flowbufelementt class=hash-link aria-label="FlowbufElement<T>的直接链接" title="FlowbufElement<T>的直接链接" translate=no>​</a></h2>
+<p>FlowbufElement&lt;T>用于定义非数组的URPC入参和返回值类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#flowbuftype class="">FlowbufType</a><td>否<td>否<td>表示通过URPC通信允许传入和接收返回值的类型。<tr><td>value<td>T<td>否<td>否<td>表示该参数的具体数值。例如，如果type的值为'INT8'，则value为number类型，可配置0。<tr><td>name<td>string<td>否<td>否<td>表示该参数的名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let version: urpc.FlowbufElement&lt;number> = {type: 'INT8', value: 0, name: ""};</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=flowbufarrayelementt>FlowbufArrayElement&lt;T><a href=#flowbufarrayelementt class=hash-link aria-label="FlowbufArrayElement<T>的直接链接" title="FlowbufArrayElement<T>的直接链接" translate=no>​</a></h2>
+<p>FlowbufArrayElement&lt;T>用于定义数组类型的URPC入参和返回值类型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#flowbuftype class="">FlowbufType</a><td>否<td>否<td>表示通过URPC通信允许传送和接收返回值的类型。<tr><td>value<td>T[]<td>否<td>否<td>表示该参数的具体数值。例如，如果type的值为'ARRAY_INT8'，则value为number[]类型，可配置[1,2,3]。<tr><td>length<td>number<td>否<td>否<td>表示该参数数组的长度，长度范围[0, 2147483647]。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let version: urpc.FlowbufArrayElement&lt;number> = {type: 'ARRAY_INT8', value: [1,2,3], length: 3};</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcstubcreate>urpcStubCreate<a href=#urpcstubcreate class=hash-link aria-label=urpcStubCreate的直接链接 title=urpcStubCreate的直接链接 translate=no>​</a></h2>
+<p>urpcStubCreate(config: UrpcInitConfiguration, funcList: string | string[]): Promise&lt;UrpcStub></p>
+<p>创建UrpcStub，使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.INTERNET</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#urpcinitconfiguration class="">UrpcInitConfiguration</a><td>是<td>stub配置。<tr><td>funcList<td>string<td>string[]<td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#urpcstub class="">UrpcStub</a>><td>Promise对象，返回可用于发出URPC请求的对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code>API错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>10079100998<td>Function name error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let node: urpc.IpAndPort = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ip: '127.0.0.1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  port: 8000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connect: urpc.UrpcConnectConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  node: node,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  protocol: 'eat',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let config: urpc.UrpcInitConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  timeout: 3000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  mode: 'client',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  connect: connect</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const funcList:string[] = ["uploadFile"];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">urpc.urpcStubCreate(config, funcList).then((urpcStub: urpc.UrpcStub) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  urpcStub.destroy();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to create urpc stub, error code ${err.code}, error info ${err.data}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpccall>UrpcCall<a href=#urpccall class=hash-link aria-label=UrpcCall的直接链接 title=UrpcCall的直接链接 translate=no>​</a></h2>
+<p>type UrpcCall = (funcName: string, request: object, returnValue: object, config?: CallingOption) => UrpcPromise;</p>
+<p>用于发起一个URPC请求，并接收来自服务器的响应。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>funcName<td>string<td>是<td>URPC请求函数名。<tr><td>request<td>object<td>是<td>URPC请求对象。对象体积最大值为1MB。如果超出最大值，抛出错误码<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code#section1007910001-%E8%AF%B7%E6%B1%82%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E9%94%99%E8%AF%AF>1007910001</a>。<tr><td>returnValue<td>object<td>是<td>URPC响应对象。对象体积最大值为100KB。如果超出最大值，抛出错误码<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code#section1007910006-%E8%AF%B7%E6%B1%82%E5%A4%A7%E5%B0%8F%E8%BE%BE%E5%88%B0%E4%B8%8A%E9%99%90>1007910006</a>。<tr><td>config<td><a href=#callingoption class="">CallingOption</a><td>否<td>单次请求配置选项。该字段为预留字段，在当前版本并不生效。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#urpcpromise class="">UrpcPromise</a><td>Promise对象，返回来自服务器的响应对象。</table>
+<p><strong><strong>错误码：</strong></strong> 错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code>API错误码</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpccancel>UrpcCancel<a href=#urpccancel class=hash-link aria-label=UrpcCancel的直接链接 title=UrpcCancel的直接链接 translate=no>​</a></h2>
+<p>type UrpcCancel = (callingId?: number | number[]) => void;</p>
+<p>用于取消指定或所有正在进行的URPC请求。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callingId<td>number<td>number[]<td>否</table>
+<p><strong><strong>错误码：</strong></strong> 错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code>API错误码</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcdestroy>UrpcDestroy<a href=#urpcdestroy class=hash-link aria-label=UrpcDestroy的直接链接 title=UrpcDestroy的直接链接 translate=no>​</a></h2>
+<p>type UrpcDestroy = () => void</p>
+<p>用于销毁<a href=#urpcstub class="">UrpcStub</a>实例。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<p><strong><strong>错误码：</strong></strong> 错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-error-code/remote-communication-error-code>API错误码</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcstub>UrpcStub<a href=#urpcstub class=hash-link aria-label=UrpcStub的直接链接 title=UrpcStub的直接链接 translate=no>​</a></h2>
+<p>表示可用于发出URPC请求的通信会话。它提供了各种远程调用方法（call、cancel、destroy）。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+<p><strong><strong>属性：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>number<td>是<td>否<td>UrpcStub的唯一标识id。<tr><td>call<td><a href=#urpccall class="">UrpcCall</a><td>否<td>否<td>表示调用URPC请求。<tr><td>cancel<td><a href=#urpccancel class="">UrpcCancel</a><td>否<td>否<td>表示取消URPC请求。<tr><td>destroy<td><a href=#urpcdestroy class="">UrpcDestroy</a><td>否<td>否<td>表示销毁UrpcStub。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcinitconfiguration>UrpcInitConfiguration<a href=#urpcinitconfiguration class=hash-link aria-label=UrpcInitConfiguration的直接链接 title=UrpcInitConfiguration的直接链接 translate=no>​</a></h2>
+<p>SessionConfiguration接口定义了会话的配置参数，为开发者提供了对HTTP会话各个方面的详细控制。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>mode<td><a href=#urpcmode class="">UrpcMode</a><td>否<td>是<td>URPC的运行模式，默认值为'client'，表示client模式。<tr><td>connect<td><a href=#urpcconnectconfiguration class="">UrpcConnectConfiguration</a><td>否<td>否<td>指定与stub相关联的连接配置，包括ip地址和端口号、URPC连接协议、是否多径等配置项。<tr><td>timeout<td>number<td>否<td>否<td>设置URPC的连接超时时间，表示请求等待多久后超时返回，单位是毫秒（ms），取值范围[0, 4294967295]。该字段为预留字段，在当前版本并不生效。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let node: urpc.IpAndPort = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ip: '127.0.0.1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  port: 8000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connect: urpc.UrpcConnectConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  node: node,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  protocol: 'eat',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let config: urpc.UrpcInitConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  timeout: 3000,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  mode: 'client',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  connect: connect</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcmode>UrpcMode<a href=#urpcmode class=hash-link aria-label=UrpcMode的直接链接 title=UrpcMode的直接链接 translate=no>​</a></h2>
+<p>type UrpcMode = 'client';</p>
+<p>当前仅支持填写'client'，表示该URPC节点为client模式，可主动发起请求，等待服务器的响应。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'client'<td>表示URPC节点的模式，值固定为'client'。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcconnectconfiguration>UrpcConnectConfiguration<a href=#urpcconnectconfiguration class=hash-link aria-label=UrpcConnectConfiguration的直接链接 title=UrpcConnectConfiguration的直接链接 translate=no>​</a></h2>
+<p>UrpcConnectConfiguration配置URPC连接的关键信息，可以配置连接的ip和端口号，以及传输协议等可选参数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>node<td><a href=#ipandport class="">IpAndPort</a><td>否<td>否<td>连接的IP和端口配置。<tr><td>protocol<td><a href=#urpcprotocol class="">UrpcProtocol</a><td>否<td>是<td>传输连接采用的协议类型，默认值为'eat'，表示采用eat协议。<tr><td>multiPath<td>boolean<td>否<td>是<td>是否支持多路径传输，true表示支持多路径传输，多路径包含蜂窝网络和Wi-Fi；false表示不支持多路径传输，默认值为false。该字段为预留字段，在当前版本并不生效。<tr><td>flags<td>number<td>否<td>是<td>证书标记位，非0表示开启证书校验。默认值为0，表示不开启证书校验。<tr><td>host<td>string<td>否<td>是<td>urpc服务的域名，默认值为空字符串。<tr><td>caPath<td>string<td>否<td>是<td>校验证书的路径名称，默认值为空字符串。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let node: urpc.IpAndPort = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ip: '127.0.0.1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  port: 8000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let connect: urpc.UrpcConnectConfiguration = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  node: node,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  protocol: 'eat',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  multiPath: false,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  flags: 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  host: "127.0.0.1",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  caPath: "data/single_urpc/eat.pem"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ipandport>IpAndPort<a href=#ipandport class=hash-link aria-label=IpAndPort的直接链接 title=IpAndPort的直接链接 translate=no>​</a></h2>
+<p>IpAndPort用于配置URPC的连接IP和端口号。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>ip<td>string<td>否<td>否<td>指定URPC的IPv4或IPv6地址。<tr><td>port<td>number<td>否<td>否<td>指定URPC端口号，取值范围[0, 65535]。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { urpc } from "@kit.RemoteCommunicationKit"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let node: urpc.IpAndPort = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ip: '127.0.0.1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  port: 8000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcpromise>UrpcPromise<a href=#urpcpromise class=hash-link aria-label=UrpcPromise的直接链接 title=UrpcPromise的直接链接 translate=no>​</a></h2>
+<p>表示URPC请求的返回值</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>promise<td>Promise&lt;Object><td>否<td>否<td>URPC请求的响应对象。<tr><td>callingId<td>number<td>否<td>否<td>URPC请求的唯一标识Id，取值范围[0, 2147483647]。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=urpcprotocol>UrpcProtocol<a href=#urpcprotocol class=hash-link aria-label=UrpcProtocol的直接链接 title=UrpcProtocol的直接链接 translate=no>​</a></h2>
+<p>type UrpcProtocol = 'eat'</p>
+<p>当前仅支持填写'eat'，表示URPC的协议类型为eat。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'eat'<td>表示URPC节点的协议类型，值固定为'eat'。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=callingoption>CallingOption<a href=#callingoption class=hash-link aria-label=CallingOption的直接链接 title=CallingOption的直接链接 translate=no>​</a></h2>
+<p>用于配置URPC请求的优先级。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Collaboration.RemoteCommunication</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.1(13)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>priority<td>number<td>否<td>是<td>配置URPC请求的优先级，默认为0，最大取值为3，表示优先级最高，优先级高的可以优先传输。该字段为预留字段，当前版本并不生效。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>rcp</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-c/remote-communication-module/remote-communication-overview/remote-communication-overview><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>RemoteCommunication</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#flowbuftype class="table-of-contents__link toc-highlight">FlowbufType</a><li><a href=#flowbufelementt class="table-of-contents__link toc-highlight">FlowbufElement&lt;T></a><li><a href=#flowbufarrayelementt class="table-of-contents__link toc-highlight">FlowbufArrayElement&lt;T></a><li><a href=#urpcstubcreate class="table-of-contents__link toc-highlight">urpcStubCreate</a><li><a href=#urpccall class="table-of-contents__link toc-highlight">UrpcCall</a><li><a href=#urpccancel class="table-of-contents__link toc-highlight">UrpcCancel</a><li><a href=#urpcdestroy class="table-of-contents__link toc-highlight">UrpcDestroy</a><li><a href=#urpcstub class="table-of-contents__link toc-highlight">UrpcStub</a><li><a href=#urpcinitconfiguration class="table-of-contents__link toc-highlight">UrpcInitConfiguration</a><li><a href=#urpcmode class="table-of-contents__link toc-highlight">UrpcMode</a><li><a href=#urpcconnectconfiguration class="table-of-contents__link toc-highlight">UrpcConnectConfiguration</a><li><a href=#ipandport class="table-of-contents__link toc-highlight">IpAndPort</a><li><a href=#urpcpromise class="table-of-contents__link toc-highlight">UrpcPromise</a><li><a href=#urpcprotocol class="table-of-contents__link toc-highlight">UrpcProtocol</a><li><a href=#callingoption class="table-of-contents__link toc-highlight">CallingOption</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

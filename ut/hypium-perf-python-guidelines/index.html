@@ -1,0 +1,575 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-ut/hypium-perf-python-guidelines/hypium-perf-python-guidelines" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>自定义性能脚本测试（基于Python） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ut/hypium-perf-python-guidelines/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="自定义性能脚本测试（基于Python） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=*概述* /><meta data-rh=true property=og:description content=*概述* /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ut/hypium-perf-python-guidelines/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ut/hypium-perf-python-guidelines/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ut/hypium-perf-python-guidelines/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ut/hypium-perf-python-guidelines/","name":"自定义性能脚本测试（基于Python）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/app-testing-overview/><span title="HarmonyOS 开发者测试服务概述" class=linkLabel_WmDU>HarmonyOS 开发者测试服务概述</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ut/arkxtest-guidelines/unittest-guidelines/><span title=单元测试和UI测试 class=categoryLinkLabel_W154>单元测试和UI测试</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ut/arkxtest-guidelines/unittest-guidelines/><span title=自动化测试框架使用指导 class=categoryLinkLabel_W154>自动化测试框架使用指导</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ut/hypium-python-guidelines/><span title=应用UI测试（基于Python） class=linkLabel_WmDU>应用UI测试（基于Python）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ut/hypium-perf-python-guidelines/><span title=自定义性能脚本测试（基于Python） class=linkLabel_WmDU>自定义性能脚本测试（基于Python）</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/test-service/indev_cmd/smartperf-guidelines/><span title=专项测试 class=categoryLinkLabel_W154>专项测试</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用测试</span><li class=breadcrumbs__item><span class=breadcrumbs__link>单元测试和UI测试</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>自定义性能脚本测试（基于Python）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>自定义性能脚本测试（基于Python）</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=概述><strong><strong>概述</strong></strong><a href=#概述 class=hash-link aria-label=概述的直接链接 title=概述的直接链接 translate=no>​</a></h2>
+<p>DevEco Testing场景化的性能测试服务，基于Hypium自动化测试框架，为开发者提供性能测试能力，支持使用Python编写应用的性能测试脚本。本指南主要讲解性能测试脚本的开发。</p>
+<p>Hypium基本API接口功能介绍，请参考指导：<a class="" href=/harmonyos-docs-site/ut/hypium-python-guidelines#section1141818121333>Hypium框架-API使用方法</a>。</p>
+<p>测试服务执行测试脚本详情介绍，请参考指导：<a class="" href=/harmonyos-docs-site/test-service/deveco-testing/specialized-testing#section8642101711299>场景化性能测试</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=环境搭建><strong><strong>环境搭建</strong></strong><a href=#环境搭建 class=hash-link aria-label=环境搭建的直接链接 title=环境搭建的直接链接 translate=no>​</a></h2>
+<p><strong><strong>1、系统要求</strong></strong></p>
+<p><strong><strong>Windows</strong></strong></p>
+<p>操作系统：Windows 10/11 64 位</p>
+<p>内存：推荐使用16GB及以上（可用内存大于8G）</p>
+<p>处理器：<a href=mailto:i7-10700@2.9GHz target=_blank rel="noopener noreferrer" class="">i7-10700@2.9GHz</a>或者同等性能的型号</p>
+<p>硬盘：可用硬盘空间100GB以上</p>
+<p><strong><strong>Mac</strong></strong></p>
+<p>操作系统：MacOS 13及以上</p>
+<p>内存：推荐使用16GB及以上（可用内存大于8G）</p>
+<p>处理器：<a href=mailto:i7-10700@2.9GHz target=_blank rel="noopener noreferrer" class="">i7-10700@2.9GHz</a>及以上或Apple silicon M系列</p>
+<p>硬盘：可用硬盘空间100GB以上</p>
+<p><strong><strong>2、环境配置</strong></strong></p>
+<p><strong><strong>安装Python及Hypium</strong></strong></p>
+<p>参考指导：<a class="" href=/harmonyos-docs-site/ut/hypium-python-guidelines>应用UI测试-安装指导</a>。</p>
+<p><strong><strong>安装hypium_perf</strong></strong></p>
+<p>1）打开DevEco Testing客户端-专项测试-场景化性能测试卡片，点击获取安装包，打开安装包目录，如下图。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343740-193f22f2042ab32c1cd4bd46bc3f007f.png width=705 height=299 class=img_ev3q /></p>
+<p>2）由于存在依赖关系，需要依次步骤1目录下的hypium、hypium-perf、perf_analyzer等安装包。</p>
+<p>安装命令示例</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">pip install hypium-6.0.7.210.tar.gz</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pip install hypium-perf-6.0.7.210.tar.gz</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pip install perf_analyzer-6.0.7.203b0-py3-none-any.whl perf_collector-6.0.7.203b0-py3-none-any.whl perf_common-6.0.7.203b0-py3-none-any.whl perf_resource-6.0.7.203b0-py3-none-any.whl</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAIQUlEQVRo3u2ae1DTVxbHP4gmPMLDhKcPEkAelqW2CsWyikLFik6VHV91hrGKdZmiOz6KY92hI+3Stajja6qWioiIi6i1rFWLUhCRUqkIVpYFBFHQBgUJ8taAsn9EwqYgVsA1XXNmMpPc+/3dc+/9/s6555wbvaa8YRHAenSiVTJItwU6YnSiI0ZHjE50xOiI0YkWyODnraC1TcLOb15juPUQAr0vYjikVrfr2kDMup2OxMQfAKAhchEh088MuI5d+0WEvtf0xP7SW6M4dQ78POtxd67ps56vDlnToW/M9coW1ixWIBErf5/EFMm9iYk/SnhYEPLbTXwYHsecSZORGF8dMB2RuyzJKRrCvyuFfLKsscfN+ktEFVl5pYQGebNx9dOJ+e6sSY/t2ZdbOJ5RiFKpxHCwC2+8KuwRF+DbqN3EfLTxFjKplLk+d1E0mxGbAH/bY862lQOnI6eghR/yKzirVNKhN46F0+vxGtuigXnFyZSsPPi5qIHSciFODg96HfPgGTHJp3/sFbNpf0mP7WEhfgT4FmsvMRmF/qRl7mdn1BLMhLmYCasIDwsicnMCIfPmMHpY9oDo+XZ3M8si3TmRUU7iiQL0OlwQWY3VwEzxaeTUOWsEgkEkpdrwpxkj1X0ig1akFpc08O7OQkbJ/Ghpvk/yyULkdfX4jHPgDQ+ZBi7l+2L+dU3OhHGjGe9hC4DtALm350JMa5uE5eEZyKRS3nLvcltzfe4SuRmi9jQQN4DVuZ3hVdhaulJVo8TdxZB3lqT3iCssk1NYBrHHStVtLlILvvuqCxN9xAFzUTvmAOJBSO2GIq+rR2xhjWhIEyYmAgBqFA/p0DcCwFDwQIOQQ6eG8e50eb/WpPc8ipiJ56axdFUsR6IX4SnL57rCFQB7cTEnL3uwbO1eThx4j8luqf3WlXzGAluLFrX7ik+240yOngamuUVJ6vlLuDo74mpvpTnAw0YSNirUPx3eVlJdc7dfcwoL8SMipFi7LKa22Zmlq2KZPXMqnrJ8Pj1gT2xCEgBR6xczy+sqMqmU5eEZXDws6Vf4nHzGgn98b0zbgyHMKjdg0RwFCwMrWRioiYs+4kDqeXC1tyJhQ0WvY659X/US5f7ct+jNY4wlZsYN2ufKtidZA7B8wVDgDrEJyeq+3XHpzPc2Z9NffZkbEkdydjALJqX0WZehkRENdffIulSEvNqRW9WWhIfW9Gv+IXPLATifJ8VmhO0zPavfXkfI3BLty/yL5N5s+SKJFR/Mx17c3ZQd7FQL9ZTlM3vmVJauiqW22bnP+t6eUElMpJCJHq4Ullyj+MbDAVtLdl4pX+49Ru0vpYgG3+v1U1l2lS/3HuOX2/e1M4+J2qMy4eCAenWbTCrlRkXF4+82wHW1RX19XGVhnwb3Pa8ZYV1NwucC1m1zZ8NKVf6wOsoWU3MzNUZRryKsqbWDiGhXjeeHmdXx53fvPHF8c5OOp0ZaFYZ62ptgZhT6c/SfXeFxp/hNfJ3Yx8QMsxGp2+3Fxaz4YD5bvkhiwbT+h89rFjWpk8trN9soSL/SDZN5IY8rRaYabaHzHXp3T6bOlFY/xYUZmwAF2kdMa5uErXtKuoXHvybD1lIzUw4OqGf7bog+3N6vpHNfshXpF5WYGLSStLWRHRFSmu53WcaRk3fZHJ3OJC93Itc4ajxrb9X7mXC1IBdrC8NeMTdutWinxSRne5KWGUvcjiUY6Odq9P03GTIbTZdgJqwiav1i1n6yj0D/vofPldX6ZOZcJnjem0Bjt4QxS6yyCmMjAW4jsp5p7PSfKn+fRczaZmc+25aG38TxTHbJ7db/il1XcVEi6l5onOVVxm6plK17SvDa1Lfw+frNZgCchrcNyKaczrLDZ0w1U70lnM+D9kfg5qDP3XsdnM5qwNxsCKsXql6465Ud2NvpUVcP35ytJu6omEVzFC8+Ktt3ciQ3Kir4OFTaY7+9uJjZM6cSHhaEjai8W7+BfgMRH04hLfMCydmefar4/nCpGDcXR6b9sf9XCrUKAbsOtXA88xblcgMa28QknirB0ETMO5PbsLe34VKRnMOpAgJ8G0k8/YCz+RISU9pIy7lJXpkJtQrBi7WYIrk3EZ8fIDgosMfwuFOWzmjEWvzkE3SySy5+E8fz2bY0pno4P1P1uUxuiFKpxEVmRllFMwdT7btheovKfh2ZbT84lLTsfN7yfpXw0BqC1qleuOKye4TMbWF5uwiBvjMyayWrNogpLL+Kra0FcX9/xOwVdsQe/hH9jj+wdZ3ixRETfbgdgBXznhy/1zXoMWdVHlYSEV9vGclQ044ecR+HSvFdcIF9J30Im/fbiSm6pnKPzjIh0Ez8sSs94qwsLbhSVMaVou59nZFZrULAxYJWBAIBMyboA2BkoJrv9TsigtY9vg7Qh9LbUFhWjVKpRDZciESsZMHMEQgNDLjXqEetQtCv+5o+E5NR6E9M/H6i1i/GTJj3RFx+oWph1bVN1NXDUFOe6PKCgwKJ+PwAMyb8tvC5tFyItWQwHm6j8PeswWtsC986+T3zWjojM4lYyY6P9EhKGa22oKCA+9y/P5ZHdM9VnOzM8X/Tm9mTq9VVg9ccjbpdO/xPi5izVtpxraKKlN12GOj3XhvKK1QtaqxbR6+4+ge2jJmZwvsLA9m28ideZunT4Z94bhppmRdYEzrlqaR0EvI0UjrD5/CwIGLik8kt932piemTK8vJ7zrYTl72GNAJmRg/Urmpm0I8HHTEPJN4vS4mJh6Wrd37XCYlk0pxGvngpbYYPd2//f+Pzhid6IjREaMTHTE60RGjI0YnzyGPydBtg/bJfwCln/+4V4N0SAAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>1、以上命令中安装包的版本仅供示例，具体版本号请参照实际下载版本。</p>
+<p>2、若安装 paddlepaddle 失败，请先安装当前目录下提供的 paddlepaddle 的 whl 包，然后再安装其他 Python 包。</p>
+<p>3）安装完成后，可前往查看PyCharm-设置-项目-Python解释器中的软件包与已安装版本是否一致。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=脚本写作调试><strong><strong>脚本写作&调试</strong></strong><a href=#脚本写作调试 class=hash-link aria-label=脚本写作调试的直接链接 title=脚本写作调试的直接链接 translate=no>​</a></h2>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=脚本写作>脚本写作<a href=#脚本写作 class=hash-link aria-label=脚本写作的直接链接 title=脚本写作的直接链接 translate=no>​</a></h2>
+<p><strong><strong>1、下载工程模板</strong></strong></p>
+<p>1）打开DevEco Testing客户端-专项测试-场景化性能测试卡片，在测试前准备中，点击创建工程模板按钮。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343738-db7505f0bee538b8ad3c5a10b7f9bd8d.png title=点击放大 width=819 height=693 class=img_ev3q /></p>
+<p>2）填写工程项目名称，选择工程存放路径，点击开始生成按钮。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002524503435-3e2b02e9c7a6a4d75598327a9937daec.png title=点击放大 width=1346 height=638 class=img_ev3q /></p>
+<p>3）在步骤2中填写的项目路径下，将自动生成用例模板。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343728-ebe2e82a2ad55c67b0a54d5a2cf483ea.png width=686 height=189 class=img_ev3q /></p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAIQUlEQVRo3u2ae1DTVxbHP4gmPMLDhKcPEkAelqW2CsWyikLFik6VHV91hrGKdZmiOz6KY92hI+3Stajja6qWioiIi6i1rFWLUhCRUqkIVpYFBFHQBgUJ8taAsn9EwqYgVsA1XXNmMpPc+/3dc+/9/s6555wbvaa8YRHAenSiVTJItwU6YnSiI0ZHjE50xOiI0YkWyODnraC1TcLOb15juPUQAr0vYjikVrfr2kDMup2OxMQfAKAhchEh088MuI5d+0WEvtf0xP7SW6M4dQ78POtxd67ps56vDlnToW/M9coW1ixWIBErf5/EFMm9iYk/SnhYEPLbTXwYHsecSZORGF8dMB2RuyzJKRrCvyuFfLKsscfN+ktEFVl5pYQGebNx9dOJ+e6sSY/t2ZdbOJ5RiFKpxHCwC2+8KuwRF+DbqN3EfLTxFjKplLk+d1E0mxGbAH/bY862lQOnI6eghR/yKzirVNKhN46F0+vxGtuigXnFyZSsPPi5qIHSciFODg96HfPgGTHJp3/sFbNpf0mP7WEhfgT4FmsvMRmF/qRl7mdn1BLMhLmYCasIDwsicnMCIfPmMHpY9oDo+XZ3M8si3TmRUU7iiQL0OlwQWY3VwEzxaeTUOWsEgkEkpdrwpxkj1X0ig1akFpc08O7OQkbJ/Ghpvk/yyULkdfX4jHPgDQ+ZBi7l+2L+dU3OhHGjGe9hC4DtALm350JMa5uE5eEZyKRS3nLvcltzfe4SuRmi9jQQN4DVuZ3hVdhaulJVo8TdxZB3lqT3iCssk1NYBrHHStVtLlILvvuqCxN9xAFzUTvmAOJBSO2GIq+rR2xhjWhIEyYmAgBqFA/p0DcCwFDwQIOQQ6eG8e50eb/WpPc8ipiJ56axdFUsR6IX4SnL57rCFQB7cTEnL3uwbO1eThx4j8luqf3WlXzGAluLFrX7ik+240yOngamuUVJ6vlLuDo74mpvpTnAw0YSNirUPx3eVlJdc7dfcwoL8SMipFi7LKa22Zmlq2KZPXMqnrJ8Pj1gT2xCEgBR6xczy+sqMqmU5eEZXDws6Vf4nHzGgn98b0zbgyHMKjdg0RwFCwMrWRioiYs+4kDqeXC1tyJhQ0WvY659X/US5f7ct+jNY4wlZsYN2ufKtidZA7B8wVDgDrEJyeq+3XHpzPc2Z9NffZkbEkdydjALJqX0WZehkRENdffIulSEvNqRW9WWhIfW9Gv+IXPLATifJ8VmhO0zPavfXkfI3BLty/yL5N5s+SKJFR/Mx17c3ZQd7FQL9ZTlM3vmVJauiqW22bnP+t6eUElMpJCJHq4Ullyj+MbDAVtLdl4pX+49Ru0vpYgG3+v1U1l2lS/3HuOX2/e1M4+J2qMy4eCAenWbTCrlRkXF4+82wHW1RX19XGVhnwb3Pa8ZYV1NwucC1m1zZ8NKVf6wOsoWU3MzNUZRryKsqbWDiGhXjeeHmdXx53fvPHF8c5OOp0ZaFYZ62ptgZhT6c/SfXeFxp/hNfJ3Yx8QMsxGp2+3Fxaz4YD5bvkhiwbT+h89rFjWpk8trN9soSL/SDZN5IY8rRaYabaHzHXp3T6bOlFY/xYUZmwAF2kdMa5uErXtKuoXHvybD1lIzUw4OqGf7bog+3N6vpHNfshXpF5WYGLSStLWRHRFSmu53WcaRk3fZHJ3OJC93Itc4ajxrb9X7mXC1IBdrC8NeMTdutWinxSRne5KWGUvcjiUY6Odq9P03GTIbTZdgJqwiav1i1n6yj0D/vofPldX6ZOZcJnjem0Bjt4QxS6yyCmMjAW4jsp5p7PSfKn+fRczaZmc+25aG38TxTHbJ7db/il1XcVEi6l5onOVVxm6plK17SvDa1Lfw+frNZgCchrcNyKaczrLDZ0w1U70lnM+D9kfg5qDP3XsdnM5qwNxsCKsXql6465Ud2NvpUVcP35ytJu6omEVzFC8+Ktt3ciQ3Kir4OFTaY7+9uJjZM6cSHhaEjai8W7+BfgMRH04hLfMCydmefar4/nCpGDcXR6b9sf9XCrUKAbsOtXA88xblcgMa28QknirB0ETMO5PbsLe34VKRnMOpAgJ8G0k8/YCz+RISU9pIy7lJXpkJtQrBi7WYIrk3EZ8fIDgosMfwuFOWzmjEWvzkE3SySy5+E8fz2bY0pno4P1P1uUxuiFKpxEVmRllFMwdT7btheovKfh2ZbT84lLTsfN7yfpXw0BqC1qleuOKye4TMbWF5uwiBvjMyayWrNogpLL+Kra0FcX9/xOwVdsQe/hH9jj+wdZ3ixRETfbgdgBXznhy/1zXoMWdVHlYSEV9vGclQ044ecR+HSvFdcIF9J30Im/fbiSm6pnKPzjIh0Ez8sSs94qwsLbhSVMaVou59nZFZrULAxYJWBAIBMyboA2BkoJrv9TsigtY9vg7Qh9LbUFhWjVKpRDZciESsZMHMEQgNDLjXqEetQtCv+5o+E5NR6E9M/H6i1i/GTJj3RFx+oWph1bVN1NXDUFOe6PKCgwKJ+PwAMyb8tvC5tFyItWQwHm6j8PeswWtsC986+T3zWjojM4lYyY6P9EhKGa22oKCA+9y/P5ZHdM9VnOzM8X/Tm9mTq9VVg9ccjbpdO/xPi5izVtpxraKKlN12GOj3XhvKK1QtaqxbR6+4+ge2jJmZwvsLA9m28ideZunT4Z94bhppmRdYEzrlqaR0EvI0UjrD5/CwIGLik8kt932piemTK8vJ7zrYTl72GNAJmRg/Urmpm0I8HHTEPJN4vS4mJh6Wrd37XCYlk0pxGvngpbYYPd2//f+Pzhid6IjREaMTHTE60RGjI0YnzyGPydBtg/bJfwCln/+4V4N0SAAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>已创建的工程模板可在PyCharm中直接调试，或根据实际测试场景编写脚本。调试成功后，即可在DevEco Testing上执行性能测试。详细步骤请参阅本地脚本调试及测试执行章节。</p>
+<p><strong><strong>2、场景用例和原子用例使用说明</strong></strong></p>
+<p>（1）测试步骤</p>
+<p>用户的一次操作定义为一个测试步骤。</p>
+<p>（2）原子用例</p>
+<p>多个测试步骤组合完成一套操作，形成一个原子用例。原子用例存放在models目录中，对应脚本中的一个模型，具有独立的编号。原子用例是最小的用例单元，且可以被重复使用。</p>
+<p>（3） 场景用例</p>
+<p>用户完成一件事情定义为一个场景用例。例如：用户在小红书浏览后去淘宝搜索购物。</p>
+<p>一个场景用例对应一个用例文件，编号与文件名一致，存放在testcases目录下。场景用例是测试执行的入口，一个场景用例可以由多个原子用例组成。例如，上述场景可以由两个原子用例组成：1）用户浏览小红书；2）用户在淘宝搜索并购物。这两个原子用例独立且可被重用。</p>
+<p>如果有另一个场景用例：用户在小红书浏览后去京东购物，那么“用户浏览小红书”这个原子用例即可被重用。</p>
+<p>测试的执行入口和结果反馈均以场景用例为单位。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">1个性能场景用例由1-N个原子用例(Model)组成，1个原子用例对应1-N个测试步骤。</li>
+<li class="">每个场景用例都需要一个配对的json配置文件。</li>
+<li class="">场景用例包含的步骤数建议在30个步骤以下，步骤数过多可能会导致执行异常，建议进行用例拆分。</li>
+<li class="">原子用例可以放在models目录下，推荐按照APP进行区分。</li>
+</ul>
+<p><strong><strong>3、场景用例写作指导</strong></strong></p>
+<p><strong><strong>Testcase编写规范：</strong></strong></p>
+<p>Testcase对应的是测试场景中的一系列相关的原子用例操作序列。</p>
+<p>（1）命名规范：</p>
+<p>一个Testcase是一个独立的Python文件，Testcase编号与Python文件名一致，例：OH_PerfDemoTest.py。</p>
+<p>（2）继承规范：</p>
+<p>Testcase必须继承PerfBaseCase类，PerfBaseCase会负责用例开始时的初始化流程，进行一些设备环境检查操作。</p>
+<p>（3）注释规范：</p>
+<p>将Testcase的场景描述放置在用例最上方，方便审视测试场景所包含的原子用例执行步骤对应关系。</p>
+<p><strong><strong>场景用例示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import os</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from hypium.advance.perf.application_model.perf_basecase import PerfBaseCase</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from models.browse_huawei_video import BrowseHuaweiVideo</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 场景用例名，和py文件名一致，可以自定义，但有推荐命名格式，需同步生成同名的json文件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 测试用例应继承PerfBaseCase</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">'''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@场景用例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">浏览视频应用界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@预置条件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">无</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@原子用例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">视频页面浏览</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">'''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class OH_PerfDemoTest(PerfBaseCase):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def __init__(self, controllers):  # 初始化操作，这里一般情况下不作变动</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.TAG = self.__class__.__name__</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.tests = [  # 指定场景用例执行入口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "test_step"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.case_id = os.path.splitext(os.path.basename(__file__))[0]  # 文件名, 类名, case_id 三者保持一致</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.case_scene_name = '浏览视频应用界面'  # 指定场景用例名称，用于显示在报告中</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        case_pkg = 'com.huawei.hmsapp.himovie'  # 指定被测试应用，用于采集应用资源使用信息，如果未配置，则不采集</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        PerfBaseCase.__init__(self, controllers, case_pkg)  # 调用父类初始化方法</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.log.info("Case id is %s" % self.case_id)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def setup(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 场景用例前置化操作，在test_step前执行的一些操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.log.info("预置工作:初始化设备开始................." + self.devices[0].device_sn)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def test_step(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 组装需要调用的原子用例，使用原子化用例构建场景步骤，可以一个场景用例添加多个相关的原子用例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        steps = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            # 原子用例需要传入driver，case_id</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            BrowseHuaweiVideo(self.driver, self.case_id)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 按顺序执行原子用例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        for item in steps:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            item.execute()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def teardown(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 获取用例测试结果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        result = self.get_case_result()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 场景用例结束后执行该teardown操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.log.info("收尾工作................., result is {}".format(result))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 此处为用例结尾时执行的PerfBaseCase的teardown方法，处理一些结束操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        PerfBaseCase.teardown(self)</span><br/></div></code></pre></div></div>
+<p>OH_PerfDemoTest.json 配置文件示例</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "description": "Config for OpenHarmony devicetest test cases",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "environment": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "type": "device"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "driver": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "type": "DeviceTest",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "py_file": ["OH_PerfDemoTest.py"]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>py_file 的值表示场景用例文件相对于 testcases 文件夹的路径。</p>
+<p>例如，若场景用例文件直接位于 testcases 文件夹下，则 py_file 的值为 ["OH_PerfDemoTest.py"]，若场景用例文件位于 testcases 下的 test_01 文件夹中，则 py_file 的值为 ["test_01/OH_PerfDemoTest.py"]。</p>
+<p><strong><strong>4、原子用例写作指导</strong></strong></p>
+<p><strong><strong>Model编写规范：</strong></strong></p>
+<p>Model对应的是原子用例中的一组操作序列，在脚本编写时对应一个Model类。</p>
+<p>（1）命名规范：</p>
+<p>一个Model是一个原子用例，Model类命名要有一定业务含义，例如：”视频页面浏览”命名为BrowseHuaweiVideo。</p>
+<p>（2）继承规范：</p>
+<p>Model类必须继承基类ModelBase，ModelBase会负责与采集器的交互，并且处理Model类抛出的异常。</p>
+<p>（3）注释规范：</p>
+<p>将原子用例操作步骤放置在用例最上方，方便审视Model类步骤和用例执行步骤对应关系。</p>
+<p><strong><strong>原子用例示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">from hypium import BY</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from hypium.advance.perf.application_model.model_base import ModelBase</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from hypium.advance.perf.driver_perf.idriver_perf import IDriverPerf</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from hypium.advance.perf.driver_perf.tag import SceneType</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from hypium.model import UiParam</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">'''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@原子用例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">视频页面浏览</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@预置条件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">无</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@用例步骤</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1.冷启动视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2.上滑1次浏览界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3.下滑1次浏览界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">4.切换到影院界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">5.精确的向上滑动界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">6.抛滑，向下滑动界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">7.侧滑返回</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">8.点击我的</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">9.上滑返回桌面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">'''</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">APP_NAME = "视频"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class BrowseHuaweiVideo(ModelBase):  # 原子用例统一继承ModelBase</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def __init__(self, uidriver: IDriverPerf, case_id):  # 进行初始化操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ModelBase.__init__(self, uidriver, case_id)  # 调用父类初始化方法</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.scene_no = "browse_huawei_video"  # 原子用例id</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.scene_name = "浏览视频应用"  # 原子用例名字</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.scene_type = "浏览视频应用场景"  # 原子用例类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.scene_path = "日常高频操作-基础操作场景-系统通用操作场景-浏览视频应用"  # 原子用例所属路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver = uidriver</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def setup(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 原子用例预置动作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 停止指定的应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.stop_app('com.huawei.hmsapp.himovie')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 返回手机桌面主页</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.go_home()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    @ModelBase.scene_recover</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def execute(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 1.冷启动应用'视频'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # start_application_perf 启动应用的接口，从主页开始滑动查找对应APP名的应用，应用需要在桌面上可见，找到应用直接点击，打开应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # start_application_perf 接口为6.0版本新增接口请基于 DevEco Testing Hypium6.0.0 Release版本使用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.start_application_perf("视频", SceneType.COLD_START)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 等待指定时间，等待界面稳定，再进行下一步操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.wait(3)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 2.上滑1次浏览界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # swipe_perf 在屏幕上或者指定区域area中执行朝向指定方向direction的滑动操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.swipe_perf(UiParam.UP,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                               tag=self.create_tag("上滑1次浏览界面", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 等待指定时间，等待界面稳定，再进行下一步操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.wait(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 3.下滑1次浏览界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.swipe_perf(UiParam.DOWN,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                               tag=self.create_tag("下滑1次浏览界面", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 等待指定时间，等待界面稳定，再进行下一步操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.wait(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 4.使用find_component查找控件，返回一个控件对象（控件文本为影院）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        com = self.driver.find_component(BY.text('影院'))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 可将控件对象传入touch_perf，会自动识别并转换为坐标点击</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.touch_perf(com, tag=self.create_tag("切换到影院界面", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 5.精确的向上滑动界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # slide_perf 根据指定的起始和结束位置执行滑动操作，起始和结束的位置可以为控件或者屏幕坐标。该接口用于执行较为精准的滑动操作。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.slide_perf((0.5, 0.8), (0.5, 0.2), slide_time=0.5,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                               tag=self.create_tag("精确的向上滑动界面", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 6.抛滑，向下滑动界面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # fling_perf 抛滑接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.fling_perf(UiParam.DOWN, tag=self.create_tag("抛滑，向下滑动界面", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 对于不需要性能指标的接口，可以使用不带perf的接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.touch((0.5, 0.3))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 等待指定时间，等待界面稳定，再进行下一步操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.wait(3)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 7.侧滑返回，退出</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # swipe_to_back_perf 滑动屏幕右侧返回</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.swipe_to_back_perf(tag=self.create_tag("侧滑返回", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 使用find_all_components根据BY指定的条件查找控件, 返回所有符合条件的控件，返回值是多个多个控件对象的值组成的列表（控件text值为我的）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        comps = self.driver.find_all_components(BY.text("我的"))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 8.点击我的</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 可将控件对象传入touch_perf，会自动识别并转换为坐标点击</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.touch_perf(comps[0], tag=self.create_tag("点击我的", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 9.上滑返回桌面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # swipe_to_home_perf 从屏幕底部上滑返回桌面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.swipe_to_home_perf(tag=self.create_tag("上滑返回桌面", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    def teardown(self):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 原子用例结束清理步骤</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        # 停止指定的应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        self.driver.stop_app('com.huawei.hmsapp.himovie')</span><br/></div></code></pre></div></div>
+<p><strong><strong>5、使用UIViewer查看控件</strong></strong></p>
+<p>使用DevEco Testing->实用工具->UIViewer工具，辅助脚本写作。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343724-7851b0599ce1a18cb664bf0b54195495.png width=938 height=803 class=img_ev3q /></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=测试框架介绍>测试框架介绍<a href=#测试框架介绍 class=hash-link aria-label=测试框架介绍的直接链接 title=测试框架介绍的直接链接 translate=no>​</a></h2>
+<p><strong><strong>1、功能介绍</strong></strong></p>
+<p>性能测试框架作为Hypium自动化测试框架的增强能力，其设备操作API与Hypium保持一致。该框架主要负责性能自动化测试模型的流程控制，管理测试过程中的trace资源和视频资源采集，并提供自动化测试完成后的指标分析功能。</p>
+<p>Hypium基本API接口功能介绍，请参考指导：<a class="" href=/harmonyos-docs-site/ut/hypium-python-guidelines#section1141818121333>Hypium框架-API使用方法</a>。</p>
+<p>注：若测试场景包含隐私界面则无法录屏进行测试，例如银行类应用、密码界面等。</p>
+<p><strong><strong>2、场景tag</strong></strong></p>
+<p>场景tag是测试框架定义的一套用于标注测试步骤使用场景的标签。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def create_tag(self, step_name="", scene_type="", tag_id="", pkg_name="", dynamic_type="", action_type="", trigger_type="", is_first_swipe=False, wait_time=0, is_watch=False, is_seek=False, is_short_video=False, need_wait_scene=True, ad_monitor=False, cold_start_wait_time=None, pop_up_window_enable=True, extend_param={})</span><br/></div></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名称<th>参数描述<tbody><tr><td>step_name<td>必填，测试步骤名字。<tr><td>scene_type<td>必填，对应性能tag类型，从SceneType中选择。<tr><td>tag_id<td>非必填，指定标签id。<tr><td>pkg_name<td>非必填，测试应用相关包名。<tr><td>dynamic_type<td>非必填，标记当前操作是否为动态阈值。<tr><td>action_type<td>非必填，标记当前操作的类型。<tr><td>is_first_swipe<td>默认False，标记是否为列表页面的首次滑动。<tr><td>wait_time<td>默认0，增加采集时长，避免采集未包含全部动效。<tr><td>is_watch<td>默认False，不做视频观看操作，设置为True会对页面进行30S观看，在scene_type为WATCH时生效。<tr><td>is_seek<td>默认False，设置为True表示该操作为滑动进度条的操作。<tr><td>is_short_video<td>默认False，在scene_type字段为PLAY_VIDEO时生效，标记起播视频为长视频（False）或者短视频（True）。  （时长小于5分钟的视频为短视频）<tr><td>need_wait_scene<td>默认True，在执行完perf接口后需要进行预置等待时间，设置为False时，不需要进行等待。<tr><td>ad_monitor<td>默认为False，在scene_type字段为COLD_START时生效，设置为True时，会进行广告检测。<tr><td>cold_start_wait_time<td>非必填，在scene_type字段为COLD_START时生效，表示冷启动后，需要额外等待的时间。<tr><td>pop_up_window_enable<td>默认True，在scene_type字段为COLD_START时生效，表示冷启动后，是否执行一次弹窗检测操作。<tr><td>extend_param<td>预留字段。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>所有性能测试需要采集指标的步骤，有以下3个原则：</p>
+<ul>
+<li class="">API接口使用 _perf方法。</li>
+<li class="">必须带上场景tag。</li>
+<li class="">每个步骤必须是单独的tag，不能多个步骤共用一个tag。</li>
+</ul>
+<p>****3、****<strong><strong>场景tag类型</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">class SceneType(Enum):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 起播时延</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    PLAY_VIDEO = "PLAY_VIDEO"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 冷启</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    COLD_START = "COLD_START"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 热启</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    HOT_START = "HOT_START"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 有页面切换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    WITH_PAGE_SWITCH = "WITH_PAGE_SWITCH"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 无页面切换</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    NO_PAGE_SWITCH = "NO_PAGE_SWITCH"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    # 视频观看</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    WATCH = "WATCH"</span><br/></div></code></pre></div></div>
+<p>注：滑动和无页面切换操作的场景不测完成时延；冷启动操作前需要杀掉该后台应用，热启动操作前需要拉起该应用并置于后台。</p>
+<p>****4、****<strong><strong>hypium_perf常用接口和用法</strong></strong></p>
+<p>在Hypium的界面操作接口上封装一套perf接口，提供给性能测试使用。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAFZklEQVRo3u2af0zUZRzHX/66o+MOOU6DQ4FJgfyIH9MGGHKogMjCzSScOiwtI7J001mbra1MXEtNM1cB02xBg00TS1MMFIQyBKaAISDEOBAODAERkUOU/ji7PMGLsdpBPu/ttnvueZ7Pffe89nk+P/YdR8wnAwiNNm0dL85gdEqAEWCEBBgBRkiAEWAsJKmEDRGz/xVTywK9WBboBVLJmAUzcbQ8SPKKUGI1bvg4qbBTWNF0vXtY+y43tZOUW2oCeP+bC1DIJBRsTkdXrxNgRqrEpcHEatxQ2lhR3dzBzrUhw6/E0gpNxvFBnihkEvLLrg4JZfeKeQR7OT7S3oGcClLOlgkwiUuDWRfth9LGirScSnZlFXP4SrPJmu/WzmOWuz37T/zG9rwKk7n65jaT8eJnZwCg8ZvOwOFNJnNpOZV0dOsJ8HQwC+bx9hiphNQ1YTwfMMMIZVXSScNh1zWZLFXbyQE4fblp0NyDktmr0PhNp6Orl5qmTtym2aK0saKosgWAnt5+49p9R0vZkHbGOD6/baVZYI8NmPCZziwOcmWyXErK8Uu8/nU22Cig6ybxoX4krw8btCd9cyTpRBrHRwpqidn7w99x6oUAbGQSI+SrX8ajBJYcyDVea5/FLRAxxpxyyms5lO9KdXMHu7KK8ZvpQuqroaSeqeTG7T6D5+i6uNbZM2ivjUyCh4vdIxOEH0sbAJg2VS6yspHota9+AsDBWc2hhDDcnGwJalJzqlQLwLHzdYbrRipBrVYBoKvXPdKjViWd5FR5IxmFFYx1WTz4Oziryd8YhZuTLQXlTcQkZREf5Dko00peH2aIC2bS3+TVEej77xLganpdbZnrCXM9UcqldHTrBZh/kt9MF6On1DR2sig5B/R9I7Y3x0uNj+uUQb+vX+IPQJW2neyLDQKMOS0P8iYpYR6T5VLqdF1o9pykp/Om2Wr9CYn5x527+wR2MikAse6O7FgbQk1jJwv3nQKgvUdPYrivAGNOGRdr+LAjkPK6NjSfnoCum6QmRCGTTuLXatPrylFpDcDtvn6zNrta2ui6/33A3VBE9vXfRX/v3pjrAFjuKtP3se5gPjnVDaDvI9z3aRYHuTIAyB7yDHdHJQB37t4btvlgDzUA3jNUpMQEsjytgFut18cMGIs2MXPKa0Hfh4Ozmi/WaJgsl3K8sI7Mot8fyI0VRAcZqvlXIr1JXh0BQFFlC0q5dEi7cc89Q6jvdACa/ugmeo4r2xb4YG2vEh4z0qxs1cHThlRZew1/WwWV78egkEmo0rbjOFVOfLQPhRU64tN+oaxaO8ietb2Kl0I9UNpYkV2iZXX6Oa4kvsjGmFlYSycxfvw4Y0LwV1IgPOYhLQv0MoGi+TjT4EH2KnYs8idj00I8XOyo0razPCWXkO3HuFTXRpC3mrwt0QbvsVGYQMmICyFitjNdPX1sziyhWatj67eGRud8PyesJBOMxWtRZYvx0znK0miLeUzCfH8+ejkYW7nUBErue7HM83cyrjv6cy1vHCmmpcEQvH3f+YbUhCjiwj2Jj/bhlv4Om9LzADjzVqSx37XnyAXK73vUzqxiAFIvX+Vdjadp8TpKe2UT8Ir8wBJ/XKJrJ3bWUxRWthC197ixfvGd9iRzvNRkl2jZlXmBtzPO0n3DtPWSWVKLrrUHhXQSK9MKjHvrr98mJtCVz78vY8vhApM952qb6b7RjbfjFKobOmjv7iWvqtE47+WgouRKK4XaNupa2y3N5ew4i77wd79pOVThOVT8GJaspNA7Nqp7M7LwC39DQAFGDgX+D1AsH/yFBBgBRkiAEWCEBBghAUaAERJgBBih/1gTga3iGEad8v4EFTP/Ye4wQC4AAAAASUVORK5CYII=" width=102 height=38 class=img_ev3q /></p>
+<p>以下所有示例代码中driver都是UiExplorerPerf对象。</p>
+<p><strong><strong>Phone常用接口</strong></strong></p>
+<p><strong><strong>1、点击********操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def touch_perf(self, target: Union[By, UiComponent, tuple], wait_time: float = 0.1, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>根据选定的控件或者坐标位置执行点击操作。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>target<td>需要点击的目标，可以为控件（通过By类指定）或者屏幕坐标（通过tuple类型指定，例如（100，200）， 其中100为x轴坐标，200为y轴坐标）， 或者使用find_component找到的控件对象。<tr><td>2<td>wait_time<td>点击后等待响应的时间，默认0.1s。<tr><td>3<td>tag<td>对应性能场景tag，点击如果进入新界面，需使用WITH_PAGE_SWITCH（有界面切换的场景类型）。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 点击文本为"hello"的控件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.touch_perf(BY.text("hello"), tag=self.create_tag("点击hello", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 点击（100，200）的位置</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.touch_perf(（100，200）, tag=self.create_tag("点击（100，200）", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 冷启动相机</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">APP_NAME="相机"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">icon_pos = self.driver.find_app_in_launcher(APP_NAME)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.touch_perf(icon_pos, tag=self.create_tag("相机冷启动", SceneType.COLD_START))</span><br/></div></code></pre></div></div>
+<p><strong><strong>2、长按********操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def long_touch_perf(self, target: Union[By, UiComponent, tuple], tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>根据选定的控件或者坐标位置执行长按操作。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>target<td>需要点击的目标，可以为控件（通过By类指定）或者屏幕坐标（通过tuple类型指定，例如（100，200）， 其中100为x轴坐标，200为y轴坐标），或者使用find_component找到的控件对象。<tr><td>2<td>tag<td>对应性能场景tag，点击如果进入新界面，需使用WITH_PAGE_SWITCH（有界面切换的场景类型）。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 长按相机图标，弹出弹窗</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">APP_NAME="相机"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">icon_pos = self.driver.find_app_in_launcher(APP_NAME)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.long_touch_perf(icon_pos, tag=self.create_tag("长按相机图标弹出弹窗", SceneType.NO_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>3、双击********操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def double_touch_perf(self, target: Union[By, UiComponent, tuple], tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>根据选定的控件或者坐标位置执行双击操作。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>target<td>需要点击的目标，可以为控件（通过By类指定）或者屏幕坐标（通过tuple类型指定，例如（100，200）， 其中100为x轴坐标，200为y轴坐标），或者使用find_component找到的控件对象。<tr><td>2<td>tag<td>对应性能场景tag，点击如果进入新界面，需使用WITH_PAGE_SWITCH（有界面切换的场景类型）。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 双击确认按钮（控件文本为确认）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.double_touch_perf(BY.text("确认"), tag=self.create_tag("双击确认按钮", SceneType.WITH_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>4、执行指定距离的滑动操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def swipe_perf(self, direction: str, distance: int = 60, start_point: tuple = None, swipe_time: float = None, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>在屏幕上或者指定区域area中执行朝向指定方向direction的滑动操作。该接口用于执行不太精准的滑动操作。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>direction<td>滑动方向，目前支持：”LEFT” 左滑；”RIGHT” 右滑；”UP” 上滑；”DOWN” 下滑。<tr><td>2<td>distance<td>相对滑动区域总长度的滑动距离，范围为1~100，表示滑动长度为滑动区域总长度的1%到100%， 默认为60。<tr><td>3<td>start_point<td>滑动起始点，默认为None，表示在区域中间位置执行滑动操作，可以传入滑动起始点坐标，支持使用(0.5, 0.5)这样的比例坐标。当同时传入side和start_point的时候，仅start_point生效。<tr><td>4<td>swipe_time<td>滑动时间（s)， 默认0.3s。<tr><td>5<td>tag<td>对应性能场景tag，若该操作不涉及页面切换，需使用NO_PAGE_SWITCH。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 在屏幕上向上滑动40</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.swipe_perf(UiParam.UP, distance=40, tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 在屏幕上向右滑动, 滑动时间为0.1秒</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.swipe_perf(UiParam.RIGHT, swipe_time=0.1, tag=self.create_tag("向右滑动", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 在屏幕起始点为比例坐标为(0.8, 0.8)的位置向上滑动30</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.swipe_perf(UiParam.UP, 30, start_point=(0.8, 0.8), tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>5、执行精准的滑动操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def slide_perf(self, start: Union[By, tuple], end: Union[By, tuple], slide_time: float = 2, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>根据指定的起始和结束位置执行滑动操作，起始和结束的位置可以为控件或者屏幕坐标。该接口用于执行较为精准的滑动操作。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序列<th>参数名称<th>参数描述<tbody><tr><td>1<td>start<td>滑动起始位置，可以为控件BY.text("滑块")或者坐标（100，200），或者使用find_component找到的控件对象。<tr><td>2<td>end<td>滑动结束位置，可以为控件BY.text("最大值")或者坐标（100，200）, 或者使用find_component找到的控件对象。<tr><td>3<td>slide_time<td>滑动操作总时间，单位秒。<tr><td>4<td>tag<td>对应性能场景tag，若该操作不涉及页面切换，需使用NO_PAGE_SWITCH。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 从类型为Slider的控件滑动到文本为最大的控件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.slide_perf(BY.type("Slider"), BY.text("最大"),tag=self.create_tag("滑动到最大", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 从坐标100，200滑动到300，400</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.slide_perf(（100，200）, (300, 400), tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 从坐标100，200滑动到300，400, 滑动时间为3秒</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.slide_perf(（100，200）, (300, 400), slide_time=3, tag=self.create_tag("向上滑动", SceneType.NO_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>6、拖拽********操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def drag_perf(self, start: Union[By, tuple], end: Union[By, tuple],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  area: By = None, press_time: float = 1, drag_time: float = 1, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>根据指定的起始和结束位置执行拖拽操作，起始和结束的位置可以为控件或者屏幕坐标。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>start<td>拖拽起始位置，可以为控件BY.text("滑块")或者坐标（100，200），或者使用find_component找到的控件对象。<tr><td>2<td>end<td>拖拽结束位置，可以为控件BY.text("最大值")或者坐标（100，200），或者使用find_component找到的控件对象。<tr><td>3<td>area<td>拖拽操作区域，可以为控件BY.text("画布")，或者使用find_component找到的控件对象。目前仅在start或者end为坐标时生效，指定区域后，当start和end为坐标时，其坐标将被视为相对于指定的区域的相对位置坐标。<tr><td>4<td>press_time<td>拖拽操作开始时长按的时间，默认为1s（暂不支持修改）。<tr><td>5<td>drag_time<td>拖动的时间， 默认为1s（整个拖拽操作总时间 = press_time + drag_time）。<tr><td>6<td>tag<td>对应性能场景tag，若该操作不涉及页面切换，需使用NO_PAGE_SWITCH。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 拖拽文本为"文件.txt"的控件到文本为"上传文件"的控件</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.drag_perf(BY.text("文件.txt"), BY.text("上传文件"), tag=self.create_tag("拖拽文件", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 拖拽id为"start_bar"的控件到坐标（100，200）的位置, 拖拽时间为2秒</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.drag_perf(BY.key("start_bar"), （100，200）, drag_time=2, tag=self.create_tag("拖拽start_bar", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 在id为"Canvas"的控件上从相对位置(10, 20)拖拽到（100，200）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.drag_perf((10, 20), （100，200）, area = BY.id("Canvas"), tag=self.create_tag("拖拽Canvas", SceneType.NO_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 在滑动条上从相对位置(10, 10)拖拽到(10, 200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.drag_perf((10, 10), (10, 200), area=BY.type("Slider"), tag=self.create_tag("拖拽滑动条", SceneType.NO_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>7、屏幕侧边滑动返回********操作</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def swipe_to_back_perf(self, side=UiParam.RIGHT, times: int = 1, height: float = 0.5, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>滑动屏幕侧边返回。设备需开启触摸屏手势导航。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>side<td>滑动的位置，“RIGHT“表示在右边滑动返回，“LEFT“表示在左边滑动返回。<tr><td>2<td>times<td>滑动次数，默认1次，某些场景可能需要两次才能返回。<tr><td>3<td>height<td>滑动位置在屏幕中Y轴的比例高度（从屏幕顶部开始计算）。<tr><td>4<td>tag<td>对应性能场景tag，侧边返回有界面切换时，需使用WITH_PAGE_SWITCH。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 侧滑返回</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.swipe_to_back_perf(tag=self.create_tag("侧滑返回", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 侧滑2次返回</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.swipe_to_back_perf(times=2, tag=self.create_tag("侧滑2次返回", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 设置侧滑位置的高度比例为屏幕高度的80%，即在屏幕靠下的位置侧滑返回</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.swipe_to_back_perf(height=0.8, tag=self.create_tag("屏幕靠下的位置侧滑返回", SceneType.WITH_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>8、从屏幕底部上滑返回桌面</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def swipe_to_home_perf(self, times: int = 1, tag: Tag = None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>屏幕底端上滑回到桌面，设备预置：设备开启触摸屏手势导航。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>times<td>上滑次数，默认1次，某些场景可能需要两次上滑才能返回桌面。<tr><td>2<td>tag<td>对应性能场景tag，返回桌面一般带有界面切换，需使用WITH_PAGE_SWITCH。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 上滑返回桌面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.swipe_to_home_perf(tag=self.create_tag("上滑返回桌面", SceneType.WITH_PAGE_SWITCH))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 连续上滑2次返回桌面</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.swipe_to_home_perf(times=2, tag=self.create_tag("上滑返回桌面", SceneType.WITH_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>9、观看视频</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def watch_perf(self, watch_time, is_bullet_screen=False, is_full_screen=False, watch_tag_desc=None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>在页面停留指定时间，进行观看视频操作。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>watch_time<td>观看时长，防止长时间观看行为导致视频过大，会按照30S对时长进行分割。<tr><td>2<td>is_bullet_screen<td>默认False，设置为True时，对视频播放与弹幕进行卡顿检测。<tr><td>3<td>is_full_screen<td>默认False，设置为True时，表示当前为全屏播放。<tr><td>4<td>watch_tag_desc<td>非必填，填写后会生成步骤操作描述，对于观看时间大于30S的场景，不建议设置。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 观看20S视频，检测视频卡顿</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.watch_perf(20)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 全屏观看20S视频，检测弹幕卡顿与视频卡顿</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.watch_perf(20, is_bullet_screen=True, is_full_screen=True)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 指定操作步骤观看视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.watch_perf(20, watch_tag_desc="观看直播视频")</span><br/></div></code></pre></div></div>
+<p><strong><strong>10、在桌面滑动查找APP，并打开应用</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">def start_application_perf(self, app_name, scene_type, tag=None)</span><br/></div></code></pre></div></div>
+<p><strong><strong>接口说明</strong></strong></p>
+<p>基于APP名称，在桌面上滑动查找指定APP，并进行点击。设备预置：需提前下载APP，并放置在桌面，不要放入文件夹中。</p>
+<p><strong><strong>参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>序号<th>参数名称<th>参数描述<tbody><tr><td>1<td>app_name<td>应用名称，与桌面上显示的名称一致。<tr><td>2<td>scene_type<td>应用启动方式，为SceneType.COLD_START或者SceneType.HOT_START。<tr><td>3<td>tag<td>非必填，如果没赋值，则会根据scene_type自动生成。</table>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 启动设置应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.start_application_perf("设置", SceneType.COLD_START)</span><br/></div></code></pre></div></div>
+<p><strong><strong>使用示例</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 查找需要操作的窗口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">window = driver.find_window(WindowFilter().bundle_name(package_name))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 点击窗口最小化</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">driver.minimize_window_perf(window, tag=self.create_tag("点击窗口最小化", </span><br/></div><div class=token-line style=color:#393A34><span class="token plain">scene_type=SceneType.WITH_PAGE_SWITCH))</span><br/></div></code></pre></div></div>
+<p><strong><strong>常用视频检测场景介绍</strong></strong></p>
+<p><strong><strong>1、视频起播时延测试步骤</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 点击视频图框播放视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.touch_perf(BY.text("视频"), tag=self.create_tag("点击播放长视频", SceneType.PLAY_VIDEO, is_seek=False, is_short_video=True))</span><br/></div></code></pre></div></div>
+<p><strong><strong>2、视频卡顿测试步骤</strong></strong></p>
+<p>场景1：测试视频卡顿</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 观看180S视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.watch_perf(180)</span><br/></div></code></pre></div></div>
+<p>场景2：测试起播时延与视频卡顿</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">watch_tag=self.create_tag("点击播放长视频并观看", SceneType.PLAY_VIDEO, is_seek=False, is_short_video=True)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">watch_tag.watch_time=10</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 点击视频图框播放视频，并观看10S视频</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">self.driver.touch_perf(BY.text("视频"), tag=watch_tag)</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=本地脚本调试>本地脚本调试<a href=#本地脚本调试 class=hash-link aria-label=本地脚本调试的直接链接 title=本地脚本调试的直接链接 translate=no>​</a></h2>
+<p>****1、****<strong><strong>main.py实现</strong></strong></p>
+<p>****方法一：****在main.py中修改cmd命令，将参数替换为本地调试的场景用例名称。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002524503433-b64c334af80fb483d9deb87c54edbe85.png title=点击放大 width=1183 height=545 class=img_ev3q /></p>
+<p>main.py示例</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import time</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">from xdevice.__main__ import main_process</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if __name__ == "__main__":</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    try:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        pass_dict = dict()</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        pass_dict['task_id'] = time.strftime('%Y%m%d%H%M%S', time.localtime())</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        cmd = 'run -l OH_PerfDemoTest -ta pass_through:' + str(pass_dict)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        main_process(cmd)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        time.sleep(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    except Exception as e:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        print(e)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    finally:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        print("Task is End")</span><br/></div></code></pre></div></div>
+<p>****方法二：****在main.py同级目录下，新建一个json文件，命名为action_testsuite.json，并在main.py中修改cmd命令。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343730-dbbc3d8cda80e3679f608fbbbc9db1b3.png title=点击放大 width=691 height=290 class=img_ev3q /></p>
+<p>action_testsuite.json示例</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "description": "hypium test case",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "environment": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "type": "device"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "driver": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "type": "DeviceTest",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "py_file": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "OH_PerfDemoTest.py"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "kits": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><strong><strong>2、本地多用例执行方式</strong></strong></p>
+<p>一个测试任务执行多个场景用例，而不必每个场景用例单独执行，任务会按照顺序依次执行指定的场景用例。</p>
+<p>****方法一：****在main.py 的cmd命令中指定多个case，用”;”分割。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343726-ed0a9f400682f5b4793252e8d52f4cba.png title=点击放大 width=1213 height=475 class=img_ev3q /></p>
+<p>****方法二：****在json文件配置，并在main.py的cmd命令参数中指定json文件。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002492343736-dbbc3d8cda80e3679f608fbbbc9db1b3.png title=点击放大 width=691 height=290 class=img_ev3q /></p>
+<p>action_testsuite.json示例</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "description": "hypium test case",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "environment": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "type": "device"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "driver": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "type": "DeviceTest",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "py_file": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "Open_Perf_Test.py",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "OH_PerfDemoTest.py"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "kits": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>****执行方式：****在工程文件中执行 main.py；</p>
+<p>****预期结果：****设备按照脚本定义的测试步骤执行。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=性能脚本测试执行><strong><strong>性能脚本测试执行</strong></strong><a href=#性能脚本测试执行 class=hash-link aria-label=性能脚本测试执行的直接链接 title=性能脚本测试执行的直接链接 translate=no>​</a></h2>
+<p>性能脚本本地调试验证成功后，可在DevEco Testing创建性能测试任务，请查看文档：<a class="" href=/harmonyos-docs-site/test-service/deveco-testing/specialized-testing#section8642101711299>场景化性能测试-任务创建</a>。</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ut/hypium-python-guidelines/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>应用UI测试（基于Python）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/test-service/indev_cmd/smartperf-guidelines/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>HiSmartPerf Device性能使用指导</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概述 class="table-of-contents__link toc-highlight"><strong><strong>概述</strong></strong></a><li><a href=#环境搭建 class="table-of-contents__link toc-highlight"><strong><strong>环境搭建</strong></strong></a><li><a href=#脚本写作调试 class="table-of-contents__link toc-highlight"><strong><strong>脚本写作&调试</strong></strong></a><li><a href=#脚本写作 class="table-of-contents__link toc-highlight">脚本写作</a><li><a href=#测试框架介绍 class="table-of-contents__link toc-highlight">测试框架介绍</a><li><a href=#本地脚本调试 class="table-of-contents__link toc-highlight">本地脚本调试</a><li><a href=#性能脚本测试执行 class="table-of-contents__link toc-highlight"><strong><strong>性能脚本测试执行</strong></strong></a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

@@ -1,0 +1,9671 @@
+"use strict";
+(self["webpackChunkharmonyos_docs_site"] = self["webpackChunkharmonyos_docs_site"] || []).push([["738755"], {
+841223(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  metadata: () => (/* reexport */ site_docs_ref_arkui_api_arkui_declarative_comp_canvas_drawing_ts_canvasrenderingcontext_2_d_ts_canvasrenderingcontext_2_d_md_544_namespaceObject),
+  "default": () => (/* binding */ MDXContent),
+  frontMatter: () => (/* binding */ frontMatter),
+  contentTitle: () => (/* binding */ contentTitle),
+  toc: () => (/* binding */ toc),
+  assets: () => (/* binding */ assets)
+});
+
+;// CONCATENATED MODULE: ./.docusaurus/docusaurus-plugin-content-docs/ref/site-docs-ref-arkui-api-arkui-declarative-comp-canvas-drawing-ts-canvasrenderingcontext-2-d-ts-canvasrenderingcontext-2-d-md-544.json
+var site_docs_ref_arkui_api_arkui_declarative_comp_canvas_drawing_ts_canvasrenderingcontext_2_d_ts_canvasrenderingcontext_2_d_md_544_namespaceObject = JSON.parse('{"id":"arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d","title":"CanvasRenderingContext2D","description":"CanvasRenderingContext2D对象与Canvas组件绑定后，可在Canvas组件上绘制，绘制对象可以是形状、文本、图片等。","source":"@site/docs-ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d.md","sourceDirName":"arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d","slug":"/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d","draft":false,"unlisted":false,"tags":[],"version":"current","sidebarPosition":4,"frontMatter":{"title":"CanvasRenderingContext2D","sidebar_position":4,"original_url":"https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d","kit":"应用框架","last_updated":"2026-04-22","slug":"ts-canvasrenderingcontext2d"},"sidebar":"ref","previous":{"title":"CanvasPattern","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern"},"next":{"title":"DrawingRenderingContext","permalink":"/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-drawingrenderingcontext/ts-drawingrenderingcontext"}}')
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(474848);
+// EXTERNAL MODULE: ./node_modules/@mdx-js/react/lib/index.js
+var lib = __webpack_require__(28453);
+;// CONCATENATED MODULE: ./docs-ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-canvasrenderingcontext2d/ts-canvasrenderingcontext2d.md
+
+
+const frontMatter = {
+	title: 'CanvasRenderingContext2D',
+	sidebar_position: 4,
+	original_url: 'https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-canvasrenderingcontext2d',
+	kit: '应用框架',
+	last_updated: '2026-04-22',
+	slug: 'ts-canvasrenderingcontext2d'
+};
+const contentTitle = 'CanvasRenderingContext2D';
+
+const assets = {
+
+};
+
+
+
+const toc = [{
+  "value": "构造函数",
+  "id": "构造函数",
+  "level": 2
+}, {
+  "value": "constructor",
+  "id": "constructor",
+  "level": 3
+}, {
+  "value": "constructor12+",
+  "id": "constructor12",
+  "level": 3
+}, {
+  "value": "属性",
+  "id": "属性",
+  "level": 2
+}, {
+  "value": "fillStyle",
+  "id": "fillstyle",
+  "level": 3
+}, {
+  "value": "lineWidth",
+  "id": "linewidth",
+  "level": 3
+}, {
+  "value": "strokeStyle",
+  "id": "strokestyle",
+  "level": 3
+}, {
+  "value": "lineCap",
+  "id": "linecap",
+  "level": 3
+}, {
+  "value": "lineJoin",
+  "id": "linejoin",
+  "level": 3
+}, {
+  "value": "miterLimit",
+  "id": "miterlimit",
+  "level": 3
+}, {
+  "value": "font",
+  "id": "font",
+  "level": 3
+}, {
+  "value": "textAlign",
+  "id": "textalign",
+  "level": 3
+}, {
+  "value": "textBaseline",
+  "id": "textbaseline",
+  "level": 3
+}, {
+  "value": "globalAlpha",
+  "id": "globalalpha",
+  "level": 3
+}, {
+  "value": "lineDashOffset",
+  "id": "linedashoffset",
+  "level": 3
+}, {
+  "value": "globalCompositeOperation",
+  "id": "globalcompositeoperation",
+  "level": 3
+}, {
+  "value": "shadowBlur",
+  "id": "shadowblur",
+  "level": 3
+}, {
+  "value": "shadowColor",
+  "id": "shadowcolor",
+  "level": 3
+}, {
+  "value": "shadowOffsetX",
+  "id": "shadowoffsetx",
+  "level": 3
+}, {
+  "value": "shadowOffsetY",
+  "id": "shadowoffsety",
+  "level": 3
+}, {
+  "value": "imageSmoothingEnabled",
+  "id": "imagesmoothingenabled",
+  "level": 3
+}, {
+  "value": "height",
+  "id": "height",
+  "level": 3
+}, {
+  "value": "width",
+  "id": "width",
+  "level": 3
+}, {
+  "value": "canvas13+",
+  "id": "canvas13",
+  "level": 3
+}, {
+  "value": "imageSmoothingQuality",
+  "id": "imagesmoothingquality",
+  "level": 3
+}, {
+  "value": "direction",
+  "id": "direction",
+  "level": 3
+}, {
+  "value": "filter",
+  "id": "filter",
+  "level": 3
+}, {
+  "value": "letterSpacing18+",
+  "id": "letterspacing18",
+  "level": 3
+}, {
+  "value": "方法",
+  "id": "方法",
+  "level": 2
+}, {
+  "value": "fillRect",
+  "id": "fillrect",
+  "level": 3
+}, {
+  "value": "strokeRect",
+  "id": "strokerect",
+  "level": 3
+}, {
+  "value": "clearRect",
+  "id": "clearrect",
+  "level": 3
+}, {
+  "value": "fillText",
+  "id": "filltext",
+  "level": 3
+}, {
+  "value": "strokeText",
+  "id": "stroketext",
+  "level": 3
+}, {
+  "value": "measureText",
+  "id": "measuretext",
+  "level": 3
+}, {
+  "value": "stroke",
+  "id": "stroke",
+  "level": 3
+}, {
+  "value": "stroke",
+  "id": "stroke-1",
+  "level": 3
+}, {
+  "value": "beginPath",
+  "id": "beginpath",
+  "level": 3
+}, {
+  "value": "moveTo",
+  "id": "moveto",
+  "level": 3
+}, {
+  "value": "lineTo",
+  "id": "lineto",
+  "level": 3
+}, {
+  "value": "closePath",
+  "id": "closepath",
+  "level": 3
+}, {
+  "value": "createPattern",
+  "id": "createpattern",
+  "level": 3
+}, {
+  "value": "bezierCurveTo",
+  "id": "beziercurveto",
+  "level": 3
+}, {
+  "value": "quadraticCurveTo",
+  "id": "quadraticcurveto",
+  "level": 3
+}, {
+  "value": "arc",
+  "id": "arc",
+  "level": 3
+}, {
+  "value": "arcTo",
+  "id": "arcto",
+  "level": 3
+}, {
+  "value": "ellipse",
+  "id": "ellipse",
+  "level": 3
+}, {
+  "value": "rect",
+  "id": "rect",
+  "level": 3
+}, {
+  "value": "roundRect20+",
+  "id": "roundrect20",
+  "level": 3
+}, {
+  "value": "fill",
+  "id": "fill",
+  "level": 3
+}, {
+  "value": "fill",
+  "id": "fill-1",
+  "level": 3
+}, {
+  "value": "clip",
+  "id": "clip",
+  "level": 3
+}, {
+  "value": "clip",
+  "id": "clip-1",
+  "level": 3
+}, {
+  "value": "reset12+",
+  "id": "reset12",
+  "level": 3
+}, {
+  "value": "saveLayer12+",
+  "id": "savelayer12",
+  "level": 3
+}, {
+  "value": "restoreLayer12+",
+  "id": "restorelayer12",
+  "level": 3
+}, {
+  "value": "resetTransform",
+  "id": "resettransform",
+  "level": 3
+}, {
+  "value": "rotate",
+  "id": "rotate",
+  "level": 3
+}, {
+  "value": "scale",
+  "id": "scale",
+  "level": 3
+}, {
+  "value": "transform",
+  "id": "transform",
+  "level": 3
+}, {
+  "value": "setTransform",
+  "id": "settransform",
+  "level": 3
+}, {
+  "value": "setTransform",
+  "id": "settransform-1",
+  "level": 3
+}, {
+  "value": "getTransform",
+  "id": "gettransform",
+  "level": 3
+}, {
+  "value": "translate",
+  "id": "translate",
+  "level": 3
+}, {
+  "value": "drawImage",
+  "id": "drawimage",
+  "level": 3
+}, {
+  "value": "drawImage",
+  "id": "drawimage-1",
+  "level": 3
+}, {
+  "value": "drawImage",
+  "id": "drawimage-2",
+  "level": 3
+}, {
+  "value": "createImageData",
+  "id": "createimagedata",
+  "level": 3
+}, {
+  "value": "createImageData",
+  "id": "createimagedata-1",
+  "level": 3
+}, {
+  "value": "getPixelMap",
+  "id": "getpixelmap",
+  "level": 3
+}, {
+  "value": "setPixelMap",
+  "id": "setpixelmap",
+  "level": 3
+}, {
+  "value": "getImageData",
+  "id": "getimagedata",
+  "level": 3
+}, {
+  "value": "putImageData",
+  "id": "putimagedata",
+  "level": 3
+}, {
+  "value": "putImageData",
+  "id": "putimagedata-1",
+  "level": 3
+}, {
+  "value": "setLineDash",
+  "id": "setlinedash",
+  "level": 3
+}, {
+  "value": "getLineDash",
+  "id": "getlinedash",
+  "level": 3
+}, {
+  "value": "transferFromImageBitmap",
+  "id": "transferfromimagebitmap",
+  "level": 3
+}, {
+  "value": "toDataURL",
+  "id": "todataurl",
+  "level": 3
+}, {
+  "value": "restore",
+  "id": "restore",
+  "level": 3
+}, {
+  "value": "save",
+  "id": "save",
+  "level": 3
+}, {
+  "value": "createLinearGradient",
+  "id": "createlineargradient",
+  "level": 3
+}, {
+  "value": "createRadialGradient",
+  "id": "createradialgradient",
+  "level": 3
+}, {
+  "value": "createConicGradient10+",
+  "id": "createconicgradient10",
+  "level": 3
+}, {
+  "value": "on(&#39;onAttach&#39;)13+",
+  "id": "ononattach13",
+  "level": 3
+}, {
+  "value": "on(&#39;onDetach&#39;)13+",
+  "id": "onondetach13",
+  "level": 3
+}, {
+  "value": "off(&#39;onAttach&#39;)13+",
+  "id": "offonattach13",
+  "level": 3
+}, {
+  "value": "off(&#39;onDetach&#39;)13+",
+  "id": "offondetach13",
+  "level": 3
+}, {
+  "value": "startImageAnalyzer12+",
+  "id": "startimageanalyzer12",
+  "level": 3
+}, {
+  "value": "stopImageAnalyzer12+",
+  "id": "stopimageanalyzer12",
+  "level": 3
+}, {
+  "value": "getContext2DFromDrawingContext23+",
+  "id": "getcontext2dfromdrawingcontext23",
+  "level": 3
+}, {
+  "value": "RenderingContextOptions23+",
+  "id": "renderingcontextoptions23",
+  "level": 2
+}, {
+  "value": "CanvasDirection类型说明",
+  "id": "canvasdirection类型说明",
+  "level": 2
+}, {
+  "value": "CanvasFillRule类型说明",
+  "id": "canvasfillrule类型说明",
+  "level": 2
+}, {
+  "value": "CanvasLineCap类型说明",
+  "id": "canvaslinecap类型说明",
+  "level": 2
+}, {
+  "value": "CanvasLineJoin类型说明",
+  "id": "canvaslinejoin类型说明",
+  "level": 2
+}, {
+  "value": "CanvasTextAlign类型说明",
+  "id": "canvastextalign类型说明",
+  "level": 2
+}, {
+  "value": "CanvasTextBaseline类型说明",
+  "id": "canvastextbaseline类型说明",
+  "level": 2
+}, {
+  "value": "ImageSmoothingQuality类型说明",
+  "id": "imagesmoothingquality类型说明",
+  "level": 2
+}, {
+  "value": "TextMetrics",
+  "id": "textmetrics",
+  "level": 2
+}, {
+  "value": "RenderingContextSettings",
+  "id": "renderingcontextsettings",
+  "level": 2
+}, {
+  "value": "constructor",
+  "id": "constructor-1",
+  "level": 3
+}, {
+  "value": "属性",
+  "id": "属性-1",
+  "level": 3
+}];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    header: "header",
+    img: "img",
+    length: "length",
+    li: "li",
+    number: "number",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [(0,jsx_runtime.jsx)(_components.header, {
+      children: (0,jsx_runtime.jsx)(_components.h1, {
+        id: "canvasrenderingcontext2d",
+        children: "CanvasRenderingContext2D"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "CanvasRenderingContext2D对象与Canvas组件绑定后，可在Canvas组件上绘制，绘制对象可以是形状、文本、图片等。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(543770)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "建议使用时将CanvasRenderingContext2D对象与Canvas组件封装到同一个自定义组件中，保证两者一一对应且生命周期保持一致。"
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["本文绘制接口在调用时会存入被关联的Canvas组件的指令队列中。仅当当前帧进入渲染阶段且关联的Canvas组件处于可见状态时，这些指令才会从队列中被提取并执行。因此，在Canvas组件不可见的情况下，应尽量避免频繁调用绘制接口，以防止指令在队列中堆积，从而避免内存占用过大的问题，具体示例请参考", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/arkui/arkts-ui-development/arkts-user-defined-capabilities/arkts-draw/arkts-drawing-customization-on-canvas#%E6%8E%A7%E5%88%B6%E5%9C%A8%E7%94%BB%E5%B8%83%E7%BB%84%E4%BB%B6%E4%B8%8D%E5%8F%AF%E8%A7%81%E6%97%B6%E4%B8%8D%E8%BF%9B%E8%A1%8C%E7%BB%98%E5%88%B6",
+          children: "控制在画布组件不可见时不进行绘制"
+        }), "。"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: [(0,jsx_runtime.jsx)(_components.a, {
+          href: "#beginpath",
+          children: "beginPath"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#moveto",
+          children: "moveTo"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#lineto",
+          children: "lineTo"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#closepath",
+          children: "closePath"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#beziercurveto",
+          children: "bezierCurveTo"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#quadraticcurveto",
+          children: "quadraticCurveTo"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#arc",
+          children: "arc"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#arcto",
+          children: "arcTo"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#ellipse",
+          children: "ellipse"
+        }), "、", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#rect",
+          children: "rect"
+        }), "和", (0,jsx_runtime.jsx)(_components.a, {
+          href: "#roundrect20",
+          children: "roundRect"
+        }), "接口只能对CanvasRenderingContext2D中的路径生效，无法对", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-offscreencanvasrenderingcontext2d/ts-offscreencanvasrenderingcontext2d",
+          children: "OffscreenCanvasRenderingContext2D"
+        }), "和", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+          children: "Path2D"
+        }), "对象中设置的路径生效。"]
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "Canvas组件的宽或高超过8000px时使用CPU渲染，会导致性能明显下降。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "构造函数",
+      children: "构造函数"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "constructor",
+      children: "constructor"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "constructor(settings?: RenderingContextSettings)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "构造Canvas画布对象，支持配置CanvasRenderingContext2D对象的参数。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "settings"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["用来配置CanvasRenderingContext2D对象的参数，见", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            }), "。  异常值undefined和null按", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            }), "的默认值处理。"]
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "constructor12",
+      children: "constructor12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "constructor(settings?: RenderingContextSettings, unit?: LengthMetricsUnit)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "构造Canvas画布对象，支持配置CanvasRenderingContext2D对象的参数和单位模式。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 12开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 12开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "settings"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["用来配置CanvasRenderingContext2D对象的参数，见", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            }), "。  异常值undefined和null按", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextsettings",
+              children: "RenderingContextSettings"
+            }), "的默认值处理。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "unit"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetricsunit12",
+              children: "LengthMetricsUnit"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "用来配置CanvasRenderingContext2D对象的单位模式，配置后无法更改。  异常值undefined、NaN和Infinity按默认值处理。  默认值：DEFAULT"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以下示例展示了配置CanvasRenderingContext2D对象的单位模式，默认单位模式为LengthMetricsUnit.DEFAULT，对应默认单位vp，配置后无法动态更改。详细说明见", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetricsunit12",
+        children: "LengthMetricsUnit"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { LengthMetricsUnit } from '@kit.ArkUI'\n\n@Entry\n@Component\nstruct LengthMetricsUnitDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private contextPX: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings, LengthMetricsUnit.PX);\n  private contextVP: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.contextPX)\n        .width('100%')\n        .height(150)\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.contextPX.fillRect(10, 10, 100, 100)\n          this.contextPX.clearRect(10, 10, 50, 50)\n        })\n\n      Canvas(this.contextVP)\n        .width('100%')\n        .height(150)\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.contextVP.fillRect(10, 10, 100, 100)\n          this.contextVP.clearRect(10, 10, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(958062)/* ["default"] */.A) + "",
+        width: "283",
+        height: "282"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "属性",
+      children: "属性"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(559881)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "fillStyle、shadowColor与 strokeStyle 中string类型格式为rgb(255, 255, 255)、rgba(255, 255, 255, 1.0)或者#FFFFFF。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "fillstyle",
+      children: "fillStyle"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "指定绘制的填充色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvasgradient/ts-components-canvas-canvasgradient",
+              children: "CanvasGradient"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+              children: "CanvasPattern"
+            })
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct FillStyleExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillStyle = '#0000ff'\n          this.context.fillRect(20, 20, 150, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(893924)/* ["default"] */.A) + "",
+        width: "98",
+        height: "95"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "linewidth",
+      children: "lineWidth"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置绘制线条的宽度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：1（px）  默认单位：vp  lineWidth取值不支持0和负数，0、负数和NaN按默认值处理，Infinity会导致lineWidth属性异常，不进行绘制。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct LineWidthExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.lineWidth = 5\n          this.context.strokeRect(25, 25, 85, 105)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(369241)/* ["default"] */.A) + "",
+        width: "98",
+        height: "103"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "strokestyle",
+      children: "strokeStyle"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置线条的颜色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvasgradient/ts-components-canvas-canvasgradient",
+              children: "CanvasGradient"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+              children: "CanvasPattern"
+            })
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct StrokeStyleExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.lineWidth = 10\n          this.context.strokeStyle = '#0000ff'\n          this.context.strokeRect(25, 25, 155, 105)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(871986)/* ["default"] */.A) + "",
+        width: "111",
+        height: "71"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "linecap",
+      children: "lineCap"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "指定线端点的样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvaslinecap%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasLineCap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：'butt'"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct LineCapExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.lineWidth = 8\n          this.context.beginPath()\n          this.context.lineCap = 'round'\n          this.context.moveTo(30, 50)\n          this.context.lineTo(220, 50)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(281400)/* ["default"] */.A) + "",
+        width: "264",
+        height: "83"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "linejoin",
+      children: "lineJoin"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "指定线段间相交的交点样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvaslinejoin%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasLineJoin"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "可选值为：  - 'round'：在线段相连处绘制一个扇形，扇形的圆角半径是线段的宽度。  - 'bevel'：在线段相连处使用三角形为底填充， 每个部分矩形拐角独立。  - 'miter'：在相连部分的外边缘处进行延伸，使其相交于一点，形成一个菱形区域，该属性可以通过设置miterLimit属性展现效果。  默认值：'miter'"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct LineJoinExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.lineWidth = 8\n          this.context.lineJoin = 'miter'\n          this.context.moveTo(30, 30)\n          this.context.lineTo(120, 60)\n          this.context.lineTo(30, 110)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(36148)/* ["default"] */.A) + "",
+        width: "124",
+        height: "98"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "miterlimit",
+      children: "miterLimit"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置斜接面限制值，该值指定了线条相交处内角和外角的距离，仅当设置了lineJoin为miter才生效，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：10px  单位：px  miterLimit取值不支持0和负数，0、负数和NaN按默认值处理，Infinity会导致miterLimit属性异常。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct MiterLimit {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.lineWidth = 8\n          this.context.lineJoin = 'miter'\n          this.context.miterLimit = 3\n          this.context.moveTo(30, 30)\n          this.context.lineTo(60, 35)\n          this.context.lineTo(30, 37)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(507463)/* ["default"] */.A) + "",
+        width: "111",
+        height: "81"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "font",
+      children: "font"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置文本绘制中的字体样式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "语法：ctx.font = 'font-style font-weight font-size font-family'"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "font-style(可选)，用于指定字体样式，支持如下几种样式：'normal','italic'。"
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "font-weight(可选)，用于指定字体的粗细，支持如下几种类型：'normal', 'bold', 'bolder', 'lighter', 100, 200, 300, 400, 500, 600, 700, 800, 900。"
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "font-size(可选)，指定字号和行高，单位支持px、vp。使用时需要添加单位。"
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "font-family(可选)，指定字体系列，支持如下几种类型：'sans-serif', 'serif', 'monospace'。"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["从API version 20开始，支持通过该接口设置注册过的自定义字体（DevEco Studio的预览器不支持显示自定义字体）。自定义字体注册有以下两种方式。一种是通过ArkUI的异步接口this.uiContext.getFont().", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-font/arkts-apis-uicontext-font#registerfont",
+        children: "registerFont"
+      }), "注册，调用后立即绘制可能会导致自定义字体不生效。另一种是直接调用字体引擎的fontCollection.", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkgraphics-api/arkgraphics-arkts/js-apis-graphics-text/js-apis-graphics-text#loadfontsync",
+        children: "loadFontSync"
+      }), "接口来注册自定义字体到字体引擎。在直接调用字体引擎接口注册自定义字体时，fontCollection的实例需要是text.FontCollection.getGlobalInstance()，因为组件默认会从该实例加载字体。如果使用其他实例，可能会导致自定义字体不生效。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["默认值：'normal normal 14px sans-serif'  ", (0,jsx_runtime.jsx)(_components.strong, {
+              children: (0,jsx_runtime.jsx)(_components.strong, {
+                children: "卡片能力："
+              })
+            }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。  ", (0,jsx_runtime.jsx)(_components.strong, {
+              children: (0,jsx_runtime.jsx)(_components.strong, {
+                children: "元服务API："
+              })
+            }), " 从API version 11开始，该接口支持在元服务中使用。"]
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { text } from '@kit.ArkGraphics2D';\n\n@Entry\n@Component\nstruct FontDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          // 常规字体样式，常规粗细，字体大小为30px，字体系列为sans-serif\n          this.context.font = 'normal normal 30px sans-serif'\n          this.context.fillText(\"Hello px\", 20, 60)\n          // 斜体样式，加粗，字体大小为30vp，字体系列为monospace\n          this.context.font = 'italic bold 30vp monospace'\n          this.context.fillText(\"Hello vp\", 20, 100)\n          // 加载rawfile目录下的自定义字体文件HarmonyOS_Sans_Thin_Italic.ttf\n          let fontCollection = text.FontCollection.getGlobalInstance();\n          fontCollection.loadFontSync('HarmonyOS_Sans_Thin_Italic', $rawfile(\"HarmonyOS_Sans_Thin_Italic.ttf\"))\n          // 加粗，字体大小为30vp，字体系列为HarmonyOS_Sans_Thin_Italic\n          this.context.font = \"bold 30vp HarmonyOS_Sans_Thin_Italic\"\n          this.context.fillText(\"Hello customFont\", 20, 140)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(814184)/* ["default"] */.A) + "",
+        width: "424",
+        height: "256"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "textalign",
+      children: "textAlign"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置文本绘制中的文本对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextalign%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasTextAlign"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "ltr布局模式下'start'和'left'一致，rtl布局模式下'start'和'right'一致。  默认值：'left'"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.strokeStyle = 'rgb(39,135,217)'\n          this.context.moveTo(140, 10)\n          this.context.lineTo(140, 160)\n          this.context.stroke()\n          this.context.font = '50px sans-serif'\n          this.context.textAlign = 'start'\n          this.context.fillText('textAlign=start', 140, 60)\n          this.context.textAlign = 'end'\n          this.context.fillText('textAlign=end', 140, 80)\n          this.context.textAlign = 'left'\n          this.context.fillText('textAlign=left', 140, 100)\n          this.context.textAlign = 'center'\n          this.context.fillText('textAlign=center', 140, 120)\n          this.context.textAlign = 'right'\n          this.context.fillText('textAlign=right', 140, 140)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(23559)/* ["default"] */.A) + "",
+        width: "511",
+        height: "332"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "textbaseline",
+      children: "textBaseline"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置文本绘制中的水平对齐方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasTextBaseline"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：'alphabetic'"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct TextBaseline {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.strokeStyle = 'rgb(0,0,255)'\n          this.context.moveTo(0, 120)\n          this.context.lineTo(400, 120)\n          this.context.stroke()\n          this.context.font = '20px sans-serif'\n          this.context.textBaseline = 'top'\n          this.context.fillText('Top', 10, 120)\n          this.context.textBaseline = 'bottom'\n          this.context.fillText('Bottom', 55, 120)\n          this.context.textBaseline = 'middle'\n          this.context.fillText('Middle', 125, 120)\n          this.context.textBaseline = 'alphabetic'\n          this.context.fillText('Alphabetic', 195, 120)\n          this.context.textBaseline = 'hanging'\n          this.context.fillText('Hanging', 295, 120)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(709562)/* ["default"] */.A) + "",
+        width: "660",
+        height: "230"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "globalalpha",
+      children: "globalAlpha"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置透明度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "范围为[0.0, 1.0]，0.0为完全透明，1.0为完全不透明。若给定值小于0.0，则取值0.0；若给定值大于1.0，则取值1.0.  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制。API version 18及以后，设置NaN或Infinity时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认值：1.0"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct GlobalAlpha {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillStyle = 'rgb(0,0,255)'\n          this.context.fillRect(0, 0, 50, 50)\n          this.context.globalAlpha = 0.4\n          this.context.fillStyle = 'rgb(0,0,255)'\n          this.context.fillRect(50, 50, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(647299)/* ["default"] */.A) + "",
+        width: "222",
+        height: "213"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "linedashoffset",
+      children: "lineDashOffset"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置画布的虚线偏移量，精度为float，仅当设置setLineDash时属性才生效，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "API version 18之前，设置NaN或Infinity时，设置了虚线样式的线条绘制出来是实线。API version 18及以后，设置NaN或Infinity时当前接口不生效，设置了虚线样式的线条绘制出来是虚线。  默认值：0.0  默认单位：vp  异常值NaN和Infinity按默认值处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { AnimatorResult } from '@kit.ArkUI';\n\n@Entry\n@Component\nstruct LineDashOffset {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private animator: AnimatorResult | undefined = undefined;\n\n  drawAntLine() { // 实现蚂蚁线动画\n    this.animator = this.getUIContext().createAnimator({\n      duration: 2000,\n      easing: 'linear',\n      delay: 0,\n      fill: 'none',\n      direction: 'normal',\n      iterations: -1,\n      begin: 0, // 动画插值起点\n      end: 1 // 动画插值终点\n    });\n    this.animator.onFrame = (value: number) => {\n      this.context.reset();\n      this.context.lineWidth = 2;\n      this.context.setLineDash([10, 5]);\n      this.context.lineDashOffset = 105 * value;\n      this.context.strokeRect(10, 10, 100, 100);\n    };\n    this.animator.play();\n  }\n\n  aboutToDisappear() {\n    this.animator?.finish();\n    this.animator = undefined;\n  }\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.drawAntLine();\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(921283)/* ["default"] */.A) + "",
+        width: "143",
+        height: "151"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "globalcompositeoperation",
+      children: "globalCompositeOperation"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置合成操作的方式，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "类型字段可选值有'source-over'，'source-atop'，'source-in'，'source-out'，'destination-over'，'destination-atop'，'destination-in'，'destination-out'，'lighter'，'copy'，'xor'。  默认值：'source-over'"
+          })]
+        })
+      })]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "名称"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "source-over"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在现有绘制内容上显示新绘制内容，属于默认值。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "source-atop"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在现有绘制内容顶部显示新绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "source-in"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在现有绘制内容中显示新绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "source-out"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在现有绘制内容之外显示新绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "destination-over"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在新绘制内容上方显示现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "destination-atop"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在新绘制内容顶部显示现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "destination-in"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在新绘制内容中显示现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "destination-out"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在新绘制内容外显示现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "lighter"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "显示新绘制内容和现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "copy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "显示新绘制内容而忽略现有绘制内容。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "xor"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "使用异或操作对新绘制内容与现有绘制内容进行融合。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct GlobalCompositeOperation {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context1: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context2: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context3: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context4: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context5: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context6: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Column() {\n      Row() {\n        // 1. source-over：新图形覆盖在原有图形上方（默认行为）\n        Canvas(this.context1)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx1 = this.context1;\n            ctx1.fillStyle = 'rgb(39,135,217)';\n            ctx1.fillRect(25, 25, 75, 75); // 原有图形\n            ctx1.globalCompositeOperation = 'source-over'; // 默认值，可省略\n            ctx1.fillStyle = 'rgb(23,169,141)';\n            ctx1.fillRect(75, 75, 75, 75); // 新图形覆盖\n          })\n        // 2. destination-out：新图形擦除原有图形（橡皮擦核心逻辑）\n        Canvas(this.context2)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx2 = this.context2;\n            // 先绘制背景\n            ctx2.fillStyle = 'rgb(39,135,217)';\n            ctx2.fillRect(0, 0, ctx2.width, ctx2.height);\n            // 设置合成模式为擦除\n            ctx2.globalCompositeOperation = 'destination-out';\n            // 绘制圆形作为橡皮擦\n            ctx2.beginPath();\n            ctx2.arc(ctx2.width / 2, ctx2.height / 2, 60, 0, Math.PI * 2);\n            ctx2.fill(); // 擦除圆形区域的背景\n          })\n      }\n      .height('30%')\n\n      Row() {\n        // 3. source-in：仅保留新图形与原有图形重叠的部分（裁剪或蒙版）\n        Canvas(this.context3)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx3 = this.context3;\n            // 先绘制原有图形（圆形蒙版）\n            ctx3.beginPath();\n            ctx3.arc(ctx3.width / 2, ctx3.height / 2, 80, 0, Math.PI * 2);\n            ctx3.fillStyle = '#fff';\n            ctx3.fill();\n            // 设置合成模式\n            ctx3.globalCompositeOperation = 'source-in';\n            // 绘制新图形（渐变矩形）\n            const gradient = ctx3.createLinearGradient(0, 0, ctx3.width, ctx3.height);\n            gradient.addColorStop(0, 'rgb(23,169,141)');\n            gradient.addColorStop(1, 'rgb(39,135,217)');\n            ctx3.fillStyle = gradient;\n            ctx3.fillRect(0, 0, 200, 200); // 仅圆形区域显示渐变\n          })\n        // 4. lighter：新图形与原有图形叠加（亮度相加，滤色效果）\n        Canvas(this.context4)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx4 = this.context4;\n            // 原有图形（半透明红色圆）\n            ctx4.beginPath();\n            ctx4.arc(70, 100, 50, 0, Math.PI * 2);\n            ctx4.fillStyle = 'rgba(234, 67, 53, 0.7)';\n            ctx4.fill();\n            // 设置合成模式\n            ctx4.globalCompositeOperation = 'lighter';\n            // 新图形（半透明蓝色圆）\n            ctx4.beginPath();\n            ctx4.arc(110, 100, 50, 0, Math.PI * 2);\n            ctx4.fillStyle = 'rgba(66, 133, 244, 0.7)';\n            ctx4.fill(); // 重叠区域变成紫色（亮度叠加）\n          })\n      }\n      .height('30%')\n\n      Row() {\n        // 5. destination-atop：保留原有图形与新图形重叠的部分，移除其他区域\n        Canvas(this.context5)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx5 = this.context5;\n            // 原有图形（绿色矩形）\n            ctx5.fillStyle = 'rgb(23,169,141)';\n            ctx5.fillRect(0, 0, ctx5.width, ctx5.height);\n            // 设置合成模式\n            ctx5.globalCompositeOperation = 'destination-atop';\n            // 新图形（小圆形）\n            ctx5.beginPath();\n            ctx5.arc(ctx5.width / 2, ctx5.height / 2, 60, 0, Math.PI * 2);\n            ctx5.fillStyle = '#000';\n            ctx5.fill(); // 仅矩形与圆形重叠的部分保留\n          })\n        // 6. 文字蒙版（“source-in”的高级用法）\n        Canvas(this.context6)\n          .width('45%')\n          .borderWidth(1)\n          .margin(5)\n          .onReady(() => {\n            let ctx6 = this.context6\n            // 先绘制文字（作为蒙版）\n            ctx6.font = 'bold 40vp';\n            ctx6.textAlign = 'center';\n            ctx6.textBaseline = 'middle';\n            ctx6.fillText('CANVAS', ctx6.width / 2, ctx6.height / 2);\n            // 设置合成模式\n            ctx6.globalCompositeOperation = 'source-in';\n            // 绘制渐变背景（仅文字区域显示）\n            let textGradient = ctx6.createLinearGradient(50, 0, 300, 100);\n            textGradient.addColorStop(0.0, 'rgb(39,135,217)');\n            textGradient.addColorStop(0.5, 'rgb(255,238,240)');\n            textGradient.addColorStop(1.0, 'rgb(23,169,141)');\n            ctx6.fillStyle = textGradient;\n            ctx6.fillRect(0, 0, 200, 200); // 渐变仅填充文字区域\n          })\n      }\n      .height('30%')\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(508469)/* ["default"] */.A) + "",
+        width: "303",
+        height: "560"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "shadowblur",
+      children: "shadowBlur"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置绘制阴影时的模糊级别，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "值越大越模糊，精度为float，取值范围≥0。  默认值：0.0  单位：px  shadowBlur取值不支持负数，负数、NaN和Infinity按默认值处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ShadowBlur {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.shadowBlur = 30\n          this.context.shadowColor = 'rgb(0,0,0)'\n          this.context.fillStyle = 'rgb(255,0,0)'\n          this.context.fillRect(20, 20, 100, 80)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(379734)/* ["default"] */.A) + "",
+        width: "233",
+        height: "215"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "shadowcolor",
+      children: "shadowColor"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置绘制阴影时的阴影颜色，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["颜色格式参考", (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcecolor",
+              children: "ResourceColor"
+            }), "中string类型说明。  默认值：透明黑色"]
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ShadowColor {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.shadowBlur = 30\n          this.context.shadowColor = 'rgb(0,0,255)'\n          this.context.fillStyle = 'rgb(255,0,0)'\n          this.context.fillRect(30, 30, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(787600)/* ["default"] */.A) + "",
+        width: "189",
+        height: "209"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "shadowoffsetx",
+      children: "shadowOffsetX"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置绘制阴影时和原有对象的水平偏移值，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：0.0  默认单位：vp  异常值NaN和Infinity按默认值处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ShadowOffsetX {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.shadowBlur = 10\n          this.context.shadowOffsetX = 20\n          this.context.shadowColor = 'rgb(0,0,0)'\n          this.context.fillStyle = 'rgb(255,0,0)'\n          this.context.fillRect(20, 20, 100, 80)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(364795)/* ["default"] */.A) + "",
+        width: "123",
+        height: "106"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "shadowoffsety",
+      children: "shadowOffsetY"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置绘制阴影时和原有对象的垂直偏移值，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：0.0  默认单位：vp  异常值NaN和Infinity按默认值处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ShadowOffsetY {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.shadowBlur = 10\n          this.context.shadowOffsetY = 20\n          this.context.shadowColor = 'rgb(0,0,0)'\n          this.context.fillStyle = 'rgb(255,0,0)'\n          this.context.fillRect(30, 30, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(890263)/* ["default"] */.A) + "",
+        width: "120",
+        height: "118"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "imagesmoothingenabled",
+      children: "imageSmoothingEnabled"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "用于设置绘制图片时是否进行图像平滑度调整，true为启用，false为不启用，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：true"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(910790)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ImageSmoothingEnabled {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  // \"common/images/icon.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/icon.jpg\")\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.imageSmoothingEnabled = false\n          this.context.drawImage(this.img, 0, 0, 400, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(669117)/* ["default"] */.A) + "",
+        width: "418",
+        height: "336"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "height",
+      children: "height"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "组件高度。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认单位：vp"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct HeightExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width(300)\n        .height(300)\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let h = this.context.height\n          this.context.fillRect(0, 0, 300, h / 2)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(510018)/* ["default"] */.A) + "",
+        width: "200",
+        height: "200"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "width",
+      children: "width"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "组件宽度。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认单位：vp"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct WidthExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width(300)\n        .height(300)\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let w = this.context.width\n          this.context.fillRect(0, 0, w / 2, 300)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(375121)/* ["default"] */.A) + "",
+        width: "200",
+        height: "200"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "canvas13",
+      children: "canvas13+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "获取和CanvasRenderingContext2D关联的Canvas组件的FrameNode实例。可用于监听关联的Canvas组件的可见状态。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 13开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-framenode/js-apis-arkui-framenode",
+              children: "FrameNode"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：null"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "import { FrameNode } from '@kit.ArkUI'\n// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  private text: string = ''\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let node: FrameNode = this.context.canvas\n          node?.commonEvent.setOnVisibleAreaApproximateChange(\n            { ratios: [0, 1], expectedUpdateInterval: 10},\n            (isVisible: boolean, currentRatio: number) => {\n              if (!isVisible && currentRatio <= 0.0) {\n                this.text = 'Canvas is completely invisible.'\n              }\n              if (isVisible && currentRatio >= 1.0) {\n                this.text = 'Canvas is fully visible.'\n              }\n              this.context.reset()\n              this.context.font = '30vp sans-serif'\n              this.context.fillText(this.text, 50, 50)\n            }\n          )\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(834000)/* ["default"] */.A) + "",
+        width: "386",
+        height: "92"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "imagesmoothingquality",
+      children: "imageSmoothingQuality"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "imageSmoothingEnabled为true时，用于设置图像平滑度，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#imagesmoothingquality%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "ImageSmoothingQuality"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：\"low\""
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(47430)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ImageSmoothingQualityDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\");\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let ctx = this.context\n          ctx.imageSmoothingEnabled = true\n          ctx.imageSmoothingQuality = 'high'\n          ctx.drawImage(this.img, 0, 0, 400, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(203578)/* ["default"] */.A) + "",
+        width: "717",
+        height: "447"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "direction",
+      children: "direction"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "用于设置绘制文字时使用的文字方向，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvasdirection%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasDirection"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "默认值：\"inherit\""
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct DirectionDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let ctx = this.context\n          ctx.font = '48px serif';\n          ctx.textAlign = 'start'\n          ctx.fillText(\"Hi ltr!\", 200, 50);\n\n          ctx.direction = \"rtl\";\n          ctx.fillText(\"Hi rtl!\", 200, 100);\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(885149)/* ["default"] */.A) + "",
+        width: "719",
+        height: "355"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "filter",
+      children: "filter"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "用于设置图像的滤镜，可以组合任意数量的滤镜，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["支持的滤镜效果如下：  - 'none': 无滤镜效果。  - 'blur(", (0,jsx_runtime.jsxs)(_components.length, {
+              children: [")'：给图像设置高斯模糊，取值范围≥0，支持单位px、vp、rem，默认值：blur(0px)。  - 'brightness([", (0,jsx_runtime.jsx)(_components.number, {})]
+            })]
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(619998)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct FilterDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\");\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .onReady(() => {\n          let ctx = this.context\n          let img = this.img\n\n          ctx.drawImage(img, 0, 0, 100, 100);\n\n          ctx.filter = 'grayscale(50%)';\n          ctx.drawImage(img, 100, 0, 100, 100);\n\n          ctx.filter = 'sepia(60%)';\n          ctx.drawImage(img, 200, 0, 100, 100);\n\n          ctx.filter = 'saturate(30%)';\n          ctx.drawImage(img, 0, 100, 100, 100);\n\n          ctx.filter = 'hue-rotate(90deg)';\n          ctx.drawImage(img, 100, 100, 100, 100);\n\n          ctx.filter = 'invert(100%)';\n          ctx.drawImage(img, 200, 100, 100, 100);\n\n          ctx.filter = 'opacity(25%)';\n          ctx.drawImage(img, 0, 200, 100, 100);\n\n          ctx.filter = 'brightness(0.4)';\n          ctx.drawImage(img, 100, 200, 100, 100);\n\n          ctx.filter = 'contrast(200%)';\n          ctx.drawImage(img, 200, 200, 100, 100);\n\n          ctx.filter = 'blur(5px)';\n          ctx.drawImage(img, 0, 300, 100, 100);\n\n          // Applying multiple filters\n          ctx.filter = 'opacity(50%) contrast(200%) grayscale(50%)';\n          ctx.drawImage(img, 100, 300, 100, 100);\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(805754)/* ["default"] */.A) + "",
+        width: "720",
+        height: "650"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "letterspacing18",
+      children: "letterSpacing18+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "用于指定绘制文本时字母之间的间距，此属性为只写属性，可通过赋值语句设置其值，但无法通过读取操作获取其当前值，若尝试读取将返回undefined。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 18开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetrics12",
+              children: "LengthMetrics"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { LengthMetrics, LengthUnit } from '@kit.ArkUI'\n\n@Entry\n@Component\nstruct letterSpacingDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.font = '30vp'\n          this.context.letterSpacing = '10vp'\n          this.context.fillText('hello world', 30, 50)\n          this.context.letterSpacing = new LengthMetrics(10, LengthUnit.VP)\n          this.context.fillText('hello world', 30, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(325803)/* ["default"] */.A) + "",
+        width: "468",
+        height: "178"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "方法",
+      children: "方法"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "以下方法在隐藏页面中调用会产生缓存，应避免在隐藏页面中频繁刷新Canvas。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "fillrect",
+      children: "fillRect"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "fillRect(x: number, y: number, w: number, h: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "填充一个矩形。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形左上角点的x坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形左上角点的y坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "w"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的宽度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "h"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的高度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct FillRect {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.fillRect(30, 30, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(412217)/* ["default"] */.A) + "",
+        width: "194",
+        height: "221"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "strokerect",
+      children: "strokeRect"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "strokeRect(x: number, y: number, w: number, h: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "绘制具有边框的矩形，矩形内部不填充。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角x坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角y坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "w"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的宽度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "h"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的高度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct StrokeRect {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.strokeRect(30, 30, 200, 150)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(995756)/* ["default"] */.A) + "",
+        width: "160",
+        height: "226"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "clearrect",
+      children: "clearRect"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "clearRect(x: number, y: number, w: number, h: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "删除指定区域内的绘制内容。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形上的左上角x坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形上的左上角y坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "w"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的宽度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "h"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的高度。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ClearRect {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillStyle = 'rgb(0,0,255)'\n          this.context.fillRect(20, 20, 200, 200)\n          this.context.clearRect(30, 30, 150, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(743034)/* ["default"] */.A) + "",
+        width: "160",
+        height: "221"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "filltext",
+      children: "fillText"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "fillText(text: string, x: number, y: number, maxWidth?: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "绘制填充类文本。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "text"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要绘制的文本内容。  异常值undefined或null按无效值处理，不进行绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本绘制起点的x轴坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本绘制起点的y轴坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "maxWidth"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定文本允许的最大宽度。  异常值null按无效值处理，不进行绘制，undefined、NaN或Infinity按默认值处理。  默认值：不限制宽度。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct FillText {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.font = '30px sans-serif'\n          this.context.fillText(\"Hello World!\", 20, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(433144)/* ["default"] */.A) + "",
+        width: "190",
+        height: "225"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "stroketext",
+      children: "strokeText"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "strokeText(text: string, x: number, y: number, maxWidth?: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "绘制描边类文本。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "text"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要绘制的文本内容。  异常值undefined或null按无效值处理，不进行绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本绘制起点的x轴坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本绘制起点的y轴坐标。  异常值undefined、null、NaN或Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "maxWidth"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要绘制的文本的最大宽度。  异常值null按无效值处理，不进行绘制，undefined、NaN或Infinity按默认值处理。  默认单位：vp  默认值：不限制宽度。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct StrokeText {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.font = '50vp sans-serif'\n          this.context.strokeText(\"Hello World!\", 20, 60)\n      })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(387710)/* ["default"] */.A) + "",
+        width: "240",
+        height: "55"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "measuretext",
+      children: "measureText"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "measureText(text: string): TextMetrics"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该方法返回一个文本测算的对象，通过该对象可以获取指定文本的宽度值。不同设备上获取的宽度值可能不同。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "text"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要进行测量的文本。  传入异常值undefined或null时按\"undefined\"或\"null\"计算。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#textmetrics",
+              children: "TextMetrics"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本的尺寸信息。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct MeasureText {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.font = '50px sans-serif'\n          this.context.fillText(\"Hello World!\", 20, 100)\n          this.context.fillText(\"width:\" + this.context.measureText(\"Hello World!\").width, 20, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(924477)/* ["default"] */.A) + "",
+        width: "273",
+        height: "132"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "stroke",
+      children: "stroke"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "stroke(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "根据当前的路径，进行边框绘制操作。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Stroke {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.moveTo(125, 25)\n          this.context.lineTo(125, 105)\n          this.context.lineTo(175, 105)\n          this.context.lineTo(175, 25)\n          this.context.strokeStyle = 'rgb(255,0,0)'\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(335924)/* ["default"] */.A) + "",
+        width: "402",
+        height: "243"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "stroke-1",
+      children: "stroke"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "stroke(path: Path2D): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "根据指定的路径，进行边框绘制操作。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "path"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+              children: "Path2D"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要绘制的Path2D。  异常值undefined或null按无效值处理，不进行绘制。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Stroke {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  private path2Da: Path2D = new Path2D()\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.path2Da.moveTo(25, 25)\n          this.path2Da.lineTo(25, 105)\n          this.path2Da.lineTo(75, 105)\n          this.path2Da.lineTo(75, 25)\n          this.context.strokeStyle = 'rgb(0,0,255)'\n          this.context.stroke(this.path2Da)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(829150)/* ["default"] */.A) + "",
+        width: "324",
+        height: "204"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "beginpath",
+      children: "beginPath"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "beginPath(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建一个新的绘制路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct BeginPath {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.lineWidth = 6\n          this.context.strokeStyle = 'rgb(39,135,217)'\n          this.context.moveTo(15, 80)\n          this.context.lineTo(280, 160)\n          this.context.stroke()\n          this.context.beginPath()\n          this.context.lineTo(300, 240)\n          this.context.lineTo(15, 240)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(269595)/* ["default"] */.A) + "",
+        width: "318",
+        height: "240"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "moveto",
+      children: "moveTo"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "moveTo(x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "路径从当前点移动到指定点。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定位置的x坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定位置的y坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(983833)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "API version 18之前，若未执行moveTo接口或moveTo接口传入无效参数，路径以(0,0)为起点。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "API version 18及以后，若未执行moveTo接口或moveTo接口传入无效参数，路径以初次调用的lineTo、arcTo、bezierCurveTo或quadraticCurveTo接口中的起始点为起点。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct MoveTo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.moveTo(10, 10)\n          this.context.lineTo(280, 160)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(242403)/* ["default"] */.A) + "",
+        width: "148",
+        height: "94"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "lineto",
+      children: "lineTo"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "lineTo(x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "从当前点到指定点进行路径连接。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定位置的x坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定位置的y坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct LineTo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.moveTo(10, 10)\n          this.context.lineTo(280, 160)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(234124)/* ["default"] */.A) + "",
+        width: "148",
+        height: "94"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "closepath",
+      children: "closePath"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "closePath(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "结束当前路径，形成一个封闭路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ClosePath {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.moveTo(30, 30)\n          this.context.lineTo(110, 30)\n          this.context.lineTo(70, 90)\n          this.context.closePath()\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(98811)/* ["default"] */.A) + "",
+        width: "82",
+        height: "77"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createpattern",
+      children: "createPattern"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createPattern(image: ImageBitmap, repetition: string | null): CanvasPattern | null"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "通过指定图像和重复方式创建图片填充的模板。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "image"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagebitmap/ts-components-canvas-imagebitmap",
+              children: "ImageBitmap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "图源对象，具体参考ImageBitmap对象。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "repetition"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "null"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvaspattern/ts-components-canvas-canvaspattern",
+              children: "CanvasPattern"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "null"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(857362)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CreatePattern {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  // \"common/images/icon.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/icon.jpg\")\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let pattern = this.context.createPattern(this.img, 'repeat')\n          if (pattern) {\n            this.context.fillStyle = pattern\n          }\n          this.context.fillRect(0, 0, 200, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(756726)/* ["default"] */.A) + "",
+        width: "396",
+        height: "348"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "beziercurveto",
+      children: "bezierCurveTo"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "bezierCurveTo(cp1x: number, cp1y: number, cp2x: number, cp2y: number, x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建三次贝塞尔曲线的路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cp1x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第一个贝塞尔参数的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cp1y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第一个贝塞尔参数的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cp2x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第二个贝塞尔参数的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cp2y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第二个贝塞尔参数的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "路径结束时的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "路径结束时的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { Point } from '@kit.TestKit';\n\n@Entry\n@Component\nstruct BezierCurveTo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private start: Point = { x: 50, y: 50 };\n  private end: Point = { x: 250, y: 100 };\n  private cp1: Point = { x: 200, y: 30 };\n  private cp2: Point = { x: 130, y: 80 };\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          let ctx = this.context;\n          // 三次贝塞尔曲线\n          ctx.beginPath();\n          ctx.moveTo(this.start.x, this.start.y);\n          ctx.bezierCurveTo(this.cp1.x, this.cp1.y, this.cp2.x, this.cp2.y, this.end.x, this.end.y);\n          ctx.stroke();\n\n          // 起点和终点\n          ctx.fillStyle = 'rgb(39,135,217)';\n          ctx.beginPath();\n          ctx.arc(this.start.x, this.start.y, 5, 0, 2 * Math.PI); // 起点\n          ctx.arc(this.end.x, this.end.y, 5, 0, 2 * Math.PI); // 终点\n          ctx.fill();\n\n          // 控制点\n          ctx.fillStyle = 'rgb(23,169,141)';\n          ctx.beginPath();\n          ctx.arc(this.cp1.x, this.cp1.y, 5, 0, 2 * Math.PI); // 控制点一\n          ctx.arc(this.cp2.x, this.cp2.y, 5, 0, 2 * Math.PI); // 控制点二\n          ctx.fill();\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(369990)/* ["default"] */.A) + "",
+        width: "305",
+        height: "122"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "quadraticcurveto",
+      children: "quadraticCurveTo"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "quadraticCurveTo(cpx: number, cpy: number, x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建二次贝塞尔曲线的路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cpx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "贝塞尔参数的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "cpy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "贝塞尔参数的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "路径结束时的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "路径结束时的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { Point } from '@kit.TestKit';\n\n@Entry\n@Component\nstruct QuadraticCurveTo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private start: Point = { x: 50, y: 20 };\n  private end: Point = { x: 50, y: 100 };\n  private cp: Point = { x: 230, y: 30 };\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          let ctx = this.context;\n          // 二次贝塞尔曲线\n          ctx.beginPath();\n          ctx.moveTo(this.start.x, this.start.y);\n          ctx.quadraticCurveTo(this.cp.x, this.cp.y, this.end.x, this.end.y);\n          ctx.stroke();\n\n          // 起始点和结束点\n          ctx.fillStyle = 'rgb(39,135,217)';\n          ctx.beginPath();\n          ctx.arc(this.start.x, this.start.y, 5, 0, 2 * Math.PI); // 起始点\n          ctx.arc(this.end.x, this.end.y, 5, 0, 2 * Math.PI); // 结束点\n          ctx.fill();\n\n          // 控制点\n          ctx.fillStyle = 'rgb(23,169,141)';\n          ctx.beginPath();\n          ctx.arc(this.cp.x, this.cp.y, 5, 0, 2 * Math.PI);\n          ctx.fill();\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(125319)/* ["default"] */.A) + "",
+        width: "313",
+        height: "138"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "arc",
+      children: "arc"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "arc(x: number, y: number, radius: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "绘制弧线路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "弧线圆心的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "弧线圆心的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "radius"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "弧线的圆半径。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "startAngle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "弧线的起始弧度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "endAngle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "弧线的终止弧度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "counterclockwise"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是否逆时针绘制圆弧。  true：逆时针方向绘制圆弧。  false：顺时针方向绘制圆弧。  默认值：false，设置null或undefined按默认值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Arc {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.arc(100, 75, 50, 0, 6.28)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(112242)/* ["default"] */.A) + "",
+        width: "325",
+        height: "175"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "arcto",
+      children: "arcTo"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "arcTo(x1: number, y1: number, x2: number, y2: number, radius: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "依据给定的控制点和圆弧半径创建圆弧路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第一个控制点的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第一个控制点的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x2"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第二个控制点的x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y2"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "第二个控制点的y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "radius"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "圆弧的圆半径值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ArcTo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          // 切线\n          this.context.beginPath()\n          this.context.strokeStyle = '#808080'\n          this.context.lineWidth = 1.5;\n          this.context.moveTo(360, 20);\n          this.context.lineTo(360, 170);\n          this.context.lineTo(110, 170);\n          this.context.stroke();\n\n          // 圆弧\n          this.context.beginPath()\n          this.context.strokeStyle = '#000000'\n          this.context.lineWidth = 3;\n          this.context.moveTo(360, 20)\n          this.context.arcTo(360, 170, 110, 170, 150)\n          this.context.stroke()\n\n          // 起始点\n          this.context.beginPath();\n          this.context.fillStyle = '#00ff00';\n          this.context.arc(360, 20, 4, 0, 2 * Math.PI);\n          this.context.fill();\n\n          // 控制点\n          this.context.beginPath();\n          this.context.fillStyle = '#ff0000';\n          this.context.arc(360, 170, 4, 0, 2 * Math.PI);\n          this.context.arc(110, 170, 4, 0, 2 * Math.PI);\n          this.context.fill();\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(490962)/* ["default"] */.A) + "",
+        width: "360",
+        height: "141"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "此示例中，arcTo()创建的圆弧为黑色，圆弧的两条切线为灰色。控制点为红色，起始点为绿色。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "可以想象两条切线：一条切线从起始点到第一个控制点，另一条切线从第一个控制点到第二个控制点。arcTo()在这两条切线间创建一个圆弧，并使圆弧与这两条切线都相切。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "ellipse",
+      children: "ellipse"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "ellipse(x: number, y: number, radiusX: number, radiusY: number, rotation: number, startAngle: number, endAngle: number, counterclockwise?: boolean): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "在规定的矩形区域绘制一个椭圆。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆圆心的x轴坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆圆心的y轴坐标。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "radiusX"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆x轴的半径长度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "radiusY"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆y轴的半径长度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rotation"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆的旋转角度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "startAngle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆绘制的起始点角度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "endAngle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "椭圆绘制的结束点角度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "counterclockwise"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是否以逆时针方向绘制椭圆。  true：逆时针方向绘制椭圆。  false：顺时针方向绘制椭圆。  默认值：false，设置null或undefined按默认值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.beginPath()\n          this.context.ellipse(200, 200, 50, 100, Math.PI * 0.25, Math.PI * 0.5, Math.PI * 2, false)\n          this.context.stroke()\n          this.context.beginPath()\n          this.context.ellipse(200, 300, 50, 100, Math.PI * 0.25, Math.PI * 0.5, Math.PI * 2, true)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(269221)/* ["default"] */.A) + "",
+        width: "360",
+        height: "372"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "rect",
+      children: "rect"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "rect(x: number, y: number, w: number, h: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建矩形路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角x坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角y坐标值。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "w"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的宽度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "h"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的高度。  API version 18之前，设置NaN或Infinity时，整条路径不显示；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的路径方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.rect(20, 20, 100, 100) // Create a 100*100 rectangle at (20, 20)\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(11223)/* ["default"] */.A) + "",
+        width: "360",
+        height: "172"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "roundrect20",
+      children: "roundRect20+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "roundRect(x: number, y: number, w: number, h: number, radii?: number | Array<number>): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建圆角矩形路径，此方法不会直接渲染内容，如需将圆角矩形绘制到画布上，可以使用fill或stroke方法。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 20开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 20开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角x坐标值。  null按0处理，undefined按无效值处理，不进行绘制。  如需绘制完整矩形，取值范围：[0, Canvas宽度)。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的左上角y坐标值。  null按0处理，undefined按无效值处理，不进行绘制。  如需绘制完整矩形，取值范围：[0, Canvas高度)。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "w"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的宽度，设置负值为向左绘制。  null按0处理，undefined按无效值处理，不进行绘制。  如需绘制完整矩形，取值范围：[-x, Canvas宽度 - x]。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "h"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定矩形的高度，设置负值为向上绘制。  null按0处理，undefined按无效值处理，不进行绘制。  如需绘制完整矩形，取值范围：[-y, Canvas高度 - y]。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "radii"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Array<number>"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "错误码："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以下错误码的详细介绍请参见", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-canvas/errorcode-canvas",
+        children: "Canvas组件错误码"
+      }), "。"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "错误码ID"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "错误信息"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可能原因"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "103701"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Parameter error."
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "1. The param radii is a list that has zero or more than four elements; 2. The param radii contains negative value."
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该示例展示了绘制六个圆角矩形："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(10vp, 10vp)为起点，宽高为100vp，四个矩形角圆弧半径为10vp的圆角矩形并填充；"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(120vp, 10vp)为起点，宽高为100vp，四个矩形角圆弧半径为10vp的圆角矩形并填充；"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(10vp, 120vp)为起点，宽高为100vp，左上矩形角圆弧半径及右下矩形角圆弧半径为10vp，右上矩形角圆弧半径及左下矩形角圆弧半径为20vp的圆角矩形并描边；"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(120vp, 120vp)为起点，宽高为100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径及左下矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp的圆角矩形并描边；"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(10vp, 230vp)为起点，宽高为100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp，左下矩形角圆弧半径为40vp的圆角矩形并描边；"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "创建一个(220vp, 330vp)为起点，宽高为-100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp，左下矩形角圆弧半径为40vp的圆角矩形并描边。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { BusinessError } from '@kit.BasicServicesKit';\n\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#D5D5D5')\n        .onReady(() => {\n          try {\n            this.context.fillStyle = '#707070'\n            this.context.beginPath()\n            // 创建一个(10vp, 10vp)为起点，宽高为100vp，四个矩形角圆弧半径为10vp的圆角矩形\n            this.context.roundRect(10, 10, 100, 100, 10)\n            // 创建一个(120vp, 10vp)为起点，宽高为100vp，四个矩形角圆弧半径为10vp的圆角矩形\n            this.context.roundRect(120, 10, 100, 100, [10])\n            this.context.fill()\n            this.context.beginPath()\n            // 创建一个(10vp, 120vp)为起点，宽高为100vp，左上矩形角圆弧半径及右下矩形角圆弧半径为10vp，右上矩形角圆弧半径及左下矩形角圆弧半径为20vp的圆角矩形\n            this.context.roundRect(10, 120, 100, 100, [10, 20])\n            // 创建一个(120vp, 120vp)为起点，宽高为100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径及左下矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp的圆角矩形\n            this.context.roundRect(120, 120, 100, 100, [10, 20, 30])\n            // 创建一个(10vp, 230vp)为起点，宽高为100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp，左下矩形角圆弧半径为40vp的圆角矩形\n            this.context.roundRect(10, 230, 100, 100, [10, 20, 30, 40])\n            // 创建一个(220vp, 330vp)为起点，宽高为-100vp，左上矩形角圆弧半径为10vp，右上矩形角圆弧半径为20vp，右下矩形角圆弧半径为30vp，左下矩形角圆弧半径为40vp的圆角矩形\n            this.context.roundRect(220, 330, -100, -100, [10, 20, 30, 40])\n            this.context.stroke()\n          } catch (error) {\n            let e: BusinessError = error as BusinessError;\n            console.error(`Failed to create roundRect. Code: ${e.code}, message: ${e.message}`);\n          }\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(57238)/* ["default"] */.A) + "",
+        width: "364",
+        height: "364"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "fill",
+      children: "fill"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "fill(fillRule?: CanvasFillRule): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "对当前路径进行填充。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数:"
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fillRule"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvasfillrule%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasFillRule"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定要填充对象的规则。  可选参数为：\"nonzero\"，\"evenodd\"。  异常值undefined或null按默认值处理。  默认值：\"nonzero\""
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例:"
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Fill {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.rect(20, 20, 100, 100) // Create a 100*100 rectangle at (20, 20)\n          this.context.fill()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(855767)/* ["default"] */.A) + "",
+        width: "78",
+        height: "58"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "fill-1",
+      children: "fill"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "fill(path: Path2D, fillRule?: CanvasFillRule): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "对指定路径进行填充。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数:"
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "path"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+              children: "Path2D"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Path2D填充路径。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fillRule"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvasfillrule%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasFillRule"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定要填充对象的规则。  可选参数为：\"nonzero\"，\"evenodd\"。  异常值undefined或null按默认值处理。  默认值：\"nonzero\""
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例:"
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Fill {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let region = new Path2D()\n          region.moveTo(30, 90)\n          region.lineTo(110, 20)\n          region.lineTo(240, 130)\n          region.lineTo(60, 130)\n          region.lineTo(190, 20)\n          region.lineTo(270, 90)\n          region.closePath()\n          // Fill path\n          this.context.fillStyle = '#00ff00'\n          this.context.fill(region, \"evenodd\")\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(822195)/* ["default"] */.A) + "",
+        width: "206",
+        height: "122"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "clip",
+      children: "clip"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "clip(fillRule?: CanvasFillRule): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置当前路径为剪切路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数:"
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fillRule"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvasfillrule%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasFillRule"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定要剪切对象的规则。  可选参数为：\"nonzero\"，\"evenodd\"。  异常值undefined或null按默认值处理。  默认值：\"nonzero\""
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例:"
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Clip {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.rect(0, 0, 100, 200)\n          this.context.stroke()\n          this.context.clip()\n          this.context.fillStyle = \"rgb(255,0,0)\"\n          this.context.fillRect(0, 0, 200, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(849209)/* ["default"] */.A) + "",
+        width: "200",
+        height: "240"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "clip-1",
+      children: "clip"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "clip(path: Path2D, fillRule?: CanvasFillRule): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置指定路径为剪切路径。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数:"
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "path"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-path2d/ts-components-canvas-path2d",
+              children: "Path2D"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Path2D剪切路径。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fillRule"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvasfillrule%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasFillRule"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "指定要剪切对象的规则。  可选参数为：\"nonzero\"，\"evenodd\"。  异常值undefined或null按默认值处理。  默认值：\"nonzero\""
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例:"
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Clip {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          let region = new Path2D()\n          region.moveTo(30, 90)\n          region.lineTo(110, 20)\n          region.lineTo(240, 130)\n          region.lineTo(60, 130)\n          region.lineTo(190, 20)\n          region.lineTo(270, 90)\n          region.closePath()\n          this.context.clip(region, \"evenodd\")\n          this.context.fillStyle = \"rgb(0,255,0)\"\n          this.context.fillRect(0, 0, this.context.width, this.context.height)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(89810)/* ["default"] */.A) + "",
+        width: "206",
+        height: "122"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "reset12",
+      children: "reset12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "reset(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "将CanvasRenderingContext2D重置为其默认状态，清除后台缓冲区、绘制状态栈、绘制路径和样式。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Reset {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillStyle = '#0000ff'\n          this.context.fillRect(20, 20, 150, 100)\n          this.context.reset()\n          this.context.fillRect(20, 150, 150, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(141280)/* ["default"] */.A) + "",
+        width: "128",
+        height: "165"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "savelayer12",
+      children: "saveLayer12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "saveLayer(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建一个图层。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct saveLayer {\nprivate settings: RenderingContextSettings = new RenderingContextSettings(true)\nprivate context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\nbuild() {\n  Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n    Canvas(this.context)\n      .width('100%')\n      .height('100%')\n      .backgroundColor('#ffff00')\n      .onReady(() =>{\n        this.context.fillStyle = \"#0000ff\"\n        this.context.fillRect(50,100,300,100)\n        this.context.fillStyle = \"#00ffff\"\n        this.context.fillRect(50,150,300,100)\n        this.context.globalCompositeOperation = 'destination-over'\n        this.context.saveLayer()\n        this.context.globalCompositeOperation = 'source-over'\n        this.context.fillStyle = \"#ff0000\"\n        this.context.fillRect(100,50,100,300)\n        this.context.fillStyle = \"#00ff00\"\n        this.context.fillRect(150,50,100,300)\n        this.context.restoreLayer()\n      })\n  }\n  .width('100%')\n  .height('100%')\n}\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(846456)/* ["default"] */.A) + "",
+        width: "154",
+        height: "240"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "restorelayer12",
+      children: "restoreLayer12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "restoreLayer(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "恢复图像变换和裁剪状态至saveLayer前的状态，并将图层绘制在canvas上。restoreLayer示例代码同saveLayer。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "resettransform",
+      children: "resetTransform"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "resetTransform(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "使用单位矩阵重新设置当前矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ResetTransform {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.setTransform(1, 0.5, -0.5, 1, 10, 10)\n          this.context.fillStyle = 'rgb(0,0,255)'\n          this.context.fillRect(0, 0, 100, 100)\n          this.context.resetTransform()\n          this.context.fillStyle = 'rgb(255,0,0)'\n          this.context.fillRect(0, 0, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(789126)/* ["default"] */.A) + "",
+        width: "170",
+        height: "164"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "rotate",
+      children: "rotate"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "rotate(angle: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "针对当前坐标轴进行顺时针旋转。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "angle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "设置顺时针旋转的弧度值，可以通过 degree * Math.PI / 180 将角度转换为弧度值。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  单位：弧度"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Rotate {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.rotate(45 * Math.PI / 180)\n          this.context.fillRect(70, 20, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(507003)/* ["default"] */.A) + "",
+        width: "95",
+        height: "105"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "scale",
+      children: "scale"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "scale(x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置canvas画布的缩放变换属性，后续的绘制操作将按照缩放比例进行缩放。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "设置水平方向的缩放值。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；不支持设置0和负数，设置0、负数、null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、0、负数、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "设置垂直方向的缩放值，不支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；不支持设置0和负数，设置0、负数、null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、0、负数、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Scale {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.lineWidth = 3\n          this.context.strokeRect(30, 30, 50, 50)\n          this.context.scale(2, 2) // Scale to 200%\n          this.context.strokeRect(30, 30, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(583231)/* ["default"] */.A) + "",
+        width: "220",
+        height: "198"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "transform",
+      children: "transform"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "transform(a: number, b: number, c: number, d: number, e: number, f: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "transform方法对应一个变换矩阵，想对一个图形进行变化的时候，只要设置此变换矩阵相应的参数，对图形的各个定点的坐标分别乘以这个矩阵，就能得到新的定点的坐标。矩阵变换效果可叠加。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(543348)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "图形中各个点变换后的坐标可通过下方坐标计算公式计算。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "变换后的坐标计算方式（x和y为变换前坐标，x'和y'为变换后坐标）："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "x' = a * x + c * y + e"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "y' = b * x + d * y + f"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "a"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵中第一行第一列的单元格。scaleX：指定水平缩放值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "b"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵第二行第一列的单元格。skewY：指定垂直倾斜值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "c"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵第一行第二列的单元格。skewX：指定水平倾斜值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "d"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵第二行第二列的单元格。scaleY：指定垂直缩放值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "e"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵第一行第三列的单元格。translateX：指定水平移动值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "f"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵第二行第三列的单元格。translateY：指定垂直移动值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Transform {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.fillStyle = 'rgb(112,112,112)'\n          this.context.fillRect(0, 0, 100, 100)\n          this.context.transform(1, 0.5, -0.5, 1, 10, 10)\n          this.context.fillStyle = 'rgb(0,74,175)'\n          this.context.fillRect(0, 0, 100, 100)\n          this.context.transform(1, 0.5, -0.5, 1, 10, 10)\n          this.context.fillStyle = 'rgb(39,135,217)'\n          this.context.fillRect(0, 0, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(911742)/* ["default"] */.A) + "",
+        width: "252",
+        height: "252"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "settransform",
+      children: "setTransform"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "setTransform(a: number, b: number, c: number, d: number, e: number, f: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "setTransform方法使用的参数和transform()方法相同，但setTransform()方法会重置现有的变换矩阵并创建新的变换矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(508436)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "图形中各个点变换后的坐标可通过下方坐标计算公式计算。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "变换后的坐标计算方式（x和y为变换前坐标，x'和y'为变换后坐标）："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "x' = a * x + c * y + e"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "y' = b * x + d * y + f"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "a"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "scaleX：指定水平缩放值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "b"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "skewY：指定垂直倾斜值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "c"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "skewX：指定水平倾斜值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "d"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "scaleY：指定垂直缩放值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "e"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "translateX：指定水平移动值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "f"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "translateY：指定垂直移动值，支持设置负数。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct SetTransform {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          this.context.fillStyle = 'rgb(112,112,112)'\n          this.context.fillRect(0, 0, 100, 100)\n          this.context.transform(1, 0.5, -0.5, 1, 10, 10)\n          this.context.fillStyle = 'rgb(23,169,141)'\n          this.context.fillRect(0, 0, 100, 100)\n          this.context.setTransform(1, 0.5, -0.5, 1, 10, 10)\n          this.context.fillStyle = 'rgb(39,135,217)'\n          this.context.fillRect(0, 0, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(420774)/* ["default"] */.A) + "",
+        width: "292",
+        height: "306"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "settransform-1",
+      children: "setTransform"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "setTransform(transform?: Matrix2D): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "以Matrix2D对象为模板重置现有的变换矩阵并创建新的变换矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "transform"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d",
+              children: "Matrix2D"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "变换矩阵。  异常值undefined或null按无效值处理。  默认值：null"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct TransFormDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context1: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context2: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Text('context1');\n      Canvas(this.context1)\n        .width('230vp')\n        .height('160vp')\n        .backgroundColor('#ffff00')\n        .onReady(() =>{\n          this.context1.fillRect(100, 20, 50, 50);\n          this.context1.setTransform(1, 0.5, -0.5, 1, 10, 10);\n          this.context1.fillRect(100, 20, 50, 50);\n        })\n      Text('context2');\n      Canvas(this.context2)\n        .width('230vp')\n        .height('160vp')\n        .backgroundColor('#0ffff0')\n        .onReady(() =>{\n          this.context2.fillRect(100, 20, 50, 50);\n          let storedTransform = this.context1.getTransform();\n          this.context2.setTransform(storedTransform);\n          this.context2.fillRect(100, 20, 50, 50);\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(965224)/* ["default"] */.A) + "",
+        width: "288",
+        height: "290"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "gettransform",
+      children: "getTransform"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "getTransform(): Matrix2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "获取当前被应用到上下文的转换矩阵。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-matrix2d/ts-components-canvas-matrix2d",
+              children: "Matrix2D"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "当前被应用到上下文的转换矩阵。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct TransFormDemo {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context1: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private context2: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Text('context1');\n      Canvas(this.context1)\n        .width('230vp')\n        .height('120vp')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context1.fillRect(50, 50, 50, 50);\n          this.context1.setTransform(1.2, Math.PI / 8, Math.PI / 6, 0.5, 30, -25);\n          this.context1.fillRect(50, 50, 50, 50);\n        })\n      Text('context2');\n      Canvas(this.context2)\n        .width('230vp')\n        .height('120vp')\n        .backgroundColor('#0ffff0')\n        .onReady(() => {\n          this.context2.fillRect(50, 50, 50, 50);\n          let storedTransform = this.context1.getTransform();\n          console.info(`Matrix [scaleX = ${storedTransform.scaleX}, scaleY = ${storedTransform.scaleY}, rotateX = ${storedTransform.rotateX}, rotateY = ${storedTransform.rotateY}, translateX = ${storedTransform.translateX}, translateY = ${storedTransform.translateY}]`)\n          this.context2.setTransform(storedTransform);\n          this.context2.fillRect(50, 50, 50, 50);\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(862091)/* ["default"] */.A) + "",
+        width: "548",
+        height: "512"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "translate",
+      children: "translate"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "translate(x: number, y: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "移动当前坐标系的原点。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "设置水平平移量。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "设置竖直平移量。  API version 18之前，设置NaN或Infinity时，在该方法后执行的绘制方法无法绘制；设置null或undefined时，当前接口不生效。API version 18及以后，设置NaN、Infinity、null或undefined时当前接口不生效，其他传入有效参数的绘制方法正常绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Translate {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.fillRect(10, 10, 50, 50)\n          this.context.translate(70, 70)\n          this.context.fillRect(10, 10, 50, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(382378)/* ["default"] */.A) + "",
+        width: "116",
+        height: "115"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "drawimage",
+      children: "drawImage"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "进行图像绘制。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用，卡片中不支持PixelMap对象。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "image"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagebitmap/ts-components-canvas-imagebitmap",
+              children: "ImageBitmap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+              children: "PixelMap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在x轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在y轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(751409)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ImageExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\");\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#D5D5D5')\n        .onReady(() => {\n          this.context.drawImage(this.img, 0, 0)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(713457)/* ["default"] */.A) + "",
+        width: "360",
+        height: "300"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "drawimage-1",
+      children: "drawImage"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "drawImage(image: ImageBitmap | PixelMap, dx: number, dy: number, dw: number, dh: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "将图像拉伸或压缩绘制。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用，卡片中不支持PixelMap对象。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "image"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagebitmap/ts-components-canvas-imagebitmap",
+              children: "ImageBitmap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+              children: "PixelMap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在x轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在y轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域的宽度。当绘制区域的宽度和裁剪图像的宽度不一致时，将图像宽度拉伸或压缩为绘制区域的宽度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域的高度。当绘制区域的高度和裁剪图像的高度不一致时，将图像高度拉伸或压缩为绘制区域的高度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(388647)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ImageExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\");\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#D5D5D5')\n        .onReady(() => {\n          this.context.drawImage(this.img, 0, 0, 300, 300)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(482267)/* ["default"] */.A) + "",
+        width: "360",
+        height: "300"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "drawimage-2",
+      children: "drawImage"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "drawImage(image: ImageBitmap | PixelMap, sx: number, sy: number, sw: number, sh: number, dx: number, dy: number, dw: number, dh: number): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "将图像裁剪后拉伸或压缩绘制。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用，卡片中不支持PixelMap对象。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "image"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagebitmap/ts-components-canvas-imagebitmap",
+              children: "ImageBitmap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+              children: "PixelMap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "裁切源图像时距离源图像左上角的x坐标值。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  image类型为ImageBitmap时，默认单位：vp  image类型为PixelMap时，API version 18前，默认单位：px；API version 18及以后，默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "裁切源图像时距离源图像左上角的y坐标值。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  image类型为ImageBitmap时，默认单位：vp  image类型为PixelMap时，API version 18前，默认单位：px；API version 18及以后，默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "裁切源图像时需要裁切的宽度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  image类型为ImageBitmap时，默认单位：vp  image类型为PixelMap时，API version 18前，默认单位：px；API version 18及以后，默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "裁切源图像时需要裁切的高度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  image类型为ImageBitmap时，默认单位：vp  image类型为PixelMap时，API version 18前，默认单位：px；API version 18及以后，默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在x轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域左上角在y轴的位置。  异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域的宽度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。当绘制区域的宽度和裁剪图像的宽度不一致时，将图像宽度拉伸或压缩为绘制区域的宽度。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "绘制区域的高度。  负数、异常值undefined或null按0处理，NaN和Infinity按无效值处理，不进行绘制。当绘制区域的高度和裁剪图像的高度不一致时，将图像高度拉伸或压缩为绘制区域的高度。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(139025)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct ImageExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\");\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#D5D5D5')\n        .onReady(() => {\n          this.context.drawImage(this.img, 0, 0, 500, 500, 0, 0, 400, 300)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(510674)/* ["default"] */.A) + "",
+        width: "360",
+        height: "280"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createimagedata",
+      children: "createImageData"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createImageData(sw: number, sh: number): ImageData"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["创建新的、空白的、指定大小的ImageData 对象，请参考", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+        children: "ImageData"
+      }), "，该接口存在内存拷贝行为，高耗时，应避免频繁使用。createImageData示例同", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#putimagedata",
+        children: "putImageData"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "ImageData的宽度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "ImageData的高度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的ImageData对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createimagedata-1",
+      children: "createImageData"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createImageData(imageData: ImageData): ImageData"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["根据一个现有的ImageData对象重新创建一个宽、高相同的ImageData对象（不会复制图像数据），请参考", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+        children: "ImageData"
+      }), "，该接口存在内存拷贝行为，高耗时，应避免频繁使用。createImageData示例同", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#putimagedata",
+        children: "putImageData"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "imageData"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "现有的ImageData对象。  异常值undefined和null按width和height为0的ImageData处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的ImageData对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "getpixelmap",
+      children: "getPixelMap"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "getPixelMap(sx: number, sy: number, sw: number, sh: number): PixelMap"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以当前canvas指定区域内的像素创建", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+        children: "PixelMap"
+      }), "对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的左上角x坐标。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的左上角y坐标。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的宽度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的高度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+              children: "PixelMap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的PixelMap对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(589225)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "DevEco Studio的预览器不支持显示使用setPixelMap绘制的内容。"
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+          children: "copyCodeResource"
+        }), "相关介绍。"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct GetPixelMap {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  // \"common/images/example.jpg\"需要替换为开发者所需的图像资源文件\n  private img: ImageBitmap = new ImageBitmap(\"common/images/example.jpg\")\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() => {\n          this.context.drawImage(this.img, 100, 100, 130, 130)\n          let pixelmap = this.context.getPixelMap(150, 150, 130, 130)\n          this.context.setPixelMap(pixelmap)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(922572)/* ["default"] */.A) + "",
+        width: "252",
+        height: "231"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "setpixelmap",
+      children: "setPixelMap"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "setPixelMap(value?: PixelMap): void"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["将当前传入", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+        children: "PixelMap"
+      }), "对象绘制在画布上。setPixelMap示例同getPixelMap。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "value"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap",
+              children: "PixelMap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "包含像素值的PixelMap对象。  异常值undefined和null按无效值处理，不进行绘制。  默认值：null"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "getimagedata",
+      children: "getImageData"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "getImageData(sx: number, sy: number, sw: number, sh: number): ImageData"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以当前canvas指定区域内的像素创建", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+        children: "ImageData"
+      }), "对象，该接口存在内存拷贝行为，高耗时，应避免频繁使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的左上角x坐标。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的左上角y坐标。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sw"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的宽度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "sh"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "需要输出的区域的高度。  异常值undefined、null、NaN和Infinity按0处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的ImageData对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(640005)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["此示例的资源不在src > main > resource目录下，从DevEco Studio 6.0.0 Beta2版本开始，新建工程或模块时，默认创建的模块不会对非resources目录下的资源进行打包，需使能相关开关：模块的build-profile.json5中buildOption > resOptions > copyCodeResource > enable设置为true，详见resOptions中", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ide-hvigor-configuration-file/ide-hvigor-build-profile#table1476161719356",
+        children: "copyCodeResource"
+      }), "相关介绍。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct GetImageData {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  // \"/common/images/1234.png\"需要替换为开发者所需的图像资源文件\n  private img:ImageBitmap = new ImageBitmap(\"/common/images/1234.png\")\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() =>{\n          this.context.drawImage(this.img,0,0,130,130)\n          let imageData = this.context.getImageData(50,50,130,130)\n          this.context.putImageData(imageData,150,150)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(816875)/* ["default"] */.A) + "",
+        width: "250",
+        height: "213"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "putimagedata",
+      children: "putImageData"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "putImageData(imageData: ImageData, dx: number | string, dy: number | string): void"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["使用", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+        children: "ImageData"
+      }), "数据填充新的矩形区域。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "imageData"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "包含像素值的ImageData对象。  异常值undefined或null按无效值处理，不进行绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct PutImageData {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          let imageDataNum = this.context.createImageData(100, 100)\n          let imageData = this.context.createImageData(imageDataNum)\n          for (let i = 0; i < imageData.data.length; i += 4) {\n            imageData.data[i + 0] = 112\n            imageData.data[i + 1] = 112\n            imageData.data[i + 2] = 112\n            imageData.data[i + 3] = 255\n          }\n          this.context.putImageData(imageData, 10, 10)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(841027)/* ["default"] */.A) + "",
+        width: "300",
+        height: "250"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "putimagedata-1",
+      children: "putImageData"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "putImageData(imageData: ImageData, dx: number | string, dy: number | string, dirtyX: number | string, dirtyY: number | string, dirtyWidth: number | string, dirtyHeight: number | string): void"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["使用", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+        children: "ImageData"
+      }), "数据裁剪后填充至新的矩形区域。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "imageData"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagedata/ts-components-canvas-imagedata",
+              children: "ImageData"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "包含像素值的ImageData对象。  异常值undefined或null按无效值处理，不进行绘制。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dx"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dy"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dirtyX"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dirtyY"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dirtyWidth"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "dirtyHeight"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string10+"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct PutImageData {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          let imageDataNum = this.context.createImageData(100, 100)\n          let imageData = this.context.createImageData(imageDataNum)\n          for (let i = 0; i < imageData.data.length; i += 4) {\n            imageData.data[i + 0] = 112\n            imageData.data[i + 1] = 112\n            imageData.data[i + 2] = 112\n            imageData.data[i + 3] = 255\n          }\n          this.context.putImageData(imageData, 10, 10, 0, 0, 100, 50)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(454526)/* ["default"] */.A) + "",
+        width: "300",
+        height: "250"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "setlinedash",
+      children: "setLineDash"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "setLineDash(segments: number[]): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "设置画布的虚线样式。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "segments"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number[]"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "描述线段如何交替和线段间距长度的数组。  异常值undefined或null按无效值处理。  默认单位：vp"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct SetLineDash {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  \n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#D5D5D5')\n        .onReady(() =>{\n          this.context.arc(100, 75, 50, 0, 6.28)\n          this.context.setLineDash([10,20])\n          this.context.stroke()\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(250783)/* ["default"] */.A) + "",
+        width: "323",
+        height: "272"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "getlinedash",
+      children: "getLineDash"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "getLineDash(): number[]"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "获得当前画布的虚线样式。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "number[]"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "返回数组，该数组用来描述线段如何交替和间距长度。  默认单位：vp"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasGetLineDash {\n  @State message: string = 'Hello World'\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Row() {\n      Column() {\n        Text(this.message)\n          .fontSize(50)\n          .fontWeight(FontWeight.Bold)\n        Canvas(this.context)\n          .width('100%')\n          .height('100%')\n          .backgroundColor('#D5D5D5')\n          .onReady(() => {\n            this.context.arc(100, 75, 50, 0, 6.28)\n            this.context.setLineDash([10, 20])\n            this.context.stroke()\n            let res = this.context.getLineDash()\n            this.message = JSON.stringify(res)\n          })\n      }\n      .width('100%')\n    }\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(665329)/* ["default"] */.A) + "",
+        width: "416",
+        height: "282"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "transferfromimagebitmap",
+      children: "transferFromImageBitmap"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "transferFromImageBitmap(bitmap: ImageBitmap): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "显示给定的ImageBitmap对象。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "bitmap"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-imagebitmap/ts-components-canvas-imagebitmap",
+              children: "ImageBitmap"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "待显示的ImageBitmap对象。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct TransferFromImageBitmap {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  private offContext: OffscreenCanvasRenderingContext2D = new OffscreenCanvasRenderingContext2D(600, 600, this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() =>{\n          let imageData = this.offContext.createImageData(100, 100)\n          for (let i = 0; i < imageData.data.length; i += 4) {\n            imageData.data[i + 0] = 255\n            imageData.data[i + 1] = 0\n            imageData.data[i + 2] = 60\n            imageData.data[i + 3] = 80\n          }\n          this.offContext.putImageData(imageData, 10, 10)\n          let image = this.offContext.transferToImageBitmap()\n          this.context.transferFromImageBitmap(image)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(787194)/* ["default"] */.A) + "",
+        width: "204",
+        height: "182"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "todataurl",
+      children: "toDataURL"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "toDataURL(type?: string, quality?: any): string"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "生成一个包含图片展示的URL，该接口存在内存拷贝行为，高耗时，应避免频繁使用。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "用于指定图像格式。  可选参数为：\"image/png\"，\"image/jpeg\"，\"image/webp\"。  异常值undefined或null按默认值处理。  默认值：image/png"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "quality"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "any"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在指定图片格式为image/jpeg或image/webp的情况下，可以从0到1的区间内选择图片的质量。如果超出取值范围，将会使用默认值0.92。  异常值undefined、null、NaN和Infinity按默认值处理。  默认值：0.92"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "图像的URL地址。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  @State toDataURL: string = \"\"\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width(100)\n        .height(100)\n        .onReady(() =>{\n          this.context.fillStyle = \"#00ff00\"\n          this.context.fillRect(0,0,100,100)\n          this.toDataURL = this.context.toDataURL(\"image/png\", 0.92)\n        })\n      Text(this.toDataURL)\n    }\n    .width('100%')\n    .height('100%')\n    .backgroundColor('#ffff00')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(609685)/* ["default"] */.A) + "",
+        width: "252",
+        height: "252"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "restore",
+      children: "restore"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "restore(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "恢复保存的绘图上下文。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(520310)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当restore()次数未超出save()次数时，从栈中弹出存储的绘制状态并恢复CanvasRenderingContext2D对象的属性、剪切路径和变换矩阵的值。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当restore()次数超出save()次数时，此方法不做任何改变。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当没有保存状态时，此方法不做任何改变。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() =>{\n          this.context.save() // save the default state\n          this.context.fillStyle = \"#00ff00\"\n          this.context.fillRect(20, 20, 100, 100)\n          this.context.restore() // restore to the default state\n          this.context.fillRect(150, 75, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(165708)/* ["default"] */.A) + "",
+        width: "250",
+        height: "210"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "save",
+      children: "save"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "save(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "将当前状态放入栈中，保存canvas的全部状态，通常在需要保存绘制状态时调用。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffff00')\n        .onReady(() =>{\n          this.context.save() // save the default state\n          this.context.fillStyle = \"#00ff00\"\n          this.context.fillRect(20, 20, 100, 100)\n          this.context.restore() // restore to the default state\n          this.context.fillRect(150, 75, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(906480)/* ["default"] */.A) + "",
+        width: "250",
+        height: "210"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createlineargradient",
+      children: "createLinearGradient"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createLinearGradient(x0: number, y0: number, x1: number, y1: number): CanvasGradient"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建一个线性渐变色。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x0"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "起点的x轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y0"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "起点的y轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "终点的x轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "终点的y轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvasgradient/ts-components-canvas-canvasgradient",
+              children: "CanvasGradient"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的CanvasGradient对象，用于在canvas上创建渐变效果。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CreateLinearGradient {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  \n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() =>{\n          let grad = this.context.createLinearGradient(50,0, 300,100)\n          grad.addColorStop(0.0, 'rgb(39,135,217)')\n          grad.addColorStop(0.5, 'rgb(255,238,240)')\n          grad.addColorStop(1.0, 'rgb(23,169,141)')\n          this.context.fillStyle = grad\n          this.context.fillRect(0, 0, 400, 400)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(129412)/* ["default"] */.A) + "",
+        width: "252",
+        height: "492"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createradialgradient",
+      children: "createRadialGradient"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createRadialGradient(x0: number, y0: number, r0: number, x1: number, y1: number, r1: number): CanvasGradient"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建一个径向渐变色。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x0"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "起始圆的x轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y0"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "起始圆的y轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "r0"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "起始圆的半径。必须是非负且有限的。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "终点圆的x轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "终点圆的y轴坐标。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "r1"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "终点圆的半径。必须为非负且有限的。  异常值undefined和null会导致此接口返回undefined，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvasgradient/ts-components-canvas-canvasgradient",
+              children: "CanvasGradient"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的CanvasGradient对象，用于在canvas上创建渐变效果。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CreateRadialGradient {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213,213,213)')\n        .onReady(() => {\n          let grad = this.context.createRadialGradient(200, 200, 50, 200, 200, 200)\n          grad.addColorStop(0.0, 'rgb(39,135,217)')\n          grad.addColorStop(0.5, 'rgb(255,238,240)')\n          grad.addColorStop(1.0, 'rgb(112,112,112)')\n          this.context.fillStyle = grad\n          this.context.fillRect(0, 0, 440, 440)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(566972)/* ["default"] */.A) + "",
+        width: "284",
+        height: "554"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "createconicgradient10",
+      children: "createConicGradient10+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "createConicGradient(startAngle: number, x: number, y: number): CanvasGradient"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "创建一个圆锥渐变色。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "startAngle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "开始渐变的角度。角度测量从中心右侧水平开始，顺时针移动。  异常值undefined和null按0处理，NaN和Infinity按无效值处理。  单位：弧度"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "x"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "圆锥渐变的中心x轴坐标。  异常值undefined和null按0处理，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "y"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "圆锥渐变的中心y轴坐标。  异常值undefined和null按0处理，NaN和Infinity按无效值处理。  默认单位：vp"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvasgradient/ts-components-canvas-canvasgradient",
+              children: "CanvasGradient"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "新的CanvasGradient对象，用于在canvas上创建渐变效果。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct CanvasExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('#ffffff')\n        .onReady(() => {\n          let grad = this.context.createConicGradient(0, 50, 80)\n          grad.addColorStop(0.0, 'rgb(39,135,217)')\n          grad.addColorStop(0.5, 'rgb(213,213,213)')\n          grad.addColorStop(1.0, 'rgb(23,160,141)')\n          this.context.fillStyle = grad\n          this.context.fillRect(0, 30, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(365746)/* ["default"] */.A) + "",
+        width: "292",
+        height: "290"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "ononattach13",
+      children: "on('onAttach')13+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "on(type: 'onAttach', callback: () => void): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "订阅CanvasRenderingContext2D与Canvas组件发生绑定的场景。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 13开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "callback"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "() => void"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。  异常值undefined或null按无效值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(783283)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "CanvasRenderingContext2D对象在同一时间只能与一个Canvas组件绑定。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["当CanvasRenderingContext2D对象和Canvas组件发生绑定时，会触发'onAttach'回调，表示可以获取到", (0,jsx_runtime.jsx)(_components.a, {
+        href: "#canvas13",
+        children: "canvas"
+      }), "。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["避免在'onAttach'中执行绘制方法，应保证Canvas组件已经'", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas#%E4%BA%8B%E4%BB%B6",
+        children: "onReady"
+      }), "'再进行绘制。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "触发'onAttach'回调的一般场景："
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "1、Canvas组件创建时绑定CanvasRenderingContext2D对象;"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "2、CanvasRenderingContext2D对象新绑定一个Canvas组件时。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "onondetach13",
+      children: "on('onDetach')13+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "on(type: 'onDetach', callback: () => void): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "订阅CanvasRenderingContext2D与Canvas组件解除绑定的场景。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 13开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "callback"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "() => void"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。  异常值undefined或null按无效值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(135821)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当CanvasRenderingContext2D对象和Canvas组件解除绑定时，会触发'onDetach'回调，表示应停止绘制行为。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "触发'onDetach'回调的一般场景："
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "1、Canvas组件销毁时解除绑定CanvasRenderingContext2D对象;"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "2、CanvasRenderingContext2D对象新绑定一个Canvas组件，会先解除已有的绑定。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "offonattach13",
+      children: "off('onAttach')13+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "off(type: 'onAttach', callback?: () => void): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的场景。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 13开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "取消订阅CanvasRenderingContext2D与Canvas组件发生绑定的回调。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "callback"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "() => void"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "为空表示取消所有订阅CanvasRenderingContext2D与Canvas组件发生绑定后触发的回调。  非空则取消订阅发生绑定对应的回调。  异常值undefined或null按无效值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "offondetach13",
+      children: "off('onDetach')13+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "off(type: 'onDetach', callback?: () => void): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的场景。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 13开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "string"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "取消订阅CanvasRenderingContext2D与Canvas组件解除绑定的回调。  异常值undefined或null按无效值处理。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "callback"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "() => void"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "为空代表取消所有订阅CanvasRenderingContext2D与Canvas组件解除绑定后触发的回调。  非空代表取消订阅解除绑定对应的回调。  异常值undefined或null按无效值处理。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "import { BusinessError } from '@kit.BasicServicesKit';\nimport { FrameNode } from '@kit.ArkUI'\n\n// xxx.ets\n@Entry\n@Component\nstruct AttachDetachExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  private scroller: Scroller = new Scroller()\n  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]\n  private node: FrameNode | null = null\n  attachCallback = () => {\n    console.info('CanvasRenderingContext2D attached to the canvas frame node.')\n    this.node = this.context.canvas\n  }\n  detachCallback = () => {\n    console.info('CanvasRenderingContext2D detach from the canvas frame node.')\n    this.node = null\n  }\n\n  aboutToAppear(): void {\n    try {\n      this.context.on('onAttach', this.attachCallback)\n      this.context.on('onDetach', this.detachCallback)\n    } catch (error) {\n      let e: BusinessError = error as BusinessError;\n      console.error(`Error code: ${e.code}, message: ${e.message}`);\n    }\n  }\n\n  aboutToDisappear(): void {\n    try {\n      this.context.off('onAttach')\n      this.context.off('onDetach')\n    } catch (error) {\n      let e: BusinessError = error as BusinessError;\n      console.error(`Error code: ${e.code}, message: ${e.message}`);\n    }\n  }\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Scroll(this.scroller) {\n        Flex({ direction: FlexDirection.Column }) {\n          ForEach(this.arr, (item: number) => {\n            Row() {\n              if (item == 3) {\n                Canvas(this.context)\n                  .width('100%')\n                  .height(150)\n                  .backgroundColor('rgb(213,213,213)')\n                  .onReady(() => {\n                    this.context.font = '30vp sans-serif'\n                    this.node?.commonEvent.setOnVisibleAreaApproximateChange(\n                      { ratios: [0, 1], expectedUpdateInterval: 10 },\n                      (isVisible: boolean, currentRatio: number) => {\n                        if (!isVisible && currentRatio <= 0.0) {\n                          console.info('Canvas is completely invisible.')\n                        }\n                        if (isVisible && currentRatio >= 1.0) {\n                          console.info('Canvas is fully visible.')\n                        }\n                      }\n                    )\n                  })\n              } else {\n                Text(item.toString())\n                  .width('100%')\n                  .height(150)\n                  .backgroundColor('rgb(39,135,217)')\n                  .borderRadius(15)\n                  .fontSize(16)\n                  .textAlign(TextAlign.Center)\n                  .margin({ top: 5 })\n              }\n            }\n          }, (item: number) => item.toString())\n        }\n      }\n      .width('90%')\n      .scrollBar(BarState.Off)\n      .scrollable(ScrollDirection.Vertical)\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(124744)/* ["default"] */.A) + "",
+        width: "302",
+        height: "525"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "startimageanalyzer12",
+      children: "startImageAnalyzer12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "startImageAnalyzer(config: ImageAnalyzerConfig): Promise<void>"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["配置并启动AI分析功能，使用Promise异步回调。使用前需先设置", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas#enableanalyzer12",
+        children: "enableAnalyzer"
+      }), "为true，启用图像AI分析能力。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，避免出现画面和分析内容不一致的情况。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "未执行完重复调用该方法会触发错误回调。示例代码同stopImageAnalyzer。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(366657)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "分析类型不支持动态修改。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "当检测到画面有变化时，分析结果将自动销毁，可重新调用本接口启动分析。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该特性依赖设备能力，不支持该能力的情况下，将返回错误码。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 12开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "config"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-image-common/ts-image-common#imageanalyzerconfig12",
+              children: "ImageAnalyzerConfig"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "执行AI分析所需要的入参，用于配置AI分析功能。  异常值undefined或null按无效值处理。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Promise<void>"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Promise对象，无返回结果。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "错误码："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以下错误码的详细介绍请参见", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-image-analyzer/errorcode-image-analyzer",
+        children: "图像AI分析错误码"
+      }), "。"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "错误码ID"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "错误信息"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "110001"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Image analysis feature is unsupported."
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "110002"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Image analysis is currently being executed."
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "110003"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Image analysis is stopped."
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "stopimageanalyzer12",
+      children: "stopImageAnalyzer12+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "stopImageAnalyzer(): void"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "停止AI分析功能，AI分析展示的内容将被销毁。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(86792)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "在startImageAnalyzer方法未返回结果时调用本方法，会触发其错误回调。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "该特性依赖设备能力。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 12开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { BusinessError } from '@kit.BasicServicesKit';\n\n@Entry\n@Component\nstruct ImageAnalyzerExample {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true)\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings)\n  private config: ImageAnalyzerConfig = {\n    types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT]\n  }\n  // 'common/images/example.png'需要替换为开发者所需的图像资源文件\n  private img = new ImageBitmap('common/images/example.png')\n  private aiController: ImageAnalyzerController = new ImageAnalyzerController()\n  private options: ImageAIOptions = {\n    types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT],\n    aiController: this.aiController\n  }\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Button('start')\n        .width(100)\n        .height(50)\n        .margin(5)\n        .onClick(() => {\n          this.context.startImageAnalyzer(this.config)\n            .then(() => {\n              console.info(\"analysis complete\")\n            })\n            .catch((error: BusinessError) => {\n              let e: BusinessError = error as BusinessError\n              console.error(`Error code: ${e.code}, message: ${e.message}`)\n            })\n        })\n      Button('stop')\n        .width(100)\n        .height(50)\n        .margin(5)\n        .onClick(() => {\n          this.context.stopImageAnalyzer()\n        })\n      Button('getTypes')\n        .width(100)\n        .height(50)\n        .margin(5)\n        .onClick(() => {\n          this.aiController.getImageAnalyzerSupportTypes()\n        })\n      Canvas(this.context, this.options)\n        .width(200)\n        .height(200)\n        .enableAnalyzer(true)\n        .onReady(() => {\n          this.context.drawImage(this.img, 0, 0, 200, 200)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(317756)/* ["default"] */.A) + "",
+        width: "504",
+        height: "729"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "getcontext2dfromdrawingcontext23",
+      children: "getContext2DFromDrawingContext23+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "static getContext2DFromDrawingContext(drawingContext: DrawingRenderingContext, options?: RenderingContextOptions): CanvasRenderingContext2D"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "从一个DrawingRenderingContext对象中获取一个CanvasRenderingContext2D对象，该CanvasRenderingContext2D对象与入参的DrawingRenderingContext对象绑定了相同的Canvas组件。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(95075)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["从该接口获取的CanvasRenderingContext2D对象不允许作为参数创建", (0,jsx_runtime.jsx)(_components.a, {
+          href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas",
+          children: "Canvas"
+        }), "组件，否则会导致应用崩溃。"]
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "当入参的DrawingRenderingContext对象未绑定Canvas组件时，将返回错误码。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 23开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "模型约束："
+        })
+      }), " 此接口仅可在Stage模型下使用。"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "drawingContext"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-drawingrenderingcontext/ts-drawingrenderingcontext",
+              children: "DrawingRenderingContext"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "一个DrawingRenderingContext类型的对象。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "options"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: (0,jsx_runtime.jsx)(_components.a, {
+              href: "#renderingcontextoptions23",
+              children: "RenderingContextOptions"
+            })
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "渲染上下文的配置选项。  默认值：{ antialias: false }"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "返回值："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "CanvasRenderingContext2D"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "返回一个CanvasRenderingContext2D对象，其与入参的DrawingRenderingContext绑定了相同的Canvas组件。"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "错误码："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: ["以下错误码的详细介绍请参见", (0,jsx_runtime.jsx)(_components.a, {
+        href: "/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-canvas/errorcode-canvas",
+        children: "Canvas组件错误码"
+      }), "。"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "错误码ID"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "错误信息"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "103702"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "The drawingContext is not bound to a canvas component."
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例："
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\nimport { LengthMetricsUnit } from '@kit.ArkUI';\n\n@Entry\n@Component\nstruct CanvasExample {\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas({ unit: LengthMetricsUnit.DEFAULT })\n        .onReady((drawingContext?: DrawingRenderingContext) => {\n          if (!drawingContext) {\n            return\n          }\n          let context2D: CanvasRenderingContext2D =\n            CanvasRenderingContext2D.getContext2DFromDrawingContext(drawingContext, { antialias: true })\n          context2D.fillStyle = 'rgb(39,135,217)'\n          context2D.fillRect(10, 30, 100, 100)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(464636)/* ["default"] */.A) + "",
+        width: "144",
+        height: "133"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "renderingcontextoptions23",
+      children: "RenderingContextOptions23+"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义渲染上下文的具体配置参数。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 23开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "模型约束："
+        })
+      }), " 此接口仅可在Stage模型下使用。"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "名称"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "antialias"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "表明RenderingContext是否需要开启抗锯齿。  取值为undefined时按默认值处理。  true：开启抗锯齿；false：不开启抗锯齿。  默认值：false"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvasdirection类型说明",
+      children: "CanvasDirection类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasDirection = \"inherit\" | \"ltr\" | \"rtl\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义当前文本方向的类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "inherit"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "继承canvas组件通用属性已设定的文本方向，若canvas组件未设置direction属性，则跟随系统文字方向。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ltr"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "从左往右。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "rtl"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "从右往左。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvasfillrule类型说明",
+      children: "CanvasFillRule类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasFillRule = \"evenodd\" | \"nonzero\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义用于确定点是在路径内还是路径外的填充样式算法的类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "evenodd"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "奇偶规则。  此规则通过从画布上的某点向任意方向发射一条射线，并统计图形路径与射线的交点数量来判断该点是否在图形内部。如果交点数量是奇数，则该点在图形内部，否则在图形外部。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "nonzero"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "非零规则。  此规则通过从画布上的某点向任意方向发射一条射线，并检查图形路径与射线的交点来判断该点是否在图形内部。初始计数为0，为路径的每一段线段指定一个方向值，每当路径从左向右穿过射线时加1，从右向左穿过时减1。如果最终的结果是0，则该点在图形外部，否则在图形内部。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "示例"
+        })
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "// xxx.ets\n@Entry\n@Component\nstruct Index {\n  private settings: RenderingContextSettings = new RenderingContextSettings(true);\n  private context: CanvasRenderingContext2D = new CanvasRenderingContext2D(this.settings);\n  private offCanvas: OffscreenCanvas = new OffscreenCanvas(600, 600);\n\n  build() {\n    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {\n      Canvas(this.context)\n        .width('100%')\n        .height('100%')\n        .backgroundColor('rgb(213, 213, 213)')\n        .onReady(() => {\n          let offContext = this.offCanvas.getContext(\"2d\", this.settings)\n          offContext.font = '60px sans-serif'\n          offContext.fillStyle = 'rgb(39, 135, 217)';\n          // 非零环绕规则 (nonzero)\n          offContext.beginPath();\n          offContext.arc(100, 100, 60, 0, Math.PI * 2);\n          offContext.arc(100, 100, 20, 0, Math.PI * 2);\n          offContext.fill('nonzero'); // 使用非零环绕规则\n          offContext.fillText('nonzero', 65, 200)\n          // 奇偶环绕规则 (evenodd)\n          offContext.beginPath();\n          offContext.arc(250, 100, 60, 0, Math.PI * 2);\n          offContext.arc(250, 100, 20, 0, Math.PI * 2);\n          offContext.fill('evenodd'); // 使用奇偶环绕规则\n          offContext.fillText('evenodd', 215, 200)\n          let image = this.offCanvas.transferToImageBitmap()\n          this.context.transferFromImageBitmap(image)\n        })\n    }\n    .width('100%')\n    .height('100%')\n  }\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(235856)/* ["default"] */.A) + "",
+        width: "348",
+        height: "212"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvaslinecap类型说明",
+      children: "CanvasLineCap类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasLineCap = \"butt\" | \"round\" | \"square\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义绘制每条线段端点的类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "butt"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "线条两端为平行线，不额外扩展。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "round"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在线条两端延伸半个圆，直径等于线宽。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "square"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在线条两端延伸一个矩形，宽度等于线宽的一半，高度等于线宽。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvaslinejoin类型说明",
+      children: "CanvasLineJoin类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasLineJoin = \"bevel\" | \"miter\" | \"round\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义长度不为0的两个连接部分（线段、圆弧和曲线）的类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "bevel"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在线段相连处使用三角形为底填充， 每个部分矩形拐角独立。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "miter"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在相连部分的外边缘处进行延伸，使其相交于一点，形成一个菱形区域，该属性可以通过设置miterLimit属性展现效果。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "round"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "在线段相连处绘制一个扇形，扇形的圆角半径是线段的宽度。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvastextalign类型说明",
+      children: "CanvasTextAlign类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasTextAlign = \"center\" | \"end\" | \"left\" | \"right\" | \"start\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义文本对齐方式的类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "center"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本居中对齐。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "start"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本对齐界线开始的地方。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "end"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本对齐界线结束的地方。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "left"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本左对齐。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "right"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本右对齐。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "canvastextbaseline类型说明",
+      children: "CanvasTextBaseline类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type CanvasTextBaseline = \"alphabetic\" | \"bottom\" | \"hanging\" | \"ideographic\" | \"middle\" | \"top\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义文本基线类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "alphabetic"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本基线是标准的字母基线。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "bottom"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本基线在文本块的底部。 与ideographic基线的区别在于ideographic基线不需要考虑下行字母。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "hanging"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本基线是悬挂基线。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ideographic"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文字基线是表意字基线；如果字符本身超出了alphabetic基线，那么ideographic基线位置在字符本身的底部。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "middle"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本基线在文本块的中间。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "top"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "文本基线在文本块的顶部。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "imagesmoothingquality类型说明",
+      children: "ImageSmoothingQuality类型说明"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "type ImageSmoothingQuality = \"high\" | \"low\" | \"medium\""
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "定义图片平滑度类型。取值类型为下表类型中的并集。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "low"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "低画质"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "medium"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "中画质"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "high"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "高画质"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "textmetrics",
+      children: "TextMetrics"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "名称"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "width"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "只读属性，文本方块的宽度。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "height"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "只读属性，文本方块的高度。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "actualBoundingBoxAscent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到渲染文本的矩形边界顶部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "actualBoundingBoxDescent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到渲染文本的矩形边界底部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "actualBoundingBoxLeft"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，平行于基线，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextalign%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textAlign"
+            }), "属性确定的对齐点到文本矩形边界左侧的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "actualBoundingBoxRight"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，平行于基线，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextalign%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textAlign"
+            }), "属性确定的对齐点到文本矩形边界右侧的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "alphabeticBaseline"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到线框的 alphabetic 基线的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "emHeightAscent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到线框中 em 方块顶部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "emHeightDescent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到线框中 em 方块底部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fontBoundingBoxAscent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到渲染文本的所有字体的矩形最高边界顶部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "fontBoundingBoxDescent"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到渲染文本的所有字体的矩形边界最底部的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "hangingBaseline"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到线框的 hanging 基线的距离。"]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "ideographicBaseline"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "number"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["只读属性，从", (0,jsx_runtime.jsx)(_components.a, {
+              href: "#canvastextbaseline%E7%B1%BB%E5%9E%8B%E8%AF%B4%E6%98%8E",
+              children: "CanvasRenderingContext2D.textBaseline"
+            }), "属性标明的水平线到线框的 ideographic 基线的距离。"]
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "renderingcontextsettings",
+      children: "RenderingContextSettings"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "用来配置CanvasRenderingContext2D对象的参数，包括是否开启抗锯齿。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(108388)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "RenderingContextSettings的抗锯齿效果对文本绘制无影响。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "constructor-1",
+      children: "constructor"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "constructor(antialias?: boolean)"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "构造CanvasRenderingContext2D对象，支持配置开启抗锯齿。"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "参数："
+        })
+      })
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数名"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "必填"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "antialias"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "表明canvas是否开启抗锯齿。  异常值undefined按默认值处理。  false：表示不开启抗锯齿功能，true：表示开启抗锯齿。  默认值：false"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "属性-1",
+      children: "属性"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "卡片能力："
+        })
+      }), " 从API version 9开始，该接口支持在ArkTS卡片中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "元服务API："
+        })
+      }), " 从API version 11开始，该接口支持在元服务中使用。"]
+    }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+      children: [(0,jsx_runtime.jsx)(_components.strong, {
+        children: (0,jsx_runtime.jsx)(_components.strong, {
+          children: "系统能力："
+        })
+      }), " SystemCapability.ArkUI.ArkUI.Full"]
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "名称"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "只读"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "可选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "说明"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "antialias"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "boolean"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "表明canvas是否开启抗锯齿。  异常值undefined按默认值处理。  false：表示不开启抗锯齿功能，true：表示开启抗锯齿。  默认值：false"
+          })]
+        })
+      })]
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return MDXLayout ? (0,jsx_runtime.jsx)(MDXLayout, {
+    ...props,
+    children: (0,jsx_runtime.jsx)(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+
+
+
+},
+751409(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+454526(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+609685(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583440009-78f1d1912d56ccf5f8ee07af74d00188.png");
+
+},
+922572(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959960-0ccb9c8cec46faa9e0e6fc61d4625935.png");
+
+},
+857362(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+805754(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479941-b6c083bc703059ae96445acead7afcd2.jpeg");
+
+},
+490962(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAWgAAACNCAYAAACaG+BQAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAACTPSURBVHhe7Z0JmB1lme//31dVZ+kl3Ul3ZyUrqwQjBBcuIuqoowguI+M4osiqcF24evXeR7zOnXsfZcbnemdGfUZFcUNFZVxYFHRkRp+5gCgoiCwhCyGEJJ21051Od59zavnu//3qnKQJ6Q4QDunl/UHl1Kmtu7+q+tVbb33fV8Y546AoivIUDOBCOH4AGb9RFS7zc3IsFxn9XXmuUUErijI2YoeGIUQV4uz8i4wqTUYFrSjKmEh8LCJuyDiPow1jZwpazGHSfIbSFFTQiqKMAbWcBfmnGNrVVeHFXFe2jfnPeAppqF15NqigFUUZA8o1sQAdnXDUUsQ2E104n5eucYjypTyS9OCc+recxjzl2aGCVhRlTES4ktJI+G/Az0CiaMlqWKqX/4uoG9noA+UsqKAPDxW0oihjIjloK4ZIqVoboWItZZ3noENOj0yVM8dWiPFbUJ4tKmhFUQ6KiKFGxRaTAC4toK9Qxn3U80N7a5S2wYntJbzEjKCU5pK2jKolypaIO1+b07Qa3mGhglYUZUxqmUGUWYyYMv49K+DT/buwrpUaNilOGgA+3NWGV0SMpLO9KFDQpThEYgP/8DBUOR82tv6pKIryFEIGw7GNsDko4rqhPqyeadDXwqFk8eBM4IeDQ9iLDrS4IkLJTwcpjE3hjKhF9XK4aAkqijIGBi62CG2IClWxngIeCh0d7FCuWlQZKK8KOA2UcxzlVaIZNUt07R8cOtGLPiY8HFTQiqKMAQUdFJBmwyjDYR4CFBMgozXSqIhiGmBuYFF2GVJkSDguzwQNRZ4/HNTs6eGiglYU5eDQryaVtoNAN79cMGMuXtIfYu7uOegcmovlFYP3tLZgrhnB3ijGsHHIaG/jAoqFgna0uUr6sFBBK4oyBlL3OaFqHVqSGs7KHC7sm4XWzzoUP1fBFXYOXu9SFGu7kFipfCcPD0OuRqVLgxa1y2GjRagoysGhZxObYVDyykGCMoawZKfFY1/qxZZ/3ow/C2ZgJvVtGCm3GIOyPCS0jKJleQpae+k4fFTQiqKMAWNiUwZjYoSuilqQIonLQKWMaCBCG4pIxSBRgFIGFL2gUzhp2UJhp6qXw0ZLUFGUsQkcSr5jJIdCUsLwHko7TFEsxzBRjEAiaApZBomepZlKIHnnACjIp3JYqKAVRRkDEazzksg77Q8w2B8yik7R3slpvvP+fBmlOaigFUUZh4Z8qQoXon8g8g1RZsywcJkIWmkmKmhFUcZEUha5pGWsgN27Iv/wsHNmCca3FlSaiZawoihjwyh5f6vAInb3xV7XM2e1IMhT00oTUUErijIOeZ45f/wXYdvWQR9Bz+pu9/L2X5SmoYJWFGUM6uExP2QscwG2bNruJ3V1tflPpbmooBVFGQeJnQ0CazkU8fjGird1ZwfVoTnopqMlrCjKGEiXRyGCzDB8TrB7OMWOPiBMgY5yDZmtchFNQjcTFbSiKOPg+xCFcwG2bqsiSSgNOnnWzDbfR4fSXFTQiqKMAQVsUv5rkaYhHltLO8ukEGhva+FUfUDYbFTQiqKMizEBxdyCNQ+XkFDQnZ0hgkjl/HygglYUZVyk51CYdqxdM+KTGrPndcG5GNb30aE0ExW0oihjIn08Z1Lf2bRh1arNEk6ja04bgsAiTeL6UkqzUEErijIGBmlqEEYhahXLCHoQmXFYcnQro+qErtYIutmooBVFGRNrAqQMoLfuGMLgEJXtLJYvXwxkKeepPpqNlrCiKGMi7xaMXSt+/4BFTFG3hQ6nHteBQjCE2EpTb6WZqKAVRRkD6YMjpSUKuO8eqQsNnPyiJUiSnf4BoWY4mo8KWlGUMZHGKFlawr2/3SRVorHytEUot2SoVWPJd9SXUpqFClpRlDExNqSMZ+H+P+yBpS1OfkmMJB5CS7kE5+vfKc1EBa0oyhgYZK6MB/9YRWVvCLoaK19aZuDskCZV7bD/eUBLWFGUMZA3c7fjt3dIXegEi5YFWLjYIrQR0rjG+RpBNxsVtKIoB8V30u86cPuvHoe09j7ztYsp7AHv5SiK4KT+ndJUVNCKMq2Rqhijq2OM+u4CVCpl3HN3n5f1fzq9HZFNKe0ERhLSWo2j6aigFWXaQsFm0hGSrScr+D0NgYTTOD1JWnDPb6roHwGCosWrTi+i5LYjC/tRDYe5TpSvozQNFbSiTFuoZSNpCtEzVeAoW+ns2RqkiUUQzMCdtzv/VsKjjy9i/twCZyf8xig6K3E817rSPFTQijKtEf2KBuoqyDL/QDCIWlCpdOCnN672mYxz3nYCakmvX8R7PGlH4BpyV5qFClpRpjM+QyH/pP7DuRIFbBBnDuvWRVi7JvFCPuscRsy2Xxamkjkha2EETUFrFN1UVNCKMq0xPpfsGwWmHE9bkFK6zrbhl7fUkCUGi5aEWLashkIw7OPtlAJ3vg60fFOaiQpaUaYxPhp2IcckihZZS+65iFqtBz+76VFklPVZZy9GW7kfJpO6zyJoi8xyXIPnpqOCVpTpjpOaHCU/aswwXDYDvU904E9/HEYYAW88pwOhG6KZpfMkfliLNBiqR9EidqVZqKAVZbojNTmyIkcCSncYadqKH1/f62U8Zy5w8sntCLKYtoh8ftr5p4RVWVHWVpqIClpRpjEiYWMq/IdD1gInzbjRjet/sB7VFHjbW5dgZkkapjikofRtF6KtZtBai7geI2+lqaigFWXaIvlnyTvn+WRnYiSU9L33DuHRRynlEHjr2+fA2h1cVlIa8lDQwDrr36yiKejmo4JWlGkMdZvX4DApXCBV6mbh+u+N+NpzS48p45RTSwjC7V7eomRZVB4kZr4mB79plqOpqKAVZTojxs3yKDqhdPcMd+GmH62HvLD7vAuOpyE2UNZ7KIp03+KSgpZoOrXSqlCmKM1CBa0o0xiXWSQpNSAd86ctuOEnA+jbWUQQUNDndyKMBnxLQoM83ywxtLzZW+pAOyOCVpqJClpRpi1iXqq3YJBmRQ6L8O1rNjFWTvCWty3AnFnbObtKK0s1vAKXpy68lBsNVDR6bjYqaEWZxqSSr5BoGB24964I992zF2ExxSWXzUbgdlDhImMRtETQFLKpcZpIWvIceVStNA8VtKJMeUTCBz/VA0vd0sHVuAXXXtOLNAWOPbaE085IEPpoOU9n5L3eyZD6rXlp+yH/pjQHFbSiTHVcRLdKikJkKsKtR78ctbUMiWtB7645uPHmjSgGBu+//FgE2R6YIOay0okSRe17rpP1Gn1AN4StaY5mooJWlCmPpCakFkZdztJi0KcnrO8YyaADX//SDvrWoHuOw7nvmMNpI8iyvOZGvn5DxLK+DCrm5wMVtKJMZfbljiUarktVGppIK0BjUOOwY9s8fO+aR5GMOFz03iUolVchDKvIXEPqypFCBa0oU51R0bOjnBNJNJsEiYthC7PxjasHMbDLoWMGcPFlHZRzHxcfRhA0ctDKkUIFrShTGhFsLmfpVjTLLKytSzoroW9gPr71tVVcIsWll52I2T0DCCh0K5WfreSYlSOJClpRpgXSWlBOdxlE2CWkyVxc+7U+7NoNdM4yuPgDZYQYhk0jLiHLy6AcSVTQijJlyaPmvMYGx41vB4g0CynhedjZuwhXf361t8A7LlyIOQs2w7phRtZW1uSSjY78lSOFClpRpiwiaKmxkXdz5FwCa1MkiTwkXIAvfHYV+rYBM2cCl35oNpfew1Uq+Xq+1kajap5K+kihglaUKYtklmNkJkJCyUrVOhmCsBUPrx3Gt7673cfIH7riBMyfzXEn3Y5yCiUuDVMCSKf8wihB+wYrgqrj+UBLWVGmLA7GZoyWY6lR58dd1sZhKa76XxtQoY8XLyvioouWo1QYRuCj5jx69jI/ZEtBmTfefOVwUUErypTF0LUUaJYi8O8cDJCkZdxzZwG33rwDMX384Y8dh1L5MaTxEMXNCf5/RslcLX+oqBxJdA8oyhTGSc/7qbxvUKLidiTZXHzy4w8hToHlp7Thr86bgXLLJhTChIKWxiuUs4259Ohe65QjhQpaUaYskrIIkDKCloeE1VoPvnH1CB76U590/4xPfWYFouI6GNNPETBetgybpVGLzzNLp0jaUOVIo4JWlCmLpDgcgihBJSliy+aZ+MfPrPJdjJ73roV4+WlVSnk3lxOByxu9Oeobp0gNaJFD5j+VI4cKWlGmLBS0kZobIfV7DP7nlauxfSfQOdvh438zD5FbDyMGMBFNwBHrK+N5KXNN/qd6ONLoHlCUKUGu1ScNDIlrNYsk6cYvbknxsxv7EBaAT161ArPn9qJgB7lcHi/7F8ByLIdayELfYCXfTj7V86SMx+h1lGagglaUyYw8BJTT2LcWZLRMsWYpP2WQaWhF79al+Mh/vR+1DHjlq1rx1+cWUbR9DJwlSpZ+N6rcgrwppZHS4DalLjQHmT+6wbdxDWXoA8TnAxW0okxaRKfSGb9UoeO4SZBJD3VB/pDPZUU6exE+/rGH0bspQ3cXcNX/WQ5j1nF+zPmyntCIhPeL+EnffXStHAlU0IoyqZHIWU5jkbJExBI5Z8iM1N7owte+uQc//3kfSiHw3688Cce9YBcKhT1Ub0yZH6ohinKkUUEryiTG+XrLNRljRBxRzi0Ub4Fy7sSGDd341FVrUU2BM1/Tjfe9fwYi0+er0wVByEhbmnJrdDyRUUEryqRF5Er7SvTs3ztYEk2j5oqo1U7Eh9+/Gn3bLBYuAj539UIE9mGJr2FciZJmSO3fsqK55ImMClpRJj3ycJByNpbRcookXYS///Rq3PWbPSgXM/zd35+KBXOfgMmGKOWUSqackcD6is+a4pjIqKAVZdJCudbzyIZylnrLBvPwb7d04J8/vxU1zn7vZV140xsdwmTYqzhFDbGt8ZORswTfyoRGBa0oE55GpCvDk5GHgmlag/SdUU1CPLZmJv7L++5ETDufekYPPvm3x6AQPAFrpftQC2cTqrlCsZe4shhac9ATGRW0okxkJEWc8jR1oW8RmIlk/WTnq0DHtRgmiDAUl9HXfyLef+kjGNlrsWChw1euOR7trY/AhruBqMYhBrcCyVQH0jF/oHKe6KigFWXCwohZxOwD50b/GJLG4H/S81xWRGDLGK6EiE0PrrjiYdz3wBCilgxf/MpKLJq3CdYMj4qU8yGPw/Xh4GRABa0oExYKlWeoQQTfFaijaF1Ct1LQUmuD02MXICgsxd9cuRU33bQNiXH4+FUn4JWv2osytnJdTTRPZlTQijKByfvIkJhZPhn1JvyU5twMqzNbRTWcg69/tYbvfqUf0oDw4vfPwoWXRoywd3AZvwllEqOCVpQJiyQjQjiKWDrRl+9xVkQ14acLUYk7ceu/tuMTH1uNZMThL97cjav+9wKk1YcRBDGXDsXwfkvK5EQFrSgTGP9mE8fQWKrTZa2MoRlNRxGqtUW48/ZF+OAlv+dsg5e+rB1f+OIStIRPoEPadZsKsoDrqp8nNSpoRZmwyAO9FMYVvJydCRBQziPVObjvvqNwyfn3YGi3waKjHb547SLM7HoCSCqwptErnUTdmueYzKigFeWIIzo9MNRtTJNWfyWeqQmD6BHESRvWrFqIC995G3ZsB45eHOLb31+JxUfvpJhrCEsOaSIPEwOuLe8iPHC7ymRCBa0oRxB5qavLrK/jLLFuHu8a/13kXKs6ZJRzJU0YOXdgzSPLcP7bf41t2zL0HAVce+0crDxxGGVUuM4QjK0hYMBtA6nrLFXpNIKezKigFeWIwgjXSK5YXtDKqDeTTo9o2Lqtg8AgS4uIbQ9WrZ+Hd73zd9i8EejqBH54/Vk4ZWUrklovxRxzaNR3FjFz3G9TmcyooBXliCFylgd6ImVpfCJilbyx5J15alLWgQ0Quxbcf998vONtD2H9hhSFksV3vnsWVq7YSClvRRAxemYEbUZ3rO/fzt0QtjJZUUEryhGjEe3SpY2e5ShqmZ7J21FMjJGkC/fevQDv+cu78cSjCWZ2WnzvxpfjtFdsQBCuo6D3wkiVun0yllNaT+upgu5JRTliSK6ZH45Rswg2lY72y0hdhMQVUE3m4fY7luLdb/8ddvc6HNUDfOe6U/DqVw8gLD7OdSQ1kuWRMwUvHSf56nj7Bj29Jzu6BxXliMFomTLOxcpT0fC7TTBUBSrVk3DrzYtx0TvvwO5dwOJFEX58w+k44/QtyGrrYV0rl5WGKFzPi1iGehTuh9HflcmK7EVFUY4IzjvZV6OTFoNBDdXUIgxejK9+qYrLL7kDlSFg3lEBvnn9i7D8RRtgTR8KUQaX1Tgu1egod4+kSuoPB+tpE2Xyo4JWlKZyYHQ7GocsY7jsfOeh/K+MLD4FV354DT71t/djOM4o5Rbc8MvTsPzk7QyY91DKksqowAZ76eFRtTSkSl3jwaDPR6ukpwIqaEVpGhRyyihXqs1xcBIlc1o+5HliK6+pilNUTTe27X4hzj//UXz96zvByXjt2V346U+XYen8dYhcP30sYk7yih82g5GXvtbz0Pt+nh/koy5s/iRl8qKCVpSmwajYd3REidoa1cnBUc+p5UDLpmX6tYPTF2LNo0tw9tkP4he37aC3U1x88Wz84Dsnoq11K6JCFZmrIfDZDP9UUUaIiFkFPJVRQStK07BITVFqNVOjjGylZoX062zEtJl/tjdcOw43/HgWzn7lXVh1/x6EYYa/+78n4KrPLICpPcCIuYI0HoK1Dqn4uBEt+4eDsp0D0ybKVEIFrShNw/EESxg1U6RJG53MwVjEqaG451DOx+DKT6/DZZfdg/6tBsfOtbjlplPxny9LKOrHEZSodkbgUYFRsqkhiuoR875aG8pUR/eyojynNPLAeWTrUxqUc+b7cK5wKCDGAjy6fgn+8q1r8KUv7ARn4cxXtePn/3YGXnHaJhTMBoRBFUEY+lyz5JmlrrPZl2tWpgsqaEV5TmnkiGUwcAmj56APpjSCDO0Yqi7Dj37QgtedeTt+8+sK2hDgI1cch+/fugTdCx/ksoNcTboLrcL6ViwHwYu6Hk37QZmqqKAV5TlldATtfK2LODOoZG3Yvus4fOCiHbjivQ+gvw/o7slw/XUvwSc+aVAIH0OWShW5Fq4l9ZulBsYeDiLi0dus42tpaEQ91VFBK8rT4gBBPuW7wIg5k+5DqWYOWRZQr/ORxCtx8w8X4s/PuAc/vbHXq/ecc7vxyzvPwOvetB6laCMiDKIQjcDIW7h5WmacknfLwVN09LAPjZ6nAypoZXpzUPmNQoLUlKYU2XIZeRGrTHJOvkfShxyFa5FyGZeGMK6ELCkjjmegls7F6nWLcOGFG/C+9/4Jax+PUe4B/vHLy/G1rx6Ho7rXwQS7fX3mIJSuRWOekdwiB2sTDvxBjUj5KRHzwS4QylRDBa1Mbw4qvwYUICUs7bGdf1Any0nVNg6cJT3I2ayFy7RxPKC0EyQuRYxODCUn4cvXOLzutXfgF7dsh0kyvObMLtz2yzPxngukit3DCAp5vpkb8D8tR8Yb0zRCnu6ooJVpTkOEBxGiM8hsTJmmHJW6zJR1WqRTy0DCkDcL854wnPTHHCIBo2a3FHf+djbOfsP9+MR/24SdfUDPPOCfvrASt/7sRVh+zAYEyXoUi4OI05qsLFtQlIOiglamOAcK+MBhPAwjY0qZGhY9GydCzVsD5qkPC5dVkaQlJGYxHnxkKS6+YABved19eODuQYoYOO9dC3Dbf7wG775wNzfzG1i3GYEp8MQrwUT6UldlfFTQyhSnkasdaxgPzk8ZLUuaI7MUs0zLkDJirrkYmbHI0iXYtmUFrvxoFa8+/X7cfMNWaYuClSva8dOb3ogvfm4u5s36IyK7levGMAG3E6TcSo2iVjkr46OCVqY5Imk5DWTwCYv9GGnJt5diTinp/CGhs5SymcXI+hTs2nE6vvDZMl592u24+vOPIa4Ci5cG+NyXTsQtv16O08+4H0Xcj3JQgUsjrtOK1LTktTNMxmhaovNDXSSU6Qzv1vQyrkxhxqqd4WnIkZ8ymr/ehOP7Hxg6b9MQWVakWFvgzDxsfqIH1359O6771oPYtlXy00BPD/C+DxyHSy/vQVvbam5uEJH0NMf1fWtAW6LgpdEKo2j55CRjqvm8CZzmkN/MGyItIOPvXk178Ic75qKyN8Mr3tCHYih3BvvLS3luUUErU5S6fL2g6+P7GPVdomJpjh0YpEktr9om+NOC0xj5SuORLJ2PLZvm4atf3ohvfmsN9gwCMReZ2Q2886+Pw4c+2IMlC7dxe9u4jZoPyKWHZ//yV34mWezf0G29/I1XmvwrvTtPZPgXiCSeJOjfU9BVFfTzggr6OefA4pzYJ+CkR6JRL4h6uVMm0kVRI13R6L9CamH4fSHv7vNV5UTMVGRMaYb8TKuwQcbZ3I4pUMzyOqk2JMli3H33ML597Q7c8KMtGB4yCEKH9g7gokuPxwcvb8fcudLx/mZuZzclLA8S5beR38HyJ4763Z5ybEx0pI53iIAXF6QBHP/u4aybEXQPBQ288s95lxBt5nLS9EaP9Gaggj5cRt9Cj7o1Vp4PRLgUqYdiFkPsO5rly6h9I6LkJCNN/BoL+d0VMXKmgAKLRMRtO1CL52Pv7rm46Scb8N1vPIaHH6ogTvwi6J5tcP7Fx+PSy+di5swdiEw/I+aqF3Pq9nK8cQzIRUDi41E/b9JheBGTxje86PCC5QKHCgV9z53dowS9hcvlghZU0s8tKujnDJHFQQ5PlXZT2X/w5hHrkxTBmW6fPGS6TMh8LQufWuD+SrOQCm3lOG/bawvxq3/fhp/8aAdu+9fN6OvL1yoWgeUnteCCixbinDfNRnf3DgRuO2rVBFE59nlk5/jJhfOcsqyV/y6TXdD+QtOIoDkqgv4DBV2hoF9BQRdU0E1FBX3YjC4+PTyff1jm/sJIe9RrWuTINMmfMsI2CW905PVQMefL9CKF2oIsK6OKRXh0dYgfXLsLN/3wEWzZLFXg8k2W6e1z/mIB3n3BHLzsZSVEweMoBP30kbywlT/HpfyRHHgINKSfHw37jwn5aZMX+XukeiHLL6Og+TdW01zQIz4HPYhiIDloFXSzUEE/Yw48BCV6qo8Sn+p8EnrINg+WbSailFGOc8gkhUFbyoO/JAEiG1G2dekGJVRGOumTY/DQAxX84ue7cOMvNmDtIxVxuH+FX4E+P3llK9587rF4y7kLMGf2NgThJup/AKF/xx8HV+A2RVhVr7D9NPa1LCfT/SM2P2WyIi0kM94dSCpIKrQkaQ/uvX0WhoYznPH6PSiroJuKCvqwkUNShvyEzIfR6CH79GiU0zM5HLmOf4UU1/JhrEGVLgmjFqSphbVFCqWAwHRhx/YifnvnTvz2riJuvuEh9G6R/CoQW0aINsX8+QZ/9Y4T8LZzy3jhighJTCmbKqU8gMCWYEVS9doZIip5lZVzrSi4Yf7chqDq+99/fyZ/x0Qlj6AziaBR8FOSuBv33dGFEQr69LP2MILuZTnw6kYMy1+P9ucWFfQzZvQhKGaQh1Q8a/flGkfnHOVk1eJ9+kjZPpPyYsSchT7d4EyIJJNe5Doo5x7eknfhrrvW4s47IvzHr9YySq5ir2QneJ/uc8bcbUuWGZzz+iV4/VlzsPJlM1AobEAUbqNwBv0ezeVvEbgAJuQ6WY0SYvQs61PCEh8H+1Iq9X3v97cMcmxwmNTPIPLjW/LreR/VJO7BH//fTAwNpTiNgg6LvZyoEXSzUEEfAh+ZkVwdElHsLy7DE9ikHZAgyqWMHqRhWFFqBFTzE5hFKz2eTeeDVqKqRukJjfJsYESu/GxMt/uWbwx1KLtG1TUvDf/JKDY9GnGlhPWP9eP3vx/Cgw8EjJLXY83DFQyNWFQpSNmK5T/FMvDCU1rwZ69fhte8IcKKF7ajA49wvrw1m5IxjJBdXhc6r5Yn6ZFcummScjr3tzQ8EWH7jdb2Hw0Hnka++p8sJNs9YN5kQS4w0tWqpPFMmSXOv2l4Hlb/uhOV4Rgrzh6CK2/kxUtSIHmqz7Kg5a/1sbS/QMm3Sfr3TwBU0IdAHjrZLI8QpCVYFtYP2MQgqs1A9Xed2PTlXuxdW0Hh2CKOumQBWl46DDtjL4bsCEpcNj9kpyOMMOWklpOVh5n/jydtyrJLKDqJfE1Q4ny5kDEaTh2CoMj5EhVL45A8lxyGJaRZCYODITZvrmDjhhoefiTD+nWDuH/VFqxdnflaBbKbRBJS2tw0I2JgxTEWp51+NM44sxVnvLILHbMGGHX38uftRSh1loOK//kNxt9Tsu9JY6FxT536sofY4sRGLkbcB7WAdw8lBCM81q8ZwsD3Wdgs3/Y3d2DxB3qQtq2HLcqDRC4fJv6iKP38hTH3bcjy1ZpMzxoV9LhIJSkKup5jyxi5+VoAIo1aGdnGNjzy9l7MeSxC0ZWxuzCEnSssTvrM8QhO3IOhdt4Cipv2nazTDV6aJGHrJSWyLSCutWFkqBW7dlgMD1mKuoIkTX1Oc2TIcLrB4MAM7N6VoX93H7bsHETvll3YsiXhPHlIFSCmyB33jBSrbF6eC0od5Y5O4EUnH4WTX9yFF7+kBSef3IP53XtQ5H7J0MfobpCuqPllsyT/nbJIdtD+U0BPhlHwWI95MS2wvIqDs7HxH7aj8u1+LOC+Czlta8Gh+KEy5n60DdX27YjiiIIGqryD5GwU5H2MochZS/XZooIeF0Z6jAT8q/N5kMlbNHhGwzDCMxVGE7fuRfKRQXQN8jikOEBxbOjIEFy6AtVTi6jNSTDMWMKbZFoikfEIz3NGV4yQpWqbc/Nw3bcew79c9yeWSsAi25+/lAhYUgf1bAcjXQ4s1kZUzPjaR8aSNOqcGWDRonnomd2K5S9YhhccvxhHL53JA3obhTyANB3gyozeQm5AqmigyqHCCN3yIpGiVGjlMvyd6imMfTzlbJiu+45Q0Fk1RLEUoWuLw8hn78biVTW0sDgz2QuRQ++KDIu/vwR7l2xGqVpgQBKhWtjLUkvA2f7OSHn2qKDHRSJoEazk2CRqy2/PC64VGGjD5ttqqH50AO17eDuX8kCOY2zqiJGdtwTxy2djS8sID+PpK2jDE5z3H3VBJyyLAiPgmbjpJ70cHoSTFAYFKe9KDSNGXLwj7pwFtLTJZxEzZhTRPWMmerrb0dnl0NpeRUdHhBmdHYyGS1yPh67NnwwE3FMuiRnt8X4lc7AZy52z43AIJnD+TSe5K6R2R4CEEbSxIZebrnvnaeAseG/IfdaPZQMhKlevwsIHYrTELE9qw/Dit/OFwKIfLcWehRvRKoJmmcbhIHeL9AQo+185HFTQ40JB87bcmhpPfwqA32s8oUumAAy3I3u0jIfOewLzHmtBe9KK4WA3el+a4PjPnwBzTIxKoYpI/DxNEUEHqTz958WNIs5oyJh3IP39KUZGIkRBOwqFDga5IaICL3KRlDKFahn5Wnl5ag0FkbflPUwqzallSyJ7ibrl1pmCz8r8zj1jYu4dSkFqVThpnixPbLmE2cN5su8s1xBdyEVBlJ7jKHhlFI3bF+KPdwYeUVZDcc8sbP6HLRj5zm7M3yXla7GrmKH4gRmY9T86sKewAR2mhdKW9YdhefFMAomo5e5Fy/jZooIeF7ktj+Qw9QduKn0BM1aTm+wwljRHF5I/lrDhi5uxd3UNHccGmHP5bBROH6FVhhm18eCWO+zpeoDyz857b+OIpIeMRcroNklZiqHUxKA2pXqFSJOLZJwnPb755esSNlnCuQGnyIMqRscy28+TgQpx8pCR440aFfJQS5blgnJk21HCkeVzIVPYInVeQKSvCdlDylORkkpdwntAXgSrIYLdHdjynT4M3DLAYxuY+epuHHXJHFTmbERQrFHKktOPuTwvlEmAlBfeQGrG5HtGeRaooA+B3EWLHqS6kbyTLuXtcsporUARmKwkmTbYgSLl0oaQgXUW9XO5AdiwhBGe/KWgKoVc3xoLPL/Pnibw77axl2ajKbZPS4h4WY6SQDIBo2Z5VTb/l6LxpeP/yVNKxvB0p6Tlu+UFUqY2SjPvV5mC9cKWZWQDcgGVJTiNh7ZsQy4Afh6FLNX6/Hgdw4vF/m8HQ+aOv8RU4snVIPl3s3xcGKAasDy5n8rDLcBuqZ3BfdmZILNV2GiYRU0pc1+kodQV57khz2Rsygv06O0pzxQV9CHwN8f+fJdbZ0YS0iWlNPHlgSyCkFkSiWU2QCYnu5XOdxh1SGJVojSKaDrDoiEizbroJMKVzndYcr7sKNS8BZp8awz1ZeWbXAglymYkJ3WVzb6UhMwPJOFB/UqUTrg/DOM32ZrUaZaUx37y7eW/kOzL/KuX+6FOgfyPmBbsv/xJsfDvZvnXggAxx6PMoiDVZiRtIY11/NnBUuaxHkn+yUczvODaop9uHc+T6VN0TUEF/bSRg1UOThmvC+EpHHg0atHuZ6yyOXD6eByqPBvbkk9Z9uksr/voUOR3If6ylxeXV8Z45dbYD1q2h4sKWlEUZYIiCTlFURRlAqKCVhRFmaCooBVFUSYoKmhFUZQJigpaURRlgqKCVhRFmaCooBVFUSYoKmhFUZQJigpaURRlgqKCVhRFmaCooBVFUSYkwP8H/es+NI8Z2W8AAAAASUVORK5CYII=");
+
+},
+910790(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+11223(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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1FFCfeX6iivfyn+G/X9DGQP95vqaKH+831NFeLW/iP1f5mkQooorIoKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAT7y/UUUJ95fqKK9/Kf4b9f0MZA/3m+poof7zfU0V4tb+I/V/maRCiiisigooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKABPvL9RRQn3l+oor38p/hv1/QxkD/eb6mih/vN9TRXi1v4j9X+ZpEKKKKyKCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAE+8v1FFCfeX6iivfyn+G/X9DGQSH5m+p/nRVh7NQzfe4JpPsi+9cFXByc279X+ZUZJEFFT/ZF96Psi+9Z/Updx+0RBRU/2Rfej7IvvR9Sl3D2iIKKn+yL70fZF96PqUu4e0RBRU/2Rfej7IvvR9Sl3D2iIKKn+yL70fZF96PqUu4e0RBRU/wBkX3o+yL70fUpdw9oiCip/si+9H2Rfej6lLuHtEQUVP9kX3o+yL70fUpdw9oiCip/si+9H2Rfej6lLuHtEQUVP9kX3o+yL70fUpdw9oiCip/si+9H2Rfej6lLuHtEQUVP9kX3o+yL70fUpdw9oiCip/si+9H2Rfej6lLuHtEQUVP8AZF96Psi+9H1KXcPaIgoqf7IvvR9kX3o+pS7h7REFFT/ZF96Psi+9H1KXcPaIgoqf7IvvR9kX3o+pS7h7REFFT/ZF96Psi+9H1KXcPaIgoqf7IvvR9kX3o+pS7h7REFFT/ZF96Psi+9H1KXcPaIgoqf7IvvR9kX3o+pS7h7RECH5k+ooqwtouV+91FFe1ltCUYNeZnJo//9k=");
+
+},
+387710(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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");
+
+},
+369990(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+665329(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479963-6f6caba617276b8a5d0a1b3e74fb8006.png");
+
+},
+507463(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABRCAYAAADctfi9AAAER0lEQVR4Ae2cPWsUQRjHZ+8SvbtN1CBKiCQRJIIoiEERtLURBAtrK3tLK7H1QwiCjUVIY6mQ76HfILUBc2/hL89uHm4yN7vMZndM7vwXw+zO2909v/nN7By5mBFSMM1mDAzBzSY44WZG6IFpNmNgxuiBaTZjQPNmeOUhvP8D3hJGkOTuD7LhS7nkUreULcPT7dx+vK8bowDzuhijiyOkOMIyhljBAD0MM2B53TgDlmIMSVIn7dKsnbSt+ybZ3x/DAHg5EIHy5q3Bl69PsPt9A7s/ruA3tnGAuxjgFoa4ihFWMELnBDiByOD7g183LgHwejjKnkhTLPYMjJGUwCQGC4sGCxcMnr80ePHK4N2HFn7uP8av/Yfo4w4GuIYBOoQXafUJgKeH2BUkXYU3nSfGIEttg5akRYP7jwzBRQIn1gbAkz0sRR+raF8UaK2CNAGamDYSs4Bve8+sB5k4S0fdpWeW+wfAS4/3sEtopxNA+fLpuU9y80zL4ACvMcJl2hfJvmB48nTZSQ3aLYNWYrC2YbB+22Bja5I2twzef7yBTzur+LxzHYd4QPMigQtcNuUMt4wRuhhgG308PU738AebOMTNLPWxiT7W0cfaMbBOdsSQY8YsL03n+b0HmGfvVXogz48Dk4O5fDcoh3NJAk2WWj3U+w729pi8Pu0EqQhP9y99Ap2c4cSwPC1nef6tiwIkoNMCKutXER4hlAXzX9cRXsQHitgwCY/wuJzGtsw3Ps2jeTTPZ0bsMppH82hebMt849M8mkfzfGbELqN5NI/mxbbMNz7No3k0z2dG7DKaR/NoXmzLfOPTPJpH83xmxC6jeZHMq/ubxxDwhHfG8EIgFbUhvDOGN8x+VSV/lX4yFQGzywkvIjw70EXX8hM4XxKYRX20nPACgqTBqpLLnlfU3t4PXeP0vqivXU54JUG2A1X1OhRe1XHt9oR3juCpdSFLpkCsDM83cNUXtWfPvF4XmWcvmW6bqnGsDG9eg32az6UgpK8Lomg87RPa3h5H+2oZ4dVYNu1ghsLQPqHtFZTk2lfLCI/wih+LdZbMY26bUGSS3aZuDNyxaF4k8zTQmtcFJ/3dsQgvEjwfLA2+5r42ZWVuP8JrCJ4EPf/PUNNbiBwB9CuwMjhV6wgvEjyFpUD1viqgsvaER3jTS0XZjJmXOt2DNFfL5PP5vi2RMvezq5GS23W61Npl7jXNc4LmBqjsXqFpbsOz+0m9fW9fE15JcOxANX2t0DRX29zXIbwzAuSCsO8Vmi+325VdK3B3SdXysr5cNs/hpCgDZtcRHuEVb8j2TOF1s3GieTSv2RlFQ8PiSfNoXthMoVHNxonm0bxmZxQNDYsnzaN5YTOFRjUbJ5pH85qdUTQ0LJ40j+aFzRQa1WycaB7Na3ZG0dCweNI8mhc2U2hUs3GieTSv2RlFQ8PiSfNoXthMoVHNxonm0bxmZxQNDYvnX1kPYJloUXGyAAAAAElFTkSuQmCC");
+
+},
+849209(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479953-f734c698fc6e658e19aea73b06c138ef.png");
+
+},
+893924(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGIAAABfCAYAAAATQRJ9AAADS0lEQVR4Ae2cvW4TQRSFhxCC7TUJBSUvYCmVJZSIPAPiMSBCiHdASotCeIUIwcukCIqU4IqODlHE9jqRDrq73tVdhyomzGj9FUczLtY/8+mcOzPe2XClnlD8MQgzdYTij0G4rRuuW+OkLIlEcCC6mqlbfKmZMuXKZG2pnmZqi2zgS12rr5k256/jxpMD0VOuns5+vNHp6JNOR0dOhzodtUPfRoc6+/6x1OhI5z/fKtfT6K5ogJiqr8dr79QN59oII6cLbYR26GG4UGcu6w+3jzTWrnJtRIXhQGSaKlMnHCiE31prtX5pLZQaDo410Y6u57F825q57HU1CKsBFk2rCOJSu0UNXHYwl7keEINjGYhlBvFfXFuDsDczV3TDge61OpaasTscfNZYz3WlflQYDRAGw0C0uz7cBDHRHiBiQzdHACKBCAREAhDMjYAARGNyQLEuZk0U6+gzNIumS+1ppr7KHWXb+FzU3W8I4ogaRDYHcfeD/rcFICBqEJUjABElpm5GEyAA4TNrFbc4msUaR0RzxJi9puYGXIx9J1bWrKxZWXvn4QgcgSNwRCIuAAQgGnHk12/sNfFXafw1hEUUs6ZEYgoQgGjUC2oENYIawazJxSI1wg2GX2D97z4gAEGx9q5L1BEZd4NHOi07n75Wp0cfrSCILyndDW4g+sq1qW54X/x3fD/8ViVv5bb1h4OvcxBxbhqoprDOEYCoBiVGewNEf/2VHoSThtbDidqqZ9sfNNVOYwYTEUR5fs6eNjDRC030WpfarzXWvtqoafEbXyrXk+JEbQwA1WfWe03V8d6yVpRHfe24r6k9j39Y/C32qItN5doq2pgHGhdAdJTL1C0ArAYIq42mrajP5KhBVBZZrdYejhL3WG813isOIu6UtYJgLSAiraQ9BEAkAgEQgEgnmxcjItZrakQirgAEIIgnH4M4AkfgCByRiAsAAQjiyLvA9ynWibgDEIAgpoimRFwACEAQR94Fvk+xTsQdgAAEMUU0JeICQACCOPIu8H2KdSLuAAQgiCmiKREXAAIQxJF3ge9TrBNxByAAQUwRTYm4ABCAII68C3yfYp2IOwABCGKKaErEBYAABHHkXeD7FOtE3AEIQBBTPpr+AOCPcOLU6RH8AAAAAElFTkSuQmCC");
+
+},
+743034(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479943-802fb410835056e89ef46854b8da40b6.png");
+
+},
+369241(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+787600(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959936-d80b7d90bbc8b879feeaff6eda2e7ab2.png");
+
+},
+841027(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+135821(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+619998(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+412217(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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v42/+VVH/Dp//gph/wBGI/tUf+GX8bf/ACqr/WhwPQflRgeg/KgD/Je/4dP/APBTD/oxH9qj/wAMv42/+VVH/Dp//gph/wBGI/tUf+GX8bf/ACqr/WhwPQflRgeg/KgD/Je/4dP/APBTD/oxH9qj/wAMv42/+VVf2Rf8GxX7MH7Qv7MfwY/an0f9oX4K/E74Maz4t+Jvw71Lw9pnxK8G6x4Pu9Y0vTvDWqx3uqabFrUFp9r060uDbWlzdRkpFcXcceCwwf6f8D0H5UoOM4VQcrgxpHA4QEOyGeNbeYq0iq7KZJAzqCxY8kAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP//Z");
+
+},
+95075(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+822195(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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");
+
+},
+420774(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+325803(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsKCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCACyAdQDASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD7jooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooHzEAcknA+ucYooAKKKKACiiigAooooAKKKKACij/DP4etFABRRR/hn8PWgAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKByoI5ByAfp1pM55HIoAWiiigAooooAKKQHdjHOen54/nS0AFFFFABRRRQAU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yxi4z/wGvYf2TP2JYPgXrF1418X6wPF3xEvt5e9Yu8Np5mS5RpPmkkbJ3SHnBwBy+4A+p6KKKAPzy/4K9gnQvhjgf8vN/wD+gQV+hNr8ttGAoChVVQvYV8p/t8fsw+Mf2lNN8GQeE5dMjk0ia7e5/tG5eIHzFi27cI3/ADzP519WxgpGq/7NAD6KKKAPzy/4K9gnQvhjgf8ALzf/APoEFfoVDzbpj+7Xyl+3x+zD4x/aU03wZB4Tl0yOTSJrt7n+0bl4gfMWLbtwjf8APM/nX1bGCkar/s0APr4p/wCCrXhq61T4C6Hq1vG0sOla5GbraDhY5IpEDH0w3lr9Xx1Nfa1YfjTwZpHxC8K6p4c12zW90jUrc21xC38SMpzg9mUhSD6igDjP2YvGNj4+/Z9+H+radMksLaNb2sioQfLniRY5kOOhDo3HoVrhf2/vGth4P/ZZ8YRXcqLdawkWl2kJIzNJJIAcD1WNZGIHTbXztb/sh/tF/s263qMfwS8Zxah4avZfMW1uZIY2GRj95DOrR71Hy+YpywGQFHFazfsP/Fn4zabrniL40eM4te8Tx6TdQeH9HimxbQXUkTBHlKKqRqHCnbGpBIQsSq7SAer/APBNH/k03Qf+v68/9KHr6lrxP9jv4Pa98CfgbpnhLxG1m2q2t1cTyfYZTJGQ8jMoDFV9q9soAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooA//Z");
+
+},
+89810(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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");
+
+},
+139025(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+543348(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+829150(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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Zff61Q5oLVlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQToKFlLgI6StQTo58b4XyfoWEFCfOIdAAAAAElFTkSuQmCC");
+
+},
+36148(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+787194(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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Ct/3fPzf49tfPv8AhVngH/oXF/8ABprX/wAtKP8AhVngH/oXF/8ABprX/wAtK9Boo/tPH/8AQVV+9eXl5IP9ZuItP+FrM/8Awrf93z83+PbXz7/hVngH/oXF/wDBprX/AMtKP+FWeAf+hcX/AMGmtf8Ay0r0Gij+08f/ANBVX715eXkg/wBZuItP+FrM/wDwrf8Ad8/N/j218+/4VZ4B/wChcX/waa1/8tKP+FWeAf8AoXF/8Gmtf/LSvQaKP7Tx/wD0FVfvXl5eSD/WbiLT/hazP/wrf93z83+PbXz7/hVngH/oXF/8Gmtf/LSj/hVngH/oXF/8Gmtf/LSvQaKP7Tx//QVV+9eXl5IP9ZuItP8AhazP54t/3d9fN/j2157w/wCFPD/hf7UNC0yOwN6sP2oxzXMiu0IKgjzpn9ePl6dOOR0NFFck6tStOVSrLmnJLXfqmeZiMXicZWq4jEz569T+JO9+daaa3ejV/PcKKKKg5gooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD//2Q==");
+
+},
+816875(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479961-1f5eb8c7bf20e2e81a242553cf724683.png");
+
+},
+890263(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+669117(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583439983-31033a0ca29345be2a9207c5afdc926d.png");
+
+},
+995756(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959942-89c9a9704d572add733589fc518e4ae3.png");
+
+},
+317756(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959966-358ea975a4f604743bdeac05b0562785.png");
+
+},
+365746(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800316-6748a7d30ee9a35b35d1bfcaed79061d.png");
+
+},
+235856(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800318-abd25f0951b1f53a57ff12493c7bd073.png");
+
+},
+965224(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800308-cd01ecc213a26242750fa94e6b21ed14.jpeg");
+
+},
+482267(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800310-6a8d2ea3e3e9c3e7655c1101ddf665b7.png");
+
+},
+364795(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+141280(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAAClCAIAAAAbPWIZAAACtUlEQVR4nO3c0WoTQRhH8f+3SVqKFumd7+BjCD6y4EMJYsXUNDufF9JSMalQTU6N53cxhM0sM+RkYa+muiPQRG/gf2cAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZAGYAmAFgBoAZALbcfbnTVdU1V43Mx93SM9KpRc4703K+yOLjIZbYE2C+7OWX5PXl+Wa9+ZRKOj+NyY6LJzitk9uczR/ev3n39pgBFteV6qzXm3mR89GZktGp3G397kPfffVwPKFpPeVmu3lVt0/7eX9vd4Cuql5VrpPVXOtU5k4qvevvM/8yns60MY1UFp9vl+ujBqiuUdukM20z7rb7cMyuiyc4bUy5GL2e+v6ev8y3IJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQC279TEMY2z1MhYpm6OvKdnpKdR61S6DrXC7iegOj1t51xldfNj6Z0bqD3j6UyrMfUi88U09hyw+sf2nZz7opdfxybnty+3+ZaMPfu/18l0itN6kbFdrafN1aP3Pl09diBmH/DR+3dUkuopdZAztB8NoMPzLQhmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQBmAJgBYAaAGQD2HdCMPr1A2QIeAAAAAElFTkSuQmCC");
+
+},
+855767(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAE4AAAA6CAYAAAAeGW/KAAACeElEQVR4Ae1bTW/TQBAd20UQO+ktiDNHKvUGSAhUfml7quAfpfwAInHgjNYOemjW2ThUztZZN96N9A5PVrz+GD2/2ZnZzEqDEsTxHIiftCphUtW2ePb1EFehhmJhYTCHQ4M5YsKgRIdqa1drr18Axyvqqef1EKfGXeLh1zVW669YrW92+PHzBjHxsP6C1Ra/cWXtNPYjT6+8A8RVeFEKilyQ54JsiyITxIS1oxBkheD2+zsYvIHBS9QR5ule4lSmxUyQy/8QEcREtmfP7f17GCyt6yZFXE7ivIHxoOJInD+geIlT14jpmr53391/QI1llPlNp7KzJq7B0utOT6UUY8ZJXGBEjkbc2GlAXZWKC5hLSVwAaRo0SNyzEKclV1dHb7CAwp1zv/ePOrZ/jbvWf+xKu2hznC/VGDJGxT2L4vzJ6pi049C9VBzTkWlVR8Wdm+KGBADfNQwODA7TrqRQcVQcFWfXuHQFeOwKhm9yHztGV6Wr0lXpqgOSYlYOA0jqK/RJHIljkT/ov1ymI0xHmI4wHRkQMBhVB5DEdCSQJBJH4vhP/qCcrW8JKsE8boYGr2wP8G49LhOIIjDnOsV9JC7wYyRK3AwXlSAvBKK4aKFt8qng7tsVGrxOpyNTW991g4jBNQw+4g8+72DwCamgxls0uNxuS+q6iPpSh1Oce5QAt1uRDBZ2u09tDevapf6iRArYoIKisa1cSp7aOC15PcTp3i1VXGtYjTkcTvHlQp65QQlF28umxDnlTbe09Ig492Jt0nOGuXOpHl1D4bT2HSBuWiNCVBf7HhIXWIaROBI37fRCxVFxVFy0MuqYSE1XpavSVc/CVf8BStaYviwvHN0AAAAASUVORK5CYII=");
+
+},
+375121(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAATjSURBVHhe7dVNaltnFIDh23YdoavLuE0CUkiKZWzP2m1kFdpWQJJ/9PVeowa1FFNIbb+DZ/DwCc7sHN6rabvdjvV6PS4uLngVl7PN2Gw+jve/vh1jfBm7w/XY3X0Y+8N67Pc3syue3fW870/z3n+Z9/95fN3/Pm7vt2NarVZjmiYixngzjsfp0f3p5WUs+16Mh2kcZrs5nGn5iv3boXhJP81+fPy9BDLG8k7j4fTyMo4nSyB3cyi7w41AGs4D+fnbwR7GD99+8/yWfT/ufA7kViAlAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSJZACgSSJZACgWQJpEAgWQIpEEiWQAoEkiWQAoFkCaRAIFkCKRBIlkAKBJIlkAKBZAmkQCBZAikQSNZ5IG/ODvb3A/K8jidLIHd/BbJarc4OxWtbAjnOx1ncn15exrLvxRLIYbbbX41pu92O9Xo9ln8SXsPlbDM2lx/H+3dv50C+zF+u67G7+zD2h/XY729mV2eu/+G/zr53/tTs/54/Nfve+ROzw6d57+/m/f82vu7/GLf32/EndNJuj6F11DEAAAAASUVORK5CYII=");
+
+},
+846456(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+911742(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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");
+
+},
+756726(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583439993-1a7937c5f0c151de792acc348a3f8c55.png");
+
+},
+789126(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+242403(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+23559(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800284-12205b8c964bff8a4d3f7a9e9f1fe729.png");
+
+},
+559881(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+958062(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800280-2cb67f715c0ef4d807ad32266ef9346b.png");
+
+},
+921283(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479935-264099d0a5430749df70996ca1b0f88e.gif");
+
+},
+885149(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959940-8cdfa0d860941f61f4f2c2b8bb401b92.jpeg");
+
+},
+647299(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+366657(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+165708(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959964-765cb0be51f21943e338d2d73cd1ddd0.png");
+
+},
+508469(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800286-bcad7a92d55ac66705f8f3c20a5d7e20.png");
+
+},
+250783(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+129412(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583439973-eac98480752309be03f9e0b3c00109de.png");
+
+},
+112242(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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");
+
+},
+108388(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+47430(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+543770(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+507003(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+57238(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800302-21986376ff4080010efdc8ac0d5215e4.jpeg");
+
+},
+269595(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+713457(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479959-1342f2026aed04d29c4cb390e8c568ab.png");
+
+},
+125319(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+464636(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACFCAIAAAA7P+bHAAAEzElEQVR4Ae3AA6AkWZbG8f937o3IzKdyS2Oubdu2bdu2bdu2bWmMnpZKr54yMyLu+Xa3anqmhztr1a/a5qr/Nahc9b8Jlav+N6Fy1f8mVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlT+XRoOACW4UQ0CwBCQIAAMAoMAMIhnMwgAQ0CCADAIDALAIAAMAoMAMAQkCACDwCAADALAIDAIAENAggAwiGczCABDQIIAMAgMAsAgns0gAAoJBjAAKvzHQLb5tzLGAlCKkeSqZ4pqgMACJP6DINv8W40QIAiAloRBYAAEBgFgEBgAgUFgAAQGgQEQGASAQWAABAaBARAYBIBBYBAABoEBEBgEBkBgEAAGgQEQGAQGQGAQGACBQQAYBAZAYBAYAIFBYCgASkgwdPxHQbb5NzJuyIyTFSq9Ja66TJ6wyaQUMOr4j0Hl304go3WZjY4qekgIMAAC82wCAyBICDAAggTxTALzbAIDIEgIMAAC82wC80yGAAMgSAgwAALzbALzTIYAAyBICDAAAvNsAgMgSAgwAIIEATCojhPz4l4WE/9hkG3+rRokDOZtP/unptjIUgwCwCAwCACDwAAIDAIDIDAIAIPAIAAMAgMgMAgMgMAgAAwCgwAwCAyAwCAwAAKDADAIDALAIDAAAoMAMAgMAsAgMAACg8AACAwCoPM0rQ5+6QvePiCg8B+Fyr9D4EABty8ePcaseOKqyxw1uzYziP9QVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlSu+t+EylX/m1C56n8TKlf9b0Llqv9NqFz1vwmVq/43oXLV/yZUrvrfhMpV/5tQuep/EypX/W9C5ar/Tahc9b8Jlav+N6Fy1f8mVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlSu+t+EylX/m1C56n8TKlf9b0Llqv9NqFz1vwmVq/43oXLV/yZUrvrfhMpV/5tQuep/EypX/W9C5ar/Tahc9b8Jlav+N6Fy1f8mVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlSu+t+EylX/m1C56n8TKlf9b0Llqv9NqFz1vwmVq/43oXLV/yZUrvrfhMpV/5tQuep/EypX/W9C5ar/Tahc9b8Jlav+N6Fy1f8mVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlSu+t+EylX/m1C56n8TKlf9b0Llqv9NqFz1vwmVq/43Ifh3MwDCXPUstjCXmf9AVP7tckIdw6A+mPrMQXOuumzuVXNbi5mHVCkEiP8AVP7tlIicIvp1LEbNN9o+V122X09U7wdAMz3/Yaj8OyRA1sxtLZc5LTXjqstm4+52l8WGTP4DIdv8G3mAPpc55hNnW8fMTFx1xcpcEC++PlBfm7pC4T8GlX87C1CNMtyQHMtL63qMqy471XZ7HVcVVDlRgPgPgGxz1f8aVK7634TKVf+bULnqfxMqV/1vQuWq/02oXPW/CZWr/jehctX/JlSu+t+EylX/m1C56n8TKlf9b0Llqv9NqFz1vwmVq/43oXLV/yZUrvrfhMpV/5tQuep/EypX/W/CPwL+5ilmesWBBgAAAABJRU5ErkJggg==");
+
+},
+98811(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFIAAABNCAYAAAA1rDPVAAAFHklEQVR4Ae2ay28bVRTG74rGscdJm4Y0iXlW0BaEyoISUlQKQagL+APaqlSojVRCkXhsYM2GqggWqAu64Q/gIaEuiBESK0rFtorKEiFRlBKhPhZp5uF+6Js7155xEyfx3InHo7O4Go8dz53zm+9859zrKB8VyEjPQPkYhIz0DASkJSEJSAGZPh1tWloOFVmGj/ggMHOeL3jxB7EOSBMAj8kgPAzCjPbP0p1zLlNFzbw8N6+T95FuLnvX2iBIJwqkBB9Zj9WCKwRIDZHq8zHQHB4GYEb8/fSvkyA9lOGijKAtI/KiRHMf6yiSQWk1HHlD4eTZ1njrrIIZ8fetv35X4ZXXFZax/z57MUHk4bgOSO1XHio496XCLbwMD1VQJdndvPHHCgKUcQcP45PPFTyMZThnMgu6iW1DIH04cDGKo2cUVrAPQbMYmKBtgjXX5HEMR2cJ8Sm4UWZ0E+RWfGfDIKnCq9cHUP9tGA0Mx1oSmxCNldCXK5j/XeHqn7vDDNAebXuu9Eo0D2kdkMmJCJO+eBeHwwKgCwuDsxkglViCi4dw8h2qsRZ7aMn7MUHk4bgJkBqYixFMzTDAR6JWyCbIMjw4aMDB1BEFF8/CDas15yDgQoBsedeNRg2X6o/Bx3izqtsJkm1OBT/8orB4dwY+tkeFjSAfKApIBqMVwSp+/qLC7XvT8FFNrRb6H4sJ1XgLNZy7oBBgezSfmZcLgUIoshUE083DLhw7zRR/MjVIXs9FCcsYxrFZdgbPhA14EK6iWvMWDqQOqIyFf8qoX2aFHU2lFhcDcDGE+hWFa3/RMnaEPaRuswoO0gsraxWnP2RRmI4CN2m4ueCZ2iuYwKn3qfCJWEp3d71eKHcTVTsJh56mxyimDin42ItGVx5WDr83PcOUPgD6by9ApJ0zBchtEcgS/kMV3//ECj6Cxib2DqlEju9+Vvh3+aXQa7NdfibFkBZe/PtdgzQQdOAOzn+lcAeH4GNog4pizziI26jh0wsKDUxGOzz9k85WQMYvwtceduDEHNPziWirrfPT1yk8huNzXCntDftHblLYXSV1vof2GNKcd63I5KRO2DgvLJZQv7wthJr8fLWAqpi/orDw9264YS/qiCL1rjmLTxlnPqAq6Xdsi9oBGsXxOInZ96jGyebOTtDcOG7/Xv7PLSlSB8rGegUjOPgq25jH29JUL/8IOICD6dcIfH/YiOv1NPcf8w/sfnHoe7YKUhcgB0v3HsW3l8YRYFdClWyw6Y3f/KhwY3kmsgDudep1vIBsKokpq6F88bXCTf9gAiRbo5uo4bOLbOK5IaH/VkA2Aa6Wkg/izbAi74lSnCm9E8ffZkrvSwBeK1366X2rqd36IV8XlWuLZcz/OgIXOxFgKKzSf1xnleYO+2rw+/c9yyDjIPQm7dzHTOMXEGAccx9xKTmR8Y9n8XvYutcZgTR7hyV4GMXzhxUOvMg9xudSb7nlVckZgdRKYBXmWIKDpeDp8GcDvaTsz42JTg8xU5CcWMPkf2gQnmnIjWK3LvU6QbDxWcYgNTjdHxqIPBJscSAyloxBFgtWp4cvIC1lhoAUkPmyDVGkKFIUWbjWR9ofS2ktIAVkvvxRFCmKFEUWsmJLaktqS2pLatMHZKzNQDYtLAlEQArItdOsFxYkihRFiiILWf0ltSW1JbUltXvRVvTLnOKR4pHikeKR/eJXvbhP8UjxSPFI8cheeE+/zCkeKR4pHike2S9+1Yv7FI8Uj8yXR/4PbM76ov4dwOoAAAAASUVORK5CYII=");
+
+},
+566972(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479965-19e28b459eb549d21ba7b2a47608f76a.png");
+
+},
+433144(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800294-d2341c817b8256208703716bb56e5692.png");
+
+},
+379734(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+924477(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959944-31ce6e1ea6b9a45e9ec3f7dedb0852cb.jpg");
+
+},
+862091(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583440003-faedf1f7c41e98b2bada95c797117743.png");
+
+},
+124744(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583440011-1b1ca938b55187148831f1466513fc46.gif");
+
+},
+814184(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583479933-ea46d5f19f4d4644927a8494a77b850e.jpeg");
+
+},
+871986(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAG8AAABHCAYAAAAJOhk7AAAHCElEQVR4Ae1cTW8bRRh+Hdtrr+0mFAQCIZFWlRoutJwK/IIK8RMoB45IICFU2p5oC4S0CImGHuGEWg5ISKVnxAXED0jzVVMhpKpwofF3YztJH/TMeGzH8Ro3xPHOdg6vdneS9c67zzzv186MNHAQTux8B7KJSTix8x3IBjJwYuc7kA3k8OiyG2V385z9uCc7YPDux/N3/4x9Ao8vaPedHP29QYMxzH3OYQB4ZkQaBQ5gA1PYwCQ2wHPTbvuRugTJFDbbevJ/9CBshkT/AT6PHfVbHfbRRA5NGGUMeAbgoJEb9vZsCxwOSC1NTIKiAaW+1DGLBg5gEwdA4BoK0PHrFggeR1wdGeTvvoOF/FUs5q9g4c6XuHVnHot5LUv5eSyw3WK5pXShflqW8ldBWb79VUvmsbx6BSt/foAGDNjjB45B5gDwMgq8qfi78OR3pGQFSVlFUh2XkZAlxGUJMVm0WqhDQulE/bR4soKE5OHJLcRkGROygmf9ecXOhwpAWqTxA9gXvCYyoKwjgymZgycFJOQ+4lJpSRETUkBcSkhItUsqXefd7WE9ryEplCo8qcGTElJyHyn5B0mhLmVMSEnJ08nr6p1oczp+4AKZp8Hz8QAppGUWE0KwKgqwhAKsrBSLSQkiay0pQKTYdW3aw34sIKb0o45lxKUMTyoQNVirqo0AHkxdVwEb/V2jNbjHzb4BzMviAdJIy5waeXEpKqYdef4bvDh9GjMvfIijlENncfTwOcwcPoejh860r9kWdmGfZ6aNnMXM9BnMHDqNmen3ceS5L5CSmgKT4D3hXVOBjAXgZVVUtY4s/NjllukoKlNS2vwaTRxrSx3H0WhJHcfAayPrOA4Kr83RnJtrc+x3j2nb63v4TCPdz6jjZaVXHS9h8e7bykUYs0nwaDIJHi3TuFk3wGwSvEnl8zR49HVF0GRWcHHozm8iAyPdypo2HrvbeR70t2Hae39vmHu2kMHDtuTU89mP2/dOtv2dYR5zW0acTZVC7ex7ry6jvg4wmzvBY4BC8Epb55XNH3XHxvP7mlX0aSt/Ww1eTjNPPld2PykleFJGERciDR4HDc3i7b8sBo8mgkl6Ri4j0UoRGE4X8fFjAd6qzeCxHLaOFHyZVcwTlffUUN666MALv88jeGn4MqfAiwlzuypKW8MHLOPxW/8nkGCRXZvNfszjgLYkYOnPvNLDj3dEiPaBFASwDljo81Z6zObB5DWVJtRb0WYY0oUB0WYveKw+aOZFB6xeEB14FjPTgefA61N8GIW1cmZz24uOFPO2R5vO5zH31eWxUAcsOklnnveZShWYqPPbVwnRjjaDUgWrok0NnvkkxBxPg1dw4KnCtAXMc+CZT0JWM49TIFjbdGbTGp/XYR6nQRC8csQrLJH0eQ48i8pjDFi6C9PbzaaebBsGp723yW9wYdo6n0fw9ASkTrTJ73lNNYtYV9/39uX11hr3+zpC4NX7gMdUgdMEjG9w4O33AOs8L7A8ps2mj4xcUjke87yE1ODAsyDa1GsVfOTkspryx9IYgxamCo55XHjTYcC4rM9/Mm8neJ848ODAC+Gno4gELJyvwenuWZlrrUvgoosKKvi0HW2Oy1yM7rmPAXjG543uJY7LnzjwQmgOhx0MDjwH3j5FooHR5iCf58xmyKPNbvCSaoUop/5VUEYnVXA+b1hzPJr/C2SeKUzn5JJaYMIVo1zG3J2kRxM8VlCy6J0xbWFh2lRYCJxeh76Gj0JRXdjbgZPGBij8WsIZZDms3nt92/q8yIC3ty9uNCbl0foYefD07g9rmB2wY1DQTkJhbtfpgQabzOPS5UiZTS5rXlNTAAuYQ12tluGKmSgIdzfyW5JRdVteL0fHbPKLQhUxflVofo91vIpGpOQEGjiBupJXUMdrWPjjPXt9XueT0KxalzehtrUowZefkJKb8OTHCMkNeHIDKeHxB3hyEwn5ubX3DPefqYABCwMZPWM6HLMI+qYKOupiB5PwJy4iqXY7YmGa+5LonSHiqo1+UOd/up1/s1+4mY6Wgto4iJspPOV9145EuclcaL/n0Xlvqm9WPtKxCwogjr6O6C2d9ITU7vZonXOHJyNPJr9V2zlr0JhO6ElYjxbV7m1kHcA8/ZAmt6/y30JCfkNSfg2QX5CUqAr11vJM7nzXvB2dyI8TOD57AHh6rkYNJ1HFKVS6pIZT6MibqCGqovWk/lW8gSa8UJhLM2gGgNehOE0Fi9FGzM2Py5H6c9ejBtJoqkpMiLds7AXFgafBI3DWgUcw9ejTx15wo35N3bWOZFw4WMf+DGU2ow6Orfo58NqsMuyy5+jAc+DZM1ptNZH9+u2Y55jnmNePGaNuc8xzzHPMGzXL+v2+Y55jnmNeP2aMus0xzzHPMW/ULOv3+455FjPvX/WcQcx5PhgEAAAAAElFTkSuQmCC");
+
+},
+269221(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/jpeg;base64,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Hci6R8YviHprkefeT2GvDGMeVNZrZL+O/TJRj2HbFfRZIv8AZsY+1Nf+naaf4XMavxR9f0O+ooor502CiiigAooooAKKKKACiiigBkUIiHVj9afRRVSk5O8gCiiipAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAE+8v1FFCfeX6iivfyn+G/X9DGQP95vqaKH+831NFeLW/iP1f5mkQooorIoKKKKACiiigAooooAK8/8cQnwT8T9C8SDcLDVIf8AhHdVZB0Z5Vewmc9diTPPAAozu1EMfkQlfQKp63o9v4i0m5sbyGC6s7yF4J4JkEkc0bjayMp4IIJBB9a9bJ8fDC1n7VXhJOMl3i1+adpLtJJmdRXRcIoqlo2kpommW9qk11OlvEkKyXEzTSuFUKC7sSzMQBliSSck5Jq7Xm1IxUmoO66Pb8Co36hRRRWZQUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFAAn3l+oooT7y/UUV7+U/w36/oYyB/vN9TRQ/3m+porxa38R+r/ADNIhRRRWRQUUUUAFFFFABRRRQAUUUUAGKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKABPvL9RRQn3l+oor38p/hv1/QxkD/eb6mih/vN9TRXi1v4j9X+ZpEKKKKyKCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAE+8v1FFCfeX6iivfyn+G/X9DGQP8Aeb6mih/vN9TRXi1v4j9X+ZpEKKKKyKCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKM1yvjHxncQX8Oi6NFFd69dR+cEkz5FjAWK/aJyuCE3KyqgIeV1ZVwqySR92BwNTFVPZ0/m3sl1bfRLqTKSSuzqdwpar6faNZ26rJIJpQoDvt272HUgdgTk49+9WK5akYxk1F3XcadwooorMYUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAJ95fqKKE+8v1FFe/lP8N+v6GMgf7zfU0UP95vqaK8Wt/Efq/zNIhRRRWRQUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUm6gBaYJM1meLPGOn+CNGbUNUuobKzVlj3yk5kkYgJGij5nkYnCooLOxCqCSBXMGHW/irhpf7R8K+HQuTGshg1fUgezMpzZxleyn7QdwybdkZW9rA5LUrQ+sVmqdL+Z7ekVvJ+S26tLUxqVEnZbk+v/EG88R6nPo3hfy5L21Yw6hqUkRktNHbuhAI865xz5Kn5AQ0hjBQSb3g3wZa+CtNmgtmmuJrqX7Rd3dy/mXN9MQFMsr4G5sKqgABURURFRERFteHvD1n4U0eHT9PtbexsbVPLgt7eMRxQoCSFVRwBzV7GK0zLNKbh9VwScafW+8musv0itF5u7bhHXmluFFFFeCahRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAJ95fqKKE+8v1FFe/lP8N+v6GMgf7zfU0UP95vqaK8Wt/Efq/zNIhRRRWRQUUUUAFFFFABRRRQAUUUUAYfhzxvZ+JdT1DT18y11LS5ClxZ3A2TBNxCzqP4oXxlZFJUncpw6Oi7PnZrE8YfDvSfHi2p1S1WaawZntLmOR7e7smYAMYZ42WWIso2kow3KSDkHFYS/Dzxfocm3S/HX2qFv4fEGiRag0fsr272rEYwMuXY45Y19JHB5di0nRq+yfWM1Jq/92UVLftJK23M9zLmlHRq53I570ectcOnhz4jbMf8ACYeCfcjwfdAkcY66off17Ui/CzWta3f21488RXEcvyy2mlQ2+mWzJ3VXVGu0zz8y3IYdip5qZZLhaetXFw/7dU5P5e4l98kJTfZnReL/AB9o/wAP9NjvNd1bTtItpnEUUl3OsQmc8hEDcu55wq5J9K5q48c+JPGjbPDugNpdmcj+1vEVvJAMesVjlbiQgggiY2w7qzgjOx4P+Evh3wHeteaZpsMepSqUl1GZnur+dTjKvczF5mXgcM5AwPSukVCDya0+vZZhdcNTdSX809EvNQV9fWTj3iPllL4tDlPDfwls9G1ZdWvLy917xAqMg1O/ZWktwwwy28ahYrdSMAiFFLgAuXb5q6t491OxRXj47MsRi589eTb6dkuyS0S7JJJFxioqyCiiiuEoKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAT7y/UUUJ95fqKK9/Kf4b9f0MZA/3m+poof7zfU0V4tb+I/V/maRCiiisigooooAKKKKACiiigAooooAMZpN3FLRQJq43b/nFOxRRTu2MMUUUUgCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAT7y/UUUJ95fqKK9/Kf4b9f0MZA/3m+poof7zfU0V4tb+I/V/maRCiiisigooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKABPvL9RRQn3l+oor38p/hv1/QxkD/eb6mih/vN9TRXi1v4j9X+ZpEKKKKyKCiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAE+8v1FFCfeX6iivfyn+G/X9DGQP95vqaKH+831NFeLW/iP1f5mkQooorIoKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAT7y/UUUJ95fqKK9/Kf4b9f0MZA/3m+pookPzN9T/OivFrfxH6v8zSIUUUVkUFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAUUUUAFFFFABRRRQAJ95fqKKEPzJ9RRXv5T/Dfr+hjIsPZqGb73BNJ9kX3oopTpx5np/VyVJh9kX3o+yL70UVPs49h8zD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMPsi+9H2Rfeiij2cewczD7IvvR9kX3ooo9nHsHMw+yL70fZF96KKPZx7BzMVbRcr97qKKKK9LARjyvTr/AJCbZ//Z");
+
+},
+86792(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+906480(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552959964-765cb0be51f21943e338d2d73cd1ddd0.png");
+
+},
+520310(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+234124(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+834000(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002552800290-81fdfd3f4ff42ea2037599a9be3249b7.png");
+
+},
+589225(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+783283(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+709562(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583439979-11b0aadd06db4718d96007e2e6f80300.jpg");
+
+},
+583231(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583440001-800c5b1db93c301011ca097f24d1df51.png");
+
+},
+335924(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+510674(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583440005-77d5b693f327e4ec75adce15f0eb7184.png");
+
+},
+640005(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+388647(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+510018(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAANkSURBVHhe7di7blxVFIDhSToECURchIhCbcQb8FAuEykSEQJKhPI+BtHQcJEQDTUtDaIw2B7bs9n2GS5CJ/8DMF/xaR/pzHTza69Zm5OTk/HkyZPx7NkzYO/4+HhcXl6OzePHj8dmswH+Y7vdjs1NLWsv4dBdXV0JBF5EIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQCQSAQBAJBIBAEAkEgEAQC4TaQp08/XH0Jh+7y8npsnj//aDx6dHe8d3RvHB3d37t5hkNzf9/BvfHgwQxk+9vYjPHZGOPl6ZXp1b17cIBe258vTe9PP4zN2cUn43o3O9mbl8p8AYdn/uP4u4PT7Tuzi9tAPv0nkOs7M5A7q1+G/7urcXc2MJ9vA3koEPg3gUAQCITVQM4FArcEAsGIBUEgEAQCQSAQBAJBIBBWA7HmhYUbBIJAIAgEgkAgCASCQCCsBmLNCws3CASBQBAIBIFAEAgEgUBYDcSaFxZuEAgCgSAQCAKBIBAIAoGwGog1LyzcIBAEAkEgEAQCQSAQBAJhNRBrXli4QSAIBIJAIAgEgkAgCATCaiDWvLAQCAQjFgSBQBAIBIFAEAiE1UBssWAhEAhGLAgCgSAQCAKBIBAIq4HYYsFCIBCMWBAEAkEgEAQCQSAQVgOxxYKFQCAYsSAIBIJAIAgEgkAgrAZiiwULgUAwYkEQCASBQBAIBIFAWA3EFgsWAoFgxIIgEAgCgSAQCAKBsBqILRYsBALBiAVBIBAEAkEgEF4QyMdjd/OBfSS3z3CArm/OfQen27eWQP64+Hycnr07zs/fHucXr4+zi3meP4SDc7p9Y/7+3xxns4Vff/9gBvLt2Ox2P8+HH6evpy/Gbp673ffTd3Ag/vq9fzkb+Gr6Zlxf/zRvlV/Gn4aSr4k4EtD3AAAAAElFTkSuQmCC");
+
+},
+983833(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+508436(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+281400(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQgAAABTCAYAAABjyJl/AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsQAAA7EAZUrDhsAAALBSURBVHhe7du5SiRBAMfhGjXxQPF4AmMTQczF3Ccx8zEM1MDUtzA2NTCdxMAXEPEEb2ep3pmFPf7uJk7vrt8HRUtPID1Qvy6r20632+0VgF8Y6R8BfiIQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQCQQQNTpdru9/s9D0+v1ytvbW3OsA/iq0+k0Y3R0tH+mXUMLxCAE9Tg2NlZmZ2fL1NRU80XULwQ+u3rTfHp6KpeXl+Xu7q45NzLS7iJ/KIGoURhEYGZmptzc3JTj4+Nyenpa7u/vm/PwmdX5UWOwsLBQVlZWytLSUrm9vS3Pz8+t3kA/PBA1DrWM9cKrw8PDsrW11UQC+LW1tbVycHBQHh4eyuvra2uRsEkJRB8eiLp6mJ6eLmdnZ83Y3Ny0eoDfODo6Knt7e83Ku86htgxlBTE5OVlOTk6a8fj42D8LvGd3d7fZzK9/YrTlwwNRN17qBV5cXDQD+HN1/vzXK4jBE4zFxcVmAH9mfn6+eezZ5qPOofzm6+vrsrq62ozl5eX+WeA929vb5fz8vNWXpj48EHX1UPcdJiYmmrG/v182Njb6nwI/mpubKzs7O2V9fb3Z0G9zBTH0NynHx8ebjZd60XVl8fLy8u0z+MzqzbRu6Nc5Ut+kvLq6+u4lwzYM/X8xBhsuddnkNWv4Xp0fg5tmnRttz4+hB6KyYoD3/S03zlYCAfwb2tv9AP56AgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgFEAgEEpXwB/RTTRvPOim0AAAAASUVORK5CYII=");
+
+},
+203578(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = (__webpack_require__.p + "assets/images/zh-cn_image_0000002583439985-f8c820ef169140f3458c089434f5d34e.jpeg");
+
+},
+382378(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,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");
+
+},
+28453(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  R: () => (useMDXComponents),
+  x: () => (MDXProvider)
+});
+/* import */ var react__rspack_import_0 = __webpack_require__(296540);
+/**
+ * @import {MDXComponents} from 'mdx/types.js'
+ * @import {Component, ReactElement, ReactNode} from 'react'
+ */
+
+/**
+ * @callback MergeComponents
+ *   Custom merge function.
+ * @param {Readonly<MDXComponents>} currentComponents
+ *   Current components from the context.
+ * @returns {MDXComponents}
+ *   Additional components.
+ *
+ * @typedef Props
+ *   Configuration for `MDXProvider`.
+ * @property {ReactNode | null | undefined} [children]
+ *   Children (optional).
+ * @property {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @property {boolean | null | undefined} [disableParentContext=false]
+ *   Turn off outer component context (default: `false`).
+ */
+
+
+
+/** @type {Readonly<MDXComponents>} */
+const emptyComponents = {}
+
+const MDXContext = react__rspack_import_0.createContext(emptyComponents)
+
+/**
+ * Get current components from the MDX Context.
+ *
+ * @param {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @returns {MDXComponents}
+ *   Current components.
+ */
+function useMDXComponents(components) {
+  const contextComponents = react__rspack_import_0.useContext(MDXContext)
+
+  // Memoize to avoid unnecessary top-level context changes
+  return react__rspack_import_0.useMemo(
+    function () {
+      // Custom merge via a function prop
+      if (typeof components === 'function') {
+        return components(contextComponents)
+      }
+
+      return {...contextComponents, ...components}
+    },
+    [contextComponents, components]
+  )
+}
+
+/**
+ * Provider for MDX context.
+ *
+ * @param {Readonly<Props>} properties
+ *   Properties.
+ * @returns {ReactElement}
+ *   Element.
+ * @satisfies {Component}
+ */
+function MDXProvider(properties) {
+  /** @type {Readonly<MDXComponents>} */
+  let allComponents
+
+  if (properties.disableParentContext) {
+    allComponents =
+      typeof properties.components === 'function'
+        ? properties.components(emptyComponents)
+        : properties.components || emptyComponents
+  } else {
+    allComponents = useMDXComponents(properties.components)
+  }
+
+  return react__rspack_import_0.createElement(
+    MDXContext.Provider,
+    {value: allComponents},
+    properties.children
+  )
+}
+
+
+},
+
+}]);

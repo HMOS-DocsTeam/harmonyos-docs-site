@@ -1,0 +1,1947 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>滚动组件通用接口 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="滚动组件通用接口 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=滚动组件通用属性和事件目前只支持List、Grid、Scroll和WaterFlow组件。 /><meta data-rh=true property=og:description content=滚动组件通用属性和事件目前只支持List、Grid、Scroll和WaterFlow组件。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common","name":"滚动组件通用接口","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=通用事件 class=categoryLinkLabel_W154>通用事件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id><span title=通用属性 class=categoryLinkLabel_W154>通用属性</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=手势处理 class=categoryLinkLabel_W154>手势处理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><span title=行列与堆叠 class=categoryLinkLabel_W154>行列与堆叠</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow><span title=栅格与分栏 class=categoryLinkLabel_W154>栅格与分栏</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=滚动与滑动 class=categoryLinkLabel_W154>滚动与滑动</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=List class=linkLabel_WmDU>List</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-listitem/ts-container-listitem><span title=ListItem class=linkLabel_WmDU>ListItem</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-listitemgroup/ts-container-listitemgroup><span title=ListItemGroup class=linkLabel_WmDU>ListItemGroup</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-arclist/ts-container-arclist><span title=ArcList class=linkLabel_WmDU>ArcList</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-arclistitem/ts-container-arclistitem><span title=ArcListItem class=linkLabel_WmDU>ArcListItem</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-grid/ts-container-grid><span title=Grid class=linkLabel_WmDU>Grid</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-griditem/ts-container-griditem><span title=GridItem class=linkLabel_WmDU>GridItem</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll><span title=Scroll class=linkLabel_WmDU>Scroll</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-swiper/ts-container-swiper><span title=Swiper class=linkLabel_WmDU>Swiper</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-arcswiper/ts-container-arcswiper><span title=ArcSwiper class=linkLabel_WmDU>ArcSwiper</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-waterflow/ts-container-waterflow><span title=WaterFlow class=linkLabel_WmDU>WaterFlow</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-flowitem/ts-container-flowitem><span title=FlowItem class=linkLabel_WmDU>FlowItem</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-lazyvgridlayout/ts-container-lazyvgridlayout><span title=LazyVGridLayout class=linkLabel_WmDU>LazyVGridLayout</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-basic-components-scrollbar/ts-basic-components-scrollbar><span title=ScrollBar class=linkLabel_WmDU>ScrollBar</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-refresh/ts-container-refresh><span title=Refresh class=linkLabel_WmDU>Refresh</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-basic-components-arcscrollbar/ts-basic-components-arcscrollbar><span title=ArcScrollBar class=linkLabel_WmDU>ArcScrollBar</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common><span title=滚动组件通用接口 class=linkLabel_WmDU>滚动组件通用接口</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><span title=导航与切换 class=categoryLinkLabel_W154>导航与切换</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=按钮与选择 class=categoryLinkLabel_W154>按钮与选择</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text><span title=文本与输入 class=categoryLinkLabel_W154>文本与输入</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image><span title=图片与视频 class=categoryLinkLabel_W154>图片与视频</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer><span title=信息展示 class=categoryLinkLabel_W154>信息展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank><span title=空白与分隔 class=categoryLinkLabel_W154>空白与分隔</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas><span title=画布绘制 class=categoryLinkLabel_W154>画布绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle><span title=图形绘制 class=categoryLinkLabel_W154>图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=渲染绘制 class=categoryLinkLabel_W154>渲染绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu><span title=菜单 class=categoryLinkLabel_W154>菜单</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title=动画 class=categoryLinkLabel_W154>动画</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box><span title=弹窗 class=categoryLinkLabel_W154>弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink><span title=卡片 class=categoryLinkLabel_W154>卡片</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-securitycomponent-attributes/ts-securitycomponent-attributes><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/themes/ts-container-with-theme/ts-container-with-theme><span title=主题 class=categoryLinkLabel_W154>主题</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/atomic-services/ohos-atomicservice-atomicservicenavigation/ohos-atomicservice-atomicservicenavigation><span title=AtomicService class=categoryLinkLabel_W154>AtomicService</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-placeholder-comp/ts-basic-components-nodecontainer/ts-basic-components-nodecontainer><span title=自定义占位组件 class=categoryLinkLabel_W154>自定义占位组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-lifecycle/ts-custom-component-lifecycle><span title=自定义组件 class=categoryLinkLabel_W154>自定义组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/component-preview/ts-universal-component-previewer/ts-universal-component-previewer><span title=组件预览 class=categoryLinkLabel_W154>组件预览</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-chip/ohos-arkui-advanced-chip><span title=系统预置UI组件库 class=categoryLinkLabel_W154>系统预置UI组件库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/state-management-and-rendering-control/ts-state-management/ts-state-management><span title=状态管理与渲染控制 class=categoryLinkLabel_W154>状态管理与渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/responsive-env-system-property/ts-env-system-property/ts-env-system-property><span title=响应式环境变量 class=categoryLinkLabel_W154>响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types><span title=公共定义 class=categoryLinkLabel_W154>公共定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-gridcontainer/ts-container-gridcontainer><span title=已停止维护的组件与接口 class=categoryLinkLabel_W154>已停止维护的组件与接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS组件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>滚动与滑动</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>滚动组件通用接口</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>滚动组件通用接口</h1></header>
+<p>滚动组件通用属性和事件目前只支持<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list>List</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-grid/ts-container-grid>Grid</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll>Scroll</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-waterflow/ts-container-waterflow>WaterFlow</a>组件。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块从API version 8开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollbar11>scrollBar11+<a href=#scrollbar11 class=hash-link aria-label=scrollBar11+的直接链接 title=scrollBar11+的直接链接 translate=no>​</a></h3>
+<p>scrollBar(barState: BarState): T</p>
+<p>设置滚动条状态。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>barState<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#barstate>BarState</a><td>是<td>滚动条状态。  默认值：List、Grid、Scroll组件默认BarState.Auto，WaterFlow组件默认BarState.Off。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollbarcolor11>scrollBarColor11+<a href=#scrollbarcolor11 class=hash-link aria-label=scrollBarColor11+的直接链接 title=scrollBarColor11+的直接链接 translate=no>​</a></h3>
+<p>scrollBarColor(color: Color | number | string): T</p>
+<p>设置滚动条的颜色。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>color<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#color>Color</a><td>number<td>string</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollbarcolor22>scrollBarColor22+<a href=#scrollbarcolor22 class=hash-link aria-label=scrollBarColor22+的直接链接 title=scrollBarColor22+的直接链接 translate=no>​</a></h3>
+<p>scrollBarColor(color: Color | number | string | Resource): T</p>
+<p>设置滚动条的颜色。与<a href=#scrollbarcolor11 class="">scrollBarColor11+</a>相比，color参数开始支持Resource类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>color<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#color>Color</a><td>number<td>string</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollbarwidth11>scrollBarWidth11+<a href=#scrollbarwidth11 class=hash-link aria-label=scrollBarWidth11+的直接链接 title=scrollBarWidth11+的直接链接 translate=no>​</a></h3>
+<p>scrollBarWidth(value: number | string): T</p>
+<p>设置滚动条的宽度，不支持百分比设置。宽度设置后，滚动条正常状态和按压状态宽度均为滚动条的宽度值。如果滚动条的宽度超过滚动组件主轴方向的高度，则滚动条的宽度会变为默认值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>number<td>string<td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=edgeeffect11>edgeEffect11+<a href=#edgeeffect11 class=hash-link aria-label=edgeEffect11+的直接链接 title=edgeEffect11+的直接链接 translate=no>​</a></h3>
+<p>edgeEffect(edgeEffect: EdgeEffect, options?: EdgeEffectOptions): T</p>
+<p>设置边缘滑动效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>edgeEffect<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#edgeeffect>EdgeEffect</a><td>是<td>滚动组件的边缘滑动效果，支持弹簧效果和阴影效果。  默认值：Grid、Scroll、WaterFlow组件默认EdgeEffect.None，List组件默认EdgeEffect.Spring。<tr><td>options<td><a href=#edgeeffectoptions11%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">EdgeEffectOptions</a><td>否<td>组件内容大小小于组件自身时是否开启滑动效果，以及设置边缘效果生效的边缘。设置为{ alwaysEnabled: true }会开启滑动效果，{ alwaysEnabled: false }不开启。  默认值：  List、Grid、WaterFlow组件默认{ alwaysEnabled: false, EffectEdge: EffectEdge.START</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=nestedscroll11>nestedScroll11+<a href=#nestedscroll11 class=hash-link aria-label=nestedScroll11+的直接链接 title=nestedScroll11+的直接链接 translate=no>​</a></h3>
+<p>nestedScroll(value: NestedScrollOptions): T</p>
+<p>设置前后两个方向的嵌套滚动模式，实现与父组件的滚动联动。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a href=#nestedscrolloptions10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">NestedScrollOptions</a><td>是<td>嵌套滚动选项。  默认值：{ scrollForward: NestedScrollMode.SELF_ONLY, scrollBackward: NestedScrollMode.SELF_ONLY }</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enablescrollinteraction11>enableScrollInteraction11+<a href=#enablescrollinteraction11 class=hash-link aria-label=enableScrollInteraction11+的直接链接 title=enableScrollInteraction11+的直接链接 translate=no>​</a></h3>
+<p>enableScrollInteraction(value: boolean): T</p>
+<p>设置是否支持滚动手势。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>boolean<td>是<td>是否支持滚动手势。设置为true时可以通过手指或者鼠标滚动，设置为false时无法通过手指或者鼠标滚动，但不影响控制器<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scroller>Scroller</a>的滚动接口。  默认值：true</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=friction11>friction11+<a href=#friction11 class=hash-link aria-label=friction11+的直接链接 title=friction11+的直接链接 translate=no>​</a></h3>
+<p>friction(value: number | Resource): T</p>
+<p>设置摩擦系数，手动划动滚动区域时生效，仅影响惯性滚动过程，对惯性滚动过程中的链式效果有间接影响。设置为小于等于0的值时，按默认值处理。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>number<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resource>Resource</a><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=flingspeedlimit11>flingSpeedLimit11+<a href=#flingspeedlimit11 class=hash-link aria-label=flingSpeedLimit11+的直接链接 title=flingSpeedLimit11+的直接链接 translate=no>​</a></h3>
+<p>flingSpeedLimit(speedLimit: number): T</p>
+<p>限制跟手滑动结束后，惯性动效开始时的最大初始速度。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">惯性动效是指手指快速滑动并离开屏幕后，滚动内容继续滚动并逐渐减速停止的效果，也称为惯性滚动。</li>
+<li class="">惯性动效触发场景包括：惯性手指快速滑动并离手时，或调用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#fling12>fling</a>方法。</li>
+<li class="">使用鼠标滚轮、键盘方向键方式滚动，或通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scrollto>scrollTo</a>等方法直接滚动到指定位置，不会产生惯性动效。</li>
+<li class="">如果惯性动效通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#fling12>fling</a>方法触发，则flingSpeedLimit设置不生效。</li>
+</ul>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>speedLimit<td>number<td>是<td>惯性动效开始时的最大初始速度。  默认值：9000  单位：vp/s  取值范围：(0, +∞)，设置为小于等于0的值时，按默认值处理。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=fadingedge14>fadingEdge14+<a href=#fadingedge14 class=hash-link aria-label=fadingEdge14+的直接链接 title=fadingEdge14+的直接链接 translate=no>​</a></h3>
+<p>fadingEdge(enabled: Optional&lt;boolean>, options?: FadingEdgeOptions): T</p>
+<p>设置是否开启边缘渐隐效果及设置边缘渐隐长度。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>fadingEdge是通过设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-overlay/ts-universal-attributes-overlay#overlay>overlay</a>属性和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#blendmode11>blendMode</a>属性（参数值为BlendMode.SRC_OVER，BlendApplyType.OFFSCREEN）实现的。当fadingEdge生效时，会覆盖原组件的.overlay()属性和.blendMode()属性，并将导致当前组件和其子组件需要截屏的接口无法截取到正确的画面。需要截屏的接口有：<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#blur>blur</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#lineargradientblur12>linearGradientBlur</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#brightness>brightness</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-filter-effect/ts-universal-attributes-filter-effect#visualeffect>visualEffect</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#grayscale>grayscale</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#saturate>saturate</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#contrast>contrast</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#invert>invert</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#sepia>sepia</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#huerotate>hueRotate</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#colorblend>colorBlend</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#lightupeffect12>lightUpEffect</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#pixelstretcheffect12>pixelStretchEffect</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-image-effect/ts-universal-attributes-image-effect#blendmode11>blendMode</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-background/ts-universal-attributes-background#backgroundbrightness12>backgroundBrightness</a>。</p>
+<p>fadingEdge生效时，建议不在设置fadingEdge属性的组件上设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-background/ts-universal-attributes-background#background10>background</a>相关属性，会影响渐隐的显示效果。</p>
+<p>fadingEdge生效时，设置fadingEdge属性的组件会裁剪到边界，在该组件上设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-sharp-clipping/ts-universal-attributes-sharp-clipping#clip12>clip</a>属性为false不生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>enabled<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a><boolean></boolean><td>是<td>是否开启边缘渐隐效果。设置为true时开启边缘渐隐效果，设置为false时不开启边缘渐隐效果。  默认值：false<tr><td>options<td><a href=#fadingedgeoptions14%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">FadingEdgeOptions</a><td>否<td>边缘渐隐参数对象。可以通过该对象定义边缘渐隐效果属性，比如设置渐隐长度。  如果设置小于0的值或undefined或者不设置则取默认值，默认长度为32vp。  如果设置的长度超过容器高度的一半时，渐隐长度取容器高度的一半。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=clipcontent14>clipContent14+<a href=#clipcontent14 class=hash-link aria-label=clipContent14+的直接链接 title=clipContent14+的直接链接 translate=no>​</a></h3>
+<p>clipContent(clip: ContentClipMode | RectShape): T</p>
+<p>设置滚动容器的内容层裁剪区域。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>clip<td><a href=#contentclipmode14%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">ContentClipMode</a><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-shape/js-apis-arkui-shape#rectshape>RectShape</a><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=backtotop15>backToTop15+<a href=#backtotop15 class=hash-link aria-label=backToTop15+的直接链接 title=backToTop15+的直接链接 translate=no>​</a></h3>
+<p>backToTop(backToTop: boolean): T</p>
+<p>设置滚动组件是否支持点击状态栏回到顶部。</p>
+<p>支持当前页面的滚动组件收到点击状态栏事件后，通过动画回到顶部。点击状态栏后，后台应用的滚动组件不受影响，不做回到顶部的动作。本属性不受<a href=#enablescrollinteraction11 class="">enableScrollInteraction</a>设置的影响。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>backToTop<td>boolean<td>是<td>设置滚动组件是否支持点击状态栏回到顶部。设置为true支持点击状态栏通过动画回到顶部，设置为false不支持点击状态栏回到顶部。  默认值：  API version 18之前：false。  API version 18及以后：滚动方向是水平方向时为false，是垂直方向时为true。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollbarmargin20>scrollBarMargin20+<a href=#scrollbarmargin20 class=hash-link aria-label=scrollBarMargin20+的直接链接 title=scrollBarMargin20+的直接链接 translate=no>​</a></h3>
+<p>scrollBarMargin(margin: ScrollBarMargin): T</p>
+<p>设置滚动条的边距。边距是在滚动条避让圆角距离的基础上计算的，如果滚动条区域小于滚动条的最小长度，则不显示滚动条。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>margin<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#scrollbarmargin20%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>ScrollBarMargin</a><td>是<td>滚动条起始、末尾边距。  默认值：{start: LengthMetrics.vp(0), end: LengthMetrics.vp(0)}</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=digitalcrownsensitivity18>digitalCrownSensitivity18+<a href=#digitalcrownsensitivity18 class=hash-link aria-label=digitalCrownSensitivity18+的直接链接 title=digitalCrownSensitivity18+的直接链接 translate=no>​</a></h3>
+<p>digitalCrownSensitivity(sensitivity: Optional&lt;CrownSensitivity>): T</p>
+<p>设置表冠响应事件灵敏度。</p>
+<p>组件收到<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-crown/ts-universal-events-crown>表冠事件</a>的前提是该组件获焦，焦点控制可以通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/interaction-property/ts-universal-attributes-focus/ts-universal-attributes-focus#focusable>focusable</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/interaction-property/ts-universal-attributes-focus/ts-universal-attributes-focus#defaultfocus9>defaultFocus</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/interaction-property/ts-universal-attributes-focus/ts-universal-attributes-focus#focusontouch9>focusOnTouch</a>进行管理。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>sensitivity<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#crownsensitivity18>CrownSensitivity</a>><td>是<td>表冠响应灵敏度。  默认值：CrownSensitivity.MEDIUM，响应速度适中。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=contentstartoffset22>contentStartOffset22+<a href=#contentstartoffset22 class=hash-link aria-label=contentStartOffset22+的直接链接 title=contentStartOffset22+的直接链接 translate=no>​</a></h3>
+<p>contentStartOffset(offset: number | Resource): T</p>
+<p>设置内容区域起始偏移量。滚动组件滚动到起始位置时，内容与组件显示区域边界保留指定距离。</p>
+<p>contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>offset<td>number<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resource>Resource</a><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=contentendoffset22>contentEndOffset22+<a href=#contentendoffset22 class=hash-link aria-label=contentEndOffset22+的直接链接 title=contentEndOffset22+的直接链接 translate=no>​</a></h3>
+<p>contentEndOffset(offset: number | Resource): T</p>
+<p>设置内容区末尾偏移量。滚动组件滚动到末尾位置时，内容与组件显示区域边界保留指定距离。</p>
+<p>contentStartOffset + contentEndOffset超过滚动组件内容区长度后contentStartOffset和contentEndOffset会置0。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>offset<td>number<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resource>Resource</a><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=事件>事件<a href=#事件 class=hash-link aria-label=事件的直接链接 title=事件的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onreachstart11>onReachStart11+<a href=#onreachstart11 class=hash-link aria-label=onReachStart11+的直接链接 title=onReachStart11+的直接链接 translate=no>​</a></h3>
+<p>onReachStart(event: () => void): T</p>
+<p>滚动组件到达起始位置时触发。</p>
+<p>滚动组件初始化时会触发一次，滚动到起始位置时触发一次。边缘效果为弹簧效果时，划动经过起始位置时触发一次，回弹回起始位置时再触发一次。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>() => void<td>是<td>滚动组件到达起始位置时的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onreachend11>onReachEnd11+<a href=#onreachend11 class=hash-link aria-label=onReachEnd11+的直接链接 title=onReachEnd11+的直接链接 translate=no>​</a></h3>
+<p>onReachEnd(event: () => void): T</p>
+<p>滚动组件到达末尾位置时触发。</p>
+<p>滚动组件边缘效果为弹簧效果时，划动经过末尾位置时触发一次，回弹回末尾位置时再触发一次。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>() => void<td>是<td>滚动组件到达末尾位置时的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onscrollstart11>onScrollStart11+<a href=#onscrollstart11 class=hash-link aria-label=onScrollStart11+的直接链接 title=onScrollStart11+的直接链接 translate=no>​</a></h3>
+<p>onScrollStart(event: () => void): T</p>
+<p>滚动开始时触发。手指拖动滚动组件或拖动滚动组件的滚动条触发的滚动开始时，会触发该事件。使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scroller>Scroller</a>滚动控制器触发的带动画的滚动，动画开始时会触发该事件。</p>
+<p>触发该事件的条件：</p>
+<ol>
+<li class="">滚动组件开始滚动时触发，支持键鼠操作等其他触发滚动的输入设置。</li>
+<li class="">通过滚动控制器API接口调用后开始，带过渡动效。</li>
+</ol>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>() => void<td>是<td>滚动开始时的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onscrollstop11>onScrollStop11+<a href=#onscrollstop11 class=hash-link aria-label=onScrollStop11+的直接链接 title=onScrollStop11+的直接链接 translate=no>​</a></h3>
+<p>onScrollStop(event: () => void): T</p>
+<p>滚动停止时触发。手拖动滚动组件或拖动滚动组件的滚动条触发的滚动，手离开屏幕后滚动停止时会触发该事件。使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scroller>Scroller</a>滚动控制器触发的带动画的滚动，动画停止时会触发该事件。</p>
+<p>触发该事件的条件：</p>
+<ol>
+<li class="">滚动组件触发滚动后停止，支持键鼠操作等其他触发滚动的输入设置。</li>
+<li class="">通过调用带过渡动画的滚动控制器API接口，动画停止时。</li>
+</ol>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>() => void<td>是<td>滚动停止时的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillscroll12>onWillScroll12+<a href=#onwillscroll12 class=hash-link aria-label=onWillScroll12+的直接链接 title=onWillScroll12+的直接链接 translate=no>​</a></h3>
+<p>onWillScroll(handler: Optional&lt;OnWillScrollCallback>): T</p>
+<p>滚动事件回调，滚动组件滚动前触发。</p>
+<p>回调当前帧将要滚动的偏移量和当前滚动状态和滚动操作来源，其中回调的偏移量为计算得到的将要滚动的偏移量值，并非最终实际滚动偏移。可以通过该回调返回值指定滚动组件将要滚动的偏移。<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll>Scroll</a>组件的<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#onwillscroll12>onWillScroll</a>接口的参数类型是<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scrollonwillscrollcallback12>ScrollOnWillScrollCallback</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">从API version 14开始，该接口支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</li>
+<li class="">调用不带动画的<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scrolledge>ScrollEdge</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#scrolltoindex>ScrollToIndex</a>时，不触发onWillScroll。</li>
+</ul>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-custom-property/ts-universal-attributes-custom-property#optionalt>Optional</a>&lt;<a href=#onwillscrollcallback12 class="">OnWillScrollCallback</a>><td>是<td>滚动组件滑动前触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ondidscroll12>onDidScroll12+<a href=#ondidscroll12 class=hash-link aria-label=onDidScroll12+的直接链接 title=onDidScroll12+的直接链接 translate=no>​</a></h3>
+<p>onDidScroll(handler: OnScrollCallback): T</p>
+<p>滚动组件滑动时触发，返回当前帧滑动的偏移量和当前滑动状态。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 14开始，该接口支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 12开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a href=#onscrollcallback12 class="">OnScrollCallback</a><td>是<td>滚动组件滑动时触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onscrolldeprecated>onScroll(deprecated)<a href=#onscrolldeprecated class=hash-link aria-label=onScroll(deprecated)的直接链接 title=onScroll(deprecated)的直接链接 translate=no>​</a></h3>
+<p>onScroll(event: (scrollOffset: number, scrollState: ScrollState) => void): T</p>
+<p>滚动组件滑动时触发。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 11开始支持，从API version 12开始废弃，<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list>List</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-grid/ts-container-grid>Grid</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-waterflow/ts-container-waterflow>WaterFlow</a>组件的onScroll事件在布局之后触发，建议使用<a href=#ondidscroll12 class="">onDidScroll</a>替代；<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll>Scroll</a>组件的onScroll事件在布局之前触发，建议使用<a href=#onwillscroll12 class="">onWillScroll</a>替代。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>(scrollOffset: number, scrollState: <a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#scrollstate%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>ScrollState</a>) => void<td>是<td>滚动组件滑动时的回调。  scrollOffset：相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。单位vp。  scrollState：当前滑动状态。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillstartdragging21>onWillStartDragging21+<a href=#onwillstartdragging21 class=hash-link aria-label=onWillStartDragging21+的直接链接 title=onWillStartDragging21+的直接链接 translate=no>​</a></h3>
+<p>onWillStartDragging(handler: VoidCallback): T</p>
+<p>滚动组件开始拖动时触发。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 21开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 21开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#voidcallback12>VoidCallback</a><td>是<td>滚动组件开始拖动时触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillstopdragging20>onWillStopDragging20+<a href=#onwillstopdragging20 class=hash-link aria-label=onWillStopDragging20+的直接链接 title=onWillStopDragging20+的直接链接 translate=no>​</a></h3>
+<p>onWillStopDragging(handler: OnWillStopDraggingCallback): T</p>
+<p>滚动组件划动离手时触发，使用鼠标滚轮划动时不会触发。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 20开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a href=#onwillstopdraggingcallback20 class="">OnWillStopDraggingCallback</a><td>是<td>滚动组件划动离手时触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ondidstopdragging21>onDidStopDragging21+<a href=#ondidstopdragging21 class=hash-link aria-label=onDidStopDragging21+的直接链接 title=onDidStopDragging21+的直接链接 translate=no>​</a></h3>
+<p>onDidStopDragging(handler: OnDidStopDraggingCallback): T</p>
+<p>滚动组件结束拖拽时触发。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 21开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 21开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a href=#ondidstopdraggingcallback21 class="">OnDidStopDraggingCallback</a><td>是<td>滚动组件结束拖动时触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillstartfling21>onWillStartFling21+<a href=#onwillstartfling21 class=hash-link aria-label=onWillStartFling21+的直接链接 title=onWillStartFling21+的直接链接 translate=no>​</a></h3>
+<p>onWillStartFling(handler: VoidCallback): T</p>
+<p>滚动组件将要开始惯性动效时触发。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">如果惯性动效通过<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#fling12>fling</a>方法触发，则onWillStartFling不触发。</li>
+<li class="">惯性动效的触发场景参考<a href=#flingspeedlimit11 class="">flingSpeedLimit</a>方法的说明。</li>
+</ul>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 21开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 21开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#voidcallback12>VoidCallback</a><td>是<td>滚动组件将要开始惯性动效时触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ondidstopfling21>onDidStopFling21+<a href=#ondidstopfling21 class=hash-link aria-label=onDidStopFling21+的直接链接 title=onDidStopFling21+的直接链接 translate=no>​</a></h3>
+<p>onDidStopFling(handler: VoidCallback): T</p>
+<p>滚动组件结束惯性动效后触发，进行中的惯性动效被新的滑动事件打断时不触发。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 21开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 21开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>handler<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#voidcallback12>VoidCallback</a><td>是<td>滚动组件结束惯性动效后触发的回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前滚动组件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=itemdraginfo对象说明>ItemDragInfo对象说明<a href=#itemdraginfo对象说明 class=hash-link aria-label=ItemDragInfo对象说明的直接链接 title=ItemDragInfo对象说明的直接链接 translate=no>​</a></h2>
+<p>拖拽点信息对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>x<td>number<td>否<td>否<td>当前拖拽点的x坐标，单位vp。<tr><td>y<td>number<td>否<td>否<td>当前拖拽点的y坐标，单位vp。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nestedscrolloptions10对象说明>NestedScrollOptions10+对象说明<a href=#nestedscrolloptions10对象说明 class=hash-link aria-label=NestedScrollOptions10+对象说明的直接链接 title=NestedScrollOptions10+对象说明的直接链接 translate=no>​</a></h2>
+<p><a href=#nestedscroll11 class="">nestedScroll</a>属性参数对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>scrollForward<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#nestedscrollmode10>NestedScrollMode</a><td>否<td>否<td>滚动组件往末尾端滚动时的嵌套滚动选项。<tr><td>scrollBackward<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#nestedscrollmode10>NestedScrollMode</a><td>否<td>否<td>滚动组件往起始端滚动时的嵌套滚动选项。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=edgeeffectoptions11对象说明>EdgeEffectOptions11+对象说明<a href=#edgeeffectoptions11对象说明 class=hash-link aria-label=EdgeEffectOptions11+对象说明的直接链接 title=EdgeEffectOptions11+对象说明的直接链接 translate=no>​</a></h2>
+<p><a href=#edgeeffect11 class="">edgeEffect</a>属性参数对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>alwaysEnabled<td>boolean<td>否<td>否<td>组件内容大小小于组件自身时，设置是否开启滑动效果。设置为true开启滑动效果，设置为false关闭滑动效果。<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list>List</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-grid/ts-container-grid>Grid</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-waterflow/ts-container-waterflow>WaterFlow</a>组件默认值是false，<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll>Scroll</a>组件默认值是true。  <strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。<tr><td>effectEdge18+<td>number<td>否<td>是<td>设置边缘效果生效的边缘。  如果设置<a href=#effectedge18%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">EffectEdge</a>.START表示只有起始边生效。如果设置<a href=#effectedge18%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">EffectEdge</a>.END表示只有末尾边生效。  默认值为<a href=#effectedge18%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E class="">EffectEdge</a>.START</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=fadingedgeoptions14对象说明>FadingEdgeOptions14+对象说明<a href=#fadingedgeoptions14对象说明 class=hash-link aria-label=FadingEdgeOptions14+对象说明的直接链接 title=FadingEdgeOptions14+对象说明的直接链接 translate=no>​</a></h2>
+<p><a href=#fadingedge14 class="">fadingEdge</a>属性边缘渐隐参数对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>fadingEdgeLength<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-graphics/js-apis-arkui-graphics#lengthmetrics12>LengthMetrics</a><td>否<td>是<td>设置边缘渐隐长度。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=editmodeoptions23对象说明>EditModeOptions23+对象说明<a href=#editmodeoptions23对象说明 class=hash-link aria-label=EditModeOptions23+对象说明的直接链接 title=EditModeOptions23+对象说明的直接链接 translate=no>​</a></h2>
+<p>List/Grid组件编辑模式选项属性参数对象。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>enableGatherSelectedItemsAnimation<td>boolean<td>否<td>是<td>是否启用多选聚拢动画。设置true时启用聚拢动画，设置为false时关闭聚拢动画。  只有GridItem或ListItem上设置了<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/popup-property/ts-universal-attributes-menu/ts-universal-attributes-menu#bindcontextmenu8>bindContextMenu</a>且responseType设置为<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#responsetype8>ResponseType</a>.LongPress、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/popup-property/ts-universal-attributes-menu/ts-universal-attributes-menu#contextmenuoptions10>preview</a>参数设置为MenuPreviewMode.IMAGE或CustomBuilder时会显示多选聚拢动画。  如果GridItem或ListItem上设置了<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/interaction-events/ts-universal-events-drag-drop/ts-universal-events-drag-drop>拖拽事件</a>，是否聚拢以<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/interaction-property/ts-universal-attributes-drag-drop/ts-universal-attributes-drag-drop#dragpreviewoptions11>dragPreviewOptions</a>设置为准。  默认值：false<tr><td>onGetPreviewBadge<td><a href=#ongetpreviewbadgecallback23 class="">OnGetPreviewBadgeCallback</a><td>否<td>是<td>即将启动多选长按聚拢动画时，触发用于获取选中数量的回调。  缺省时用Grid或List显示范围内选中item的数量作为多选长按聚拢动画后菜单预览图的角标。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=effectedge18枚举说明>EffectEdge18+枚举说明<a href=#effectedge18枚举说明 class=hash-link aria-label=EffectEdge18+枚举说明的直接链接 title=EffectEdge18+枚举说明的直接链接 translate=no>​</a></h2>
+<p>表示当前边缘效果要生效的边缘。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>START<td>1<td>起始边生效。<tr><td>END<td>2<td>末尾边生效。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contentclipmode14枚举说明>ContentClipMode14+枚举说明<a href=#contentclipmode14枚举说明 class=hash-link aria-label=ContentClipMode14+枚举说明的直接链接 title=ContentClipMode14+枚举说明的直接链接 translate=no>​</a></h2>
+<p>表示滚动容器的内容裁剪模式。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p>下图是组件配置了边距属性后的示意图，可理解每种枚举对应的裁剪区域。</p>
+<p><img decoding=async loading=lazy src=data:image/png;base64,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 width=533 height=227 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>CONTENT_ONLY<td>0<td>按内容区裁剪，对应图中的绿色区域。<tr><td>BOUNDARY<td>1<td>按组件区域裁剪，对应图中的整个蓝色区域。<tr><td>SAFE_AREA<td>2<td>按组件配置的SafeArea区域裁剪，对应图中的整个黄色区域。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillscrollcallback12>OnWillScrollCallback12+<a href=#onwillscrollcallback12 class=hash-link aria-label=OnWillScrollCallback12+的直接链接 title=OnWillScrollCallback12+的直接链接 translate=no>​</a></h2>
+<p>type OnWillScrollCallback = (scrollOffset: number, scrollState: ScrollState, scrollSource: ScrollSource) => void | ScrollResult</p>
+<p>滚动组件滑动前触发的回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>scrollOffset<td>number<td>是<td>相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。  单位vp。<tr><td>scrollState<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#scrollstate%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>ScrollState</a><td>是<td>当前滑动状态。<tr><td>scrollSource<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#scrollsource12>ScrollSource</a><td>是<td>当前滑动操作的来源。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>void<td><a href=#scrollresult12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">ScrollResult</a></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onscrollcallback12>OnScrollCallback12+<a href=#onscrollcallback12 class=hash-link aria-label=OnScrollCallback12+的直接链接 title=OnScrollCallback12+的直接链接 translate=no>​</a></h2>
+<p>type OnScrollCallback = (scrollOffset: number, scrollState: ScrollState) => void</p>
+<p>滚动组件滑动时触发的回调。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 12开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>scrollOffset<td>number<td>是<td>相对于上一帧的偏移量，滚动组件的内容向上滚动时偏移量为正，向下滚动时偏移量为负。  单位vp。<tr><td>scrollState<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#scrollstate%E6%9E%9A%E4%B8%BE%E8%AF%B4%E6%98%8E>ScrollState</a><td>是<td>当前滑动状态。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onitemdragstartcallback23>OnItemDragStartCallback23+<a href=#onitemdragstartcallback23 class=hash-link aria-label=OnItemDragStartCallback23+的直接链接 title=OnItemDragStartCallback23+的直接链接 translate=no>​</a></h2>
+<p>type OnItemDragStartCallback = (event: ItemDragInfo, itemIndex: number) => CustomBuilder</p>
+<p>开始拖拽列表或网格元素时触发的回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#itemdraginfo%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>ItemDragInfo</a><td>是<td>拖拽点的信息。<tr><td>itemIndex<td>number<td>是<td>被拖拽列表元素索引值。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#custombuilder8>CustomBuilder</a><td>返回CustomBuilder用于构建被拖拽元素的拖拽图。返回void表示不能拖拽。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ongetpreviewbadgecallback23>OnGetPreviewBadgeCallback23+<a href=#ongetpreviewbadgecallback23 class=hash-link aria-label=OnGetPreviewBadgeCallback23+的直接链接 title=OnGetPreviewBadgeCallback23+的直接链接 translate=no>​</a></h2>
+<p>type OnGetPreviewBadgeCallback = () => boolean | number</p>
+<p>即将启动多选长按聚拢动画时，触发用于获取选中数量的回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 23开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>number</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scrollresult12对象说明>ScrollResult12+对象说明<a href=#scrollresult12对象说明 class=hash-link aria-label=ScrollResult12+对象说明的直接链接 title=ScrollResult12+对象说明的直接链接 translate=no>​</a></h2>
+<p><a href=#onwillscrollcallback12 class="">OnWillScrollCallback</a>返回值对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>offsetRemain<td>number<td>否<td>否<td>将要滑动偏移量，单位vp。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=childrenmainsize12对象说明>ChildrenMainSize12+对象说明<a href=#childrenmainsize12对象说明 class=hash-link aria-label=ChildrenMainSize12+对象说明的直接链接 title=ChildrenMainSize12+对象说明的直接链接 translate=no>​</a></h2>
+<p>维护List组件或ListItemGroup组件的子组件在主轴方向的大小信息，仅支持一对一绑定到List组件或ListItemGroup组件。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">提供的主轴方向大小信息必须与子组件实际在主轴方向的大小一致，子组件在主轴方向大小变化或者增删子组件时都必须通过ChildrenMainSize对象方法通知List组件或ListItemGroup组件。</li>
+</ul>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor12>constructor12+<a href=#constructor12 class=hash-link aria-label=constructor12+的直接链接 title=constructor12+的直接链接 translate=no>​</a></h3>
+<p>constructor(childDefaultSize: number)</p>
+<p>ChildrenMainSize有参构造函数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>childDefaultSize<td>number<td>是<td>子组件在主轴方向的默认大小。  单位：vp  <strong><strong>说明：</strong></strong>  必须是有限的非负数值，否则抛出异常。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码详细介绍请参考<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed.</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=childdefaultsize12>childDefaultSize12+<a href=#childdefaultsize12 class=hash-link aria-label=childDefaultSize12+的直接链接 title=childDefaultSize12+的直接链接 translate=no>​</a></h3>
+<p>set childDefaultSize(value: number)</p>
+<p>修改子组件在主轴方向的默认大小。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td>number<td>是<td>子组件在主轴方向的默认大小。  单位：vp  <strong><strong>说明：</strong></strong>  必须是有限的非负数值，否则抛出异常。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码详细介绍请参考<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed.</table>
+<p>get childDefaultSize(): number</p>
+<p>获取子组件在主轴方向的默认大小。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>子组件在主轴方向的默认大小。  单位：vp  取值范围：[0, +∞)</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=splice12>splice12+<a href=#splice12 class=hash-link aria-label=splice12+的直接链接 title=splice12+的直接链接 translate=no>​</a></h3>
+<p>splice(start: number, deleteCount?: number, childrenSize?: Array&lt;number>): void</p>
+<p>批量增删改子组件在主轴方向的大小信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>start<td>number<td>是<td>从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。  <strong><strong>说明：</strong></strong>  1. 必须是有限的非负数值，否则抛出异常。  2. 非整数会被截断为整数。  3. 超过最大索引值不生效。  取值范围：[0, +∞)<tr><td>deleteCount<td>number<td>否<td>从start开始删除的大小信息的数量。  <strong><strong>说明：</strong></strong>  1. 必须是有限的非负数值，否则处理为0。  2. 非整数会被截断为整数。  3. start + deleteCount - 1可以超过最大索引值，会删除索引值start开始之后的所有子组件的大小信息。  默认值为+∞。  取值范围：[0, +∞)<tr><td>childrenSize<td>Array&lt;number ><td>否<td>要在start位置插入的所有子组件的主轴方向的大小。  Array中各个数值单位：vp  <strong><strong>说明：</strong></strong>  1.数组中数值如果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。  2. 数组中数值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。  默认值为空数组。  取值范围：[0, +∞)</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码详细介绍请参考<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed.</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ul>
+<li class="">如果仅使用start参数，表示删除索引值start及之后的子组件的大小信息。</li>
+<li class="">如果仅使用start和deleteCount参数，表示删除索引值start开始的deleteCount数量的子组件的大小信息。一般在删除子组件时使用。</li>
+<li class="">如果使用3个参数，表示删除索引值start开始的deleteCount数量的子组件的大小信息，再在start位置插入childrenSize中所有的大小信息。一般在增加子组件或者批量更新子组件主轴方向大小的时候使用，如果仅是增加子组件，deleteCount为0，childrenSize的元素数量和增加子组件的个数应该相等；如果仅是批量更新子组件主轴方向的大小，childrenSize的元素数量应该和deleteCount相等，即为批量更新的数量。</li>
+<li class="">如果想要通知某个子组件的大小为默认大小，childrenSize中对应的值不应该给一个有限的非负值，而应该给NaN，任意负值等能被处理成默认大小的值。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=update12>update12+<a href=#update12 class=hash-link aria-label=update12+的直接链接 title=update12+的直接链接 translate=no>​</a></h3>
+<p>update(index: number, childSize: number): void</p>
+<p>修改指定索引值对应的子组件的主轴方向的大小信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>index<td>number<td>是<td>从0开始计算的索引值，表示要开始修改子组件在主轴方向大小信息的位置。  <strong><strong>说明：</strong></strong>  1. 必须是有限的非负数值，否则抛出异常。  2. 非整数会被截断为整数。  3. 超过最大索引值不生效。  取值范围：[0, +∞)<tr><td>childSize<td>number<td>是<td>要更新成的大小。  单位：vp  <strong><strong>说明：</strong></strong>  1.数值如果是有限的非负值，则认为是指定的大小，后续不随默认大小的变化而变化。  2. 数值如果不是有限的非负值，会被处理成默认大小，后续会随默认大小的变化而变化。  取值范围：[0, +∞)</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码详细介绍请参考<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified; 2. Incorrect parameters types; 3. Parameter verification failed.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=uiscrollablecommonevent19>UIScrollableCommonEvent19+<a href=#uiscrollablecommonevent19 class=hash-link aria-label=UIScrollableCommonEvent19+的直接链接 title=UIScrollableCommonEvent19+的直接链接 translate=no>​</a></h2>
+<p>用于设置滚动事件回调。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setonreachstart19>setOnReachStart19+<a href=#setonreachstart19 class=hash-link aria-label=setOnReachStart19+的直接链接 title=setOnReachStart19+的直接链接 translate=no>​</a></h3>
+<p>setOnReachStart(callback: Callback&lt;void> | undefined): void</p>
+<p>设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#onreachstart11>onReachStart</a>事件的回调。</p>
+<p>方法入参为undefined的时候，重置对应的事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#callback12>Callback</a><void></void><td>undefined<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setonreachend19>setOnReachEnd19+<a href=#setonreachend19 class=hash-link aria-label=setOnReachEnd19+的直接链接 title=setOnReachEnd19+的直接链接 translate=no>​</a></h3>
+<p>setOnReachEnd(callback: Callback&lt;void> | undefined): void</p>
+<p>设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#onreachend11>onReachEnd</a>事件的回调。</p>
+<p>方法入参为undefined时，会重置事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#callback12>Callback</a><void></void><td>undefined<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setonscrollstart19>setOnScrollStart19+<a href=#setonscrollstart19 class=hash-link aria-label=setOnScrollStart19+的直接链接 title=setOnScrollStart19+的直接链接 translate=no>​</a></h3>
+<p>setOnScrollStart(callback: Callback&lt;void> | undefined): void</p>
+<p>设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#onscrollstart11>onScrollStart</a>事件的回调。</p>
+<p>方法入参为undefined时，会重置事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#callback12>Callback</a><void></void><td>undefined<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setonscrollstop19>setOnScrollStop19+<a href=#setonscrollstop19 class=hash-link aria-label=setOnScrollStop19+的直接链接 title=setOnScrollStop19+的直接链接 translate=no>​</a></h3>
+<p>setOnScrollStop(callback: Callback&lt;void> | undefined): void</p>
+<p>设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#onscrollstop11>onScrollStop</a>事件的回调。</p>
+<p>方法入参为undefined时，会重置事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#callback12>Callback</a><void></void><td>undefined<td>是</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setonscrollframebegin19>setOnScrollFrameBegin19+<a href=#setonscrollframebegin19 class=hash-link aria-label=setOnScrollFrameBegin19+的直接链接 title=setOnScrollFrameBegin19+的直接链接 translate=no>​</a></h3>
+<p>setOnScrollFrameBegin(callback: OnScrollFrameBeginCallback | undefined): void</p>
+<p>设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#onscrollframebegin9>onScrollFrameBegin</a>事件的回调。</p>
+<p>方法入参为undefined时，会重置事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scroll/ts-container-scroll#onscrollframebegincallback18>OnScrollFrameBeginCallback</a><td>undefined<td>是</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onwillstopdraggingcallback20>OnWillStopDraggingCallback20+<a href=#onwillstopdraggingcallback20 class=hash-link aria-label=OnWillStopDraggingCallback20+的直接链接 title=OnWillStopDraggingCallback20+的直接链接 translate=no>​</a></h2>
+<p>type OnWillStopDraggingCallback = (velocity: number) => void</p>
+<p>滚动组件划动离手时触发的回调。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 20开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>velocity<td>number<td>是<td>划动离手速度，滚动组件的内容向上滚动时速度为正，向下滚动时速度为负。  单位vp/s。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ondidstopdraggingcallback21>OnDidStopDraggingCallback21+<a href=#ondidstopdraggingcallback21 class=hash-link aria-label=OnDidStopDraggingCallback21+的直接链接 title=OnDidStopDraggingCallback21+的直接链接 translate=no>​</a></h2>
+<p>type OnDidStopDraggingCallback = (willFling: boolean) => void</p>
+<p>滚动组件在结束拖拽时触发的回调。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 21开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 21开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>willFling<td>boolean<td>是<td>结束拖拽后是否会有惯性动效。返回true代表拖拽结束后有惯性动效，返回false代表没有惯性动效。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例>示例<a href=#示例 class=hash-link aria-label=示例的直接链接 title=示例的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例1支持滚动手势>示例1（支持滚动手势）<a href=#示例1支持滚动手势 class=hash-link aria-label=示例1（支持滚动手势）的直接链接 title=示例1（支持滚动手势）的直接链接 translate=no>​</a></h3>
+<p>该示例通过设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#enablescrollinteraction11>enableScrollInteraction</a>属性，实现了使用手势滚动纵向列表，并在当前显示界面发生改变时回调索引。</p>
+<p>ListDataSource说明及完整代码参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#%E7%A4%BA%E4%BE%8B1%E6%B7%BB%E5%8A%A0%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6>示例1添加滚动事件</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { ListDataSource } from './ListDataSource';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct ListExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private arr: ListDataSource = new ListDataSource([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      List({ space: 20, initialIndex: 0 }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        LazyForEach(this.arr, (item: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ListItem() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Text('' + item)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .height(100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .fontSize(16)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .textAlign(TextAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .borderRadius(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .backgroundColor(0xFFFFFF)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }, (item: number) => item.toString())</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .enableScrollInteraction(true)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .listDirection(Axis.Vertical) // 排列方向</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .scrollBar(BarState.Off)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .friction(0.6)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .divider({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        strokeWidth: 2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        color: 0xFFFFFF,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        startMargin: 20,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        endMargin: 20</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }) // 每行之间的分界线</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .edgeEffect(EdgeEffect.Spring) // 边缘效果设置为Spring</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .onScrollIndex((firstIndex: number, lastIndex: number, centerIndex: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('first' + firstIndex);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('last' + lastIndex);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info('center' + centerIndex);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .onScrollVisibleContentChange((start: VisibleListContentInfo, end: VisibleListContentInfo) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(' start index: ' + start.index +</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ' start item group area: ' + start.itemGroupArea +</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ' start index in group: ' + start.itemIndexInGroup);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(' end index: ' + end.index +</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ' end item group area: ' + end.itemGroupArea +</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ' end index in group: ' + end.itemIndexInGroup);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .onDidScroll((scrollOffset: number, scrollState: ScrollState) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`onScroll scrollState = ScrollState` + scrollState + `, scrollOffset = ` + scrollOffset);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('90%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .backgroundColor(0xDCDCDC)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .padding({ top: 5 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583479605-6f2876729bf6b8cbbec38276d1b4f98a.gif width=360 height=747 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例2设置边缘渐隐>示例2（设置边缘渐隐）<a href=#示例2设置边缘渐隐 class=hash-link aria-label=示例2（设置边缘渐隐）的直接链接 title=示例2（设置边缘渐隐）的直接链接 translate=no>​</a></h3>
+<p>该示例通过设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#fadingedge14>fadingEdge</a>属性，实现了<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list>List</a>组件开启边缘渐隐效果并设置边缘渐隐长度。</p>
+<p>ListDataSource说明及完整代码参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#%E7%A4%BA%E4%BE%8B1%E6%B7%BB%E5%8A%A0%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6>示例1添加滚动事件</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { LengthMetrics } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { ListDataSource } from './ListDataSource';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct ListExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private arr: ListDataSource = new ListDataSource([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scrollerForList: Scroller = new Scroller();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      List({ space: 20, initialIndex: 0, scroller: this.scrollerForList }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        LazyForEach(this.arr, (item: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ListItem() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Text('' + item)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .height(100)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .fontSize(16)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .textAlign(TextAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .borderRadius(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .backgroundColor(0xFFFFFF)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }, (item: number) => item.toString())</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .fadingEdge(true, { fadingEdgeLength: LengthMetrics.vp(80) })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .backgroundColor(0xDCDCDC)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .padding({ top: 5 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583439653-633c8bfbf300f28b4caa9cfe8a1cc294.gif width=238 height=508 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例3设置裁剪区域>示例3（设置裁剪区域）<a href=#示例3设置裁剪区域 class=hash-link aria-label=示例3（设置裁剪区域）的直接链接 title=示例3（设置裁剪区域）的直接链接 translate=no>​</a></h3>
+<p>该示例通过设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-scrollable-common/ts-container-scrollable-common#clipcontent14>clipContent</a>属性，改变组件的内容层裁剪区域。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { LengthMetrics } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct ScrollExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  scroller: Scroller = new Scroller();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private arr: number[] = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State clipContent: ContentClipMode | RectShape | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Scroll(this.scroller) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ForEach(this.arr, (item: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Text(item.toString())</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .width(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .height(80)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .fontSize(20)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .textAlign(TextAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .backgroundColor(Color.Grey)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }, (item: string) => item)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .backgroundColor(Color.Blue)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .clipContent(this.clipContent)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .scrollBar(BarState.Off)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .friction(0.6)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width(300)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .height('50%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .padding(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .safeAreaPadding(LengthMetrics.vp(10))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .initialOffset({ yOffset: 80 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .margin({ top: 20 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('clipContent SAFE_AREA')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.clipContent = ContentClipMode.SAFE_AREA;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).margin({ top: 30 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('clipContent BOUNDARY')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.clipContent = ContentClipMode.BOUNDARY;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).margin({ top: 35 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('clipContent CONTENT_ONLY')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.clipContent = ContentClipMode.CONTENT_ONLY;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).margin({ top: 40 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%').height('100%').backgroundColor(0xDCDCDC)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583439705-849962a92ebe57fe41a1ea9f271d5270.gif width=310 height=551 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例4设置滚动条边距>示例4（设置滚动条边距）<a href=#示例4设置滚动条边距 class=hash-link aria-label=示例4（设置滚动条边距）的直接链接 title=示例4（设置滚动条边距）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始，该示例通过设置<a href=#scrollbarmargin20 class="">scrollBarMargin</a>属性，调整滚动组件的滚动条边距。</p>
+<p>ListDataSource说明及完整代码参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list#%E7%A4%BA%E4%BE%8B1%E6%B7%BB%E5%8A%A0%E6%BB%9A%E5%8A%A8%E4%BA%8B%E4%BB%B6>示例1添加滚动事件</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { ListDataSource } from './ListDataSource';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { LengthMetrics } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct ListExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  arr: ListDataSource = new ListDataSource([0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State scrollBarMargin: ScrollBarMargin = { start: LengthMetrics.vp(0), end: LengthMetrics.vp(0) };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Stack({ alignContent: Alignment.TopStart }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        List({ space: 20, initialIndex: 0 }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          LazyForEach(this.arr, (item: number, index?: number) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ListItem() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              Flex({ direction: FlexDirection.Row, alignItems: ItemAlign.Center }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                Text('' + item)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .height(80)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .fontSize(20)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .textAlign(TextAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .borderRadius(10)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .backgroundColor(Color.White)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  .flexShrink(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }, (item: number) => item.toString())</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }.width('90%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .friction(0.6)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .scrollBar(BarState.On)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .scrollBarMargin(this.scrollBarMargin)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('scrollBarMargin')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.scrollBarMargin = { start: LengthMetrics.vp(45), end: LengthMetrics.vp(70) };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).margin({ top: 5, left: 20 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button('scrollBarMargin2')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.scrollBarMargin = { start: LengthMetrics.vp(15), end: LengthMetrics.vp(100) };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }).margin({ top: 200, left: 20 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%').height('100%').backgroundColor(0xDCDCDC).padding({ top: 5 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552959660-e8e9c7187721bd9b0c3d7df2764af488.gif width=315 height=639 class=img_ev3q /></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-basic-components-arcscrollbar/ts-basic-components-arcscrollbar><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArcScrollBar</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>Indicator</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><ul><li><a href=#scrollbar11 class="table-of-contents__link toc-highlight">scrollBar11+</a><li><a href=#scrollbarcolor11 class="table-of-contents__link toc-highlight">scrollBarColor11+</a><li><a href=#scrollbarcolor22 class="table-of-contents__link toc-highlight">scrollBarColor22+</a><li><a href=#scrollbarwidth11 class="table-of-contents__link toc-highlight">scrollBarWidth11+</a><li><a href=#edgeeffect11 class="table-of-contents__link toc-highlight">edgeEffect11+</a><li><a href=#nestedscroll11 class="table-of-contents__link toc-highlight">nestedScroll11+</a><li><a href=#enablescrollinteraction11 class="table-of-contents__link toc-highlight">enableScrollInteraction11+</a><li><a href=#friction11 class="table-of-contents__link toc-highlight">friction11+</a><li><a href=#flingspeedlimit11 class="table-of-contents__link toc-highlight">flingSpeedLimit11+</a><li><a href=#fadingedge14 class="table-of-contents__link toc-highlight">fadingEdge14+</a><li><a href=#clipcontent14 class="table-of-contents__link toc-highlight">clipContent14+</a><li><a href=#backtotop15 class="table-of-contents__link toc-highlight">backToTop15+</a><li><a href=#scrollbarmargin20 class="table-of-contents__link toc-highlight">scrollBarMargin20+</a><li><a href=#digitalcrownsensitivity18 class="table-of-contents__link toc-highlight">digitalCrownSensitivity18+</a><li><a href=#contentstartoffset22 class="table-of-contents__link toc-highlight">contentStartOffset22+</a><li><a href=#contentendoffset22 class="table-of-contents__link toc-highlight">contentEndOffset22+</a></ul><li><a href=#事件 class="table-of-contents__link toc-highlight">事件</a><ul><li><a href=#onreachstart11 class="table-of-contents__link toc-highlight">onReachStart11+</a><li><a href=#onreachend11 class="table-of-contents__link toc-highlight">onReachEnd11+</a><li><a href=#onscrollstart11 class="table-of-contents__link toc-highlight">onScrollStart11+</a><li><a href=#onscrollstop11 class="table-of-contents__link toc-highlight">onScrollStop11+</a><li><a href=#onwillscroll12 class="table-of-contents__link toc-highlight">onWillScroll12+</a><li><a href=#ondidscroll12 class="table-of-contents__link toc-highlight">onDidScroll12+</a><li><a href=#onscrolldeprecated class="table-of-contents__link toc-highlight">onScroll(deprecated)</a><li><a href=#onwillstartdragging21 class="table-of-contents__link toc-highlight">onWillStartDragging21+</a><li><a href=#onwillstopdragging20 class="table-of-contents__link toc-highlight">onWillStopDragging20+</a><li><a href=#ondidstopdragging21 class="table-of-contents__link toc-highlight">onDidStopDragging21+</a><li><a href=#onwillstartfling21 class="table-of-contents__link toc-highlight">onWillStartFling21+</a><li><a href=#ondidstopfling21 class="table-of-contents__link toc-highlight">onDidStopFling21+</a></ul><li><a href=#itemdraginfo对象说明 class="table-of-contents__link toc-highlight">ItemDragInfo对象说明</a><li><a href=#nestedscrolloptions10对象说明 class="table-of-contents__link toc-highlight">NestedScrollOptions10+对象说明</a><li><a href=#edgeeffectoptions11对象说明 class="table-of-contents__link toc-highlight">EdgeEffectOptions11+对象说明</a><li><a href=#fadingedgeoptions14对象说明 class="table-of-contents__link toc-highlight">FadingEdgeOptions14+对象说明</a><li><a href=#editmodeoptions23对象说明 class="table-of-contents__link toc-highlight">EditModeOptions23+对象说明</a><li><a href=#effectedge18枚举说明 class="table-of-contents__link toc-highlight">EffectEdge18+枚举说明</a><li><a href=#contentclipmode14枚举说明 class="table-of-contents__link toc-highlight">ContentClipMode14+枚举说明</a><li><a href=#onwillscrollcallback12 class="table-of-contents__link toc-highlight">OnWillScrollCallback12+</a><li><a href=#onscrollcallback12 class="table-of-contents__link toc-highlight">OnScrollCallback12+</a><li><a href=#onitemdragstartcallback23 class="table-of-contents__link toc-highlight">OnItemDragStartCallback23+</a><li><a href=#ongetpreviewbadgecallback23 class="table-of-contents__link toc-highlight">OnGetPreviewBadgeCallback23+</a><li><a href=#scrollresult12对象说明 class="table-of-contents__link toc-highlight">ScrollResult12+对象说明</a><li><a href=#childrenmainsize12对象说明 class="table-of-contents__link toc-highlight">ChildrenMainSize12+对象说明</a><ul><li><a href=#constructor12 class="table-of-contents__link toc-highlight">constructor12+</a><li><a href=#childdefaultsize12 class="table-of-contents__link toc-highlight">childDefaultSize12+</a><li><a href=#splice12 class="table-of-contents__link toc-highlight">splice12+</a><li><a href=#update12 class="table-of-contents__link toc-highlight">update12+</a></ul><li><a href=#uiscrollablecommonevent19 class="table-of-contents__link toc-highlight">UIScrollableCommonEvent19+</a><ul><li><a href=#setonreachstart19 class="table-of-contents__link toc-highlight">setOnReachStart19+</a><li><a href=#setonreachend19 class="table-of-contents__link toc-highlight">setOnReachEnd19+</a><li><a href=#setonscrollstart19 class="table-of-contents__link toc-highlight">setOnScrollStart19+</a><li><a href=#setonscrollstop19 class="table-of-contents__link toc-highlight">setOnScrollStop19+</a><li><a href=#setonscrollframebegin19 class="table-of-contents__link toc-highlight">setOnScrollFrameBegin19+</a></ul><li><a href=#onwillstopdraggingcallback20 class="table-of-contents__link toc-highlight">OnWillStopDraggingCallback20+</a><li><a href=#ondidstopdraggingcallback21 class="table-of-contents__link toc-highlight">OnDidStopDraggingCallback21+</a><li><a href=#示例 class="table-of-contents__link toc-highlight">示例</a><ul><li><a href=#示例1支持滚动手势 class="table-of-contents__link toc-highlight">示例1（支持滚动手势）</a><li><a href=#示例2设置边缘渐隐 class="table-of-contents__link toc-highlight">示例2（设置边缘渐隐）</a><li><a href=#示例3设置裁剪区域 class="table-of-contents__link toc-highlight">示例3（设置裁剪区域）</a><li><a href=#示例4设置滚动条边距 class="table-of-contents__link toc-highlight">示例4（设置滚动条边距）</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

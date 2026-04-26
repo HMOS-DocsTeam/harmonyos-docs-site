@@ -1,0 +1,771 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>FIDO | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="FIDO | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块提供FIDO UAF本地免密认证能力，通过生物特征代替密码，支持免密登录，免密支付等业务场景，包括："/><meta data-rh=true property=og:description content="本模块提供FIDO UAF本地免密认证能力，通过生物特征代替密码，支持免密登录，免密支付等业务场景，包括："/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api","name":"FIDO","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title=FIDO class=linkLabel_WmDU>FIDO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><span title=IFAA class=linkLabel_WmDU>IFAA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><span title=SOTER class=linkLabel_WmDU>SOTER</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api><span title=通行密钥 class=linkLabel_WmDU>通行密钥</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido><span title="ArkTS API错误码" class=categoryLinkLabel_W154>ArkTS API错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_module/passkey/passkey><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Online Authentication Kit（在线认证服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>FIDO</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>FIDO</h1></header>
+<p>本模块提供FIDO UAF本地免密认证能力，通过生物特征代替密码，支持免密登录，免密支付等业务场景，包括：</p>
+<p>1、开通FIDO免密身份认证功能。</p>
+<p>2、使用FIDO免密身份认证功能。</p>
+<p>3、关闭FIDO免密身份认证功能。</p>
+<p>支持的设备类型为：Phone, PC/2in1, Tablet</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { UIContext } from '@kit.ArkUI'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { fido } from '@kit.OnlineAuthenticationKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=channelbinding>ChannelBinding<a href=#channelbinding class=hash-link aria-label=ChannelBinding的直接链接 title=ChannelBinding的直接链接 translate=no>​</a></h2>
+<p>传输通道的绑定参数，用于验证通道的安全性。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>serverEndPoint<td>string<td>否<td>是<td>TLS服务器证书的base64url编码哈希值。长度由不同三方服务器限制，默认值为空。<tr><td>tlsServerCertificate<td>string<td>否<td>是<td>如果FIDO UAF客户端使用了TLS服务器证书，则该证书必须设置为base64url、DER编码的格式。若不涉及，不可设置该字段。长度由不同三方服务器限制，默认值为空。<tr><td>tlsUnique<td>string<td>否<td>是<td>TLS通道Finished结构的base64url编码。若不涉及，不可设置该字段。长度由不同三方服务器限制，默认值为空。<tr><td>cidPubkey<td>string<td>否<td>是<td>base64url编码的序列化使用UTF-8编码的JwkKey结构。如果客户端TLS堆栈不向处理实体提供TLS ChannelID信息，则不可设置该字段。如果客户端TLS堆栈支持TLS ChannelID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。<tr><td>tokenBinding<td>string<td>否<td>是<td>base64url编码的序列化使用UTF-8编码的TokenBindingID结构。如果客户端TLS堆栈不向处理实体提供令牌绑定ID信息，则不可设置该字段。如果客户端TLS堆栈支持令牌绑定ID信息，但TLS (web)服务器尚未发出信号，则必须设置为“未使用”。长度由不同三方服务器限制，默认值为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=uafmessage>UAFMessage<a href=#uafmessage class=hash-link aria-label=UAFMessage的直接链接 title=UAFMessage的直接链接 translate=no>​</a></h2>
+<p>UAF字典对象，包含原始的UAF协议消息和附加数据。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>uafProtocolMessage<td>string<td>否<td>否<td>UAF协议消息。长度由不同三方服务器限制。注意其中若有challenge、transaction等字段，则包含上述字段的TA请求报文不可超过2048字节。<tr><td>additionalData<td>string<td>否<td>是<td>UAF附加数据。长度由不同三方服务器限制，默认值为空。该字段格式为json string，具体格式{"key": value}。  - 当key为isGuideToSetBiometrics，表示用户未设置生物特征的情况下，使用系统跳转能力引导用户去设置生物特征。value取值为true、false。  - true：使用系统跳转能力。  - false：不使用系统跳转能力。  当不传入isGuideToSetBiometrics，则表示不使用系统跳转能力。  <strong><strong>起始版本：</strong></strong> 6.0.0(20)  - 当key为navigationButtonText，表示支持开发者自定义认证方式，在用户生物认证失败并点击切换认证方式按钮时，提示用户拉起自定义的认证界面。  - 当value为任意文本时，表示开启自定义认证功能，此时传入的文本为切换认证方式按钮显示的文本。  当不传入navigationButtonText，则表示不使用自定义认证功能。  <strong><strong>起始版本：</strong></strong> 6.0.1(21)  - 当key为algorithmMode，表示支持开发者选择密码算法模式。  - 当前value取值支持传入'default'、'SM'。  - 'default'：使用FIDO标准默认支持的国际通用算法。  - 'SM'：FIDO已支持国密化，传入此值表示使用中国国密算法。  当不传入algorithmMode，则使用FIDO协议默认支持的国际通用算法。  <strong><strong>起始版本：</strong></strong> 6.1.0(23)</table>
+<p><strong><strong>调用示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uafMessage: fido.UAFMessage = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uafProtocolMessage: "", // uafProtocolMessage为从FIDO服务器获取的报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    additionalData: JSON.stringify({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      isGuideToSetBiometrics: true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      navigationButtonText: 'Navigation Button',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      algorithmMode: 'SM'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }) // 当不传入additionalData时，应将其替换为：additionalData: ""</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=version>Version<a href=#version class=hash-link aria-label=Version的直接链接 title=Version的直接链接 translate=no>​</a></h2>
+<p>UAF协议版本信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>major<td>number<td>否<td>否<td>主要版本，默认值为1。<tr><td>minor<td>number<td>否<td>否<td>次要版本，默认值为0。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=rgbpaletteentry>RgbPaletteEntry<a href=#rgbpaletteentry class=hash-link aria-label=RgbPaletteEntry的直接链接 title=RgbPaletteEntry的直接链接 translate=no>​</a></h2>
+<p>RGB三元调色板。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>r<td>number<td>否<td>否<td>红色样本值，取值为0~255。<tr><td>g<td>number<td>否<td>否<td>绿色样本值，取值为0~255。<tr><td>b<td>number<td>否<td>否<td>蓝色样本值，取值为0~255。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=displaypngcharacteristicsdescriptor>DisplayPNGCharacteristicsDescriptor<a href=#displaypngcharacteristicsdescriptor class=hash-link aria-label=DisplayPNGCharacteristicsDescriptor的直接链接 title=DisplayPNGCharacteristicsDescriptor的直接链接 translate=no>​</a></h2>
+<p>PNG图片特征对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>width<td>number<td>否<td>否<td>图片宽度（dpi），长度满足uint32。<tr><td>height<td>number<td>否<td>否<td>图片高度（dpi），长度满足uint32。<tr><td>bitDepth<td>number<td>否<td>否<td>位深（bit），长度满足uint8。<tr><td>colorType<td>number<td>否<td>否<td>颜色类型。0代表灰度，2代表真彩色，3代表索引颜色，4代表使用alpha的灰度，6代表使用alpha的真彩色。<tr><td>compression<td>number<td>否<td>否<td>仅定义PNG压缩方法0（zlib），压缩方法的其他值保留。<tr><td>filter<td>number<td>否<td>否<td>过滤方法。0代表None,1代表Sub，2代表Up，3代表Average，4代表Paeth。<tr><td>interlace<td>number<td>否<td>否<td>交错方法。0代表空行方法，1代表Adam7方式。<tr><td>plte<td>Array&lt;<a href=#rgbpaletteentry class="">RgbPaletteEntry</a>><td>否<td>是<td>调色板条目。默认值为空。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authenticator>Authenticator<a href=#authenticator class=hash-link aria-label=Authenticator的直接链接 title=Authenticator的直接链接 translate=no>​</a></h2>
+<p>认证器对象，描述了一个可用认证器的相关信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>title<td>string<td>是<td>否<td>认证器名，长度由不同三方服务器限制。<tr><td>aaid<td>string<td>是<td>否<td>认证器唯一标识，长度由不同三方服务器限制，CFCA为9个字符。<tr><td>description<td>string<td>是<td>否<td>认证器描述，长度由不同三方服务器限制。<tr><td>supportedUAFVersions<td>Array&lt;<a href=#version class="">Version</a>><td>是<td>否<td>认证器支持的UAF协议版本。<tr><td>assertionScheme<td>string<td>是<td>否<td>认证断言编码方式，长度由不同三方服务器限制，CFCA为8个字符。<tr><td>authenticationAlgorithm<td>number<td>是<td>否<td>支持的鉴别算法。  目前支持ALG_SIGN_SECP256R1_ECDSA_SHA256_RAW算法（0x0001）。<tr><td>attestationTypes<td>Array&lt;number><td>是<td>否<td>支持的鉴别类型列表。  目前支持TAG_ATTESTATION_BASIC_FULL(0x3E07)。<tr><td>userVerification<td>number<td>是<td>否<td>用户认证方式。  2：指纹。  16：人脸。<tr><td>keyProtection<td>number<td>是<td>否<td>秘钥保护类型。  目前支持KEY_PROTECTION_TEE 0x0004。<tr><td>matcherProtection<td>number<td>是<td>否<td>认证设备保护类型。  目前支持MATCHER_PROTECTION_TEE 0x0002。<tr><td>attachmentHint<td>number<td>是<td>否<td>认证设备连接方式。  目前支持ATTACHMENT_HINT_INTERNAL 0x0001。<tr><td>isSecondFactorOnly<td>boolean<td>是<td>否<td>认证器是否仅能作为第二因子使用。  目前不支持，返回值为false。<tr><td>tcDisplay<td>number<td>是<td>否<td>交易确认显示方式。  目前支持TRANSACTION_CONFIRMATION_DISPLAY_ANY 0x0001。<tr><td>tcDisplayContentType<td>string<td>是<td>否<td>交易确认显示支持的MIME内容类型。  目前支持text/plain。<tr><td>tcDisplayPNGCharacteristics<td>Array&lt;<a href=#displaypngcharacteristicsdescriptor class="">DisplayPNGCharacteristicsDescriptor</a>><td>是<td>否<td>交易确认显示支持的PNG集合。<tr><td>icon<td>string<td>是<td>否<td>认证器的PNG图标。长度由不同PNG图片Base64编码长度限制。<tr><td>supportedExtensionIDs<td>Array&lt;string><td>是<td>否<td>UAF协议扩展标识符的支持列表。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=discoverydata>DiscoveryData<a href=#discoverydata class=hash-link aria-label=DiscoveryData的直接链接 title=DiscoveryData的直接链接 translate=no>​</a></h2>
+<p>FIDO UAF客户端软件状态和可用的认证器数据。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>supportedUAFVersions<td>Array&lt;<a href=#version class="">Version</a>><td>否<td>否<td>客户端支持的FIDO UAF协议版本列表。<tr><td>clientVendor<td>string<td>否<td>否<td>UAF客户端的供应商，CFCA长度为4个字符。<tr><td>clientVersion<td><a href=#version class="">Version</a><td>否<td>否<td>FIDO UAF客户端版本。<tr><td>availableAuthenticators<td>Array&lt;<a href=#authenticator class="">Authenticator</a>><td>否<td>否<td>包含描述可使用UAF认证器的认证器结构数。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=discover>discover<a href=#discover class=hash-link aria-label=discover的直接链接 title=discover的直接链接 translate=no>​</a></h2>
+<p>discover(context: common.Context): Promise&lt;DiscoveryData></p>
+<p>发现设备的认证能力，返回当前设备软件支持的认证器数据。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>ability的context。</table>
+<p><strong><strong>返回值:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#discoverydata class="">DiscoveryData</a>><td>Promise对象。返回包含当前设备软件支持的认证器数据的对象。</table>
+<p><strong><strong>错误码:</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido>FIDO免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1005900015<td>System Interruption.<tr><td>1005900016<td>Unknown error.</table>
+<p><strong><strong>调用示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uiContext = new UIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context: Context = uiContext.getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let discoverData: fido.DiscoveryData = await fido.discover(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing discover, discoverData:", discoverData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call discover. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=checkpolicy>checkPolicy<a href=#checkpolicy class=hash-link aria-label=checkPolicy的直接链接 title=checkPolicy的直接链接 translate=no>​</a></h2>
+<p>checkPolicy(context: common.Context, uafRequest: UAFMessage): Promise&lt;void></p>
+<p>检测用户策略的开启状态。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>ability的context。<tr><td>uafRequest<td><a href=#uafmessage class="">UAFMessage</a><td>是<td>需要检测的策略和操作。</table>
+<p><strong><strong>返回值:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido>FIDO免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1005900005<td>No authenticator matching the authenticator policy specified is available.<tr><td>1005900006<td>A violation of the UAF protocol occurred.<tr><td>1005900015<td>System Interruption.<tr><td>1005900016<td>Unknown error.</table>
+<p><strong><strong>调用示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uiContext = new UIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context: Context = uiContext.getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 从FIDO服务器获取报文message</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uafMessage: fido.UAFMessage = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uafProtocolMessage: "", // uafProtocolMessage为从FIDO服务器获取的报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    additionalData: ""</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await fido.checkPolicy(context, uafMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing checkPolicy.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call checkPolicy. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=processuafoperation>processUAFOperation<a href=#processuafoperation class=hash-link aria-label=processUAFOperation的直接链接 title=processUAFOperation的直接链接 translate=no>​</a></h2>
+<p>processUAFOperation(context: common.Context, uafRequest: UAFMessage, channelBindings?: ChannelBinding): Promise&lt;UAFMessage></p>
+<p>用户UAF操作接口，处理UAF协议消息。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>ability的context。<tr><td>uafRequest<td><a href=#uafmessage class="">UAFMessage</a><td>是<td>FIDO客户端软件使用的<a href=#uafmessage class="">UAFMessage</a>。<tr><td>channelBindings<td><a href=#channelbinding class="">ChannelBinding</a><td>否<td>传输通道的绑定参数，用于验证通道安全性，默认为空。</table>
+<p><strong><strong>返回值:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#uafmessage class="">UAFMessage</a>><td>Promise对象。返回包含签名后响应数据的UAFMessage消息对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido>FIDO免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1005900003<td>User cancels.<tr><td>1005900005<td>No authenticator matching the authenticator policy specified is available.<tr><td>1005900006<td>A violation of the UAF protocol occurred.<tr><td>1005900007<td>No Facet_ID is registered.<tr><td>1005900009<td>The authenticator denies access to the generated request.<tr><td>1005900014<td>The user does not record biometric features or the authentication module is abnormal.<tr><td>1005900015<td>System Interruption.<tr><td>1005900016<td>Unknown error.<tr><td>1005900017<td>Switched to the custom authentication process.</table>
+<p><strong><strong>调用示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uiContext = new UIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context: Context = uiContext.getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 从FIDO服务器获取报文message</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uafMessage: fido.UAFMessage = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uafProtocolMessage: "", // uafProtocolMessage为从FIDO服务器获取的报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    additionalData: '{"navigationButtonText": "使用其他方式验证"}' // 这里是可选字段，如果需要开启自定义认证功能，请在此传入文本</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let channelBinding: fido.ChannelBinding = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let messageResp = await fido.processUAFOperation(context, uafMessage, channelBinding);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing processUAFOperation.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call processUAFOperation. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=notifyuafresult>notifyUAFResult<a href=#notifyuafresult class=hash-link aria-label=notifyUAFResult的直接链接 title=notifyUAFResult的直接链接 translate=no>​</a></h2>
+<p>notifyUAFResult(context: common.Context, uafResponse: UAFMessage): Promise&lt;void></p>
+<p>通知FIDO认证器FIDO免密身份认证功能的开启结果。使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.FIDO</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context#context>common.Context</a><td>是<td>ability的context。<tr><td>uafResponse<td><a href=#uafmessage class="">UAFMessage</a><td>是<td>UAF响应消息。</table>
+<p><strong><strong>返回值:</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido>FIDO免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1005900006<td>A violation of the UAF protocol occurred.<tr><td>1005900015<td>System Interruption.<tr><td>1005900016<td>Unknown error.</table>
+<p><strong><strong>调用示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 使用uiContext需要获取页面UIAbility的Context，一个页面获取一次即可</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uiContext = new UIContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context: Context = uiContext.getHostContext() as common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 从FIDO服务器获取报文message</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let uafMessage: fido.UAFMessage = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    uafProtocolMessage: "", // uafProtocolMessage为从FIDO服务器获取的报文</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    additionalData: ""</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    await fido.notifyUAFResult(context, uafMessage);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing notifyUAFResult.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    const err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call notifyUAFResult. Code is ${err.code}, message is ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // ...</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-error-code/dataguard-error-code><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>ArkTS API 错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>IFAA</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#channelbinding class="table-of-contents__link toc-highlight">ChannelBinding</a><li><a href=#uafmessage class="table-of-contents__link toc-highlight">UAFMessage</a><li><a href=#version class="table-of-contents__link toc-highlight">Version</a><li><a href=#rgbpaletteentry class="table-of-contents__link toc-highlight">RgbPaletteEntry</a><li><a href=#displaypngcharacteristicsdescriptor class="table-of-contents__link toc-highlight">DisplayPNGCharacteristicsDescriptor</a><li><a href=#authenticator class="table-of-contents__link toc-highlight">Authenticator</a><li><a href=#discoverydata class="table-of-contents__link toc-highlight">DiscoveryData</a><li><a href=#discover class="table-of-contents__link toc-highlight">discover</a><li><a href=#checkpolicy class="table-of-contents__link toc-highlight">checkPolicy</a><li><a href=#processuafoperation class="table-of-contents__link toc-highlight">processUAFOperation</a><li><a href=#notifyuafresult class="table-of-contents__link toc-highlight">notifyUAFResult</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

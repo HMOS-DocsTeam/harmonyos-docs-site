@@ -1,0 +1,1004 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-debug-optimize/debugging-commands/restool/restool" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>restool工具 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="restool工具 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=简介 /><meta data-rh=true property=og:description content=简介 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/","name":"restool工具","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/test-kit/test-kit-overview/><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=调试命令 class=categoryLinkLabel_W154>调试命令</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=SDK命令行工具简介 class=linkLabel_WmDU>SDK命令行工具简介</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc/><span title=hdc class=linkLabel_WmDU>hdc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/aa-tool/><span title=aa工具 class=linkLabel_WmDU>aa工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/bm-tool/><span title=bm工具 class=linkLabel_WmDU>bm工具</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/packing-unpacking/packing-tool/><span title=打包拆包工具 class=categoryLinkLabel_W154>打包拆包工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/app-check-tool/><span title=扫描工具 class=linkLabel_WmDU>扫描工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/cem-tool/><span title=cem工具 class=linkLabel_WmDU>cem工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/anm-tool/><span title=anm工具 class=linkLabel_WmDU>anm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/edm-tool/><span title=edm工具 class=linkLabel_WmDU>edm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/><span title=restool工具 class=linkLabel_WmDU>restool工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/param-tool/><span title=param工具 class=linkLabel_WmDU>param工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/power-shell/><span title=power-shell工具 class=linkLabel_WmDU>power-shell工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/atm-tool/><span title=atm工具 class=linkLabel_WmDU>atm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/network-cfg/><span title=network-cfg工具 class=linkLabel_WmDU>network-cfg工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/><span title=hilog class=linkLabel_WmDU>hilog</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool/><span title=hilogtool class=linkLabel_WmDU>hilogtool</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hidumper-tool/hidumper/><span title=hidumper class=categoryLinkLabel_W154>hidumper</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/><span title=hitrace class=linkLabel_WmDU>hitrace</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/><span title=hiperf class=linkLabel_WmDU>hiperf</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiprofiler/><span title=hiprofiler class=linkLabel_WmDU>hiprofiler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/uinput/><span title=uinput class=linkLabel_WmDU>uinput</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/toybox/><span title=命令行工具 class=categoryLinkLabel_W154>命令行工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/binary-sign-tool/><span title=二进制签名工具 class=linkLabel_WmDU>二进制签名工具</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调试命令</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>restool工具</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>restool工具</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=简介>简介<a href=#简介 class=hash-link aria-label=简介的直接链接 title=简介的直接链接 translate=no>​</a></h2>
+<p>restool是一种应用工程资源编译工具，通过编译资源文件创建资源索引、解析资源，开发者可以调用<a class="" href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-resource-manager/js-apis-resource-manager>资源管理接口</a>获取到对应资源。restool工具保存在sdk安装目录下的toolchains子目录。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=参数说明>参数说明<a href=#参数说明 class=hash-link aria-label=参数说明的直接链接 title=参数说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=restool支持的命令选项>restool支持的命令选项<a href=#restool支持的命令选项 class=hash-link aria-label=restool支持的命令选项的直接链接 title=restool支持的命令选项的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>选项<th>是否可缺省<th>是否存在入参<th>描述<tbody><tr><td>-i/--inputPath<td>不可缺省<td>带参数<td>指定需要构建的资源目录或者资源中间件。  在资源目录中支持指定一个编译好的HAP/HSP资源目录（解压态），在此HAP/HSP的基础上完成叠加编译。  具体可参考如下<a href=#%E7%BC%96%E8%AF%91%E8%B5%84%E6%BA%90 class="">编译资源命令</a>。<tr><td>-j/--json<td>不可缺省<td>带参数<td>指定config.json或者module.json文件路径。<tr><td>-o/--outputPath<td>不可缺省<td>带参数<td>指定已编译资源的输出路径。<tr><td>-p/--packageName<td>不可缺省<td>带参数<td>指定编译资源的bundle名称。<tr><td>-r/--resHeader<td>不可缺省<td>带参数<td>指定资源的头文件生成路径，文件内容为资源名称与资源ID的映射表，支持4种格式：“.txt”、“.js”、“.h”、“.ts”。  <strong><strong>说明：</strong></strong>  - “.txt”、“.js”、“.h”格式的文件包含-i指定的所有资源目录下的资源映射表。  - 从API version 23开始，支持“.ts”格式，文件内容仅包含-i指定的HAR编译产物的资源目录下的资源映射表。<tr><td>-e/--startId<td>可缺省<td>带参数<td>指定生成资源的起始ID值，例如：0x01000000,范围[0x01000000, 0x06FFFFFF),[0x08000000, 0xFFFFFFFF)。<tr><td>-f/--forceWrite<td>可缺省<td>不带参数<td>如果输出路径已经存在。强制删除，重新生成。<tr><td>-h/--help<td>可缺省<td>不带参数<td>查看工具帮助信息。<tr><td>-m/--modules<td>可缺省<td>带参数<td>多模块联合编译时，指定多个模块名。用“,”连接。<tr><td>-x/--append<td>可缺省<td>带参数<td>指定生成中间文件的资源目录或单个资源路径。同一个命令可以多次指定。<tr><td>-z/--combine<td>可缺省<td>不带参数<td>针对资源中间文件目录，生成编译结果。<tr><td>-l/--fileList<td>可缺省<td>带参数<td>指定命令选项的集合json文件，例如：resConfig.json。详细格式请查看下方-l/--fileList参数说明。<tr><td>-v/--version<td>可缺省<td>不带参数<td>查看工具版本号。<tr><td>--ids<td>可缺省<td>带参数<td>指定生成id_defined.json的输出目录。<tr><td>--defined-ids<td>可缺省<td>带参数<td>指定id_defined.json文件路径，一般都是通过--ids生成。  id_defined.json包含资源类型、名称及其ID的列表。  开发者可以自定义id_defined.json中的资源ID。<tr><td>--dependEntry<td>可缺省<td>带参数<td>FA模型下单独编译feature时，指定entry模块的编译结果目录。<tr><td>--icon-check<td>可缺省<td>不带参数<td>开启icon和startWindowIcon的PNG图片校验功能。<tr><td>--compressed-config<td>可缺省<td>带参数<td>指定需要进行纹理压缩的json配置文件。例如：opt-compression.json，json配置文件的详细格式请查看下方--compressed-config参数说明。<tr><td>--thread<td>可缺省<td>带参数<td>指定资源编译时开启的子线程数量。  <strong><strong>说明：</strong></strong>  从API version 18开始，支持该选项。<tr><td>--target-config<td>可缺省<td>带参数<td>与“-i”命令同时使用，支持选择编译。  具体可参考如下<strong><strong>target-config参数说明</strong></strong>。<tr><td>--ignored-file<td>可缺省<td>带参数<td>指定资源文件和资源目录的忽略规则，格式为正则表达式，多个规则之间以“:”分隔。文件、目录的名称与正则表达式匹配的会被忽略。  例如：“.git:.svn”可以忽略所有名称为“.git”、“.svn”的文件和目录。  <strong><strong>说明：</strong></strong>  从API version 19开始，支持该选项。<tr><td>--ignored-path<td>可缺省<td>带参数<td>指定资源文件和资源目录的忽略规则，格式为正则表达式，多个规则之间以“:”分隔。文件、目录的名称或路径与正则表达式匹配的会被忽略。  例如：“.+/rawfile/.git:.svn”中第一个正则包含指定路径“.+/rawfile/”，可以忽略rawfile目录下的“.git”文件和目录，不会忽略其他目录下的“.git”文件和目录；第二个规则不包含任何指定路径，可以忽略所有名称为“.svn”的文件和目录。  <strong><strong>说明：</strong></strong>  从API version 23开始，支持该选项。</table>
+<p><strong><strong>target-config参数说明</strong></strong></p>
+<p>支持参数配置类型：MccMnc、Locale、Orientation、Device、ColorMode、Density。</p>
+<p>参数格式说明：配置之间用“;”分割，配置中的值用“[]”封装，并使用“,”分割。</p>
+<p>MccMnc匹配规则：Mcc（国家码）必须相同；Mnc（网络码）不存在时默认匹配，否则Mnc须相同才匹配。</p>
+<p>Locale匹配规则：Locale匹配需满足以下三条规则。</p>
+<p>1、语言须相同。</p>
+<p>2、脚本（文字）不存在时默认匹配，否则必须相同。</p>
+<p>3、国家或地区不存在时默认匹配，否则必须相同。</p>
+<p>参数举例说明：Locale[zh_CN,en_US];Device[phone]，该参数过滤其他语言，保留能匹配上zh_CN和en_US的语言；过滤其他设备，保留phone；其他参数（如MccMnc、Orientation等）配置不过滤均保留。</p>
+<p><strong><strong>-l/--fileList参数说明</strong></strong></p>
+<p>用于指定命令选项集合的json文件，json文件包含的字段与命令选项的对应关系如下。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段名称<th>类型<th>命令选项<th>描述<tbody><tr><td>configPath<td>string<td>-j/--json<td>请参考-j/--json的说明。<tr><td>packageName<td>string<td>-p/--packageName<td>请参考-p/--packageName的说明。<tr><td>output<td>string<td>-o/--outputPath<td>请参考-o/--outputPath的说明。<tr><td>startId<td>string<td>-e/--startId<td>请参考-e/--startId的说明。<tr><td>moduleNames<td>string<td>-m/--modules<td>请参考-o/--outputPath的说明。<tr><td>ResourceTable<td>string[]<td>-r/--resHeader<td>可以包含多个路径，相当于多次指定-r/--resHeader。<tr><td>applicationResource<td>string<td>-i/--inputPath<td>指定AppScope的资源目录。<tr><td>moduleResources<td>string[]<td>-i/--inputPath<td>指定当前模块的资源目录，可以包含多个目录，相当于多次指定-i/--inputPath。<tr><td>dependencies<td>string[]<td>-i/--inputPath<td>指定依赖模块的资源目录，可以包含多个目录，相当于多次指定-i/--inputPath。<tr><td>entryCompiledResource<td>string<td>--dependEntry<td>请参考--dependEntry的说明。<tr><td>iconCheck<td>boolean<td>--icon-check<td>是否启用icon和startWindowIcon的PNG图片校验功能。  - true：启用。  - false（缺省默认值）：不启用。<tr><td>ids<td>string<td>--ids<td>请参考--ids的说明。<tr><td>definedIds<td>string<td>--defined-ids<td>请参考--defined-ids的说明。<tr><td>compression<td>string<td>--compressed-config<td>请参考--compressed-config的说明。<tr><td>thread<td>integer<td>--thread<td>请参考--thread的说明。<tr><td>ignoreResourcePattern<td>string[]<td>--ignored-file<td>请参考--ignored-file的说明。<tr><td>ignoreResourcePathPattern<td>string[]<td>--ignored-path<td>请参考--ignored-path的说明。<tr><td>qualifiersConfig<td>object<td>--target-config<td>指定选择编译的参数配置，格式为json，支持的字段与--target-config的配置类型一致，字段类型为字符串数组，表示一个配置类型下可以配置多个值。举例说明：{"Locale":["zh_CN","en_US"], "Device":["phone"]}等同于--target-config的配置Locale[zh_CN,en_US];Device[phone]。  <strong><strong>说明：</strong></strong>  从API version 23开始，支持该字段。</table>
+<p><strong><strong>--compressed-config参数说明</strong></strong></p>
+<p>在DevEco Studio配置<a class="" href=/harmonyos-docs-site/ide-hvigor-configuration-file/ide-hvigor-build-profile#section2095319147103>纹理压缩</a>的编译配置参数，编译后会在模块的build\default\intermediates\res\default下生成restool的纹理压缩配置文件opt-compression.json，文件结构如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "context": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 纹理压缩库的绝对路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "extensionPath": "xxx\\xxx\\libimage_transcoder_shared.dll"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "compression": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 是否对预置media图片资源启用纹理压缩。true：启用，false：不启用。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "media": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "enable": true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // filters是预置media图片资源的过滤配置参数</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "filters": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 纹理压缩的方式，type为转换类型，支持"astc"、"sut"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // block为转换扩展参数，决定画质和压缩率，当前仅支持"4x4"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "method": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "blocks": "4x4",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "type": "astc"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 需要压缩的media图片资源文件绝对路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "path": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "xxx\\MyApplication\\entry\\src\\main\\resources\\base\\media\\startIcon.png",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "xxx\\MyApplication\\entry\\src\\main\\resources\\base\\media\\icon.png",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 需要过滤的media图片资源文件绝对路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "exclude_path": [],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 按大小和分辨率匹配path中的图片资源文件路径，符合条件的文件将被压缩</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "rules_origin": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 二维数组，数组中每个元素表示一个大小范围，单位为字节</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "size": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              10485760</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 二维数组，数组中每个元素表示一个分辨率范围，如下表示分辨率从0x0到1024x1024</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "resolution": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "height": 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "width": 0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "height": 1024,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "width": 1024</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 按大小和分辨率匹配exclude_path中的图片资源文件，符合条件的文件将被过滤</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "rules_exclude": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "size": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              1048576</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "resolution": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "height": 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "width": 0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "height": 64,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "width": 64</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=restool支持的子命令>restool支持的子命令<a href=#restool支持的子命令 class=hash-link aria-label=restool支持的子命令的直接链接 title=restool支持的子命令的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>命令<th>描述<tbody><tr><td>dump<td>以json的格式输出HAP包中resource的内容。</table>
+<p><strong><strong>dump命令</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool dump [-h] [config] filePath</span><br/></div></code></pre></div></div>
+<p>dump命令参数列表：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>是否可缺省<th>是否存在入参<th>描述<tbody><tr><td>-h<td>可缺省<td>不带参数<td>帮助信息。<tr><td>config<td>可缺省<td>不带参数<td>只打印HAP包中资源的限定词信息。</table>
+<p>示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># 打印HAP包中所有的资源信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">restool dump entry.hap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"># 打印HAP包中资源的限定词信息</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">restool dump config entry.hap</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用实例>使用实例<a href=#使用实例 class=hash-link aria-label=使用实例的直接链接 title=使用实例的直接链接 translate=no>​</a></h2>
+<p>例如，entry目录结构如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">entry/src/main</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |----resource</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |----base</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |    |----element</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |    |----media</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |    |----profile</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |----rawfile</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |    |----resfile</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">|    |----config.json/module.json</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=编译资源>编译资源<a href=#编译资源 class=hash-link aria-label=编译资源的直接链接 title=编译资源的直接链接 translate=no>​</a></h3>
+<p>编译资源的方式有三种，分别是全量资源编译、增量资源编译和叠加资源编译。其中增量编译仅预览模式可用，用于预览开发阶段的组件效果；全量编译用于构建工程的资源文件；叠加编译支持将工程中的资源叠加进已有的HAP模板资源中，复用已编译的资源项。</p>
+<p>1、全量资源编译，命令如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -i entry/src/main -j entry/src/main/module.json -p com.ohos.demo -o out -r out/ResourceTable.txt -f</span><br/></div></code></pre></div></div>
+<p>2、增量资源编译，具体步骤如下：</p>
+<p>步骤一：生成资源中间件，命令如下:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -x entry/src/main/resource -o out</span><br/></div></code></pre></div></div>
+<p>步骤二：编译资源中间件，命令如下:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -i out1 -i out2 -o out -p com.ohos.demo -r out/ResourceTable.txt -j entry/src/main/module.json -f -z</span><br/></div></code></pre></div></div>
+<p>3、叠加资源编译，命令如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain"># hapResource为解压后的HAP包路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">restool -i entry/src/main -i hapResource -j entry/src/main/module.json -p com.ohos.demo -o out -r out/ResourceTable.txt -f</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=固定资源id>固定资源ID<a href=#固定资源id class=hash-link aria-label=固定资源ID的直接链接 title=固定资源ID的直接链接 translate=no>​</a></h3>
+<p>固定资源ID，具体步骤如下：</p>
+<p>步骤一：创建id_defined.json文件。创建方式有两种，分别是通过命令行和自定义。</p>
+<ul>
+<li class="">方式一：通过命令行生成此文件，命令如下：</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -i entry/src/main -j entry/src/main/module.json -p com.ohos.demo -o out -r out/ResourceTable.txt --ids out -f</span><br/></div></code></pre></div></div>
+<ul>
+<li class="">方式二：自定义文件，文件名必须是id_defined.json，文件内容如下：</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "record" :</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "id" : "0x01000000", // 资源需要固定的ID值</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "name" : "app_name", // 资源名称</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "type" : "string" // 资源类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>步骤二：完成资源ID固定。完成固定的方式有两种，通过命令一完成固定或者将自定义的id_defined.json放在resource/base/element/目录下后通过命令二完成固定。</p>
+<ul>
+<li class="">命令一：</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -i entry/src/main -j entry/src/main/module.json -p com.ohos.demo -o out1 -r out1/ResourceTable.txt --defined-ids out/id_defined.json -f</span><br/></div></code></pre></div></div>
+<ul>
+<li class="">命令二：</li>
+</ul>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">restool -i entry/src/main -j entry/src/main/module.json -p com.ohos.demo -o out1 -r out1/ResourceTable.txt  -f</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=restool工具错误码>restool工具错误码<a href=#restool工具错误码 class=hash-link aria-label=restool工具错误码的直接链接 title=restool工具错误码的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11201001-加载依赖库失败>11201001 加载依赖库失败<a href=#11201001-加载依赖库失败 class=hash-link aria-label="11201001 加载依赖库失败的直接链接" title="11201001 加载依赖库失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to load the library 'xxx.dll'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>加载依赖库失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<ol>
+<li class="">依赖库路径错误或路径无访问权限。</li>
+<li class="">三方依赖库未安装，或路径错误，或路径无访问权限。</li>
+<li class="">出现Windows系统报错，由于在用户环境变量和系统环境变量中，排在xxx.dll路径之前的路径文件无法被访问，导致加载依赖库时搜索环境变量错误。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<ol>
+<li class="">检查依赖库路径是否准确且有访问权限。</li>
+<li class="">按照错误信息提示安装缺失的三方依赖库，并保证三方依赖库路径准确且有访问权限。</li>
+<li class="">将SDK下的xxx/HarmonyOS/previewer/common/bin路径及依赖库所在路径添加至环境变量Path的前两行，两者先后顺序无限制。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203001-json文件打开失败>11203001 JSON文件打开失败<a href=#11203001-json文件打开失败 class=hash-link aria-label="11203001 JSON文件打开失败的直接链接" title="11203001 JSON文件打开失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to open the JSON file 'xxx.json'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON文件打开失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON文件路径错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON文件路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203002-json文件解析失败>11203002 JSON文件解析失败<a href=#11203002-json文件解析失败 class=hash-link aria-label="11203002 JSON文件解析失败的直接链接" title="11203002 JSON文件解析失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to parse the JSON file: incorrect format.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON文件格式错误，解析失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON文件格式错误，如包含多余的逗号等。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON文件格式，可参考<a href=https://www.json.org/json-zh.html target=_blank rel="noopener noreferrer" class="">JSON</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203003-json节点的类型与预期不匹配>11203003 JSON节点的类型与预期不匹配<a href=#11203003-json节点的类型与预期不匹配 class=hash-link aria-label="11203003 JSON节点的类型与预期不匹配的直接链接" title="11203003 JSON节点的类型与预期不匹配的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The value type of node 'xxx' does not match. Expected type: xxx.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON中xxx节点的类型错误。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON中对应节点的类型错误，如预期类型是string，实际类型为number。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON中xxx节点的类型。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203004-json中缺少必需节点>11203004 JSON中缺少必需节点<a href=#11203004-json中缺少必需节点 class=hash-link aria-label="11203004 JSON中缺少必需节点的直接链接" title="11203004 JSON中缺少必需节点的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The required node 'xxx' is missing.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON中缺少必需的xxx节点。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON中没有配置对应的必需节点，如name、value等。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON中是否缺少xxx节点。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203005-json中存在空object或空数组>11203005 JSON中存在空object或空数组<a href=#11203005-json中存在空object或空数组 class=hash-link aria-label="11203005 JSON中存在空object或空数组的直接链接" title="11203005 JSON中存在空object或空数组的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The array or object node 'xxx' cannot be empty.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON中xxx节点为空object或空数组。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON中对应节点为空，如object配置为{}，或数组配置为[]。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON中xxx节点是否为空。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203006-json中包含多个子节点>11203006 JSON中包含多个子节点<a href=#11203006-json中包含多个子节点 class=hash-link aria-label="11203006 JSON中包含多个子节点的直接链接" title="11203006 JSON中包含多个子节点的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The node 'xxx' in the JSON file can have only one member.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>JSON中xxx节点仅能包含一个子节点。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON中对应节点包含了多个子节点。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查xxx节点是否仅包含一个子节点。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11203007-无效的json节点名称>11203007 无效的JSON节点名称<a href=#11203007-无效的json节点名称 class=hash-link aria-label="11203007 无效的JSON节点名称的直接链接" title="11203007 无效的JSON节点名称的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid node name 'xxx'. Valid values: ["boolean","color","float","id","intarray","integer","pattern","plural","strarray","string","symbol","theme"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的JSON节点名称xxx。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>JSON中对应节点的名称错误，不在指定的名称["boolean","color","float","id","intarray","integer","pattern","plural","strarray","string","symbol","theme"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查JSON中xxx节点的名称是否在指定的范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11204001-创建文件失败>11204001 创建文件失败<a href=#11204001-创建文件失败 class=hash-link aria-label="11204001 创建文件失败的直接链接" title="11204001 创建文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to create the directory or file 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>创建文件失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>文件路径错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查文件路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11204003-删除文件失败>11204003 删除文件失败<a href=#11204003-删除文件失败 class=hash-link aria-label="11204003 删除文件失败的直接链接" title="11204003 删除文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to delete the directory or file 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>删除文件失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>文件路径错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查文件路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11204004-拷贝文件失败>11204004 拷贝文件失败<a href=#11204004-拷贝文件失败 class=hash-link aria-label="11204004 拷贝文件失败的直接链接" title="11204004 拷贝文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to copy the file from 'xxx' to 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>拷贝文件失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>文件路径错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查文件路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11204005-打开文件失败>11204005 打开文件失败<a href=#11204005-打开文件失败 class=hash-link aria-label="11204005 打开文件失败的直接链接" title="11204005 打开文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to open the file 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>打开文件失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>文件路径错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查文件路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11204006-读取文件失败>11204006 读取文件失败<a href=#11204006-读取文件失败 class=hash-link aria-label="11204006 读取文件失败的直接链接" title="11204006 读取文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to read the file 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>读取文件失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<ol>
+<li class="">文件路径错误，或无访问权限。</li>
+<li class="">文件内容为空。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<ol>
+<li class="">检查文件路径是否准确且有访问权限。</li>
+<li class="">检查文件内容是否为空。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210001-未知命令选项>11210001 未知命令选项<a href=#11210001-未知命令选项 class=hash-link aria-label="11210001 未知命令选项的直接链接" title="11210001 未知命令选项的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Unknown option 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>未知命令选项。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>不支持对应命令选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查命令是否准确，可使用-h查看命令帮助信息，输入正确的命令选项和参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210002-选项缺少必需参数>11210002 选项缺少必需参数<a href=#11210002-选项缺少必需参数 class=hash-link aria-label="11210002 选项缺少必需参数的直接链接" title="11210002 选项缺少必需参数的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Option 'xxx' requires an argument.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>选项缺少必需的参数。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>选项缺少必需的参数，如-i/--inputPath没有指定输入路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查命令是否准确，可使用-h查看命令帮助信息，输入正确的命令选项和参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210003-无效参数>11210003 无效参数<a href=#11210003-无效参数 class=hash-link aria-label="11210003 无效参数的直接链接" title="11210003 无效参数的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid argument value 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的参数。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>命令选项均需带有前缀短划线-，选项对应的参数无短划线，若输入选项时遗漏了短划线，该选项将被当作参数处理，无法生效，如输入restool inputPath。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查命令是否准确，可使用-h查看命令帮助信息，输入正确的命令选项和参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210004-无效的输入路径>11210004 无效的输入路径<a href=#11210004-无效的输入路径 class=hash-link aria-label="11210004 无效的输入路径的直接链接" title="11210004 无效的输入路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid input path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的输入路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>-i/--inputPath选项指定的路径参数错误，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查路径参数是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210005-重复的输入路径>11210005 重复的输入路径<a href=#11210005-重复的输入路径 class=hash-link aria-label="11210005 重复的输入路径的直接链接" title="11210005 重复的输入路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated input path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>重复的输入路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多个-i/--inputPath选项指定了相同的输入路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查-i/--inputPath选项指定的路径是否重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210006-包名存在冲突>11210006 包名存在冲突<a href=#11210006-包名存在冲突 class=hash-link aria-label="11210006 包名存在冲突的直接链接" title="11210006 包名存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The package names 'xxx' and 'xxx' conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>包名存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了-p/--packageName选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定-p/--packageName选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210007-无效的输出路径>11210007 无效的输出路径<a href=#11210007-无效的输出路径 class=hash-link aria-label="11210007 无效的输出路径的直接链接" title="11210007 无效的输出路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid output path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的输出路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>-o/--outputPath指定的输出路径不存在，或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查路径参数是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210008-输出路径存在冲突>11210008 输出路径存在冲突<a href=#11210008-输出路径存在冲突 class=hash-link aria-label="11210008 输出路径存在冲突的直接链接" title="11210008 输出路径存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The output paths 'xxx' and 'xxx' conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>输出路径存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了-o/--outputPath选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定-o/--outputPath选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210009-重复的资源头文件路径>11210009 重复的资源头文件路径<a href=#11210009-重复的资源头文件路径 class=hash-link aria-label="11210009 重复的资源头文件路径的直接链接" title="11210009 重复的资源头文件路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated resource header path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>重复的资源头文件路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多个-r/--resHeader选项指定了相同的资源头文件路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查-r/--resHeader选项指定的资源头文件路径是否重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210010-模块名称存在冲突>11210010 模块名称存在冲突<a href=#11210010-模块名称存在冲突 class=hash-link aria-label="11210010 模块名称存在冲突的直接链接" title="11210010 模块名称存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The module names 'xxx' and 'xxx' conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>模块名称存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了-m/--modules选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定-m/--modules选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210011-重复的模块名称>11210011 重复的模块名称<a href=#11210011-重复的模块名称 class=hash-link aria-label="11210011 重复的模块名称的直接链接" title="11210011 重复的模块名称的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated module name 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>重复的模块名称。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>-m/--modules选项指定了重复的模块名称，如-m entry,entry。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查-m/--modules选项指定的模块名称是否重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210012-应用配置文件存在冲突>11210012 应用配置文件存在冲突<a href=#11210012-应用配置文件存在冲突 class=hash-link aria-label="11210012 应用配置文件存在冲突的直接链接" title="11210012 应用配置文件存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The paths 'xxx' and 'xxx' of the module.json (in the stage model) or config.json (in the FA model) file conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>应用配置文件<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/module-configuration-file>module.json（Stage模型）</a>或<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-fa/application-configuration-file-overview-fa>config.json（FA模型）</a>的路径存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了-j/--json选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定-j/--json选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210013-无效的资源起始id>11210013 无效的资源起始id<a href=#11210013-无效的资源起始id class=hash-link aria-label="11210013 无效的资源起始id的直接链接" title="11210013 无效的资源起始id的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid start ID 'xxx'. It is out of range.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的资源起始id。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>通过-e/--startId指定的资源起始id不在指定范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源起始id是否在[0x01000000, 0x06FFFFFF) 或 [0x08000000, 0xFFFFFFFF)的范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210014-重复的增量资源文件路径>11210014 重复的增量资源文件路径<a href=#11210014-重复的增量资源文件路径 class=hash-link aria-label="11210014 重复的增量资源文件路径的直接链接" title="11210014 重复的增量资源文件路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated append path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>重复的增量资源文件路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多个-x/--append选项指定了相同的增量资源文件路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查-x/--append指定的增量资源文件路径是否重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210015-target-config存在冲突>11210015 target-config存在冲突<a href=#11210015-target-config存在冲突 class=hash-link aria-label="11210015 target-config存在冲突的直接链接" title="11210015 target-config存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The target configurations 'xxx' and 'xxx' conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>多个target-config选项指定的参数存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了--target-config选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定--target-config选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210016-无效的target-config>11210016 无效的target-config<a href=#11210016-无效的target-config class=hash-link aria-label="11210016 无效的target-config的直接链接" title="11210016 无效的target-config的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid target configuration argument 'xxx'. The argument format for option --target-config should be like 'Locale[zh_CN,en_US];Device[phone]'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的target-config参数。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>--target-config选项指定的参数格式错误。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查--target-config选项对应参数格式是否准确，如：Locale[zh_CN,en_US];Device[phone]，具体格式信息可以参考<a href=#restool%E6%94%AF%E6%8C%81%E7%9A%84%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9 class="">restool支持的命令选项</a>中关于target-config的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210017-无效的系统资源id_definedjson路径>11210017 无效的系统资源id_defined.json路径<a href=#11210017-无效的系统资源id_definedjson路径 class=hash-link aria-label="11210017 无效的系统资源id_defined.json路径的直接链接" title="11210017 无效的系统资源id_defined.json路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid system id_defined.json path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的系统资源id_defined.json路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>通过--defined-sysids指定的系统资源的id_defined.json路径错误或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查系统资源的id_defined.json路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210018-重复的系统资源id_definedjson路径>11210018 重复的系统资源id_defined.json路径<a href=#11210018-重复的系统资源id_definedjson路径 class=hash-link aria-label="11210018 重复的系统资源id_defined.json路径的直接链接" title="11210018 重复的系统资源id_defined.json路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated system id_defined.json path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>--defined-sysids选项指定的文件路径重复。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多个--defined-sysids选项指定了相同的系统资源id_defined.json路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查--defined-sysids选项指定的系统资源id_defined.json文件路径是否重复。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210019-compressed-config存在冲突>11210019 compressed-config存在冲突<a href=#11210019-compressed-config存在冲突 class=hash-link aria-label="11210019 compressed-config存在冲突的直接链接" title="11210019 compressed-config存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The compression JSON paths 'xxx' and 'xxx' conflict.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>多个--compressed-config选项指定的参数存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>多次指定了--compressed-config选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否多次指定--compressed-config选项。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210020-参数非ascii值>11210020 参数非ASCII值<a href=#11210020-参数非ascii值 class=hash-link aria-label="11210020 参数非ASCII值的直接链接" title="11210020 参数非ASCII值的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The argument value 'xxx' is not an ASCII value.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>参数非ASCII值。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>输入、输出路径等参数中存在中文或其他非ASCII字符。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查参数中是否存在中文或者其他非ASCII字符。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210021-选项之间存在互斥>11210021 选项之间存在互斥<a href=#11210021-选项之间存在互斥 class=hash-link aria-label="11210021 选项之间存在互斥的直接链接" title="11210021 选项之间存在互斥的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Options 'xxx' and 'xxx' cannot be used together.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>不能同时指定两个互斥的选项。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>同时指定了两个互斥的选项，如-x和--target-config。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查命令是否准确，避免指定互斥的选项，可以使用-h查看命令帮助信息，输入正确的命令选项和参数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210022-包名为空>11210022 包名为空<a href=#11210022-包名为空 class=hash-link aria-label="11210022 包名为空的直接链接" title="11210022 包名为空的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The package name is empty. It should be specified with option -p/--packageName.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>包名为空。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>未指定-p/--packageName选项。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否通过-p/--packageName选项指定包名。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210023-资源头文件路径为空>11210023 资源头文件路径为空<a href=#11210023-资源头文件路径为空 class=hash-link aria-label="11210023 资源头文件路径为空的直接链接" title="11210023 资源头文件路径为空的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The resource header path (for example, ./ResourceTable.js, ./ResourceTable.h) is empty. It should be specified with option -r/--resHeader.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>资源头文件的路径为空。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>未通过-r/--resHeader选项指定资源头文件路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否通过-r/--resHeader选项指定资源头文件路径。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210024-dump命令缺少hap包路径>11210024 dump命令缺少HAP包路径<a href=#11210024-dump命令缺少hap包路径 class=hash-link aria-label="11210024 dump命令缺少HAP包路径的直接链接" title="11210024 dump命令缺少HAP包路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The HAP path of the resource dump command is missing.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>dump命令缺少HAP包路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>dump命令未指定HAP包路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查dump命令是否指定HAP包路径，如：restool dump xxx/entry.hap。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210025-dump命令指定的hap包路径无效>11210025 dump命令指定的HAP包路径无效<a href=#11210025-dump命令指定的hap包路径无效 class=hash-link aria-label="11210025 dump命令指定的HAP包路径无效的直接链接" title="11210025 dump命令指定的HAP包路径无效的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid HAP path 'xxx' in the resource dump command.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>dump命令指定HAP包路径无效。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>dump命令指定的HAP包路径错误或无访问权限。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查dump命令指定的HAP包路径是否准确且有访问权限。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11210026-无效的子线程数量>11210026 无效的子线程数量<a href=#11210026-无效的子线程数量 class=hash-link aria-label="11210026 无效的子线程数量的直接链接" title="11210026 无效的子线程数量的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid thread count 'xxx'. It should be an integer greater than 0.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的子线程数量。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>--thread选项指定的子线程数量为负数或小数。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查--thread选项的参数是否为大于0的整数。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211001-输出路径已存在>11211001 输出路径已存在<a href=#11211001-输出路径已存在 class=hash-link aria-label="11211001 输出路径已存在的直接链接" title="11211001 输出路径已存在的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The output path exists. Specify option -f/--forceWrite to overwrite.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>输出路径已存在。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>通过-o/--output指定的输出路径下已存在文件，无法直接覆盖。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查输出路径下是否已有文件，可手动删除或指定-f/--forceWrite选项强制覆盖。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211002-缺少模块配置文件路径>11211002 缺少模块配置文件路径<a href=#11211002-缺少模块配置文件路径 class=hash-link aria-label="11211002 缺少模块配置文件路径的直接链接" title="11211002 缺少模块配置文件路径的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>There are multiple input paths, but the path of the module.json (in the stage model) or config.json (in the FA model) file is not specified with option -j/--json.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>缺少应用配置文件<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/module-configuration-file>module.json（Stage模型）</a>或<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-fa/application-configuration-file-overview-fa>config.json（FA模型）</a>的路径。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>当通过-i/--inputPath仅指定了单个输入路径时，restool默认从输入路径的父目录读取应用配置文件；当指定了多个输入路径时，如restool -i xxx\AppScope -i xxx\entry\main，需要通过-j/--json明确指定应用配置文件的路径。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否通过-j/--json明确指定应用配置文件路径。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211003-无效的模块类型>11211003 无效的模块类型<a href=#11211003-无效的模块类型 class=hash-link aria-label="11211003 无效的模块类型的直接链接" title="11211003 无效的模块类型的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid module type 'xxx'. Valid values: ["entry", "har", "shared", "feature"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的模块类型。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>应用配置文件<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/module-configuration-file>module.json（Stage模型）</a>或<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-fa/application-configuration-file-overview-fa>config.json（FA模型）</a>中指定的模块类型错误，取值不在["entry", "har", "shared", "feature"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查模块类型是否在指定的范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211004-资源起始id与id_definedjson存在冲突>11211004 资源起始id与id_defined.json存在冲突<a href=#11211004-资源起始id与id_definedjson存在冲突 class=hash-link aria-label="11211004 资源起始id与id_defined.json存在冲突的直接链接" title="11211004 资源起始id与id_defined.json存在冲突的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The start ID 'xxx' specified by option -e/--startId conflict with the IDs in the id_defined.json file.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>通过-e/--startId指定的资源起始id与id_defined.json文件存在冲突。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>默认情况下，资源起始id为0x01000000，编译时资源id依次递增，同时restool提供了两种方式自定义资源id：</p>
+<ol>
+<li class="">选项-e/--startId：可以在[0x01000000, 0x06FFFFFF) 或 [0x08000000, 0xFFFFFFFF)的范围内指定资源起始id。</li>
+<li class=""><a href=#%E5%9B%BA%E5%AE%9A%E8%B5%84%E6%BA%90id class="">固定资源ID</a>：通过id_defined.json文件指定资源id。</li>
+</ol>
+<p>若同时使用两种方式，可能导致同一个资源在两种方式下计算得到的资源id值不一致，存在冲突。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查是否同时使用上述两种方式自定义资源id。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211007-id_definedjson中的资源类型无效>11211007 id_defined.json中的资源类型无效<a href=#11211007-id_definedjson中的资源类型无效 class=hash-link aria-label="11211007 id_defined.json中的资源类型无效的直接链接" title="11211007 id_defined.json中的资源类型无效的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid resource type 'xxx' in the id_defined.json file. Valid values: ["boolean","color","float","id","intarray","integer","pattern","plural","strarray","string","symbol","theme"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>id_defined.json中的资源类型无效。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>id_defined.json中资源类型type的取值不在["boolean","color","float","id","intarray","integer","pattern","plural","strarray","string","symbol","theme"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源类型是否在指定范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211008-id_definedjson中的资源id无效>11211008 id_defined.json中的资源id无效<a href=#11211008-id_definedjson中的资源id无效 class=hash-link aria-label="11211008 id_defined.json中的资源id无效的直接链接" title="11211008 id_defined.json中的资源id无效的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid ID value 'xxx' in the id_defined.json file. It should be a hexadecimal string, match the pattern ^0[xX][0-9a-fA-F]{8}, and be in the scope [0x01000000,0x06FFFFFF] or [0x08000000,0xFFFFFFFF].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>id_defined.json中资源id无效。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<ol>
+<li class="">id_defined.json中资源id非十六进制数。</li>
+<li class="">id取值不在[0x01000000,0x06FFFFFF] 或 [0x08000000,0xFFFFFFFF]的范围内。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源id是否为十六进制格式且取值在[0x01000000,0x06FFFFFF] 或 [0x08000000,0xFFFFFFFF]范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211012-id_definedjson定义了重复的id>11211012 id_defined.json定义了重复的id<a href=#11211012-id_definedjson定义了重复的id class=hash-link aria-label="11211012 id_defined.json定义了重复的id的直接链接" title="11211012 id_defined.json定义了重复的id的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The names 'xxx' and 'xxx' in the id_defined.json file define the same ID.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>id_defined.json中两个资源定义了同一个资源id值。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>id_defined.json中两个资源定义了同一个资源id值。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查id_defined.json中的资源id是否唯一且取值在[0x01000000,0x06FFFFFF] 或 [0x08000000,0xFFFFFFFF]范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211014-错误的模块名称>11211014 错误的模块名称<a href=#11211014-错误的模块名称 class=hash-link aria-label="11211014 错误的模块名称的直接链接" title="11211014 错误的模块名称的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The module name 'xxx' is not found in ["yyy","zzz"], which is specified by -m/--modules.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>应用配置文件中的模块名称不在-m/--modules指定的模块名称列表内。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<ol>
+<li class="">-m/--modules指定的模块名称列表错误。</li>
+<li class="">应用配置文件<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/module-configuration-file>module.json（Stage模型）</a>或<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-fa/application-configuration-file-overview-fa>config.json（FA模型）</a>中name指定的模块名称错误。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查-m/--modules指定的模块名称列表中是否包含应用配置文件中name指定的模块名称。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211101-无效的资源文件>11211101 无效的资源文件<a href=#11211101-无效的资源文件 class=hash-link aria-label="11211101 无效的资源文件的直接链接" title="11211101 无效的资源文件的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to scan resources: invalid path 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>扫描资源失败，无效的资源文件。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>资源文件不符合要求，比如：</p>
+<ol>
+<li class="">rawfile应该是一个文件夹，实际是文件。</li>
+<li class="">base/element下应该都是JSON文件，实际存在文件夹。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源文件的类型是否正确，可参考<a class="" href=/harmonyos-docs-site/resource-categories-and-access#%E8%B5%84%E6%BA%90%E5%88%86%E7%B1%BB>资源分类与访问-资源分类</a>中关于各类资源文件的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211103-无效的限定词目录>11211103 无效的限定词目录<a href=#11211103-无效的限定词目录 class=hash-link aria-label="11211103 无效的限定词目录的直接链接" title="11211103 无效的限定词目录的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid qualifier key 'xxx'. It should match the pattern of the qualifiers directory, for example zh_CN or en_US.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的限定词目录。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>限定词目录名称错误。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查限定词目录名称是否准确，限定词目录命名规则可参考<a class="" href=/harmonyos-docs-site/resource-categories-and-access#%E8%B5%84%E6%BA%90%E7%9B%AE%E5%BD%95>资源分类与访问-限定词目录</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211104-无效的资源组目录>11211104 无效的资源组目录<a href=#11211104-无效的资源组目录 class=hash-link aria-label="11211104 无效的资源组目录的直接链接" title="11211104 无效的资源组目录的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid resource directory name 'xxx'. Valid values: ["element","media","profile"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的资源组目录名称。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>限定词目录下的资源组目录名称错误，不在["element","media","profile"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查限定词目录下是否仅包含<a class="" href=/harmonyos-docs-site/resource-categories-and-access#%E8%B5%84%E6%BA%90%E7%BB%84%E7%9B%AE%E5%BD%95>资源组目录</a>：element，media和profile。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211106-无效的翻译状态>11211106 无效的翻译状态<a href=#11211106-无效的翻译状态 class=hash-link aria-label="11211106 无效的翻译状态的直接链接" title="11211106 无效的翻译状态的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid translation priority value 'xxx'. Valid values: ["code","translate","LT","customer"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的翻译状态。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>字符串或<a class="" href=/harmonyos-docs-site/localization-kit/l10n/l10n-translation/l10n-singular-plural>单复数</a>资源的可翻译属性attr下的翻译状态属性priority配置错误，不在["code","translate","LT","customer"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查翻译状态priority的值是否准确，可参考<a class="" href=/harmonyos-docs-site/resource-categories-and-access#%E8%B5%84%E6%BA%90%E5%8F%AF%E7%BF%BB%E8%AF%91%E7%89%B9%E6%80%A7>资源可翻译特性</a>中关于priority的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211107-不支持的element资源类型>11211107 不支持的element资源类型<a href=#11211107-不支持的element资源类型 class=hash-link aria-label="11211107 不支持的element资源类型的直接链接" title="11211107 不支持的element资源类型的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Unsupported element resource type 'xxx'. Valid values: ["integer","string","strarray","intarray","boolean","color","theme","plural","float","pattern","symbol"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>不支持的element资源类型。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>element目录下json资源文件支持的资源类型为["integer","string","strarray","intarray","boolean","color","theme","plural","float","pattern","symbol"]，不支持"id"。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查element资源的类型是否准确，可参考<a class="" href=/harmonyos-docs-site/resource-categories-and-access#%E8%B5%84%E6%BA%90%E7%BB%84%E7%9B%AE%E5%BD%95>资源组目录</a>中关于element资源的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211108-无效的颜色值>11211108 无效的颜色值<a href=#11211108-无效的颜色值 class=hash-link aria-label="11211108 无效的颜色值的直接链接" title="11211108 无效的颜色值的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid color value 'xxx' of the resource 'xxx'. It can only reference '$color:xxx' or be '#rgb', '#argb', '#rrggbb', or '#aarrggbb'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的颜色值。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>color资源只支持以下两种格式：</p>
+<ol>
+<li class="">引用其他color资源，如$color:xxx引用应用自身color资源，或$ohos:color:xxx引用系统color资源。</li>
+<li class="">以#开头的rgb颜色值格式，如#rgb,#argb,#rrggbb,#aarrggbb。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查color资源是否为正确的引用格式或rgb格式。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211109-无效的资源引用>11211109 无效的资源引用<a href=#11211109-无效的资源引用 class=hash-link aria-label="11211109 无效的资源引用的直接链接" title="11211109 无效的资源引用的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid resource reference $xxx:xxx. Supported reference: $(ohos:)?xxx:xxx.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的资源引用。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>资源引用只适用于同类型资源之间，如string.json中的字符串资源可以用$string:xxx引用应用自身的字符串资源，或使用$ohos:string:xxx引用系统字符串资源，但不能通过$integer:xxx引用整数资源。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源引用方式是否正确。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211110-theme资源的parent为空>11211110 theme资源的parent为空<a href=#11211110-theme资源的parent为空 class=hash-link aria-label="11211110 theme资源的parent为空的直接链接" title="11211110 theme资源的parent为空的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The parent value of resource 'xxx' is empty. It should be a valid resource name.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>theme资源的parent值为空。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>theme资源的parent属性是可选的，其值需配置为其他theme资源的名称，不能是空字符串。如下正确示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "theme": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "name": "base",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "value": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "name": "width",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "wrap_content"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "name": "height",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "wrap_content"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "name": "size",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "25dp"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "name": "child",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "parent": "base",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "value": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "name": "noTitle",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "yes"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>其中声明了两个theme资源base和child，base不包含parent属性，child的parent配置为"base"。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查theme资源的parent是否为空，如无需parent属性，可以将其移除。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211111-数组类型的资源超长>11211111 数组类型的资源超长<a href=#11211111-数组类型的资源超长 class=hash-link aria-label="11211111 数组类型的资源超长的直接链接" title="11211111 数组类型的资源超长的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The array resource 'xxx' is too large. The total length of the value of the array elements cannot exceed 65535.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>数组类型的资源超长。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>单个数组类型资源总长度超过了65535个字节。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查数组类型资源是否超长，可以将其拆分为多个数组资源。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211112-无效的单复数资源类别>11211112 无效的单复数资源类别<a href=#11211112-无效的单复数资源类别 class=hash-link aria-label="11211112 无效的单复数资源类别的直接链接" title="11211112 无效的单复数资源类别的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid quantity 'xxx' of the plural resource 'xxx'. Valid values: ["zero","one","two","few","many","other"].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的单复数资源类别。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>单复数资源的类别属性quantity配置错误，不在["zero","one","two","few","many","other"]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查单复数的类别是否准确，可参考<a class="" href=/harmonyos-docs-site/localization-kit/l10n/l10n-translation/l10n-singular-plural>支持单复数</a>中关于单复数类别的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211113-单复数资源的类别重复>11211113 单复数资源的类别重复<a href=#11211113-单复数资源的类别重复 class=hash-link aria-label="11211113 单复数资源的类别重复的直接链接" title="11211113 单复数资源的类别重复的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Duplicated quantity 'xxx' of the plural resource 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>单复数资源的类别重复。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>单复数资源中重复声明了相同的类别，如下错误示例中eat_apple重复声明了类别one：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "plural": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "name": "eat_apple",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      "value": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "quantity": "one",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "%d apple"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "quantity": "one",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "%d apple"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "quantity": "other",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          "value": "%d apples"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查单复数资源声明的类别是否重复，可参考<a class="" href=/harmonyos-docs-site/localization-kit/l10n/l10n-translation/l10n-singular-plural>支持单复数</a>中关于单复数类别的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211114-单复数资源缺少other类别>11211114 单复数资源缺少other类别<a href=#11211114-单复数资源缺少other类别 class=hash-link aria-label="11211114 单复数资源缺少other类别的直接链接" title="11211114 单复数资源缺少other类别的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The plural resource 'xxx' should contain the 'other' quantity.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>单复数资源应该包含other类别。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>单复数资源缺少other类别的声明。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查单复数资源是否包含other类别的声明，可参考<a class="" href=/harmonyos-docs-site/localization-kit/l10n/l10n-translation/l10n-singular-plural>支持单复数</a>中关于单复数类别的说明。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211115-无效的symbol资源>11211115 无效的symbol资源<a href=#11211115-无效的symbol资源 class=hash-link aria-label="11211115 无效的symbol资源的直接链接" title="11211115 无效的symbol资源的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid value 'xxx' of the symbol resource 'xxx'. It should be in the scope [0xF0000,0xFFFFF] or [0x100000,0x10FFFF].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的symbol资源值。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>symbol资源的值不在[0xF0000,0xFFFFF] 或 [0x100000,0x10FFFF]范围内。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查symbol资源的值是否在指定范围内。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211116-无效的资源名称>11211116 无效的资源名称<a href=#11211116-无效的资源名称 class=hash-link aria-label="11211116 无效的资源名称的直接链接" title="11211116 无效的资源名称的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Invalid resource name 'xxx'. It should match the pattern [a-zA-Z0-9_].</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>无效的资源名称。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>资源名称需要与规则[a-zA-Z0-9_]匹配，只能包含大小写字母、数字和下划线。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源名称与规则[a-zA-Z0-9_]是否匹配。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211117-资源重复定义>11211117 资源重复定义<a href=#11211117-资源重复定义 class=hash-link aria-label="11211117 资源重复定义的直接链接" title="11211117 资源重复定义的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Resource 'xxx' conflict. It is first declared at 'xxx' and declared again at 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>资源重复定义。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>在多处定义了同类型同名的资源，存在冲突。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查资源是否重复定义，可以修改资源名称或删除重复资源。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211118-资源id超过最大值>11211118 资源id超过最大值<a href=#11211118-资源id超过最大值 class=hash-link aria-label="11211118 资源id超过最大值的直接链接" title="11211118 资源id超过最大值的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The resource ID 'xxx' exceeds the maximum ID 'xxx'.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>资源id超过最大值。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>应用资源id的范围为[0x01000000,0x06FFFFFF] 或 [0x08000000,0xFFFFFFFF]，资源过多，或指定了较大的资源起始id，可能导致id溢出超过最大值0x06FFFFFF 或 0xFFFFFFFF。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<ol>
+<li class="">删除无用资源。</li>
+<li class="">指定较小的资源起始id。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211120-引用的资源未定义>11211120 引用的资源未定义<a href=#11211120-引用的资源未定义 class=hash-link aria-label="11211120 引用的资源未定义的直接链接" title="11211120 引用的资源未定义的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>The resource reference '$xxx:xxx' is not defined.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>引用的资源未定义。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<ol>
+<li class="">引用的资源不存在，如资源已被删除或重命名。</li>
+<li class="">引用的资源所在的目录未通过-i/--inputPath指定为输入路径。</li>
+</ol>
+<p><strong><strong>处理步骤</strong></strong></p>
+<ol>
+<li class="">检查报错的资源是否存在。</li>
+<li class="">检查资源所在的resources的父目录是否通过-i/--inputPath指定为输入路径，如报错信息中的资源定义在xxx/entry/src/main/resources/base/element/string.json中，则需指定xxx/entry/src/main为输入路径。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11211124-解析resourcesindex文件失败>11211124 解析resources.index文件失败<a href=#11211124-解析resourcesindex文件失败 class=hash-link aria-label="11211124 解析resources.index文件失败的直接链接" title="11211124 解析resources.index文件失败的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to parse the resources.index file.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>解析resources.index失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>resources.index格式不正确，如内容为空或文件开头不存在128字节的版本信息。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查resources.index文件的来源，确保该文件是由restool工具编译生成。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=11212001-解析hap包错误>11212001 解析HAP包错误<a href=#11212001-解析hap包错误 class=hash-link aria-label="11212001 解析HAP包错误的直接链接" title="11212001 解析HAP包错误的直接链接" translate=no>​</a></h3>
+<p><strong><strong>错误信息</strong></strong></p>
+<p>Failed to parse the HAP.</p>
+<p><strong><strong>错误描述</strong></strong></p>
+<p>解析HAP包失败。</p>
+<p><strong><strong>可能原因</strong></strong></p>
+<p>HAP包格式不正确，如经过多次压缩导致解压失败。</p>
+<p><strong><strong>处理步骤</strong></strong></p>
+<p>检查HAP包格式，确保HAP包由SDK工具直接生成，无压缩解压等修改操作。</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/edm-tool/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>edm工具</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/param-tool/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>param工具</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#简介 class="table-of-contents__link toc-highlight">简介</a><li><a href=#参数说明 class="table-of-contents__link toc-highlight">参数说明</a><ul><li><a href=#restool支持的命令选项 class="table-of-contents__link toc-highlight">restool支持的命令选项</a><li><a href=#restool支持的子命令 class="table-of-contents__link toc-highlight">restool支持的子命令</a></ul><li><a href=#使用实例 class="table-of-contents__link toc-highlight">使用实例</a><ul><li><a href=#编译资源 class="table-of-contents__link toc-highlight">编译资源</a><li><a href=#固定资源id class="table-of-contents__link toc-highlight">固定资源ID</a></ul><li><a href=#restool工具错误码 class="table-of-contents__link toc-highlight">restool工具错误码</a><ul><li><a href=#11201001-加载依赖库失败 class="table-of-contents__link toc-highlight">11201001 加载依赖库失败</a><li><a href=#11203001-json文件打开失败 class="table-of-contents__link toc-highlight">11203001 JSON文件打开失败</a><li><a href=#11203002-json文件解析失败 class="table-of-contents__link toc-highlight">11203002 JSON文件解析失败</a><li><a href=#11203003-json节点的类型与预期不匹配 class="table-of-contents__link toc-highlight">11203003 JSON节点的类型与预期不匹配</a><li><a href=#11203004-json中缺少必需节点 class="table-of-contents__link toc-highlight">11203004 JSON中缺少必需节点</a><li><a href=#11203005-json中存在空object或空数组 class="table-of-contents__link toc-highlight">11203005 JSON中存在空object或空数组</a><li><a href=#11203006-json中包含多个子节点 class="table-of-contents__link toc-highlight">11203006 JSON中包含多个子节点</a><li><a href=#11203007-无效的json节点名称 class="table-of-contents__link toc-highlight">11203007 无效的JSON节点名称</a><li><a href=#11204001-创建文件失败 class="table-of-contents__link toc-highlight">11204001 创建文件失败</a><li><a href=#11204003-删除文件失败 class="table-of-contents__link toc-highlight">11204003 删除文件失败</a><li><a href=#11204004-拷贝文件失败 class="table-of-contents__link toc-highlight">11204004 拷贝文件失败</a><li><a href=#11204005-打开文件失败 class="table-of-contents__link toc-highlight">11204005 打开文件失败</a><li><a href=#11204006-读取文件失败 class="table-of-contents__link toc-highlight">11204006 读取文件失败</a><li><a href=#11210001-未知命令选项 class="table-of-contents__link toc-highlight">11210001 未知命令选项</a><li><a href=#11210002-选项缺少必需参数 class="table-of-contents__link toc-highlight">11210002 选项缺少必需参数</a><li><a href=#11210003-无效参数 class="table-of-contents__link toc-highlight">11210003 无效参数</a><li><a href=#11210004-无效的输入路径 class="table-of-contents__link toc-highlight">11210004 无效的输入路径</a><li><a href=#11210005-重复的输入路径 class="table-of-contents__link toc-highlight">11210005 重复的输入路径</a><li><a href=#11210006-包名存在冲突 class="table-of-contents__link toc-highlight">11210006 包名存在冲突</a><li><a href=#11210007-无效的输出路径 class="table-of-contents__link toc-highlight">11210007 无效的输出路径</a><li><a href=#11210008-输出路径存在冲突 class="table-of-contents__link toc-highlight">11210008 输出路径存在冲突</a><li><a href=#11210009-重复的资源头文件路径 class="table-of-contents__link toc-highlight">11210009 重复的资源头文件路径</a><li><a href=#11210010-模块名称存在冲突 class="table-of-contents__link toc-highlight">11210010 模块名称存在冲突</a><li><a href=#11210011-重复的模块名称 class="table-of-contents__link toc-highlight">11210011 重复的模块名称</a><li><a href=#11210012-应用配置文件存在冲突 class="table-of-contents__link toc-highlight">11210012 应用配置文件存在冲突</a><li><a href=#11210013-无效的资源起始id class="table-of-contents__link toc-highlight">11210013 无效的资源起始id</a><li><a href=#11210014-重复的增量资源文件路径 class="table-of-contents__link toc-highlight">11210014 重复的增量资源文件路径</a><li><a href=#11210015-target-config存在冲突 class="table-of-contents__link toc-highlight">11210015 target-config存在冲突</a><li><a href=#11210016-无效的target-config class="table-of-contents__link toc-highlight">11210016 无效的target-config</a><li><a href=#11210017-无效的系统资源id_definedjson路径 class="table-of-contents__link toc-highlight">11210017 无效的系统资源id_defined.json路径</a><li><a href=#11210018-重复的系统资源id_definedjson路径 class="table-of-contents__link toc-highlight">11210018 重复的系统资源id_defined.json路径</a><li><a href=#11210019-compressed-config存在冲突 class="table-of-contents__link toc-highlight">11210019 compressed-config存在冲突</a><li><a href=#11210020-参数非ascii值 class="table-of-contents__link toc-highlight">11210020 参数非ASCII值</a><li><a href=#11210021-选项之间存在互斥 class="table-of-contents__link toc-highlight">11210021 选项之间存在互斥</a><li><a href=#11210022-包名为空 class="table-of-contents__link toc-highlight">11210022 包名为空</a><li><a href=#11210023-资源头文件路径为空 class="table-of-contents__link toc-highlight">11210023 资源头文件路径为空</a><li><a href=#11210024-dump命令缺少hap包路径 class="table-of-contents__link toc-highlight">11210024 dump命令缺少HAP包路径</a><li><a href=#11210025-dump命令指定的hap包路径无效 class="table-of-contents__link toc-highlight">11210025 dump命令指定的HAP包路径无效</a><li><a href=#11210026-无效的子线程数量 class="table-of-contents__link toc-highlight">11210026 无效的子线程数量</a><li><a href=#11211001-输出路径已存在 class="table-of-contents__link toc-highlight">11211001 输出路径已存在</a><li><a href=#11211002-缺少模块配置文件路径 class="table-of-contents__link toc-highlight">11211002 缺少模块配置文件路径</a><li><a href=#11211003-无效的模块类型 class="table-of-contents__link toc-highlight">11211003 无效的模块类型</a><li><a href=#11211004-资源起始id与id_definedjson存在冲突 class="table-of-contents__link toc-highlight">11211004 资源起始id与id_defined.json存在冲突</a><li><a href=#11211007-id_definedjson中的资源类型无效 class="table-of-contents__link toc-highlight">11211007 id_defined.json中的资源类型无效</a><li><a href=#11211008-id_definedjson中的资源id无效 class="table-of-contents__link toc-highlight">11211008 id_defined.json中的资源id无效</a><li><a href=#11211012-id_definedjson定义了重复的id class="table-of-contents__link toc-highlight">11211012 id_defined.json定义了重复的id</a><li><a href=#11211014-错误的模块名称 class="table-of-contents__link toc-highlight">11211014 错误的模块名称</a><li><a href=#11211101-无效的资源文件 class="table-of-contents__link toc-highlight">11211101 无效的资源文件</a><li><a href=#11211103-无效的限定词目录 class="table-of-contents__link toc-highlight">11211103 无效的限定词目录</a><li><a href=#11211104-无效的资源组目录 class="table-of-contents__link toc-highlight">11211104 无效的资源组目录</a><li><a href=#11211106-无效的翻译状态 class="table-of-contents__link toc-highlight">11211106 无效的翻译状态</a><li><a href=#11211107-不支持的element资源类型 class="table-of-contents__link toc-highlight">11211107 不支持的element资源类型</a><li><a href=#11211108-无效的颜色值 class="table-of-contents__link toc-highlight">11211108 无效的颜色值</a><li><a href=#11211109-无效的资源引用 class="table-of-contents__link toc-highlight">11211109 无效的资源引用</a><li><a href=#11211110-theme资源的parent为空 class="table-of-contents__link toc-highlight">11211110 theme资源的parent为空</a><li><a href=#11211111-数组类型的资源超长 class="table-of-contents__link toc-highlight">11211111 数组类型的资源超长</a><li><a href=#11211112-无效的单复数资源类别 class="table-of-contents__link toc-highlight">11211112 无效的单复数资源类别</a><li><a href=#11211113-单复数资源的类别重复 class="table-of-contents__link toc-highlight">11211113 单复数资源的类别重复</a><li><a href=#11211114-单复数资源缺少other类别 class="table-of-contents__link toc-highlight">11211114 单复数资源缺少other类别</a><li><a href=#11211115-无效的symbol资源 class="table-of-contents__link toc-highlight">11211115 无效的symbol资源</a><li><a href=#11211116-无效的资源名称 class="table-of-contents__link toc-highlight">11211116 无效的资源名称</a><li><a href=#11211117-资源重复定义 class="table-of-contents__link toc-highlight">11211117 资源重复定义</a><li><a href=#11211118-资源id超过最大值 class="table-of-contents__link toc-highlight">11211118 资源id超过最大值</a><li><a href=#11211120-引用的资源未定义 class="table-of-contents__link toc-highlight">11211120 引用的资源未定义</a><li><a href=#11211124-解析resourcesindex文件失败 class="table-of-contents__link toc-highlight">11211124 解析resources.index文件失败</a><li><a href=#11212001-解析hap包错误 class="table-of-contents__link toc-highlight">11212001 解析HAP包错误</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

@@ -1,0 +1,580 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-debug-optimize/debugging-commands/hiperf/hiperf" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>hiperf | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="hiperf | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=hiperf是一款集成多种性能分析功能的命令行工具，可用于分析系统性能瓶颈、定位软件热点及优化代码效率，支持采集和统计程序运行时的性能数据。 /><meta data-rh=true property=og:description content=hiperf是一款集成多种性能分析功能的命令行工具，可用于分析系统性能瓶颈、定位软件热点及优化代码效率，支持采集和统计程序运行时的性能数据。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/","name":"hiperf","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/test-kit/test-kit-overview/><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=调试命令 class=categoryLinkLabel_W154>调试命令</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=SDK命令行工具简介 class=linkLabel_WmDU>SDK命令行工具简介</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc/><span title=hdc class=linkLabel_WmDU>hdc</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/aa-tool/><span title=aa工具 class=linkLabel_WmDU>aa工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/bm-tool/><span title=bm工具 class=linkLabel_WmDU>bm工具</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/packing-unpacking/packing-tool/><span title=打包拆包工具 class=categoryLinkLabel_W154>打包拆包工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/app-check-tool/><span title=扫描工具 class=linkLabel_WmDU>扫描工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/cem-tool/><span title=cem工具 class=linkLabel_WmDU>cem工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/anm-tool/><span title=anm工具 class=linkLabel_WmDU>anm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/edm-tool/><span title=edm工具 class=linkLabel_WmDU>edm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/restool/><span title=restool工具 class=linkLabel_WmDU>restool工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/param-tool/><span title=param工具 class=linkLabel_WmDU>param工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/power-shell/><span title=power-shell工具 class=linkLabel_WmDU>power-shell工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/atm-tool/><span title=atm工具 class=linkLabel_WmDU>atm工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/network-cfg/><span title=network-cfg工具 class=linkLabel_WmDU>network-cfg工具</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog/><span title=hilog class=linkLabel_WmDU>hilog</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hilog-tool/><span title=hilogtool class=linkLabel_WmDU>hilogtool</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hidumper-tool/hidumper/><span title=hidumper class=categoryLinkLabel_W154>hidumper</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/><span title=hitrace class=linkLabel_WmDU>hitrace</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf/><span title=hiperf class=linkLabel_WmDU>hiperf</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiprofiler/><span title=hiprofiler class=linkLabel_WmDU>hiprofiler</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/uinput/><span title=uinput class=linkLabel_WmDU>uinput</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/toybox/><span title=命令行工具 class=categoryLinkLabel_W154>命令行工具</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/binary-sign-tool/><span title=二进制签名工具 class=linkLabel_WmDU>二进制签名工具</span></a></ul></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调试命令</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>hiperf</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>hiperf</h1></header>
+<p>hiperf是一款集成多种性能分析功能的命令行工具，可用于分析系统性能瓶颈、定位软件热点及优化代码效率，支持采集和统计程序运行时的性能数据。</p>
+<p>开发者可以通过<a class="" href=/harmonyos-docs-site/ide-software-install>Deveco Studio</a>或<a href=https://gitcode.com/openharmony/developtools_smartperf_host/releases target=_blank rel="noopener noreferrer" class="">SmartPerf</a>使用hiperf采集函数的调用栈，获取调用栈上各层函数的执行时间，通过泳道图等方式查看调用链信息进而进行性能分析，具体使用方式参考<a class="" href=/harmonyos-docs-site/ide-insight-session-time>通过Deveco Studio使用hiperf介绍</a>，<a href=https://gitcode.com/openharmony/developtools_smartperf_host/blob/master/smartperf_host/ide/src/doc/md/quickstart_hiperf.md target=_blank rel="noopener noreferrer" class="">通过SmartPerf使用hiperf介绍</a>。若需要指定采集的事件、采样周期、采集时长、CPU核数等选项，可以单独使用 hiperf 命令行工具。采样数据 perf.data 文件可以使用SmartPerf工具打开并以可视化的火焰图进行展示。</p>
+<p>本文档详细说明了hiperf命令行工具的使用方法，帮助开发者借助该工具进行详细的性能分析。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=环境要求>环境要求<a href=#环境要求 class=hash-link aria-label=环境要求的直接链接 title=环境要求的直接链接 translate=no>​</a></h2>
+<ul>
+<li class="">根据hdc命令行工具指导，完成<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hdc#%E7%8E%AF%E5%A2%83%E5%87%86%E5%A4%87>环境准备</a>。</li>
+<li class="">确保设备已连接，然后执行hdc shell。</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=命令行说明>命令行说明<a href=#命令行说明 class=hash-link aria-label=命令行说明的直接链接 title=命令行说明的直接链接 translate=no>​</a></h2>
+<p>使用hiperf --help可以列出hiperf所有的命令，包括dump、list、record、report、stat等。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf --help</span><br/></div></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>命令<th>命令说明<tbody><tr><td>--hilog<td>设置该选项后，程序运行过程中产生的日志会被记录到hilog中。<tr><td>--logpath<td>设置日志文件的保存路径，现支持用户将输出文件路径设定为"/data/local/tmp/"目录，并允许用户自定义文件名称。<tr><td>--logtag<td>开启指定功能的日志。<tr><td>--debug<td>记录debug级别的日志。<tr><td>--verbose<td>记录verbose级别的日志。<tr><td>--much<td>记录much级别的日志。<tr><td>--nodebug<td>关闭所有日志的记录。<tr><td>--mixlog<td>日志输出到命令行界面。<tr><td>-h/--help<td>帮助命令。<tr><td><a href=#dump%E5%91%BD%E4%BB%A4 class="">dump</a><td>将性能数据文件（如perf.data）转换为内容可读的格式。<tr><td><a href=#list%E5%91%BD%E4%BB%A4 class="">list</a><td>展示当前系统支持的性能事件类型。<tr><td><a href=#record%E5%91%BD%E4%BB%A4 class="">record</a><td>收集性能数据。<tr><td><a href=#report%E5%91%BD%E4%BB%A4 class="">report</a><td>将性能数据进行可视化转换。<tr><td><a href=#stat%E5%91%BD%E4%BB%A4 class="">stat</a><td>统计性能数据。</table>
+<p><strong><strong>使用样例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf --help</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Usage: hiperf [options] command [args for command]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">options:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --debug                 show debug log, usage format: --debug [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --help                  show help</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --hilog                 use hilog not file to record log</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --logpath               log file name full path, usage format: --logpath [filepath] [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --logtag                enable log level for HILOG_TAG, usage format: --logtag &lt;tag>[:level][,&lt;tag>[:level]] [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                tag: Dump, Report, Record, Stat... level: D, V, M...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                example: hiperf --verbose --logtag Record:D [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --mixlog                mix the log in output, usage format: --mixlog [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --much                  show extremely much debug log, usage format: --much [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --nodebug               disable debug log, usage format: --nodebug [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        --verbose               show debug log, usage format: --verbose [command] [args]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        -h                      show help</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">command:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        dump:   Dump content of a perf data file, like perf.data</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        help:   Show more help information for hiperf</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        list:   List the supported event types.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        record: Collect performance sample information</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        report: report sampling information from perf.data format file</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        stat:   Collect performance counter information</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">See 'hiperf help [command]' for more information on a specific command.</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=常用命令>常用命令<a href=#常用命令 class=hash-link aria-label=常用命令的直接链接 title=常用命令的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=性能数据采样记录>性能数据采样记录<a href=#性能数据采样记录 class=hash-link aria-label=性能数据采样记录的直接链接 title=性能数据采样记录的直接链接 translate=no>​</a></h3>
+<ol>
+<li class="">
+<p>对进程ID为1234的进程采样10秒，设置回栈方式为fp（栈指针），采样频率1000次/秒，事件类型为hw-cpu-cycles和hw-instructions，采样文件保存至/data/local/tmp/perf.data。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf record -p 1234 -s fp -f 1000 -d 10 -e hw-cpu-cycles,hw-instructions -o /data/local/tmp/perf.data</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Profiling duration is 10.000 seconds.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Start Profiling...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timeout exit (total 10335 ms)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process and Saving data...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Hiperf is not running as root mode. Do not need load kernel syms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ hiperf record: Captured 3.014 MB perf data. ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ Sample records: 1293, Non sample records: 855 ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ Sample lost: 0, Non sample lost: 0 ]</span><br/></div></code></pre></div></div>
+<p>采集的数据将保存为二进制格式的perf.data文件，包含性能分析所需的采样数据、进程信息、符号表及函数调用等内容。利用火焰图脚本可将采样数据转换为可视化火焰图，以此分析系统性能瓶颈、定位软件热点并优化代码效率。</p>
+</li>
+<li class="">
+<p>对应用com.example.insight_test_stage进行采样，采样时长为10s，回栈方式设置为dwarf（调试信息表），采样周期为1000，事件类型为hw-cpu-cycles和hw-instructions，使用默认保存路径。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf record --app com.example.insight_test_stage -d 10 -s dwarf --period 1000 -e hw-cpu-cycles,hw-instructions</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Profiling duration is 10.000 seconds.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Start Profiling...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timeout exit (total 10000 ms)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process and Saving data...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Hiperf is not running as root mode. Do not need load kernel syms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ hiperf record: Captured 0.296 MB perf data. ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ Sample records: 0, Non sample records: 2640 ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">[ Sample lost: 0, Non sample lost: 0 ]</span><br/></div></code></pre></div></div>
+<p>采集的数据会被保存至默认路径/data/local/tmp/perf.data中。</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=性能数据统计>性能数据统计<a href=#性能数据统计 class=hash-link aria-label=性能数据统计的直接链接 title=性能数据统计的直接链接 translate=no>​</a></h3>
+<ol>
+<li class="">
+<p>对进程ID为1745，1910的进程进行计数，计数时长为10s。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf stat -d 10 -p 1745,1910</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Profiling duration is 10.000 seconds.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Start Profiling...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timeout exit (total 10000 ms)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    count  name                           | comment                          | coverage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  148,450  hw-branch-instructions         | 26.404 M/sec                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  49,833  hw-branch-misses               | 33.568878 miss rate              | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                8,986,523  hw-cpu-cycles                  | 1.598409 GHz                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                1,283,596  hw-instructions                | 7.001053 cycles per instruction  | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                      63  sw-context-switches            | 11.206 K/sec                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                        0  sw-page-faults                 | 0.000 /sec                       | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                5,622,169  sw-task-clock                  | 0.000562 cpus used               | (100%)</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>对进程ID为1745和1910的进程进行计数，计数时长为10秒，事件类型为hw-cpu-cycles、hw-instructions、sw-task-clock，指定打印信息的时间间隔为3000ms。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf stat -d 10 -p 1745,1910 -e hw-cpu-cycles,hw-instructions,sw-task-clock -i 3000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Profiling duration is 10.000 seconds.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Start Profiling...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Report at 3000 ms (6999 ms left):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    count  name                           | comment                          | coverage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                2,534,675  hw-cpu-cycles                  | 1.717114 GHz                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  324,279  hw-instructions                | 7.816340 cycles per instruction  | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                1,476,125  sw-task-clock                  | 0.000492 cpus used               | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Report at 6000 ms (3999 ms left):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    count  name                           | comment                          | coverage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                5,112,570  hw-cpu-cycles                  | 1.724259 GHz                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  648,303  hw-instructions                | 7.886081 cycles per instruction  | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                2,965,083  sw-task-clock                  | 0.000494 cpus used               | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Report at 9000 ms (999 ms left):</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    count  name                           | comment                          | coverage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                7,870,422  hw-cpu-cycles                  | 1.724897 GHz                     | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  994,407  hw-instructions                | 7.914689 cycles per instruction  | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                4,562,835  sw-task-clock                  | 0.000507 cpus used               | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timeout exit (total 10000 ms)</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>对进程ID为1910的进程进行计数，计数时长为3s，事件类型为hw-cpu-cycles，hw-instructions，并打印详细的信息。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf stat -d 3 -p 1910 -e hw-cpu-cycles,hw-instructions --verbose</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Profiling duration is 3.000 seconds.</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Start Profiling...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timeout exit (total 3000 ms)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-cpu-cycles id:1342(c-1:p1910) timeEnabled:133583 timeRunning:133583 value:255740</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-cpu-cycles id:1343(c-1:p1988) timeEnabled:0 timeRunning:0 value:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-cpu-cycles id:1344(c-1:p1989) timeEnabled:0 timeRunning:0 value:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-cpu-cycles id:1345(c-1:p1990) timeEnabled:187833 timeRunning:187833 value:331425</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-instructions id:1375(c-1:p1910) timeEnabled:133583 timeRunning:133583 value:36485</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-instructions id:1376(c-1:p1988) timeEnabled:0 timeRunning:0 value:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-instructions id:1377(c-1:p1989) timeEnabled:0 timeRunning:0 value:0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hw-instructions id:1378(c-1:p1990) timeEnabled:187833 timeRunning:187833 value:47816</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    count  name                           | comment                          | coverage</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  669,850  hw-cpu-cycles                  |                                  | (100%)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                  94,903  hw-instructions                | 7.058259 cycles per instruction  | (100%)</span><br/></div></code></pre></div></div>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=list命令>list命令<a href=#list命令 class=hash-link aria-label=list命令的直接链接 title=list命令的直接链接 translate=no>​</a></h2>
+<p>展示当前系统支持的性能事件类型，事件类型可用于record和stat命令-e选项的参数。</p>
+<p><strong><strong>参数</strong></strong>：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>说明<tbody><tr><td>-h/--help<td>帮助命令。<tr><td>hw<td>硬件事件。  当前支持事件：  - hw-cpu-cycles  - hw-instructions  - hw-cache-references  - hw-cache-misses  - hw-branch-instructions  - hw-branch-misses  - hw-bus-cycles  - hw-stalled-cycles-frontend  - hw-stalled-cycles-backend<tr><td>sw<td>软件事件。<tr><td>tp<td>tracepoint事件。<tr><td>cache<td>硬件缓存事件。<tr><td>raw<td>原始性能监测单元（PMU）事件。</table>
+<p><strong><strong>命令行示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Usage: hiperf list [event type name]</span><br/></div></code></pre></div></div>
+<p>查询支持的硬件事件类型。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf list hw</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">event not support hw-ref-cpu-cycles</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Supported events for hardware:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-cpu-cycles</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-instructions</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-cache-references</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-cache-misses</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-branch-instructions</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-branch-misses</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-bus-cycles</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-stalled-cycles-frontend</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hw-stalled-cycles-backend</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=record命令>record命令<a href=#record命令 class=hash-link aria-label=record命令的直接链接 title=record命令的直接链接 translate=no>​</a></h2>
+<p>采集指定进程或指定应用的性能数据，包括CPU周期、指令数、函数调用等信息，并且将采样数据保存到指定的文件中（默认路径以设备上运行 hiperf record -h/--help 时显示的 -o 参数说明为准）。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>命令采集的进程应为<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5>使用debug证书签名的应用</a>。</p>
+<p><strong><strong>record命令参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>-h/--help<td>帮助命令。<tr><td>-c<td>设置采集的CPU ID，只采集对应的CPU数据。<tr><td>--cpu-limit<td>设置采集时CPU最大占比，取值范围：1 - 100，默认25。<tr><td>-d<td>采集时长，单位为s。该参数不能和--control一起使用。<tr><td>-f<td>采集频率，默认4000次/s。该参数不能和--period一起使用。<tr><td>--period<td>设置采集事件周期，多少事件采集一次。该参数不能和-f一起使用。<tr><td>-e<td>采集事件，支持对多种事件进行采集，多个事件之间以逗号隔开。可通过list命令获取当前支持的事件类型。<tr><td>-g<td>采集事件群组，以逗号隔开。<tr><td>--no-inherit<td>不采集子进程数据。<tr><td>-p<td>采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>-t<td>采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>--exclude-tid<td>不采集线程ID，通过线程ID排除特定线程的采样。多个线程号之间以逗号隔开。<tr><td>--exclude-thread<td>不采集线程名，通过线程名排除特定线程的采样。多个线程名之间以逗号隔开。<tr><td>--offcpu<td>跟踪线程何时脱离CPU调度。<tr><td>-j<td>分支堆栈采样，过滤器支持any、any_call、any_ret、ind_call、ind_jmp、cond、call。<tr><td>-s/--call-stack<td>设置回栈模式，可设置为fp(栈指针)、dwarf(调试信息表)两种模式中的一种。<tr><td>--kernel-callchain<td>采集内核态堆栈，该参数必须和-s参数一起使用。<tr><td>--callchain-useronly<td>仅收集用户态堆栈。<tr><td>--delay-unwind<td>回栈模式被设置为dwarf时，设置此选项后调用栈会在录制后展开。<tr><td>--disable-unwind<td>回栈模式被设置为dwarf时，设置此选项后调用栈将不会在录制后展开。<tr><td>--disable-callstack-expand<td>回栈模式被设置为dwarf时，设置此选项后会用缓存的线程栈来对调用栈进行合并。<tr><td>--enable-debuginfo-symbolic<td>-s fp/dwarf被设置时，elf在.gnu_debugdata段的符号会被解析，默认不解析。<tr><td>--clockid<td>设置采集时钟类型，支持monotonic和monotonic_raw，部分事件支持boottime、realtime和clock_tai时钟类型。<tr><td>--symbol-dir<td>符号表文件路径，用于采集过程中进行符号化操作。<tr><td>-m<td>mmap页数量，取值范围：2 - 1024，默认1024。<tr><td>--app<td>采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>--chkms<td>设置查询的间隔时间，单位为ms。取值范围：1 - 200，默认10。<tr><td>--data-limit<td>输出数据达到指定大小停止采集，默认无限制。<tr><td>-o<td>设置输出文件路径，并允许用户自定义文件名称。<tr><td>-z<td>以.gz的压缩文件形式输出。<tr><td>--restart<td>收集应用启动的性能指标信息，如果进程在30秒内未启动，采集操作将结束。<tr><td>--verbose<td>输出更详细的报告。<tr><td>--control [command]<td>采集操作启停控制参数。命令包括prepare/start/pause/resume/output/stop。该参数不能和-d一起使用。<tr><td>--dedup_stack<td>删除记录中的重复堆栈。<tr><td>--cmdline-size<td>设置/sys/kernel/tracing/saved_cmdlines_size节点的值，单位byte，取值范围：512 - 4096。<tr><td>--report<td>采集后回栈报告。<tr><td>--backtrack<td>采集之前一段时间的数据，该参数必须和--control prepare一起使用。<tr><td>--backtrack-sec<td>采集之前数据的时长，单位为秒。取值范围：5 - 30，默认10。该参数必须和--backtrack一起使用。<tr><td>--dumpoptions<td>展示采集参数的详细信息。<tr><td>--pipe_input<td>在设备开发中，该参数用于客户端进程调用hiperf时建立命令输入通道，开发者可参考<a href=https://gitcode.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-toolchain-hiperf.md target=_blank rel="noopener noreferrer" class="">hiperf_client接口</a>使用该能力。在应用开发中，无需使用该参数。<tr><td>--pipe_output<td>在设备开发中，该参数用于客户端进程调用hiperf时建立响应输出通道，开发者可参考<a href=https://gitcode.com/openharmony/docs/blob/master/zh-cn/device-dev/subsystems/subsys-toolchain-hiperf.md target=_blank rel="noopener noreferrer" class="">hiperf_client接口</a>使用该能力。在应用开发中，无需使用该参数。<tr><td>--append-smo-data<td>开启此参数后增加打包的so中原始so的名称。  <strong><strong>说明</strong></strong>：从API version 23开始，支持该参数。</table>
+<p><strong><strong>命令行示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Usage: hiperf record [options] [command [command-args]]</span><br/></div></code></pre></div></div>
+<p>对指定的pid为267的进程采样10秒，并使用dwarf回栈。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf record -p 267 -d 10 -s dwarf</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=stat命令>stat命令<a href=#stat命令 class=hash-link aria-label=stat命令的直接链接 title=stat命令的直接链接 translate=no>​</a></h2>
+<p>监听用户指定的目标程序，周期性打印性能计数器的值。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>命令采集的进程应为<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiperf#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5>使用debug证书签名的应用</a>。</p>
+<p><strong><strong>stat命令参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>-h/--help<td>帮助命令。<tr><td>-c<td>设置采集的CPU ID，只采集对应的CPU数据。<tr><td>-d<td>采集时长，单位为s。该参数不能和--control一起使用。<tr><td>-i<td>设置打印stat信息的间隔时长，单位ms。<tr><td>-e<td>采集事件，支持采集多种事件，多个事件之间以逗号隔开。<tr><td>-g<td>采集事件群组，以逗号隔开。可通过list命令获取当前支持的事件类型。<tr><td>--no-inherit<td>不采集子进程数据。<tr><td>-p<td>采集进程ID，支持对多个进程进行采样，多个进程号之间以逗号隔开。采集的进程应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>-t<td>采集线程ID，支持对多个线程进行采样，多个线程号之间以逗号隔开。采集的线程应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>--app<td>采集的应用程序名，以逗号隔开。应用程序必须是启动状态，应用程序未启动时会等待20s，20s内应用程序未启动，命令会自动结束。采集的应用应为“<a href=#hiperf%E9%87%87%E9%9B%86%E6%B2%A1%E6%9C%89debug%E8%AF%81%E4%B9%A6%E7%AD%BE%E5%90%8D%E7%9A%84%E5%BA%94%E7%94%A8%E5%A4%B1%E8%B4%A5 class="">使用调试证书签名的应用</a>”。<tr><td>--chkms<td>设置查询的间隔时间，单位为毫秒，取值范围：1 - 200，默认10。<tr><td>--per-core<td>每个CPU核的打印计数。<tr><td>--per-thread<td>每个线程的打印计数。<tr><td>--restart<td>收集应用启动的性能指标信息，如果进程在30秒内未启动，记录将退出。该参数必须和--app一起使用。<tr><td>--verbose<td>输出详细的信息。<tr><td>--dumpoptions<td>展示当前列表里所有选项的详细信息。<tr><td>--control [command]<td>采集操作启停控制参数。命令包括prepare/start/stop。该参数不能和-d一起使用。  <strong><strong>说明</strong></strong>：从API version 20开始，支持该参数。<tr><td>-o<td>设置输出文件路径，并允许用户自定义文件名称。  默认路径以设备上运行 hiperf stat -h/--help 时显示的 -o 参数说明为准。  该参数必须和--control prepare一起使用，不能和--control一起使用。  <strong><strong>说明</strong></strong>：从API version 20开始，支持该参数。</table>
+<p><strong><strong>命令行示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hiperf stat [options] [command [command-args]]</span><br/></div></code></pre></div></div>
+<p>使用stat命令监听进程号为2349的进程在CPU 0上运行3秒的性能数据。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf stat -p 1745 -d 3 -c 0</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dump命令>dump命令<a href=#dump命令 class=hash-link aria-label=dump命令的直接链接 title=dump命令的直接链接 translate=no>​</a></h2>
+<p>此命令用于将不同格式的性能数据文件（如perf.data）转换为内容易读的明文，便于开发和测试人员核对其中原始采样数据的正确性。</p>
+<p><strong><strong>dump命令参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>-h/--help<td>帮助命令。<tr><td>--head<td>仅输出数据头和属性。<tr><td>-d<td>仅输出数据段。<tr><td>-f<td>仅输出附加功能。<tr><td>--sympath<td>符号表文件路径。<tr><td>-i<td>采样文件的路径。<tr><td>-o<td>设置输出文件路径，现支持用户将输出文件路径设定为"/data/local/tmp/"目录，并允许用户自定义文件名称。若未设置该参数，数据将会输出到命令行界面。<tr><td>--elf<td>将elf格式的文件转换成内容可读的明文。<tr><td>--proto<td>将proto格式的文件转换成内容可读的明文。<tr><td>--export<td>将用户栈数据分割成多个文件。</table>
+<p><strong><strong>命令行示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Usage: hiperf dump [option] \&lt;filename\></span><br/></div></code></pre></div></div>
+<p>使用dump命令将/data/local/tmp/perf.data文件读取出来，并输出到/data/local/tmp/perf.dump文件中。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf dump -i /data/local/tmp/perf.data -o /data/local/tmp/perf.dump</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=report命令>report命令<a href=#report命令 class=hash-link aria-label=report命令的直接链接 title=report命令的直接链接 translate=no>​</a></h2>
+<p>此命令主要用于将采样数据（perf.data）转换为用户指定的格式（例如Json或者ProtoBuf)，并可以将属于相同进程、线程、函数的样本分组到同一样本条目中，根据样本条目的事件计数对样本条目进行排序，并以报告的形式进行展示。</p>
+<p><strong><strong>report命令参数说明</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>-h/--help<td>帮助命令。<tr><td>--symbol-dir<td>符号表文件路径。<tr><td>--limit-percent<td>筛选性能占比不低于指定百分比（取值范围 1 - 100）的性能数据，仅在报告中保留并展示符合该阈值条件的数据条目。<tr><td>-s<td>显示回栈模式。<tr><td>--call-stack-limit-percent<td>展示指定比例的堆栈内容，取值范围：1 - 100。<tr><td>-i<td>资源文件路径，默认perf.data。<tr><td>-o<td>设置输出文件路径，现支持用户将输出文件路径设定为"/data/local/tmp/"目录，并允许用户自定义文件名称。若未设置该参数，数据将会输出到命令行界面。<tr><td>--proto<td>输出protobuf格式数据。<tr><td>--json<td>输出json格式数据。<tr><td>--diff<td>显示源文件与转换后文件的差别。不能与--proto、--json、-s参数一起使用。<tr><td>--branch<td>根据函数地址显示分支。<tr><td>--<keys> <keyname1>[,keyname2][,...]</keyname1></keys><td>可选关键字：comms、pids、tids、dsos、funcs、from_dsos、from_funcs，例如： --comms hiperf。<tr><td>--sort [key1],[key2],[...]<td>按关键字排序。<tr><td>--hide_count<td>报告中不显示数值。<tr><td>--dumpoptions<td>展示当前列表里所有选项的详细信息。</table>
+<p><strong><strong>命令行示例</strong></strong>：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Usage: hiperf report [option] \&lt;filename\></span><br/></div></code></pre></div></div>
+<p>从采样文件（perf.data）中提取对性能影响较大（占比≥1%）的关键数据，并以报告的形式进行展示。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">$ hiperf report -i /data/local/tmp/perf.data --limit-percent 1</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=常见问题>常见问题<a href=#常见问题 class=hash-link aria-label=常见问题的直接链接 title=常见问题的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiperf采集没有debug证书签名的应用失败>hiperf采集没有debug证书签名的应用失败<a href=#hiperf采集没有debug证书签名的应用失败 class=hash-link aria-label=hiperf采集没有debug证书签名的应用失败的直接链接 title=hiperf采集没有debug证书签名的应用失败的直接链接 translate=no>​</a></h3>
+<p><strong><strong>现象描述</strong></strong></p>
+<p>仅支持采集带有debug证书签名的应用，提示：only support debug application.</p>
+<p><strong><strong>可能原因&解决方法</strong></strong></p>
+<p><strong><strong>造成原因</strong></strong>：</p>
+<p>应用没有debug证书签名</p>
+<p><strong><strong>可采取的解决方法</strong></strong>：</p>
+<p>使用hiperf record/stat -p [pid]命令时，被采集的进程必须是使用debug证书签名的应用。</p>
+<p>确认命令指定的应用是否为可调试应用，可执行hdc shell "bm dump -n bundlename | grep appProvisionType"查询，预期返回信息为"appProvisionType": "debug"。</p>
+<p>以包名com.example.myapplication为例，可执行如下命令查询：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">hdc shell "bm dump -n com.example.myapplication | grep appProvisionType"</span><br/></div></code></pre></div></div>
+<p>如包名对应的应用是可调试应用，预期返回信息如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">"appProvisionType": "debug",</span><br/></div></code></pre></div></div>
+<p>构建可调试应用需要使用debug证书进行签名，申请调试证书及签名可参考：<a href=https://developer.huawei.com/consumer/cn/doc/app/agc-help-add-debugcert-0000001914263178 target=_blank rel="noopener noreferrer" class="">申请调试证书</a>。</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hitrace/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>hitrace</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/hiprofiler/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>hiprofiler</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#环境要求 class="table-of-contents__link toc-highlight">环境要求</a><li><a href=#命令行说明 class="table-of-contents__link toc-highlight">命令行说明</a><li><a href=#常用命令 class="table-of-contents__link toc-highlight">常用命令</a><ul><li><a href=#性能数据采样记录 class="table-of-contents__link toc-highlight">性能数据采样记录</a><li><a href=#性能数据统计 class="table-of-contents__link toc-highlight">性能数据统计</a></ul><li><a href=#list命令 class="table-of-contents__link toc-highlight">list命令</a><li><a href=#record命令 class="table-of-contents__link toc-highlight">record命令</a><li><a href=#stat命令 class="table-of-contents__link toc-highlight">stat命令</a><li><a href=#dump命令 class="table-of-contents__link toc-highlight">dump命令</a><li><a href=#report命令 class="table-of-contents__link toc-highlight">report命令</a><li><a href=#常见问题 class="table-of-contents__link toc-highlight">常见问题</a><ul><li><a href=#hiperf采集没有debug证书签名的应用失败 class="table-of-contents__link toc-highlight">hiperf采集没有debug证书签名的应用失败</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

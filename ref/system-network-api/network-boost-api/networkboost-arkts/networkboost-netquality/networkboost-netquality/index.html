@@ -1,0 +1,836 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>netQuality（网络质量） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="netQuality（网络质量） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供网络质量实时评估、网络场景识别以及弱信号预测等能力，以便应用针对弱网等环境下实现网络自适应，包括缓存、码率、帧率、分辨率等策略的调整。应用也可以通过网络质量中的应用传输体验反馈接口，触发系统进行网络加速。 /><meta data-rh=true property=og:description content=本模块提供网络质量实时评估、网络场景识别以及弱信号预测等能力，以便应用针对弱网等环境下实现网络自适应，包括缓存、码率、帧率、分辨率等策略的调整。应用也可以通过网络质量中的应用传输体验反馈接口，触发系统进行网络加速。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality","name":"netQuality（网络质量）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="Connectivity Kit（短距通信服务）" class=categoryLinkLabel_W154>Connectivity Kit（短距通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/distributed-service-api/distributed-service-arkts/js-apis-distributeddevicemanager/js-apis-distributeddevicemanager><span title="Distributed Service Kit（分布式管理服务）" class=categoryLinkLabel_W154>Distributed Service Kit（分布式管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/nearlink-api/nearlink-arkts/nearlink-manager/nearlink-manager><span title="NearLink Kit（星闪服务）" class=categoryLinkLabel_W154>NearLink Kit（星闪服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection><span title="Network Kit（网络服务）" class=categoryLinkLabel_W154>Network Kit（网络服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="Network Boost Kit（网络加速服务）" class=categoryLinkLabel_W154>Network Boost Kit（网络加速服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title=netQuality（网络质量） class=linkLabel_WmDU>netQuality（网络质量）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-nethandover/networkboost-nethandover><span title=netHandover（连接迁移） class=linkLabel_WmDU>netHandover（连接迁移）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netboost/networkboost-netboost><span title=netBoost（网络加速） class=linkLabel_WmDU>netBoost（网络加速）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-arkts-errorcode/networkboost-arkts-errorcode><span title="ArkTS API错误码" class=linkLabel_WmDU>ArkTS API错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-c/network-boost-c-module/network-boost-c-overview/network-boost-c-overview><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="Remote Communication Kit（远场通信服务）" class=categoryLinkLabel_W154>Remote Communication Kit（远场通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/service-collaboration-api/servicecollaboration-arkts/servicecollaboration-collaborationcamera/servicecollaboration-collaborationcamera><span title="Service Collaboration Kit（协同服务）" class=categoryLinkLabel_W154>Service Collaboration Kit（协同服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/telephony-api/telephony-arkts/js-apis-call/js-apis-call><span title="Telephony Kit（蜂窝通信服务）" class=categoryLinkLabel_W154>Telephony Kit（蜂窝通信服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>网络</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Network Boost Kit（网络加速服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>netQuality（网络质量）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>netQuality（网络质量）</h1></header>
+<p>本模块提供网络质量实时评估、网络场景识别以及弱信号预测等能力，以便应用针对弱网等环境下实现网络自适应，包括缓存、码率、帧率、分辨率等策略的调整。应用也可以通过网络质量中的应用传输体验反馈接口，触发系统进行网络加速。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netqualityon-netqoschange>netQuality.on( 'netQosChange')<a href=#netqualityon-netqoschange class=hash-link aria-label="netQuality.on( 'netQosChange')的直接链接" title="netQuality.on( 'netQosChange')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'netQosChange', callback: Callback&lt;Array&lt;NetworkQos>>): void</p>
+<p>订阅网络质量信息。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.GET_NETWORK_INFO</p>
+<p><strong><strong>系统能力:</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本:</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>固定填写"netQosChange"字符串，表示网络质量变化事件。<tr><td>callback<td>Callback&lt;Array&lt;<a href=#networkqos class="">NetworkQos</a>>><td>是<td>回调函数，返回网络Qos变化的详细信息。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>涉及错误码均为通用错误码，<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码详细描述查看</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  netQuality.on('netQosChange', (list: Array&lt;netQuality.NetworkQos>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (list.length > 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      list.forEach((qos) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 回调信息处理</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`Succeeded receive netQosChange info`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netqualityoff-netqoschange>netQuality.off( 'netQosChange')<a href=#netqualityoff-netqoschange class=hash-link aria-label="netQuality.off( 'netQosChange')的直接链接" title="netQuality.off( 'netQosChange')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'netQosChange', callback?: Callback&lt;Array&lt;NetworkQos>>): void</p>
+<p>取消订阅网络质量信息。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.GET_NETWORK_INFO</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>固定填写"netQosChange"字符串，表示连接状态变化事件。<tr><td>callback<td>Callback&lt;Array&lt;<a href=#networkqos class="">NetworkQos</a>>><td>否<td>需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>涉及错误码均为通用错误码，<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码详细描述查看</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  netQuality.off('netQosChange');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netqualityon-netscenechange>netQuality.on( 'netSceneChange')<a href=#netqualityon-netscenechange class=hash-link aria-label="netQuality.on( 'netSceneChange')的直接链接" title="netQuality.on( 'netSceneChange')的直接链接" translate=no>​</a></h2>
+<p>on(type: 'netSceneChange', callback: Callback&lt;Array&lt;NetworkScene>>): void</p>
+<p>订阅网络场景信息。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.GET_NETWORK_INFO</p>
+<p><strong><strong>系统能力:</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本:</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>固定填写"netSceneChange"字符串，表示网络场景变化事件。<tr><td>callback<td>Callback&lt;Array&lt;<a href=#networkscene class="">NetworkScene</a>>><td>是<td>回调函数，返回网络场景变化的详细信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>涉及错误码均为通用错误码，<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码详细描述查看</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  netQuality.on('netSceneChange', (list: Array&lt;netQuality.NetworkScene>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (list.length > 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      list.forEach((scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 回调信息处理</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`Succeeded receive netSceneChange info`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (scene.weakSignalPrediction) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 弱信号预测处理</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netqualityoff-netscenechange>netQuality.off( 'netSceneChange')<a href=#netqualityoff-netscenechange class=hash-link aria-label="netQuality.off( 'netSceneChange')的直接链接" title="netQuality.off( 'netSceneChange')的直接链接" translate=no>​</a></h2>
+<p>off(type: 'netSceneChange', callback?: Callback&lt;Array&lt;NetworkScene>>): void</p>
+<p>取消订阅网络场景信息。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.GET_NETWORK_INFO</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td>string<td>是<td>固定填写"netSceneChange"字符串，表示网络场景变化事件。<tr><td>callback<td>Callback&lt;Array&lt;<a href=#networkscene class="">NetworkScene</a>>><td>否<td>需要取消注册的回调函数，需与订阅时传入的回调函数是同一个。若无此参数，则取消注册所有的回调函数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>涉及错误码均为通用错误码，<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码详细描述查看</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  netQuality.off('netSceneChange');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=netqualityreportqoe>netQuality.reportQoe<a href=#netqualityreportqoe class=hash-link aria-label=netQuality.reportQoe的直接链接 title=netQuality.reportQoe的直接链接 translate=no>​</a></h2>
+<p>reportQoe(appQoe: AppQoe): void</p>
+<p>应用传输体验反馈，上报失败，接口会抛出异常。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.GET_NETWORK_INFO</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>appQoe<td><a href=#appqoe class="">AppQoe</a><td>是<td>表示应用需要反馈的传输体验信息。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>涉及错误码均为通用错误码，<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码详细描述查看</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>401<td>Parameter error.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { netQuality } from '@kit.NetworkBoostKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let serviceType: netQuality.ServiceType = 'shortVideo';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let qoeType: netQuality.BadQoeCause = 'serverErr';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let appQoe: netQuality.AppQoe = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    serviceType,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    qoeType</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  netQuality.reportQoe(appQoe);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error('errCode: ' + (err as BusinessError).code + ', errMessage: ' + (err as BusinessError).message);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=appqoe>AppQoe<a href=#appqoe class=hash-link aria-label=AppQoe的直接链接 title=AppQoe的直接链接 translate=no>​</a></h2>
+<p>应用传输体验信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>serviceType<td><a href=#servicetype class="">ServiceType</a><td>否<td>否<td>应用的业务类型。<tr><td>qoeType<td><a href=#qoetype class="">QoeType</a><td>否<td>否<td>应用体验类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=networkqos>NetworkQos<a href=#networkqos class=hash-link aria-label=NetworkQos的直接链接 title=NetworkQos的直接链接 translate=no>​</a></h2>
+<p>网络质量回调信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pathType<td><a href=#pathtype class="">PathType</a><td>否<td>否<td>表明相应的数据路径上的网络质量信息。<tr><td>linkUpBandwidth<td><a href=#ratebps class="">RateBps</a><td>否<td>否<td>上行带宽信息，单位为bps。<tr><td>linkDownBandwidth<td><a href=#ratebps class="">RateBps</a><td>否<td>否<td>下行带宽信息，单位为bps。<tr><td>linkUpRate<td><a href=#ratebps class="">RateBps</a><td>否<td>否<td>上行速率，单位为bps。<tr><td>linkDownRate<td><a href=#ratebps class="">RateBps</a><td>否<td>否<td>下行速率，单位为bps。<tr><td>rttMs<td>number<td>否<td>否<td>RTT时延，表示统计时间间隔内，pathType对应数据路径上，所有的TCP上下行数据包的平均往返时延。取值范围为0或任意正数，单位：毫秒（ms）。  如果在统计时间间隔内没有收到某次TCP请求的回复，则该次的RTT时延不会被计入该统计时间间隔内。因此，在完全不可上网的场景下，由于无法收到TCP的回复，回调中的RTT时延值会比较小，与实际状态不一致。针对完全不可上网的场景，建议结合<a class="" href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection#onnetcapabilitieschange>on('netCapabilitiesChange')</a>方法进行综合判断。<tr><td>linkUpBufferDelayMs<td>number<td>否<td>否<td>上行发送空口缓冲时延，取值范围是任意正数。<tr><td>linkUpBufferCongestionPercent<td>number<td>否<td>是<td>上行发送空口缓冲时延占总缓冲时间的比例，取值范围[0, 100]。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=pathtype>PathType<a href=#pathtype class=hash-link aria-label=PathType的直接链接 title=PathType的直接链接 translate=no>​</a></h2>
+<p>数据路径类型，枚举值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>CELLULAR_PRIMARY<td>0<td>蜂窝主卡。<tr><td>CELLULAR_SECONDARY<td>1<td>蜂窝副卡。<tr><td>WIFI_PRIMARY<td>2<td>主WiFi。<tr><td>WIFI_SECONDARY<td>3<td>辅WiFi。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ratebps>RateBps<a href=#ratebps class=hash-link aria-label=RateBps的直接链接 title=RateBps的直接链接 translate=no>​</a></h2>
+<p>type RateBps = number</p>
+<p>带宽或速率的抽象表示。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>表示值的类型为number，可取任意正数，单位为bps。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=servicetype>ServiceType<a href=#servicetype class=hash-link aria-label=ServiceType的直接链接 title=ServiceType的直接链接 translate=no>​</a></h2>
+<p>type ServiceType = 'default' | 'background' | 'realtimeVoice' | 'realtimeVideo' | 'callSignaling' | 'realtimeGame' | 'normalGame' | 'shortVideo' | 'longVideo' | 'livestreamingAnchor' | 'livestreamingWatcher' | 'download' | 'upload' | 'browser' | 'transaction' | 'shopping' | 'detection' | 'cloudService' | 'voiceConference' | 'videoConference' | 'audio' | 'navigation' | 'seckillService' | 'login'</p>
+<p>应用业务类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'default'<td>表示默认服务类型，值固定为'default'字符串。<tr><td>'background'<td>表示后台类型，值固定为'background'字符串。<tr><td>'realtimeVoice'<td>表示实时语音类型，值固定为'realtimeVoice'字符串。<tr><td>'realtimeVideo'<td>表示实时视频类型，值固定为'realtimeVideo'字符串。<tr><td>'callSignaling'<td>表示语音信令类型，值固定为'callSignaling'字符串。<tr><td>'realtimeGame'<td>表示实时游戏类型，值固定为'realtimeGame'字符串。<tr><td>'normalGame'<td>表示普通游戏类型，值固定为'normalGame'字符串。<tr><td>'shortVideo'<td>表示短视频类型，值固定为'shortVideo'字符串。<tr><td>'longVideo'<td>表示长视频类型，值固定为'longVideo'字符串。<tr><td>'livestreamingAnchor'<td>表示直播主播类型，值固定为'livestreamingAnchor'字符串。<tr><td>'livestreamingWatcher'<td>表示直播观看类型，值固定为'livestreamingWatcher'字符串。<tr><td>'download'<td>表示下载类型，值固定为'download'字符串。<tr><td>'upload'<td>表示上传类型，值固定为'upload'字符串。<tr><td>'browser'<td>表示浏览页面类型，值固定为'browser'字符串。<tr><td>'transaction'<td>表示交易支付或者扫码类型，值固定为'transaction'字符串。该类型从API 20开始支持。<tr><td>'shopping'<td>表示购物类型，值固定为'shopping'字符串。该类型从API 20开始支持。<tr><td>'detection'<td>表示探测类型，值固定为'detection'字符串。该类型从API 20开始支持。<tr><td>'cloudService'<td>表示云业务、云游戏类型，值固定为'cloudService'字符串。该类型从API 20开始支持。<tr><td>'voiceConference'<td>表示语音会议类型，值固定为'voiceConference'字符串。该类型从API 20开始支持。<tr><td>'videoConference'<td>表示视频会议类型，值固定为'videoConference'字符串。该类型从API 20开始支持。<tr><td>'audio'<td>表示音乐、音频类型，值固定为'audio'字符串。该类型从API 20开始支持。<tr><td>'navigation'<td>表示导航定位类型，值固定为'navigation'字符串。该类型从API 20开始支持。<tr><td>'seckillService'<td>表示秒杀业务类型，如抢票、抢购、抢单、抢红包等，值固定为'seckillService'字符串。该类型从API 20开始支持。<tr><td>'login'<td>表示登录（含一键登录）类型，值固定为'login'字符串。该类型从API 20开始支持。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=qoetype>QoeType<a href=#qoetype class=hash-link aria-label=QoeType的直接链接 title=QoeType的直接链接 translate=no>​</a></h2>
+<p>type QoeType = 'good' | BadQoeCause</p>
+<p>应用体验类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'good'<td>表示体验良好，值固定为'good'字符串。<tr><td><a href=#badqoecause class="">BadQoeCause</a><td>表示体验差类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=badqoecause>BadQoeCause<a href=#badqoecause class=hash-link aria-label=BadQoeCause的直接链接 title=BadQoeCause的直接链接 translate=no>​</a></h2>
+<p>type BadQoeCause = 'unknown' | 'serverErr' | 'noData' | 'packetLost' | 'packetOutOfOrder' | 'highJitter' | 'highLatency'</p>
+<p>应用体验差类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'unknown'<td>表示未知原因，值固定为'unknown'字符串。<tr><td>'serverErr'<td>表示服务器异常，值固定为'serverErr'字符串。<tr><td>'noData'<td>表示无数据，值固定为'noData'字符串。<tr><td>'packetLost'<td>表示丢包，值固定为'packetLost'字符串。<tr><td>'packetOutOfOrder'<td>表示乱序，值固定为'packetOutOfOrder'字符串。<tr><td>'highJitter'<td>表示高抖动，值固定为'highJitter'字符串。<tr><td>'highLatency'<td>表示高时延，值固定为'highLatency'字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=速率带宽级别>速率带宽级别<a href=#速率带宽级别 class=hash-link aria-label=速率带宽级别的直接链接 title=速率带宽级别的直接链接 translate=no>​</a></h2>
+<p>定义了多个速率或带宽的常量值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>值<th>说明<tbody><tr><td>BPS<td>number<td>1<td>1bps<tr><td>KBPS<td>number<td>1000<td>1kbps<tr><td>MBPS<td>number<td>1000000<td>1Mbps<tr><td>GBPS<td>number<td>1000000000<td>1Gbps<tr><td>TBPS<td>number<td>1000000000000<td>1Tbps</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=networkscene>NetworkScene<a href=#networkscene class=hash-link aria-label=NetworkScene的直接链接 title=NetworkScene的直接链接 translate=no>​</a></h2>
+<p>网络场景状态变更回调信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pathType<td><a href=#pathtype class="">PathType</a><td>否<td>否<td>表明相应的数据路径上的网络场景信息。<tr><td>scene<td><a href=#scene class="">Scene</a><td>否<td>否<td>场景状态。<tr><td>recommendedAction<td><a href=#recommendedaction class="">RecommendedAction</a><td>否<td>否<td>建议的数传策略。<tr><td>weakSignalPrediction<td><a href=#weaksignalprediction class="">WeakSignalPrediction</a><td>否<td>是<td>弱信号预测相关信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=weaksignalprediction>WeakSignalPrediction<a href=#weaksignalprediction class=hash-link aria-label=WeakSignalPrediction的直接链接 title=WeakSignalPrediction的直接链接 translate=no>​</a></h2>
+<p>弱信号预测相关信息。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>isLastPredictionValid<td>boolean<td>否<td>否<td>最近一次的弱信号预测是否有效，true表示最近一次的弱信号预测依旧有效，false表示最近一次的弱信号预测失效，此时startTime和duration参数忽略。<tr><td>startTime<td>number<td>否<td>否<td>预计多长时间进入弱信号（单位：秒），取值范围为0和任意正数。<tr><td>duration<td>number<td>否<td>否<td>预计在弱信号区域停留时长（单位：秒），取任意正数。取值0，此次预测结果无效。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=scene>Scene<a href=#scene class=hash-link aria-label=Scene的直接链接 title=Scene的直接链接 translate=no>​</a></h2>
+<p>type Scene = 'normal' | 'congestion' | 'frequentHandover' | 'weakSignal'</p>
+<p>场景类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'normal'<td>表示正常场景，值固定为'normal'字符串。<tr><td>'congestion'<td>表示拥塞场景，值固定为'congestion'字符串。<tr><td>'frequentHandover'<td>表示小区切换频繁场景，值固定为'frequentHandover'字符串。<tr><td>'weakSignal'<td>表示弱信号场景，值固定为'weakSignal'字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=dataspeedsimpleaction>DataSpeedSimpleAction<a href=#dataspeedsimpleaction class=hash-link aria-label=DataSpeedSimpleAction的直接链接 title=DataSpeedSimpleAction的直接链接 translate=no>​</a></h2>
+<p>type DataSpeedSimpleAction = 'suspendData' | 'decreaseData' | 'increaseData' | 'keepData'</p>
+<p>应用发包策略的简单建议。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'suspendData'<td>表示停止发包，值固定为'suspendData'字符串。<tr><td>'decreaseData'<td>表示降低发包速率，值固定为'decreaseData'字符串。<tr><td>'increaseData'<td>表示增加发包速率，值固定为'increaseData'字符串。<tr><td>'keepData'<td>表示保持当前发包速率，值固定为'keepData'字符串。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=recommendedaction>RecommendedAction<a href=#recommendedaction class=hash-link aria-label=RecommendedAction的直接链接 title=RecommendedAction的直接链接 translate=no>​</a></h2>
+<p>type RecommendedAction = 'doCaching' | DataSpeedSimpleAction</p>
+<p>应用数传策略建议。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Communication.NetworkBoost.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>'doCaching'<td>表示做缓存动作，值固定为'doCaching'字符串。<tr><td><a href=#dataspeedsimpleaction class="">DataSpeedSimpleAction</a><td>应用发包策略的简单建议。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-network-api/network-api/network-arkts-errcode/errorcode-net-netfirewall/errorcode-net-netfirewall><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>防火墙错误码</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-nethandover/networkboost-nethandover><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>netHandover（连接迁移）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#netqualityon-netqoschange class="table-of-contents__link toc-highlight">netQuality.on( 'netQosChange')</a><li><a href=#netqualityoff-netqoschange class="table-of-contents__link toc-highlight">netQuality.off( 'netQosChange')</a><li><a href=#netqualityon-netscenechange class="table-of-contents__link toc-highlight">netQuality.on( 'netSceneChange')</a><li><a href=#netqualityoff-netscenechange class="table-of-contents__link toc-highlight">netQuality.off( 'netSceneChange')</a><li><a href=#netqualityreportqoe class="table-of-contents__link toc-highlight">netQuality.reportQoe</a><li><a href=#appqoe class="table-of-contents__link toc-highlight">AppQoe</a><li><a href=#networkqos class="table-of-contents__link toc-highlight">NetworkQos</a><li><a href=#pathtype class="table-of-contents__link toc-highlight">PathType</a><li><a href=#ratebps class="table-of-contents__link toc-highlight">RateBps</a><li><a href=#servicetype class="table-of-contents__link toc-highlight">ServiceType</a><li><a href=#qoetype class="table-of-contents__link toc-highlight">QoeType</a><li><a href=#badqoecause class="table-of-contents__link toc-highlight">BadQoeCause</a><li><a href=#速率带宽级别 class="table-of-contents__link toc-highlight">速率带宽级别</a><li><a href=#networkscene class="table-of-contents__link toc-highlight">NetworkScene</a><li><a href=#weaksignalprediction class="table-of-contents__link toc-highlight">WeakSignalPrediction</a><li><a href=#scene class="table-of-contents__link toc-highlight">Scene</a><li><a href=#dataspeedsimpleaction class="table-of-contents__link toc-highlight">DataSpeedSimpleAction</a><li><a href=#recommendedaction class="table-of-contents__link toc-highlight">RecommendedAction</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

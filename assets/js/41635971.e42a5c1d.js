@@ -1,0 +1,539 @@
+"use strict";
+(self["webpackChunkharmonyos_docs_site"] = self["webpackChunkharmonyos_docs_site"] || []).push([["700722"], {
+796901(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// EXPORTS
+__webpack_require__.d(__webpack_exports__, {
+  metadata: () => (/* reexport */ site_docs_ref_iap_api_iap_rest_iap_date_delay_for_sub_iap_date_delay_for_sub_md_416_namespaceObject),
+  "default": () => (/* binding */ MDXContent),
+  frontMatter: () => (/* binding */ frontMatter),
+  contentTitle: () => (/* binding */ contentTitle),
+  toc: () => (/* binding */ toc),
+  assets: () => (/* binding */ assets)
+});
+
+;// CONCATENATED MODULE: ./.docusaurus/docusaurus-plugin-content-docs/ref/site-docs-ref-iap-api-iap-rest-iap-date-delay-for-sub-iap-date-delay-for-sub-md-416.json
+var site_docs_ref_iap_api_iap_rest_iap_date_delay_for_sub_iap_date_delay_for_sub_md_416_namespaceObject = JSON.parse('{"id":"iap-api/iap-rest/iap-date-delay-for-sub/iap-date-delay-for-sub","title":"延迟订阅续订日期","description":"功能介绍","source":"@site/docs-ref/iap-api/iap-rest/iap-date-delay-for-sub/iap-date-delay-for-sub.md","sourceDirName":"iap-api/iap-rest/iap-date-delay-for-sub","slug":"/iap-api/iap-rest/iap-date-delay-for-sub/iap-date-delay-for-sub","permalink":"/harmonyos-docs-site/ref/iap-api/iap-rest/iap-date-delay-for-sub/iap-date-delay-for-sub","draft":false,"unlisted":false,"tags":[],"version":"current","sidebarPosition":9,"frontMatter":{"title":"延迟订阅续订日期","sidebar_position":9,"original_url":"https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-date-delay-for-sub","kit":"应用服务","last_updated":"2026-04-22","slug":"iap-date-delay-for-sub"},"sidebar":"ref","previous":{"title":"订阅确认发货","permalink":"/harmonyos-docs-site/ref/iap-api/iap-rest/iap-confirm-purchase-for-sub/iap-confirm-purchase-for-sub"},"next":{"title":"根据交易号查询订单状态信息","permalink":"/harmonyos-docs-site/ref/iap-api/iap-rest/iap-order-info-query-by-transaction-number/iap-order-info-query-by-transaction-number"}}')
+// EXTERNAL MODULE: ./node_modules/react/jsx-runtime.js
+var jsx_runtime = __webpack_require__(474848);
+// EXTERNAL MODULE: ./node_modules/@mdx-js/react/lib/index.js
+var lib = __webpack_require__(28453);
+;// CONCATENATED MODULE: ./docs-ref/iap-api/iap-rest/iap-date-delay-for-sub/iap-date-delay-for-sub.md
+
+
+const frontMatter = {
+	title: '延迟订阅续订日期',
+	sidebar_position: 9,
+	original_url: 'https://developer.huawei.com/consumer/cn/doc/harmonyos-references/iap-date-delay-for-sub',
+	kit: '应用服务',
+	last_updated: '2026-04-22',
+	slug: 'iap-date-delay-for-sub'
+};
+const contentTitle = '延迟订阅续订日期';
+
+const assets = {
+
+};
+
+
+
+const toc = [{
+  "value": "功能介绍",
+  "id": "功能介绍",
+  "level": 2
+}, {
+  "value": "场景描述",
+  "id": "场景描述",
+  "level": 2
+}, {
+  "value": "使用约束",
+  "id": "使用约束",
+  "level": 2
+}, {
+  "value": "接口原型",
+  "id": "接口原型",
+  "level": 2
+}, {
+  "value": "请求参数",
+  "id": "请求参数",
+  "level": 2
+}, {
+  "value": "Request Header",
+  "id": "request-header",
+  "level": 3
+}, {
+  "value": "Request Body",
+  "id": "request-body",
+  "level": 3
+}, {
+  "value": "请求示例",
+  "id": "请求示例",
+  "level": 2
+}, {
+  "value": "响应参数",
+  "id": "响应参数",
+  "level": 2
+}, {
+  "value": "Response Header",
+  "id": "response-header",
+  "level": 3
+}, {
+  "value": "Response Body",
+  "id": "response-body",
+  "level": 3
+}, {
+  "value": "响应示例",
+  "id": "响应示例",
+  "level": 2
+}];
+function _createMdxContent(props) {
+  const _components = {
+    a: "a",
+    code: "code",
+    h1: "h1",
+    h2: "h2",
+    h3: "h3",
+    header: "header",
+    img: "img",
+    li: "li",
+    ol: "ol",
+    p: "p",
+    pre: "pre",
+    strong: "strong",
+    table: "table",
+    tbody: "tbody",
+    td: "td",
+    th: "th",
+    thead: "thead",
+    tr: "tr",
+    ul: "ul",
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return (0,jsx_runtime.jsxs)(jsx_runtime.Fragment, {
+    children: [(0,jsx_runtime.jsx)(_components.header, {
+      children: (0,jsx_runtime.jsx)(_components.h1, {
+        id: "延迟订阅续订日期",
+        children: "延迟订阅续订日期"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "功能介绍",
+      children: "功能介绍"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "此接口用于将自动续期订阅商品的下一个续订日期延迟。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: (0,jsx_runtime.jsx)(_components.img, {
+        src: (__webpack_require__(699765)/* ["default"] */.A) + "",
+        width: "102",
+        height: "38"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "开发者延迟订阅续订日期后，建议使用电子邮件或应用通知用户，让用户知道自己的续订日期已被延迟（发生更改）。"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "场景描述",
+      children: "场景描述"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "开发者的应用在推出某些优惠活动的时候，例如奖励用户使用商品时长，可以调用该接口将订阅者的下一个续订日期延迟。成功延迟续订日期后："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "IAP服务器会发送延迟成功的通知到开发者的服务器上。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "订阅者将继续享受已经付费的服务和内容，但在延迟期内不会被扣款。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "系统会更新订阅续订日期，下个续期周期的开始日期为延迟后的过期时间。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "使用约束",
+      children: "使用约束"
+    }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+      children: "延迟订阅续订日期具有以下限制："
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ol, {
+      children: ["\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "不支持对已到期的订阅延迟续订日期，仅能延期正常状态中的订阅。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "不支持对享受免费试用优惠期内的订阅延迟续订日期。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "过去365天内每个用户的同一个订阅最多延迟2次。"
+      }), "\n", (0,jsx_runtime.jsx)(_components.li, {
+        children: "每次调用API的订阅的下一个续订日期最短可延迟1天，最长为90天。"
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "接口原型",
+      children: "接口原型"
+    }), "\n", (0,jsx_runtime.jsxs)(_components.ul, {
+      children: ["\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "承载协议："
+            })
+          }), " HTTPS POST"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "接口方向："
+            })
+          }), " 开发者服务器 -> IAP服务器"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: [(0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "接口URL："
+            })
+          }), " {rootUrl}/subscription/harmony/v1/application/subscription/renewal/modify"]
+        }), "\n", (0,jsx_runtime.jsxs)(_components.p, {
+          children: ["说明：rootUrl具体请参见", (0,jsx_runtime.jsx)(_components.a, {
+            href: "/ref/iap-api/iap-rest/iap-rest-common-statement/iap-rest-common-statement#%E7%AB%99%E7%82%B9%E4%BF%A1%E6%81%AF",
+            children: "站点信息"
+          }), "。"]
+        }), "\n"]
+      }), "\n", (0,jsx_runtime.jsxs)(_components.li, {
+        children: ["\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: (0,jsx_runtime.jsx)(_components.strong, {
+            children: (0,jsx_runtime.jsx)(_components.strong, {
+              children: "数据格式："
+            })
+          })
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "请求消息：Content-Type: application/json; charset=UTF-8"
+        }), "\n", (0,jsx_runtime.jsx)(_components.p, {
+          children: "响应消息：Content-Type: application/json; charset=UTF-8"
+        }), "\n"]
+      }), "\n"]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "请求参数",
+      children: "请求参数"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "request-header",
+      children: "Request Header"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "是否必选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "参数类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Content-Type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "取值为：application/json;charset=UTF-8"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Authorization"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["认证信息，使用JWT进行鉴权，具体请参见", (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/iap-api/iap-rest/iap-jwt-description/iap-jwt-description#authorization%E8%AF%B4%E6%98%8E",
+              children: "Authorization说明"
+            }), "。"]
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "request-body",
+      children: "Request Body"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "是否必选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "参数类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "purchaseOrderId"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "具体一笔订单中对应的购买订单号ID。最大长度256。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "purchaseToken"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "商品的购买Token，发起购买和查询订单信息均会返回。最大长度256。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "requestId"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "请求Id。开发者自行生成用于跟踪每个订阅续订日期延长请求唯一标识符的字符串。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "modifyReason"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Integer"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "订阅日期延迟的原因：  0：免费赠送  1：购买  2：应用内服务问题或服务中断"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "extendByDays"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Integer"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "延迟订阅续订日期的天数，至少1天，至多90天。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "请求示例",
+      children: "请求示例"
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "POST /subscription/harmony/v1/application/subscription/renewal/modify\nContent-Type: application/json;charset=UTF-8\nAuthorization: Bearer ***.***.***\nAccept: application/json\n{\n  \"purchaseToken\": \"***.*.***\",\n  \"purchaseOrderId\": \"***.***\",\n  \"requestId\": \"******\",\n  \"modifyReason\": 0,\n  \"extendByDays\": 10\n}\n"
+      })
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "响应参数",
+      children: "响应参数"
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "response-header",
+      children: "Response Header"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "是否必选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "参数类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsx)(_components.tbody, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "Content-Type"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "取值为：application/json;charset=UTF-8"
+          })]
+        })
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h3, {
+      id: "response-body",
+      children: "Response Body"
+    }), "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n", (0,jsx_runtime.jsxs)(_components.table, {
+      children: [(0,jsx_runtime.jsx)(_components.thead, {
+        children: (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.th, {
+            children: "参数"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "是否必选"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "参数类型"
+          }), (0,jsx_runtime.jsx)(_components.th, {
+            children: "描述"
+          })]
+        })
+      }), (0,jsx_runtime.jsxs)(_components.tbody, {
+        children: [(0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "responseCode"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsxs)(_components.td, {
+            children: ["返回码。  0：成功  其他：失败，具体请参见", (0,jsx_runtime.jsx)(_components.a, {
+              href: "/ref/iap-api/iap-rest/iap-server-error-code/iap-server-error-code",
+              children: "错误码"
+            })]
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "responseMessage"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "否"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "String"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "响应描述。"
+          })]
+        }), (0,jsx_runtime.jsxs)(_components.tr, {
+          children: [(0,jsx_runtime.jsx)(_components.td, {
+            children: "newExpirationTime"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "是"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "Long"
+          }), (0,jsx_runtime.jsx)(_components.td, {
+            children: "延迟后的订阅有效期时间，标准时间戳，如：1737354632136。"
+          })]
+        })]
+      })]
+    }), "\n", (0,jsx_runtime.jsx)(_components.h2, {
+      id: "响应示例",
+      children: "响应示例"
+    }), "\n", (0,jsx_runtime.jsx)(_components.pre, {
+      children: (0,jsx_runtime.jsx)(_components.code, {
+        children: "HTTP/1.2 200 OK\nContent-Type: application/json; charset=UTF-8\nContent-Length: 68\n{\n  \"responseCode\": \"0\",\n  \"newExpirationTime\": 1597679570777\n}\n"
+      })
+    })]
+  });
+}
+function MDXContent(props = {}) {
+  const {wrapper: MDXLayout} = {
+    ...(0,lib/* .useMDXComponents */.R)(),
+    ...props.components
+  };
+  return MDXLayout ? (0,jsx_runtime.jsx)(MDXLayout, {
+    ...props,
+    children: (0,jsx_runtime.jsx)(_createMdxContent, {
+      ...props
+    })
+  }) : _createMdxContent(props);
+}
+
+
+
+},
+699765(__unused_rspack_module, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  A: () => (__rspack_default_export)
+});
+/* export default */ const __rspack_default_export = ("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==");
+
+},
+28453(__unused_rspack___webpack_module__, __webpack_exports__, __webpack_require__) {
+__webpack_require__.d(__webpack_exports__, {
+  R: () => (useMDXComponents),
+  x: () => (MDXProvider)
+});
+/* import */ var react__rspack_import_0 = __webpack_require__(296540);
+/**
+ * @import {MDXComponents} from 'mdx/types.js'
+ * @import {Component, ReactElement, ReactNode} from 'react'
+ */
+
+/**
+ * @callback MergeComponents
+ *   Custom merge function.
+ * @param {Readonly<MDXComponents>} currentComponents
+ *   Current components from the context.
+ * @returns {MDXComponents}
+ *   Additional components.
+ *
+ * @typedef Props
+ *   Configuration for `MDXProvider`.
+ * @property {ReactNode | null | undefined} [children]
+ *   Children (optional).
+ * @property {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @property {boolean | null | undefined} [disableParentContext=false]
+ *   Turn off outer component context (default: `false`).
+ */
+
+
+
+/** @type {Readonly<MDXComponents>} */
+const emptyComponents = {}
+
+const MDXContext = react__rspack_import_0.createContext(emptyComponents)
+
+/**
+ * Get current components from the MDX Context.
+ *
+ * @param {Readonly<MDXComponents> | MergeComponents | null | undefined} [components]
+ *   Additional components to use or a function that creates them (optional).
+ * @returns {MDXComponents}
+ *   Current components.
+ */
+function useMDXComponents(components) {
+  const contextComponents = react__rspack_import_0.useContext(MDXContext)
+
+  // Memoize to avoid unnecessary top-level context changes
+  return react__rspack_import_0.useMemo(
+    function () {
+      // Custom merge via a function prop
+      if (typeof components === 'function') {
+        return components(contextComponents)
+      }
+
+      return {...contextComponents, ...components}
+    },
+    [contextComponents, components]
+  )
+}
+
+/**
+ * Provider for MDX context.
+ *
+ * @param {Readonly<Props>} properties
+ *   Properties.
+ * @returns {ReactElement}
+ *   Element.
+ * @satisfies {Component}
+ */
+function MDXProvider(properties) {
+  /** @type {Readonly<MDXComponents>} */
+  let allComponents
+
+  if (properties.disableParentContext) {
+    allComponents =
+      typeof properties.components === 'function'
+        ? properties.components(emptyComponents)
+        : properties.components || emptyComponents
+  } else {
+    allComponents = useMDXComponents(properties.components)
+  }
+
+  return react__rspack_import_0.createElement(
+    MDXContext.Provider,
+    {value: allComponents},
+    properties.children
+  )
+}
+
+
+},
+
+}]);

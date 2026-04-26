@@ -1,0 +1,933 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/resource-leak-guidelines" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>Resource Leak（资源泄漏）检测 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Resource Leak（资源泄漏）检测 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=简介 /><meta data-rh=true property=og:description content=简介 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/","name":"Resource Leak（资源泄漏）检测","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-network/connectivity-kit/connectivity-kit-intro/><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-basicfun/basic-services-kit/basic-services-kit-overview/><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-hardware/car-kit-guide/car-introduction/><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit（性能分析服务）" class=categoryLinkLabel_W154>Performance Analysis Kit（性能分析服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-overview/><span title="Performance Analysis Kit简介" class=linkLabel_WmDU>Performance Analysis Kit简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/fault-detection-overview/><span title=故障检测 class=categoryLinkLabel_W154>故障检测</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/fault-detection-overview/><span title=简介 class=linkLabel_WmDU>简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/crash-detection/jscrash-guidelines/><span title=崩溃检测 class=categoryLinkLabel_W154>崩溃检测</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/address-sanitizer-guidelines/><span title=AddrSanitizer（地址越界）检测 class=linkLabel_WmDU>AddrSanitizer（地址越界）检测</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/appfreeze-guidelines/><span title=AppFreeze（应用冻屏）检测 class=linkLabel_WmDU>AppFreeze（应用冻屏）检测</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/resource-leak-guidelines/><span title="Resource Leak（资源泄漏）检测" class=linkLabel_WmDU>Resource Leak（资源泄漏）检测</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/apptask-timeout-guidelines/><span title=任务超时检测 class=linkLabel_WmDU>任务超时检测</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/appkilled-guidelines/><span title="App Killed（应用终止）检测" class=linkLabel_WmDU>App Killed（应用终止）检测</span></a></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/power-detection/><span title=功耗检测 class=linkLabel_WmDU>功耗检测</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/perf-detection/><span title=性能检测 class=linkLabel_WmDU>性能检测</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hilog-dev/hilog-guidelines-arkts/><span title=日志打印 class=categoryLinkLabel_W154>日志打印</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/hiappevent-intro/><span title=事件订阅 class=categoryLinkLabel_W154>事件订阅</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hitracemeter/hitracemeter-intro/><span title=性能跟踪 class=categoryLinkLabel_W154>性能跟踪</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hitracechain/hitracechain-intro/><span title=分布式调用链跟踪 class=categoryLinkLabel_W154>分布式调用链跟踪</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hichecker/hichecker-guidelines-arkts/><span title=检测模式 class=categoryLinkLabel_W154>检测模式</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hidebug/hidebug-guidelines/><span title=系统调试信息获取 class=categoryLinkLabel_W154>系统调试信息获取</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hicollie/hicollie-guidelines-ndk/><span title=业务线程超时检测 class=categoryLinkLabel_W154>业务线程超时检测</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/error-manager/errormanager-guidelines/><span title=错误管理及应用恢复 class=categoryLinkLabel_W154>错误管理及应用恢复</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-terminology/><span title="Performance Analysis Kit术语" class=linkLabel_WmDU>Performance Analysis Kit术语</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/test-kit/test-kit-overview/><span title="Test Kit（应用测试服务）" class=categoryLinkLabel_W154>Test Kit（应用测试服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-tools-overview/><span title=调试命令 class=categoryLinkLabel_W154>调试命令</span></a></div></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>调测调优</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Performance Analysis Kit（性能分析服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>故障检测</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Resource Leak（资源泄漏）检测</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Resource Leak（资源泄漏）检测</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=简介>简介<a href=#简介 class=hash-link aria-label=简介的直接链接 title=简介的直接链接 translate=no>​</a></h2>
+<p>资源泄漏是指句柄、线程或内存等资源，在应用运行过程中没有被正确释放，导致资源被长期占用且无法被其他应用使用，如果某一类资源耗尽，系统可能出现卡死或重启等异常情况。为了应对资源泄漏问题，系统会提供资源泄漏检测、判决、维测日志抓取、日志上报的能力，为开发者提供详细的维测日志以辅助故障定位。本文将主要介绍<a href=#%E5%AE%9E%E7%8E%B0%E5%8E%9F%E7%90%86 class="">资源泄漏检测能力</a>以及<a href=#%E6%97%A5%E5%BF%97%E8%8E%B7%E5%8F%96 class="">资源泄漏日志的规格</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=基本概念>基本概念<a href=#基本概念 class=hash-link aria-label=基本概念的直接链接 title=基本概念的直接链接 translate=no>​</a></h2>
+<p>资源泄漏主要分为三类：内存泄漏、句柄泄漏和线程泄漏。对于每种泄漏，系统会通过周期采样的方式对进程的资源使用情况进行检测，如果资源使用超过阈值，会抓取对应维测并上报泄漏事件。通过Hiappevent资源泄漏事件进行订阅，订阅方法详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events>资源泄漏事件</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=实现原理>实现原理<a href=#实现原理 class=hash-link aria-label=实现原理的直接链接 title=实现原理的直接链接 translate=no>​</a></h2>
+<p>资源泄漏具体检测方式如下：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>泄漏类型<th>检测机制<tbody><tr><td>句柄泄漏（FD_LEAK）<td>每隔60s遍历一次进程，获取进程fd句柄总数，超过<strong><strong>阈值（5000个）</strong></strong> 时抓取详细句柄信息，同步上报泄漏。<tr><td>线程泄漏（THREAD_LEAK）<td>每隔60s遍历一次进程，获取进程的总线程数，超过<strong><strong>阈值（700个）</strong></strong> 时抓取详细线程名信息，同步上报泄漏。<tr><td>内存泄漏（MEMORY_LEAK） - JS泄漏（JS_LEAK）<td>虚拟机内部进行插桩，当<strong><strong>堆内存的使用率超过85%<strong><strong>或者</strong></strong>触发OOM时</strong></strong>会抓取heapdump，同步上报该故障。<tr><td>内存泄漏（MEMORY_LEAK） - native内存泄漏（PSS_MEMORY）<td>以应用进程平均动态峰值内存作为基线，以200s作为基准，当<strong><strong>动态内存峰值超过基线值2倍时，判定泄漏，同时触发管控。</strong></strong><tr><td>内存泄漏（MEMORY_LEAK） - ashmem/ion/gpu等内存泄漏（KERNEL_MEMORY）<td>基于ashmem/ion/gpu的基线值，超过基线值时会判定泄漏，同步抓取维测信息。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">
+<p>表格中所述阈值/基线均为系统默认，如果生态在开发过程中需要自行设定基线，可以使用<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hidebug/js-apis-hidebug#hidebugsetappresourcelimit12>hidebug.setAppResourceLimit接口</a>进行设置，该接口建议在开发阶段调用，不要在正式发布阶段使用。</p>
+</li>
+<li class="">
+<p>虚拟机内存使用率计算公式 = heapUsed / totalHeap。</p>
+<p>heapUsed：当前虚拟机使用的堆大小，单位：KB。可通过<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hidebug/js-apis-hidebug#hidebuggetappvmmemoryinfo12>hidebug.getAppVMMemoryInfo()</a>接口获取。</p>
+<p>totalHeap：当前虚拟机的堆总大小，单位：KB。可通过<a class="" href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hidebug/js-apis-hidebug#hidebuggetappvmmemoryinfo12>hidebug.getAppVMMemoryInfo()</a>接口获取。</p>
+</li>
+<li class="">
+<p>当应用上报JS_ERROR/CPP_CRASH故障，Error message包含“OutOfMemory”时，可参考<a href=https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section728319329442 target=_blank rel="noopener noreferrer" class="">内存泄漏分析方法</a>辅助定位。</p>
+</li>
+<li class="">
+<p>管控是指当系统判定应用发生泄漏后，主动终止泄漏应用的行为。</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=约束和限制>约束和限制<a href=#约束和限制 class=hash-link aria-label=约束和限制的直接链接 title=约束和限制的直接链接 translate=no>​</a></h2>
+<ol>
+<li class="">句柄泄漏调用栈、native内存泄漏调用栈、js泄漏内存快照等维测因为开销较大，所以在<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/performance-analysis-kit-terminology#nolog%E7%89%88%E6%9C%AC>nolog版本</a>默认不开启。</li>
+<li class="">如果开发者希望获取到nolog版本的js泄漏内存快照，可参考<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events-arkts>资源泄漏事件订阅（ArkTS）</a>增加对nolog版本js内存快照的订阅。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=日志获取>日志获取<a href=#日志获取 class=hash-link aria-label=日志获取的直接链接 title=日志获取的直接链接 translate=no>​</a></h2>
+<p>资源泄漏日志由LeakDetector模块进行管理，可通过以下方式获取：</p>
+<ul>
+<li class="">
+<p>方式一：通过<a class="" href=/harmonyos-docs-site/test-service/deveco-testing/exploratory-testing>DevEco Testing进行探索测试</a>并获取日志。</p>
+<p>DevEco Testing工具会收集设备/data/log/reliability/resource_leak/路径下的资源泄漏故障日志，根据进程名、故障和时间分类显示。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>泄漏类型<th>日志文件名称<tbody><tr><td>句柄泄漏（FD_LEAK）<td>[pid]_fd_leak.txt<tr><td>线程泄漏（THREAD_LEAK）<td>[pid]_thread_leak.txt<tr><td>内存泄漏（MEMORY_LEAK） - js泄漏（JS_LEAK）<td>memleak-js-[process_name]-[pid]-[tid]-[timestamp].rawheap<tr><td>内存泄漏（MEMORY_LEAK） - native内存泄漏（PSS_MEMORY）<td>memleak-native-[process_name]-[pid]-sample.txt  memleak-native-[process_name]-[pid]-smaps.txt  memleak-native-[process_name]-[pid]-[timestamp].txt<tr><td>内存泄漏（MEMORY_LEAK） - ashmem/ion/gpu等内存泄漏（KERNEL_MEMORY）<td>memleak-kernel-[module]-0-sample.txt  memleak-kernel-[module]-0-[timestamp].txt</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">native内存泄漏的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）无法直接在DevEco Studio打开，需要修改后缀名为.nas，然后使用DevEco Studio-Profiler-打开并分析，详情见<a class="" href=/harmonyos-docs-site/ide-insight-session-allocations/ide-insight-session-allocations-memory>内存分析及优化</a>。</li>
+<li class="">js泄漏的维测日志 memleak-js-[process_name]-[pid]-[tid]-[timestamp].rawheap 为二进制内存快照文件，需要通过<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/rawheap-translator>translator工具</a>转换为.heapsnapshot文件，通过DevEco Studio或浏览器打开展示，详情见<a class="" href=/harmonyos-docs-site/ide-insight-session-snapshot/ide-snapshot-basic-operations#section6760173514388>Snapshot离线导入</a>。</li>
+</ol>
+</li>
+<li class="">
+<p>方式二：通过DevEco Studio主动采集日志。</p>
+<p>DevEco Studio的profiler模块提供<a class="" href=/harmonyos-docs-site/ide-insight-session-allocations/ide-insight-session-allocations-memory>Allocation</a>（获取native调用栈profiler）和 <strong><strong><a class="" href=/harmonyos-docs-site/ide-insight-session-snapshot/ide-arkts-memory-leak-analysis>Snapshot</a></strong></strong> （获取JS层heapdump）两种采集方式：</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583478491-92ee79ca4fbcabbbc8e8412eceed8aa6.png width=1210 height=297 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>方式三：通过HiAppEvent接口订阅。</p>
+<p>HiAppEvent对外提供故障订阅接口，可以订阅各类故障打点，详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/hiappevent-intro>HiAppEvent介绍</a>，其中资源泄漏的订阅方式详见<a class="" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/hiappevent/event-subscription/system-events/resource-leak-events/hiappevent-watcher-resourceleak-events>资源泄漏事件介绍</a>。资源泄漏故障日志存于/data/storage/el2/log/resourcelimit/路径，日志名统一为RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log，可根据日志内容区分文件类型。</p>
+</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=句柄泄漏日志规格>句柄泄漏日志规格<a href=#句柄泄漏日志规格 class=hash-link aria-label=句柄泄漏日志规格的直接链接 title=句柄泄漏日志规格的直接链接 translate=no>​</a></h2>
+<p>故障日志文件名：[pid]_fd_leak.txt（<strong><strong>方式一</strong></strong>）或RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log（<strong><strong>方式三</strong></strong>）。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=日志头部信息>日志头部信息<a href=#日志头部信息 class=hash-link aria-label=日志头部信息的直接链接 title=日志头部信息的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>time<td>故障发生时间。<tr><td>pid<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>process<td>应用进程包名。<tr><td>leaked fd nums<td>判定泄漏时获取的句柄数量（快照）。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">time: 2024/06/27 11:55:28</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pid: 1380</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process: process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">leaked fd nums: 5111</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=句柄类型详细信息>句柄类型详细信息<a href=#句柄类型详细信息 class=hash-link aria-label=句柄类型详细信息的直接链接 title=句柄类型详细信息的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>Leaked fd Top 10：</strong></strong> 按照句柄名聚类，获取泄漏句柄中最多的类型。第一列为泄漏数量，第二列为泄漏类型，如下即ashmem类型的句柄存在4796个。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">FdCount FileDescriptor</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Leaked fd Top 10:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">4796    ashmem</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">259 socket</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">119 dmabuf</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">48 eventfd</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">42 sync_file</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">17 eventpoll</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3 /sys/kernel/debug/tracing/trace_marker</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3 /dev/null</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2 /dev/hvgr0</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>Dir Type Top 10：</strong></strong> 针对文件句柄类型，会单独根据文件路径聚类。如下，根据“<strong><strong>Leaked fd Top 10</strong></strong>”无法看出具体泄漏的类型，但是通过“<strong><strong>Dir Type Top 10</strong></strong>”能确定是“/data/storage/el2/database/rdb”路径下的文件句柄泄漏，且能大概感知是db泄漏。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Dir Type Top 10:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">6175 /data/storage/el2/database/rdb</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">5 /dev/urandom</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3 /sys/kernel/debug/tracing/trace_marker</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3 /dev/null</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 anon_inode:[signalfd]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 /dev/binder</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 /proc/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 /system/app/PhoneClone/PhoneClone.hap</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>若top句柄为unknown，说明维测没有权限获取泄漏进程的句柄。</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=特殊类型句柄维测信息>特殊类型句柄维测信息<a href=#特殊类型句柄维测信息 class=hash-link aria-label=特殊类型句柄维测信息的直接链接 title=特殊类型句柄维测信息的直接链接 translate=no>​</a></h3>
+<p>如果<strong><strong>Leaked fd Top 10</strong></strong>的TOP句柄信息属于ashmem/socket/pipe/sync_file/dmabuf这五类特殊类型，且该类型的句柄个数超过1000个，日志中会增加整机详细的维测信息，具体如下：</p>
+<ul>
+<li class="">
+<p><strong><strong>ashmem类型句柄</strong></strong></p>
+<p>ashmem（共享内存），当TOP 1的句柄类型为ashmem时，抓取整机ashmem内存的详细信息如下。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>Process_name<td>持有该ashmem内存块的应用进程包名。<tr><td>Process_ID<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>Fd<td>该进程持有的句柄。<tr><td>Applicant_Pid<td>申请该ashmem内存块的进程pid，可根据此字段识别该内存块的申请来源。<tr><td>Ashmem_name<td>共享内存的名字，开发者可通过提供的API进行设置，用来判断存储的资源类型，指向不同的领域。<tr><td>Size<td>单个ashmem块的大小，单位：B。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>开发者可通过提供的API接口设置ashmem内存：</p>
+<p>JS层API：<a class="" href=/harmonyos-docs-site/ref/image-api/image-arkts/js-apis-image/arkts-apis-image-pixelmap/arkts-apis-image-pixelmap#setmemorynamesync13>setMemoryNameSync</a>。</p>
+<p>NATIVE层API：<a class="" href=/harmonyos-docs-site/ref/image-api/image-c/image-headerfile/capi-pixelmap-native-h/capi-pixelmap-native-h#oh_pixelmapnative_setmemoryname>OH_PixelmapNative_SetMemoryName</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_ASHMEM_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process ashmem detail info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process_name Process_ID Fd Cnode_idx Applicant_Pid Ashmem_name Size</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1 781 18 328233 781 dev/ashmem/PolicyVolumeMap 384</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...........</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...........</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>socket类型句柄</strong></strong></p>
+<p>socket（网络通信），当TOP 1的句柄类型为socket时，抓取整机socket内存的详细信息如下。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>ProcessName<td>持有该socket内存块的应用进程包名。<tr><td>ProcessID<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>Fd<td>该进程持有的句柄。<tr><td>inode<td>文件系统对象信息。<tr><td>PeerTid<td>对端tid（对于有连接的socket为对应值，无连接为0）。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Process socket info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ProcessName ProcessID Fd inode PeerTid</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1   6874   3   0    0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">........</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.........</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>pipe类型句柄</strong></strong></p>
+<p>pipe（进程间通信），当TOP 1的句柄类型为pipe时，以fd维度抓取整机pipe内存的详细信息如下。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>ProcessName<td>持有该pipe内存块的应用进程包名。<tr><td>ProcessID<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>Fd<td>该进程持有的句柄。<tr><td>PipeName<td>管道名。<tr><td>inode<td>文件系统对象信息。<tr><td>MaxUsage<td>最大使用量。<tr><td>NumAccounted<td>累计大小量。<tr><td>RingSize<td>RingBuf大小，单位：KB。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Process pipe info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ProcessName ProcessID Fd PipeName inode MaxUsage NumAccounted RingSize</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1 629 7 / 11 16 16 16</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1 629 8 / 11 16 16 16</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">........</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>sync_file类型句柄</strong></strong></p>
+<p>sync_file（显存），当TOP 1的句柄类型为sync_file时，以fd维度抓取整机sync_file的详细信息如下。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>ProcessName<td>持有该sync_file内存块的应用进程包名。<tr><td>ProcessID<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>Fd<td>该进程持有的句柄。<tr><td>FenceName<td>sync_file名字。<tr><td>inode<td>文件系统对象信息。<tr><td>FenceNum<td>fence个数。<tr><td>TimelineName<td>fence的Timeline名字。<tr><td>DriverName<td>驱动名字。<tr><td>Status<td>fence的状态。<tr><td>Timestamp<td>fence的时间戳。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Process fence info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ProcessName ProcessID Fd FenceName inode FenceNum TimelineName DriverName Status Timestamp</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1 1309 25 NULL 4186 1 0:online_composer_gfx_primary ukmd_release_fence_2941430 1 91607485502500</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1 1309 26 NULL 4186 1 0:online_composer_gfx_primary ukmd_release_fence_2941430 1 91607485502500</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">........</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>dmabuf类型句柄</strong></strong></p>
+<p>dmabuf（也称ion内存），当TOP 1的句柄类型为dmabuf时，以fd维度抓取了整机dmabuf的详细信息如下 <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>Process name<td>持有该ion内存块的应用进程包名。<tr><td>Process ID<td>发生故障进程的pid，可以用于在流水日志中搜索相关进程信息。<tr><td>Fd<td>该进程持有的句柄。<tr><td>size<td>buffer内存大小，单位：B。<tr><td>magic<td>buffer唯一标识（<strong><strong>magic相同表示指向同一块buffer）</strong></strong> 。<tr><td>buf->pid<td>申请者的pid。<tr><td>buf->task_comm<td>申请buffer的进程名。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Process dma_heap info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Process name       Process ID               fd             size            magic         buf->pid   buf->task_comm</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    process1              971               23          3145728               36              971       process2</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    process1              971               24          1048576               38              971       process2</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">   ........</span><br/></div></code></pre></div></div>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=句柄栈信息>句柄栈信息<a href=#句柄栈信息 class=hash-link aria-label=句柄栈信息的直接链接 title=句柄栈信息的直接链接 translate=no>​</a></h3>
+<p>当判定句柄泄漏后，会hook该进程的pipe/open等系统调用10分钟，抓取调用栈，并基于相同调用栈聚类。如下每一行都是一个调用栈，调用顺序为从右到左，其中num后面的数字表示调用栈总个数，bt后面为具体调用栈。具体栈信息可通过<a href=https://llvm.org/docs/CommandGuide/llvm-symbolizer.html target=_blank rel="noopener noreferrer" class="">addr2line</a>解析到对应的函数。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_FD_STACK_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pid: 12326</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">get stack time: 2024/06/17 19:16:48</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">==============================FdTrack Stack==============================</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Generated by HiviewDFX @HarmonyOS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">==============================Sorted by num==============================</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">num 8272 bt [/system/lib64/libfdleak_tracker.so+0x1fb58] [/system/lib/ld-musl-aarch64.so.1+0x1d3154] [/system/lib/ld-musl-aarch64.so.1+0x148940] [/system/lib64/platformsdk/libuv.so+0x1ab30] [/system/lib64/platformsdk/libuv.so+0x1cbd0] [/system/lib64/module/file/libfs.z.so+0x17109c] [/system/lib64/module/file/libfs.z.so+0x170af4] [/system/lib64/module/file/libfs.z.so+0x1701c8] [/system/lib64/platformsdk/libace_napi.z.so+0x34828]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">num 3968 bt [/system/lib64/libfdleak_tracker.so+0x1fb58] [/system/lib/ld-musl-aarch64.so.1+0x1d3154] [/system/lib64/platformsdk/libipc_core.z.so+0x4ac64] [/system/lib64/platformsdk/libbackup_kit_inner.z.so+0x532d4] [/system/lib64/platformsdk/libbackup_kit_inner.z.so+0x4f8fc] [/system/lib64/platformsdk/libipc_core.z.so+0x38420] [/system/lib64/platformsdk/libipc_core.z.so+0x4e99c] [/system/lib64/platformsdk/libipc_core.z.so+0x4eb34] [/system/lib64/platformsdk/libipc_core.z.so+0x4edc8]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">num 3968 bt [/system/lib64/libfdleak_tracker.so+0x1fb58] [/system/lib/ld-musl-aarch64.so.1+0x1d3154] [/system/lib64/platformsdk/libipc_core.z.so+0x4ac64] [/system/lib64/platformsdk/libbackup_kit_inner.z.so+0x532b0] [/system/lib64/platformsdk/libbackup_kit_inner.z.so+0x4f8fc] [/system/lib64/platformsdk/libipc_core.z.so+0x38420] [/system/lib64/platformsdk/libipc_core.z.so+0x4e99c] [/system/lib64/platformsdk/libipc_core.z.so+0x4eb34] [/system/lib64/platformsdk/libipc_core.z.so+0x4edc8]</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">这里统计的是10分钟内全量申请句柄的调用栈，并没有将已经close的去掉。</li>
+<li class="">栈信息只有在log版本直接存在；nolog版本若未开“开发者模式”，则不抓取栈信息，如果发现不存在栈信息，需要在“开发者选项”中打开“系统资源泄漏日志”，并重启设备，来使能资源泄漏的抓栈功能。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=句柄泄漏聚类规则>句柄泄漏聚类规则<a href=#句柄泄漏聚类规则 class=hash-link aria-label=句柄泄漏聚类规则的直接链接 title=句柄泄漏聚类规则的直接链接 translate=no>​</a></h3>
+<p>应用程序在同一或不同版本上、不同时间产生的泄漏问题可能为同一原因，开发者可以从故障日志中提取故障特征，根据故障特征将多份故障日志进行聚类，以提高泄漏问题的分析效率。</p>
+<ol>
+<li class="">通过<a href=#%E5%8F%A5%E6%9F%84%E6%B3%84%E6%BC%8F%E6%97%A5%E5%BF%97%E8%A7%84%E6%A0%BC class="">句柄泄漏日志</a>中的top10的文件句柄数以及top10的文件路径句柄数判定是哪种类型的句柄泄漏，将占比最多的句柄类型作为本次故障的故障特征。</li>
+<li class="">ashmem、ion等特殊类型句柄，可参考<a href=#ashmemiongpugpu_rs%E8%81%9A%E7%B1%BB%E8%A7%84%E5%88%99 class="">ASHMEM_LEAK</a>、<a href=#ashmemiongpugpu_rs%E8%81%9A%E7%B1%BB%E8%A7%84%E5%88%99 class="">ION_LEAK</a>规则进行聚类。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=线程泄漏日志规格>线程泄漏日志规格<a href=#线程泄漏日志规格 class=hash-link aria-label=线程泄漏日志规格的直接链接 title=线程泄漏日志规格的直接链接 translate=no>​</a></h2>
+<p>故障日志文件名：[pid]_thread_leak.txt（<strong><strong>方式一</strong></strong>）或RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log（<strong><strong>方式三</strong></strong>）。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=日志头部信息-1>日志头部信息<a href=#日志头部信息-1 class=hash-link aria-label=日志头部信息的直接链接 title=日志头部信息的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>time<td>检测到线程泄漏的时间。<tr><td>pid<td>发生故障进程的pid，用于在流水日志中查询相关进程信息。<tr><td>vss<td>单个进程全部可访问的地址空间，其大小可能包括还尚未在内存中驻留的部分，单位：KB。<tr><td>rss<td>单个进程实际占用的内存大小，包括该进程所使用共享库全部内存大小，单位：KB。<tr><td>process<td>发生故障的应用包名。<tr><td>summary<td>判定泄漏时进程线程总数。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">time: 2024/06/27 03:45:19</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pid: 41897</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">vss: 12783644</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">rss: 2229352</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process: process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">summary: 879</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=线程类泄漏详细信息>线程类泄漏详细信息<a href=#线程类泄漏详细信息 class=hash-link aria-label=线程类泄漏详细信息的直接链接 title=线程类泄漏详细信息的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><strong><strong>Top 10 Thread Name：</strong></strong> 按照线程名聚类，获取泄漏最多的线程，第一列为泄漏数量，第二列为线程名称（若创建线程时未指定线程名，则表现为线程名和进程名相同）。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Top 10 Thread Name:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">913 process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3 gpu-work-client</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2 OS_Actor_402</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 IPC_11_13795</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 IPC_12_13796</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1 IPC_13_13797</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>线程启动信息</strong></strong>：可根据线程启动时间推测。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>tid<td>检测到泄漏时未释放线程的线程号<tr><td>thread_name<td>未释放的线程名<tr><td>start_time(jiffies)<td>线程创建时间</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">======================================================</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">tid thread_name start_time(jiffies)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">221 process1 4688297</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">240 IPC_3_4318 3081382</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p><strong><strong>线程快照</strong></strong>：抓取判定泄漏时线程的调用栈，可由此看下线程做的任务，推测线程未退出的原因（如：__pthread_cond_timedwait表示线程正在等待唤醒）。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">======================================================</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Result: 0 ( no error )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Timestamp:2024-06-27 03:45:20.000</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Pid:41897</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Uid:1013</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process name:process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Tid:1527, Name:xxx</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#00 pc 00000000001b6464 /system/lib/ld-musl-aarch64.so.1(__timedwait_cp+192)(98dc7600a0fc62125e291b93ca336154)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#01 pc 00000000001b8468 /system/lib/ld-musl-aarch64.so.1(__pthread_cond_timedwait+188)(98dc7600a0fc62125e291b93ca336154)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#02 pc 00000000000c108c /system/lib64/libc++.so(std::__h::condition_variable::wait(std::__h::unique_lock&lt;std::__h::mutex>&)+20)(9cbc937082b3d7412696099dd58f4f78242f9512)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#03 pc 000000000024654c /system/lib64/platformsdk/xxx.so(mindspore::Worker::WaitUntilActive()+204)(534ce78b66262dc14658c35fa018662f)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#04 pc 000000000023da14 /system/lib64/platformsdk/xxx.so(mindspore::ActorWorker::RunWithSpin()+256)(534ce78b66262dc14658c35fa018662f)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#05 pc 000000000023edb0 /system/lib64/platformsdk/xxx.so(void* std::__h::__thread_proxy[abi:v15004]&lt;std::__h::tuple&lt;std::__h::unique_ptr&lt;std::__h::__thread_struct, std::__h::default_delete&lt;std::__h::__thread_struct>>, void (mindspore::ActorWorker::*)(), mindspore::ActorWorker*>>(void*)+60)(534ce78b66262dc14658c35fa018662f)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">#06 pc 00000000001baac0 /system/lib/ld-musl-aarch64.so.1(start+236)(98dc7600a0fc62125e291b93ca336154)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">........</span><br/></div></code></pre></div></div>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=线程泄漏聚类规则>线程泄漏聚类规则<a href=#线程泄漏聚类规则 class=hash-link aria-label=线程泄漏聚类规则的直接链接 title=线程泄漏聚类规则的直接链接 translate=no>​</a></h3>
+<p>应用程序在同一或不同版本上、不同时间产生的泄漏问题可能为同一原因，开发者可以从故障日志中提取故障特征，根据故障特征将多份故障日志进行聚类，以提高泄漏问题的分析效率。</p>
+<ol>
+<li class="">
+<p>分析<a href=#%E7%BA%BF%E7%A8%8B%E6%B3%84%E6%BC%8F%E6%97%A5%E5%BF%97%E8%A7%84%E6%A0%BC class="">线程泄漏日志</a>中展示的top10线程，将占比最多的线程名作为本次故障的故障特征。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>系统已对同名线程进行了聚类，但是部分特殊场景下，线程名间可能会存在差异，如“IPC_11_13795”、“IPC_12_13796”，如果开发者希望进一步增强聚类效果，可以将全量线程中的相似进程名作为同一个故障特征，如“IPC_xx_xxx”，以提高聚类准确性。</p>
+</li>
+<li class="">
+<p>从线程泄漏日志中提取出线程对应的线程快照，并根据调用栈进行聚类。</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=js内存泄漏日志规格>JS内存泄漏日志规格<a href=#js内存泄漏日志规格 class=hash-link aria-label=JS内存泄漏日志规格的直接链接 title=JS内存泄漏日志规格的直接链接 translate=no>​</a></h2>
+<p><strong><strong>故障日志文件名：</strong></strong> memleak-js-[process_name]-[pid]-[tid]-[timestamp].rawheap（<strong><strong>方式一</strong></strong>）或RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log（<strong><strong>方式三</strong></strong>）。</p>
+<ul>
+<li class="">该文件记录了对象堆内存的详细信息。</li>
+<li class="">日志文件需要将后缀名修改为.rawheap文件，再通过<a class="" href=/harmonyos-docs-site/system-debug-optimize/debugging-commands/command-line-utilities/rawheap-translator>translator工具</a>转换为.heapsnapshot文件，通过DevEco Studio或浏览器打开展示，详情见<a class="" href=/harmonyos-docs-site/ide-insight-session-snapshot/ide-snapshot-basic-operations#section6760173514388>Snapshot离线导入</a>。</li>
+<li class="">API14后，需要将日志文件后缀名修改为.rawheap后，将其导入DevEco Studio并展示，详情见<a class="" href=/harmonyos-docs-site/ide-insight-session-snapshot/ide-snapshot-basic-operations#section6760173514388>Raw Heap离线导入</a>。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=js泄漏聚类规则>JS泄漏聚类规则<a href=#js泄漏聚类规则 class=hash-link aria-label=JS泄漏聚类规则的直接链接 title=JS泄漏聚类规则的直接链接 translate=no>​</a></h3>
+<p>应用程序在同一或不同版本上、不同时间产生的泄漏问题可能为同一原因，开发者可以从故障日志中提取故障特征，根据故障特征将多份故障日志进行聚类，以提高泄漏问题的分析效率。</p>
+<p><strong><strong>聚类步骤描述</strong></strong></p>
+<ol>
+<li class="">确认聚类范围，只聚类top20目录和retained size占5%以上的目录。</li>
+<li class="">通过聚类规则上报的故障进行聚类。为了保证聚类结果的有效性，不同目录下存放的对象不同，聚类规则也不同。</li>
+<li class="">统计各类对象的数量及内存大小，按照对象的数量或内存大小进行排序，找到内存占比最高的对象，作为本次上报故障的故障特征。</li>
+</ol>
+<p><strong><strong>聚类规则</strong></strong></p>
+<p>聚类规则主要分为三种：名称聚类，引用链聚类和属性聚类。不同类型的对象需要使用不同的聚类方法。</p>
+<ol>
+<li class="">
+<p>名称聚类（通过对象名称进行聚类）</p>
+<p>Function(closure)目录下的对象，按照对象名称聚类，当名称相同时，视为一类。</p>
+</li>
+<li class="">
+<p>引用链聚类（通过对象的最短引用链聚类）</p>
+<p>Method，js_set，Map，string和JSNativePointer等目录下的对象，优先通过引用链聚类。该类对象目录下名称一致，通过引用链可以区分对象创建场景。对比目录下各对象到GC ROOT的最短引用链（如果有多条最短引用链则选择retained size最大的那条引用链），最短引用链相同，则视为一类。</p>
+</li>
+<li class="">
+<p>对象名称+引用链聚类</p>
+<p>各类业务对象（业务侧创建的类对象和函数对象）带有路径对象名称和行号信息。相同的类或函数对象调用点不同，则引用链不同，需要根据不同的调用点进行区分。</p>
+<p>此外，framework，jsarray(array)也通过对象名称+引用链聚类。</p>
+</li>
+<li class="">
+<p>属性+引用链聚类</p>
+<p>jsobject（js_shared_object）目录下对象名称相同，但代表的对象并不一致，需要通过引用链对jsobject对象进行分类，即对不同调用点的jsobject进行区分。</p>
+<p>jsobject对象中存在大量distance为1的对象，这些对象无法通过引用链区分，但可以通过属性进行区分，即直接持有的对象是否一致，如果jsobject对象直接持有的对象名称都相同，且持有关系也相同，则归为一类。</p>
+</li>
+<li class="">
+<p>特殊聚类</p>
+<p>5.1 SourceTextModule</p>
+<p>SourceTextModule对象是系统侧创建的，用于持有export对象。每个ts文件会对应生成一个SourceTextModule对象，持有该ts文件中export的对象，因此天然就已经是聚类后的结果，不需要再次聚类。</p>
+<p>5.2 Promise/PromiseRecord/PromiseCapability/PromiseReaction</p>
+<p>异步相关的对象，请根据PromiseReaction下的handle信息+引用链进行聚类。PromiseReaction下的handle信息代表了该异步任务的上一个任务，可以通过上一个任务进行区分。</p>
+<p>5.3 proxy</p>
+<p>proxy往往与框架对象强相关，可以通过proxy下的target信息（handle）+引用链进行聚类。proxy下的target信息代表了proxy持有的被代理对象，proxy本身无意义，需要根据被proxy代理的对象进行区分。</p>
+</li>
+<li class="">
+<p>除上述类型外的其他基本类型：</p>
+<p>其他基本类型对象默认按照最短引用链聚类。</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=native内存泄漏日志规格>native内存泄漏日志规格<a href=#native内存泄漏日志规格 class=hash-link aria-label=native内存泄漏日志规格的直接链接 title=native内存泄漏日志规格的直接链接 translate=no>​</a></h2>
+<p><strong><strong>故障日志文件名：</strong></strong> 泄漏日志获取中方式一和方式三文件名不同，方式三为RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log，根据内容区分，方式一如下所示：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存采样>内存采样<a href=#内存采样 class=hash-link aria-label=内存采样的直接链接 title=内存采样的直接链接 translate=no>​</a></h3>
+<p>日志文件：memleak-native-[process_name]-[pid]-sample.txt，里面展示了进程号，进程名，基线值，内存采样的情况，可以直观的观察到内存的变化情况。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>SoftThreshold<td>系统设定的该进程基线（也可由应用自身通过setAppResourceLimit接口设置），应用内存连续五次超过进程基线即上报内存泄漏事件，单位：KB。<tr><td>HardThreshold<td>系统设定的进程硬门限，应用内存连续两次超过硬门限即上报内存泄漏事件，单位：KB。<tr><td>PSS<td>按比例计算的驻留内存大小，共享库的内存按进程数均摊（<strong><strong>带*的时间精准计算一次进程的PSS使用量</strong></strong>），单位：KB。<tr><td>Offset<td>将共享库内存均摊后的偏差：RSS + Offset = PSS <strong><strong>（用于矫正后续不带*号的PSS估算值）</strong></strong> ，单位：KB。<tr><td>RSS<td>进程实际驻留在物理内存中的内存总量（包含共享库占用的全部内存），单位：KB。<tr><td>SwapPSS<td>进程实际交换出去（即写入swap空间）的内存总量，单位：KB。<tr><td>TotalPSS<td>进程PSS使用量的总和，单位：KB。<tr><td>AvcMem<td>进程通过Avcodec_service创建编解码实例创建的内存，由Avcodec_service上报给hiview进行统计，单位：KB。<tr><td>MediaMem<td>进程通过Media_service接口创建的内存，由Media_service上报给hiview进行统计，单位：KB。<tr><td>GPU<td>进程使用GPU内存，单位：KB。<tr><td>ION<td>进程使用ION内存，单位：KB。<tr><td>TotalMem<td>进程使用的TotalPSS+ION+GPU+AvcMem+MediaMem内存的总和，单位：KB。<tr><td>Level<td>当前进程的泄漏等级简写。<tr><td>RunningTime<td>进程当前生命周期，单位：s。<tr><td>Realtime<td>当前采样的真实时间。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">/*************************************************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                  ***** READ ME *****                      *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*************************************************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                 RSS: Resident Set Size                    *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                 PSS: Proportional Set Size                *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                 RSS + Offset = PSS                        *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                 TotalPSS = PSS + SwapPSS                  *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*   TotalMem = TotalPSS + Av_Mem + Media_Mem + ION + GPU    *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                 ***** Two Modes *****                     *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*      Estimate Mode: RSS & SwapPSS is real                 *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*      Real Mode(Realtime with *): everything is real       *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*      Media_rss:apply mem through media_service            *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*      Avc_rss:apply mem through avcodec_service            *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*    ~ means negligible memory(safe to ignore in analysis)  *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*************************************************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*                   ***** Attention *****                   *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*    Formulas about TotalMem and sub-items may change,      *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*    please reference current annotation formula            *</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">/*************************************************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">pid: XXXX</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">processName: XXXXXX</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">SoftThreshold: 3500(KB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">HardThreshold: 1024000(KB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Index   RSS(KB)     Offset(KB)  PSS(KB)     SwapPSS(KB)     TotalPSS(KB)     MediaMem(KB)   AvcMem(KB)    GPU(KB)       ION(KB)       TotalMem(KB)     Level   RunningTime(s)     Realtime</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1       14668       0           14668       5500            20168            ~              ~             ~             ~             20168            W       112             2025/04/23 12:28:02</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2       12732       0           12732       5476            18208            ~              ~             ~             ~             18208            W       352             2025/04/23 12:32:01</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">3       13560       0           13560       5456            19016            ~              ~             ~             ~             19016            W       592             2025/04/23 12:36:02</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">4       13576       0           13576       5440            19016            ~              ~             ~             ~             19016            W       832             2025/04/23 12:40:02</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">5       13576       0           13576       5440            19016            ~              ~             ~             ~             19016            W       1072            2025/04/23 12:44:02</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">6       13584       -8320       5264        5440            10704            ~              ~             ~             ~             10704            W       1072            *2025/04/23 12:44:02</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">7       12984       -8320       4664        5084            9748             ~              ~             ~             ~             9748             W       1312            2025/04/23 12:48:02</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存维测>内存维测<a href=#内存维测 class=hash-link aria-label=内存维测的直接链接 title=内存维测的直接链接 translate=no>​</a></h3>
+<p>日志文件：memleak-native-[process_name]-[pid]-smaps.txt</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>RealPssMemory<td>记录了realtime时刻采集的PSS值，单位：KB。<tr><td>LOGGER_MEMCHECK_MEMINFO<td>下方记录了整机meminfo内存信息，如MemTotal、MemFree等。<tr><td>LOGGER_MEMCHECK_SMAPS_INFO<td>下方记录了该进程的smaps汇总信息。<tr><td>LOGGER_MEMCHECK_SAMPLE_NMD_INFO<td>下方记录了该进程的两次jemalloc的申请情况（两次记录间隔5min），系统会根据两次NMD信息抓取内存栈。<tr><td>LOGGER_MEMCHECK_DETIAL_INFO<td>下方记录了该进程的jemalloc快照详细信息。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Generated by HiviewDFX @HarmonyOS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_GERNAL_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> pidNumber: 2017</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> processName: process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> PidStartTime: 1602</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> RealPssMemory: 83505</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_MEMINFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MemTotal:                             11332540 kB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MemFree:                               1686056 kB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SMAPS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[memory]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                    Shared      Shared      Private     Private</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Size        Rss         Pss         Clean       Dirty       Clean       Dirty       Swap        SwapPss     Counts                        Name</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">2048        0           0           0           0           0           0           0           0           1                             /dev/__parameters__/param_sec_dac</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">45778196    744068      827123      213560      55288       403304      71916       308888      308888      6500                          Summary</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SAMPLE_NMD_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            size       allocated         nmalloc         ndalloc</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">               8           17384          511848          509675</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              16          129376          338438          330352</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              32         1138816         1026155          990567</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              48         3161808         1322095         1256224</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              64         1869376          908151          878942</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SAMPLE_NMD_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            size       allocated         nmalloc         ndalloc</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">               8           17384          511848          509675</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              16          129376          338438          330352</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              32         1138816         1026155          990567</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              48         3161808         1322095         1256224</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              64         1869376          908151          878942</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ASHMEM_PROCESS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process_name Process_ID Fd Cnode_idx Applicant_Pid Ashmem_name Virtual_size Physical_size magic</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX           816             22      328234  816     dev/ashmem/PolicyVolumeMap      541             4096            7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">******************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_DETIAL_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">allocated         nmalloc   (#/sec)         ndalloc   (#/sec)       nrequests   (#/sec)           nfill   (#/sec)          nflush   (#/sec)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">small:                      183785560        12591759       619        10371251       510         1289491        63         1313204        64          956094        47</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">large:                       31059968            3359         0            2946         0            3359         0            3359         0               0         0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">total:                      214845528        12595118       619        10374197       510         1292850        63         1316563        64          956094        47</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bins:           size ind    allocated      nmalloc (#/sec)      ndalloc (#/sec)    nrequests   (#/sec)  nshards      curregs     curslabs  nonfull_slabs regs pgs   util       nfills (#/sec)     nflushes (#/sec)       nslabs     nreslabs (#/sec)      n_lock_ops (#/sec)       n_waiting (#/sec)      n_spin_acq (#/sec)  n_owner_switch (#/sec)   total_wait_ns   (#/sec)     max_wait_ns  max_n_thds</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">8   0       198920       163820       8       138955       6       119703         5        1        24865           56             19  512   1  0.867         6526       0         4008       0           96        26995       1           10990       0               0       0               0       0            1226       0               0         0               0           0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">16   1      1802688      1143707      56      1031039      50       221165        10        1       112668          563            309  256   1  0.781       105471       5        82548       4         1942        80503       3          191126       9               0       0              14       0            4316       0               0         0               0           0</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">32   2      9954560      1867465      91      1556385      76       267993        13        1       311080         2614            503  128   1  0.929       177825       8       136745       6         7713       176923       8          325128      15               2       0              52       0            8139       0               0         0               0           1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">48   3     35382816      3763756     185      3026614     148       300952        14        1       737142         2953            220  256   3  0.975       371881      18       283650      13        12022        60637       2          667997      32               2       0              17       0            2725       0               0         0               0           1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>“LOGGER_MEMCHECK_SAMPLE_NMD_INFO”与“LOGGER_MEMCHECK_DETIAL_INFO”均为进程jemalloc快照，区别在于：</p>
+<ol>
+<li class="">LOGGER_MEMCHECK_SAMPLE_NMD_INFO：单次维测连续采样2次，间隔为5分钟，内容包含size、allocated、nmalloc、ndalloc等四列内存申请相关信息；</li>
+<li class="">LOGGER_MEMCHECK_DETIAL_INFO：单次维测仅采样1次，内容包含进程jemalloc的完整信息。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存栈>内存栈<a href=#内存栈 class=hash-link aria-label=内存栈的直接链接 title=内存栈的直接链接 translate=no>​</a></h3>
+<p><strong><strong>栈信息日志文件：</strong></strong> memleak-native-[process_name]-[pid]-[timestamp].txt</p>
+<ul>
+<li class="">
+<p>检测到泄漏后抓取<strong><strong>15min内的进程内存trace</strong></strong>，可将日志如下图通过Open File加载到DevEco Studio进行解析。</p>
+<p><img decoding=async loading=lazy src=data:image/png;base64,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 width=321 height=214 class=img_ev3q /></p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>系统自动抓的调用栈（memleak-native-[process_name]-[pid]-[timestamp].txt）<strong><strong>无法直接在DevEco Studio打开，需要修改后缀名为.nas</strong></strong>。</p>
+</li>
+<li class="">
+<p><strong><strong>All Heap：</strong></strong> 选择后展示抓取15分钟内的内存情况，记录了hook malloc等系统调用的堆栈。Native日志是以so+偏移的形式展示调用栈（每一行表示一次内存分配行为调用栈），需要结合符号表进一步分析。</p>
+<p>点击Call Trees可以查看抓取进程的调用栈，筛选“Created & Existing”，根据没有释放的内存占比排序，展开可查看详细进程调用信息，优先排查内存占用较高的堆栈。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438537-ff4c4e796c85cc0ab9b94ca8966a54a2.png width=1403 height=675 class=img_ev3q /></p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">部分栈单看Existing可能感觉泄漏不大或者和检测到的内存峰值相差很多，但是栈里只是抓取的是15分钟内的堆栈信息和内存申请，很多进程泄漏是以几十甚至几百小时为单位的，长时间的泄漏达到上报时的泄漏大小。</li>
+</ol>
+</li>
+<li class="">
+<p><strong><strong>All Anonymous VM：</strong></strong> 选择后记录了当前hook mmap系统调用的堆栈信息。</p>
+<p>同样选择“Created & Existing”，表示在hook抓取内存申请未释放的。长度越长代表在剩余内存中占用越多，优先排查。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552958492-2c1ec42aa7f3599949a53f2161d594d9.png width=993 height=695 class=img_ev3q /></p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=native泄漏聚类规则>native泄漏聚类规则<a href=#native泄漏聚类规则 class=hash-link aria-label=native泄漏聚类规则的直接链接 title=native泄漏聚类规则的直接链接 translate=no>​</a></h3>
+<p>应用程序在同一或不同版本上、不同时间产生的泄漏问题可能为同一原因，开发者可以从故障日志中提取故障特征，根据故障特征将多份故障日志进行聚类，以提高泄漏问题的分析效率。</p>
+<p>对于PSS_MEMORY故障，系统会发送两份故障日志给开发者进行分析，故障日志一（<a href=#%E5%86%85%E5%AD%98%E7%BB%B4%E6%B5%8B class="">内存维测</a>）用于存储进程的部分轻量化信息，如：smaps、ashmem、NMD等；故障日志二（<a href=#%E5%86%85%E5%AD%98%E6%A0%88 class="">内存栈</a>）中用于存储系统检测到进程pss泄漏后抓取的栈信息。</p>
+<ol>
+<li class="">
+<p>对故障日志一中的进程“LOGGER_MEMCHECK_SMAPS_INFO”信息进行分析，根据以下表格所列方法计算各类型内存占比，筛选占比最高的内存泄漏类型。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>内存泄漏类型<th>计算方法<tbody><tr><td>虚拟机对象泄漏<td>搜索关键字“ArkTS”，计算“Pss”列和“SwapPss”列之和占总内存比例。<tr><td>堆内存泄漏<td>搜索关键字“jemalloc”，计算“Pss”列和“SwapPss”列之和占总内存比例。<tr><td>ashmem内存泄漏<td>搜索关键字“/dev/ashmem”，计算“Pss”列和“SwapPss”列之和占总内存比例。<tr><td>anon类型内存较大<td>搜索关键字“[anon]”，计算“Pss”列和“SwapPss”列之和占总内存比例。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">每一行“Pss”列以及“SwapPss”列之和为对应内存块的申请大小。</li>
+<li class="">“Name”列为内存块的内存标签。</li>
+</ol>
+</li>
+<li class="">
+<p>筛选出占比最高的内存泄漏类型后，可以根据以下规则进一步提取故障特征：</p>
+<ul>
+<li class="">
+<p>虚拟机对象：筛选内存申请最大的内存标签作为故障特征，如：从以下日志中提取的故障标签为“[anon:ArkTS Heapsemi space]”。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SMAPS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[memory]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                    Shared      Shared      Private     Private</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Size        Rss         Pss        Clean       Dirty         Clean       Dirty       Swap        SwapPss     Counts                 Name</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">1662976     68744       68744       0           0           68744       0           0           0           525                     [anon:ArkTS Heap]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">5632        5600        2261        3452        0           2148        0           0           0           22                      [anon:ArkTS Heapappspawn space]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">98304       74012       74012       0           0           74012       0           0           0           307                     [anon:ArkTS Heapsemi space]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">...</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>堆内存：筛选内存申请最大的内存标签作为故障特征，如：从以下日志中提取的故障标签为“[anon:native_heap:jemalloc]”。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SMAPS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[memory]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                    Shared      Shared      Private     Private</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Size        Rss         Pss        Clean       Dirty         Clean       Dirty       Swap        SwapPss     Counts                 Name</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">327168      171464      146921      25416       0           146048      0           0           0           17                      [anon:native_heap:jemalloc]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">24600       3924        3586        348         0           3576        0           0           0           18                      [anon:native_heap:jemalloc meta]</span><br/></div></code></pre></div></div>
+<p>如果存在内存调用栈，可以根据NMD维测找到占用最高的内存区间，并结合抓取的调用栈维测聚类到具体代码段或者so作为怀疑点，具体分析方法可参考<a href=https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section1658571616574 target=_blank rel="noopener noreferrer" class="">Native泄漏分析方法</a>。</p>
+</li>
+<li class="">
+<p>ashmem内存：参考<a href=#ashmemiongpugpu_rs%E8%81%9A%E7%B1%BB%E8%A7%84%E5%88%99 class="">ashmem聚类规则</a>。</p>
+</li>
+<li class="">
+<p>anon内存：筛选内存申请最大的内存标签作为故障特征，如：从以下日志中提取的故障标签为“[anon]”。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_SMAPS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[memory]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                                    Shared      Shared      Private     Private</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Size        Rss         Pss        Clean       Dirty         Clean       Dirty       Swap        SwapPss     Counts                 Name</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">38760       528         524         4           0           524         0           0           0           56                      [anon]</span><br/></div></code></pre></div></div>
+<p>如果存在内存调用栈，可通过分析调用栈中占比较高的聚类到具体代码段或者so作为怀疑点，具体分析方法可参考<a href=https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section1658571616574 target=_blank rel="noopener noreferrer" class="">Native泄漏分析方法</a>。</p>
+</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>对于nolog版本，默认不开启抓栈，因此推荐开发者根据smaps信息对PSS内存占用的类型进行初步聚类。</p>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ashmemiongpugpu_rs内存泄漏日志规格>ashmem/ion/gpu/gpu_rs内存泄漏日志规格<a href=#ashmemiongpugpu_rs内存泄漏日志规格 class=hash-link aria-label=ashmem/ion/gpu/gpu_rs内存泄漏日志规格的直接链接 title=ashmem/ion/gpu/gpu_rs内存泄漏日志规格的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存采样-1>内存采样<a href=#内存采样-1 class=hash-link aria-label=内存采样的直接链接 title=内存采样的直接链接 translate=no>​</a></h3>
+<ul>
+<li class="">
+<p>日志文件：memleak-kernel-[module]-0-sample.txt（<strong><strong>方式一</strong></strong>）或 RESOURCE_OVERLIMIT_[TIMESTAMP]_[PID].log（<strong><strong>方式三</strong></strong>）。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>memoryName<td>内核内存类型，如果发现进程存在泄漏（超过系统设定基线），会显示为该泄漏进程的进程名；如果memoryName打印类型为：ashmem/gpu/ion，则说明无进程泄漏。<tr><td>softThreshold<td>系统设定的软门限（超过8个采样周期，即30+分钟超过软门限后判定泄漏），单位：KB。<tr><td>hardThreshold<td>系统设定的硬门限（单次超过硬门限后判定泄漏），单位：KB。<tr><td>topMemory<td>检测到的内核内存峰值，单位：KB。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">memoryName:gpu</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">softThreshold:2300(MB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hardThreshold:3450(MB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">topMemory:4876824(KB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">time(s) kernelMemory(KB)realtime</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">247681  4876824         2024/06/24 08:27:52</span><br/></div></code></pre></div></div>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存维测-1>内存维测<a href=#内存维测-1 class=hash-link aria-label=内存维测的直接链接 title=内存维测的直接链接 translate=no>​</a></h3>
+<p>日志文件：memleak-kernel-[module]-0-[timestamp].txt <strong><strong>（方式一）</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>LOGGER_MEMCHECK_MEMINFO<td>整机内存信息概览。<tr><td>LOGGER_MEMCHECK_PROC_INFO<td>ashmem/ion/gpu对应泄漏内存节点信息打印（泄漏类型不同，落盘内容不同）。<tr><td>LOGGER_PROCESS_DMABUF_INFO<td>ion内存泄漏时获取的特殊节点内容，包含更多的内存块使用信息。<tr><td>LOGGER_MEMCHECK_RENDER_SERVICE_MEM<td>Render_service进程的内存使用情况。</table>
+<p>检测到ashmem/gpu/ion内存泄漏时，会抓取整机ashmem/gpu/ion内存信息，ashmem/ion与句柄泄漏ashmem/dmabuf日志规格相同，参考ashmem/dmabuf类型句柄。</p>
+<p>日志抬头：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Generated by HiviewDFX @HarmonyOS</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_GERNAL_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">memoryName:ion</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">softThreshold:2800(MB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">hardThreshold:4200(MB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">appHardThreshold:4096(MB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">topMemory:0(KB)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_MEMINFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MemTotal:       11738500 kB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MemFree:          116204 kB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MemAvailable:      95232 kB</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Buffers:               0 kB</span><br/></div></code></pre></div></div>
+<p>日志文件内“LOGGER_MEMCHECK_PROC_INFO”会根据内存泄漏类型不同，落盘对应的内存信息，具体如下：</p>
+<ul>
+<li class="">
+<p>ashmem内存泄漏：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">realtime:       2025/05/30 19:52:42</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process ashmem overview info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process_name Virtual_size Physical_size</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Total ashmem  of [XXXXXX] virtual size is  541, physical size is 4096</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Total ashmem  of [XXXXXX] virtual size is  299008, physical size is 299008</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Total ashmem  of [XXXXXX] virtual size is  37574896, physical size is 37470208</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process ashmem detail info:</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process_name    Process_ID      Fd      Cnode_idx       Applicant_Pid   Ashmem_name     Virtual_size    Physical_size   magic</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX    816     22      328234  816     dev/ashmem/PolicyVolumeMap      541     4096    7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">---------------------------------------------------------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_RENDER_SERVICE_MEM</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">get info realtime:      2025/05/30 19:52:42</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[ability]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------RenderService----------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>ion内存泄漏：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MM_DMABUF_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">realtime: 2025/07/26 14:19:58</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process pid fd size_bytes ino exp_pid exp_task_comm buf_name exp_name buf_type</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1        1563 71 13926400 25690 11187 allocator_host 11563 mm_heap_helpers xcomponent</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1        1563 75 1024000000 21095 11187 allocator_host 11563 mm_heap_helpers NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1        1563 77 1024000000 11557 11187 allocator_host 11563 mm_heap_helpers NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1        1563 79 1024000000 26747 11187 allocator_host 11563 mm_heap_helpers NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_RENDER_SERVICE_MEM</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">get info realtime:      2025/05/30 21:17:39</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[ability]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------RenderService----------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div></code></pre></div></div>
+<p>从HarmonyOS6.0.0开始，ion内存维测信息增加buf_name、leak_type等列，变更为以下形式：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MM_DMABUF_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process       pid     fd  size_bytes  ino          exp_pid    exp_task_comm   buf_name    exp_name          buf_type    leak_type</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1      65141   268 274432      430936       42829      allocator_host  65141       mm_heap_helpers   NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div></code></pre></div></div>
+<p>字段说明：</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>字段<th>说明<tbody><tr><td>Process<td>持有ION内存块的应用进程包名（16个字符截断）。<tr><td>pid<td>发生故障进程pid。<tr><td>fd<td>进程持有的句柄。<tr><td>size_bytes<td>进程持有的ION内存buffer大小，单位：B。<tr><td>ino<td>文件inode号（索引节点号）。<tr><td>exp_pid<td>从内核申请ION内存的进程pid。<tr><td>exp_task_comm<td>从内核申请ION内存的进程名。<tr><td>buf_name<td>ION内存的buffer名字。<tr><td>exp_name<td>ION内存的buffer扩展名。<tr><td>buf_type<td>ION内存的buffer类型。<tr><td>leak_type<td>ION内存泄漏维测的buffer类型。</table>
+</li>
+<li class="">
+<p>gpu/gpu_rs内存泄漏：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">GPU_PROCESS_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">render_service</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ctx_1       1689       1455 used summary:3362426880 grow:0 driver:10432512 kmd:3260416 jit:131072</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Channel: xx default device (Total memory: 730594)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  1:                    2 / 2</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  6:                    4 / 160</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  7:                    6 / 384</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  8:                  163 / 20928</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  9:                 1573 / 604160</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> 10:                   48 / 24576</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> 11:                    2 / 2048</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> 13:                    2 / 12800</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> 15:                    4 / 65536</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_RENDER_SERVICE_MEM</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">get info realtime:      2025/05/30 21:16:01</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">-------------------------------[ability]-------------------------------</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">----------------------------------RenderService----------------------------------</span><br/></div></code></pre></div></div>
+<p>字段说明：</p>
+<ul>
+<li class="">
+<p>“ctx_1 1689 1455 used summary:3362426880 grow:0 driver:10432512 kmd:3260416 jit:131072</p>
+<p>process1”表示上下文ctx_1是由进程“process1”创建的，这个进程的进程号为“1455”，线程号为“1689”，总使用量为：“3362426880”字节。</p>
+</li>
+<li class="">
+<p>“Channel: xx default device (Total memory: 730594)”表示进程申请的“xx default device”类型的gpu内存大小为730594字节。</p>
+</li>
+<li class="">
+<p>“15: 4 / 65536” 表示 2^14~2^15大小的内存块申请了4次，总共申请了65536字节的内存。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">gpu_rs内存泄漏与gpu泄漏的区别在于：gpu是应用自渲染发生的泄漏，gpu_rs是通过进程render_service进行统一渲染发生的泄漏。</li>
+<li class="">在资源泄漏资料中，ion、dmaheap、dmabuf 可理解为同一种内存类型，不作强区分。</li>
+<li class="">当前日志规格不代表维测的最终形态，后续会根据版本问题以及用户原声增加维测信息，变更形式包括但不限于行、列、段落等。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=内存栈-1>内存栈<a href=#内存栈-1 class=hash-link aria-label=内存栈的直接链接 title=内存栈的直接链接 translate=no>​</a></h3>
+<p>从HarmonyOS 6.0.0开始，支持抓取gpu内存申请的调用栈以分析进程gpu泄漏问题。检测到泄漏后会收集15分钟内的gpu内存申请trace，开发者可本地搭建<a href=https://gitcode.com/openharmony-sig/smartperf target=_blank rel="noopener noreferrer" class="">Smartper</a>f环境并导入Profiler日志进行解析。</p>
+<p>日志文件名称：memleak-kernel-[module]-[pid]-[timestamp].txt</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ashmemiongpugpu_rs聚类规则>ashmem/ion/gpu/gpu_rs聚类规则<a href=#ashmemiongpugpu_rs聚类规则 class=hash-link aria-label=ashmem/ion/gpu/gpu_rs聚类规则的直接链接 title=ashmem/ion/gpu/gpu_rs聚类规则的直接链接 translate=no>​</a></h3>
+<p>应用程序在同一或不同版本上、不同时间产生的泄漏问题可能为同一原因，开发者可以从故障日志中提取故障特征，根据故障特征将多份故障日志进行聚类，以提高泄漏问题的分析效率。</p>
+<p><strong><strong>ashmem聚类规则</strong></strong></p>
+<ol>
+<li class="">
+<p>提取故障日志中的ashmem维测信息进行聚类，如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">Process_name    Process_ID      Fd      Cnode_idx       Applicant_Pid   Ashmem_name                     Virtual_size    Physical_size  magic</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX           816             22      328234          816             dev/ashmem/PolicyVolumeMap      541             4096            7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX           816             22      328234          816             dev/ashmem/PolicyVolumeMap      541             4096            7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX           816             22      328234          816             dev/ashmem/inputBuffer          541             1024            7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">XXXXX           816             22      328234          816             dev/ashmem/outputBuffer         541             512             7</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">......</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>分析ashmem维测中的“Ashmem_name”字段，来确认是否为同一类型的buffer泄漏，并将“Physical_size”列之和占比最高的buffer作为本次故障的故障特征。</p>
+</li>
+</ol>
+<p><strong><strong>ion聚类规则</strong></strong></p>
+<ol>
+<li class="">
+<p>提取故障日志中的ion维测信息来进行聚类，如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">*****************************</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">LOGGER_MEMCHECK_PROC_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">MM_DMABUF_INFO</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Process     pid      fd         size_bytes    ino        exp_pid      exp_task_comm    buf_name                                                                         exp_name           buf_type    leak_type</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    246        278528        432510     42829        allocator_host    65141                                                                           mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    247        266240        434225     42829        allocator_host    65141                                                                           mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    248        274432        430933     42829        allocator_host    65141                                                                           mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    264        14036992      432500     42829        allocator_host    https://xxxx/xxxxx.png                                                          mm_heap_helpers    pixelmap    pixelmap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    266        14036992      426988     42829        allocator_host    https://xxxx/xxxxx.png                                                          mm_heap_helpers    pixelmap    pixelmap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    268        14036992      430936     42829        allocator_host    https://xxxx/xxxxx.png                                                          mm_heap_helpers    pixelmap    pixelmap</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    258        4493312       432499     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    260        4493312       426987     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    262        4493312       431689     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    254        4493312       430935     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    256        4493312       431688     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    250        4493312       432498     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">process1    65141    252        4493312       430934     42829        allocator_host    srcImageSize-2160x2880-pixelMapSize-2160x2880-streamsize-761322-mimetype-webp   mm_heap_helpers    NULL        NULL</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">************ endl ************</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>根据“leak_type”和“buf_name”对buffer进行分类，提取出“size_bytes”之和占比最高buffer的“buf_name”作为本次故障的故障特征。分析细节可参考<a href=https://developer.huawei.com/consumer/cn/doc/best-practices/bpta-stability-leak-way#section5493141412410 target=_blank rel="noopener noreferrer" class="">ION泄漏分析方法</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>如果“leak_type”为NULL，可能存在多种类型的buffer，可以直接通过“buf_name”进行区分。</p>
+</li>
+</ol>
+<p><strong><strong>gpu/gpu_rs聚类规则</strong></strong></p>
+<ol>
+<li class="">
+<p>解析故障日志中提供的gpu维测信息，统计包含“Total memory:”字段的行并解析出对应类型gpu内存的占用，筛选占用最高的gpu内存类型作为故障特征。如以下维测中，“host default memory”类型的gpu内存占用为“1789351”字节，可以作为故障特征进行聚类：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">C: cq memory(not in total memory) (Total memory: 4096)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">13:                    1 / 4096</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C: vulkan external memory(not in total memory) (Total memory: 0)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">(empty)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">C: host default memory (Total memory: 1789351)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  5:                  269 / 4304</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  6:                  370 / 15792</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  7:                  401 / 33088</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  8:                   96 / 14240</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  9:                  449 / 141696</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  10:                  265 / 173143</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  11:                  172 / 236391</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  12:                   68 / 187012</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  13:                   35 / 197576</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  14:                   17 / 251573</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  15:                    6 / 108304</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  16:                    1 / 51736</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  17:                    1 / 84184</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  19:                    1 / 290312</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>聚类到gpu内存类型后，筛选出其中占用最大的内存段并进行聚类。</p>
+</li>
+</ol>
+<p><img decoding=async loading=lazy src="data:image/png;base64,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" width=102 height=38 class=img_ev3q /></p>
+<p>不同的芯片平台中，gpu表现形式会存在差异：</p>
+<p>C: host default memory (Total memory: 1789351)。</p>
+<p>Channel: Texture (Total memory: 1789351)。</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/appfreeze-guidelines/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>AppFreeze（应用冻屏）检测</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/system-debug-optimize/performance-analysis-kit/fault-analysis/apptask-timeout-guidelines/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>任务超时检测</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#简介 class="table-of-contents__link toc-highlight">简介</a><li><a href=#基本概念 class="table-of-contents__link toc-highlight">基本概念</a><li><a href=#实现原理 class="table-of-contents__link toc-highlight">实现原理</a><li><a href=#约束和限制 class="table-of-contents__link toc-highlight">约束和限制</a><li><a href=#日志获取 class="table-of-contents__link toc-highlight">日志获取</a><li><a href=#句柄泄漏日志规格 class="table-of-contents__link toc-highlight">句柄泄漏日志规格</a><ul><li><a href=#日志头部信息 class="table-of-contents__link toc-highlight">日志头部信息</a><li><a href=#句柄类型详细信息 class="table-of-contents__link toc-highlight">句柄类型详细信息</a><li><a href=#特殊类型句柄维测信息 class="table-of-contents__link toc-highlight">特殊类型句柄维测信息</a><li><a href=#句柄栈信息 class="table-of-contents__link toc-highlight">句柄栈信息</a><li><a href=#句柄泄漏聚类规则 class="table-of-contents__link toc-highlight">句柄泄漏聚类规则</a></ul><li><a href=#线程泄漏日志规格 class="table-of-contents__link toc-highlight">线程泄漏日志规格</a><ul><li><a href=#日志头部信息-1 class="table-of-contents__link toc-highlight">日志头部信息</a><li><a href=#线程类泄漏详细信息 class="table-of-contents__link toc-highlight">线程类泄漏详细信息</a><li><a href=#线程泄漏聚类规则 class="table-of-contents__link toc-highlight">线程泄漏聚类规则</a></ul><li><a href=#js内存泄漏日志规格 class="table-of-contents__link toc-highlight">JS内存泄漏日志规格</a><ul><li><a href=#js泄漏聚类规则 class="table-of-contents__link toc-highlight">JS泄漏聚类规则</a></ul><li><a href=#native内存泄漏日志规格 class="table-of-contents__link toc-highlight">native内存泄漏日志规格</a><ul><li><a href=#内存采样 class="table-of-contents__link toc-highlight">内存采样</a><li><a href=#内存维测 class="table-of-contents__link toc-highlight">内存维测</a><li><a href=#内存栈 class="table-of-contents__link toc-highlight">内存栈</a><li><a href=#native泄漏聚类规则 class="table-of-contents__link toc-highlight">native泄漏聚类规则</a></ul><li><a href=#ashmemiongpugpu_rs内存泄漏日志规格 class="table-of-contents__link toc-highlight">ashmem/ion/gpu/gpu_rs内存泄漏日志规格</a><ul><li><a href=#内存采样-1 class="table-of-contents__link toc-highlight">内存采样</a><li><a href=#内存维测-1 class="table-of-contents__link toc-highlight">内存维测</a><li><a href=#内存栈-1 class="table-of-contents__link toc-highlight">内存栈</a><li><a href=#ashmemiongpugpu_rs聚类规则 class="table-of-contents__link toc-highlight">ashmem/ion/gpu/gpu_rs聚类规则</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

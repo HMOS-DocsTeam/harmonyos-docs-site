@@ -1,0 +1,879 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>vulkan_ohos.h | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="vulkan_ohos.h | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=概述 /><meta data-rh=true property=og:description content=概述 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h","name":"vulkan_ohos.h","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/musl/musl><span title=libc标准库 class=linkLabel_WmDU>libc标准库</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/cpp/cpp><span title=c++标准库 class=linkLabel_WmDU>c++标准库</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/napi/napi><span title=Node-API class=linkLabel_WmDU>Node-API</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/libuv/libuv><span title=libuv class=linkLabel_WmDU>libuv</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/opensles/opensles><span title="OpenSL ES" class=linkLabel_WmDU>OpenSL ES</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/opengles/opengles><span title="OpenGL ES" class=linkLabel_WmDU>OpenGL ES</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/opengl/opengl><span title=OpenGL class=linkLabel_WmDU>OpenGL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/egl/egl><span title=EGL class=linkLabel_WmDU>EGL</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/icu4c/icu4c><span title=ICU4C class=linkLabel_WmDU>ICU4C</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/zlib/zlib><span title=zlib class=linkLabel_WmDU>zlib</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-guides/vulkan-overview/vulkan-overview><span title=Vulkan class=categoryLinkLabel_W154>Vulkan</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-guides/vulkan-overview/vulkan-overview><span title=Vulkan开发指导 class=categoryLinkLabel_W154>Vulkan开发指导</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan/vulkan><span title=Vulkan支持能力 class=linkLabel_WmDU>Vulkan支持能力</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan/capi-vulkan><span title=Vulkan扩展能力 class=categoryLinkLabel_W154>Vulkan扩展能力</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan/capi-vulkan><span title=Vulkan class=linkLabel_WmDU>Vulkan</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h><span title=vulkan_ohos.h class=linkLabel_WmDU>vulkan_ohos.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vksurfacecreateinfoohos/capi-vulkan-vksurfacecreateinfoohos><span title=VkSurfaceCreateInfoOHOS class=linkLabel_WmDU>VkSurfaceCreateInfoOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferohos/capi-vulkan-vknativebufferohos><span title=VkNativeBufferOHOS class=linkLabel_WmDU>VkNativeBufferOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkswapchainimagecreateinfoohos/capi-vulkan-vkswapchainimagecreateinfoohos><span title=VkSwapchainImageCreateInfoOHOS class=linkLabel_WmDU>VkSwapchainImageCreateInfoOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/x-vulkan-vkphysicaldevicepresentationpropertiesohos/x-vulkan-vkphysicaldevicepresentationpropertiesohos><span title=VkPhysicalDevicePresentationPropertiesOHOS class=linkLabel_WmDU>VkPhysicalDevicePresentationPropertiesOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferusageohos/capi-vulkan-vknativebufferusageohos><span title=VkNativeBufferUsageOHOS class=linkLabel_WmDU>VkNativeBufferUsageOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferpropertiesohos/capi-vulkan-vknativebufferpropertiesohos><span title=VkNativeBufferPropertiesOHOS class=linkLabel_WmDU>VkNativeBufferPropertiesOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferformatpropertiesohos/capi-vulkan-vknativebufferformatpropertiesohos><span title=VkNativeBufferFormatPropertiesOHOS class=linkLabel_WmDU>VkNativeBufferFormatPropertiesOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkimportnativebufferinfoohos/capi-vulkan-vkimportnativebufferinfoohos><span title=VkImportNativeBufferInfoOHOS class=linkLabel_WmDU>VkImportNativeBufferInfoOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkmemorygetnativebufferinfoohos/capi-vulkan-vkmemorygetnativebufferinfoohos><span title=VkMemoryGetNativeBufferInfoOHOS class=linkLabel_WmDU>VkMemoryGetNativeBufferInfoOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkexternalformatohos/capi-vulkan-vkexternalformatohos><span title=VkExternalFormatOHOS class=linkLabel_WmDU>VkExternalFormatOHOS</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-nativewindow/capi-vulkan-nativewindow><span title=NativeWindow class=linkLabel_WmDU>NativeWindow</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohbufferhandle/capi-vulkan-ohbufferhandle><span title=OHBufferHandle class=linkLabel_WmDU>OHBufferHandle</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer><span title=OH_NativeBuffer class=linkLabel_WmDU>OH_NativeBuffer</span></a></ul></ul><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/hitss-api-ref/hitss-api-ref><span title=HiTSS class=linkLabel_WmDU>HiTSS</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/appendixes/musl-peculiar-symbol/musl-peculiar-symbol><span title=附录 class=categoryLinkLabel_W154>附录</span></a></div></ul></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>标准库</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Vulkan</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Vulkan扩展能力</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>vulkan_ohos.h</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>vulkan_ohos.h</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=概述>概述<a href=#概述 class=hash-link aria-label=概述的直接链接 title=概述的直接链接 translate=no>​</a></h2>
+<p>定义了HarmonyOS平台扩展的Vulkan接口。</p>
+<p><strong><strong>引用文件：</strong></strong> &lt;vulkan/vulkan_ohos.h></p>
+<p><strong><strong>库：</strong></strong> libvulkan.so</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>相关模块：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan/capi-vulkan>Vulkan</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=汇总>汇总<a href=#汇总 class=hash-link aria-label=汇总的直接链接 title=汇总的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=结构体>结构体<a href=#结构体 class=hash-link aria-label=结构体的直接链接 title=结构体的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vksurfacecreateinfoohos/capi-vulkan-vksurfacecreateinfoohos>VkSurfaceCreateInfoOHOS</a><td>VkSurfaceCreateInfoOHOS<td>包含创建Vulkan Surface时必要的参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferohos/capi-vulkan-vknativebufferohos>VkNativeBufferOHOS</a><td>VkNativeBufferOHOS<td>包含本地显存的参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkswapchainimagecreateinfoohos/capi-vulkan-vkswapchainimagecreateinfoohos>VkSwapchainImageCreateInfoOHOS</a><td>VkSwapchainImageCreateInfoOHOS<td>包含创建Image时必要的参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/x-vulkan-vkphysicaldevicepresentationpropertiesohos/x-vulkan-vkphysicaldevicepresentationpropertiesohos>VkPhysicalDevicePresentationPropertiesOHOS</a><td>VkPhysicalDevicePresentationPropertiesOHOS<td>包含设备的显示属性的参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferusageohos/capi-vulkan-vknativebufferusageohos>VkNativeBufferUsageOHOS</a><td>VkNativeBufferUsageOHOS<td>提供HarmonyOS NativeBuffer用途的说明。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferpropertiesohos/capi-vulkan-vknativebufferpropertiesohos>VkNativeBufferPropertiesOHOS</a><td>VkNativeBufferPropertiesOHOS<td>包含了NativeBuffer的属性。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferformatpropertiesohos/capi-vulkan-vknativebufferformatpropertiesohos>VkNativeBufferFormatPropertiesOHOS</a><td>VkNativeBufferFormatPropertiesOHOS<td>包含了NativeBuffer的一些格式属性。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkimportnativebufferinfoohos/capi-vulkan-vkimportnativebufferinfoohos>VkImportNativeBufferInfoOHOS</a><td>VkImportNativeBufferInfoOHOS<td>包含了OH_NativeBuffer结构体的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkmemorygetnativebufferinfoohos/capi-vulkan-vkmemorygetnativebufferinfoohos>VkMemoryGetNativeBufferInfoOHOS</a><td>VkMemoryGetNativeBufferInfoOHOS<td>用于从Vulkan内存中获取OH_NativeBuffer。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkexternalformatohos/capi-vulkan-vkexternalformatohos>VkExternalFormatOHOS</a><td>VkExternalFormatOHOS<td>表示外部定义的格式标识符。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-nativewindow/capi-vulkan-nativewindow>NativeWindow</a><td>OHNativeWindow<td>本地窗口。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohbufferhandle/capi-vulkan-ohbufferhandle>OHBufferHandle</a><td>-<td>缓冲区句柄，用于对缓冲区的信息传递和获取。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer>OH_NativeBuffer</a><td>-<td>OH_NativeBuffer结构体声明。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举>枚举<a href=#枚举 class=hash-link aria-label=枚举的直接链接 title=枚举的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a href=#vkswapchainimageusageflagbitsohos class="">VkSwapchainImageUsageFlagBitsOHOS</a><td>VkSwapchainImageUsageFlagBitsOHOS<td>图像使用标志位。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=宏定义>宏定义<a href=#宏定义 class=hash-link aria-label=宏定义的直接链接 title=宏定义的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>描述<tbody><tr><td>VK_OHOS_surface 1<td>HarmonyOS平台Surface扩展宏定义。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_SURFACE_SPEC_VERSION 1<td>HarmonyOS平台Surface扩展版本号。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_SURFACE_EXTENSION_NAME "VK_OHOS_surface"<td>HarmonyOS平台Surface扩展名。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_native_buffer 1<td>native_buffer扩展宏定义。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_NATIVE_BUFFER_SPEC_VERSION 1<td>native_buffer扩展版本号。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_NATIVE_BUFFER_EXTENSION_NAME "VK_OHOS_native_buffer"<td>native_buffer扩展名。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_external_memory 1<td>HarmonyOS平台external_memory扩展宏定义。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_EXTERNAL_MEMORY_SPEC_VERSION 1<td>HarmonyOS平台external_memory扩展版本号。  <strong><strong>起始版本：</strong></strong> 10<tr><td>VK_OHOS_EXTERNAL_MEMORY_EXTENSION_NAME "VK_OHOS_external_memory"<td>HarmonyOS平台external_memory扩展名。  <strong><strong>起始版本：</strong></strong> 10</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数>函数<a href=#函数 class=hash-link aria-label=函数的直接链接 title=函数的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a href=#pfn_vkcreatesurfaceohos class="">VkResult (VKAPI_PTR PFN_vkCreateSurfaceOHOS)(VkInstance instance, const VkSurfaceCreateInfoOHOS pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)</a><td>PFN_vkCreateSurfaceOHOS<td>创建Vulkan Surface的函数指针定义。<tr><td><a href=#vkcreatesurfaceohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkCreateSurfaceOHOS(VkInstance instance, const VkSurfaceCreateInfoOHOS* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)</a><td>-<td>创建Vulkan Surface。<tr><td><a href=#pfn_vkgetnativebufferpropertiesohos class="">VkResult (VKAPI_PTR PFN_vkGetNativeBufferPropertiesOHOS)(VkDevice device, const struct OH_NativeBuffer buffer, VkNativeBufferPropertiesOHOS* pProperties)</a><td>PFN_vkGetNativeBufferPropertiesOHOS<td>获取OH_NativeBuffer属性的函数指针定义。<tr><td><a href=#pfn_vkgetmemorynativebufferohos class="">VkResult (VKAPI_PTR PFN_vkGetMemoryNativeBufferOHOS)(VkDevice device, const VkMemoryGetNativeBufferInfoOHOS pInfo, struct OH_NativeBuffer** pBuffer)</a><td>PFN_vkGetMemoryNativeBufferOHOS<td>获取OH_NativeBuffer的函数指针定义。<tr><td><a href=#vkgetnativebufferpropertiesohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeBufferPropertiesOHOS(VkDevice device, const struct OH_NativeBuffer* buffer, VkNativeBufferPropertiesOHOS* pProperties)</a><td>-<td>获取OH_NativeBuffer属性。<tr><td><a href=#vkgetmemorynativebufferohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkGetMemoryNativeBufferOHOS(VkDevice device, const VkMemoryGetNativeBufferInfoOHOS* pInfo, struct OH_NativeBuffer** pBuffer)</a><td>-<td>获取OH_NativeBuffer。<tr><td><a href=#vkgetswapchaingrallocusageohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkGetSwapchainGrallocUsageOHOS(VkDevice device, VkFormat format, VkImageUsageFlags imageUsage, uint64_t* grallocUsage)</a><td>-<td>根据给定的Vulkan设备、图像格式和图像使用标志, 返回适当的Gralloc(内存分配器)使用标志。<tr><td><a href=#vkacquireimageohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkAcquireImageOHOS(VkDevice device, VkImage image, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</a><td>-<td>用于获取交换链图像的所有权, 并将外部信号的Fence导入到VkSemaphore对象和VkFence对象中。<tr><td><a href=#vkqueuesignalreleaseimageohos class="">VKAPI_ATTR VkResult VKAPI_CALL vkQueueSignalReleaseImageOHOS(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</a><td>-<td>当前图像使用完毕后，通过该函数向系统硬件缓冲区发出释放信号, 以便其他组件可以访问该图像。<tr><td><a href=#vkapi_ptr-pfn_vksetnativefencefdopenharmony class="">VkResult (VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony)(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</a><td>VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony<td>该接口已废弃。<tr><td><a href=#vkapi_ptr-pfn_vkgetnativefencefdopenharmony class="">typedef VkResult (VKAPI_PTR PFN_vkGetNativeFenceFdOpenHarmony)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</a><td>VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony<td>该接口已废弃。<tr><td><a href=#vkapi_ptr-pfn_vkgetswapchaingrallocusageohos class="">VkResult (VKAPI_PTR PFN_vkGetSwapchainGrallocUsageOHOS)(VkDevice device, VkFormat format, VkImageUsageFlags imageUsage, uint64_t grallocUsage)</a><td>VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS<td>根据给定的Vulkan设备、图像格式和图像使用标志, 返回适当的Gralloc(内存分配器)使用标志。应用开发者无需使用该接口。<tr><td><a href=#vkapi_ptr-pfn_vkacquireimageohos class="">VkResult (VKAPI_PTR *PFN_vkAcquireImageOHOS)(VkDevice device, VkImage image, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</a><td>VKAPI_PTR *PFN_vkAcquireImageOHOS<td>用于获取交换链图像的所有权, 并将外部信号的Fence导入到VkSemaphore对象和VkFence对象中。应用开发者无需使用该接口。<tr><td><a href=#vkapi_ptr-pfn_vkqueuesignalreleaseimageohos class="">typedef VkResult (VKAPI_PTR PFN_vkQueueSignalReleaseImageOHOS)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</a><td>VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS<td>当前图像使用完毕后，通过该函数向系统硬件缓冲区发出释放信号, 以便其他组件可以访问该图像。应用开发者无需使用该接口。<tr><td><a href=#vksetnativefencefdopenharmony class="">VKAPI_ATTR VkResult VKAPI_CALL vkSetNativeFenceFdOpenHarmony(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</a><td>-<td>该接口已废弃。<tr><td><a href=#vkgetnativefencefdopenharmony class="">VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeFenceFdOpenHarmony(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</a><td>-<td>该接口已废弃。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举类型说明>枚举类型说明<a href=#枚举类型说明 class=hash-link aria-label=枚举类型说明的直接链接 title=枚举类型说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkswapchainimageusageflagbitsohos>VkSwapchainImageUsageFlagBitsOHOS<a href=#vkswapchainimageusageflagbitsohos class=hash-link aria-label=VkSwapchainImageUsageFlagBitsOHOS的直接链接 title=VkSwapchainImageUsageFlagBitsOHOS的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum VkSwapchainImageUsageFlagBitsOHOS</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>图像使用标志位。</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>VK_SWAPCHAIN_IMAGE_USAGE_SHARED_BIT_OHOS = 0x00000001<td>共享类型图像标志位。<tr><td>VK_SWAPCHAIN_IMAGE_USAGE_FLAG_BITS_MAX_ENUM_OHOS = 0x7FFFFFFF<td>最大值。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数说明>函数说明<a href=#函数说明 class=hash-link aria-label=函数说明的直接链接 title=函数说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=pfn_vkcreatesurfaceohos>PFN_vkCreateSurfaceOHOS()<a href=#pfn_vkcreatesurfaceohos class=hash-link aria-label=PFN_vkCreateSurfaceOHOS()的直接链接 title=PFN_vkCreateSurfaceOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkCreateSurfaceOHOS)(VkInstance instance, const VkSurfaceCreateInfoOHOS* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建Vulkan Surface的函数指针定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkInstance instance<td>Vulkan实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vksurfacecreateinfoohos/capi-vulkan-vksurfacecreateinfoohos>const VkSurfaceCreateInfoOHOS</a>* pCreateInfo<td>一个VkSurfaceCreateInfoOHOS结构体的指针，包含创建Vulkan Surface时必要的参数。<tr><td>const VkAllocationCallbacks* pAllocator<td>用户自定义内存分配的回调函数，如果不需要可以传入NULL，接口会使用默认的内存分配函数。<tr><td>VkSurfaceKHR* pSurface<td>出参，用于接收创建的Vulkan Surface，类型为VkSurfaceKHR。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkcreatesurfaceohos>vkCreateSurfaceOHOS()<a href=#vkcreatesurfaceohos class=hash-link aria-label=vkCreateSurfaceOHOS()的直接链接 title=vkCreateSurfaceOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkCreateSurfaceOHOS(VkInstance instance, const VkSurfaceCreateInfoOHOS* pCreateInfo, const VkAllocationCallbacks* pAllocator, VkSurfaceKHR* pSurface)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建Vulkan Surface。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkInstance instance<td>Vulkan实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vksurfacecreateinfoohos/capi-vulkan-vksurfacecreateinfoohos>const VkSurfaceCreateInfoOHOS</a>* pCreateInfo<td>一个VkSurfaceCreateInfoOHOS结构体的指针，包含创建Vulkan Surface时必要的参数。<tr><td>const VkAllocationCallbacks* pAllocator<td>用户自定义内存分配的回调函数，如果不需要可以传入NULL，接口会使用默认的内存分配函数。<tr><td>VkSurfaceKHR* pSurface<td>出参，用于接收创建的Vulkan Surface，类型为VkSurfaceKHR。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示分配VkSurfaceKHR内存失败。  返回VK_ERROR_SURFACE_LOST_KHR，表示操作NativeWindow失败。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=pfn_vkgetnativebufferpropertiesohos>PFN_vkGetNativeBufferPropertiesOHOS()<a href=#pfn_vkgetnativebufferpropertiesohos class=hash-link aria-label=PFN_vkGetNativeBufferPropertiesOHOS()的直接链接 title=PFN_vkGetNativeBufferPropertiesOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkGetNativeBufferPropertiesOHOS)(VkDevice device, const struct OH_NativeBuffer* buffer, VkNativeBufferPropertiesOHOS* pProperties)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取OH_NativeBuffer属性的函数指针定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer>struct OH_NativeBuffer</a>* buffer<td>OH_NativeBuffer结构体指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferpropertiesohos/capi-vulkan-vknativebufferpropertiesohos>VkNativeBufferPropertiesOHOS</a>* pProperties<td>用于接收OH_NativeBuffer属性的结构体。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=pfn_vkgetmemorynativebufferohos>PFN_vkGetMemoryNativeBufferOHOS()<a href=#pfn_vkgetmemorynativebufferohos class=hash-link aria-label=PFN_vkGetMemoryNativeBufferOHOS()的直接链接 title=PFN_vkGetMemoryNativeBufferOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkGetMemoryNativeBufferOHOS)(VkDevice device, const VkMemoryGetNativeBufferInfoOHOS* pInfo, struct OH_NativeBuffer** pBuffer)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取OH_NativeBuffer的函数指针定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkmemorygetnativebufferinfoohos/capi-vulkan-vkmemorygetnativebufferinfoohos>const VkMemoryGetNativeBufferInfoOHOS</a>* pInfo<td>VkMemoryGetNativeBufferInfoOHOS结构体对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer>struct OH_NativeBuffer</a>** pBuffer<td>用于接收获取到的OH_NativeBuffer。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，返回值为VK_SUCCESS表示执行成功。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkgetnativebufferpropertiesohos>vkGetNativeBufferPropertiesOHOS()<a href=#vkgetnativebufferpropertiesohos class=hash-link aria-label=vkGetNativeBufferPropertiesOHOS()的直接链接 title=vkGetNativeBufferPropertiesOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeBufferPropertiesOHOS(VkDevice device, const struct OH_NativeBuffer* buffer, VkNativeBufferPropertiesOHOS* pProperties)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取OH_NativeBuffer属性。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer>struct OH_NativeBuffer</a>* buffer<td>OH_NativeBuffer结构体指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vknativebufferpropertiesohos/capi-vulkan-vknativebufferpropertiesohos>VkNativeBufferPropertiesOHOS</a>* pProperties<td>用于接收OH_NativeBuffer属性的结构体。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR，表示入参存在异常。  返回VK_ERROR_OUT_OF_DEVICE_MEMORY，表示设备内存不足。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkgetmemorynativebufferohos>vkGetMemoryNativeBufferOHOS()<a href=#vkgetmemorynativebufferohos class=hash-link aria-label=vkGetMemoryNativeBufferOHOS()的直接链接 title=vkGetMemoryNativeBufferOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkGetMemoryNativeBufferOHOS(VkDevice device, const VkMemoryGetNativeBufferInfoOHOS* pInfo, struct OH_NativeBuffer** pBuffer)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取OH_NativeBuffer。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vkmemorygetnativebufferinfoohos/capi-vulkan-vkmemorygetnativebufferinfoohos>const VkMemoryGetNativeBufferInfoOHOS</a>* pInfo<td>VkMemoryGetNativeBufferInfoOHOS结构体对象。<tr><td><a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-oh-nativebuffer/capi-vulkan-oh-nativebuffer>struct OH_NativeBuffer</a>** pBuffer<td>用于接收获取到的OH_NativeBuffer。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示pInfo入参异常，或获取的pBuffer异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkgetswapchaingrallocusageohos>vkGetSwapchainGrallocUsageOHOS()<a href=#vkgetswapchaingrallocusageohos class=hash-link aria-label=vkGetSwapchainGrallocUsageOHOS()的直接链接 title=vkGetSwapchainGrallocUsageOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkGetSwapchainGrallocUsageOHOS(VkDevice device, VkFormat format, VkImageUsageFlags imageUsage, uint64_t* grallocUsage)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>根据给定的Vulkan设备、图像格式和图像使用标志, 返回适当的Gralloc(内存分配器)使用标志。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>VkFormat format<td>图像格式。<tr><td>VkImageUsageFlags imageUsage<td>图像使用标志。<tr><td>uint64_t* grallocUsage<td>出参, 返回Gralloc(内存分配器)使用标志。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_INITIALIZATION_FAILED，表示入参异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkapi_ptr-pfn_vkgetswapchaingrallocusageohos>VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()<a href=#vkapi_ptr-pfn_vkgetswapchaingrallocusageohos class=hash-link aria-label="VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()的直接链接" title="VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()的直接链接" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS)(VkDevice device, VkFormat format, VkImageUsageFlags imageUsage, uint64_t* grallocUsage)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>根据给定的Vulkan设备、图像格式和图像使用标志, 返回适当的Gralloc(内存分配器)使用标志。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>VkFormat format<td>图像格式。<tr><td>VkImageUsageFlags imageUsage<td>图像使用标志。<tr><td>uint64_t* grallocUsage<td>出参, 返回Gralloc(内存分配器)使用标志。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_INITIALIZATION_FAILED，表示入参异常。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkacquireimageohos>vkAcquireImageOHOS()<a href=#vkacquireimageohos class=hash-link aria-label=vkAcquireImageOHOS()的直接链接 title=vkAcquireImageOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkAcquireImageOHOS(VkDevice device, VkImage image, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于获取交换链图像的所有权, 并将外部信号的Fence导入到VkSemaphore对象和VkFence对象中。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>VkImage image<td>要获取的Vulkan图像。<tr><td>int32_t nativeFenceFd<td>原生Fence的文件描述符。<tr><td>VkSemaphore semaphore<td>表示图像可用状态的Vulkan Semaphore(信号量)。<tr><td>VkFence fence<td>用于在图像获取完成时进行同步的Vulkan Fence。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示主机内存不足。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkapi_ptr-pfn_vkacquireimageohos>VKAPI_PTR *PFN_vkAcquireImageOHOS()<a href=#vkapi_ptr-pfn_vkacquireimageohos class=hash-link aria-label="VKAPI_PTR *PFN_vkAcquireImageOHOS()的直接链接" title="VKAPI_PTR *PFN_vkAcquireImageOHOS()的直接链接" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkAcquireImageOHOS)(VkDevice device, VkImage image, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于获取交换链图像的所有权, 并将外部信号的Fence导入到VkSemaphore对象和VkFence对象中。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkDevice device<td>VkDevice对象。<tr><td>VkImage image<td>要获取的Vulkan图像。<tr><td>int32_t nativeFenceFd<td>原生Fence的文件描述符。<tr><td>VkSemaphore semaphore<td>表示图像可用状态的Vulkan Semaphore(信号量)。<tr><td>VkFence fence<td>用于在图像获取完成时进行同步的Vulkan Fence。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示主机内存不足。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkqueuesignalreleaseimageohos>vkQueueSignalReleaseImageOHOS()<a href=#vkqueuesignalreleaseimageohos class=hash-link aria-label=vkQueueSignalReleaseImageOHOS()的直接链接 title=vkQueueSignalReleaseImageOHOS()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkQueueSignalReleaseImageOHOS(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>当前图像使用完毕后，通过该函数向系统硬件缓冲区发出释放信号, 以便其他组件可以访问该图像。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkQueue queue<td>Vulkan队列的句柄。<tr><td>uint32_t waitSemaphoreCount<td>等待Semaphore(信号量)的数量。<tr><td>const VkSemaphore* pWaitSemaphores<td>指向等待Semaphore(信号量)数组的指针。<tr><td>VkImage image<td>要释放的Vulkan图像句柄。<tr><td>int32_t* pNativeFenceFd<td>指向Fence的文件描述符的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_DEVICE_LOST，表示Vulkan设备链接丢失。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示主机内存不足。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkapi_ptr-pfn_vkqueuesignalreleaseimageohos>VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()<a href=#vkapi_ptr-pfn_vkqueuesignalreleaseimageohos class=hash-link aria-label="VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()的直接链接" title="VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()的直接链接" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>当前图像使用完毕后，通过该函数向系统硬件缓冲区发出释放信号, 以便其他组件可以访问该图像。应用开发者无需使用该接口。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Vulkan</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>VkQueue queue<td>Vulkan队列的句柄。<tr><td>uint32_t waitSemaphoreCount<td>等待Semaphore(信号量)的数量。<tr><td>const VkSemaphore* pWaitSemaphores<td>指向等待Semaphore(信号量)数组的指针。<tr><td>images<td>要释放的Vulkan图像句柄。<tr><td>int32_t* pNativeFenceFd<td>指向Fence的文件描述符的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>VkResult<td>返回一个VkResult类型的错误码，具体返回类型如下：  返回VK_SUCCESS，表示执行成功。  返回VK_ERROR_DEVICE_LOST，表示Vulkan设备链接丢失。  返回VK_ERROR_OUT_OF_HOST_MEMORY，表示主机内存不足。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkapi_ptr-pfn_vksetnativefencefdopenharmony>VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()<a href=#vkapi_ptr-pfn_vksetnativefencefdopenharmony class=hash-link aria-label="VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()的直接链接" title="VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()的直接链接" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony)(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>该接口已废弃。</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 10</p>
+<p><strong><strong>替代接口：</strong></strong> <a href=#vkapi_ptr-pfn_vkacquireimageohos class="">PFN_vkAcquireImageOHOS</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkapi_ptr-pfn_vkgetnativefencefdopenharmony>VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()<a href=#vkapi_ptr-pfn_vkgetnativefencefdopenharmony class=hash-link aria-label="VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()的直接链接" title="VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()的直接链接" translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">typedef VkResult (VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony)(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>该接口已废弃。</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 10</p>
+<p><strong><strong>替代接口：</strong></strong> <a href=#vkapi_ptr-pfn_vkqueuesignalreleaseimageohos class="">PFN_vkQueueSignalReleaseImageOHOS</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vksetnativefencefdopenharmony>vkSetNativeFenceFdOpenHarmony()<a href=#vksetnativefencefdopenharmony class=hash-link aria-label=vkSetNativeFenceFdOpenHarmony()的直接链接 title=vkSetNativeFenceFdOpenHarmony()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkSetNativeFenceFdOpenHarmony(VkDevice device, int32_t nativeFenceFd, VkSemaphore semaphore, VkFence fence)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>该接口已废弃。</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 10</p>
+<p><strong><strong>替代接口：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h#vkacquireimageohos>vkAcquireImageOHOS</a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=vkgetnativefencefdopenharmony>vkGetNativeFenceFdOpenHarmony()<a href=#vkgetnativefencefdopenharmony class=hash-link aria-label=vkGetNativeFenceFdOpenHarmony()的直接链接 title=vkGetNativeFenceFdOpenHarmony()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">VKAPI_ATTR VkResult VKAPI_CALL vkGetNativeFenceFdOpenHarmony(VkQueue queue, uint32_t waitSemaphoreCount, const VkSemaphore* pWaitSemaphores, VkImage image, int32_t* pNativeFenceFd)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>该接口已废弃。</p>
+<p><strong><strong>起始版本：</strong></strong> 10</p>
+<p><strong><strong>废弃版本：</strong></strong> 10</p>
+<p><strong><strong>替代接口：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-ohos-h/capi-vulkan-ohos-h#vkqueuesignalreleaseimageohos>vkQueueSignalReleaseImageOHOS</a></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan/capi-vulkan><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Vulkan</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/vulkan-guide/vulkan-extensions/capi-vulkan-vksurfacecreateinfoohos/capi-vulkan-vksurfacecreateinfoohos><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>VkSurfaceCreateInfoOHOS</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概述 class="table-of-contents__link toc-highlight">概述</a><li><a href=#汇总 class="table-of-contents__link toc-highlight">汇总</a><ul><li><a href=#结构体 class="table-of-contents__link toc-highlight">结构体</a><li><a href=#枚举 class="table-of-contents__link toc-highlight">枚举</a><li><a href=#宏定义 class="table-of-contents__link toc-highlight">宏定义</a><li><a href=#函数 class="table-of-contents__link toc-highlight">函数</a></ul><li><a href=#枚举类型说明 class="table-of-contents__link toc-highlight">枚举类型说明</a><ul><li><a href=#vkswapchainimageusageflagbitsohos class="table-of-contents__link toc-highlight">VkSwapchainImageUsageFlagBitsOHOS</a></ul><li><a href=#函数说明 class="table-of-contents__link toc-highlight">函数说明</a><ul><li><a href=#pfn_vkcreatesurfaceohos class="table-of-contents__link toc-highlight">PFN_vkCreateSurfaceOHOS()</a><li><a href=#vkcreatesurfaceohos class="table-of-contents__link toc-highlight">vkCreateSurfaceOHOS()</a><li><a href=#pfn_vkgetnativebufferpropertiesohos class="table-of-contents__link toc-highlight">PFN_vkGetNativeBufferPropertiesOHOS()</a><li><a href=#pfn_vkgetmemorynativebufferohos class="table-of-contents__link toc-highlight">PFN_vkGetMemoryNativeBufferOHOS()</a><li><a href=#vkgetnativebufferpropertiesohos class="table-of-contents__link toc-highlight">vkGetNativeBufferPropertiesOHOS()</a><li><a href=#vkgetmemorynativebufferohos class="table-of-contents__link toc-highlight">vkGetMemoryNativeBufferOHOS()</a><li><a href=#vkgetswapchaingrallocusageohos class="table-of-contents__link toc-highlight">vkGetSwapchainGrallocUsageOHOS()</a><li><a href=#vkapi_ptr-pfn_vkgetswapchaingrallocusageohos class="table-of-contents__link toc-highlight">VKAPI_PTR *PFN_vkGetSwapchainGrallocUsageOHOS()</a><li><a href=#vkacquireimageohos class="table-of-contents__link toc-highlight">vkAcquireImageOHOS()</a><li><a href=#vkapi_ptr-pfn_vkacquireimageohos class="table-of-contents__link toc-highlight">VKAPI_PTR *PFN_vkAcquireImageOHOS()</a><li><a href=#vkqueuesignalreleaseimageohos class="table-of-contents__link toc-highlight">vkQueueSignalReleaseImageOHOS()</a><li><a href=#vkapi_ptr-pfn_vkqueuesignalreleaseimageohos class="table-of-contents__link toc-highlight">VKAPI_PTR *PFN_vkQueueSignalReleaseImageOHOS()</a><li><a href=#vkapi_ptr-pfn_vksetnativefencefdopenharmony class="table-of-contents__link toc-highlight">VKAPI_PTR *PFN_vkSetNativeFenceFdOpenHarmony()</a><li><a href=#vkapi_ptr-pfn_vkgetnativefencefdopenharmony class="table-of-contents__link toc-highlight">VKAPI_PTR *PFN_vkGetNativeFenceFdOpenHarmony()</a><li><a href=#vksetnativefencefdopenharmony class="table-of-contents__link toc-highlight">vkSetNativeFenceFdOpenHarmony()</a><li><a href=#vkgetnativefencefdopenharmony class="table-of-contents__link toc-highlight">vkGetNativeFenceFdOpenHarmony()</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

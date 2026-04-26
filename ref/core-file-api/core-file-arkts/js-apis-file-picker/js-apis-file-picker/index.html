@@ -1,0 +1,1174 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.file.picker (选择器) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.file.picker (选择器) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=选择器(Picker)是一个封装DocumentViewPicker、AudioViewPicker、PhotoViewPicker的API模块，具有选择与保存的能力。应用可以选择使用以下API来实现文件的选择和保存的功能。该类接口，需要应用在界面UIAbility中调用，否则无法拉起FilePicker应用、AudioPicker应用或PhotoPicker应用。 /><meta data-rh=true property=og:description content=选择器(Picker)是一个封装DocumentViewPicker、AudioViewPicker、PhotoViewPicker的API模块，具有选择与保存的能力。应用可以选择使用以下API来实现文件的选择和保存的功能。该类接口，需要应用在界面UIAbility中调用，否则无法拉起FilePicker应用、AudioPicker应用或PhotoPicker应用。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker","name":"@ohos.file.picker (选择器)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="@ohos.application.BackupExtensionAbility (备份恢复扩展能力)" class=linkLabel_WmDU>@ohos.application.BackupExtensionAbility (备份恢复扩展能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-cloudsync/js-apis-file-cloudsync><span title="@ohos.file.cloudSync (端云同步能力)" class=linkLabel_WmDU>@ohos.file.cloudSync (端云同步能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-cloudsyncmanager/js-apis-file-cloudsyncmanager><span title="@ohos.file.cloudSyncManager (端云同步管理能力)" class=linkLabel_WmDU>@ohos.file.cloudSyncManager (端云同步管理能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-environment/js-apis-file-environment><span title="@ohos.file.environment (目录环境能力)" class=linkLabel_WmDU>@ohos.file.environment (目录环境能力)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-fileuri/js-apis-file-fileuri><span title="@ohos.file.fileuri (文件URI)" class=linkLabel_WmDU>@ohos.file.fileuri (文件URI)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-fs/js-apis-file-fs><span title="@ohos.file.fs (文件管理)" class=linkLabel_WmDU>@ohos.file.fs (文件管理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-hash/js-apis-file-hash><span title="@ohos.file.hash (文件哈希处理)" class=linkLabel_WmDU>@ohos.file.hash (文件哈希处理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-picker/js-apis-file-picker><span title="@ohos.file.picker (选择器)" class=linkLabel_WmDU>@ohos.file.picker (选择器)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-securitylabel/js-apis-file-securitylabel><span title="@ohos.file.securityLabel (数据标签)" class=linkLabel_WmDU>@ohos.file.securityLabel (数据标签)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-statvfs/js-apis-file-statvfs><span title="@ohos.file.statvfs (文件系统空间统计)" class=linkLabel_WmDU>@ohos.file.statvfs (文件系统空间统计)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-storage-statistics/js-apis-file-storage-statistics><span title="@ohos.file.storageStatistics (应用空间统计)" class=linkLabel_WmDU>@ohos.file.storageStatistics (应用空间统计)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-fileshare/js-apis-fileshare><span title="@ohos.fileshare (文件分享)" class=linkLabel_WmDU>@ohos.fileshare (文件分享)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-backupextensioncontext/js-apis-file-backupextensioncontext><span title="@ohos.file.BackupExtensionContext (备份恢复扩展能力)" class=linkLabel_WmDU>@ohos.file.BackupExtensionContext (备份恢复扩展能力)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/core-file-arkts-dep/js-apis-document/js-apis-document><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-c/core-file-module/capi-environment/capi-environment><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts-errcode/errorcode-filemanagement/errorcode-filemanagement><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Core File Kit（文件基础服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.file.picker (选择器)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.file.picker (选择器)</h1></header>
+<p>选择器(Picker)是一个封装DocumentViewPicker、AudioViewPicker、PhotoViewPicker的API模块，具有选择与保存的能力。应用可以选择使用以下API来实现文件的选择和保存的功能。该类接口，需要应用在界面UIAbility中调用，否则无法拉起FilePicker应用、AudioPicker应用或PhotoPicker应用。</p>
+<p>调用本模块接口返回的URI数组，URI中的中文及非数字字母的特殊字符会被编码为对应的ASCII码并拼接到URI中。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该模块接口从API version 9开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=documentviewpicker>DocumentViewPicker<a href=#documentviewpicker class=hash-link aria-label=DocumentViewPicker的直接链接 title=DocumentViewPicker的直接链接 translate=no>​</a></h2>
+<p>文件选择器对象，用来支撑选择和保存各种格式文档。在使用前，需要先创建DocumentViewPicker实例。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor12>constructor12+<a href=#constructor12 class=hash-link aria-label=constructor12+的直接链接 title=constructor12+的直接链接 translate=no>​</a></h3>
+<p>constructor(context: Context)</p>
+<p>创建DocumentViewPicker对象，推荐使用该构造函数，获取context参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#gethostcontext12>getHostContext</a>。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>Context<td>是<td>应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context>Context</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State message: string = 'hello World';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize(50)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(()=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 请确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor12-1>constructor12+<a href=#constructor12-1 class=hash-link aria-label=constructor12+的直接链接 title=constructor12+的直接链接 translate=no>​</a></h3>
+<p>constructor()</p>
+<p>创建DocumentViewPicker对象，不推荐使用该构造函数，会出现概率性失败问题。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let documentPicker = new picker.DocumentViewPicker(); // 不推荐使用无参构造，会出现概率性拉起失败问题</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor13>constructor13+<a href=#constructor13 class=hash-link aria-label=constructor13+的直接链接 title=constructor13+的直接链接 translate=no>​</a></h3>
+<p>constructor(context: Context, window: window.Window)</p>
+<p>应用自行创建窗口中，可用通过该构造函数创建DocumentViewPicker对象。一般场景推荐使用constructor(context: Context)方法创建DocumentViewPicker对象。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 19开始，2in1和Tablet设备支持该方法。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>Context<td>是<td>应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context>Context</a>。<tr><td>window<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/window-manager-api/js-apis-window/arkts-apis-window-window/arkts-apis-window-window>window.Window</a><td>是<td>应用创建的窗口实例。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { window } from '@kit.ArkUI';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State message: string = 'hello World';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize(50)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(()=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 请确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let windowClass: window.Window | undefined = undefined;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            windowClass = window.findWindow('test'); // 请确保window已创建，此处的'test'为window创建时的name参数</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let documentPicker = new picker.DocumentViewPicker(context, windowClass);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select>select<a href=#select class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(option?: DocumentSelectOptions): Promise&lt;Array&lt;string>></p>
+<p>通过选择模式拉起documentPicker界面，用户可以选择一个或多个文件。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#documentselectoptions class="">DocumentSelectOptions</a><td>否<td>documentPicker选择选项。若无此参数，则默认拉起documentPicker主界面。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象。返回documentPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example07(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentSelectOptions = new picker.DocumentSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.select(documentSelectOptions).then((documentSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' + JSON.stringify(documentSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select-1>select<a href=#select-1 class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(option: DocumentSelectOptions, callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过选择模式拉起documentPicker界面，用户可以选择一个或多个文件。使用callback异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#documentselectoptions class="">DocumentSelectOptions</a><td>是<td>documentPicker选择选项。<tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回documentPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example08(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentSelectOptions = new picker.DocumentSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.select(documentSelectOptions, (err: BusinessError, documentSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' + JSON.stringify(documentSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select-2>select<a href=#select-2 class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过选择模式拉起documentPicker界面，用户可以选择一个或多个文件。使用callback异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回documentPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example09(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.select((err: BusinessError, documentSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`DocumentViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.select successfully, documentSelectResult uri: ' + JSON.stringify(documentSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save>save<a href=#save class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(option?: DocumentSaveOptions): Promise&lt;Array&lt;string>></p>
+<p>通过保存模式拉起documentPicker界面，用户可以保存一个或多个文件。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#documentsaveoptions class="">DocumentSaveOptions</a><td>否<td>documentPicker保存选项。若无此参数，则拉起documentPicker界面后需用户自行输入保存的文件名。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象。返回documentPicker保存后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example10(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentSaveOptions = new picker.DocumentSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentSaveOptions.newFileNames = ['DocumentViewPicker01.txt'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.save(documentSaveOptions).then((documentSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.save successfully, documentSaveResult uri: ' + JSON.stringify(documentSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`DocumentViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save-1>save<a href=#save-1 class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(option: DocumentSaveOptions, callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起documentPicker界面，用户可以保存一个或多个文件。使用callback异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#documentsaveoptions class="">DocumentSaveOptions</a><td>是<td>documentPicker保存选项。<tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回documentPicker保存后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example11(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentSaveOptions = new picker.DocumentSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentSaveOptions.newFileNames = ['DocumentViewPicker02.txt'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.save(documentSaveOptions, (err: BusinessError, documentSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`DocumentViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.save successfully, documentSaveResult uri: ' + JSON.stringify(documentSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save-2>save<a href=#save-2 class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起documentPicker界面，用户可以保存一个或多个文件。使用callback异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回documentPicker保存后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example12(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.save((err: BusinessError, documentSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`DocumentViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.save successfully, documentSaveResult uri: ' + JSON.stringify(documentSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getselectedindex14>getSelectedIndex14+<a href=#getselectedindex14 class=hash-link aria-label=getSelectedIndex14+的直接链接 title=getSelectedIndex14+的直接链接 translate=no>​</a></h3>
+<p>getSelectedIndex(): number</p>
+<p>获取保存成功后的文件后缀类型的下标。</p>
+<p>该方法只在调用 <a href=#save class="">save()</a>时使用生效，其他场景下不适用。</p>
+<p>该方法需要配置参数<a href=#documentsaveoptions class="">DocumentSaveOptions.fileSuffixChoices</a>。</p>
+<p>该方法返回的是所选后缀类型的下标(number)。所选的后缀类型是开发者所传的参数<a href=#documentsaveoptions class="">DocumentSaveOptions.fileSuffixChoices</a>里的某个后缀类型。如果没有传参，并且调用了getSelectedIndex()方法，返回值为-1。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 14开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService.FolderSelection</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回所选后缀类型在<a href=#documentsaveoptions class="">DocumentSaveOptions.fileSuffixChoices</a>里的下标(number)。默认返回-1。</table>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function exampleIndex(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentSaveOptions = new picker.DocumentSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 保存文件的名字</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentSaveOptions.newFileNames = ['DocumentViewPicker01'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 保存文件的后缀类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentSaveOptions.fileSuffixChoices = ['txt', 'mp4', 'pdf'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let documentPicker = new picker.DocumentViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    documentPicker.save(documentSaveOptions).then((documentSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (documentSaveOptions.fileSuffixChoices != undefined && documentSaveResult != undefined) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 获取保存文件的后缀类型的下标</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let index = documentPicker.getSelectedIndex();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 获取保存文件的后缀类型。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let selectedsuffix = documentSaveOptions.fileSuffixChoices[index];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info ('DocumentViewPicker.save selectedsuffix is ' + selectedsuffix);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('DocumentViewPicker.save successfully, documentSaveResult uri: ' + JSON.stringify(documentSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`DocumentViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`DocumentViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=audioviewpicker>AudioViewPicker<a href=#audioviewpicker class=hash-link aria-label=AudioViewPicker的直接链接 title=AudioViewPicker的直接链接 translate=no>​</a></h2>
+<p>音频选择器对象，用来支撑选择和保存音频类文件等用户场景。在使用前，需要先创建AudioViewPicker实例。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor12-2>constructor12+<a href=#constructor12-2 class=hash-link aria-label=constructor12+的直接链接 title=constructor12+的直接链接 translate=no>​</a></h3>
+<p>constructor(context: Context)</p>
+<p>创建AudioViewPicker对象，推荐使用该构造函数，获取context参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#gethostcontext12>getHostContext</a>。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>Context<td>是<td>应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context>Context</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State message: string = 'hello World';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize(50)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(()=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 请确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor12-3>constructor12+<a href=#constructor12-3 class=hash-link aria-label=constructor12+的直接链接 title=constructor12+的直接链接 translate=no>​</a></h3>
+<p>constructor()</p>
+<p>创建AudioViewPicker对象，不推荐使用该构造函数，会出现概率性失败问题。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let audioPicker = new picker.AudioViewPicker(); // 不推荐使用无参构造，会出现概率性拉起失败问题</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select-3>select<a href=#select-3 class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(option?: AudioSelectOptions): Promise&lt;Array&lt;string>></p>
+<p>通过选择模式拉起audioPicker界面，用户可以选择一个或多个音频文件。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#audioselectoptions class="">AudioSelectOptions</a><td>否<td>audioPicker音频选择选项。若无此参数，则默认拉起audioPicker主界面。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象。返回audioPicker选择音频后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E4%BB%8B%E7%BB%8D>媒体类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example13(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioSelectOptions = new picker.AudioSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.select(audioSelectOptions).then((audioSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.select successfully, audioSelectResult uri: ' + JSON.stringify(audioSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`AudioViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select-4>select<a href=#select-4 class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(option: AudioSelectOptions, callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过选择模式拉起audioPicker界面，用户可以选择一个或多个音频文件。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#audioselectoptions class="">AudioSelectOptions</a><td>是<td>audioPicker音频选择选项。<tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回audioPicker选择音频后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E4%BB%8B%E7%BB%8D>媒体类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example14(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioSelectOptions = new picker.AudioSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.select(audioSelectOptions, (err: BusinessError, audioSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`AudioViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.select successfully, audioSelectResult uri: ' + JSON.stringify(audioSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=select-5>select<a href=#select-5 class=hash-link aria-label=select的直接链接 title=select的直接链接 translate=no>​</a></h3>
+<p>select(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过选择模式拉起audioPicker界面，用户可以选择一个或多个音频文件。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回audioPicker选择音频后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E4%BB%8B%E7%BB%8D>媒体类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example15(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.select((err: BusinessError, audioSelectResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`AudioViewPicker.select failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.select successfully, audioSelectResult uri: ' + JSON.stringify(audioSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save-3>save<a href=#save-3 class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(option?: AudioSaveOptions): Promise&lt;Array&lt;string>></p>
+<p>通过保存模式拉起audioPicker界面（目前拉起的是documentPicker，audioPicker在规划中），用户可以保存一个或多个音频文件。使用Promise异步回调。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#audiosaveoptions class="">AudioSaveOptions</a><td>否<td>audioPicker保存音频文件选项。若无此参数，则拉起audioPicker界面后需用户自行输入保存的文件名。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象。返回audioPicker保存音频文件后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example16(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioSaveOptions = new picker.AudioSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioSaveOptions.newFileNames = ['AudioViewPicker01.mp3'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.save(audioSaveOptions).then((audioSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.save successfully, audioSaveResult uri: ' + JSON.stringify(audioSaveResult))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`AudioViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save-4>save<a href=#save-4 class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(option: AudioSaveOptions, callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起audioPicker界面（目前拉起的是documentPicker，audioPicker在规划中），用户可以保存一个或多个音频文件。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#audiosaveoptions class="">AudioSaveOptions</a><td>是<td>audioPicker保存音频文件选项。<tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回audioPicker保存音频文件后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example17(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioSaveOptions = new picker.AudioSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioSaveOptions.newFileNames = ['AudioViewPicker02.mp3'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.save(audioSaveOptions, (err: BusinessError, audioSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`AudioViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.save successfully, audioSaveResult uri: ' + JSON.stringify(audioSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=save-5>save<a href=#save-5 class=hash-link aria-label=save的直接链接 title=save的直接链接 translate=no>​</a></h3>
+<p>save(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起audioPicker界面（目前拉起的是documentPicker，audioPicker在规划中），用户可以保存一个或多个音频文件。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回audioPicker保存音频文件后的结果集。  <strong><strong>注意</strong></strong>： 此接口返回的URI数组的具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example18(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let audioPicker = new picker.AudioViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    audioPicker.save((err: BusinessError, audioSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`AudioViewPicker.save failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('AudioViewPicker.save successfully, audioSaveResult uri: ' + JSON.stringify(audioSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`AudioViewPicker failed with err, code is: ${err.code}, message is: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=documentselectmode11>DocumentSelectMode11+<a href=#documentselectmode11 class=hash-link aria-label=DocumentSelectMode11+的直接链接 title=DocumentSelectMode11+的直接链接 translate=no>​</a></h2>
+<p>枚举，picker选择的文档类型。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService.FolderSelection</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>FILE<td>0<td>文件类型（默认类型）。<tr><td>FOLDER<td>1<td>文件夹类型。<tr><td>MIXED<td>2<td>文件和文件夹混合类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=documentselectoptions>DocumentSelectOptions<a href=#documentselectoptions class=hash-link aria-label=DocumentSelectOptions的直接链接 title=DocumentSelectOptions的直接链接 translate=no>​</a></h2>
+<p>文档选择选项。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>maxSelectNumber10+<td>number<td>否<td>是<td>选择文件最大个数。  API version 20及之前的版本，单次文件选择的最大数量上限为500个，默认值也为500。目录选择功能仅对具备该系统能力的设备开放，且单次最多可选择1个目录。  API version 21及之后的版本取消文件选择数量的限制。受系统能力限制，选择文件数量过大可能会出现功能异常或处理性能较差等情况，建议单次选择文件个数不超过1万个。  API version 23及之后的版本取消目录选择数量的限制。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>defaultFilePathUri10+<td>string<td>否<td>是<td>指定选择的文件或者目录的URI。默认为空（效果为拉起最近打开页）。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>fileSuffixFilters10+<td>Array&lt;string><td>否<td>是<td>选择文件的后缀类型。传入字符串数组，每一项代表一个后缀选项，每一项内部用"<tr><td>selectMode11+<td><a href=#documentselectmode11 class="">DocumentSelectMode</a><td>否<td>是<td>Picker选择的文档类型，默认值是FILE(文件类型)。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService.FolderSelection<tr><td>authMode12+<td>boolean<td>否<td>是<td>拉起授权Picker，默认为false（非授权模式）。当authMode为true时为授权模式，defaultFilePathUri必填，表明待授权URI。  <strong><strong>设备行为差异</strong></strong>：该参数在2in1设备中可正常使用，在其他设备中无效果。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService.FolderSelection<tr><td>multiAuthMode15+<td>boolean<td>否<td>是<td>支持批量授权模式，默认为false（非批量授权模式）。当multiAuthMode为true时为批量授权模式。当multiAuthMode为true时，只有multiUriArray参数生效，其他参数不生效。  <strong><strong>设备行为差异</strong></strong>：该参数在Phone设备中可正常使用，在其他设备中无效果。  <strong><strong>元服务API</strong></strong>：从API version 15开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>multiUriArray15+<td>Array&lt;string><td>否<td>是<td>传入需要批量授权的URI数组（仅支持文件，文件夹不生效）。配合multiAuthMode使用。当multiAuthMode为false时，配置该参数不生效。默认为空（效果为拉起批量授权页面后展示的文件为空）。  <strong><strong>设备行为差异</strong></strong>：该参数在Phone设备中可正常使用，在其他设备中无效果。  <strong><strong>元服务API</strong></strong>：从API version 15开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>mergeMode15+<td><a href=#mergetypemode15 class="">MergeTypeMode</a><td>否<td>是<td>开启聚合视图模式，支持拉起文件管理应用的聚合视图。默认为DEFAULT，表示该参数不生效，非聚合视图。当该参数置为非DEFAULT时，其他参数不生效。  <strong><strong>设备行为差异</strong></strong>：该参数在Phone设备中可正常使用，在其他设备中无效果。  <strong><strong>元服务API</strong></strong>：从API version 15开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>isEncryptionSupported19+<td>boolean<td>否<td>是<td>是否支持加密（仅支持文件，文件夹不生效），默认为false。该参数为true时，在Picker界面可以选择对文件进行加密。  <strong><strong>元服务API</strong></strong>：从API version 19开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=documentpickermode12>DocumentPickerMode12+<a href=#documentpickermode12 class=hash-link aria-label=DocumentPickerMode12+的直接链接 title=DocumentPickerMode12+的直接链接 translate=no>​</a></h2>
+<p>枚举，picker保存的模式。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>DEFAULT<td>0<td>标准模式。<tr><td>DOWNLOAD<td>1<td>下载模式。  <strong><strong>注意</strong></strong>： DOWNLOAD模式创建的目录仅用于保存文件，目录之间无访问隔离，不建议保存应用敏感数据。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=mergetypemode15>MergeTypeMode15+<a href=#mergetypemode15 class=hash-link aria-label=MergeTypeMode15+的直接链接 title=MergeTypeMode15+的直接链接 translate=no>​</a></h2>
+<p>枚举，文件聚合类型。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 15开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>设备行为差异</strong></strong>：该接口在Phone设备中可正常调用，在其他设备中无效果。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>DEFAULT<td>0<td>默认模式，表示该参数不生效。<tr><td>AUDIO<td>1<td>音频文件模式。<tr><td>VIDEO<td>2<td>视频文件模式。<tr><td>DOCUMENT<td>3<td>文档文件模式。<tr><td>PICTURE<td>4<td>图片文件模式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=documentsaveoptions>DocumentSaveOptions<a href=#documentsaveoptions class=hash-link aria-label=DocumentSaveOptions的直接链接 title=DocumentSaveOptions的直接链接 translate=no>​</a></h2>
+<p>文档保存选项。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>newFileNames<td>Array&lt;string><td>否<td>是<td>拉起documentPicker进行保存的文件名。若无此参数，则默认需要用户自行输入。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>defaultFilePathUri10+<td>string<td>否<td>是<td>指定保存的文件或者目录的URI。默认为空。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>fileSuffixChoices10+<td>Array&lt;string><td>否<td>是<td>保存文件的后缀类型。传入字符串数组，每一项代表一个后缀选项，每一项内部用"<tr><td>pickerMode12+<td><a href=#documentpickermode12 class="">DocumentPickerMode</a><td>否<td>是<td>拉起picker的类型, 默认为DEFAULT。当pickerMode设置为DOWNLOAD时，用户配置的参数newFileNames、defaultFilePathUri和fileSuffixChoices将不会生效。  <strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService<tr><td>autoCreateEmptyFile23+<td>boolean<td>否<td>是<td>保存文件时，由应用决定是否预置空文件。默认为true，Picker会预置空文件并且返回文件的URI数组。false不预置空文件，只会返回文件的URI数组。  <strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。  <strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService.FolderSelection</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=audioselectoptions>AudioSelectOptions<a href=#audioselectoptions class=hash-link aria-label=AudioSelectOptions的直接链接 title=AudioSelectOptions的直接链接 translate=no>​</a></h2>
+<p>音频选择选项。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>maxSelectNumber12+<td>number<td>否<td>是<td>选择文件最大个数，默认值为1，上限为500个，有效值范围1-500。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=audiosaveoptions>AudioSaveOptions<a href=#audiosaveoptions class=hash-link aria-label=AudioSaveOptions的直接链接 title=AudioSaveOptions的直接链接 translate=no>​</a></h2>
+<p>音频保存选项。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>newFileNames<td>Array&lt;string><td>否<td>是<td>拉起audioPicker进行保存音频资源的文件名。若无此参数，则默认需要用户自行输入。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoviewpickerdeprecated>PhotoViewPicker(deprecated)<a href=#photoviewpickerdeprecated class=hash-link aria-label=PhotoViewPicker(deprecated)的直接链接 title=PhotoViewPicker(deprecated)的直接链接 translate=no>​</a></h2>
+<p>图库选择器对象，用来支撑选择图片/视频和保存图片/视频等用户场景。选择文件推荐使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker>PhotoAccessHelper的PhotoViewPicker</a>。在使用前，需要先创建PhotoViewPicker实例。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker>photoAccessHelper.PhotoViewPicker</a>替代。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructordeprecated>constructor(deprecated)<a href=#constructordeprecated class=hash-link aria-label=constructor(deprecated)的直接链接 title=constructor(deprecated)的直接链接 translate=no>​</a></h3>
+<p>constructor(context: Context)</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>context<td>Context<td>是<td>应用上下文（仅支持UIAbilityContext）。Stage模型的应用Context定义见<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-context/js-apis-inner-application-context>Context</a>。</table>
+<p>创建PhotoViewPicker对象，推荐使用该构造函数，获取context参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#gethostcontext12>getHostContext</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 12开始支持，从API version 18开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker>photoAccessHelper.PhotoViewPicker</a>替代。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State message: string = 'hello World';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.message)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize(50)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(FontWeight.Bold)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(()=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let context = this.getUIContext().getHostContext() as common.UIAbilityContext; // 请确保this.getUIContext().getHostContext()返回结果为UIAbilityContext</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructordeprecated-1>constructor(deprecated)<a href=#constructordeprecated-1 class=hash-link aria-label=constructor(deprecated)的直接链接 title=constructor(deprecated)的直接链接 translate=no>​</a></h3>
+<p>constructor()</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p>创建PhotoViewPicker对象，不推荐使用该构造函数，会出现概率性失败问题。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 12开始支持，从API version 18开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker>photoAccessHelper.PhotoViewPicker</a>替代。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let photoPicker = new picker.PhotoViewPicker(); // 不推荐使用无参构造，会出现概率性拉起失败问题</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectdeprecated>select(deprecated)<a href=#selectdeprecated class=hash-link aria-label=select(deprecated)的直接链接 title=select(deprecated)的直接链接 translate=no>​</a></h3>
+<p>select(option?: PhotoSelectOptions): Promise&lt;PhotoSelectResult></p>
+<p>通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用Promise异步返回形式，传入可选参数PhotoSelectOptions对象，返回PhotoSelectResult对象。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker#select>photoAccessHelper.PhotoViewPicker#select</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#photoselectoptionsdeprecated class="">PhotoSelectOptions</a><td>否<td>photoPicker选择选项。若无此参数，则默认选择媒体文件类型为图片和视频类型。选择媒体文件数量的默认最大值为50。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#photoselectresultdeprecated class="">PhotoSelectResult</a>><td>Promise对象。返回photoPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的PhotoSelectResult对象中的photoUris只能通过临时授权的方式调用接口<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper#getassets>photoAccessHelper.getAssets</a>去使用，具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>媒体文件URI的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example01(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoSelectOptions = new picker.PhotoSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSelectOptions.MIMEType = picker.PhotoViewMIMETypes.IMAGE_TYPE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSelectOptions.maxSelectNumber = 5;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.select(photoSelectOptions).then((photoSelectResult: picker.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('PhotoViewPicker.select failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectdeprecated-1>select(deprecated)<a href=#selectdeprecated-1 class=hash-link aria-label=select(deprecated)的直接链接 title=select(deprecated)的直接链接 translate=no>​</a></h3>
+<p>select(option: PhotoSelectOptions, callback: AsyncCallback&lt;PhotoSelectResult>): void</p>
+<p>通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，传入参数PhotoSelectOptions对象，返回PhotoSelectResult对象。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker#select-1>photoAccessHelper.PhotoViewPicker#select</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#photoselectoptionsdeprecated class="">PhotoSelectOptions</a><td>是<td>photoPicker选择选项。<tr><td>callback<td>AsyncCallback&lt;<a href=#photoselectresultdeprecated class="">PhotoSelectResult</a>><td>是<td>callback返回photoPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的PhotoSelectResult对象中的photoUris只能通过临时授权的方式调用接口<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper#getassets>photoAccessHelper.getAssets</a>去使用，具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>媒体文件URI的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example02(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoSelectOptions = new picker.PhotoSelectOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSelectOptions.MIMEType = picker.PhotoViewMIMETypes.IMAGE_TYPE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSelectOptions.maxSelectNumber = 5;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.select(photoSelectOptions, (err: BusinessError, photoSelectResult: picker.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error('PhotoViewPicker.select failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=selectdeprecated-2>select(deprecated)<a href=#selectdeprecated-2 class=hash-link aria-label=select(deprecated)的直接链接 title=select(deprecated)的直接链接 translate=no>​</a></h3>
+<p>select(callback: AsyncCallback&lt;PhotoSelectResult>): void</p>
+<p>通过选择模式拉起photoPicker界面，用户可以选择一个或多个图片/视频。接口采用callback异步返回形式，返回PhotoSelectResult对象。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoviewpicker/arkts-apis-photoaccesshelper-photoviewpicker#select-2>photoAccessHelper.PhotoViewPicker#select</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a href=#photoselectresultdeprecated class="">PhotoSelectResult</a>><td>是<td>callback返回photoPicker选择后的结果集。  <strong><strong>注意</strong></strong>：此接口返回的PhotoSelectResult对象中的photoUris只能通过临时授权的方式调用接口<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper#getassets>photoAccessHelper.getAssets</a>去使用，具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>媒体文件URI的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example03(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.select((err: BusinessError, photoSelectResult: picker.PhotoSelectResult) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error('PhotoViewPicker.select failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.select successfully, photoSelectResult uri: ' + JSON.stringify(photoSelectResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=savedeprecated>save(deprecated)<a href=#savedeprecated class=hash-link aria-label=save(deprecated)的直接链接 title=save(deprecated)的直接链接 translate=no>​</a></h3>
+<p>save(option?: PhotoSaveOptions): Promise&lt;Array&lt;string>></p>
+<p>通过保存模式拉起photoPicker界面，用户可以保存一个或多个图片/视频。接口采用Promise异步返回形式，传入可选参数PhotoSaveOptions对象，返回保存文件的uri数组。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-security-components-savebutton/ts-security-components-savebutton>SaveButton</a>替代。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#photosaveoptionsdeprecated class="">PhotoSaveOptions</a><td>否<td>photoPicker保存图片或视频文件选项。若无此参数，则拉起photoPicker界面后需用户自行输入保存的文件名。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Array&lt;string>><td>Promise对象。返回photoPicker保存图片或视频文件后的结果集。  <strong><strong>注意</strong></strong>：此接口会将文件保存在文件管理器，而不是图库。返回的uri数组的具体使用方式参见用户文件uri介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example04(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoSaveOptions = new picker.PhotoSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSaveOptions.newFileNames = ['PhotoViewPicker01.jpg', 'PhotoViewPicker01.mp4'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.save(photoSaveOptions).then((photoSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.save successfully, photoSaveResult uri: ' + JSON.stringify(photoSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('PhotoViewPicker.save failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=savedeprecated-1>save(deprecated)<a href=#savedeprecated-1 class=hash-link aria-label=save(deprecated)的直接链接 title=save(deprecated)的直接链接 translate=no>​</a></h3>
+<p>save(option: PhotoSaveOptions, callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起photoPicker界面，用户可以保存一个或多个图片/视频。接口采用callback异步返回形式，传入参数PhotoSaveOptions对象，返回保存文件的uri数组。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-security-components-savebutton/ts-security-components-savebutton>SaveButton</a>替代。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>option<td><a href=#photosaveoptionsdeprecated class="">PhotoSaveOptions</a><td>是<td>photoPicker保存图片或视频文件选项。<tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回photoPicker保存图片或视频文件后的结果集。  <strong><strong>注意</strong></strong>：此接口会将文件保存在文件管理器，而不是图库。返回的uri数组的具体使用方式参见用户文件uri介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example05(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoSaveOptions = new picker.PhotoSaveOptions();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoSaveOptions.newFileNames = ['PhotoViewPicker02.jpg','PhotoViewPicker02.mp4'];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.save(photoSaveOptions, (err: BusinessError, photoSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error('PhotoViewPicker.save failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.save successfully, photoSaveResult uri: ' + JSON.stringify(photoSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=savedeprecated-2>save(deprecated)<a href=#savedeprecated-2 class=hash-link aria-label=save(deprecated)的直接链接 title=save(deprecated)的直接链接 translate=no>​</a></h3>
+<p>save(callback: AsyncCallback&lt;Array&lt;string>>): void</p>
+<p>通过保存模式拉起photoPicker界面，用户可以保存一个或多个图片/视频。接口采用callback异步返回形式，返回保存文件的uri数组。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-security-components-savebutton/ts-security-components-savebutton>SaveButton</a>替代。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Array&lt;string>><td>是<td>callback 返回photoPicker保存图片或视频文件后的结果集。  <strong><strong>注意</strong></strong>：此接口会将文件保存在文件管理器，而不是图库。返回的uri数组的具体使用方式参见用户文件uri介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E6%96%87%E6%A1%A3%E7%B1%BBuri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>文档类uri的使用方式</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import  { picker } from '@kit.CoreFileKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">async function example06(context: common.UIAbilityContext) { // 需确保 context 由 UIAbilityContext 转换而来</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let photoPicker = new picker.PhotoViewPicker(context);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    photoPicker.save((err: BusinessError, photoSaveResult: Array&lt;string>) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error('PhotoViewPicker.save failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        return;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info('PhotoViewPicker.save successfully, photoSaveResult uri: ' + JSON.stringify(photoSaveResult));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err: BusinessError = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('PhotoViewPicker failed with err: ' + JSON.stringify(err));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoviewmimetypesdeprecated>PhotoViewMIMETypes(deprecated)<a href=#photoviewmimetypesdeprecated class=hash-link aria-label=PhotoViewMIMETypes(deprecated)的直接链接 title=PhotoViewMIMETypes(deprecated)的直接链接 translate=no>​</a></h2>
+<p>枚举，可选择的媒体文件类型。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-e/arkts-apis-photoaccesshelper-e#photoviewmimetypes>photoAccessHelper.PhotoViewMIMETypes</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>IMAGE_TYPE<td>'image/*'<td>图片类型。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。<tr><td>VIDEO_TYPE<td>'video/*'<td>视频类型。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。<tr><td>IMAGE_VIDEO_TYPE<td>'*/*'<td>图片和视频类型。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoselectoptionsdeprecated>PhotoSelectOptions(deprecated)<a href=#photoselectoptionsdeprecated class=hash-link aria-label=PhotoSelectOptions(deprecated)的直接链接 title=PhotoSelectOptions(deprecated)的直接链接 translate=no>​</a></h2>
+<p>图库选择选项。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-class/arkts-apis-photoaccesshelper-class#photoselectoptions>photoAccessHelper.PhotoSelectOptions</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>MIMEType<td><a href=#photoviewmimetypesdeprecated class="">PhotoViewMIMETypes</a><td>否<td>是<td>可选择的媒体文件类型。若无此参数，则默认为图片和视频类型。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。<tr><td>maxSelectNumber<td>number<td>否<td>是<td>选择媒体文件数量的最大值，默认值为50，最大值为500。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photoselectresultdeprecated>PhotoSelectResult(deprecated)<a href=#photoselectresultdeprecated class=hash-link aria-label=PhotoSelectResult(deprecated)的直接链接 title=PhotoSelectResult(deprecated)的直接链接 translate=no>​</a></h2>
+<p>返回图库选择后的结果集。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-class/arkts-apis-photoaccesshelper-class#photoselectresult>photoAccessHelper.PhotoSelectResult</a>替代。</p>
+<p><strong><strong>元服务API</strong></strong>：从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>photoUris<td>Array&lt;string><td>否<td>否<td>返回图库选择后的媒体文件的URI数组。此URI数组只能通过临时授权的方式调用接口<a class="" href=/harmonyos-docs-site/ref/media-library-api/media-library-arkts/js-apis-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper/arkts-apis-photoaccesshelper-photoaccesshelper#getassets>photoAccessHelper.getAssets</a>去使用，具体使用方式参见用户文件URI介绍中的<a class="" href=/harmonyos-docs-site/core-file-kit/user-files/user-file-uri-intro#%E5%AA%92%E4%BD%93%E6%96%87%E4%BB%B6uri%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F>媒体文件URI的使用方式</a>。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。<tr><td>isOriginalPhoto<td>boolean<td>否<td>否<td>返回图库选择后的媒体文件是否为原图。true为原图；false不是原图。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=photosaveoptionsdeprecated>PhotoSaveOptions(deprecated)<a href=#photosaveoptionsdeprecated class=hash-link aria-label=PhotoSaveOptions(deprecated)的直接链接 title=PhotoSaveOptions(deprecated)的直接链接 translate=no>​</a></h2>
+<p>图片或视频的保存选项。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 9开始支持，从API version 12开始废弃。建议使用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-security-components-savebutton/ts-security-components-savebutton#savebuttonoptions>SaveButtonOptions</a>替代。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.FileManagement.UserFileService</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>newFileNames<td>Array&lt;string><td>否<td>是<td>拉起photoPicker进行保存图片或视频资源的文件名。若无此参数，则默认需要用户自行输入。  <strong><strong>说明</strong></strong>：从API version 9开始支持，从API version 18开始废弃。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-hash/js-apis-file-hash><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.file.hash (文件哈希处理)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-file-securitylabel/js-apis-file-securitylabel><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.file.securityLabel (数据标签)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#documentviewpicker class="table-of-contents__link toc-highlight">DocumentViewPicker</a><ul><li><a href=#constructor12 class="table-of-contents__link toc-highlight">constructor12+</a><li><a href=#constructor12-1 class="table-of-contents__link toc-highlight">constructor12+</a><li><a href=#constructor13 class="table-of-contents__link toc-highlight">constructor13+</a><li><a href=#select class="table-of-contents__link toc-highlight">select</a><li><a href=#select-1 class="table-of-contents__link toc-highlight">select</a><li><a href=#select-2 class="table-of-contents__link toc-highlight">select</a><li><a href=#save class="table-of-contents__link toc-highlight">save</a><li><a href=#save-1 class="table-of-contents__link toc-highlight">save</a><li><a href=#save-2 class="table-of-contents__link toc-highlight">save</a><li><a href=#getselectedindex14 class="table-of-contents__link toc-highlight">getSelectedIndex14+</a></ul><li><a href=#audioviewpicker class="table-of-contents__link toc-highlight">AudioViewPicker</a><ul><li><a href=#constructor12-2 class="table-of-contents__link toc-highlight">constructor12+</a><li><a href=#constructor12-3 class="table-of-contents__link toc-highlight">constructor12+</a><li><a href=#select-3 class="table-of-contents__link toc-highlight">select</a><li><a href=#select-4 class="table-of-contents__link toc-highlight">select</a><li><a href=#select-5 class="table-of-contents__link toc-highlight">select</a><li><a href=#save-3 class="table-of-contents__link toc-highlight">save</a><li><a href=#save-4 class="table-of-contents__link toc-highlight">save</a><li><a href=#save-5 class="table-of-contents__link toc-highlight">save</a></ul><li><a href=#documentselectmode11 class="table-of-contents__link toc-highlight">DocumentSelectMode11+</a><li><a href=#documentselectoptions class="table-of-contents__link toc-highlight">DocumentSelectOptions</a><li><a href=#documentpickermode12 class="table-of-contents__link toc-highlight">DocumentPickerMode12+</a><li><a href=#mergetypemode15 class="table-of-contents__link toc-highlight">MergeTypeMode15+</a><li><a href=#documentsaveoptions class="table-of-contents__link toc-highlight">DocumentSaveOptions</a><li><a href=#audioselectoptions class="table-of-contents__link toc-highlight">AudioSelectOptions</a><li><a href=#audiosaveoptions class="table-of-contents__link toc-highlight">AudioSaveOptions</a><li><a href=#photoviewpickerdeprecated class="table-of-contents__link toc-highlight">PhotoViewPicker(deprecated)</a><ul><li><a href=#constructordeprecated class="table-of-contents__link toc-highlight">constructor(deprecated)</a><li><a href=#constructordeprecated-1 class="table-of-contents__link toc-highlight">constructor(deprecated)</a><li><a href=#selectdeprecated class="table-of-contents__link toc-highlight">select(deprecated)</a><li><a href=#selectdeprecated-1 class="table-of-contents__link toc-highlight">select(deprecated)</a><li><a href=#selectdeprecated-2 class="table-of-contents__link toc-highlight">select(deprecated)</a><li><a href=#savedeprecated class="table-of-contents__link toc-highlight">save(deprecated)</a><li><a href=#savedeprecated-1 class="table-of-contents__link toc-highlight">save(deprecated)</a><li><a href=#savedeprecated-2 class="table-of-contents__link toc-highlight">save(deprecated)</a></ul><li><a href=#photoviewmimetypesdeprecated class="table-of-contents__link toc-highlight">PhotoViewMIMETypes(deprecated)</a><li><a href=#photoselectoptionsdeprecated class="table-of-contents__link toc-highlight">PhotoSelectOptions(deprecated)</a><li><a href=#photoselectresultdeprecated class="table-of-contents__link toc-highlight">PhotoSelectResult(deprecated)</a><li><a href=#photosaveoptionsdeprecated class="table-of-contents__link toc-highlight">PhotoSaveOptions(deprecated)</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

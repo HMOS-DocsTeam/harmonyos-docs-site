@@ -1,0 +1,990 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>arViewController（AR场景管理能力） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="arViewController（AR场景管理能力） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块提供AR Engine（AR引擎服务）的arViewController（AR场景管理能力）相关接口。"/><meta data-rh=true property=og:description content="本模块提供AR Engine（AR引擎服务）的arViewController（AR场景管理能力）相关接口。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller","name":"arViewController（AR场景管理能力）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title="AR Engine（AR引擎服务）" class=categoryLinkLabel_W154>AR Engine（AR引擎服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=arEngine（AR增强现实能力） class=linkLabel_WmDU>arEngine（AR增强现实能力）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-4 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller><span title=arViewController（AR场景管理能力） class=linkLabel_WmDU>arViewController（AR场景管理能力）</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api-component/arengine-api-component-arview/arengine-api-component-arview><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-capi/arengine-modular/arengine-capi-arengine/arengine-capi-arengine><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code><span title="AR Engine错误码" class=linkLabel_WmDU>AR Engine错误码</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-effectkit/js-apis-effectkit><span title="ArkGraphics 2D（方舟2D图形服务）" class=categoryLinkLabel_W154>ArkGraphics 2D（方舟2D图形服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="ArkGraphics 3D（方舟3D图形）" class=categoryLinkLabel_W154>ArkGraphics 3D（方舟3D图形）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title="Graphics Accelerate Kit（图形加速服务）" class=categoryLinkLabel_W154>Graphics Accelerate Kit（图形加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/spatial-recon-api/spatial-recon-arkts/spatial-recon-spatialrender/spatial-recon-spatialrender><span title="Spatial Recon Kit（空间建模服务）" class=categoryLinkLabel_W154>Spatial Recon Kit（空间建模服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/xengine-api/xengine-c/xengine-kit-index/xengine-kit-xengine/xengine-kit-xengine><span title="XEngine Kit（GPU加速引擎服务）" class=categoryLinkLabel_W154>XEngine Kit（GPU加速引擎服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>图形</span><li class=breadcrumbs__item><span class=breadcrumbs__link>AR Engine（AR引擎服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>arViewController（AR场景管理能力）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>arViewController（AR场景管理能力）</h1></header>
+<p>本模块提供AR Engine（AR引擎服务）的arViewController（AR场景管理能力）相关接口。</p>
+<p>基础核心能力包括AR会话管理、空间对象管理与场景化管理。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=landmarktype>LandmarkType<a href=#landmarktype class=hash-link aria-label=LandmarkType的直接链接 title=LandmarkType的直接链接 translate=no>​</a></h2>
+<p>人脸关键点类别。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>LEFT_EYE<td>0<td>左眼。<tr><td>LEFT_SIDE_OF_MOUTH<td>1<td>嘴巴左侧。<tr><td>RIGHT_EYE<td>2<td>右眼。<tr><td>RIGHT_SIDE_OF_MOUTH<td>3<td>嘴巴右侧。<tr><td>TIP_OF_NOSE<td>4<td>鼻尖。<tr><td>CENTER_OF_FACE<td>5<td>人脸中心。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontext>ARViewContext<a href=#arviewcontext class=hash-link aria-label=ARViewContext的直接链接 title=ARViewContext的直接链接 translate=no>​</a></h2>
+<p>ARView上下文，用于AR场景管理，包括初始化、暂停、恢复及销毁。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextinit>ARViewContext.init<a href=#arviewcontextinit class=hash-link aria-label=ARViewContext.init的直接链接 title=ARViewContext.init的直接链接 translate=no>​</a></h3>
+<p>init(): Promise&lt;void></p>
+<p>初始化<a href=#arviewcontext class="">ARViewContext</a>，初始化AR会话和设置AR渲染场景等。使用Promise异步回调。</p>
+<p><strong><strong>需要权限：</strong></strong> ohos.permission.CAMERA 和 ohos.permission.GYROSCOPE 和 ohos.permission.ACCELEROMETER</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中返回801错误码，可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码</a>和<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permissions not granted, such as the camera permission.<tr><td>801<td>Device not compatible.<tr><td>1009200001<td>Failure.<tr><td>1009200007<td>Configuration not supported.<tr><td>1009200008<td>Resource exhausted.<tr><td>1009200009<td>Service unavailable.<tr><td>1009200010<td>Camera unavailable.<tr><td>1009200201<td>ARView invalid operation.<tr><td>1009200202<td>Graphics3D AR scene required.<tr><td>1009200203<td>AREngine config required.<tr><td>1009200204<td>AR session setup failed.<tr><td>1009200205<td>AR scene camera setup failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await context.init();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextpause>ARViewContext.pause<a href=#arviewcontextpause class=hash-link aria-label=ARViewContext.pause的直接链接 title=ARViewContext.pause的直接链接 translate=no>​</a></h3>
+<p>pause(): void</p>
+<p>暂停相机跟踪与AR场景渲染。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200001<td>Failure.<tr><td>1009200201<td>ARView invalid operation.<tr><td>1009200204<td>AR session setup failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.pause();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextdestroy>ARViewContext.destroy<a href=#arviewcontextdestroy class=hash-link aria-label=ARViewContext.destroy的直接链接 title=ARViewContext.destroy的直接链接 translate=no>​</a></h3>
+<p>destroy(): Promise&lt;void></p>
+<p>销毁<a href=#arviewcontext class="">ARViewContext</a>，释放ARView使用资源，包括AR会话与呈现场景销毁，在退出ARView时使用。使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200001<td>Failure.<tr><td>1009200201<td>ARView invalid operation.<tr><td>1009200204<td>AR session setup failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.destroy();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextresume>ARViewContext.resume<a href=#arviewcontextresume class=hash-link aria-label=ARViewContext.resume的直接链接 title=ARViewContext.resume的直接链接 translate=no>​</a></h3>
+<p>resume(): void</p>
+<p>用于恢复暂停的相机跟踪与AR场景渲染。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200001<td>Failure.<tr><td>1009200010<td>Camera unavailable.<tr><td>1009200201<td>ARView invalid operation.<tr><td>1009200204<td>AR session setup failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.resume();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextscene>ARViewContext.scene<a href=#arviewcontextscene class=hash-link aria-label=ARViewContext.scene的直接链接 title=ARViewContext.scene的直接链接 translate=no>​</a></h3>
+<p>set scene(scene: Scene)</p>
+<p>设置ARView的AR场景。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>scene<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene#scene-1>Scene</a><td>是<td>AR呈现场景，用于管理空间节点。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">Scene.load().then((scene: Scene) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  context.scene = scene;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">})</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextscene-1>ARViewContext.scene<a href=#arviewcontextscene-1 class=hash-link aria-label=ARViewContext.scene的直接链接 title=ARViewContext.scene的直接链接 translate=no>​</a></h3>
+<p>get scene(): Scene</p>
+<p>获得的AR呈现场景，用于管理空间节点。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene/js-apis-inner-scene#scene-1>Scene</a><td>AR呈现场景，用于管理空间节点。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { Scene } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.scene;</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextsession>ARViewContext.session<a href=#arviewcontextsession class=hash-link aria-label=ARViewContext.session的直接链接 title=ARViewContext.session的直接链接 translate=no>​</a></h3>
+<p>get session(): arEngine.ARSession | undefined</p>
+<p>获取AR会话，用于获取相关AR环境跟踪、相机跟踪、命中检测等能力，如相机位姿、平面信息、创建锚点等。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arsession>arEngine.ARSession</a><td>undefined</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.session;</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextconfig>ARViewContext.config<a href=#arviewcontextconfig class=hash-link aria-label=ARViewContext.config的直接链接 title=ARViewContext.config的直接链接 translate=no>​</a></h3>
+<p>set config(conf: arEngine.ARConfig)</p>
+<p>设置AR会话的配置文件，如北向坐标、性能模式等。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>conf<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arconfig>arEngine.ARConfig</a><td>是<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arsession>ARSession</a>的功能配置参数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.config = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  type: arEngine.ARType.WORLD,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  poseMode: arEngine.ARPoseMode.GRAVITY_AND_HEADING,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  powerMode: arEngine.ARPowerMode.POWER_SAVING,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  depthMode: arEngine.ARDepthMode.AUTOMATIC</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextloadasset>ARViewContext.loadAsset<a href=#arviewcontextloadasset class=hash-link aria-label=ARViewContext.loadAsset的直接链接 title=ARViewContext.loadAsset的直接链接 translate=no>​</a></h3>
+<p>loadAsset(resourcePath: ResourceStr, landmark: LandmarkType): Promise&lt;void></p>
+<p>在指定的关键点处放置模型。使用Promise异步回调。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>resourcePath<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#resourcestr>ResourceStr</a><td>是<td>存储模型的路径。<tr><td>landmark<td><a href=#landmarktype class="">LandmarkType</a><td>是<td>指定想要放置模型的关键点。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 此处为用户本地存放模型路径</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let resourcePath:ResourceStr = $rawfile('xxxx/xxxx');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.loadAsset(resourcePath, arViewController.LandmarkType.LEFT_EYE);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextremoveasset>ARViewContext.removeAsset<a href=#arviewcontextremoveasset class=hash-link aria-label=ARViewContext.removeAsset的直接链接 title=ARViewContext.removeAsset的直接链接 translate=no>​</a></h3>
+<p>removeAsset(landmark: LandmarkType):Promise&lt;void></p>
+<p>在指定的关键点移除已放置的模型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>landmark<td><a href=#landmarktype class="">LandmarkType</a><td>是<td>指定想要移除模型的关键点。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.removeAsset(arViewController.LandmarkType.LEFT_EYE);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextclearresource>ARViewContext.clearResource<a href=#arviewcontextclearresource class=hash-link aria-label=ARViewContext.clearResource的直接链接 title=ARViewContext.clearResource的直接链接 translate=no>​</a></h3>
+<p>clearResource():Promise&lt;void></p>
+<p>清除所有放置的模型。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>Promise&lt;void><td>无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.clearResource();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextsetblendshapeweight>ARViewContext.setBlendShapeWeight<a href=#arviewcontextsetblendshapeweight class=hash-link aria-label=ARViewContext.setBlendShapeWeight的直接链接 title=ARViewContext.setBlendShapeWeight的直接链接 translate=no>​</a></h3>
+<p>setBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType, weight: number): boolean</p>
+<p>设置指定Node里特定微表情的权重，用于渲染表情。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>新建锚点对应的AR场景节点。  <strong><strong>说明：</strong></strong> Node属于AGP（Ark Graphics Platform）渲染引擎能力，使用了AGP齐世界坐标系，与AR Engine所使用的重力对齐世界坐标系不一致，与anchor参数一同使用时需注意区分。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。<tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arblendshapetype>arEngine.ARBlendShapeType</a><td>是<td>微表情类型。<tr><td>weight<td>number<td>是<td>微表情权重，范围是0到1。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>boolean<td>微表情权重设置结果。true代表成功，false代表失败</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ctx.setBlendShapeWeight(node, arEngine.ARBlendShapeType.EYE_BLINK_LEFT, 0.1);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextgetblendshapeweight>ARViewContext.getBlendShapeWeight<a href=#arviewcontextgetblendshapeweight class=hash-link aria-label=ARViewContext.getBlendShapeWeight的直接链接 title=ARViewContext.getBlendShapeWeight的直接链接 translate=no>​</a></h3>
+<p>getBlendShapeWeight(node: Node, type: arEngine.ARBlendShapeType): number | null</p>
+<p>获取指定Node里特定微表情的权重。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>新建锚点对应的AR场景节点。  <strong><strong>说明：</strong></strong> Node属于AGP（Ark Graphics Platform）渲染引擎能力，使用了AGP齐世界坐标系，与AR Engine所使用的重力对齐世界坐标系不一致，与anchor参数一同使用时需注意区分。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。<tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arblendshapetype>arEngine.ARBlendShapeType</a><td>是<td>微表情类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>number<td>null</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ctx.getBlendShapeWeight(node, arEngine.ARBlendShapeType.EYE_BLINK_LEFT);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontexttransformpose>ARViewContext.transformPose<a href=#arviewcontexttransformpose class=hash-link aria-label=ARViewContext.transformPose的直接链接 title=ARViewContext.transformPose的直接链接 translate=no>​</a></h3>
+<p>transformPose(position: Vec3, rotation: Quaternion): arEngine.ARPose | null</p>
+<p>将位姿信息从AR坐标系转换为AGP渲染引擎坐标系。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet、TV中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>position<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#vec3>Vec3</a><td>是<td>位姿坐标信息<tr><td>rotation<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-types/js-apis-inner-scene-types#quaternion>Quaternion</a><td>是<td>位姿朝向信息。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>arEngine.ARPose<td>null</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Vec3, Quaternion } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let pose: Vec3 =  {x: 1.0, y: -1.0, z: -0.5};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let rot: Quaternion =  {x: -0.1, y: 0.2, z: -0.3, w: 0.5};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.transformPose(pose, rot);</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontextcallback>ARViewContext.callback<a href=#arviewcontextcallback class=hash-link aria-label=ARViewContext.callback的直接链接 title=ARViewContext.callback的直接链接 translate=no>​</a></h3>
+<p>set callback(callback: ARViewCallback)</p>
+<p>回调函数，可根据回调功能实现对应业务逻辑。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a href=#arviewcallback class="">ARViewCallback</a><td>是<td>ARViewCallback抽象类，声明ARView的回调接口。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200201<td>ARView invalid operation.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class ARViewCallbackImpl extends arViewController.ARViewCallback {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('onAnchorAdd');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`add anchor id = ${String(anchor.id)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`add anchor translation = ${anchor.getPose().translation}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`add node pose = ${node.position}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('onAnchorUpdate');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`update anchor id = ${String(anchor.id)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`update anchor translation = ${anchor.getPose().translation}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`update node pose = ${node.position}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  async onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): Promise&lt;void> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let arSession: arEngine.ARSession | undefined = ctx.session;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (arSession) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let frame: arEngine.ARFrame = arSession.getFrame();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (!frame) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error('Failed to get arSession.frame, it is undefined or null');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`Succeeded in getting arSession.frame = ${frame.timestamp}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        await frame.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Failed to get arSession, arSession is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: arViewController.ARViewContext = new arViewController.ARViewContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.callback = new ARViewCallbackImpl();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcallback>ARViewCallback<a href=#arviewcallback class=hash-link aria-label=ARViewCallback的直接链接 title=ARViewCallback的直接链接 translate=no>​</a></h2>
+<p>ARViewCallback抽象类，声明ARView的回调接口。</p>
+<p>开发者需继承此类并且根据业务逻辑实现回调子类。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcallbackonanchoradd>ARViewCallback.onAnchorAdd<a href=#arviewcallbackonanchoradd class=hash-link aria-label=ARViewCallback.onAnchorAdd的直接链接 title=ARViewCallback.onAnchorAdd的直接链接 translate=no>​</a></h3>
+<p>abstract onAnchorAdd(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void</p>
+<p>当AR会话检测到新平面时，平面自动创建锚点以及对应的场景节点，并在帧刷新逻辑中自动触发此回调函数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>ctx<td><a href=#arviewcontext class="">ARViewContext</a><td>是<td>当前ARView的上下文信息（ARViewContext）。<tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>新建锚点对应的AR场景节点。  <strong><strong>说明：</strong></strong> Node属于AGP（Ark Graphics Platform）渲染引擎能力，使用了AGP齐世界坐标系，与AR Engine所使用的重力对齐世界坐标系不一致，与anchor参数一同使用时需注意区分。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。<tr><td>anchor<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#aranchor>arEngine.ARAnchor</a><td>是<td>新平面对应的新创建的锚点。  <strong><strong>说明：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#aranchor>ARAnchor</a>的位姿使用了AR Engine重力对齐世界坐标系。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 参考ARViewContext.callback接口示例代码创建callback类再实现该接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">onAnchorAdd(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 其他操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcallbackonanchorupdate>ARViewCallback.onAnchorUpdate<a href=#arviewcallbackonanchorupdate class=hash-link aria-label=ARViewCallback.onAnchorUpdate的直接链接 title=ARViewCallback.onAnchorUpdate的直接链接 translate=no>​</a></h3>
+<p>abstract onAnchorUpdate(ctx: ARViewContext, node: Node, anchor: arEngine.ARAnchor): void</p>
+<p>更新AR会话中的锚点时，ARView自动检测该锚点对应的场景节点，并调用该回调函数。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>ctx<td><a href=#arviewcontext class="">ARViewContext</a><td>是<td>当前ARView的上下文信息（ARViewContext）。<tr><td>node<td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/graphics3d/js-apis-inner-scene-nodes/js-apis-inner-scene-nodes#node>Node</a><td>是<td>新建锚点对应的AR场景节点。  <strong><strong>说明：</strong></strong> Node属于AGP（Ark Graphics Platform）渲染引擎能力，使用了AGP齐世界坐标系，与AR Engine所使用的重力对齐世界坐标系不一致，与anchor参数一同使用时需注意区分。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。<tr><td>anchor<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#aranchor>arEngine.ARAnchor</a><td>是<td>更新锚点。  <strong><strong>说明：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#aranchor>ARAnchor</a>的位姿使用了AR Engine重力对齐世界坐标系。具体参见<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/arengine-overview#%E5%9D%90%E6%A0%87%E7%B3%BB%E8%AF%B4%E6%98%8E target=_blank rel="noopener noreferrer" class="">坐标系说明</a>。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { Node } from '@kit.ArkGraphics3D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 参考ARViewContext.callback接口示例代码创建callback类再实现该接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">onAnchorUpdate(ctx: arViewController.ARViewContext, node: Node, anchor: arEngine.ARAnchor): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 其他操作</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcallbackonframeupdate>ARViewCallback.onFrameUpdate<a href=#arviewcallbackonframeupdate class=hash-link aria-label=ARViewCallback.onFrameUpdate的直接链接 title=ARViewCallback.onFrameUpdate的直接链接 translate=no>​</a></h3>
+<p>abstract onFrameUpdate(ctx: ARViewContext, sysBootTs: number): void</p>
+<p>AR场景每帧刷新前会自动触发该回调，开发者可以基于此回调进行AR实体摆放位姿调整、动画调整以及相机位姿调整等。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>设备行为差异：</strong></strong> 该接口在部分Phone、部分Tablet中可正常调用，在不支持的设备中无法正常调用。可使用<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arviewcontroller/arengine-api-arviewcontroller#arviewcontrollerisartypesupported>arViewController.isARTypeSupported</a>接口查询能力是否支持。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>ctx<td><a href=#arviewcontext class="">ARViewContext</a><td>是<td>当前ARView的上下文信息。<tr><td>sysBootTs<td>number<td>是<td>时间戳，单位为us。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 参考ARViewContext.callback接口示例代码创建callback类再实现该接口</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">onFrameUpdate(ctx: arViewController.ARViewContext, sysBootTs: number): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let arSession: arEngine.ARSession | undefined = ctx.session;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (arSession) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let frame: arEngine.ARFrame = arSession.getFrame();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (!frame){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error('Failed to get arSession.frame, it is undefined or null');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info(`Succeeded in getting arSession.frame = ${frame.timestamp}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      await frame.release();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error('Failed to get arSession, arSession is undefined');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=arviewcontrollerisartypesupported>arViewController.isARTypeSupported<a href=#arviewcontrollerisartypesupported class=hash-link aria-label=arViewController.isARTypeSupported的直接链接 title=arViewController.isARTypeSupported的直接链接 translate=no>​</a></h2>
+<p>isARTypeSupported(type: arEngine.ARFeatureType): boolean</p>
+<p>在ARViewController中调用此接口来判断AR特性是否支持在当前设备上运行。</p>
+<p><strong><strong>模型约束：</strong></strong> 此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.AREngine.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 6.1.0(23)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine#arfeaturetype>arEngine.ARFeatureType</a><td>是<td>表示想要检查能否正常运行的AR特性。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>类型</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>boolean<td>AR特性检查结果。true表示该设备支持，false则表示该设备不支持。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-error-code/arengine-error-code>AR Engine错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>1009200001<td>Failure.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { arEngine, arViewController } from '@kit.AREngine';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">arViewController.isARTypeSupported(arEngine.ARFeatureType.ARENGINE_FEATURE_TYPE_FACE);</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>arEngine（AR增强现实能力）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api-component/arengine-api-component-arview/arengine-api-component-arview><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>ARView（AR场景可视化）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#landmarktype class="table-of-contents__link toc-highlight">LandmarkType</a><li><a href=#arviewcontext class="table-of-contents__link toc-highlight">ARViewContext</a><ul><li><a href=#arviewcontextinit class="table-of-contents__link toc-highlight">ARViewContext.init</a><li><a href=#arviewcontextpause class="table-of-contents__link toc-highlight">ARViewContext.pause</a><li><a href=#arviewcontextdestroy class="table-of-contents__link toc-highlight">ARViewContext.destroy</a><li><a href=#arviewcontextresume class="table-of-contents__link toc-highlight">ARViewContext.resume</a><li><a href=#arviewcontextscene class="table-of-contents__link toc-highlight">ARViewContext.scene</a><li><a href=#arviewcontextscene-1 class="table-of-contents__link toc-highlight">ARViewContext.scene</a><li><a href=#arviewcontextsession class="table-of-contents__link toc-highlight">ARViewContext.session</a><li><a href=#arviewcontextconfig class="table-of-contents__link toc-highlight">ARViewContext.config</a><li><a href=#arviewcontextloadasset class="table-of-contents__link toc-highlight">ARViewContext.loadAsset</a><li><a href=#arviewcontextremoveasset class="table-of-contents__link toc-highlight">ARViewContext.removeAsset</a><li><a href=#arviewcontextclearresource class="table-of-contents__link toc-highlight">ARViewContext.clearResource</a><li><a href=#arviewcontextsetblendshapeweight class="table-of-contents__link toc-highlight">ARViewContext.setBlendShapeWeight</a><li><a href=#arviewcontextgetblendshapeweight class="table-of-contents__link toc-highlight">ARViewContext.getBlendShapeWeight</a><li><a href=#arviewcontexttransformpose class="table-of-contents__link toc-highlight">ARViewContext.transformPose</a><li><a href=#arviewcontextcallback class="table-of-contents__link toc-highlight">ARViewContext.callback</a></ul><li><a href=#arviewcallback class="table-of-contents__link toc-highlight">ARViewCallback</a><ul><li><a href=#arviewcallbackonanchoradd class="table-of-contents__link toc-highlight">ARViewCallback.onAnchorAdd</a><li><a href=#arviewcallbackonanchorupdate class="table-of-contents__link toc-highlight">ARViewCallback.onAnchorUpdate</a><li><a href=#arviewcallbackonframeupdate class="table-of-contents__link toc-highlight">ARViewCallback.onFrameUpdate</a></ul><li><a href=#arviewcontrollerisartypesupported class="table-of-contents__link toc-highlight">arViewController.isARTypeSupported</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

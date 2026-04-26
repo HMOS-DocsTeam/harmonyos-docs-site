@@ -1,0 +1,1433 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>IFAA | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="IFAA | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=IFAA提供移动端免密身份认证能力，实现接入IIFAA（互联网可信认证联盟）的业务免密登录，免密支付等业务场景（注：IFAA在本文中指HarmonyOS系统免密认证模块，IIFAA在本文中指联盟及相关技术规范）。 /><meta data-rh=true property=og:description content=IFAA提供移动端免密身份认证能力，实现接入IIFAA（互联网可信认证联盟）的业务免密登录，免密支付等业务场景（注：IFAA在本文中指HarmonyOS系统免密认证模块，IIFAA在本文中指联盟及相关技术规范）。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api","name":"IFAA","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title=FIDO class=linkLabel_WmDU>FIDO</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-ifaa-api/onlineauthentication-ifaa-api><span title=IFAA class=linkLabel_WmDU>IFAA</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><span title=SOTER class=linkLabel_WmDU>SOTER</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-passkey-api/onlineauthentication-passkey-api><span title=通行密钥 class=linkLabel_WmDU>通行密钥</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-fido/onlineauthentication-error-code-fido><span title="ArkTS API错误码" class=categoryLinkLabel_W154>ArkTS API错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/online-authentication-c/onlineauthentication_capi_module/passkey/passkey><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Online Authentication Kit（在线认证服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>IFAA</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>IFAA</h1></header>
+<p>IFAA提供移动端免密身份认证能力，实现接入IIFAA（互联网可信认证联盟）的业务免密登录，免密支付等业务场景（注：IFAA在本文中指HarmonyOS系统免密认证模块，IIFAA在本文中指联盟及相关技术规范）。</p>
+<p>支持的设备类型为：Phone, PC/2in1, Tablet</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { ifaa } from '@kit.OnlineAuthenticationKit'</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getversionsync>getVersionSync<a href=#getversionsync class=hash-link aria-label=getVersionSync的直接链接 title=getVersionSync的直接链接 translate=no>​</a></h2>
+<p>getVersionSync(): number</p>
+<p>该接口用于获取IFAA免密认证接口的版本号，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>number<td>返回IFAA免密认证的接口版本号。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let res: number = ifaa.getVersionSync();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者处理res</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getanonymousidsync>getAnonymousIdSync<a href=#getanonymousidsync class=hash-link aria-label=getAnonymousIdSync的直接链接 title=getAnonymousIdSync的直接链接 translate=no>​</a></h2>
+<p>getAnonymousIdSync(userToken: Uint8Array): Uint8Array</p>
+<p>该接口用于获取IFAA免密认证的匿名化ID，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回IFAA免密认证的匿名化ID。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let getAnonIdResult: Uint8Array = ifaa.getAnonymousIdSync(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者处理getAnonIdResult ....</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getanonymousid>getAnonymousId<a href=#getanonymousid class=hash-link aria-label=getAnonymousId的直接链接 title=getAnonymousId的直接链接 translate=no>​</a></h2>
+<p>getAnonymousId(userToken: Uint8Array): Promise&lt;Uint8Array></p>
+<p>该接口用于获取IFAA免密认证的匿名化ID，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回匿名化ID。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let getAnonIdPromise: Promise&lt;Uint8Array> = ifaa.getAnonymousId(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">getAnonIdPromise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing getAnonymousId.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getAnonymousId. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain"> });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getanonymousid-1>getAnonymousId<a href=#getanonymousid-1 class=hash-link aria-label=getAnonymousId的直接链接 title=getAnonymousId的直接链接 translate=no>​</a></h2>
+<p>getAnonymousId(userToken: Uint8Array, callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于获取IFAA免密认证的匿名化ID，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。<tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.getAnonymousId(arg,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, result: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call getAnonymousId. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing getAnonymousId.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=querystatussync>queryStatusSync<a href=#querystatussync class=hash-link aria-label=queryStatusSync的直接链接 title=queryStatusSync的直接链接 translate=no>​</a></h2>
+<p>queryStatusSync(userToken: Uint8Array): boolean</p>
+<p>该接口用于查询IFAA免密认证的开通状态，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>boolean<td>返回IFAA免密认证的开通状态。true代表已开通，false代表未开通。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let status: boolean = ifaa.queryStatusSync(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">if (status) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("ifaa registered");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("ifaa deregistered");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=querystatus>queryStatus<a href=#querystatus class=hash-link aria-label=queryStatus的直接链接 title=queryStatus的直接链接 translate=no>​</a></h2>
+<p>queryStatus(userToken: Uint8Array): Promise&lt;boolean></p>
+<p>该接口用于查询IFAA免密认证的开通状态，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，true代表已开通，false代表未开通。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let promise: Promise&lt;boolean> = ifaa.queryStatus(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing queryStatus.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call queryStatus. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=querystatus-1>queryStatus<a href=#querystatus-1 class=hash-link aria-label=queryStatus的直接链接 title=queryStatus的直接链接 translate=no>​</a></h2>
+<p>queryStatus(userToken: Uint8Array, callback: AsyncCallback&lt;boolean>): void</p>
+<p>该接口用于查询IFAA免密认证的开通状态，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>userToken<td>Uint8Array<td>是<td>唯一标识用户的id。<tr><td>callback<td>AsyncCallback&lt;boolean><td>是<td>回调函数，用于获取开通状态，true代表已开通，false代表未开通。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.queryStatus(arg,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, result: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call queryStatus. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing queryStatus.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=register>register<a href=#register class=hash-link aria-label=register的直接链接 title=register的直接链接 translate=no>​</a></h2>
+<p>register(registerData: Uint8Array): Promise&lt;Uint8Array></p>
+<p>该接口用于开通IFAA免密认证，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>registerData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的开通数据。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回开通数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let registerPromise: Promise&lt;Uint8Array> = ifaa.register(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">registerPromise.then(registerResult => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing register.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理registerResult</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call register. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=register-1>register<a href=#register-1 class=hash-link aria-label=register的直接链接 title=register的直接链接 translate=no>​</a></h2>
+<p>register(registerData: Uint8Array, callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于开通IFAA免密认证，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>registerData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的开通数据。<tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.register(arg, (err: BusinessError, registerResult: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`Failed to call register. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info("Succeeded in doing register.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 开发者处理registerResult ....</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=preauthsync>preAuthSync<a href=#preauthsync class=hash-link aria-label=preAuthSync的直接链接 title=preAuthSync的直接链接 translate=no>​</a></h2>
+<p>preAuthSync(): Uint8Array</p>
+<p>该接口用于获取IFAA免密认证的预认证参数，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回IFAA免密认证的预认证参数，其中存在用于后续进行生物认证时所需的挑战值（challenge）。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let preAuthResult: Uint8Array = ifaa.preAuthSync();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者处理preAuthResult</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=preauth>preAuth<a href=#preauth class=hash-link aria-label=preAuth的直接链接 title=preAuth的直接链接 translate=no>​</a></h2>
+<p>preAuth(): Promise&lt;Uint8Array></p>
+<p>该接口用于获取IFAA免密认证的预认证参数，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回预认证数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let preAuthPromise: Promise&lt;Uint8Array> = ifaa.preAuth();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">preAuthPromise.then(preAuthResult => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing preAuth.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理preAuthResult ....</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call preAuth. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=preauth-1>preAuth<a href=#preauth-1 class=hash-link aria-label=preAuth的直接链接 title=preAuth的直接链接 translate=no>​</a></h2>
+<p>preAuth(callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于获取IFAA免密认证的预认证参数，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回预认证数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.preAuth(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, preAuthResult:Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call preAuth. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing preAuth.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理preAuthResult..</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=authsync>authSync<a href=#authsync class=hash-link aria-label=authSync的直接链接 title=authSync的直接链接 translate=no>​</a></h2>
+<p>authSync(authToken: Uint8Array, authData: Uint8Array): Uint8Array</p>
+<p>该接口用于IFAA免密认证，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>authToken<td>Uint8Array<td>是<td>用户身份认证通过的凭证（通过用户认证模块可获取，调用@ohos.userIAM.userAuth的getUserAuthInstance）。<tr><td>authData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的认证数据。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回TLV格式的认证结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 开发者调用@ohos.userIAM.userAuth的getUserAuthInstance获取token；token需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let token = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authResult: Uint8Array = ifaa.authSync(token, arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者处理authResult ....</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=auth>auth<a href=#auth class=hash-link aria-label=auth的直接链接 title=auth的直接链接 translate=no>​</a></h2>
+<p>auth(authToken: Uint8Array, authData: Uint8Array): Promise&lt;Uint8Array></p>
+<p>该接口用于IFAA免密认证，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>authToken<td>Uint8Array<td>是<td>用户身份认证通过的凭证（通过用户认证模块可获取，调用@ohos.userIAM.userAuth的getUserAuthInstance）。<tr><td>authData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的认证数据。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回TLV格式的认证结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者调用@ohos.userIAM.userAuth的getUserAuthInstance获取token；token需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let token = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let authPromise: Promise&lt;Uint8Array> = ifaa.auth(token, arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">authPromise.then(authResult => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing auth.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理authResult ....</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call auth. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=auth-1>auth<a href=#auth-1 class=hash-link aria-label=auth的直接链接 title=auth的直接链接 translate=no>​</a></h2>
+<p>auth(authToken: Uint8Array, authData: Uint8Array, callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于IFAA免密认证，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>authToken<td>Uint8Array<td>是<td>用户身份认证通过的凭证（通过用户认证模块可获取，调用@ohos.userIAM.userAuth的getUserAuthInstance）。<tr><td>authData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的认证数据。<tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者调用@ohos.userIAM.userAuth的getUserAuthInstance获取token；token需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let token = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.auth(token, arg,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, authResult: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call auth. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing auth.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理authResult ....</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deregistersync>deregisterSync<a href=#deregistersync class=hash-link aria-label=deregisterSync的直接链接 title=deregisterSync的直接链接 translate=no>​</a></h2>
+<p>deregisterSync(deregisterData: Uint8Array): void</p>
+<p>该接口用于关闭IFAA免密认证，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>deregisterData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的关闭数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.deregisterSync(arg);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deregister>deregister<a href=#deregister class=hash-link aria-label=deregister的直接链接 title=deregister的直接链接 translate=no>​</a></h2>
+<p>deregister(deregisterData: Uint8Array): Promise&lt;void></p>
+<p>该接口用于关闭IFAA免密认证，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>deregisterData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的关闭数据。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果的Promise对象。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let promise: Promise&lt;void> = ifaa.deregister(arg);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(()=> {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing deregister.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call deregister. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=deregister-1>deregister<a href=#deregister-1 class=hash-link aria-label=deregister的直接链接 title=deregister的直接链接 translate=no>​</a></h2>
+<p>deregister(deregisterData: Uint8Array, callback: AsyncCallback&lt;void>): void</p>
+<p>该接口用于关闭IFAA免密认证，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>deregisterData<td>Uint8Array<td>是<td>IIFAA服务器下发的TLV格式的关闭数据。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者需要按照IIFAA的TLV格式构造入参，并转换为Uint8Array参数；此处arg需要开发者替换为真实入参。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let arg = new Uint8Array([0]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.deregister(arg,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call deregister. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing deregister.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getprotocolversionsync>getProtocolVersionSync<a href=#getprotocolversionsync class=hash-link aria-label=getProtocolVersionSync的直接链接 title=getProtocolVersionSync的直接链接 translate=no>​</a></h2>
+<p>getProtocolVersionSync(): Uint8Array</p>
+<p>该接口用于获取IFAA免密认证的协议版本号，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回IFAA免密认证的协议版本号。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let res: Uint8Array = ifaa.getProtocolVersionSync();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getprotocolversion>getProtocolVersion<a href=#getprotocolversion class=hash-link aria-label=getProtocolVersion的直接链接 title=getProtocolVersion的直接链接 translate=no>​</a></h2>
+<p>getProtocolVersion(): Promise&lt;Uint8Array></p>
+<p>该接口用于获取IFAA免密认证的协议版本号，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回协议版本号。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let promise: Promise&lt;Uint8Array> = ifaa.getProtocolVersion();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing getProtocolVersion.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getProtocolVersion. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getprotocolversion-1>getProtocolVersion<a href=#getprotocolversion-1 class=hash-link aria-label=getProtocolVersion的直接链接 title=getProtocolVersion的直接链接 translate=no>​</a></h2>
+<p>getProtocolVersion(callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于获取IFAA免密认证的协议版本号，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.getProtocolVersion(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, result: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call getProtocolVersion. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing getProtocolVersion.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getsupportedcerttypessync>getSupportedCertTypesSync<a href=#getsupportedcerttypessync class=hash-link aria-label=getSupportedCertTypesSync的直接链接 title=getSupportedCertTypesSync的直接链接 translate=no>​</a></h2>
+<p>getSupportedCertTypesSync(): Uint8Array</p>
+<p>该接口用于获取IFAA免密认证支持的证书格式，同步返回结果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Uint8Array<td>返回IFAA免密认证支持的证书格式。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let result: Uint8Array = ifaa.getSupportedCertTypesSync();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 开发者处理result</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getsupportedcerttypes>getSupportedCertTypes<a href=#getsupportedcerttypes class=hash-link aria-label=getSupportedCertTypes的直接链接 title=getSupportedCertTypes的直接链接 translate=no>​</a></h2>
+<p>getSupportedCertTypes(): Promise&lt;Uint8Array></p>
+<p>该接口用于获取IFAA免密认证支持的证书格式，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;Uint8Array><td>Promise对象，返回支持的证书格式。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let promise: Promise&lt;Uint8Array> = ifaa.getSupportedCertTypes();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">promise.then(result => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.info("Succeeded in doing getSupportedCertTypes.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}).catch((err: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  console.error(`Failed to call getSupportedCertTypes. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getsupportedcerttypes-1>getSupportedCertTypes<a href=#getsupportedcerttypes-1 class=hash-link aria-label=getSupportedCertTypes的直接链接 title=getSupportedCertTypes的直接链接 translate=no>​</a></h2>
+<p>getSupportedCertTypes(callback: AsyncCallback&lt;Uint8Array>): void</p>
+<p>该接口用于获取IFAA免密认证支持的证书格式，使用Callback异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.0(12)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.Ifaa</p>
+<p><strong><strong>起始版本：</strong></strong> 4.1.0(11)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;Uint8Array><td>是<td>回调函数，用于获取返回数据。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-error-code/onlineauthentication-error-code-ifaa/onlineauthentication-error-code-ifaa>IFAA免密认证错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Parameter error.<tr><td>801<td>Device type error.<tr><td>1006100001<td>System Interruption.<tr><td>1006100002<td>The service is abnormal.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">ifaa.getSupportedCertTypes(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (err: BusinessError, result: Uint8Array) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`Failed to call getSupportedCertTypes. Code: ${err.code}, message: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.info("Succeeded in doing getSupportedCertTypes.");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      // 开发者处理result</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  });</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>FIDO</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-soter-api/onlineauthentication-soter-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>SOTER</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#getversionsync class="table-of-contents__link toc-highlight">getVersionSync</a><li><a href=#getanonymousidsync class="table-of-contents__link toc-highlight">getAnonymousIdSync</a><li><a href=#getanonymousid class="table-of-contents__link toc-highlight">getAnonymousId</a><li><a href=#getanonymousid-1 class="table-of-contents__link toc-highlight">getAnonymousId</a><li><a href=#querystatussync class="table-of-contents__link toc-highlight">queryStatusSync</a><li><a href=#querystatus class="table-of-contents__link toc-highlight">queryStatus</a><li><a href=#querystatus-1 class="table-of-contents__link toc-highlight">queryStatus</a><li><a href=#register class="table-of-contents__link toc-highlight">register</a><li><a href=#register-1 class="table-of-contents__link toc-highlight">register</a><li><a href=#preauthsync class="table-of-contents__link toc-highlight">preAuthSync</a><li><a href=#preauth class="table-of-contents__link toc-highlight">preAuth</a><li><a href=#preauth-1 class="table-of-contents__link toc-highlight">preAuth</a><li><a href=#authsync class="table-of-contents__link toc-highlight">authSync</a><li><a href=#auth class="table-of-contents__link toc-highlight">auth</a><li><a href=#auth-1 class="table-of-contents__link toc-highlight">auth</a><li><a href=#deregistersync class="table-of-contents__link toc-highlight">deregisterSync</a><li><a href=#deregister class="table-of-contents__link toc-highlight">deregister</a><li><a href=#deregister-1 class="table-of-contents__link toc-highlight">deregister</a><li><a href=#getprotocolversionsync class="table-of-contents__link toc-highlight">getProtocolVersionSync</a><li><a href=#getprotocolversion class="table-of-contents__link toc-highlight">getProtocolVersion</a><li><a href=#getprotocolversion-1 class="table-of-contents__link toc-highlight">getProtocolVersion</a><li><a href=#getsupportedcerttypessync class="table-of-contents__link toc-highlight">getSupportedCertTypesSync</a><li><a href=#getsupportedcerttypes class="table-of-contents__link toc-highlight">getSupportedCertTypes</a><li><a href=#getsupportedcerttypes-1 class="table-of-contents__link toc-highlight">getSupportedCertTypes</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

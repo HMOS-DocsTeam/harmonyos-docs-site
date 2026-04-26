@@ -1,0 +1,654 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>组件内转场 (transition) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="组件内转场 (transition) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=组件内转场主要通过transition属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。 /><meta data-rh=true property=og:description content=组件内转场主要通过transition属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component","name":"组件内转场 (transition)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=通用事件 class=categoryLinkLabel_W154>通用事件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id><span title=通用属性 class=categoryLinkLabel_W154>通用属性</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=手势处理 class=categoryLinkLabel_W154>手势处理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><span title=行列与堆叠 class=categoryLinkLabel_W154>行列与堆叠</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow><span title=栅格与分栏 class=categoryLinkLabel_W154>栅格与分栏</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=滚动与滑动 class=categoryLinkLabel_W154>滚动与滑动</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><span title=导航与切换 class=categoryLinkLabel_W154>导航与切换</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=按钮与选择 class=categoryLinkLabel_W154>按钮与选择</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text><span title=文本与输入 class=categoryLinkLabel_W154>文本与输入</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image><span title=图片与视频 class=categoryLinkLabel_W154>图片与视频</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer><span title=信息展示 class=categoryLinkLabel_W154>信息展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank><span title=空白与分隔 class=categoryLinkLabel_W154>空白与分隔</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas><span title=画布绘制 class=categoryLinkLabel_W154>画布绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle><span title=图形绘制 class=categoryLinkLabel_W154>图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=渲染绘制 class=categoryLinkLabel_W154>渲染绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu><span title=菜单 class=categoryLinkLabel_W154>菜单</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title=动画 class=categoryLinkLabel_W154>动画</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title="属性动画 (animation)" class=linkLabel_WmDU>属性动画 (animation)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-explicit-animation/ts-explicit-animation><span title="显式动画 (animateTo)" class=linkLabel_WmDU>显式动画 (animateTo)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-keyframeanimateto/ts-keyframeanimateto><span title="关键帧动画 (keyframeAnimateTo)" class=linkLabel_WmDU>关键帧动画 (keyframeAnimateTo)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-page-transition-animation/ts-page-transition-animation><span title="页面间转场 (pageTransition)" class=linkLabel_WmDU>页面间转场 (pageTransition)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-component/ts-transition-animation-component><span title="组件内转场 (transition)" class=linkLabel_WmDU>组件内转场 (transition)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-shared-elements/ts-transition-animation-shared-elements><span title="共享元素转场 (sharedTransition)" class=linkLabel_WmDU>共享元素转场 (sharedTransition)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-geometrytransition/ts-transition-animation-geometrytransition><span title="组件内隐式共享元素转场 (geometryTransition)" class=linkLabel_WmDU>组件内隐式共享元素转场 (geometryTransition)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-motion-path-animation/ts-motion-path-animation><span title="路径动画 (motionPath)" class=linkLabel_WmDU>路径动画 (motionPath)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-particle-animation/ts-particle-animation><span title="粒子动画 (Particle)" class=linkLabel_WmDU>粒子动画 (Particle)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-explicit-animatetoimmediately/ts-explicit-animatetoimmediately><span title="显式动画立即下发 (animateToImmediately)" class=linkLabel_WmDU>显式动画立即下发 (animateToImmediately)</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box><span title=弹窗 class=categoryLinkLabel_W154>弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink><span title=卡片 class=categoryLinkLabel_W154>卡片</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-securitycomponent-attributes/ts-securitycomponent-attributes><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/themes/ts-container-with-theme/ts-container-with-theme><span title=主题 class=categoryLinkLabel_W154>主题</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/atomic-services/ohos-atomicservice-atomicservicenavigation/ohos-atomicservice-atomicservicenavigation><span title=AtomicService class=categoryLinkLabel_W154>AtomicService</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-placeholder-comp/ts-basic-components-nodecontainer/ts-basic-components-nodecontainer><span title=自定义占位组件 class=categoryLinkLabel_W154>自定义占位组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-lifecycle/ts-custom-component-lifecycle><span title=自定义组件 class=categoryLinkLabel_W154>自定义组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/component-preview/ts-universal-component-previewer/ts-universal-component-previewer><span title=组件预览 class=categoryLinkLabel_W154>组件预览</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-chip/ohos-arkui-advanced-chip><span title=系统预置UI组件库 class=categoryLinkLabel_W154>系统预置UI组件库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/state-management-and-rendering-control/ts-state-management/ts-state-management><span title=状态管理与渲染控制 class=categoryLinkLabel_W154>状态管理与渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/responsive-env-system-property/ts-env-system-property/ts-env-system-property><span title=响应式环境变量 class=categoryLinkLabel_W154>响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types><span title=公共定义 class=categoryLinkLabel_W154>公共定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-gridcontainer/ts-container-gridcontainer><span title=已停止维护的组件与接口 class=categoryLinkLabel_W154>已停止维护的组件与接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS组件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>动画</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>组件内转场 (transition)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>组件内转场 (transition)</h1></header>
+<p>组件内转场主要通过transition属性配置转场参数，在组件插入和删除时显示过渡动效，主要用于容器组件中的子组件插入和删除时，提升用户体验。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 7开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<p>当前有两种方式触发组件的transition：</p>
+<ol>
+<li class="">当组件插入或删除时（如if条件改变、ForEach新增删除组件），会递归的触发所有新插入/删除的组件的transition效果。</li>
+<li class="">当组件<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-visibility/ts-universal-attributes-visibility#visibility>visibility</a>属性在可见和不可见（Visibility.Hidden或Visibility.None）之间改变时，只触发该组件的transition效果。在Visibility.Visible与Visibility.None之间切换时，若直接设置为Visibility.None，会导致组件布局大小为0，此时无法观察到transition效果。而当在动画中修改visibility属性为Visibility.None时，组件布局为0是带动画的，将呈现transition与布局动画的叠加效果，形成双动画的复合表现。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transition>transition<a href=#transition class=hash-link aria-label=transition的直接链接 title=transition的直接链接 translate=no>​</a></h2>
+<p>transition(value: TransitionOptions | TransitionEffect): T</p>
+<p>组件插入显示和删除隐藏的过渡效果。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 9开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a href=#transitionoptionsdeprecated class="">TransitionOptions</a>(deprecated)<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>是</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前组件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transition12>transition12+<a href=#transition12 class=hash-link aria-label=transition12+的直接链接 title=transition12+的直接链接 translate=no>​</a></h2>
+<p>transition(effect: TransitionEffect, onFinish: Optional&lt;TransitionFinishCallback>): T</p>
+<p>组件插入显示和删除隐藏的过渡效果。同<a href=#transition class="">transition</a>相比，增加了转场动画结束的回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 20开始，该接口支持在<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/attribute-modifier-property/ts-universal-attributes-attribute-modifier/ts-universal-attributes-attribute-modifier#attributemodifier>attributeModifier</a>中调用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 12开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>effect<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>是<td>设置组件插入显示和删除隐藏的过渡效果。<tr><td>onFinish<td>Optional&lt;<a href=#transitionfinishcallback12 class="">TransitionFinishCallback</a>><td>是<td>转场动画结束回调。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>T<td>返回当前组件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transitionedge10>TransitionEdge10+<a href=#transitionedge10 class=hash-link aria-label=TransitionEdge10+的直接链接 title=TransitionEdge10+的直接链接 translate=no>​</a></h2>
+<p>转场边缘类型。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>TOP<td>0<td>窗口的上边缘。<tr><td>BOTTOM<td>1<td>窗口的下边缘。<tr><td>START<td>2<td>窗口的起始边缘，LTR时为左边缘，RTL时为右边缘。<tr><td>END<td>3<td>窗口的终止边缘，LTR时为右边缘，RTL时为左边缘。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transitioneffect10对象说明>TransitionEffect10+对象说明<a href=#transitioneffect10对象说明 class=hash-link aria-label=TransitionEffect10+对象说明的直接链接 title=TransitionEffect10+对象说明的直接链接 translate=no>​</a></h2>
+<p>TransitionEffect以函数的形式指定转场效果。提供了以下接口：</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>IDENTITY<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"identity"><td>是<td>否<td>禁用转场效果。<tr><td>OPACITY<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"opacity"><td>是<td>否<td>为组件添加透明度转场效果，出现时透明度从0到1、消失时透明度从1到0，相当于TransitionEffect.opacity(0)。<tr><td>SLIDE<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"asymmetric", { appear: <a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"move", <a href=#transitionedge10 class="">TransitionEdge</a>>; disappear: <a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"move", <a href=#transitionedge10 class="">TransitionEdge</a>>; }><td>是<td>否<td>相当于TransitionEffect.asymmetric(TransitionEffect.move(TransitionEdge.START), TransitionEffect.move(TransitionEdge.END))。从START边滑入，END边滑出。即在LTR模式下，从左侧滑入，右侧滑出；在RTL模式下，从右侧滑入，左侧滑出。<tr><td>SLIDE_SWITCH<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"slideSwitch"><td>是<td>否<td>指定出现时从右侧先缩小再放大滑入、消失时从左侧先缩小再放大滑出的转场效果。自带动画参数，也可覆盖动画参数，自带的动画参数时长600ms，指定动画曲线cubicBezierCurve(0.24, 0.0, 0.50, 1.0)，最小缩放比例为0.8。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">TransitionEffect可通过combine函数实现多个转场效果的组合，可以为每个效果分别指定animation参数，且前一效果的animation的参数也可适用于后一效果。例如，TransitionEffect.OPACITY.animation({duration: 1000}).combine(TransitionEffect.translate({x: 100}))，则时长为1000ms的动画参数对OPACITY和translate均生效。</li>
+<li class="">动画参数的生效顺序为：本TransitionEffect指定的animation参数 > 前面的TransitionEffect指定的animation参数 > 触发该组件出现消失的animateTo中的动画参数。</li>
+<li class="">如果未使用animateTo触发转场动画且TransitionEffect中也无animation参数，则该组件直接出现或者消失。</li>
+<li class="">TransitionEffect中指定的属性值如与默认值相同，则该属性不会产生转场动画。如TransitionEffect.opacity(1).animation({duration:1000})，由于opacity默认值也为1，未产生透明度动画，该组件直接出现或者消失。</li>
+<li class="">更详细的关于scale、rotate效果的介绍可参考<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation>图形变换</a>。</li>
+<li class="">如果在动画范围(<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#animateto>animateTo</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty>animation</a>)内触发组件的上下树或可见性(<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-visibility/ts-universal-attributes-visibility#visibility>visibility</a>)改变，而根组件没有配置transition，会给该组件加上默认透明度转场，即TransitionEffect.OPACITY，动画参数跟随所处动画环境的参数。如不需要可通过主动配置TransitionEffect.IDENTITY来禁用，使该组件直接出现或消失。</li>
+<li class="">当通过删除整棵子树的方式触发消失转场，如需看到完整的消失转场过程，需要保证被删除子树的根组件的有充足的消失转场时间，见示例3。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=translate10>translate10+<a href=#translate10 class=hash-link aria-label=translate10+的直接链接 title=translate10+的直接链接 translate=no>​</a></h3>
+<p>translate(options: TranslateOptions): TransitionEffect&lt;"translate"></p>
+<p>设置组件转场时的平移效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#translateoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>TranslateOptions</a><td>是<td>组件转场时的平移效果，为插入时起点和删除时终点的值。  -x：横向的平移距离。  -y：纵向的平移距离。  -z：竖向的平移距离。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"translate"><td>当前动画平移效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=rotate10>rotate10+<a href=#rotate10 class=hash-link aria-label=rotate10+的直接链接 title=rotate10+的直接链接 translate=no>​</a></h3>
+<p>rotate(options: RotateOptions): TransitionEffect&lt;"rotate"></p>
+<p>设置组件转场时的旋转效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#rotateoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>RotateOptions</a><td>是<td>组件转场时的旋转效果，为插入时起点和删除时终点的值。  -x：横向的旋转向量分量。  -y：纵向的旋转向量分量。  -z：竖向的旋转向量分量。  - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。  - 中心点为(0, 0)代表组件的左上角。  -centerZ指z轴锚点，即3D旋转中心点的z轴分量，centerZ默认值是0。  -perspective指视距，不支持perspective属性做转场动画。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"rotate"><td>当前动画旋转效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=scale10>scale10+<a href=#scale10 class=hash-link aria-label=scale10+的直接链接 title=scale10+的直接链接 translate=no>​</a></h3>
+<p>scale(options: ScaleOptions): TransitionEffect&lt;"scale"></p>
+<p>设置组件转场时的缩放效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#scaleoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>ScaleOptions</a><td>是<td>组件转场时的缩放效果，为插入时起点和删除时终点的值。设置的缩放值在组件当前的scale属性上进行叠加，如组件当前scale值为0.8，当转场缩放值设置为0.5时，组件入场动画的缩放值将从0.4开始执行。  -x：横向放大倍数（或缩小比例）。  -y：纵向放大倍数（或缩小比例）。  -z：当前为二维显示，该参数无效。  - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。  - 中心点为(0, 0)代表组件的左上角。  <strong><strong>说明：</strong></strong>  设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"scale"><td>当前动画缩放效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=opacity10>opacity10+<a href=#opacity10 class=hash-link aria-label=opacity10+的直接链接 title=opacity10+的直接链接 translate=no>​</a></h3>
+<p>opacity(alpha: number): TransitionEffect&lt;"opacity"></p>
+<p>设置组件转场时的透明度效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>alpha<td>number<td>是<td>组件转场时的透明度效果，为插入时起点和删除时终点的值。  取值范围：[0, 1]  <strong><strong>说明：</strong></strong>  设置小于0的非法值按0处理，大于1的非法值按1处理。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"opacity"><td>当前动画透明度效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=move10>move10+<a href=#move10 class=hash-link aria-label=move10+的直接链接 title=move10+的直接链接 translate=no>​</a></h3>
+<p>move(edge: TransitionEdge): TransitionEffect&lt;"move"></p>
+<p>设置组件转场时从屏幕边缘滑入和滑出的效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>edge<td><a href=#transitionedge10 class="">TransitionEdge</a><td>是<td>组件转场时从屏幕边缘滑入和滑出的效果，本质为平移效果，为插入时起点和删除时终点的值。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"move"><td>当前动画从屏幕边缘滑入和滑出的效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=asymmetric10>asymmetric10+<a href=#asymmetric10 class=hash-link aria-label=asymmetric10+的直接链接 title=asymmetric10+的直接链接 translate=no>​</a></h3>
+<p>asymmetric(appear: TransitionEffect, disappear: TransitionEffect): TransitionEffect&lt;"asymmetric"></p>
+<p>设置非对称的转场效果。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>appear<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>是<td>指定出现的转场效果。  如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。<tr><td>disappear<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>是<td>指定消失的转场效果。  如不通过asymmetric函数构造TransitionEffect，则表明该效果在组件出现和消失时均生效。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>&lt;"asymmetric"><td>当前动画非对称的转场效果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor10>constructor10+<a href=#constructor10 class=hash-link aria-label=constructor10+的直接链接 title=constructor10+的直接链接 translate=no>​</a></h3>
+<p>constructor(type: Type, effect: Effect)</p>
+<p>构造TransitionEffect对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#transitiontype>Type</a><td>是<td>转场类型。<tr><td>effect<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">Effect</a><td>是<td>转场参数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=combine10>combine10+<a href=#combine10 class=hash-link aria-label=combine10+的直接链接 title=combine10+的直接链接 translate=no>​</a></h3>
+<p>combine(transitionEffect: TransitionEffect): TransitionEffect</p>
+<p>对TransitionEffect进行链式组合，以形成包含多种转场效果的TransitionEffect。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>transitionEffect<td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>是<td>被组合的过渡效果。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>组合过渡效应。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=animation10>animation10+<a href=#animation10 class=hash-link aria-label=animation10+的直接链接 title=animation10+的直接链接 translate=no>​</a></h3>
+<p>animation(value: AnimateParam): TransitionEffect</p>
+<p>指定该TransitionEffect的动画参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 11开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 10开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>value<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-explicit-animation/ts-explicit-animation#animateparam%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>AnimateParam</a><td>是<td>动画参数。  该参数只用来指定动画参数，其入参AnimateParam的onFinish回调不生效。  如果通过combine进行TransitionEffect的组合，前一TransitionEffect的动画参数也可用于后一TransitionEffect。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a><td>当前动画效果。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transitionfinishcallback12>TransitionFinishCallback12+<a href=#transitionfinishcallback12 class=hash-link aria-label=TransitionFinishCallback12+的直接链接 title=TransitionFinishCallback12+的直接链接 translate=no>​</a></h2>
+<p>type TransitionFinishCallback = (transitionIn: boolean) => void</p>
+<p>组件转场动画的结束回调类型。</p>
+<p><strong><strong>卡片能力：</strong></strong> 从API version 12开始，该接口支持在ArkTS卡片中使用。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>transitionIn<td>boolean<td>是<td>该入参表示转场动画的结束回调类型。  该参数为true表示该转场回调是出现动画的结束回调，该参数为false表示该转场回调是消失动画的结束回调。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">当通过触发一棵子树的上下树，进而递归的触发出现消失转场时，只能保证根组件的消失动画结束回调能被调用。如果子组件的消失动画结束回调时间晚于根组件的消失动画结束回调，由于整棵子树已被销毁，子组件的结束回调不会被调用。</li>
+<li class="">当同一组件的最后一个同类型（即出现或者消失）的动画结束后，才会调用结束回调。即如果反复触发出现消失动画（例如通过Visibility触发），只有最后一次的出现消失的结束回调才会被调用。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=transitionoptionsdeprecated>TransitionOptions(deprecated)<a href=#transitionoptionsdeprecated class=hash-link aria-label=TransitionOptions(deprecated)的直接链接 title=TransitionOptions(deprecated)的直接链接 translate=no>​</a></h2>
+<p>TransitionOptions通过指定结构体内的参数来指定转场效果。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 7开始支持，从API version 10开始废弃，建议使用<a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#transitiontype>TransitionType</a><td>否<td>是<td>指定该转场样式生效的场景。  默认值：TransitionType.All  <strong><strong>说明：</strong></strong>  不指定type时默认为TransitionType.All，即插入删除都生效。<tr><td>opacity<td>number<td>否<td>是<td>设置组件转场时的透明度效果，为插入时起点和删除时终点的值。  取值范围： [0, 1]  <strong><strong>说明：</strong></strong>  设置小于0的非法值时，按0处理；设置大于1的非法值时，按1处理。<tr><td>translate<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#translateoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>TranslateOptions</a><td>否<td>是<td>设置组件转场时的平移效果，为插入时起点和删除时终点的值。  -x：横向的平移距离。  -y：纵向的平移距离。  -z：竖向的平移距离。<tr><td>scale<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#scaleoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>ScaleOptions</a><td>否<td>是<td>设置组件转场时的缩放效果，为插入时起点和删除时终点的值。  -x：横向放大倍数（或缩小比例）。  -y：纵向放大倍数（或缩小比例）。  -z：当前为二维显示，该参数无效 。  - centerX、centerY指缩放中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为缩放中心点。  - 中心点为(0, 0)代表组件的左上角。  <strong><strong>说明：</strong></strong>  设置centerX、centerY为非法字符串时（例如，"illegalString"），默认值为"0"。<tr><td>rotate<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-transformation/ts-universal-attributes-transformation#rotateoptions%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>RotateOptions</a><td>否<td>是<td>设置组件转场时的旋转效果，为插入时起点和删除时终点的值。  -x：横向的旋转向量分量。  -y：纵向的旋转向量分量。  -z：竖向的旋转向量分量。  - centerX、centerY指旋转中心点，centerX和centerY默认值是"50%"，即默认以组件的中心点为旋转中心点。  - 中心点为(0, 0)代表组件的左上角。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">当使用TransitionOptions类型的入参指定转场效果时，<strong><strong>必须</strong></strong>配合<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-arkui-uicontext/arkts-apis-uicontext-uicontext/arkts-apis-uicontext-uicontext#animateto>animateTo</a>使用才有动画效果，动效时长、曲线、延时跟随animateTo中的配置。</li>
+<li class="">当使用TransitionOptions作为入参，且不指定除type外的任何参数时，此时相当于指定了透明度的转场效果。例如，指定{type: TransitionType.Insert}相当于指定了{type: TransitionType.Insert, opacity: 0}的转场效果。而指定了具体效果时，则不会添加默认的透明度转场效果。</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例>示例<a href=#示例 class=hash-link aria-label=示例的直接链接 title=示例的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例1使用同一接口实现图片出现消失>示例1（使用同一接口实现图片出现消失）<a href=#示例1使用同一接口实现图片出现消失 class=hash-link aria-label=示例1（使用同一接口实现图片出现消失）的直接链接 title=示例1（使用同一接口实现图片出现消失）的直接链接 translate=no>​</a></h3>
+<p>该示例主要演示如何通过同一<a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>来实现图片的出现与消失，出现和消失互为逆过程。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct TransitionEffectExample1 {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State flag: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State show: string = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button(this.show).width(80).height(30).margin(30)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 点击Button控制Image的显示和消失</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'hide';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.flag = !this.flag;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // Image的显示和消失配置为相同的过渡效果（出现和消失互为逆过程）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 出现时从指定的透明度为0、绕z轴旋转180°的状态，变为默认的透明度为1、旋转角为0的状态，透明度与旋转动画时长都为2000ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 消失时从默认的透明度为1、旋转角为0的状态，变为指定的透明度为0、绕z轴旋转180°的状态，透明度与旋转动画时长都为2000ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Image($r('app.media.testImg')).width(200).height(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .transition(TransitionEffect.OPACITY.animation({ duration: 2000, curve: Curve.Ease }).combine(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            TransitionEffect.rotate({ z: 1, angle: 180 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          ))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>示意图：</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583480027-ad3975b7c2fedef632310dd9bcc75341.gif width=333 height=358 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例2使用不同接口实现图片出现消失>示例2（使用不同接口实现图片出现消失）<a href=#示例2使用不同接口实现图片出现消失 class=hash-link aria-label=示例2（使用不同接口实现图片出现消失）的直接链接 title=示例2（使用不同接口实现图片出现消失）的直接链接 translate=no>​</a></h3>
+<p>该示例主要演示使用不同<a href=#transitioneffect10%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">TransitionEffect</a>来实现图片的出现和消失。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct TransitionEffectExample2 {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State flag: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State show: string = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button(this.show).width(80).height(30).margin(30)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 点击Button控制Image的显示和消失</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'hide';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.getUIContext().animateTo({ duration: 2000 }, () => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // 第一张图的TransitionEffect包含了animation，transition的动画参数由TransitionEffect指定</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // 第二张图的TransitionEffect不包含animation，transition的动画参数由animateTo指定</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.flag = !this.flag;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // Image的显示和消失配置为不同的过渡效果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 出现时做从指定的透明度为0变为默认的透明度1的动画，该动画时长为1000ms，以及做从指定的绕z轴旋转180°变为默认的旋转角为0的动画，该动画1000ms后播放，时长为1000ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 消失时做从默认的透明度为1变为指定的透明度0的动画，该动画1000ms后播放，时长为1000ms，以及做从默认的旋转角0变为指定的绕z轴旋转180°的动画，该动画时长为1000ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Image($r('app.media.testImg')).width(200).height(200)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .transition(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            TransitionEffect.asymmetric(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.OPACITY.animation({ duration: 1000 }).combine(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.rotate({ z: 1, angle: 180 }).animation({ delay: 1000, duration: 1000 }))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              ,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.OPACITY.animation({ delay: 1000, duration: 1000 }).combine(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.rotate({ z: 1, angle: 180 }).animation({ duration: 1000 }))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 出现时做从x方向和y方向scale都为0变为默认的x方向和y方向scale都为1的动画，该动画时长为animateTo中指定的2000ms</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 消失时无转场效果</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Image($r('app.media.testImg')).width(200).height(200).margin({ top: 100 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .transition(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            TransitionEffect.asymmetric(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.scale({ x: 0, y: 0 }),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              TransitionEffect.IDENTITY</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>示意图：</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552800378-c6bbb1d74d9230df25a25190775f71a1.gif width=476 height=884 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例3设置父子组件为transition>示例3（设置父子组件为transition）<a href=#示例3设置父子组件为transition class=hash-link aria-label=示例3（设置父子组件为transition）的直接链接 title=示例3（设置父子组件为transition）的直接链接 translate=no>​</a></h3>
+<p>该示例主要演示通过父子组件都配置<a href=#transition class="">transition</a>来实现图片的出现和消失。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct TransitionEffectExample3 {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State flag: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State show: string = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button(this.show).width(80).height(30).margin(30)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 点击Button控制Image的显示和消失</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'hide';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.show = 'show';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.flag = !this.flag;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      if (this.flag) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 当flag条件改变时，会触发id为"column1"、"image1"、"image2"的transition动画。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // id为"column1"的组件是这棵新出现/消失的子树的根节点。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            Image($r('app.media.testImg')).width(150).height(150).id("image1")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .transition(TransitionEffect.OPACITY.animation({ duration: 1000 }))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // $r('app.media.testImg')需要替换为开发者所需的图像资源文件。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          Image($r('app.media.testImg'))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            .width(150)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            .height(150)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            .margin({ top: 50 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            .id("image2")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            .transition(TransitionEffect.scale({ x: 0, y: 0 }).animation({ duration: 1000 }))</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          Text("view").margin({ top: 50 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .id("column1")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .transition(TransitionEffect.opacity(0.99).animation({ duration: 1000 }),</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 结束回调设置在消失的第一层节点上，确保能有消失的结束回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          (transitionIn: boolean) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info("transition finish, transitionIn:" + transitionIn);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        )</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }.width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>示意图：</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583440073-9f2ad62e6b59683b735def05df27125e.gif width=328 height=714 class=img_ev3q /></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-page-transition-animation/ts-page-transition-animation><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>页面间转场 (pageTransition)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-transition-animation-shared-elements/ts-transition-animation-shared-elements><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>共享元素转场 (sharedTransition)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#transition class="table-of-contents__link toc-highlight">transition</a><li><a href=#transition12 class="table-of-contents__link toc-highlight">transition12+</a><li><a href=#transitionedge10 class="table-of-contents__link toc-highlight">TransitionEdge10+</a><li><a href=#transitioneffect10对象说明 class="table-of-contents__link toc-highlight">TransitionEffect10+对象说明</a><ul><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><li><a href=#translate10 class="table-of-contents__link toc-highlight">translate10+</a><li><a href=#rotate10 class="table-of-contents__link toc-highlight">rotate10+</a><li><a href=#scale10 class="table-of-contents__link toc-highlight">scale10+</a><li><a href=#opacity10 class="table-of-contents__link toc-highlight">opacity10+</a><li><a href=#move10 class="table-of-contents__link toc-highlight">move10+</a><li><a href=#asymmetric10 class="table-of-contents__link toc-highlight">asymmetric10+</a><li><a href=#constructor10 class="table-of-contents__link toc-highlight">constructor10+</a><li><a href=#combine10 class="table-of-contents__link toc-highlight">combine10+</a><li><a href=#animation10 class="table-of-contents__link toc-highlight">animation10+</a></ul><li><a href=#transitionfinishcallback12 class="table-of-contents__link toc-highlight">TransitionFinishCallback12+</a><li><a href=#transitionoptionsdeprecated class="table-of-contents__link toc-highlight">TransitionOptions(deprecated)</a><li><a href=#示例 class="table-of-contents__link toc-highlight">示例</a><ul><li><a href=#示例1使用同一接口实现图片出现消失 class="table-of-contents__link toc-highlight">示例1（使用同一接口实现图片出现消失）</a><li><a href=#示例2使用不同接口实现图片出现消失 class="table-of-contents__link toc-highlight">示例2（使用不同接口实现图片出现消失）</a><li><a href=#示例3设置父子组件为transition class="table-of-contents__link toc-highlight">示例3（设置父子组件为transition）</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

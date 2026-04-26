@@ -1,0 +1,1370 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>Context (FA模型的上下文基类) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="Context (FA模型的上下文基类) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=Context模块提供了Ability或Application的上下文的基础能力，包括允许访问特定于应用程序的资源、请求和验证权限等。 /><meta data-rh=true property=og:description content=Context模块提供了Ability或Application的上下文的基础能力，包括允许访问特定于应用程序的资源、请求和验证权限等。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context","name":"Context (FA模型的上下文基类)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=Stage模型能力的接口 class=categoryLinkLabel_W154>Stage模型能力的接口</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-ability/js-apis-ability-ability><span title=FA模型能力的接口 class=categoryLinkLabel_W154>FA模型能力的接口</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-ability/js-apis-ability-ability><span title="@ohos.ability.ability (Ability模块)" class=linkLabel_WmDU>@ohos.ability.ability (Ability模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability><span title="@ohos.ability.featureAbility (FeatureAbility模块)" class=linkLabel_WmDU>@ohos.ability.featureAbility (FeatureAbility模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-particleability/js-apis-ability-particleability><span title="@ohos.ability.particleAbility (ParticleAbility模块)" class=linkLabel_WmDU>@ohos.ability.particleAbility (ParticleAbility模块)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/fa-model-ability/js-apis-inner-ability-dataabilityoperation/js-apis-inner-ability-dataabilityoperation><span title=ability class=categoryLinkLabel_W154>ability</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo><span title=app class=categoryLinkLabel_W154>app</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo><span title=AppVersionInfo class=linkLabel_WmDU>AppVersionInfo</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-context/js-apis-inner-app-context><span title="Context (FA模型的上下文基类)" class=linkLabel_WmDU>Context (FA模型的上下文基类)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-processinfo/js-apis-inner-app-processinfo><span title=ProcessInfo class=linkLabel_WmDU>ProcessInfo</span></a></ul></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-abilityaccessctrl/js-apis-abilityaccessctrl><span title=通用能力的接口(推荐) class=categoryLinkLabel_W154>通用能力的接口(推荐)</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability/js-apis-inner-ability-abilityresult/js-apis-inner-ability-abilityresult><span title=接口依赖的元素及定义 class=categoryLinkLabel_W154>接口依赖的元素及定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/js-apis-ability-datauriutils/js-apis-ability-datauriutils><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-c/ability-module/capi-abilityaccesscontrol/capi-abilityaccesscontrol><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts-errcode/errorcode-ability/errorcode-ability><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Ability Kit（程序框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>FA模型能力的接口</span><li class=breadcrumbs__item><span class=breadcrumbs__link>app</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Context (FA模型的上下文基类)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>Context (FA模型的上下文基类)</h1></header>
+<p>Context模块提供了Ability或Application的上下文的基础能力，包括允许访问特定于应用程序的资源、请求和验证权限等。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 6开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<p>本模块接口仅可在FA模型下使用。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=使用说明>使用说明<a href=#使用说明 class=hash-link aria-label=使用说明的直接链接 title=使用说明的直接链接 translate=no>​</a></h2>
+<p>Context对象是在featureAbility中创建实例，并通过featureAbility的<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/js-apis-ability-featureability/js-apis-ability-featureability#featureabilitygetcontext>getContext</a>接口返回，因此在使用Context时，必须导入@ohos.ability.featureAbility库。示例如下：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getOrCreateLocalDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getOrCreateLocalDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetorcreatelocaldir7>Context.getOrCreateLocalDir7+<a href=#contextgetorcreatelocaldir7 class=hash-link aria-label=Context.getOrCreateLocalDir7+的直接链接 title=Context.getOrCreateLocalDir7+的直接链接 translate=no>​</a></h2>
+<p>getOrCreateLocalDir(callback: AsyncCallback&lt;string>): void</p>
+<p>获取应用程序的本地根目录。使用callback异步回调。</p>
+<p>如果是第一次调用，将创建目录。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回应用程序的本地根目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getOrCreateLocalDir((error, data)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getOrCreateLocalDir fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getOrCreateLocalDir success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetorcreatelocaldir7-1>Context.getOrCreateLocalDir7+<a href=#contextgetorcreatelocaldir7-1 class=hash-link aria-label=Context.getOrCreateLocalDir7+的直接链接 title=Context.getOrCreateLocalDir7+的直接链接 translate=no>​</a></h2>
+<p>getOrCreateLocalDir(): Promise&lt;string></p>
+<p>获取应用程序的本地根目录。使用Promise异步回调。</p>
+<p>如果是第一次调用，将创建目录。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回应用程序的本地根目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getOrCreateLocalDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getOrCreateLocalDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextverifypermission7>Context.verifyPermission7+<a href=#contextverifypermission7 class=hash-link aria-label=Context.verifyPermission7+的直接链接 title=Context.verifyPermission7+的直接链接 translate=no>​</a></h2>
+<p>verifyPermission(permission: string, options: PermissionOptions, callback: AsyncCallback&lt;number>): void</p>
+<p>验证系统中运行的特定pid和uid是否允许指定的权限。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>permission<td>string<td>是<td>指定权限的名称。<tr><td>options<td><a href=#permissionoptions7 class="">PermissionOptions</a><td>是<td>权限选项。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数，返回权限验证结果，0有权限，-1无权限。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import bundle from '@ohos.bundle.bundleManager';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@ohos.base';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">bundle.getBundleInfo('com.context.test', 1, (err: BusinessError, datainfo: bundle.BundleInfo) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    context.verifyPermission('com.example.permission', {uid:datainfo.appInfo.uid}, (error, data) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error(`verifyPermission fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`verifyPermission success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<p>示例代码中出现的getBundleInfo相关描述可参考对应<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager>文档</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextverifypermission7-1>Context.verifyPermission7+<a href=#contextverifypermission7-1 class=hash-link aria-label=Context.verifyPermission7+的直接链接 title=Context.verifyPermission7+的直接链接 translate=no>​</a></h2>
+<p>verifyPermission(permission: string, callback: AsyncCallback&lt;number>): void</p>
+<p>验证系统中运行的当前pid和uid是否具有指定的权限。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>permission<td>string<td>是<td>指定权限的名称。<tr><td>callback<td>AsyncCallback&lt;number><td>是<td>回调函数，返回权限验证结果，0有权限，-1无权限。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.verifyPermission('com.example.permission', (error, data) =>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`verifyPermission fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`verifyPermission success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextverifypermission7-2>Context.verifyPermission7+<a href=#contextverifypermission7-2 class=hash-link aria-label=Context.verifyPermission7+的直接链接 title=Context.verifyPermission7+的直接链接 translate=no>​</a></h2>
+<p>verifyPermission(permission: string, options?: PermissionOptions): Promise&lt;number></p>
+<p>验证系统中运行的特定pid和uid是否具有指定的权限。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>permission<td>string<td>是<td>指定权限的名称。<tr><td>options<td><a href=#permissionoptions7 class="">PermissionOptions</a><td>否<td>权限选项。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;number><td>Promise对象，如果pid和uid具有权限，则使用0进行异步回调；否则使用-1回调。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.verifyPermission('com.context.permission', {pid:1}).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`verifyPermission data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextrequestpermissionsfromuser7>Context.requestPermissionsFromUser7+<a href=#contextrequestpermissionsfromuser7 class=hash-link aria-label=Context.requestPermissionsFromUser7+的直接链接 title=Context.requestPermissionsFromUser7+的直接链接 translate=no>​</a></h2>
+<p>requestPermissionsFromUser(permissions: Array&lt;string>, requestCode: number, resultCallback: AsyncCallback&lt;PermissionRequestResult>): void</p>
+<p>从系统请求某些权限。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>permissions<td>Array&lt;string><td>是<td>指示要请求的权限列表。此参数不能为null。<tr><td>requestCode<td>number<td>是<td>指示要传递给<a href=#permissionrequestresult7 class="">PermissionRequestResult</a>的请求代码。<tr><td>resultCallback<td>AsyncCallback&lt;<a href=#permissionrequestresult7 class="">PermissionRequestResult</a>><td>是<td>回调函数，返回授权结果信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>ArkTS示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.requestPermissionsFromUser(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ['com.example.permission1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission2',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission3',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission4',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission5'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    (error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.error(`requestPermissionsFromUser fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`requestPermissionsFromUser success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<p>JS示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">&lt;!-- xxx.hml --></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">&lt;div class="container"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    &lt;div></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        &lt;input class="perm-btn" type="button" value="申请权限" onclick="requestPermissions" /></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    &lt;/div></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">&lt;/div></span><br/></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">/*xxx.css*/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.container {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    display: flex;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    flex-direction: column;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    justify-content: center;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    align-items: center;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    left: 0px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    top: 0px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    width: 100%;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    height: 100%;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.perm-btn {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    width: 200px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    height: 60px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    background-color: #007dff;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    color: white;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    font-size: 20px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    border: none;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    border-radius: 8px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.perm-btn:active {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    background-color: #0058b3;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.js</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    data: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onInit() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestPermissions() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        context.requestPermissionsFromUser(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ['com.example.permission1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission2',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission3',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission4',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission5'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            (error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    console.error(`requestPermissionsFromUser fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                    console.info(`requestPermissionsFromUser success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        );</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextrequestpermissionsfromuser7-1>Context.requestPermissionsFromUser7+<a href=#contextrequestpermissionsfromuser7-1 class=hash-link aria-label=Context.requestPermissionsFromUser7+的直接链接 title=Context.requestPermissionsFromUser7+的直接链接 translate=no>​</a></h2>
+<p>requestPermissionsFromUser(permissions: Array&lt;string>, requestCode: number): Promise&lt;PermissionRequestResult></p>
+<p>从系统请求某些权限。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>permissions<td>Array&lt;string><td>是<td>指示要请求的权限列表。此参数不能为null。<tr><td>requestCode<td>number<td>是<td>指示要传递给<a href=#permissionrequestresult7 class="">PermissionRequestResult</a>的请求代码。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#permissionrequestresult7 class="">PermissionRequestResult</a>><td>Promise对象，返回授权结果信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<p>ArkTS示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.requestPermissionsFromUser(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ['com.example.permission1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission2',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission3',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission4',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">     'com.example.permission5'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    1).then((data)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`requestPermissionsFromUser data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<p>JS示例：</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">&lt;!-- xxx.hml --></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">&lt;div class="container"></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    &lt;div></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        &lt;input class="perm-btn" type="button" value="申请权限" onclick="requestPermissions" /></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    &lt;/div></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">&lt;/div></span><br/></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">/*xxx.css*/</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.container {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    display: flex;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    flex-direction: column;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    justify-content: center;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    align-items: center;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    left: 0px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    top: 0px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    width: 100%;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    height: 100%;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.perm-btn {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    width: 200px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    height: 60px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    background-color: #007dff;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    color: white;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    font-size: 20px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    border: none;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    border-radius: 8px;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">.perm-btn:active {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    background-color: #0058b3;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.js</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    data: {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    onInit() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    requestPermissions() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        context.requestPermissionsFromUser(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ['com.example.permission1',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission2',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission3',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission4',</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            'com.example.permission5'],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            1).then((data)=>{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.info(`requestPermissionsFromUser data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        );</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetapplicationinfo7>Context.getApplicationInfo7+<a href=#contextgetapplicationinfo7 class=hash-link aria-label=Context.getApplicationInfo7+的直接链接 title=Context.getApplicationInfo7+的直接链接 translate=no>​</a></h2>
+<p>getApplicationInfo(callback: AsyncCallback&lt;ApplicationInfo>): void</p>
+<p>获取有关当前应用程序的信息。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-applicationinfo/js-apis-bundlemanager-applicationinfo>ApplicationInfo</a>><td>是<td>回调函数，返回当前应用程序的信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getApplicationInfo((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getApplicationInfo fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getApplicationInfo success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetapplicationinfo7-1>Context.getApplicationInfo7+<a href=#contextgetapplicationinfo7-1 class=hash-link aria-label=Context.getApplicationInfo7+的直接链接 title=Context.getApplicationInfo7+的直接链接 translate=no>​</a></h2>
+<p>getApplicationInfo(): Promise&lt;ApplicationInfo></p>
+<p>获取有关当前应用程序的信息。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-arkts-dep/bundle/js-apis-bundle-applicationinfo/js-apis-bundle-applicationinfo>ApplicationInfo</a>><td>Promise对象，返回当前应用程序的信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getApplicationInfo().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getApplicationInfo data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetbundlename7>Context.getBundleName7+<a href=#contextgetbundlename7 class=hash-link aria-label=Context.getBundleName7+的直接链接 title=Context.getBundleName7+的直接链接 translate=no>​</a></h2>
+<p>getBundleName(callback: AsyncCallback&lt;string>): void</p>
+<p>获取当前ability的Bundle名称。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回当前ability的Bundle名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getBundleName((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getBundleName fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getBundleName success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetbundlename7-1>Context.getBundleName7+<a href=#contextgetbundlename7-1 class=hash-link aria-label=Context.getBundleName7+的直接链接 title=Context.getBundleName7+的直接链接 translate=no>​</a></h2>
+<p>getBundleName(): Promise&lt;string></p>
+<p>获取当前ability的Bundle名称。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回当前ability的Bundle名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getBundleName().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getBundleName data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetdisplayorientation7>Context.getDisplayOrientation7+<a href=#contextgetdisplayorientation7 class=hash-link aria-label=Context.getDisplayOrientation7+的直接链接 title=Context.getDisplayOrientation7+的直接链接 translate=no>​</a></h2>
+<p>getDisplayOrientation(callback: AsyncCallback&lt;bundle.DisplayOrientation>): void</p>
+<p>获取当前ability的显示方向。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager#displayorientation>bundle.DisplayOrientation</a>><td>是<td>回调函数，返回屏幕显示方向。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getDisplayOrientation((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getDisplayOrientation fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getDisplayOrientation success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetdisplayorientation7-1>Context.getDisplayOrientation7+<a href=#contextgetdisplayorientation7-1 class=hash-link aria-label=Context.getDisplayOrientation7+的直接链接 title=Context.getDisplayOrientation7+的直接链接 translate=no>​</a></h2>
+<p>getDisplayOrientation(): Promise&lt;bundle.DisplayOrientation></p>
+<p>获取此能力的当前显示方向。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager#displayorientation>bundle.DisplayOrientation</a>><td>Promise对象，返回屏幕显示方向。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getDisplayOrientation().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getDisplayOrientation data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetexternalcachedirdeprecated>Context.getExternalCacheDir(deprecated)<a href=#contextgetexternalcachedirdeprecated class=hash-link aria-label=Context.getExternalCacheDir(deprecated)的直接链接 title=Context.getExternalCacheDir(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getExternalCacheDir(callback: AsyncCallback&lt;string>): void</p>
+<p>获取应用程序的外部缓存目录。使用callback异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 7开始不再支持。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回应用程序的缓存目录的绝对路径。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getExternalCacheDir((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getExternalCacheDir fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getExternalCacheDir success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetexternalcachedirdeprecated-1>Context.getExternalCacheDir(deprecated)<a href=#contextgetexternalcachedirdeprecated-1 class=hash-link aria-label=Context.getExternalCacheDir(deprecated)的直接链接 title=Context.getExternalCacheDir(deprecated)的直接链接 translate=no>​</a></h2>
+<p>getExternalCacheDir(): Promise&lt;string></p>
+<p>获取应用程序的外部缓存目录。使用Promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 7开始不再支持。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回应用程序的缓存目录的绝对路径。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getExternalCacheDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getExternalCacheDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetdisplayorientation7>Context.setDisplayOrientation7+<a href=#contextsetdisplayorientation7 class=hash-link aria-label=Context.setDisplayOrientation7+的直接链接 title=Context.setDisplayOrientation7+的直接链接 translate=no>​</a></h2>
+<p>setDisplayOrientation(orientation: bundle.DisplayOrientation, callback: AsyncCallback&lt;void>): void</p>
+<p>设置当前Ability的显示方向。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>orientation<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager#displayorientation>bundle.DisplayOrientation</a><td>是<td>指示当前能力的新方向。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当设置当前Ability的显示方向成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import bundleManager from '@ohos.bundle';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let orientation = bundleManager.DisplayOrientation.LANDSCAPE;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setDisplayOrientation(orientation, (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`setDisplayOrientation fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetdisplayorientation7-1>Context.setDisplayOrientation7+<a href=#contextsetdisplayorientation7-1 class=hash-link aria-label=Context.setDisplayOrientation7+的直接链接 title=Context.setDisplayOrientation7+的直接链接 translate=no>​</a></h2>
+<p>setDisplayOrientation(orientation: bundle.DisplayOrientation): Promise&lt;void></p>
+<p>设置当前Ability的显示方向。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>orientation<td><a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/both-models/js-apis-bundlemanager/js-apis-bundlemanager#displayorientation>bundle.DisplayOrientation</a><td>是<td>表示屏幕显示方向。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import bundleManager from '@ohos.bundle';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let orientation = bundleManager.DisplayOrientation.UNSPECIFIED;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setDisplayOrientation(orientation).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`setDisplayOrientation data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetshowonlockscreendeprecated>Context.setShowOnLockScreen(deprecated)<a href=#contextsetshowonlockscreendeprecated class=hash-link aria-label=Context.setShowOnLockScreen(deprecated)的直接链接 title=Context.setShowOnLockScreen(deprecated)的直接链接 translate=no>​</a></h2>
+<p>setShowOnLockScreen(show: boolean, callback: AsyncCallback&lt;void>): void</p>
+<p>设置每当显示锁屏时是否在锁屏顶部显示此功能，使该功能保持激活状态。使用callback异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口功能仅对系统应用生效。</p>
+<p>从API version 7开始支持，从API version 9开始废弃。建议使用window.setShowOnLockScreen替代，新接口为系统接口。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>show<td>boolean<td>是<td>指定是否在锁屏顶部显示此功能。值true表示在锁屏上显示，值false表示不显示。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当设置每当显示锁屏时是否在锁屏顶部显示此功能并使该功能保持激活状态的操作成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let show = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setShowOnLockScreen(show, (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`setShowOnLockScreen fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetshowonlockscreendeprecated-1>Context.setShowOnLockScreen(deprecated)<a href=#contextsetshowonlockscreendeprecated-1 class=hash-link aria-label=Context.setShowOnLockScreen(deprecated)的直接链接 title=Context.setShowOnLockScreen(deprecated)的直接链接 translate=no>​</a></h2>
+<p>setShowOnLockScreen(show: boolean): Promise&lt;void></p>
+<p>设置每当显示锁屏时是否在锁屏顶部显示此功能，使该功能保持激活状态。使用Promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口功能仅对系统应用生效。</p>
+<p>从API version 7开始支持，从API version 9开始废弃。建议使用window.setShowOnLockScreen替代，新接口为系统接口。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>show<td>boolean<td>是<td>指定是否在锁屏顶部显示此功能。值true表示在锁屏上显示，值false表示不显示。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let show = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setShowOnLockScreen(show).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`setShowOnLockScreen data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetwakeupscreendeprecated>Context.setWakeUpScreen(deprecated)<a href=#contextsetwakeupscreendeprecated class=hash-link aria-label=Context.setWakeUpScreen(deprecated)的直接链接 title=Context.setWakeUpScreen(deprecated)的直接链接 translate=no>​</a></h2>
+<p>setWakeUpScreen(wakeUp: boolean, callback: AsyncCallback&lt;void>): void</p>
+<p>设置恢复此功能时是否唤醒屏幕。使用callback异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口功能仅对系统应用生效。</p>
+<p>从API version 7开始支持，从API version 12开始废弃。替代接口window.setWakeUpScreen替代，新接口为系统接口。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>wakeUp<td>boolean<td>是<td>指定是否唤醒屏幕。值true表示唤醒它，值false表示不唤醒它。<tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当设置恢复此功能时是否唤醒屏幕成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wakeUp = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setWakeUpScreen(wakeUp, (error) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`setWakeUpScreen fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextsetwakeupscreendeprecated-1>Context.setWakeUpScreen(deprecated)<a href=#contextsetwakeupscreendeprecated-1 class=hash-link aria-label=Context.setWakeUpScreen(deprecated)的直接链接 title=Context.setWakeUpScreen(deprecated)的直接链接 translate=no>​</a></h2>
+<p>setWakeUpScreen(wakeUp: boolean): Promise&lt;void></p>
+<p>设置恢复此功能时是否唤醒屏幕。使用Promise异步回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口功能仅对系统应用生效。</p>
+<p>从API version 7开始支持，从API version 12开始废弃。替代接口window.setWakeUpScreen替代，新接口为系统接口。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>wakeUp<td>boolean<td>是<td>指定是否唤醒屏幕。值true表示唤醒它，值false表示不唤醒它。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let wakeUp = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.setWakeUpScreen(wakeUp).then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`setWakeUpScreen data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetprocessinfo7>Context.getProcessInfo7+<a href=#contextgetprocessinfo7 class=hash-link aria-label=Context.getProcessInfo7+的直接链接 title=Context.getProcessInfo7+的直接链接 translate=no>​</a></h2>
+<p>getProcessInfo(callback: AsyncCallback&lt;ProcessInfo>): void</p>
+<p>获取有关当前进程的信息，包括进程ID和名称。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-processinfo/js-apis-inner-app-processinfo>ProcessInfo</a>><td>是<td>回调函数，返回当前进程的信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getProcessInfo((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getProcessInfo fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getProcessInfo success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetprocessinfo7-1>Context.getProcessInfo7+<a href=#contextgetprocessinfo7-1 class=hash-link aria-label=Context.getProcessInfo7+的直接链接 title=Context.getProcessInfo7+的直接链接 translate=no>​</a></h2>
+<p>getProcessInfo(): Promise&lt;ProcessInfo></p>
+<p>获取有关当前进程的信息，包括进程id和名称。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-processinfo/js-apis-inner-app-processinfo>ProcessInfo</a>><td>Promise对象，返回当前进程的信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getProcessInfo().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getProcessInfo data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetelementname7>Context.getElementName7+<a href=#contextgetelementname7 class=hash-link aria-label=Context.getElementName7+的直接链接 title=Context.getElementName7+的直接链接 translate=no>​</a></h2>
+<p>getElementName(callback: AsyncCallback&lt;ElementName>): void</p>
+<p>获取当前ability的ohos.bundleManager.ElementName对象。使用callback异步回调。</p>
+<p>此方法仅适用于页面功能。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>><td>是<td>回调函数，返回当前ability的ohos.bundleManager.ElementName对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getElementName((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getElementName fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getElementName success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetelementname7-1>Context.getElementName7+<a href=#contextgetelementname7-1 class=hash-link aria-label=Context.getElementName7+的直接链接 title=Context.getElementName7+的直接链接 translate=no>​</a></h2>
+<p>getElementName(): Promise&lt;ElementName></p>
+<p>获取当前能力的ohos.bundleManager.ElementName对象。使用Promise异步回调。</p>
+<p>此方法仅适用于页面功能。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-elementname/js-apis-bundlemanager-elementname>ElementName</a>><td>Promise对象，返回当前ability的ohos.bundleManager.ElementName对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getElementName().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getElementName data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetprocessname7>Context.getProcessName7+<a href=#contextgetprocessname7 class=hash-link aria-label=Context.getProcessName7+的直接链接 title=Context.getProcessName7+的直接链接 translate=no>​</a></h2>
+<p>getProcessName(callback: AsyncCallback&lt;string>): void</p>
+<p>获取当前进程的名称。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回当前进程的名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getProcessName((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getProcessName fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getProcessName success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetprocessname7-1>Context.getProcessName7+<a href=#contextgetprocessname7-1 class=hash-link aria-label=Context.getProcessName7+的直接链接 title=Context.getProcessName7+的直接链接 translate=no>​</a></h2>
+<p>getProcessName(): Promise&lt;string></p>
+<p>获取当前进程的名称。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回当前进程的名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getProcessName().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getProcessName data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetcallingbundle7>Context.getCallingBundle7+<a href=#contextgetcallingbundle7 class=hash-link aria-label=Context.getCallingBundle7+的直接链接 title=Context.getCallingBundle7+的直接链接 translate=no>​</a></h2>
+<p>getCallingBundle(callback: AsyncCallback&lt;string>): void</p>
+<p>获取ability调用方的Bundle名称。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回ability调用方的Bundle名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getCallingBundle((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getCallingBundle fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getCallingBundle success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetcallingbundle7-1>Context.getCallingBundle7+<a href=#contextgetcallingbundle7-1 class=hash-link aria-label=Context.getCallingBundle7+的直接链接 title=Context.getCallingBundle7+的直接链接 translate=no>​</a></h2>
+<p>getCallingBundle(): Promise&lt;string></p>
+<p>获取ability调用方的Bundle名称。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回ability调用方的Bundle名称。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getCallingBundle().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getCallingBundle data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetcachedir>Context.getCacheDir<a href=#contextgetcachedir class=hash-link aria-label=Context.getCacheDir的直接链接 title=Context.getCacheDir的直接链接 translate=no>​</a></h2>
+<p>getCacheDir(callback: AsyncCallback&lt;string>): void</p>
+<p>获取该应用程序的内部存储目录。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回该应用程序的内部存储目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getCacheDir((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getCacheDir fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getCacheDir success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetcachedir-1>Context.getCacheDir<a href=#contextgetcachedir-1 class=hash-link aria-label=Context.getCacheDir的直接链接 title=Context.getCacheDir的直接链接 translate=no>​</a></h2>
+<p>getCacheDir(): Promise&lt;string></p>
+<p>获取该应用程序的内部存储目录。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回该应用程序的内部存储目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getCacheDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getCacheDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetfilesdir>Context.getFilesDir<a href=#contextgetfilesdir class=hash-link aria-label=Context.getFilesDir的直接链接 title=Context.getFilesDir的直接链接 translate=no>​</a></h2>
+<p>getFilesDir(callback: AsyncCallback&lt;string>): void</p>
+<p>获取内部存储器上此应用程序的文件目录。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回内部存储器上此应用程序的文件目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getFilesDir((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getFilesDir fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getFilesDir success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetfilesdir-1>Context.getFilesDir<a href=#contextgetfilesdir-1 class=hash-link aria-label=Context.getFilesDir的直接链接 title=Context.getFilesDir的直接链接 translate=no>​</a></h2>
+<p>getFilesDir(): Promise&lt;string></p>
+<p>获取内部存储器上此应用程序的文件目录。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回内部存储器上此应用程序的文件目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getFilesDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getFilesDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetorcreatedistributeddir7>Context.getOrCreateDistributedDir7+<a href=#contextgetorcreatedistributeddir7 class=hash-link aria-label=Context.getOrCreateDistributedDir7+的直接链接 title=Context.getOrCreateDistributedDir7+的直接链接 translate=no>​</a></h2>
+<p>getOrCreateDistributedDir(callback: AsyncCallback&lt;string>): void</p>
+<p>获取Ability或应用的分布式文件路径。使用callback异步回调。</p>
+<p>如果分布式文件路径不存在，系统将创建一个路径并返回创建的路径。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回Ability或应用的分布式文件路径。  若路径不存在，系统将创建一个路径并返回创建的路径。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getOrCreateDistributedDir((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getOrCreateDistributedDir fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getOrCreateDistributedDir success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetorcreatedistributeddir7-1>Context.getOrCreateDistributedDir7+<a href=#contextgetorcreatedistributeddir7-1 class=hash-link aria-label=Context.getOrCreateDistributedDir7+的直接链接 title=Context.getOrCreateDistributedDir7+的直接链接 translate=no>​</a></h2>
+<p>getOrCreateDistributedDir(): Promise&lt;string></p>
+<p>获取Ability或应用的分布式文件路径。使用Promise异步回调。</p>
+<p>如果分布式文件路径不存在，系统将创建一个路径并返回创建的路径。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回Ability或应用的分布式文件路径。若为首次调用，则将创建目录。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getOrCreateDistributedDir().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getOrCreateDistributedDir data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetapptype7>Context.getAppType7+<a href=#contextgetapptype7 class=hash-link aria-label=Context.getAppType7+的直接链接 title=Context.getAppType7+的直接链接 translate=no>​</a></h2>
+<p>getAppType(callback: AsyncCallback&lt;string>): void</p>
+<p>获取此应用的类型。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;string><td>是<td>回调函数，返回此应用程序的类型。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAppType((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getAppType fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getAppType success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetapptype7-1>Context.getAppType7+<a href=#contextgetapptype7-1 class=hash-link aria-label=Context.getAppType7+的直接链接 title=Context.getAppType7+的直接链接 translate=no>​</a></h2>
+<p>getAppType(): Promise&lt;string></p>
+<p>获取此应用的类型。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;string><td>Promise对象，返回此应用的类型。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAppType().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getAppType data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgethapmoduleinfo7>Context.getHapModuleInfo7+<a href=#contextgethapmoduleinfo7 class=hash-link aria-label=Context.getHapModuleInfo7+的直接链接 title=Context.getHapModuleInfo7+的直接链接 translate=no>​</a></h2>
+<p>getHapModuleInfo(callback: AsyncCallback&lt;HapModuleInfo>): void</p>
+<p>获取应用的ModuleInfo对象。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-hapmoduleinfo/js-apis-bundlemanager-hapmoduleinfo>HapModuleInfo</a>><td>是<td>回调函数，返回应用的ModuleInfo对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getHapModuleInfo((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getHapModuleInfo fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getHapModuleInfo success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgethapmoduleinfo7-1>Context.getHapModuleInfo7+<a href=#contextgethapmoduleinfo7-1 class=hash-link aria-label=Context.getHapModuleInfo7+的直接链接 title=Context.getHapModuleInfo7+的直接链接 translate=no>​</a></h2>
+<p>getHapModuleInfo(): Promise&lt;HapModuleInfo></p>
+<p>获取应用的ModuleInfo对象。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-hapmoduleinfo/js-apis-bundlemanager-hapmoduleinfo>HapModuleInfo</a>><td>Promise对象，返回应用的ModuleInfo对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getHapModuleInfo().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getHapModuleInfo data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetappversioninfo7>Context.getAppVersionInfo7+<a href=#contextgetappversioninfo7 class=hash-link aria-label=Context.getAppVersionInfo7+的直接链接 title=Context.getAppVersionInfo7+的直接链接 translate=no>​</a></h2>
+<p>getAppVersionInfo(callback: AsyncCallback&lt;AppVersionInfo>): void</p>
+<p>获取应用的版本信息。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo>AppVersionInfo</a>><td>是<td>回调函数，返回应用版本信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAppVersionInfo((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getAppVersionInfo fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getAppVersionInfo success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetappversioninfo7-1>Context.getAppVersionInfo7+<a href=#contextgetappversioninfo7-1 class=hash-link aria-label=Context.getAppVersionInfo7+的直接链接 title=Context.getAppVersionInfo7+的直接链接 translate=no>​</a></h2>
+<p>getAppVersionInfo(): Promise&lt;AppVersionInfo></p>
+<p>获取应用的版本信息。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo>AppVersionInfo</a>><td>Promise对象，返回应用版本信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAppVersionInfo().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getAppVersionInfo data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetabilityinfo7>Context.getAbilityInfo7+<a href=#contextgetabilityinfo7 class=hash-link aria-label=Context.getAbilityInfo7+的直接链接 title=Context.getAbilityInfo7+的直接链接 translate=no>​</a></h2>
+<p>getAbilityInfo(callback: AsyncCallback&lt;AbilityInfo>): void</p>
+<p>查询当前归属Ability详细信息。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-abilityinfo/js-apis-bundlemanager-abilityinfo>AbilityInfo</a>><td>是<td>回调函数，返回当前归属Ability详细信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAbilityInfo((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`getAbilityInfo fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`getAbilityInfo success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetabilityinfo7-1>Context.getAbilityInfo7+<a href=#contextgetabilityinfo7-1 class=hash-link aria-label=Context.getAbilityInfo7+的直接链接 title=Context.getAbilityInfo7+的直接链接 translate=no>​</a></h2>
+<p>getAbilityInfo(): Promise&lt;AbilityInfo></p>
+<p>查询当前归属Ability详细信息。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/bundlemanager/js-apis-bundlemanager-abilityinfo/js-apis-bundlemanager-abilityinfo>AbilityInfo</a>><td>Promise对象，返回当前归属Ability详细信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.getAbilityInfo().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`getAbilityInfo data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextgetapplicationcontext7>Context.getApplicationContext7+<a href=#contextgetapplicationcontext7 class=hash-link aria-label=Context.getApplicationContext7+的直接链接 title=Context.getApplicationContext7+的直接链接 translate=no>​</a></h2>
+<p>getApplicationContext(): Context</p>
+<p>获取应用上下文信息。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Context<td>返回应用上下文信息。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext().getApplicationContext();</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextisupdatingconfigurations7>Context.isUpdatingConfigurations7+<a href=#contextisupdatingconfigurations7 class=hash-link aria-label=Context.isUpdatingConfigurations7+的直接链接 title=Context.isUpdatingConfigurations7+的直接链接 translate=no>​</a></h2>
+<p>isUpdatingConfigurations(callback: AsyncCallback&lt;boolean>): void</p>
+<p>检查此能力的配置是否正在更改。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;boolean><td>是<td>回调函数，返回true表示该Ability的配置正在更改，否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.isUpdatingConfigurations((error, data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (error && error.code !== 0) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.error(`isUpdatingConfigurations fail, error: ${JSON.stringify(error)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } else {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        console.info(`isUpdatingConfigurations success, data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextisupdatingconfigurations7-1>Context.isUpdatingConfigurations7+<a href=#contextisupdatingconfigurations7-1 class=hash-link aria-label=Context.isUpdatingConfigurations7+的直接链接 title=Context.isUpdatingConfigurations7+的直接链接 translate=no>​</a></h2>
+<p>isUpdatingConfigurations(): Promise&lt;boolean></p>
+<p>检查此能力的配置是否正在更改。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;boolean><td>Promise对象，返回true表示该Ability的配置正在更改，否则返回false。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.isUpdatingConfigurations().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`isUpdatingConfigurations data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextprintdrawncompleted7>Context.printDrawnCompleted7+<a href=#contextprintdrawncompleted7 class=hash-link aria-label=Context.printDrawnCompleted7+的直接链接 title=Context.printDrawnCompleted7+的直接链接 translate=no>​</a></h2>
+<p>printDrawnCompleted(callback: AsyncCallback&lt;void>): void</p>
+<p>通知系统绘制此页面功能所需的时间。使用callback异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>AsyncCallback&lt;void><td>是<td>回调函数。当通知系统绘制此页面功能所需的时间成功，err为undefined，否则为错误对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.printDrawnCompleted((err) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`printDrawnCompleted err: ${JSON.stringify(err)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=contextprintdrawncompleted7-1>Context.printDrawnCompleted7+<a href=#contextprintdrawncompleted7-1 class=hash-link aria-label=Context.printDrawnCompleted7+的直接链接 title=Context.printDrawnCompleted7+的直接链接 translate=no>​</a></h2>
+<p>printDrawnCompleted(): Promise&lt;void></p>
+<p>通知系统绘制此页面功能所需的时间。使用Promise异步回调。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象。无返回结果的Promise对象。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import featureAbility from '@ohos.ability.featureAbility';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let context: featureAbility.Context = featureAbility.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">context.printDrawnCompleted().then((data) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`printDrawnCompleted data: ${JSON.stringify(data)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">});</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=permissionoptions7>PermissionOptions7+<a href=#permissionoptions7 class=hash-link aria-label=PermissionOptions7+的直接链接 title=PermissionOptions7+的直接链接 translate=no>​</a></h2>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>pid<td>number<td>否<td>是<td>进程id。<tr><td>uid<td>number<td>否<td>是<td>用户id。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=permissionrequestresult7>PermissionRequestResult7+<a href=#permissionrequestresult7 class=hash-link aria-label=PermissionRequestResult7+的直接链接 title=PermissionRequestResult7+的直接链接 translate=no>​</a></h2>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Ability.AbilityRuntime.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>requestCode<td>number<td>否<td>否<td>用户传入的请求代码。<tr><td>permissions<td>Array&lt;string><td>否<td>否<td>用户传入的权限。<tr><td>authResults<td>Array&lt;number><td>否<td>否<td>请求权限的结果。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-appversioninfo/js-apis-inner-app-appversioninfo><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>AppVersionInfo</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/fa-model/app/js-apis-inner-app-processinfo/js-apis-inner-app-processinfo><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>ProcessInfo</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#使用说明 class="table-of-contents__link toc-highlight">使用说明</a><li><a href=#contextgetorcreatelocaldir7 class="table-of-contents__link toc-highlight">Context.getOrCreateLocalDir7+</a><li><a href=#contextgetorcreatelocaldir7-1 class="table-of-contents__link toc-highlight">Context.getOrCreateLocalDir7+</a><li><a href=#contextverifypermission7 class="table-of-contents__link toc-highlight">Context.verifyPermission7+</a><li><a href=#contextverifypermission7-1 class="table-of-contents__link toc-highlight">Context.verifyPermission7+</a><li><a href=#contextverifypermission7-2 class="table-of-contents__link toc-highlight">Context.verifyPermission7+</a><li><a href=#contextrequestpermissionsfromuser7 class="table-of-contents__link toc-highlight">Context.requestPermissionsFromUser7+</a><li><a href=#contextrequestpermissionsfromuser7-1 class="table-of-contents__link toc-highlight">Context.requestPermissionsFromUser7+</a><li><a href=#contextgetapplicationinfo7 class="table-of-contents__link toc-highlight">Context.getApplicationInfo7+</a><li><a href=#contextgetapplicationinfo7-1 class="table-of-contents__link toc-highlight">Context.getApplicationInfo7+</a><li><a href=#contextgetbundlename7 class="table-of-contents__link toc-highlight">Context.getBundleName7+</a><li><a href=#contextgetbundlename7-1 class="table-of-contents__link toc-highlight">Context.getBundleName7+</a><li><a href=#contextgetdisplayorientation7 class="table-of-contents__link toc-highlight">Context.getDisplayOrientation7+</a><li><a href=#contextgetdisplayorientation7-1 class="table-of-contents__link toc-highlight">Context.getDisplayOrientation7+</a><li><a href=#contextgetexternalcachedirdeprecated class="table-of-contents__link toc-highlight">Context.getExternalCacheDir(deprecated)</a><li><a href=#contextgetexternalcachedirdeprecated-1 class="table-of-contents__link toc-highlight">Context.getExternalCacheDir(deprecated)</a><li><a href=#contextsetdisplayorientation7 class="table-of-contents__link toc-highlight">Context.setDisplayOrientation7+</a><li><a href=#contextsetdisplayorientation7-1 class="table-of-contents__link toc-highlight">Context.setDisplayOrientation7+</a><li><a href=#contextsetshowonlockscreendeprecated class="table-of-contents__link toc-highlight">Context.setShowOnLockScreen(deprecated)</a><li><a href=#contextsetshowonlockscreendeprecated-1 class="table-of-contents__link toc-highlight">Context.setShowOnLockScreen(deprecated)</a><li><a href=#contextsetwakeupscreendeprecated class="table-of-contents__link toc-highlight">Context.setWakeUpScreen(deprecated)</a><li><a href=#contextsetwakeupscreendeprecated-1 class="table-of-contents__link toc-highlight">Context.setWakeUpScreen(deprecated)</a><li><a href=#contextgetprocessinfo7 class="table-of-contents__link toc-highlight">Context.getProcessInfo7+</a><li><a href=#contextgetprocessinfo7-1 class="table-of-contents__link toc-highlight">Context.getProcessInfo7+</a><li><a href=#contextgetelementname7 class="table-of-contents__link toc-highlight">Context.getElementName7+</a><li><a href=#contextgetelementname7-1 class="table-of-contents__link toc-highlight">Context.getElementName7+</a><li><a href=#contextgetprocessname7 class="table-of-contents__link toc-highlight">Context.getProcessName7+</a><li><a href=#contextgetprocessname7-1 class="table-of-contents__link toc-highlight">Context.getProcessName7+</a><li><a href=#contextgetcallingbundle7 class="table-of-contents__link toc-highlight">Context.getCallingBundle7+</a><li><a href=#contextgetcallingbundle7-1 class="table-of-contents__link toc-highlight">Context.getCallingBundle7+</a><li><a href=#contextgetcachedir class="table-of-contents__link toc-highlight">Context.getCacheDir</a><li><a href=#contextgetcachedir-1 class="table-of-contents__link toc-highlight">Context.getCacheDir</a><li><a href=#contextgetfilesdir class="table-of-contents__link toc-highlight">Context.getFilesDir</a><li><a href=#contextgetfilesdir-1 class="table-of-contents__link toc-highlight">Context.getFilesDir</a><li><a href=#contextgetorcreatedistributeddir7 class="table-of-contents__link toc-highlight">Context.getOrCreateDistributedDir7+</a><li><a href=#contextgetorcreatedistributeddir7-1 class="table-of-contents__link toc-highlight">Context.getOrCreateDistributedDir7+</a><li><a href=#contextgetapptype7 class="table-of-contents__link toc-highlight">Context.getAppType7+</a><li><a href=#contextgetapptype7-1 class="table-of-contents__link toc-highlight">Context.getAppType7+</a><li><a href=#contextgethapmoduleinfo7 class="table-of-contents__link toc-highlight">Context.getHapModuleInfo7+</a><li><a href=#contextgethapmoduleinfo7-1 class="table-of-contents__link toc-highlight">Context.getHapModuleInfo7+</a><li><a href=#contextgetappversioninfo7 class="table-of-contents__link toc-highlight">Context.getAppVersionInfo7+</a><li><a href=#contextgetappversioninfo7-1 class="table-of-contents__link toc-highlight">Context.getAppVersionInfo7+</a><li><a href=#contextgetabilityinfo7 class="table-of-contents__link toc-highlight">Context.getAbilityInfo7+</a><li><a href=#contextgetabilityinfo7-1 class="table-of-contents__link toc-highlight">Context.getAbilityInfo7+</a><li><a href=#contextgetapplicationcontext7 class="table-of-contents__link toc-highlight">Context.getApplicationContext7+</a><li><a href=#contextisupdatingconfigurations7 class="table-of-contents__link toc-highlight">Context.isUpdatingConfigurations7+</a><li><a href=#contextisupdatingconfigurations7-1 class="table-of-contents__link toc-highlight">Context.isUpdatingConfigurations7+</a><li><a href=#contextprintdrawncompleted7 class="table-of-contents__link toc-highlight">Context.printDrawnCompleted7+</a><li><a href=#contextprintdrawncompleted7-1 class="table-of-contents__link toc-highlight">Context.printDrawnCompleted7+</a><li><a href=#permissionoptions7 class="table-of-contents__link toc-highlight">PermissionOptions7+</a><li><a href=#permissionrequestresult7 class="table-of-contents__link toc-highlight">PermissionRequestResult7+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

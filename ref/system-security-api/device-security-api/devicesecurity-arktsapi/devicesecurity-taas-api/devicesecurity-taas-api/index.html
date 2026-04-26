@@ -1,0 +1,1208 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>TrustedAppService（可信应用服务） | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="TrustedAppService（可信应用服务） | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=本模块提供应用数据的安全证明服务，支持创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话和获取安全地理位置，能够为安全摄像头和安全地理位置功能提供安全证明能力，确保图像或位置数据未被篡改。 /><meta data-rh=true property=og:description content=本模块提供应用数据的安全证明服务，支持创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话和获取安全地理位置，能够为安全摄像头和安全地理位置功能提供安全证明能力，确保图像或位置数据未被篡改。 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api","name":"TrustedAppService（可信应用服务）","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title=DeviceVerify（应用设备状态检测） class=linkLabel_WmDU>DeviceVerify（应用设备状态检测）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-safetydetectenhanced-api/devicesecurity-safetydetectenhanced-api><span title=SafetyDetect（安全检测） class=linkLabel_WmDU>SafetyDetect（安全检测）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-taas-api/devicesecurity-taas-api><span title=TrustedAppService（可信应用服务） class=linkLabel_WmDU>TrustedAppService（可信应用服务）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-brid-api/devicesecurity-brid-api><span title=BusinessRiskIntelligentDetection（业务风险检测） class=linkLabel_WmDU>BusinessRiskIntelligentDetection（业务风险检测）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-securityaudit-api/devicesecurity-securityaudit-api><span title=SecurityAudit（安全审计） class=linkLabel_WmDU>SecurityAudit（安全审计）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-antifraudpicker-api/devicesecurity-antifraudpicker-api><span title=AntifraudPicker（反诈选择器） class=linkLabel_WmDU>AntifraudPicker（反诈选择器）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-trusted-auth-api/devicesecurity-trusted-auth-api><span title=TrustedAuthentication（数字盾服务） class=linkLabel_WmDU>TrustedAuthentication（数字盾服务）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-dlpantipeep-api/devicesecurity-dlpantipeep-api><span title=DlpAntiPeep（防窥保护） class=linkLabel_WmDU>DlpAntiPeep（防窥保护）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-superprivacymode-api/devicesecurity-superprivacymode-api><span title=SuperPrivacyMode（超级隐私模式） class=linkLabel_WmDU>SuperPrivacyMode（超级隐私模式）</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-deviceverify/devicesecurity-arktsapi-errcode-deviceverify><span title="ArkTS API错误码" class=categoryLinkLabel_W154>ArkTS API错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-c/devicesecurity-capi-index/devicesecurity-capi-devicesecuritymode/devicesecurity-capi-devicesecuritymode><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-restapi/devicesecurity-deviceverify-checkdevicetoken/devicesecurity-deviceverify-checkdevicetoken><span title="REST API" class=categoryLinkLabel_W154>REST API</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Device Security Kit（设备安全服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>TrustedAppService（可信应用服务）</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>TrustedAppService（可信应用服务）</h1></header>
+<p>本模块提供应用数据的安全证明服务，支持创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话和获取安全地理位置，能够为安全摄像头和安全地理位置功能提供安全证明能力，确保图像或位置数据未被篡改。</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=createattestkey>createAttestKey<a href=#createattestkey class=hash-link aria-label=createAttestKey的直接链接 title=createAttestKey的直接链接 translate=no>​</a></h2>
+<p>createAttestKey(options: AttestOptions): Promise&lt;void></p>
+<p>创建证明密钥，在证明密钥不存在或者不可用的条件下调用，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#attestoptions class="">AttestOptions</a><td>是<td>生成证明密钥的参数，需要指定密钥类型和密钥大小。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>The app profile does not have the required permission. Please refer to the "Enabling Device Security Service" section in the Device Security Kit development guide.<tr><td>401<td>argument is invalid.<tr><td>1011500001<td>algorithm param is invalid.<tr><td>1011500002<td>algorithm param is missing.<tr><td>1011500003<td>create attestation key failed.<tr><td>1011500004<td>create anonymous certificate failed.<tr><td>1011500005<td>operating file failed.<tr><td>1011500006<td>IPC communication failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties: Array&lt;trustedAppService.AttestParam> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.AttestTag.ATTEST_TAG_ALGORITHM,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.AttestKeyAlg.ATTEST_ALG_ECC</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.AttestTag.ATTEST_TAG_KEY_SIZE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.AttestKeySize.ATTEST_ECC_KEY_SIZE_256</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let options: trustedAppService.AttestOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.createAttestKey(options)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  .then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    (): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'Succeeded in creating attest key');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  ).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.error(0x0000, 'testTag', `Failed to create attest key, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    });</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestoptions>AttestOptions<a href=#attestoptions class=hash-link aria-label=AttestOptions的直接链接 title=AttestOptions的直接链接 translate=no>​</a></h2>
+<p><a href=#createattestkey class="">createAttestKey</a>接口的请求参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>properties<td>Array&lt;<a href=#attestparam class="">AttestParam</a>><td>否<td>否<td>开发者应用传入的用于生成证明密钥的配置信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestparam>AttestParam<a href=#attestparam class=hash-link aria-label=AttestParam的直接链接 title=AttestParam的直接链接 translate=no>​</a></h2>
+<p><a href=#attestoptions class="">AttestOptions</a>配置信息的内容条目。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>tag<td><a href=#attesttag class="">AttestTag</a><td>否<td>否<td>开发者应用传入的标签，用于生成证明密钥的配置信息。<tr><td>value<td>boolean<td>number<td>bigint<td>Uint8Array</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attesttag>AttestTag<a href=#attesttag class=hash-link aria-label=AttestTag的直接链接 title=AttestTag的直接链接 translate=no>​</a></h2>
+<p>配置信息标签类型，使用<a href=#attesttagtype class="">AttestTagType</a>扩展定义。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_TAG_INVALID<td>AttestTagType.ATTEST_TAG_TYPE_INVALID<td>0<tr><td>ATTEST_TAG_ALGORITHM<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>1<tr><td>ATTEST_TAG_KEY_SIZE<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>2<tr><td>ATTEST_TAG_DEVICE_TYPE<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>3<tr><td>ATTEST_TAG_DEVICE_ID<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>4</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attesttagtype>AttestTagType<a href=#attesttagtype class=hash-link aria-label=AttestTagType的直接链接 title=AttestTagType的直接链接 translate=no>​</a></h2>
+<p>标签类型定义，用于区分数据类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_TAG_TYPE_INVALID<td>0&lt;&lt;28<td>不合法标签类型。<tr><td>ATTEST_TAG_TYPE_INT<td>1&lt;&lt;28<td>INT类型。<tr><td>ATTEST_TAG_TYPE_UINT<td>2&lt;&lt;28<td>UINT类型。<tr><td>ATTEST_TAG_TYPE_ULONG<td>3&lt;&lt;28<td>ULONG类型。<tr><td>ATTEST_TAG_TYPE_BOOL<td>4&lt;&lt;28<td>BOOL类型。<tr><td>ATTEST_TAG_TYPE_BYTES<td>5&lt;&lt;28<td>BYTES类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestkeyalg>AttestKeyAlg<a href=#attestkeyalg class=hash-link aria-label=AttestKeyAlg的直接链接 title=AttestKeyAlg的直接链接 translate=no>​</a></h2>
+<p>证明密钥算法类型。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_ALG_ECC<td>1<td>ECC算法类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestkeysize>AttestKeySize<a href=#attestkeysize class=hash-link aria-label=AttestKeySize的直接链接 title=AttestKeySize的直接链接 translate=no>​</a></h2>
+<p>证明密钥长度。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_ECC_KEY_SIZE_256<td>256<td>证明密钥长度，256位。<tr><td>ATTEST_ECC_KEY_SIZE_384<td>384<td>证明密钥长度，384位。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=destroyattestkey>destroyAttestKey<a href=#destroyattestkey class=hash-link aria-label=destroyAttestKey的直接链接 title=destroyAttestKey的直接链接 translate=no>​</a></h2>
+<p>destroyAttestKey(): Promise&lt;void></p>
+<p>销毁证明密钥，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>The app profile does not have the required permission. Please refer to the "Enabling Device Security Service" section in the Device Security Kit development guide.<tr><td>1011500005<td>operating file failed.<tr><td>1011500006<td>IPC communication failed.<tr><td>1011500007<td>item not found.</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.destroyAttestKey().then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'testTag', 'Succeeded in destroying attest key');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to destroy attest key, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=initializeattestcontext>initializeAttestContext<a href=#initializeattestcontext class=hash-link aria-label=initializeAttestContext的直接链接 title=initializeAttestContext的直接链接 translate=no>​</a></h2>
+<p>initializeAttestContext(userData: string, options: AttestOptions): Promise&lt;AttestReturnResult></p>
+<p>初始化证明会话，在创建证明密钥成功后使用，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>userData<td>string<td>是<td>打开证明会话的参数，传入的用户数据，长度在16到127字节之间。<tr><td>options<td><a href=#attestoptions class="">AttestOptions</a><td>是<td>打开证明会话的参数，需要指定设备类型和设备ID。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#attestreturnresult class="">AttestReturnResult</a>><td>生成的匿名证书链。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>The app profile does not have the required permission. Please refer to the "Enabling Device Security Service" section in the Device Security Kit development guide.<tr><td>401<td>argument is invalid.<tr><td>1011500002<td>param is missing.<tr><td>1011500005<td>operating file failed.<tr><td>1011500006<td>IPC communication failed.<tr><td>1011500007<td>item not found.<tr><td>1011500008<td>anonymous certificate verify failed.<tr><td>1011500009<td>anonymous certificate has expired.<tr><td>1011500010<td>get attestation key failed.<tr><td>1011500011<td>initialize secure camera failed.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attesttype>AttestType<a href=#attesttype class=hash-link aria-label=AttestType的直接链接 title=AttestType的直接链接 translate=no>​</a></h2>
+<p>证明会话类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_TYPE_LOCATION<td>1<td>安全地理位置类型。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_TYPE_CAMERA<td>2<td>安全摄像头类型。<tr><td>ATTEST_TYPE_SECIMAGE_PROCESS<td>3<td>安全图像处理类型。起始版本：5.1.0(18)。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestreturnresult>AttestReturnResult<a href=#attestreturnresult class=hash-link aria-label=AttestReturnResult的直接链接 title=AttestReturnResult的直接链接 translate=no>​</a></h2>
+<p><a href=#initializeattestcontext class="">initializeAttestContext</a>接口的返回值。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>certChains<td>Array&lt;string><td>否<td>否<td>打开证明会话成功之后返回的匿名证书链</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// device_id 需要指定为 Bigint类型</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let device_id_tt = 12581;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// userdata的长度需要超过16个Bytes，最大长度为127 Bytes</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let user_data = "test_user_data_0000"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties2: Array&lt;trustedAppService.AttestParam> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.AttestTag.ATTEST_TAG_DEVICE_TYPE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.AttestType.ATTEST_TYPE_LOCATION</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.AttestTag.ATTEST_TAG_DEVICE_ID,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: BigInt(device_id_tt)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let options2: trustedAppService.AttestOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties2,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.initializeAttestContext(user_data, options2).then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (returnResult: trustedAppService.AttestReturnResult): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let chains = returnResult.certChains as Array&lt;string>;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    for (const item of chains) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      hilog.info(0x0000, 'testTag', 'item: ' + item);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to initialize attest context, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=attestexceptionerrcode>AttestExceptionErrCode<a href=#attestexceptionerrcode class=hash-link aria-label=AttestExceptionErrCode的直接链接 title=AttestExceptionErrCode的直接链接 translate=no>​</a></h2>
+<p>可信应用服务中创建证明密钥、销毁证明密钥、初始化证明会话、结束证明会话、获取当前安全位置等接口的错误码。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>ATTEST_ERROR_NO_PERMISSION<td>201<td>权限校验失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_ILLEGAL_ARGUMENT<td>401<td>参数检查失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_INVALID_ALG_ARGUMENT<td>1011500001<td>无效的算法参数。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_MISSING_ARGUMENT<td>1011500002<td>参数传入不足。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_KEY_GENERATOR_FAILED<td>1011500003<td>密钥生成失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_CERTS_CREATION_FAILED<td>1011500004<td>证书创建失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_FILE_OPERATION_FAILED<td>1011500005<td>文件操作失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_COMMUNICATION_FAILED<td>1011500006<td>IPC通信失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_ITEM_NOT_FOUND<td>1011500007<td>密钥不存在。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_CERTS_VERIFICATION_FAILED<td>1011500008<td>证书校验失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_CERTS_EXPIRED<td>1011500009<td>证书已过期。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_KEY_NOT_MATCHED<td>1011500010<td>密钥不匹配。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_SECURE_CAMERA_INITIALIZATION_FAILED<td>1011500011<td>安全相机初始化失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_CONTEXT_BAD_STATE<td>1011500012<td>证明会话上下文异常。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_KEY_EXPIRED<td>1011500013<td>密钥已过期。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_LOCATION_SERVICE_UNAVAILABLE<td>1011500014<td>位置服务不可用。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_LOCATION_SWITCH_OFF<td>1011500015<td>位置信息开关关闭。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_LOCATION_FAILED<td>1011500016<td>位置信息获取失败。  <strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。<tr><td>ATTEST_ERROR_SIGNATURE_VERIFICATION_FAILED<td>1011500017<td>签名验签失败。  <strong><strong>起始版本：5.1.0(18)。</strong></strong><tr><td>ATTEST_ERROR_SECIMAGE_PROCESS_FAILED<td>1011500018<td>安全图像处理失败。  <strong><strong>起始版本：5.1.0(18)。</strong></strong></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=finalizeattestcontext>finalizeAttestContext<a href=#finalizeattestcontext class=hash-link aria-label=finalizeAttestContext的直接链接 title=finalizeAttestContext的直接链接 translate=no>​</a></h2>
+<p>finalizeAttestContext(options: AttestOptions): Promise&lt;void></p>
+<p>结束证明会话，在结束安全证明服务后调用，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>options<td><a href=#attestoptions class="">AttestOptions</a><td>是<td>关闭证明会话的参数，需要指定设备类型。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>The app profile does not have the required permission. Please refer to the "Enabling Device Security Service" section in the Device Security Kit development guide.<tr><td>401<td>argument is invalid.<tr><td>1011500002<td>param is missing.<tr><td>1011500006<td>IPC communication failed.<tr><td>1011500007<td>item not found.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties: Array&lt;trustedAppService.AttestParam> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.AttestTag.ATTEST_TAG_DEVICE_TYPE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.AttestType.ATTEST_TYPE_CAMERA</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let options: trustedAppService.AttestOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.finalizeAttestContext(options).then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.info(0x0000, 'testTag', 'Succeeded in finalizing attest context');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to finalize attest context, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getcurrentsecurelocation>getCurrentSecureLocation<a href=#getcurrentsecurelocation class=hash-link aria-label=getCurrentSecureLocation的直接链接 title=getCurrentSecureLocation的直接链接 translate=no>​</a></h2>
+<p>getCurrentSecureLocation(timeout : number, priority: LocatingPriority): Promise&lt;SecureLocation></p>
+<p>获取当前安全位置，使用Promise异步回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Location</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.LOCATION 和 ohos.permission.APPROXIMATELY_LOCATION</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>timeout<td>number<td>是<td>单次位置请求的超时时间，单位是毫秒（milliseconds），最小为1000毫秒。取值范围为大于等于1000。<tr><td>priority<td><a href=#locatingpriority class="">LocatingPriority</a><td>是<td>获取安全地理位置的优先级策略。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#securelocation class="">SecureLocation</a>><td>获取的安全位置</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>has no permission.<tr><td>401<td>argument is invalid.<tr><td>1011500012<td>attestation context not initialized.<tr><td>1011500013<td>attestation key has expired.<tr><td>1011500014<td>location service is unavailable.<tr><td>1011500015<td>The location switch is off.<tr><td>1011500016<td>Failed to obtain the secure geographical location.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=locatingpriority>LocatingPriority<a href=#locatingpriority class=hash-link aria-label=LocatingPriority的直接链接 title=LocatingPriority的直接链接 translate=no>​</a></h2>
+<p>获取安全地理位置的优先级策略。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Location</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>PRIORITY_ACCURACY<td>0<td>精度优先，保证获取最高精度。<tr><td>PRIORITY_LOCATING_SPEED<td>1<td>速度优先，保证位置获取速度。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=securelocation>SecureLocation<a href=#securelocation class=hash-link aria-label=SecureLocation的直接链接 title=SecureLocation的直接链接 translate=no>​</a></h2>
+<p>获取的安全地理位置。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Location</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>类型<th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>originalLocation<td><a href=#location class="">Location</a><td>否<td>否<td>地理位置信息。<tr><td>userData<td>String<td>否<td>否<td>用户数据，长度在16到127字节之间。<tr><td>signature<td>String<td>否<td>否<td>签名结果。  当证明密钥长度为256位时，signature长度为96字节；  当证明密钥长度为384位时，signature长度为136或者140字节。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=location>Location<a href=#location class=hash-link aria-label=Location的直接链接 title=Location的直接链接 translate=no>​</a></h2>
+<p>获取的安全地理位置信息。</p>
+<p><strong><strong>元服务API：</strong></strong> 从版本5.0.2(14)开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Location</p>
+<p><strong><strong>起始版本：</strong></strong> 5.0.0(12)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>类型<th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>latitude<td>number<td>否<td>否<td>纬度，正值表示北纬，负值表示南纬。取值范围为-90到90。仅支持WGS84坐标系。<tr><td>longitude<td>number<td>否<td>否<td>经度，正值表示东经，负值表示西经。取值范围为-180到180。仅支持WGS84坐标系。<tr><td>altitude<td>number<td>否<td>否<td>高度，单位米。<tr><td>accuracy<td>number<td>否<td>否<td>精度，单位米，取值大于等于0。<tr><td>timestamp<td>number<td>否<td>否<td>时间戳，单位毫秒，取值大于等于0。</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  const secureLocation = await trustedAppService.getCurrentSecureLocation(3000, trustedAppService.LocatingPriority.PRIORITY_LOCATING_SPEED);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.info(0x0000, 'testTag', 'Succeeded in getting secure location, result = ${JSON.stringify(secureLocation)}');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  hilog.error(0x0000, 'testTag', `Failed to get secure location, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=procsecimagetransform>procSecImageTransform<a href=#procsecimagetransform class=hash-link aria-label=procSecImageTransform的直接链接 title=procSecImageTransform的直接链接 translate=no>​</a></h2>
+<p>procSecImageTransform(srcSecImage: ArrayBuffer, procParams: SecImageProcParamsArray): Promise&lt;SecImageBuffer></p>
+<p>处理安全图像压缩、裁剪操作，使用Promise异步回调。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th><strong><strong>类型</strong></strong><th>必填<th><strong><strong>说明</strong></strong><tbody><tr><td>srcSecImage<td>ArrayBuffer<td>是<td>安全相机返回签名后的安全图像。<tr><td>procParams<td><a href=#secimageprocparamsarray class="">SecImageProcParamsArray</a><td>是<td>安全图像压缩、裁剪处理的参数。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;<a href=#secimagebuffer class="">SecImageBuffer</a>><td>返回压缩、裁剪处理后签名的安全图像</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-arktsapi-errcode/devicesecurity-arktsapi-errcode-taas/devicesecurity-arktsapi-errcode-taas>ArkTS API错误码</a> <strong><strong>。</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>The app profile does not have the required permission. Please refer to the "Enabling Device Security Service" section in the Device Security Kit development guide.<tr><td>401<td>Parameter error. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3.Parameter verification failed.<tr><td>1011500011<td>secure image processing is not supported.<tr><td>1011500012<td>attestation context not initialized.<tr><td>1011500013<td>attestation key has expired.<tr><td>1011500017<td>signature verification failed.<tr><td>1011500018<td>secure image process failed.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimageprocparamsarray>SecImageProcParamsArray<a href=#secimageprocparamsarray class=hash-link aria-label=SecImageProcParamsArray的直接链接 title=SecImageProcParamsArray的直接链接 translate=no>​</a></h2>
+<p><a href=#procsecimagetransform class="">procSecImageTransform</a>接口的请求参数。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>properties<td>Array&lt;<a href=#secimageprocparams class="">SecImageProcParams</a>><td>否<td>否<td>开发者应用传入的用于安全图像压缩、裁剪处理的配置信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimageprocparams>SecImageProcParams<a href=#secimageprocparams class=hash-link aria-label=SecImageProcParams的直接链接 title=SecImageProcParams的直接链接 translate=no>​</a></h2>
+<p><a href=#secimageprocparamsarray class="">SecImageProcParamsArray</a>配置信息的内容条目。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>tag<td><a href=#secimageproctag class="">SecImageProcTag</a><td>否<td>否<td>开发者应用传入的标签，用于安全图像压缩、裁剪处理的配置信息。<tr><td>value<td>number<td><a href=#cropregion class="">CropRegion</a><td>否<td>否</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimageproctag>SecImageProcTag<a href=#secimageproctag class=hash-link aria-label=SecImageProcTag的直接链接 title=SecImageProcTag的直接链接 translate=no>​</a></h2>
+<p>安全图像压缩、裁剪处理的配置信息标签类型，使用<a href=#attesttagtype class="">AttestTagType</a>扩展定义。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>值</strong></strong><th><strong><strong>说明</strong></strong><tbody><tr><td>SECIMAGE_TAG_INVALID<td>AttestTagType.ATTEST_TAG_TYPE_INVALID<td>0<tr><td>SECIMAGE_TAG_SRC_IMAGE_FORMAT<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>1<tr><td>SECIMAGE_TAG_DEST_IMAGE_FORMAT<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>2<tr><td>SECIMAGE_TAG_PROC_OPERATION<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>3<tr><td>SECIMAGE_TAG_COMPRESSION_QUALITY<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>4<tr><td>SECIMAGE_TAG_CROP_REGION<td>AttestTagType.ATTEST_TAG_TYPE_UINT<td>5</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimageprocoperation>SecImageProcOperation<a href=#secimageprocoperation class=hash-link aria-label=SecImageProcOperation的直接链接 title=SecImageProcOperation的直接链接 translate=no>​</a></h2>
+<p>安全图像的处理命令。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>SECIMAGE_COMPRESSION<td>0<td>安全图像压缩命令。<tr><td>SECIMAGE_CROPPING<td>1<td>安全图像裁剪命令。<tr><td>SECIMAGE_COMPRESSION_AND_CROPPING<td>2<td>安全图像压缩并裁剪命令。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimageprocformat>SecImageProcFormat<a href=#secimageprocformat class=hash-link aria-label=SecImageProcFormat的直接链接 title=SecImageProcFormat的直接链接 translate=no>​</a></h2>
+<p>安全图像的格式。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>值<th><strong><strong>说明</strong></strong><tbody><tr><td>SECIMAGE_FORMAT_INVALID<td>0<td>无效的安全图像格式。<tr><td>SECIMAGE_FORMAT_YUV_NV21<td>1<td>YUV420 NV21格式的安全图像。输入原始安全图像格式，以及裁剪命令返回的安全图像格式均为SECIMAGE_FORMAT_YUV_NV21。<tr><td>SECIMAGE_FORMAT_JPEG<td>2<td>JPEG格式的安全图像。压缩命令、压缩并裁剪命令返回的安全图像格式均为SECIMAGE_FORMAT_JPEG。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=cropregion>CropRegion<a href=#cropregion class=hash-link aria-label=CropRegion的直接链接 title=CropRegion的直接链接 translate=no>​</a></h2>
+<p>安全图像裁剪处理的裁剪区域。裁剪区域参数作用如下图所示。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th><strong><strong>类型</strong></strong><th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>x<td>number<td>否<td>否<td>裁剪区域左上角点在水平方向（横向）上相对于整个图像左边界的偏移量，取值范围在 0 到 640 之间的偶数。单位是像素（pixel）。<tr><td>y<td>number<td>否<td>否<td>裁剪区域左上角点在垂直方向（纵向）上相对于整个图像上边界的偏移量，取值范围在 0 到 480 之间的偶数。单位是像素（pixel）。<tr><td>width<td>number<td>否<td>否<td>裁剪区域的宽度，即横向的长度，取值范围在 0 到 640 之间的偶数，且需满足 x 与 width 的和不大于 640。单位是像素（pixel）。<tr><td>height<td>number<td>否<td>否<td>裁剪区域的高度，即纵向的长度，取值范围在 0 到 480 之间的偶数，且需满足 y 与 height 的和不大于 480。单位是像素（pixel）。</table>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583480533-02f663dd989a8ce61a0f7c99d64e99bb.jpg width=764 height=500 class=img_ev3q /></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=secimagebuffer>SecImageBuffer<a href=#secimagebuffer class=hash-link aria-label=SecImageBuffer的直接链接 title=SecImageBuffer的直接链接 translate=no>​</a></h2>
+<p>获得压缩、裁剪处理后签名的安全图像。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.TrustedAppService.Core</p>
+<p><strong><strong>起始版本：</strong></strong> 5.1.0(18)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th><strong><strong>名称</strong></strong><th>类型<th>只读<th>可选<th><strong><strong>说明</strong></strong><tbody><tr><td>secImage<td>ArrayBuffer<td>否<td>否<td>返回压缩、裁剪处理后签名的安全图像。</table>
+<p><strong><strong>安全图像压缩示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const srcSecImageBuffer = new  ArrayBuffer(461844);// 实际使用请替换为Camera Kit获取到的安全图像buffer</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties: Array&lt;trustedAppService.SecImageProcParams> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_PROC_OPERATION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcOperation.SECIMAGE_COMPRESSION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_SRC_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_YUV_NV21, // 安全图像压缩、裁剪命令输入的原始图像格式都为：YUV420 NV21 格式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_DEST_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_JPEG, // 安全图像压缩命令返回的图像格式为：JPEG 格式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_COMPRESSION_QUALITY,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: 90, // 实际使用请替换为业务场景需要的压缩质量</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let procParams: trustedAppService.SecImageProcParamsArray = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.procSecImageTransform(srcSecImageBuffer, procParams).then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (returnResult: trustedAppService.SecImageBuffer): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let returnSecImageBuffer = returnResult.secImage;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to process secureImage compression, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<p><strong><strong>安全图像裁剪示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const srcSecImageBuffer = new  ArrayBuffer(461844);// 实际使用请替换为Camera Kit获取到的安全图像buffer</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties: Array&lt;trustedAppService.SecImageProcParams> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_PROC_OPERATION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcOperation.SECIMAGE_CROPPING,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_SRC_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_YUV_NV21, // 安全图像压缩、裁剪命令输入的原始图像格式都为：YUV420 NV21 格式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_DEST_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_YUV_NV21, // 安全图像压缩命令返回的图像格式为：JPEG 格式</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_CROP_REGION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: { x : 0, y ：0, width : 320, height : 240 }, // 实际使用请替换为业务场景需要的裁剪区域范围</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let procParams: trustedAppService.SecImageProcParamsArray = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.procSecImageTransform(srcSecImageBuffer, procParams).then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (returnResult: trustedAppService.SecImageBuffer): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let returnSecImageBuffer = returnResult.secImage;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to process secureImage cropping, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div>
+<p><strong><strong>安全图像压缩并裁剪示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { trustedAppService } from '@kit.DeviceSecurityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">const srcSecImageBuffer = new  ArrayBuffer(461844);// 实际使用请替换为Camera Kit获取到的安全图像buffer</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let properties: Array&lt;trustedAppService.SecImageProcParams> = [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_PROC_OPERATION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcOperation.SECIMAGE_COMPRESSION_AND_CROPPING,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_SRC_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_YUV_NV21,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_DEST_IMAGE_FORMAT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: trustedAppService.SecImageProcFormat.SECIMAGE_FORMAT_JPEG,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_COMPRESSION_QUALITY,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: 90, // 实际使用请替换为业务场景需要的压缩质量</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    tag: trustedAppService.SecImageProcTag.SECIMAGE_TAG_CROP_REGION,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    value: { x : 0, y ：0, width : 320, height : 240 }, // 实际使用请替换为业务场景需要的裁剪区域范围</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">];</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let procParams: trustedAppService.SecImageProcParamsArray = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  properties: properties,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">await trustedAppService.procSecImageTransform(srcSecImageBuffer, options).then(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (returnResult: trustedAppService.SecImageBuffer): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let returnSecImageBuffer = returnResult.secImage;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">).catch(</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  (error: BusinessError): void => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let err = error as BusinessError;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hilog.error(0x0000, 'testTag', `Failed to process secureImage cropping, code:${err.code}, message:${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">);</span><br/></div></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-safetydetectenhanced-api/devicesecurity-safetydetectenhanced-api><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>SafetyDetect（安全检测）</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-brid-api/devicesecurity-brid-api><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>BusinessRiskIntelligentDetection（业务风险检测）</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#createattestkey class="table-of-contents__link toc-highlight">createAttestKey</a><li><a href=#attestoptions class="table-of-contents__link toc-highlight">AttestOptions</a><li><a href=#attestparam class="table-of-contents__link toc-highlight">AttestParam</a><li><a href=#attesttag class="table-of-contents__link toc-highlight">AttestTag</a><li><a href=#attesttagtype class="table-of-contents__link toc-highlight">AttestTagType</a><li><a href=#attestkeyalg class="table-of-contents__link toc-highlight">AttestKeyAlg</a><li><a href=#attestkeysize class="table-of-contents__link toc-highlight">AttestKeySize</a><li><a href=#destroyattestkey class="table-of-contents__link toc-highlight">destroyAttestKey</a><li><a href=#initializeattestcontext class="table-of-contents__link toc-highlight">initializeAttestContext</a><li><a href=#attesttype class="table-of-contents__link toc-highlight">AttestType</a><li><a href=#attestreturnresult class="table-of-contents__link toc-highlight">AttestReturnResult</a><li><a href=#attestexceptionerrcode class="table-of-contents__link toc-highlight">AttestExceptionErrCode</a><li><a href=#finalizeattestcontext class="table-of-contents__link toc-highlight">finalizeAttestContext</a><li><a href=#getcurrentsecurelocation class="table-of-contents__link toc-highlight">getCurrentSecureLocation</a><li><a href=#locatingpriority class="table-of-contents__link toc-highlight">LocatingPriority</a><li><a href=#securelocation class="table-of-contents__link toc-highlight">SecureLocation</a><li><a href=#location class="table-of-contents__link toc-highlight">Location</a><li><a href=#procsecimagetransform class="table-of-contents__link toc-highlight">procSecImageTransform</a><li><a href=#secimageprocparamsarray class="table-of-contents__link toc-highlight">SecImageProcParamsArray</a><li><a href=#secimageprocparams class="table-of-contents__link toc-highlight">SecImageProcParams</a><li><a href=#secimageproctag class="table-of-contents__link toc-highlight">SecImageProcTag</a><li><a href=#secimageprocoperation class="table-of-contents__link toc-highlight">SecImageProcOperation</a><li><a href=#secimageprocformat class="table-of-contents__link toc-highlight">SecImageProcFormat</a><li><a href=#cropregion class="table-of-contents__link toc-highlight">CropRegion</a><li><a href=#secimagebuffer class="table-of-contents__link toc-highlight">SecImageBuffer</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

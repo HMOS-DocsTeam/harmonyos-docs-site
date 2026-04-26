@@ -1,0 +1,340 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-app-linking-kit-guide/applinking-cross-platform/applinking-cross-platform" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>通过聚合链接按指定方式跳转至应用 | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/ /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="通过聚合链接按指定方式跳转至应用 | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=场景介绍 /><meta data-rh=true property=og:description content=场景介绍 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/ /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/ hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/ hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/","name":"通过聚合链接按指定方式跳转至应用","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-guide/><span title=基础入门 class=categoryLinkLabel_W154>基础入门</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/application-dev-overview/><span title=应用开发准备 class=categoryLinkLabel_W154>应用开发准备</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ability-kit/abilitykit-overview/><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/system-security/access-control/access-token-overview/><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multimedia-development-overview/><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ar-engine-kit-guide/arengine-introduction/arengine-ability/><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/account-kit-guide/account-introduction/><span title="Account Kit（华为账号服务）" class=categoryLinkLabel_W154>Account Kit（华为账号服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ads-kit-guide/ads-introduction/><span title="Ads Kit（广告服务）" class=categoryLinkLabel_W154>Ads Kit（广告服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/store-kit-guide/store-introduction/><span title="AppGallery Kit（应用市场服务）" class=categoryLinkLabel_W154>AppGallery Kit（应用市场服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-introduction/><span title="App Linking Kit（应用链接服务）" class=categoryLinkLabel_W154>App Linking Kit（应用链接服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-introduction/><span title="App Linking Kit简介" class=linkLabel_WmDU>App Linking Kit简介</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-preparations/applinking-basic-preparation/><span title=开发准备 class=categoryLinkLabel_W154>开发准备</span></a></div><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/app-linking-startupapp/><span title="通过App Linking应用链接拉起指定应用" class=linkLabel_WmDU>通过App Linking应用链接拉起指定应用</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-direct-to-ag/><span title=通过直达应用市场能力跳转至应用市场下载详情页 class=linkLabel_WmDU>通过直达应用市场能力跳转至应用市场下载详情页</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-deferredlink/><span title=通过延迟链接跳转至应用详情页 class=linkLabel_WmDU>通过延迟链接跳转至应用详情页</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/app-linking-kit-guide/applinking-cross-platform/><span title=通过聚合链接按指定方式跳转至应用 class=linkLabel_WmDU>通过聚合链接按指定方式跳转至应用</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/call-kit-guide/call-introduction/><span title="Call Service Kit（通话服务）" class=categoryLinkLabel_W154>Call Service Kit（通话服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/cloud-foundation-kit-guide/cloudfoundation-introduction/><span title="Cloud Foundation Kit（云开发服务）" class=categoryLinkLabel_W154>Cloud Foundation Kit（云开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/calendar-kit/calendarmanager-overview/><span title="Calendar Kit（日历服务）" class=categoryLinkLabel_W154>Calendar Kit（日历服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/contacts-kit/contacts-intro/><span title="Contacts Kit（联系人服务）" class=categoryLinkLabel_W154>Contacts Kit（联系人服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/enterprise-space-kit-guide/enterprisespace-introduction/><span title="Enterprise Space Kit（企业数字空间服务）" class=categoryLinkLabel_W154>Enterprise Space Kit（企业数字空间服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/file-manager-service-kit-guide/filemanagerservice-introduction/><span title="File Manager Service Kit（文件管理服务）" class=categoryLinkLabel_W154>File Manager Service Kit（文件管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/game-controller-kit/game-controller-introduction/><span title="Game Controller Kit（游戏控制器服务）" class=categoryLinkLabel_W154>Game Controller Kit（游戏控制器服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/game-service-kit-guide/gameservice-introduction/><span title="Game Service Kit（游戏服务）" class=categoryLinkLabel_W154>Game Service Kit（游戏服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/health-service-kit-guide/health-service-kit-ability/><span title="Health Service Kit（运动健康服务）" class=categoryLinkLabel_W154>Health Service Kit（运动健康服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/iap-kit-guide/iap-introduction/><span title="IAP Kit（应用内支付服务）" class=categoryLinkLabel_W154>IAP Kit（应用内支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/live-view-kit-guide/liveview-introduction/><span title="Live View Kit（实况窗服务）" class=categoryLinkLabel_W154>Live View Kit（实况窗服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/location-kit/location-kit-intro/><span title="Location Kit（位置服务）" class=categoryLinkLabel_W154>Location Kit（位置服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/map-kit-guide/map-introduction/><span title="Map Kit（地图服务）" class=categoryLinkLabel_W154>Map Kit（地图服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/notification-kit/notification-overview/><span title="Notification Kit（用户通知服务）" class=categoryLinkLabel_W154>Notification Kit（用户通知服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/payment-kit-guide/payment-introduction/><span title="Payment Kit（鸿蒙支付服务）" class=categoryLinkLabel_W154>Payment Kit（鸿蒙支付服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/pdf-kit-guide/pdf-introduction/><span title="PDF Kit（PDF服务）" class=categoryLinkLabel_W154>PDF Kit（PDF服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/preview-kit-guide/preview-introduction/><span title="Preview Kit（文件预览服务）" class=categoryLinkLabel_W154>Preview Kit（文件预览服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/push-kit-guide/push-kit-introduction/><span title="Push Kit（推送服务）" class=categoryLinkLabel_W154>Push Kit（推送服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/reader-kit-guide/reader-introduction/><span title="Reader Kit（阅读服务）" class=categoryLinkLabel_W154>Reader Kit（阅读服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/scenario-fusion-guide/scenario-fusion-introduction/><span title="Scenario Fusion Kit（融合场景服务）" class=categoryLinkLabel_W154>Scenario Fusion Kit（融合场景服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/screen-time-guard-kit-guide/screentimeguard-introduction/><span title="Screen Time Guard Kit（屏幕时间守护服务）" class=categoryLinkLabel_W154>Screen Time Guard Kit（屏幕时间守护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/share-kit-guide/share-introduction/><span title="Share Kit（分享服务）" class=categoryLinkLabel_W154>Share Kit（分享服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/wallet-kit-guide/wallet-introduction/><span title="Wallet Kit（钱包服务）" class=categoryLinkLabel_W154>Wallet Kit（钱包服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/weather-service-kit-guide/weather-service-introduction/><span title="Weather Service Kit（天气服务）" class=categoryLinkLabel_W154>Weather Service Kit（天气服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/harmony-agent-framework-kit-guide/hmaf-introduction/><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/multi-device-overview-path-change/><span title=一次开发，多端部署 class=categoryLinkLabel_W154>一次开发，多端部署</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/hopping-path-change/><span title=自由流转 class=categoryLinkLabel_W154>自由流转</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ndk-development-overview/><span title=NDK开发 class=categoryLinkLabel_W154>NDK开发</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ide-tools-overview/><span title=工具 class=categoryLinkLabel_W154>工具</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/app-testing-overview/><span title=应用测试 class=categoryLinkLabel_W154>应用测试</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/experience-suggestions-overview/><span title=应用体验建议 class=categoryLinkLabel_W154>应用体验建议</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用服务</span><li class=breadcrumbs__item><span class=breadcrumbs__link>App Linking Kit（应用链接服务）</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>通过聚合链接按指定方式跳转至应用</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>通过聚合链接按指定方式跳转至应用</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=场景介绍>场景介绍<a href=#场景介绍 class=hash-link aria-label=场景介绍的直接链接 title=场景介绍的直接链接 translate=no>​</a></h2>
+<p>从6.0.0(20)版本开始，新增支持聚合链接能力。</p>
+<p>可用于实现在HarmonyOS系统的设备上点击链接后，按照指定的方式进行跳转。当用户打开链接时，聚合链接会引导用户跳转到HarmonyOS平台预览页、应用市场详情页、自定义网址、深度链接地址等页面。</p>
+<p>聚合链接主要用于直接向用户发送应用推广信息，例如通过短信/邮件/社交分享链接发送产品优惠活动或应用推广活动。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=前提条件>前提条件<a href=#前提条件 class=hash-link aria-label=前提条件的直接链接 title=前提条件的直接链接 translate=no>​</a></h2>
+<p>已<a class="" href=/harmonyos-docs-site/app-linking-kit-guide/applinking-preparations/applinking-enable-applinking>开通App Linking服务</a>。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=开发流程>开发流程<a href=#开发流程 class=hash-link aria-label=开发流程的直接链接 title=开发流程的直接链接 translate=no>​</a></h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>角色<th>操作步骤<tbody><tr><td>云端开发<td><a class="" href=/harmonyos-docs-site/app-linking-kit-guide/applinking-preparations/applinking-enable-applinking>开通App Linking服务</a>。<tr><td>云端开发<td>先在AGC<a href=#%E7%94%B3%E8%AF%B7%E9%93%BE%E6%8E%A5%E5%89%8D%E7%BC%80 class="">申请链接前缀</a>并<a href=#%E6%B7%BB%E5%8A%A0%E7%BD%91%E5%9D%80%E5%85%81%E8%AE%B8%E6%B8%85%E5%8D%95 class="">添加网址允许清单</a>，然后<a href=#%E5%88%9B%E5%BB%BA%E8%81%9A%E5%90%88%E9%93%BE%E6%8E%A5 class="">创建聚合链接</a>。<tr><td>客户端开发<td><a href=#%E5%9C%A8modulejson5%E4%B8%AD%E9%85%8D%E7%BD%AE%E8%81%9A%E5%90%88%E9%93%BE%E6%8E%A5 class="">在module.json5中配置聚合链接</a>。<tr><td>客户端开发<td><a href=#%E5%A4%84%E7%90%86%E6%8B%89%E8%B5%B7%E6%96%B9%E5%BA%94%E7%94%A8%E4%BC%A0%E5%85%A5%E7%9A%84%E9%93%BE%E6%8E%A5 class="">处理拉起方应用传入的链接</a>。<tr><td>客户端开发<td><a href=#%E9%AA%8C%E8%AF%81%E5%BA%94%E7%94%A8%E8%A2%AB%E6%8B%89%E8%B5%B7%E6%95%88%E6%9E%9C class="">验证应用被拉起效果</a>。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=配置聚合链接能力>配置聚合链接能力<a href=#配置聚合链接能力 class=hash-link aria-label=配置聚合链接能力的直接链接 title=配置聚合链接能力的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=申请链接前缀>申请链接前缀<a href=#申请链接前缀 class=hash-link aria-label=申请链接前缀的直接链接 title=申请链接前缀的直接链接 translate=no>​</a></h3>
+<p>链接前缀是指聚合链接地址中包含的网址，其格式为<code>https://域名。创建聚合链接前，需要申请链接前缀</code>。</p>
+<ol>
+<li class="">
+<p>登录<a href=https://developer.huawei.com/consumer/cn/service/josp/agc/index.html target=_blank rel="noopener noreferrer" class="">AppGallery Connect</a>，点击“开发与服务”。</p>
+</li>
+<li class="">
+<p>在项目列表中点击HarmonyOS应用所在的项目（请确保所有平台的应用在同一项目下）。</p>
+</li>
+<li class="">
+<p>在左侧导航栏中选择“增长 > App Linking > 聚合链接”，选择“链接前缀”页签，点击“添加链接前缀”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583478807-5a4b3408ab91b7a01e5cb3d92e2b88cf.png width=1330 height=226 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>在AGC提供的免费域名（例如中国站点的域名：drcn.agconnect.link）前再设置一个前缀字符串，前缀字符串仅支持小写字母和数字，且必须确保此前缀唯一。设置完成后点击“下一步”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552799158-c74f38c052e33ae0dedafa406b5a69b4.png width=1347 height=580 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>等待域名地址验证通过后，页面将显示完整域名。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438853-dc0a79e64443e3cb8dbb440f3f4dc758.png width=1369 height=449 class=img_ev3q /></p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=添加网址允许清单>添加网址允许清单<a href=#添加网址允许清单 class=hash-link aria-label=添加网址允许清单的直接链接 title=添加网址允许清单的直接链接 translate=no>​</a></h3>
+<p>创建聚合链接前，需要添加网址允许清单来指定深度链接地址和自定义网址中允许使用的网址格式。设置后，聚合链接仅允许重定向到符合允许清单规则的网址，从而防止网站诱骗。</p>
+<ol>
+<li class="">
+<p>登录<a href=https://developer.huawei.com/consumer/cn/service/josp/agc/index.html target=_blank rel="noopener noreferrer" class="">AppGallery Connect</a>，点击“开发与服务”。</p>
+</li>
+<li class="">
+<p>在项目列表中点击HarmonyOS应用所在的项目（请确保所有平台的应用在同一项目下）。</p>
+</li>
+<li class="">
+<p>在左侧导航栏中选择“增长 > App Linking > 聚合链接”，选择“网址允许清单”页签，点击“添加允许清单规则”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552958808-4bd6b51faa1c063d7ab4513aefe6cd35.png width=1350 height=275 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>使用正则表达式设置允许清单规则，设置完成后点击右上角的“发布”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583478809-83416c1e0196f71bc76b55b79807cd6b.png width=1351 height=318 class=img_ev3q /></p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=创建聚合链接>创建聚合链接<a href=#创建聚合链接 class=hash-link aria-label=创建聚合链接的直接链接 title=创建聚合链接的直接链接 translate=no>​</a></h3>
+<p>配置聚合链接，按照指定的方式进行跳转。</p>
+<ol>
+<li class="">
+<p>登录<a href=https://developer.huawei.com/consumer/cn/service/josp/agc/index.html target=_blank rel="noopener noreferrer" class="">AppGallery Connect</a>，点击“开发与服务”。</p>
+</li>
+<li class="">
+<p>在项目列表中点击HarmonyOS应用所在的项目（请确保所有平台的应用在同一项目下）。</p>
+</li>
+<li class="">
+<p>在左侧导航栏中选择“增长 > App Linking > 聚合链接”，选择“聚合链接”页签，点击“创建聚合链接”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552799160-bdd05ca7161e59cb076123b1d7f0b257.png width=1403 height=189 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>设置短链接，完成后点击“下一步”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438855-34332671ea99a9be20fa4371c2cf2466.png width=1451 height=683 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>链接前缀<td>聚合链接的前缀。如果还未申请链接前缀，请参见<a href=#%E7%94%B3%E8%AF%B7%E9%93%BE%E6%8E%A5%E5%89%8D%E7%BC%80 class="">申请链接前缀</a>。  “链接前缀”下方的文本框中可设置聚合链接的短链接后缀字符串，默认由AGC自动生成。如果需要自行定义，请确保该字符串唯一。<tr><td>链接预览<td>聚合链接向用户发送的短链接地址。</table>
+</li>
+<li class="">
+<p>设置深度链接，完成后点击“下一步”。</p>
+<ul>
+<li class="">深度链接地址中使用的域名需满足“网址允许清单”要求。</li>
+<li class="">深度链接地址不允许设置为可执行文件格式。</li>
+</ul>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552958810-345745f516c67009f35f57cec14e2606.png width=1129 height=542 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>链接名称<td>配置聚合链接的自定义名称。<tr><td>深度链接地址（默认）<td>应用将打开的深度链接地址。  如果未设置HarmonyOS深度链接地址(api>=12)，则会默认打开此链接。<tr><td>（可选）HarmonyOS深度链接地址(api>=12)<td>如果设置了HarmonyOS深度链接地址(api>=12)，则在HarmonyOS平台优先打开此链接。</table>
+</li>
+<li class="">
+<p>设置聚合链接在HarmonyOS系统的链接行为，完成后点击“下一步”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583478811-4738e45aa51ca521893c5e6890a76e4d.png width=1103 height=238 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>设置在HarmonyOS系统的链接行为(api>=12)<td>1. 选择“在HarmonyOS应用中打开”，表示用户点击链接会跳转到HarmonyOS应用中的深度链接地址。  2. 选择或添加需要配置深度链接地址的HarmonyOS应用。<tr><td>未安装应用时，则重定向到<td>如果用户未安装HarmonyOS应用，可通过此选项将用户引导到“华为应用市场页面详情页”或“自定义网址”。  <strong><strong>说明：</strong></strong> 如果选择“自定义网址”，链接不允许设置为可执行文件格式。</table>
+</li>
+<li class="">
+<p>（可选）在“设置跟踪参数”页面，设置广告跟踪参数，可用于广告、流量跟踪。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552799162-07e6a65c6849be056720873940681e0b.png width=792 height=292 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>广告系列来源<td>广告渠道，如Huawei，也可自定义。<tr><td>广告系列媒介<td>广告媒介的标识，如pic 、email。<tr><td>广告系列名称<td>特定的推广活动描述，如“双11推广”。</table>
+</li>
+<li class="">
+<p>（可选）设置社交分享标识，可用于社交软件之间的分享，设置完成后点击“下一步”。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>设置了社交分享标识参数后，可通过<a href=https://developer.huawei.com/consumer/cn/doc/AppGallery-connect-Guides/agc-applinking-socialdescription-0000001055261926 target=_blank rel="noopener noreferrer" class="">社交分享标识说明</a>了解设置效果。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438857-e49f76eddd5c21840c9188b6813bc9a4.png width=1571 height=635 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>标题<td>聚合链接在社交平台上分享时展示的标题名称。<tr><td>图片URL<td>聚合链接在社交平台上分享时展示的图片地址。<tr><td>描述说明<td>聚合链接在社交平台上分享时展示的说明信息。</table>
+</li>
+<li class="">
+<p>（可选）设置预览页，可以将用户引导至合适的目标位置。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552958812-ad30c8217e941ae4a43b81b8024d49a3.png width=945 height=851 class=img_ev3q /></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数<th>参数说明<tbody><tr><td>显示预览页<td>应用未安装，点击聚合链接时，预览页的显示情况。  - 勾选：在点击聚合链接时，应用如果未安装，则在重定向到应用市场详情页前优先显示预览页。  - 不勾选（默认）：在点击时，应用如果未安装，则会根据浏览器的类型，尽可能地优先拉起应用市场详情页。  <strong><strong>说明：</strong></strong> 目前仅支持华为浏览器。<tr><td>预览页信息来源<td>勾选“显示预览页”后，可以选择预览页信息展示的内容。  - “分享标识内容”：采用分享标识信息构建预览页。  - “应用市场应用信息”：采用AGC中配置的应用信息构建预览页。</table>
+</li>
+<li class="">
+<p>全部设置完成后，点击右上角的“发布”，页签中将展示已发布的聚合链接列表。</p>
+</li>
+</ol>
+<ul>
+<li class="">
+<p>点击网址中的二维码图标，或对应操作栏下方的“二维码下载”，可以下载该聚合链接的二维码图片。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583478813-87193d21b70bf5524d7a0afcd3640e92.png width=1416 height=221 class=img_ev3q /></p>
+<p>点击对应操作栏下方的“链接详情”，可以查看该聚合链接的详情，包括深度链接地址、HarmonyOS应用包名、短链接地址等。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552799164-a48d54f9dbea2c6d0f8be0b3ec649492.png width=1147 height=519 class=img_ev3q /></p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=可选归档聚合链接>（可选）归档聚合链接<a href=#可选归档聚合链接 class=hash-link aria-label=（可选）归档聚合链接的直接链接 title=（可选）归档聚合链接的直接链接 translate=no>​</a></h3>
+<p>创建聚合链接后，如果不想继续管理该链接，而又不希望影响用户较长一段时间内的使用，可以选择归档聚合链接。</p>
+<ul>
+<li class="">归档7天后的聚合链接将被隐藏，开发者无法通过AGC查看或撤销归档。</li>
+<li class="">归档后的聚合链接默认从归档时起1年内有效，请谨慎操作。</li>
+</ul>
+<p><strong><strong>操作步骤如下：</strong></strong></p>
+<ol>
+<li class="">
+<p>登录<a href=https://developer.huawei.com/consumer/cn/service/josp/agc/index.html target=_blank rel="noopener noreferrer" class="">AppGallery Connect</a>，点击“开发与服务”。</p>
+</li>
+<li class="">
+<p>在项目列表中点击HarmonyOS应用所在的项目。</p>
+</li>
+<li class="">
+<p>在左侧导航栏中选择“增长 > App Linking > 聚合链接”。</p>
+</li>
+<li class="">
+<p>选择“聚合链接”页签，对已创建的聚合链接进行归档。</p>
+<ul>
+<li class="">
+<p>单条归档：在聚合链接列表，选择待归档聚合链接对应“操作”列下方的“归档”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583438859-36d64049cdda2086e26105b189ce6f3d.png width=1410 height=382 class=img_ev3q /></p>
+</li>
+<li class="">
+<p>批量归档：在列表，勾选多条待归档，选择右上角“批量操作”的下拉选项中的“归档”。</p>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552958814-00c69887e5906b16ece53a25e708d09f.png width=1414 height=279 class=img_ev3q /></p>
+</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>可以通过时间筛选，选择查看“7天内已归档”的聚合链接。还可以点击“操作”列下方的“撤销归档”，将已归档的聚合链接恢复原状。</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=在modulejson5中配置聚合链接>在module.json5中配置聚合链接<a href=#在modulejson5中配置聚合链接 class=hash-link aria-label=在module.json5中配置聚合链接的直接链接 title=在module.json5中配置聚合链接的直接链接 translate=no>​</a></h3>
+<p>在HarmonyOS应用的<a class="" href=/harmonyos-docs-site/development-fundamentals/application-configuration-file-stage/module-configuration-file>module.json5文件</a>中进行如下配置，用于接收聚合链接，以获取聚合链接中传递的数据。</p>
+<ul>
+<li class="">"entities"列表中必须包含"entity.system.browsable"。</li>
+<li class="">"actions"列表中必须包含"ohos.want.action.viewData"。</li>
+<li class="">"uris"列表中必须包含"scheme"为"https"且"host"为域名地址的元素，可选属性包含"path"、"pathStartWith"和"pathRegex"，具体请参见“<a class="" href=/harmonyos-docs-site/ability-kit/stage-model-development/inter-app-redirection/directional-redirection/app-uri-config#uris%E6%A0%87%E7%AD%BE%E8%AF%B4%E6%98%8E>uris标签说明</a>”。</li>
+<li class="">"domainVerify"设置为true，表示开启域名校验开关。</li>
+</ul>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>skills标签下默认包含一个skill对象，用于标识应用入口。应用跳转链接不能在该skill对象中配置，需要创建独立的skill对象。</p>
+<p>如果存在多个跳转场景，需要在skills标签下创建不同的skill对象，否则会导致配置无法生效。</p>
+<p>例如，聚合链接的域名是example.drcn.agconnect.link，则需进行如下配置。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  "module": {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "abilities": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "name": "EntryAbility",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "srcEntry": "./ets/entryability/EntryAbility.ets",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "icon": "$media:icon",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "label": "$string:EntryAbility_label",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 请将exported配置为true；如果exported为false，仅具有权限的系统应用能够拉起该应用，否则无法拉起应用</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "exported": true,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "startWindowIcon": "$media:icon",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "startWindowBackground": "$color:start_window_background",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        "skills": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "entities": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              "entity.system.home"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "actions": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              "ohos.want.action.home"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          },</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "entities": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              // entities必须包含"entity.system.browsable"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              "entity.system.browsable"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "actions": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              // actions必须包含"ohos.want.action.viewData"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              "ohos.want.action.viewData"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            "uris": [</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                // scheme须配置为https</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "scheme": "https",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                // host须配置为聚合链接的域名</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "host": "example.drcn.agconnect.link",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                // path可选，表示聚合链接的短链接后缀字符串，例如example.drcn.agconnect.link/AIYx中的AIYx</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                // 如果应用只能处理部分特定的path，则此处应该配置应用所支持的path，避免出现应用不能处理的path链接也被引流到应用中的问题</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                "path": "AIYx"</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            ],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            // domainVerify须设置为true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">           "domainVerify": true</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 若有其他跳转能力，如推送消息跳转、NFC跳转，可新增一个skill对象，防止与App Linking业务冲突</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    ]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=处理拉起方应用传入的链接>处理拉起方应用传入的链接<a href=#处理拉起方应用传入的链接 class=hash-link aria-label=处理拉起方应用传入的链接的直接链接 title=处理拉起方应用传入的链接的直接链接 translate=no>​</a></h3>
+<p>在HarmonyOS应用的Ability（如EntryAbility）的<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-uiability/js-apis-app-ability-uiability#oncreate>onCreate()</a>或者<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-uiability/js-apis-app-ability-uiability#onnewwant>onNewWant()</a>生命周期回调中添加如下代码，以处理传入的链接。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { AbilityConstant, UIAbility, Want } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { url } from '@kit.ArkTS';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export default class EntryAbility extends UIAbility {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onCreate(want: Want, launchParam: AbilityConstant.LaunchParam): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 从want中获取传入的链接信息。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 如传入的url为：`https://example.drcn.agconnect.link/AIYx，开发者可根据自己的业务需求进行后续的处理`。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let uri = want?.uri;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    if (uri) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let urlObject = url.URL.parseURL(want?.uri);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (urlObject.toString() === "https://example.drcn.agconnect.link/AIYx"){</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // ...</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        hilog.error(0x0000, 'testTag', `Failed to parse url.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p>若要根据链接参数启动UIAbility的指定页面组件，请参考“<a class="" href=/harmonyos-docs-site/ability-kit/stage-model-development/stage-model-application-components/uiability/uiability-intra-device-interaction#%E5%90%AF%E5%8A%A8uiability%E7%9A%84%E6%8C%87%E5%AE%9A%E9%A1%B5%E9%9D%A2>启动UIAbility的指定页面</a>”。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=验证应用被拉起效果>验证应用被拉起效果<a href=#验证应用被拉起效果 class=hash-link aria-label=验证应用被拉起效果的直接链接 title=验证应用被拉起效果的直接链接 translate=no>​</a></h2>
+<ul>
+<li class="">方式一：<a href=#%E9%80%9A%E8%BF%87openlink%E6%8E%A5%E5%8F%A3%E6%8B%89%E8%B5%B7 class="">通过openLink接口拉起</a>。</li>
+<li class="">方式二：<a href=#%E9%80%9A%E8%BF%87%E7%B3%BB%E7%BB%9F%E6%B5%8F%E8%A7%88%E5%99%A8%E6%88%96arkweb%E6%8B%89%E8%B5%B7 class="">通过系统浏览器或ArkWeb拉起</a>。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=通过openlink接口拉起>通过openLink接口拉起<a href=#通过openlink接口拉起 class=hash-link aria-label=通过openLink接口拉起的直接链接 title=通过openLink接口拉起的直接链接 translate=no>​</a></h3>
+<p>拉起方应用可以调用<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-uiabilitycontext/js-apis-inner-application-uiabilitycontext#openlink12>UIAbilityContext.openLink()</a>接口，并将appLinkingOnly参数设为false或者不传，以App Linking优先的方式打开应用。</p>
+<ol>
+<li class="">
+<p>在“entry/src/main/ets/common”目录下添加GlobalContext.ets文件，开发初始化和获取应用上下文的接口。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.AbilityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">export class GlobalContext {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private static context: common.UIAbilityContext;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  public static initContext(context: common.UIAbilityContext): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    GlobalContext.context = context;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  public static getContext(): common.UIAbilityContext {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    return GlobalContext.context;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>在“entry/src/main/ets/entryability/EntryAbility.ets”文件中导入GlobalContext，在onCreate方法中使用GlobalContext.initContext(this.context)初始化全局应用上下文。</p>
+</li>
+<li class="">
+<p>在“entry/src/main/ets/pages/Index.ets”文件中，使用<a class="" href=/harmonyos-docs-site/ref/ability-api/ability-arkts/ability-api-interface-depend/ability-arkts-application/js-apis-inner-application-uiabilitycontext/js-apis-inner-application-uiabilitycontext#openlink12>UIAbilityContext.openLink()</a>接口配置聚合链接。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hilog } from '@kit.PerformanceAnalysisKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { GlobalContext } from '../common/GlobalContext';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Button('start link', { type: ButtonType.Capsule, stateEffect: true })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('87%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .height('5%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .margin({ bottom: '12vp' })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let context = GlobalContext.getContext();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        // 如下link请填写开发者实际跳转的url</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let link: string = "https://example.drcn.agconnect.link/AIYx";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        context.openLink(link, { appLinkingOnly: false })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            hilog.info(0x0000, 'testTag', `Succeeded in opening link.`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            hilog.error(0x0000, 'testTag', `Failed to open link, code: ${error.code}, message: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+</li>
+<li class="">
+<p>安装拉起方应用，点击拉起方应用中的跳转按钮。</p>
+<p>此时目标方应用未安装，若有聚合链接匹配的应用，点击链接会按照<a href=#%E5%88%9B%E5%BB%BA%E8%81%9A%E5%90%88%E9%93%BE%E6%8E%A5 class="">创建聚合链接</a>时指定的方式进行跳转，例如跳转到HarmonyOS平台预览页、应用市场下载详情页、自定义网址等；若无聚合链接匹配的应用，则继续尝试以浏览器打开链接的方式打开应用。</p>
+</li>
+<li class="">
+<p>安装目标方应用后，首次启动时会跳转到深度链接指定的内容详情页面。</p>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=通过系统浏览器或arkweb拉起>通过系统浏览器或ArkWeb拉起<a href=#通过系统浏览器或arkweb拉起 class=hash-link aria-label=通过系统浏览器或ArkWeb拉起的直接链接 title=通过系统浏览器或ArkWeb拉起的直接链接 translate=no>​</a></h3>
+<p>ArkWeb深度集成了App Linking的能力，当用户在系统浏览器或者集成ArkWeb的应用网页上点击某个链接时，若有聚合链接匹配的应用，会通过App Linking能力优先拉起目标方应用。此机制有如下限制：</p>
+<ul>
+<li class="">如果该聚合链接配置了在HarmonyOS系统的链接行为，会跳转到HarmonyOS平台预览页，引导用户打开或下载应用。</li>
+<li class="">如果该聚合链接仅配置了深度链接，会跳转到深度链接指定的内容详情页面。</li>
+</ul></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/app-linking-kit-guide/applinking-deferredlink/><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>通过延迟链接跳转至应用详情页</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/call-kit-guide/call-introduction/><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>Call Service Kit简介</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#场景介绍 class="table-of-contents__link toc-highlight">场景介绍</a><li><a href=#前提条件 class="table-of-contents__link toc-highlight">前提条件</a><li><a href=#开发流程 class="table-of-contents__link toc-highlight">开发流程</a><li><a href=#配置聚合链接能力 class="table-of-contents__link toc-highlight">配置聚合链接能力</a><ul><li><a href=#申请链接前缀 class="table-of-contents__link toc-highlight">申请链接前缀</a><li><a href=#添加网址允许清单 class="table-of-contents__link toc-highlight">添加网址允许清单</a><li><a href=#创建聚合链接 class="table-of-contents__link toc-highlight">创建聚合链接</a><li><a href=#可选归档聚合链接 class="table-of-contents__link toc-highlight">（可选）归档聚合链接</a><li><a href=#在modulejson5中配置聚合链接 class="table-of-contents__link toc-highlight">在module.json5中配置聚合链接</a><li><a href=#处理拉起方应用传入的链接 class="table-of-contents__link toc-highlight">处理拉起方应用传入的链接</a></ul><li><a href=#验证应用被拉起效果 class="table-of-contents__link toc-highlight">验证应用被拉起效果</a><ul><li><a href=#通过openlink接口拉起 class="table-of-contents__link toc-highlight">通过openLink接口拉起</a><li><a href=#通过系统浏览器或arkweb拉起 class="table-of-contents__link toc-highlight">通过系统浏览器或ArkWeb拉起</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

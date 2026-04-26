@@ -1,0 +1,931 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>XComponent | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="XComponent | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。具体指南请参考自定义渲染 (XComponent)文档。"/><meta data-rh=true property=og:description content="提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。具体指南请参考自定义渲染 (XComponent)文档。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent","name":"XComponent","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title="Ability Kit（程序框架服务）" class=categoryLinkLabel_W154>Ability Kit（程序框架服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/accessibility-api/accessibility-arkts/js-apis-accessibility/js-apis-accessibility><span title="Accessibility Kit（无障碍服务）" class=categoryLinkLabel_W154>Accessibility Kit（无障碍服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkdata-api/arkdata-arkts/js-apis-data-commontype/js-apis-data-commontype><span title=ArkData（方舟数据管理） class=categoryLinkLabel_W154>ArkData（方舟数据管理）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkts-api/arkts-arkts/js-apis-arkts-collections/arkts-apis-arkts-collections/arkts-apis-arkts-collections><span title=ArkTS（方舟编程语言） class=categoryLinkLabel_W154>ArkTS（方舟编程语言）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title=ArkUI（方舟UI框架） class=categoryLinkLabel_W154>ArkUI（方舟UI框架）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/js-apis-animator/js-apis-animator><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=ArkTS组件 class=categoryLinkLabel_W154>ArkTS组件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch><span title=通用事件 class=categoryLinkLabel_W154>通用事件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-component-id/ts-universal-attributes-component-id><span title=通用属性 class=categoryLinkLabel_W154>通用属性</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/gesture-handling/gesture-binding/ts-gesture-settings/ts-gesture-settings><span title=手势处理 class=categoryLinkLabel_W154>手势处理</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rows-columns-and-stacking/ts-container-flex/ts-container-flex><span title=行列与堆叠 class=categoryLinkLabel_W154>行列与堆叠</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/grid-and-column-layout/ts-container-gridrow/ts-container-gridrow><span title=栅格与分栏 class=categoryLinkLabel_W154>栅格与分栏</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/scroll-and-swipe/ts-container-list/ts-container-list><span title=滚动与滑动 class=categoryLinkLabel_W154>滚动与滑动</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/navigation-and-switching/ts-swiper-components-indicator/ts-swiper-components-indicator><span title=导航与切换 class=categoryLinkLabel_W154>导航与切换</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/buttons-and-selections/ts-basic-components-button/ts-basic-components-button><span title=按钮与选择 class=categoryLinkLabel_W154>按钮与选择</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/text-and-input/ts-basic-components-text/ts-basic-components-text><span title=文本与输入 class=categoryLinkLabel_W154>文本与输入</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-basic-components-image/ts-basic-components-image><span title=图片与视频 class=categoryLinkLabel_W154>图片与视频</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/information-display/ts-container-alphabet-indexer/ts-container-alphabet-indexer><span title=信息展示 class=categoryLinkLabel_W154>信息展示</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/blank-and-divider/ts-basic-components-blank/ts-basic-components-blank><span title=空白与分隔 class=categoryLinkLabel_W154>空白与分隔</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-components-canvas-canvas/ts-components-canvas-canvas><span title=画布绘制 class=categoryLinkLabel_W154>画布绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-circle/ts-drawing-components-circle><span title=图形绘制 class=categoryLinkLabel_W154>图形绘制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=渲染绘制 class=categoryLinkLabel_W154>渲染绘制</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent><span title=XComponent class=linkLabel_WmDU>XComponent</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-component3d/ts-basic-components-component3d><span title=Component3D class=linkLabel_WmDU>Component3D</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-container-embedded-component/ts-container-embedded-component><span title=EmbeddedComponent class=linkLabel_WmDU>EmbeddedComponent</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/menus/ts-basic-components-menu/ts-basic-components-menu><span title=菜单 class=categoryLinkLabel_W154>菜单</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/animation/ts-animatorproperty/ts-animatorproperty><span title=动画 class=categoryLinkLabel_W154>动画</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/dialog-boxes/ts-methods-alert-dialog-box/ts-methods-alert-dialog-box><span title=弹窗 class=categoryLinkLabel_W154>弹窗</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/service-widgets/ts-container-formlink/ts-container-formlink><span title=卡片 class=categoryLinkLabel_W154>卡片</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-security/ts-securitycomponent-attributes/ts-securitycomponent-attributes><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/themes/ts-container-with-theme/ts-container-with-theme><span title=主题 class=categoryLinkLabel_W154>主题</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/atomic-services/ohos-atomicservice-atomicservicenavigation/ohos-atomicservice-atomicservicenavigation><span title=AtomicService class=categoryLinkLabel_W154>AtomicService</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-placeholder-comp/ts-basic-components-nodecontainer/ts-basic-components-nodecontainer><span title=自定义占位组件 class=categoryLinkLabel_W154>自定义占位组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/custom-comp/ts-custom-component-lifecycle/ts-custom-component-lifecycle><span title=自定义组件 class=categoryLinkLabel_W154>自定义组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/component-preview/ts-universal-component-previewer/ts-universal-component-previewer><span title=组件预览 class=categoryLinkLabel_W154>组件预览</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/system-preset-ui-component-library/ohos-arkui-advanced-chip/ohos-arkui-advanced-chip><span title=系统预置UI组件库 class=categoryLinkLabel_W154>系统预置UI组件库</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/state-management-and-rendering-control/ts-state-management/ts-state-management><span title=状态管理与渲染控制 class=categoryLinkLabel_W154>状态管理与渲染控制</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/responsive-env-system-property/ts-env-system-property/ts-env-system-property><span title=响应式环境变量 class=categoryLinkLabel_W154>响应式环境变量</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types><span title=公共定义 class=categoryLinkLabel_W154>公共定义</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/arkui-declarative-comp-dep/ts-container-gridcontainer/ts-container-gridcontainer><span title=已停止维护的组件与接口 class=categoryLinkLabel_W154>已停止维护的组件与接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-js-comp/arkui-js-full-comp/js-full-universal-comp-inform/js-components-common-attributes/js-components-common-attributes><span title=JS组件 class=categoryLinkLabel_W154>JS组件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-module/capi-arkui-nativemodule/capi-arkui-nativemodule><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-internal/errorcode-internal><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkweb-api/arkweb-arkts/js-apis-webview/arkts-apis-webview/arkts-apis-webview><span title=ArkWeb（方舟Web） class=categoryLinkLabel_W154>ArkWeb（方舟Web）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/background-tasks-api/background-tasks-arkts/js-apis-reminderagentmanager/js-apis-reminderagentmanager><span title="Background Tasks Kit（后台任务开发服务）" class=categoryLinkLabel_W154>Background Tasks Kit（后台任务开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/core-file-api/core-file-arkts/js-apis-application-backupextensionability/js-apis-application-backupextensionability><span title="Core File Kit（文件基础服务）" class=categoryLinkLabel_W154>Core File Kit（文件基础服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/data-augmentation-api/dataaugmentation-arkts/dataaugmentation-rag-api/dataaugmentation-rag-api><span title="Data Augmentation Kit（数据增强服务）" class=categoryLinkLabel_W154>Data Augmentation Kit（数据增强服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/form-api/form-arkts/js-apis-app-form-formbindingdata/js-apis-app-form-formbindingdata><span title="Form Kit（卡片开发服务）" class=categoryLinkLabel_W154>Form Kit（卡片开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ime-api/ime-arkts/js-apis-inputmethod-extension-ability/js-apis-inputmethod-extension-ability><span title="IME Kit（输入法开发服务）" class=categoryLinkLabel_W154>IME Kit（输入法开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ipc-api/ipc-arkts/js-apis-rpc/js-apis-rpc><span title="IPC Kit（进程间通信服务）" class=categoryLinkLabel_W154>IPC Kit（进程间通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/localization-api/localization-arkts/js-apis-i18n/js-apis-i18n><span title="Localization Kit（本地化开发服务）" class=categoryLinkLabel_W154>Localization Kit（本地化开发服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ui-design-api/ui-design-arkts/ui-design-hdsdrawable/ui-design-hdsdrawable><span title="UI Design Kit（UI设计套件）" class=categoryLinkLabel_W154>UI Design Kit（UI设计套件）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>应用框架</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkUI（方舟UI框架）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS组件</span><li class=breadcrumbs__item><span class=breadcrumbs__link>渲染绘制</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>XComponent</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>XComponent</h1></header>
+<p>提供用于图形绘制和媒体数据写入的Surface，XComponent负责将其嵌入到视图中，支持应用自定义Surface位置和大小。具体指南请参考<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-add-component/napi-xcomponent-guidelines>自定义渲染 (XComponent)文档</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该组件从API version 8 开始支持。后续版本如有新增内容，则采用上角标单独标记该内容的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=子组件>子组件<a href=#子组件 class=hash-link aria-label=子组件的直接链接 title=子组件的直接链接 translate=no>​</a></h2>
+<p>无</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=接口>接口<a href=#接口 class=hash-link aria-label=接口的直接链接 title=接口的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponent19>XComponent19+<a href=#xcomponent19 class=hash-link aria-label=XComponent19+的直接链接 title=XComponent19+的直接链接 translate=no>​</a></h3>
+<p>XComponent(params: NativeXComponentParameters)</p>
+<p>在Native侧获取XComponent节点实例、注册XComponent持有的Surface的生命周期回调和触摸、鼠标、按键等组件事件回调。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>params<td><a href=#nativexcomponentparameters19 class="">NativeXComponentParameters</a><td>是<td>定义XComponent的具体配置参数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponent12>XComponent12+<a href=#xcomponent12 class=hash-link aria-label=XComponent12+的直接链接 title=XComponent12+的直接链接 translate=no>​</a></h3>
+<p>XComponent(options: XComponentOptions)</p>
+<p>创建XComponent组件，支持在ArkTS侧获取SurfaceId、注册XComponent持有的Surface的生命周期回调和触摸、鼠标、按键等组件事件回调，支持AI分析。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>options<td><a href=#xcomponentoptions12 class="">XComponentOptions</a><td>是<td>定义XComponent的具体配置参数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponent10>XComponent10+<a href=#xcomponent10 class=hash-link aria-label=XComponent10+的直接链接 title=XComponent10+的直接链接 translate=no>​</a></h3>
+<p>XComponent(value: {id: string, type: XComponentType, libraryname?: string, controller?: XComponentController})</p>
+<p>创建XComponent组件，支持Native侧触发XComponent生命周期回调。</p>
+<p>该接口从API version 12开始不再演进，推荐使用<a href=#xcomponent12 class="">XComponent(options: XComponentOptions)</a>。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>id<td>string<td>是<td>组件的唯一标识，支持最大的字符串长度128。<tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#xcomponenttype10>XComponentType</a><td>是<td>用于指定XComponent组件类型。<tr><td>libraryname<td>string<td>否<td>用Native层编译输出动态库名称（对应的动态库不支持跨模块加载），仅类型为SURFACE或TEXTURE时有效。<tr><td>controller<td><a href=#xcomponentcontroller class="">XComponentController</a><td>否<td>给组件绑定一个控制器，通过控制器调用组件方法，仅类型为SURFACE或TEXTURE时有效。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponentdeprecated>XComponent(deprecated)<a href=#xcomponentdeprecated class=hash-link aria-label=XComponent(deprecated)的直接链接 title=XComponent(deprecated)的直接链接 translate=no>​</a></h3>
+<p>XComponent(value: {id: string, type: string, libraryname?: string, controller?: XComponentController})</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>从API version 8开始支持，从API version 12开始废弃，建议使用<a href=#xcomponent10 class="">XComponent(value: {id: string, type: XComponentType, libraryname?: string, controller?: XComponentController})</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>id<td>string<td>是<td>组件的唯一标识，支持最大的字符串长度128。<tr><td>type<td>string<td>是<td>用于指定XComponent组件类型，可选值仅有两个为：  -"surface"：用于EGL/OpenGLES和媒体数据写入，开发者定制的绘制内容单独展示到屏幕上。  -"component"9+ ：XComponent将变成一个容器组件，并可在其中执行非UI逻辑以动态加载显示内容。  其他值均会被视为"surface"类型<tr><td>libraryname<td>string<td>否<td>应用Native层编译输出动态库名称（对应的动态库不支持跨模块加载），仅XComponent类型为"surface"时有效。<tr><td>controller<td><a href=#xcomponentcontroller class="">XComponentController</a><td>否<td>给组件绑定一个控制器，通过控制器调用组件方法，仅XComponent类型为"surface"时有效。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponentoptions12>XComponentOptions12+<a href=#xcomponentoptions12 class=hash-link aria-label=XComponentOptions12+的直接链接 title=XComponentOptions12+的直接链接 translate=no>​</a></h2>
+<p>定义XComponent的具体配置参数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#xcomponenttype10>XComponentType</a><td>否<td>否<td>用于指定XComponent组件类型。<tr><td>controller<td><a href=#xcomponentcontroller class="">XComponentController</a><td>否<td>否<td>给组件绑定一个控制器，通过控制器调用组件方法，仅类型为SURFACE或TEXTURE时有效。<tr><td>imageAIOptions<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-image-common/ts-image-common#imageaioptions12>ImageAIOptions</a><td>否<td>是<td>给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=nativexcomponentparameters19>NativeXComponentParameters19+<a href=#nativexcomponentparameters19 class=hash-link aria-label=NativeXComponentParameters19+的直接链接 title=NativeXComponentParameters19+的直接链接 translate=no>​</a></h2>
+<p>定义XComponent的具体配置参数。通过这种构造参数创建的XComponent，可以将其对应的<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts/ui/ui-interface-arkui/js-apis-arkui-framenode/js-apis-arkui-framenode>FrameNode</a>对象传递至Native侧，使用NDK接口进行Surface生命周期的相关设置和<a class="" href=/harmonyos-docs-site/arkui/arkts-use-ndk/arkts-add-event/ndk-listen-to-component-events>监听组件事件</a>。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 19开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-appendix-enums/ts-appendix-enums#xcomponenttype10>XComponentType</a><td>否<td>否<td>用于指定XComponent组件类型。<tr><td>imageAIOptions<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-image-common/ts-image-common#imageaioptions12>ImageAIOptions</a><td>否<td>是<td>给组件设置一个AI分析选项，通过此项可配置分析类型或绑定一个分析控制器。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=属性>属性<a href=#属性 class=hash-link aria-label=属性的直接链接 title=属性的直接链接 translate=no>​</a></h2>
+<p>除支持通用属性外，还支持以下属性：</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>不支持foregroundColor、obscured和pixelStretchEffect属性。API version 17及之前，type为SURFACE类型时也不支持动态属性设置、自定义绘制、背景设置(backgroundColor除外)、图像效果(shadow除外)、maskShape和foregroundEffect属性。从API version 18开始，type为SURFACE类型时不支持设置的动态属性包含background、foregroundColor、animation、gesture、priorityGesture、parallelGesture、useEffect、renderGroup、flexGrow、direction、align、useSizeType、clip、geometryTransition、bindPopup、bindMenu、bindContextMenu、bindContentCover、bindSheet、stateStyles、restoreId、onVisibleAreaChange、accessibilityGroup、obscured、reuseId、accessibilityVirtualNode。</p>
+<p>对于TEXTURE和SURFACE类型的XComponent组件，当不设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-renderfit/ts-universal-attributes-renderfit#renderfit>renderFit</a>属性时，取默认值为RenderFit.RESIZE_FILL。</p>
+<p>对于SURFACE类型的XComponent组件，背景色设置为不透明的纯黑色，在API version 18之前，其<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/visual-effect-property/ts-universal-attributes-renderfit/ts-universal-attributes-renderfit#renderfit18>renderFit</a>通用属性仅支持设置为RenderFit.RESIZE_FILL；在API version 18及之后，支持所有的RenderFit枚举值。</p>
+<p>对于使用<a class="" href=/harmonyos-docs-site/arkui/arkts-use-ndk/ndk-access-the-arkts-page>ArkUI NDK接口</a>创建的XComponent组件，不支持使用属性获取函数<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-c/arkui-struct/capi-arkui-nativemodule-arkui-nativenodeapi-1/capi-arkui-nativemodule-arkui-nativenodeapi-1#getattribute>getAttribute</a>获取其renderFit属性值。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enableanalyzer12>enableAnalyzer12+<a href=#enableanalyzer12 class=hash-link aria-label=enableAnalyzer12+的直接链接 title=enableAnalyzer12+的直接链接 translate=no>​</a></h3>
+<p>enableAnalyzer(enable: boolean)</p>
+<p>设置组件支持AI分析，当前支持主体识别、文字识别和对象查找等功能。</p>
+<p>本功能需要搭配XComponentController的<a href=#startimageanalyzer12 class="">StartImageAnalyzer</a>和<a href=#stopimageanalyzer12 class="">StopImageAnalyzer</a>一起使用。</p>
+<p>不能和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/basic-property/ts-universal-attributes-overlay/ts-universal-attributes-overlay#overlay>overlay</a>属性同时使用，两者同时设置时overlay中<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#custombuilder8>CustomBuilder</a>属性将失效。该特性依赖设备能力。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>enable<td>boolean<td>是<td>是否启用图像分析功能。  true：开启图像分析；false：关闭图像分析。  默认值：false</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅type为SURFACE和TEXTURE时该功能有效。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=enablesecure13>enableSecure13+<a href=#enablesecure13 class=hash-link aria-label=enableSecure13+的直接链接 title=enableSecure13+的直接链接 translate=no>​</a></h3>
+<p>enableSecure(isSecure: boolean)</p>
+<p>防止组件内自绘制内容被截屏、录屏。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 13开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>isSecure<td>boolean<td>是<td>是否开启隐私图层模式。  true：开启隐私图层模式；false：关闭隐私图层模式。  默认值：false</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅type为SURFACE时有效。</p>
+<p>不支持<a class="" href=/harmonyos-docs-site/arkui/arkts-use-ndk/ndk-build-ui-overview>ArkUI NDK接口</a>创建的XComponent组件。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=hdrbrightness20>hdrBrightness20+<a href=#hdrbrightness20 class=hash-link aria-label=hdrBrightness20+的直接链接 title=hdrBrightness20+的直接链接 translate=no>​</a></h3>
+<p>hdrBrightness(brightness: number)</p>
+<p>用于调整组件播放HDR视频的亮度。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>brightness<td>number<td>是<td>用于调整组件播放HDR视频的亮度; brightness的取值范围为0.0~1.0; 小于0.0的值等价于0.0，大于1.0的值等价于1.0，异常值按1.0处理; 0.0 表示SDR视频的亮度，1.0 表示HDR视频的亮度。  默认值：1.0</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅type为SURFACE时有效。</p>
+<p>不支持<a class="" href=/harmonyos-docs-site/arkui/arkts-use-ndk/ndk-build-ui-overview>ArkUI NDK接口</a>创建的XComponent组件。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=事件>事件<a href=#事件 class=hash-link aria-label=事件的直接链接 title=事件的直接链接 translate=no>​</a></h2>
+<p>从API version 12开始，type为SURFACE或TEXTURE时，支持<a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-references/ts-component-general-events target=_blank rel="noopener noreferrer" class="">通用事件</a>。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>当配置libraryname参数时，<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/interaction-events/ts-universal-events-click/ts-universal-events-click>点击事件</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-touch/ts-universal-events-touch>触摸事件</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/component-change/ts-universal-events-show-hide/ts-universal-events-show-hide>挂载卸载事件</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-events-key/ts-universal-events-key>按键事件</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/interaction-events/ts-universal-focus-event/ts-universal-focus-event>焦点事件</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-events/basic-raw-input-event/ts-universal-mouse-key/ts-universal-mouse-key>鼠标事件</a>仅响应C-API侧事件接口。</p>
+<p>仅type为SURFACE或TEXTURE时以下事件有效：</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onload>onLoad<a href=#onload class=hash-link aria-label=onLoad的直接链接 title=onLoad的直接链接 translate=no>​</a></h3>
+<p>onLoad(callback: OnNativeLoadCallback )</p>
+<p>插件加载完成时回调事件。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td><a href=#onnativeloadcallback18 class="">OnNativeLoadCallback</a><td>是<td>XComponent持有的Surface创建后回调事件。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ondestroy>onDestroy<a href=#ondestroy class=hash-link aria-label=onDestroy的直接链接 title=onDestroy的直接链接 translate=no>​</a></h3>
+<p>onDestroy(event: VoidCallback )</p>
+<p>插件卸载完成时回调事件。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/common-definitions/ts-types/ts-types#voidcallback12>VoidCallback</a><td>是<td>XComponent销毁后回调事件。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=onnativeloadcallback18>OnNativeLoadCallback18+<a href=#onnativeloadcallback18 class=hash-link aria-label=OnNativeLoadCallback18+的直接链接 title=OnNativeLoadCallback18+的直接链接 translate=no>​</a></h2>
+<p>type OnNativeLoadCallback = (event?: object) => void</p>
+<p>XComponent持有的Surface创建后回调事件。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 18开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>event<td>object<td>否<td>获取XComponent实例对象的context，context上挂载的方法由开发者在Native层定义。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=xcomponentcontroller>XComponentController<a href=#xcomponentcontroller class=hash-link aria-label=XComponentController的直接链接 title=XComponentController的直接链接 translate=no>​</a></h2>
+<p>XComponent组件的控制器，可以将此对象绑定至XComponent组件，然后通过控制器来调用组件方法。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=constructor>constructor<a href=#constructor class=hash-link aria-label=constructor的直接链接 title=constructor的直接链接 translate=no>​</a></h3>
+<p>constructor()</p>
+<p>XComponentController的构造函数。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">xcomponentController: XComponentController = new XComponentController();</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getxcomponentsurfaceid9>getXComponentSurfaceId9+<a href=#getxcomponentsurfaceid9 class=hash-link aria-label=getXComponentSurfaceId9+的直接链接 title=getXComponentSurfaceId9+的直接链接 translate=no>​</a></h3>
+<p>getXComponentSurfaceId(): string</p>
+<p>获取XComponent对应Surface的ID，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>string<td>XComponent持有Surface的ID。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>使用自定义组件节点创建XComponent组件时，因为onLoad回调触发时机早于<a href=#onsurfacecreated12 class="">onSurfaceCreated</a>，所以在onLoad回调中调用<a href=#getxcomponentsurfaceid9 class="">getXComponentSurfaceId</a>获取surfaceId会失败，建议在<a href=#onsurfacecreated12 class="">onSurfaceCreated</a>回调中获取。</p>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  myXComponentController: XComponentController = new XComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Center }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      XComponent({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        type: XComponentType.SURFACE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        controller: this.myXComponentController</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onLoad(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let surfaceId: string = this.myXComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info("XComponent SurfaceId: " + surfaceId);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setxcomponentsurfacesizedeprecated>setXComponentSurfaceSize(deprecated)<a href=#setxcomponentsurfacesizedeprecated class=hash-link aria-label=setXComponentSurfaceSize(deprecated)的直接链接 title=setXComponentSurfaceSize(deprecated)的直接链接 translate=no>​</a></h3>
+<p>setXComponentSurfaceSize(value: {surfaceWidth: number, surfaceHeight: number}): void</p>
+<p>设置XComponent持有Surface的宽度和高度，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>该接口从API version 9开始支持，从API version 12开始废弃，建议使用<a href=#setxcomponentsurfacerect12 class="">setXComponentSurfaceRect</a>替代。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>surfaceWidth<td>number<td>是<td>XComponent持有Surface的宽度。<tr><td>surfaceHeight<td>number<td>是<td>XComponent持有Surface的高度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getxcomponentcontext>getXComponentContext<a href=#getxcomponentcontext class=hash-link aria-label=getXComponentContext的直接链接 title=getXComponentContext的直接链接 translate=no>​</a></h3>
+<p>getXComponentContext(): Object</p>
+<p>获取XComponent实例对象的context，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Object<td>获取XComponent实例对象的context，context包含的具体接口方法由开发者自定义，context内容与onLoad回调中的第一个参数一致。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setxcomponentsurfacerect12>setXComponentSurfaceRect12+<a href=#setxcomponentsurfacerect12 class=hash-link aria-label=setXComponentSurfaceRect12+的直接链接 title=setXComponentSurfaceRect12+的直接链接 translate=no>​</a></h3>
+<p>setXComponentSurfaceRect(rect: SurfaceRect): void</p>
+<p>设置XComponent持有Surface的显示区域，包括宽高和相对于组件左上角的位置坐标，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>rect<td><a href=#surfacerect12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceRect</a><td>是<td>XComponent持有Surface的显示区域。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>rect参数中的offsetX/offsetY不设置或传入异常值时，Surface显示区域相对于XComponent左上角x/y轴的偏移效果默认按照居中显示。</p>
+<p>rect参数中的surfaceWidth和surfaceHeight存在0、负数或其他异常值时，调用该接口设置显示区域不生效。未调用该接口主动设置Surface显示区域时，surfaceWidth默认与组件宽度一致，surfaceHeight默认与组件高度一致。</p>
+<p>该方法优先级高于<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/layout-property/ts-universal-attributes-border/ts-universal-attributes-border#border>border</a>、<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/layout-property/ts-universal-attributes-size/ts-universal-attributes-size#padding>padding</a>等可以改变内容偏移和大小的属性。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getxcomponentsurfacerect12>getXComponentSurfaceRect12+<a href=#getxcomponentsurfacerect12 class=hash-link aria-label=getXComponentSurfaceRect12+的直接链接 title=getXComponentSurfaceRect12+的直接链接 translate=no>​</a></h3>
+<p>getXComponentSurfaceRect(): SurfaceRect</p>
+<p>获取XComponent持有Surface的显示区域，包括宽高和相对于组件左上角的位置坐标，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#surfacerect12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceRect</a><td>获取XComponent持有Surface的显示区域。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onsurfacecreated12>onSurfaceCreated12+<a href=#onsurfacecreated12 class=hash-link aria-label=onSurfaceCreated12+的直接链接 title=onSurfaceCreated12+的直接链接 translate=no>​</a></h3>
+<p>onSurfaceCreated(surfaceId: string): void</p>
+<p>当XComponent持有的Surface创建后进行该回调，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>surfaceId<td>string<td>是<td>回调该方法的时候，绑定XComponent持有Surface的ID。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅当XComponent组件未设置libraryname参数时，会进行该回调。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onsurfacechanged12>onSurfaceChanged12+<a href=#onsurfacechanged12 class=hash-link aria-label=onSurfaceChanged12+的直接链接 title=onSurfaceChanged12+的直接链接 translate=no>​</a></h3>
+<p>onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void</p>
+<p>当XComponent持有的Surface大小改变后（包括首次创建时的大小改变）进行该回调，仅XComponent类型为SURFACE("surface")或TEXTURE时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>surfaceId<td>string<td>是<td>回调该方法的时候，绑定XComponent持有Surface的ID。<tr><td>rect<td><a href=#surfacerect12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceRect</a><td>是<td>回调该方法的时候，绑定XComponent持有Surface的显示区域。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅当XComponent组件未设置libraryname参数时，会进行该回调。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onsurfacedestroyed12>onSurfaceDestroyed12+<a href=#onsurfacedestroyed12 class=hash-link aria-label=onSurfaceDestroyed12+的直接链接 title=onSurfaceDestroyed12+的直接链接 translate=no>​</a></h3>
+<p>onSurfaceDestroyed(surfaceId: string): void</p>
+<p>当XComponent持有的Surface销毁后进行该回调，仅XComponent类型为SURFACE("surface")或TEXTURE时有效，具体可以参考指南<a class="" href=/harmonyos-docs-site/arkui/arkts-ui-development/arkts-add-component/napi-xcomponent-guidelines#%E5%88%9B%E5%BB%BAxcomponent%E5%92%8C%E7%AE%A1%E7%90%86surface%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F>创建XComponent和管理Surface生命周期</a>章节。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>surfaceId<td>string<td>是<td>回调该方法的时候，绑定XComponent持有Surface的ID。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅当XComponent组件未设置libraryname参数时，会进行该回调。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=startimageanalyzer12>startImageAnalyzer12+<a href=#startimageanalyzer12 class=hash-link aria-label=startImageAnalyzer12+的直接链接 title=startImageAnalyzer12+的直接链接 translate=no>​</a></h3>
+<p>startImageAnalyzer(config: ImageAnalyzerConfig): Promise&lt;void></p>
+<p>配置AI分析并启动AI分析功能，使用前需先<a href=#enableanalyzer12 class="">启用图像AI分析能力</a>。使用Promise异步回调。</p>
+<p>该方法调用时，将截取调用时刻的画面帧进行分析，使用时需注意启动分析的时机，避免出现画面和分析内容不一致的情况。</p>
+<p>若该方法尚未执行完毕，此时重复调用，则会触发错误回调。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>分析类型不支持动态修改。</p>
+<p>该特性依赖设备能力，不支持该能力的情况下，将返回错误码。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/images-and-videos/ts-image-common/ts-image-common#imageanalyzerconfig12>ImageAnalyzerConfig</a><td>是<td>执行AI分析所需要的入参，用于配置AI分析功能。</table>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Promise&lt;void><td>Promise对象，无返回结果。用于获取AI分析是否成功执行。</table>
+<p><strong><strong>错误码：</strong></strong></p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-arkts-errcode/arkui-ui-arkts-errcode/errorcode-image-analyzer/errorcode-image-analyzer>图像AI分析错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>110001<td>Image analysis feature is unsupported.<tr><td>110002<td>Image analysis is currently being executed.<tr><td>110003<td>Image analysis is stopped.</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=stopimageanalyzer12>stopImageAnalyzer12+<a href=#stopimageanalyzer12 class=hash-link aria-label=stopImageAnalyzer12+的直接链接 title=stopImageAnalyzer12+的直接链接 translate=no>​</a></h3>
+<p>stopImageAnalyzer(): void</p>
+<p>停止AI分析功能，AI分析展示的内容将被销毁。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>在startImageAnalyzer方法未返回结果时调用本方法，会触发其错误回调。</p>
+<p>该特性依赖设备能力。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setxcomponentsurfacerotation12>setXComponentSurfaceRotation12+<a href=#setxcomponentsurfacerotation12 class=hash-link aria-label=setXComponentSurfaceRotation12+的直接链接 title=setXComponentSurfaceRotation12+的直接链接 translate=no>​</a></h3>
+<p>setXComponentSurfaceRotation(rotationOptions: SurfaceRotationOptions): void</p>
+<p>设置XComponent持有Surface在屏幕旋转时是否锁定方向，仅XComponent类型为SURFACE("surface")时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>rotationOptions<td><a href=#surfacerotationoptions12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceRotationOptions</a><td>是<td>设置XComponent持有Surface在屏幕旋转时是否锁定方向。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>rotationOptions未配置时，默认XComponent持有Surface在屏幕旋转时不锁定方向，跟随屏幕进行旋转。</p>
+<p>仅在屏幕旋转过程中生效，旋转完成后不再锁定Surface。</p>
+<p>仅在屏幕旋转90°，即发生横竖屏切换时生效。</p>
+<p>锁定旋转后的Buffer宽高需要保持不变，否则会有拉伸问题。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=getxcomponentsurfacerotation12>getXComponentSurfaceRotation12+<a href=#getxcomponentsurfacerotation12 class=hash-link aria-label=getXComponentSurfaceRotation12+的直接链接 title=getXComponentSurfaceRotation12+的直接链接 translate=no>​</a></h3>
+<p>getXComponentSurfaceRotation(): Required&lt;SurfaceRotationOptions></p>
+<p>获取XComponent持有Surface在屏幕旋转时是否锁定方向的设置，仅XComponent类型为SURFACE("surface")时有效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>Required&lt;<a href=#surfacerotationoptions12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceRotationOptions</a>><td>获取XComponent持有Surface在屏幕旋转时是否锁定方向的设置。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=lockcanvas20>lockCanvas20+<a href=#lockcanvas20 class=hash-link aria-label=lockCanvas20+的直接链接 title=lockCanvas20+的直接链接 translate=no>​</a></h3>
+<p>lockCanvas(): DrawingCanvas | null</p>
+<p>返回可用于向XComponent上绘制内容的画布对象。具体绘制方法请参考<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-graphics-drawing/arkts-apis-graphics-drawing-canvas/arkts-apis-graphics-drawing-canvas>Canvas</a>。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-drawingrenderingcontext/ts-drawingrenderingcontext#drawingcanvas12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>DrawingCanvas</a><td>null</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>如果当前XComponent状态无法获取画布对象则将返回null。原因通常为：</p>
+<ol>
+<li class="">XComponent持有的Surface未创建完成（可通过设置<a href=#onload class="">onLoad</a>/<a href=#onsurfacecreated12 class="">onSurfaceCreated</a>回调来确定，此回调触发时，Surface已创建完成）。</li>
+<li class="">之前已经调用过lockCanvas来获取过画布对象，且该画布对象未调用<a href=#unlockcanvasandpost20 class="">unlockCanvasAndPost</a>去释放。</li>
+</ol>
+<p>只支持TEXTURE和SURFACE模式。</p>
+<p>使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。</p>
+<p>此接口需要和<a href=#unlockcanvasandpost20 class="">unlockCanvasAndPost</a>接口配对使用，具体参考<a href=#%E7%A4%BA%E4%BE%8B3%E4%BD%BF%E7%94%A8%E7%94%BB%E5%B8%83%E5%AF%B9%E8%B1%A1%E5%9C%A8xcomponent%E4%B8%8A%E7%BB%98%E5%88%B6%E5%86%85%E5%AE%B9 class="">示例3使用画布对象在XComponent上绘制内容</a>。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=unlockcanvasandpost20>unlockCanvasAndPost20+<a href=#unlockcanvasandpost20 class=hash-link aria-label=unlockCanvasAndPost20+的直接链接 title=unlockCanvasAndPost20+的直接链接 translate=no>​</a></h3>
+<p>unlockCanvasAndPost(canvas: DrawingCanvas): void</p>
+<p>将画布对象中的内容绘制在XComponent区域，并释放该画布对象。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 20开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>canvas<td><a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/canvas-drawing/ts-drawingrenderingcontext/ts-drawingrenderingcontext#drawingcanvas12%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E>DrawingCanvas</a><td>是<td>之前调用lockCanvas方法返回的画布对象。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<ol>
+<li class="">画布对象调用unlockCanvasAndPost释放后，不可再使用该画布对象。</li>
+<li class="">只支持TEXTURE和SURFACE模式。</li>
+<li class="">使用此接口后，同时在NDK侧获取NativeWindow并调用相关接口进行绘制，可能出现缓冲区竞争和上下文冲突而发生绘制画面错误等异常，因此不允许使用。</li>
+<li class="">此接口需要和<a href=#lockcanvas20 class="">lockCanvas</a>接口配对使用，具体参考<a href=#%E7%A4%BA%E4%BE%8B3%E4%BD%BF%E7%94%A8%E7%94%BB%E5%B8%83%E5%AF%B9%E8%B1%A1%E5%9C%A8xcomponent%E4%B8%8A%E7%BB%98%E5%88%B6%E5%86%85%E5%AE%B9 class="">示例3使用画布对象在XComponent上绘制内容</a>。</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=setxcomponentsurfaceconfig22>setXComponentSurfaceConfig22+<a href=#setxcomponentsurfaceconfig22 class=hash-link aria-label=setXComponentSurfaceConfig22+的直接链接 title=setXComponentSurfaceConfig22+的直接链接 translate=no>​</a></h3>
+<p>setXComponentSurfaceConfig(config: SurfaceConfig): void</p>
+<p>设置XComponent创建的Surface的选项，用于设置XComponent持有的Surface在渲染时是否需要被视为不透明。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>仅当XComponent组件类型为TEXTURE或SURFACE时，本接口生效。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>config<td><a href=#surfaceconfig22%E5%AF%B9%E8%B1%A1%E8%AF%B4%E6%98%8E class="">SurfaceConfig</a><td>是<td>Surface选项。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=surfacerotationoptions12对象说明>SurfaceRotationOptions12+对象说明<a href=#surfacerotationoptions12对象说明 class=hash-link aria-label=SurfaceRotationOptions12+对象说明的直接链接 title=SurfaceRotationOptions12+对象说明的直接链接 translate=no>​</a></h2>
+<p>用于描述XComponent持有Surface在屏幕旋转时是否锁定方向的设置。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>lock<td>boolean<td>否<td>是<td>Surface在屏幕旋转时是否锁定方向，未设置时默认取值为false，即不锁定方向。  true：锁定方向；false：不锁定方向。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=surfacerect12对象说明>SurfaceRect12+对象说明<a href=#surfacerect12对象说明 class=hash-link aria-label=SurfaceRect12+对象说明的直接链接 title=SurfaceRect12+对象说明的直接链接 translate=no>​</a></h2>
+<p>用于描述XComponent持有Surface的显示区域。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 12开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>offsetX<td>number<td>否<td>是<td>Surface显示区域相对于XComponent组件左上角的x轴坐标，单位：px。<tr><td>offsetY<td>number<td>否<td>是<td>Surface显示区域相对于XComponent组件左上角的y轴坐标，单位：px。<tr><td>surfaceWidth<td>number<td>否<td>否<td>Surface显示区域的宽度，单位：px。<tr><td>surfaceHeight<td>number<td>否<td>否<td>Surface显示区域的高度，单位：px。</table>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>surfaceWidth和surfaceHeight属性在未调用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent#setxcomponentsurfacerect12>setXComponentSurfaceRect</a>也未设置<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/layout-property/ts-universal-attributes-border/ts-universal-attributes-border#border>border</a>和<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/ts-component-general-attributes/layout-property/ts-universal-attributes-size/ts-universal-attributes-size#padding>padding</a>等属性时，其取值大小为XComponent组件的大小。</p>
+<p>surfaceWidth和surfaceHeight属性的取值都不可超过8192px，否则会导致渲染异常。</p>
+<p>沉浸式场景下，默认布局的SurfaceRect不包括安全区，需调用<a class="" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-xcomponent/ts-basic-components-xcomponent#setxcomponentsurfacerect12>setXComponentSurfaceRect</a>接口主动设置Surface显示区域达到沉浸式效果。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=surfaceconfig22对象说明>SurfaceConfig22+对象说明<a href=#surfaceconfig22对象说明 class=hash-link aria-label=SurfaceConfig22+对象说明的直接链接 title=SurfaceConfig22+对象说明的直接链接 translate=no>​</a></h2>
+<p>用于描述XComponent持有的Surface在渲染时是否需要被视为不透明。</p>
+<p><strong><strong>元服务API：</strong></strong> 从API version 22开始，该接口支持在元服务中使用。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.ArkUI.ArkUI.Full</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>isOpaque<td>boolean<td>否<td>是<td>XComponent持有的Surface在渲染时是否需要被视为不透明，未设置时默认取值为false，即在渲染时会应用Surface中绘制内容像素的透明度。  true表示需要被视为不透明，false表示不需要被视为不透明。  默认值：false</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例>示例<a href=#示例 class=hash-link aria-label=示例的直接链接 title=示例的直接链接 translate=no>​</a></h2>
+<p>示例效果请以真机运行为准，当前DevEco Studio预览器不支持。</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例1图像ai分析功能>示例1（图像AI分析功能）<a href=#示例1图像ai分析功能 class=hash-link aria-label=示例1（图像AI分析功能）的直接链接 title=示例1（图像AI分析功能）的直接链接 translate=no>​</a></h3>
+<p>使用enableAnalyzer属性开启图像AI分析功能。可通过XComponentController控制开始、停止图形AI分析。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本示例画图逻辑具体实现（和nativeRender相关的函数实现）可以参考<a href=https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkUISample/ArkTSXComponent target=_blank rel="noopener noreferrer" class="">ArkTS XComponent示例</a></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { BusinessError } from '@kit.BasicServicesKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import nativeRender from 'libnativerender.so';// 开发者自己实现的so，详见上述说明。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class CustomXComponentController extends XComponentController {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceCreated(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.SetSurfaceId(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.ChangeSurface(BigInt(surfaceId), rect.surfaceWidth, rect.surfaceHeight);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceDestroyed(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.DestroySurface(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct XComponentExample {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  xComponentController: XComponentController = new CustomXComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private config: ImageAnalyzerConfig = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT]</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private aiController: ImageAnalyzerController = new ImageAnalyzerController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private options: ImageAIOptions = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    types: [ImageAnalyzerType.SUBJECT, ImageAnalyzerType.TEXT],</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    aiController: this.aiController</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State xcWidth: string = "720px";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State xcHeight: string = "720px";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State currentStatus: string = "index";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column({ space: 5 }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text('Native XComponent Sample')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize('24fp')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(500)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            left: 24,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            top: 12</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .margin({ top: 24 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .height(56)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      XComponent({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        type: XComponentType.SURFACE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        controller: this.xComponentController,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        imageAIOptions: this.options</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width(this.xcWidth)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .height(this.xcHeight)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .enableAnalyzer(true)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let surfaceId = this.xComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          nativeRender.ChangeColor(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let hasChangeColor: boolean = false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (nativeRender.GetXComponentStatus(BigInt(surfaceId))) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            hasChangeColor = nativeRender.GetXComponentStatus(BigInt(surfaceId)).hasChangeColor;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (hasChangeColor) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.currentStatus = "change color";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Text(this.currentStatus)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontSize('24fp')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .fontWeight(500)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button('start AI analyze')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.xComponentController.startImageAnalyzer(this.config)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .then(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.info("analysis complete");</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              .catch((error: BusinessError) => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">                console.error("error code: " + error.code);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin(2)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button('stop AI analyze')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.xComponentController.stopImageAnalyzer();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin(2)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button('get analyzer types')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.aiController.getImageAnalyzerSupportTypes();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin(2)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button('Draw Star')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize('16fp')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(500)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin({ bottom: 24 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let surfaceId = this.xComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            console.info(`surface rect is ${this.xComponentController.getXComponentSurfaceRect()}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            nativeRender.DrawPattern(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let hasDraw: boolean = false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (nativeRender.GetXComponentStatus(BigInt(surfaceId))) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              hasDraw = nativeRender.GetXComponentStatus(BigInt(surfaceId)).hasDraw;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (hasDraw) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              this.currentStatus = "draw star";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin(2)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }.justifyContent(FlexAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width("100%")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583440063-4edc59af4428b58366994135da4dbfda.gif width=291 height=407 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例2在surface旋转过程中锁定>示例2（在surface旋转过程中锁定）<a href=#示例2在surface旋转过程中锁定 class=hash-link aria-label=示例2（在surface旋转过程中锁定）的直接链接 title=示例2（在surface旋转过程中锁定）的直接链接 translate=no>​</a></h3>
+<p>通过setXComponentSurfaceRotation设置surface在屏幕旋转过程中锁定方向，不跟随屏幕进行旋转。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本示例画图逻辑具体实现（和nativeRender相关的函数实现）可以参考<a href=https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Native/ArkTSXComponent target=_blank rel="noopener noreferrer" class="">ArkTS XComponent示例</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import nativeRender from 'libnativerender.so';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class MyXComponentController extends XComponentController {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceCreated(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.SetSurfaceId(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.ChangeSurface(BigInt(surfaceId), rect.surfaceWidth, rect.surfaceHeight);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceDestroyed(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.DestroySurface(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State isLock: boolean = true;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State xc_width: number = 500;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State xc_height: number = 700;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  myXComponentController: XComponentController = new MyXComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Flex({ direction: FlexDirection.Column, alignItems: ItemAlign.Center, justifyContent: FlexAlign.Start }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      XComponent({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        id: "XComponent",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        type: XComponentType.SURFACE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        controller: this.myXComponentController</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onLoad(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let surfaceRotation: SurfaceRotationOptions = { lock: this.isLock };</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.myXComponentController.setXComponentSurfaceRotation(surfaceRotation);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          console.info("Surface getXComponentSurfaceRotation lock = " +</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.myXComponentController.getXComponentSurfaceRotation().lock);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width(this.xc_width)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .height(this.xc_height)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Button("Draw")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          let surfaceId = this.myXComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          nativeRender.DrawPattern(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例3使用画布对象在xcomponent上绘制内容>示例3（使用画布对象在XComponent上绘制内容）<a href=#示例3使用画布对象在xcomponent上绘制内容 class=hash-link aria-label=示例3（使用画布对象在XComponent上绘制内容）的直接链接 title=示例3（使用画布对象在XComponent上绘制内容）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始，该示例通过调用<a href=#lockcanvas20 class="">lockCanvas</a>返回画布对象，通过画布对象调用对应的绘制接口，再调用<a href=#unlockcanvasandpost20 class="">unlockCanvasAndPost</a>在XComponent上绘制内容。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { drawing } from '@kit.ArkGraphics2D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private xcController: XComponentController = new XComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private mCanvas: DrawingCanvas | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      XComponent({ type: XComponentType.SURFACE, controller: this.xcController })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width("80%")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .height("80%")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onLoad(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.mCanvas = this.xcController.lockCanvas();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (this.mCanvas) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.mCanvas.drawColor(255, 240, 250, 255); // 每次绘制前必须完全重绘整个XComponent区域,可以调用此方法实现</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            const brush = new drawing.Brush(); // 创建画刷对象</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            brush.setColor({ // 设置画刷的颜色</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              alpha: 255,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              red: 39,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              green: 135,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              blue: 217</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.mCanvas.attachBrush(brush); // 绑定画刷到画布上</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.mCanvas.drawRect({ // 绘制一个矩形</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              left: 300,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              right: 800,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              top: 100,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              bottom: 800</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.mCanvas.detachBrush(); // 将画刷与画布解绑</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.xcController.unlockCanvasAndPost(this.mCanvas);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002552960018-0d5cd576574dc142a8dd15c024ff601b.png width=560 height=1160 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例4xcomponent实现沉浸式效果>示例4（XComponent实现沉浸式效果）<a href=#示例4xcomponent实现沉浸式效果 class=hash-link aria-label=示例4（XComponent实现沉浸式效果）的直接链接 title=示例4（XComponent实现沉浸式效果）的直接链接 translate=no>​</a></h3>
+<p>从API version 20开始，在示例3的基础上，调用setXComponentSurfaceRect接口主动设置Surface显示区域达到沉浸式效果。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { drawing } from '@kit.ArkGraphics2D';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import { display } from '@kit.ArkUI'</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private xcController: XComponentController = new XComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  private mCanvas: DrawingCanvas | null = null;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State screenWidth: number = 0;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State screenHeight:number = 0;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  aboutToAppear() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      const displayClass = display.getDefaultDisplaySync();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      this.screenWidth = displayClass.width;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      this.screenHeight = displayClass.height;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    } catch (error) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      console.error(`失败代码: ${error.code}，信息: ${error.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      XComponent({ type: XComponentType.SURFACE, controller: this.xcController })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .width("100%")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .height("100%")</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .onLoad(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          // 请在此处设置Surface大小，过大可能会导致绘制时间长</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.xcController.setXComponentSurfaceRect({surfaceWidth: this.screenWidth, surfaceHeight: this.screenHeight, offsetX: 0, offsetY: 0});</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.mCanvas = this.xcController.lockCanvas();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          if (this.mCanvas) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.mCanvas.drawColor(255, 39, 135, 217); // 每次绘制前必须完全重绘整个XComponent区域，可以调用此方法实现</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            this.xcController.unlockCanvasAndPost(this.mCanvas);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        .expandSafeArea([SafeAreaType.SYSTEM], [SafeAreaEdge.TOP, SafeAreaEdge.BOTTOM]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src=/harmonyos-docs-site/assets/images/zh-cn_image_0000002583480019-396bf6b15437269969a2a5a5d6e11407.jpeg width=720 height=1280 class=img_ev3q /></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=示例5设置xcomponent持有surface在渲染时是否需要被视为不透明>示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）<a href=#示例5设置xcomponent持有surface在渲染时是否需要被视为不透明 class=hash-link aria-label=示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）的直接链接 title=示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）的直接链接 translate=no>​</a></h3>
+<p>从API version 22开始，该示例通过调用<a href=#setxcomponentsurfaceconfig22 class="">setXComponentSurfaceConfig</a>接口设置XComponent持有的Surface在渲染时是否需要被视为不透明。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本示例画图逻辑具体实现（和nativeRender相关的函数实现）可以参考<a href=https://gitcode.com/openharmony/applications_app_samples/tree/master/code/BasicFeature/Native/ArkTSXComponent target=_blank rel="noopener noreferrer" class="">ArkTS XComponent示例</a>。</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">// xxx.ets</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">import nativeRender from 'libnativerender.so'; // 开发者自己实现的so，详见上述说明。</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 重写XComponentController，设置生命周期回调</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">class MyXComponentController extends XComponentController{</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceCreated(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceCreated surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.SetSurfaceId(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceChanged(surfaceId: string, rect: SurfaceRect): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceChanged surfaceId: ${surfaceId}, rect: ${JSON.stringify(rect)}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 在onSurfaceChanged中调用ChangeSurface绘制内容</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.ChangeSurface(BigInt(surfaceId), rect.surfaceWidth, rect.surfaceHeight);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  onSurfaceDestroyed(surfaceId: string): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onSurfaceDestroyed surfaceId: ${surfaceId}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    nativeRender.DestroySurface(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Entry</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">@Component</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">struct Index {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  @State currentStatus: string = "index";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  xComponentController: XComponentController = new MyXComponentController();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  aboutToAppear(): void {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 设置XComponent持有的Surface在渲染时被视为不透明</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    this.xComponentController.setXComponentSurfaceConfig({ isOpaque: true });</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  build() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    Column() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Column({ space: 10 }) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        XComponent({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          type: XComponentType.SURFACE,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          controller: this.xComponentController</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .backgroundColor(Color.Transparent)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Text(this.currentStatus)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize('24fp')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(500)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let surfaceId = this.xComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        nativeRender.ChangeColor(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        let hasChangeColor: boolean = false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (nativeRender.GetXComponentStatus(BigInt(surfaceId))) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          hasChangeColor = nativeRender.GetXComponentStatus(BigInt(surfaceId)).hasChangeColor;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        if (hasChangeColor) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          this.currentStatus = "change color";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .margin({</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        top: 27,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        left: 12,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        right: 12</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .height('40%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('90%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      Row() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">        Button('Draw Star')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontSize('16fp')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .fontWeight(500)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .margin({ bottom: 24 })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .onClick(() => {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let surfaceId = this.xComponentController.getXComponentSurfaceId();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            nativeRender.DrawPattern(BigInt(surfaceId));</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            let hasDraw: boolean = false;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (nativeRender.GetXComponentStatus(BigInt(surfaceId))) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              hasDraw = nativeRender.GetXComponentStatus(BigInt(surfaceId)).hasDraw;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            if (hasDraw) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">              this.currentStatus = "draw star";</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">            }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          })</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .width('53.6%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">          .height(40)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .justifyContent(FlexAlign.Center)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .alignItems(VerticalAlign.Bottom)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">      .layoutWeight(1)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .width('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    .height('100%')</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">  }</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<p><img decoding=async loading=lazy src="data:image/jpeg;base64,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" width=304 height=247 class=img_ev3q /></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/graphic-drawing/ts-drawing-components-shape/ts-drawing-components-shape><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>Shape</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkui-api/arkui-declarative-comp/rendering-drawing/ts-basic-components-component3d/ts-basic-components-component3d><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>Component3D</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#子组件 class="table-of-contents__link toc-highlight">子组件</a><li><a href=#接口 class="table-of-contents__link toc-highlight">接口</a><ul><li><a href=#xcomponent19 class="table-of-contents__link toc-highlight">XComponent19+</a><li><a href=#xcomponent12 class="table-of-contents__link toc-highlight">XComponent12+</a><li><a href=#xcomponent10 class="table-of-contents__link toc-highlight">XComponent10+</a><li><a href=#xcomponentdeprecated class="table-of-contents__link toc-highlight">XComponent(deprecated)</a></ul><li><a href=#xcomponentoptions12 class="table-of-contents__link toc-highlight">XComponentOptions12+</a><li><a href=#nativexcomponentparameters19 class="table-of-contents__link toc-highlight">NativeXComponentParameters19+</a><li><a href=#属性 class="table-of-contents__link toc-highlight">属性</a><ul><li><a href=#enableanalyzer12 class="table-of-contents__link toc-highlight">enableAnalyzer12+</a><li><a href=#enablesecure13 class="table-of-contents__link toc-highlight">enableSecure13+</a><li><a href=#hdrbrightness20 class="table-of-contents__link toc-highlight">hdrBrightness20+</a></ul><li><a href=#事件 class="table-of-contents__link toc-highlight">事件</a><ul><li><a href=#onload class="table-of-contents__link toc-highlight">onLoad</a><li><a href=#ondestroy class="table-of-contents__link toc-highlight">onDestroy</a></ul><li><a href=#onnativeloadcallback18 class="table-of-contents__link toc-highlight">OnNativeLoadCallback18+</a><li><a href=#xcomponentcontroller class="table-of-contents__link toc-highlight">XComponentController</a><ul><li><a href=#constructor class="table-of-contents__link toc-highlight">constructor</a><li><a href=#getxcomponentsurfaceid9 class="table-of-contents__link toc-highlight">getXComponentSurfaceId9+</a><li><a href=#setxcomponentsurfacesizedeprecated class="table-of-contents__link toc-highlight">setXComponentSurfaceSize(deprecated)</a><li><a href=#getxcomponentcontext class="table-of-contents__link toc-highlight">getXComponentContext</a><li><a href=#setxcomponentsurfacerect12 class="table-of-contents__link toc-highlight">setXComponentSurfaceRect12+</a><li><a href=#getxcomponentsurfacerect12 class="table-of-contents__link toc-highlight">getXComponentSurfaceRect12+</a><li><a href=#onsurfacecreated12 class="table-of-contents__link toc-highlight">onSurfaceCreated12+</a><li><a href=#onsurfacechanged12 class="table-of-contents__link toc-highlight">onSurfaceChanged12+</a><li><a href=#onsurfacedestroyed12 class="table-of-contents__link toc-highlight">onSurfaceDestroyed12+</a><li><a href=#startimageanalyzer12 class="table-of-contents__link toc-highlight">startImageAnalyzer12+</a><li><a href=#stopimageanalyzer12 class="table-of-contents__link toc-highlight">stopImageAnalyzer12+</a><li><a href=#setxcomponentsurfacerotation12 class="table-of-contents__link toc-highlight">setXComponentSurfaceRotation12+</a><li><a href=#getxcomponentsurfacerotation12 class="table-of-contents__link toc-highlight">getXComponentSurfaceRotation12+</a><li><a href=#lockcanvas20 class="table-of-contents__link toc-highlight">lockCanvas20+</a><li><a href=#unlockcanvasandpost20 class="table-of-contents__link toc-highlight">unlockCanvasAndPost20+</a><li><a href=#setxcomponentsurfaceconfig22 class="table-of-contents__link toc-highlight">setXComponentSurfaceConfig22+</a></ul><li><a href=#surfacerotationoptions12对象说明 class="table-of-contents__link toc-highlight">SurfaceRotationOptions12+对象说明</a><li><a href=#surfacerect12对象说明 class="table-of-contents__link toc-highlight">SurfaceRect12+对象说明</a><li><a href=#surfaceconfig22对象说明 class="table-of-contents__link toc-highlight">SurfaceConfig22+对象说明</a><li><a href=#示例 class="table-of-contents__link toc-highlight">示例</a><ul><li><a href=#示例1图像ai分析功能 class="table-of-contents__link toc-highlight">示例1（图像AI分析功能）</a><li><a href=#示例2在surface旋转过程中锁定 class="table-of-contents__link toc-highlight">示例2（在surface旋转过程中锁定）</a><li><a href=#示例3使用画布对象在xcomponent上绘制内容 class="table-of-contents__link toc-highlight">示例3（使用画布对象在XComponent上绘制内容）</a><li><a href=#示例4xcomponent实现沉浸式效果 class="table-of-contents__link toc-highlight">示例4（XComponent实现沉浸式效果）</a><li><a href=#示例5设置xcomponent持有surface在渲染时是否需要被视为不透明 class="table-of-contents__link toc-highlight">示例5（设置XComponent持有Surface在渲染时是否需要被视为不透明）</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

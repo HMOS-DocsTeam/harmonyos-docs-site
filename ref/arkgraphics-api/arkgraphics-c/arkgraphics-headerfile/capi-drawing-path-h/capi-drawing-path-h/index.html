@@ -1,0 +1,2315 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>drawing_path.h | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="drawing_path.h | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=概述 /><meta data-rh=true property=og:description content=概述 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h","name":"drawing_path.h","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title="AR Engine（AR引擎服务）" class=categoryLinkLabel_W154>AR Engine（AR引擎服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-effectkit/js-apis-effectkit><span title="ArkGraphics 2D（方舟2D图形服务）" class=categoryLinkLabel_W154>ArkGraphics 2D（方舟2D图形服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts/js-apis-effectkit/js-apis-effectkit><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-module/capi-oh-nativebuffer/capi-oh-nativebuffer><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-module/capi-oh-nativebuffer/capi-oh-nativebuffer><span title=模块 class=categoryLinkLabel_W154>模块</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-buffer-common-h/capi-buffer-common-h><span title=头文件 class=categoryLinkLabel_W154>头文件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-buffer-common-h/capi-buffer-common-h><span title=buffer_common.h class=linkLabel_WmDU>buffer_common.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-buffer-h/capi-native-buffer-h><span title=native_buffer.h class=linkLabel_WmDU>native_buffer.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-color-space-manager-h/capi-native-color-space-manager-h><span title=native_color_space_manager.h class=linkLabel_WmDU>native_color_space_manager.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-display-soloist-h/capi-native-display-soloist-h><span title=native_display_soloist.h class=linkLabel_WmDU>native_display_soloist.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-bitmap-h/capi-drawing-bitmap-h><span title=drawing_bitmap.h class=linkLabel_WmDU>drawing_bitmap.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-brush-h/capi-drawing-brush-h><span title=drawing_brush.h class=linkLabel_WmDU>drawing_brush.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-canvas-h/capi-drawing-canvas-h><span title=drawing_canvas.h class=linkLabel_WmDU>drawing_canvas.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-color-h/capi-drawing-color-h><span title=drawing_color.h class=linkLabel_WmDU>drawing_color.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-color-filter-h/capi-drawing-color-filter-h><span title=drawing_color_filter.h class=linkLabel_WmDU>drawing_color_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-color-space-h/capi-drawing-color-space-h><span title=drawing_color_space.h class=linkLabel_WmDU>drawing_color_space.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h><span title=drawing_error_code.h class=linkLabel_WmDU>drawing_error_code.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-filter-h/capi-drawing-filter-h><span title=drawing_filter.h class=linkLabel_WmDU>drawing_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-font-h/capi-drawing-font-h><span title=drawing_font.h class=linkLabel_WmDU>drawing_font.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-font-collection-h/capi-drawing-font-collection-h><span title=drawing_font_collection.h class=linkLabel_WmDU>drawing_font_collection.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-font-mgr-h/capi-drawing-font-mgr-h><span title=drawing_font_mgr.h class=linkLabel_WmDU>drawing_font_mgr.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-gpu-context-h/capi-drawing-gpu-context-h><span title=drawing_gpu_context.h class=linkLabel_WmDU>drawing_gpu_context.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-image-h/capi-drawing-image-h><span title=drawing_image.h class=linkLabel_WmDU>drawing_image.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-image-filter-h/capi-drawing-image-filter-h><span title=drawing_image_filter.h class=linkLabel_WmDU>drawing_image_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-lattice-h/capi-drawing-lattice-h><span title=drawing_lattice.h class=linkLabel_WmDU>drawing_lattice.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-mask-filter-h/capi-drawing-mask-filter-h><span title=drawing_mask_filter.h class=linkLabel_WmDU>drawing_mask_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-matrix-h/capi-drawing-matrix-h><span title=drawing_matrix.h class=linkLabel_WmDU>drawing_matrix.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-memory-stream-h/capi-drawing-memory-stream-h><span title=drawing_memory_stream.h class=linkLabel_WmDU>drawing_memory_stream.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h><span title=drawing_path.h class=linkLabel_WmDU>drawing_path.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-effect-h/capi-drawing-path-effect-h><span title=drawing_path_effect.h class=linkLabel_WmDU>drawing_path_effect.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-iterator-h/capi-drawing-path-iterator-h><span title=drawing_path_iterator.h class=linkLabel_WmDU>drawing_path_iterator.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-pen-h/capi-drawing-pen-h><span title=drawing_pen.h class=linkLabel_WmDU>drawing_pen.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-pixel-map-h/capi-drawing-pixel-map-h><span title=drawing_pixel_map.h class=linkLabel_WmDU>drawing_pixel_map.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-point-h/capi-drawing-point-h><span title=drawing_point.h class=linkLabel_WmDU>drawing_point.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-record-cmd-h/capi-drawing-record-cmd-h><span title=drawing_record_cmd.h class=linkLabel_WmDU>drawing_record_cmd.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-rect-h/capi-drawing-rect-h><span title=drawing_rect.h class=linkLabel_WmDU>drawing_rect.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-region-h/capi-drawing-region-h><span title=drawing_region.h class=linkLabel_WmDU>drawing_region.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-register-font-h/capi-drawing-register-font-h><span title=drawing_register_font.h class=linkLabel_WmDU>drawing_register_font.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-round-rect-h/capi-drawing-round-rect-h><span title=drawing_round_rect.h class=linkLabel_WmDU>drawing_round_rect.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-sampling-options-h/capi-drawing-sampling-options-h><span title=drawing_sampling_options.h class=linkLabel_WmDU>drawing_sampling_options.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-shader-effect-h/capi-drawing-shader-effect-h><span title=drawing_shader_effect.h class=linkLabel_WmDU>drawing_shader_effect.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-shadow-layer-h/capi-drawing-shadow-layer-h><span title=drawing_shadow_layer.h class=linkLabel_WmDU>drawing_shadow_layer.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-surface-h/capi-drawing-surface-h><span title=drawing_surface.h class=linkLabel_WmDU>drawing_surface.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-blob-h/capi-drawing-text-blob-h><span title=drawing_text_blob.h class=linkLabel_WmDU>drawing_text_blob.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-declaration-h/capi-drawing-text-declaration-h><span title=drawing_text_declaration.h class=linkLabel_WmDU>drawing_text_declaration.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-font-descriptor-h/capi-drawing-text-font-descriptor-h><span title=drawing_text_font_descriptor.h class=linkLabel_WmDU>drawing_text_font_descriptor.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-global-h/capi-drawing-text-global-h><span title=drawing_text_global.h class=linkLabel_WmDU>drawing_text_global.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-line-h/capi-drawing-text-line-h><span title=drawing_text_line.h class=linkLabel_WmDU>drawing_text_line.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-linetypography-h/capi-drawing-text-linetypography-h><span title=drawing_text_lineTypography.h class=linkLabel_WmDU>drawing_text_lineTypography.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-run-h/capi-drawing-text-run-h><span title=drawing_text_run.h class=linkLabel_WmDU>drawing_text_run.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-text-typography-h/capi-drawing-text-typography-h><span title=drawing_text_typography.h class=linkLabel_WmDU>drawing_text_typography.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-typeface-h/capi-drawing-typeface-h><span title=drawing_typeface.h class=linkLabel_WmDU>drawing_typeface.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-types-h/capi-drawing-types-h><span title=drawing_types.h class=linkLabel_WmDU>drawing_types.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-effect-filter-h/capi-effect-filter-h><span title=effect_filter.h class=linkLabel_WmDU>effect_filter.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-effect-types-h/capi-effect-types-h><span title=effect_types.h class=linkLabel_WmDU>effect_types.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-image-h/capi-native-image-h><span title=native_image.h class=linkLabel_WmDU>native_image.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-vsync-h/capi-native-vsync-h><span title=native_vsync.h class=linkLabel_WmDU>native_vsync.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-buffer-handle-h/capi-buffer-handle-h><span title=buffer_handle.h class=linkLabel_WmDU>buffer_handle.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-external-window-h/capi-external-window-h><span title=external_window.h class=linkLabel_WmDU>external_window.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-graphic-error-code-h/capi-graphic-error-code-h><span title=graphic_error_code.h class=linkLabel_WmDU>graphic_error_code.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-native-fence-h/capi-native-fence-h><span title=native_fence.h class=linkLabel_WmDU>native_fence.h</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-oh-nativebuffer-oh-nativebuffer-colorxy/capi-oh-nativebuffer-oh-nativebuffer-colorxy><span title=结构体 class=categoryLinkLabel_W154>结构体</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-arkts-errcode/errorcode-colorspace-manager/errorcode-colorspace-manager><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/arkgraphics-3d-api/arkgraphics-3d-arkts/js-apis-scene/js-apis-scene><span title="ArkGraphics 3D（方舟3D图形）" class=categoryLinkLabel_W154>ArkGraphics 3D（方舟3D图形）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/graphics-accelerate-api/graphics-accelerate-arkts/graphics-accelerate-assetdownloadmanager/graphics-accelerate-assetdownloadmanager><span title="Graphics Accelerate Kit（图形加速服务）" class=categoryLinkLabel_W154>Graphics Accelerate Kit（图形加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/spatial-recon-api/spatial-recon-arkts/spatial-recon-spatialrender/spatial-recon-spatialrender><span title="Spatial Recon Kit（空间建模服务）" class=categoryLinkLabel_W154>Spatial Recon Kit（空间建模服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/xengine-api/xengine-c/xengine-kit-index/xengine-kit-xengine/xengine-kit-xengine><span title="XEngine Kit（GPU加速引擎服务）" class=categoryLinkLabel_W154>XEngine Kit（GPU加速引擎服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>图形</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkGraphics 2D（方舟2D图形服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>C API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>头文件</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>drawing_path.h</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>drawing_path.h</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=概述>概述<a href=#概述 class=hash-link aria-label=概述的直接链接 title=概述的直接链接 translate=no>​</a></h2>
+<p>文件中定义了与自定义路径相关的功能函数。</p>
+<p><strong><strong>相关示例：</strong></strong> <a href=https://gitcode.com/HarmonyOS_Samples/guide-snippets/tree/master/ArkGraphics2D/Drawing/NDKAPIDrawing target=_blank rel="noopener noreferrer" class="">Drawing API示例(C/C++)</a></p>
+<p><strong><strong>引用文件：</strong></strong> &lt;native_drawing/drawing_path.h></p>
+<p><strong><strong>库：</strong></strong> libnative_drawing.so</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>相关模块：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-module/capi-drawing/capi-drawing>Drawing</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=汇总>汇总<a href=#汇总 class=hash-link aria-label=汇总的直接链接 title=汇总的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举>枚举<a href=#枚举 class=hash-link aria-label=枚举的直接链接 title=枚举的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a><td>OH_Drawing_PathDirection<td>添加闭合轮廓方向枚举。<tr><td><a href=#oh_drawing_pathfilltype class="">OH_Drawing_PathFillType</a><td>OH_Drawing_PathFillType<td>定义路径的填充类型枚举。<tr><td><a href=#oh_drawing_pathaddmode class="">OH_Drawing_PathAddMode</a><td>OH_Drawing_PathAddMode<td>用于指定路径添加模式的枚举类型。<tr><td><a href=#oh_drawing_pathopmode class="">OH_Drawing_PathOpMode</a><td>OH_Drawing_PathOpMode<td>路径操作类型枚举。<tr><td><a href=#oh_drawing_pathmeasurematrixflags class="">OH_Drawing_PathMeasureMatrixFlags</a><td>OH_Drawing_PathMeasureMatrixFlags<td>路径测量获取相应矩阵信息维度枚举。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数>函数<a href=#函数 class=hash-link aria-label=函数的直接链接 title=函数的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>描述<tbody><tr><td><a href=#oh_drawing_pathcreate class="">OH_Drawing_Path* OH_Drawing_PathCreate(void)</a><td>用于创建一个路径对象。<tr><td><a href=#oh_drawing_pathcopy class="">OH_Drawing_Path* OH_Drawing_PathCopy(OH_Drawing_Path* path)</a><td>创建一个路径对象副本<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>，用于拷贝一个已有路径对象。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathdestroy class="">void OH_Drawing_PathDestroy(OH_Drawing_Path* path)</a><td>用于销毁路径对象并回收该对象占有的内存。<tr><td><a href=#oh_drawing_pathsetpath class="">OH_Drawing_ErrorCode OH_Drawing_PathSetPath(OH_Drawing_Path* path, OH_Drawing_Path* other)</a><td>将一个路径对象设置成当前的路径对象。<tr><td><a href=#oh_drawing_pathisempty class="">OH_Drawing_ErrorCode OH_Drawing_PathIsEmpty(OH_Drawing_Path* path, bool* isEmpty)</a><td>判断一个路径对象是否为空。<tr><td><a href=#oh_drawing_pathisrect class="">OH_Drawing_ErrorCode OH_Drawing_PathIsRect(OH_Drawing_Path* path, OH_Drawing_Rect* rect, bool* isRect)</a><td>判断路径对象是否构成一个矩形。<tr><td><a href=#oh_drawing_pathmoveto class="">void OH_Drawing_PathMoveTo(OH_Drawing_Path* path, float x, float y)</a><td>用于设置自定义路径的起始点位置。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathlineto class="">void OH_Drawing_PathLineTo(OH_Drawing_Path* path, float x, float y)</a><td>用于添加一条从路径的最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_patharcto class="">void OH_Drawing_PathArcTo(OH_Drawing_Path* path,float x1, float y1, float x2, float y2, float startDeg, float sweepDeg)</a><td>用于给路径添加一段弧线，绘制弧线的方式为角度弧，该方式首先会指定一个矩形边框，  矩形边框的内切椭圆将会被用来截取弧线，然后会指定一个起始角度和扫描度数，  从起始角度扫描截取的椭圆周长一部分即为绘制的弧线。若路径有内容则会默认添加一条从路径的最后点位置到弧线起始点位置的线段。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathquadto class="">void OH_Drawing_PathQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY)</a><td>用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathconicto class="">void OH_Drawing_PathConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY, float weight)</a><td>在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段，其控制点为 (ctrlX, ctrlY)，结束点为 (endX, endY)。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathcubicto class="">void OH_Drawing_PathCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, float ctrlX2, float ctrlY2, float endX, float endY)</a><td>用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathrmoveto class="">void OH_Drawing_PathRMoveTo(OH_Drawing_Path* path, float x, float y)</a><td>用于设置一个相对于当前路径终点（若路径没有内容则默认为 (0, 0)）的路径起始点位置。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathrlineto class="">void OH_Drawing_PathRLineTo(OH_Drawing_Path* path, float x, float y)</a><td>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathrquadto class="">void OH_Drawing_PathRQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY)</a><td>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathrconicto class="">void OH_Drawing_PathRConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY, float weight)</a><td>使用相对位置在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathrcubicto class="">void OH_Drawing_PathRCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, float ctrlX2, float ctrlY2,float endX, float endY)</a><td>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathaddrect class="">void OH_Drawing_PathAddRect(OH_Drawing_Path* path, float left, float top, float right, float bottom,OH_Drawing_PathDirection pathDirection)</a><td>按指定方向，将矩形添加到路径中，添加的路径的起始点为矩形左上角。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddrectwithinitialcorner class="">void OH_Drawing_PathAddRectWithInitialCorner(OH_Drawing_Path* path, const OH_Drawing_Rect* rect,OH_Drawing_PathDirection pathDirection, uint32_t start)</a><td>按指定方向，向路径添加矩形轮廓。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddroundrect class="">void OH_Drawing_PathAddRoundRect(OH_Drawing_Path* path,const OH_Drawing_RoundRect* roundRect, OH_Drawing_PathDirection pathDirection)</a><td>按指定方向，向路径添加圆角矩形轮廓。路径添加方向为顺时针时，起始点位于圆角矩形左下方圆角与左边界的交点；路径添加方向为逆时针时，起始点位于圆角矩形左上方圆角与左边界的交点。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、roundRect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddovalwithinitialpoint class="">void OH_Drawing_PathAddOvalWithInitialPoint(OH_Drawing_Path* path, const OH_Drawing_Rect* rect,uint32_t start, OH_Drawing_PathDirection pathDirection)</a><td>将椭圆添加到路径中，其中矩形对象作为椭圆的外切矩形区域，绘制方向用来指定绘制时是顺时针或者逆时针方向。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddoval class="">void OH_Drawing_PathAddOval(OH_Drawing_Path* path,const OH_Drawing_Rect* rect, OH_Drawing_PathDirection pathDirection)</a><td>按指定方向，向路径添加椭圆。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddarc class="">void OH_Drawing_PathAddArc(OH_Drawing_Path* path, const OH_Drawing_Rect* rect, float startAngle, float sweepAngle)</a><td>将圆弧添加到路径中，作为新轮廓的起点。从起始角度到扫描角度添加弧，添加的弧是矩形内切椭圆的一部分，如果扫描角度&lt;= -360°，或>= 360°，并且起始角度对90取模接近于0，则添加椭圆而不是弧。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathaddpath class="">void OH_Drawing_PathAddPath(OH_Drawing_Path* path, const OH_Drawing_Path* src, const OH_Drawing_Matrix* matrix)</a><td>将源路径矩阵变换后，添加到当前路径中。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathaddpathwithmatrixandmode class="">void OH_Drawing_PathAddPathWithMatrixAndMode(OH_Drawing_Path* path, const OH_Drawing_Path* src,const OH_Drawing_Matrix* matrix, OH_Drawing_PathAddMode pathAddMode)</a><td>将源路径矩阵变换后，以规定模式添加到当前路径中。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddpathwithmode class="">void OH_Drawing_PathAddPathWithMode(OH_Drawing_Path* path,const OH_Drawing_Path* src, OH_Drawing_PathAddMode pathAddMode)</a><td>将源路径以规定模式添加到当前路径中。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddpathwithoffsetandmode class="">void OH_Drawing_PathAddPathWithOffsetAndMode(OH_Drawing_Path* path, const OH_Drawing_Path* src, float dx, float dy,OH_Drawing_PathAddMode pathAddMode)</a><td>将源路径偏移后，以规定模式添加到当前路径中。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathaddpolygon class="">void OH_Drawing_PathAddPolygon(OH_Drawing_Path* path, const OH_Drawing_Point2D* points, uint32_t count, bool isClosed)</a><td>向路径添加多边形。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、points任意一个为NULL或者count等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathaddcircle class="">void OH_Drawing_PathAddCircle(OH_Drawing_Path* path,float x, float y, float radius, OH_Drawing_PathDirection pathDirection)</a><td>按指定方向，向路径添加圆形。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  radius小于等于0时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE；  pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathbuildfromsvgstring class="">bool OH_Drawing_PathBuildFromSvgString(OH_Drawing_Path* path, const char* str)</a><td>解析SVG字符串表示的路径。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、str任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathcontains class="">bool OH_Drawing_PathContains(OH_Drawing_Path* path, float x, float y)</a><td>判断指定坐标点是否被路径包含，判定是否被路径包含的规则参考<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathtransform class="">void OH_Drawing_PathTransform(OH_Drawing_Path* path, const OH_Drawing_Matrix* matrix)</a><td>对路径进行矩阵变换。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathtransformwithperspectiveclip class="">void OH_Drawing_PathTransformWithPerspectiveClip(OH_Drawing_Path* src, const OH_Drawing_Matrix* matrix,OH_Drawing_Path* dst, bool applyPerspectiveClip)</a><td>对路径进行矩阵变换。用转换后的路径替换目标路径，如果目标路径为NULL，则替换源路径。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  src、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathsetfilltype class="">void OH_Drawing_PathSetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType pathFillType)</a><td>设置路径的填充类型，这个决定了路径内部区域的定义方式。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  pathFillType不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathgetfilltype class="">OH_Drawing_ErrorCode OH_Drawing_PathGetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType* pathFillType)</a><td>获取路径的填充类型。<tr><td><a href=#oh_drawing_pathgetlength class="">float OH_Drawing_PathGetLength(OH_Drawing_Path* path, bool forceClosed)</a><td>获取当前路径的长度。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathgetbounds class="">void OH_Drawing_PathGetBounds(OH_Drawing_Path* path, OH_Drawing_Rect* rect)</a><td>获取包含路径的最小边界框。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathclose class="">void OH_Drawing_PathClose(OH_Drawing_Path* path)</a><td>用于闭合路径，会添加一条从路径起点位置到最后点位置的线段。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathoffset class="">void OH_Drawing_PathOffset(OH_Drawing_Path* path, OH_Drawing_Path* dst, float dx, float dy)</a><td>将路径中的所有点沿着x轴和y轴方向偏移一定距离，并将结果存储到目标路径对象中。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathreset class="">void OH_Drawing_PathReset(OH_Drawing_Path* path)</a><td>用于重置自定义路径数据。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathisclosed class="">bool OH_Drawing_PathIsClosed(OH_Drawing_Path* path, bool forceClosed)</a><td>获取路径是否闭合。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathgetpositiontangent class="">bool OH_Drawing_PathGetPositionTangent(OH_Drawing_Path* path, bool forceClosed,float distance, OH_Drawing_Point2D* position, OH_Drawing_Point2D* tangent)</a><td>获取距路径起始点指定距离的坐标点和切线值。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、position、tangent任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。<tr><td><a href=#oh_drawing_pathgetsegment class="">OH_Drawing_ErrorCode OH_Drawing_PathGetSegment(OH_Drawing_Path* path, bool forceClosed,float start, float stop, bool startWithMoveTo, OH_Drawing_Path* dst, bool* result)</a><td>截取路径的片段并追加到目标路径上。<tr><td><a href=#oh_drawing_pathop class="">bool OH_Drawing_PathOp(OH_Drawing_Path* path, const OH_Drawing_Path* other, OH_Drawing_PathOpMode op)</a><td>将两个路径按照指定的路径操作类型合并。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、srcPath任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  op不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathgetmatrix class="">bool OH_Drawing_PathGetMatrix(OH_Drawing_Path* path, bool forceClosed,float distance, OH_Drawing_Matrix* matrix, OH_Drawing_PathMeasureMatrixFlags flag)</a><td>获取距路径起始点指定距离的相应变换矩阵。  本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。  path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；  flag不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。<tr><td><a href=#oh_drawing_pathapproximate class="">OH_Drawing_ErrorCode OH_Drawing_PathApproximate(OH_Drawing_Path* path, float acceptableError, float* vals,uint32_t* count)</a><td>将当前路径转化为由连续直线段构成的近似路径。<tr><td><a href=#oh_drawing_pathinterpolate class="">OH_Drawing_ErrorCode OH_Drawing_PathInterpolate(OH_Drawing_Path* path, OH_Drawing_Path* other,float weight, bool* success, OH_Drawing_Path* interpolatedPath)</a><td>按照给定权重在当前路径与另一条路径之间进行插值，并将结果存储到目标路径对象中。  两条路径点数相同即可插值成功，目标路径按照当前路径的结构进行创建。<tr><td><a href=#oh_drawing_pathisinterpolate class="">OH_Drawing_ErrorCode OH_Drawing_PathIsInterpolate(OH_Drawing_Path* path, OH_Drawing_Path* other, bool* result)</a><td>检查当前路径与另一条路径（other）在结构和操作顺序上是否完全一致，以确定两条路径是否兼容插值。  若路径中包含圆锥曲线（Conic）操作，则对应操作的权重值也必须一致，才能视为兼容插值。<tr><td><a href=#oh_drawing_pathisinversefilltype class="">OH_Drawing_ErrorCode OH_Drawing_PathIsInverseFillType(const OH_Drawing_Path* path, bool* isInverse)</a><td>检查路径的填充类型是否是取反类型。  取反类型即<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>中的PATH_FILL_TYPE_INVERSE_WINDING和PATH_FILL_TYPE_INVERSE_EVEN_ODD。<tr><td><a href=#oh_drawing_pathtoggleinversefilltype class="">OH_Drawing_ErrorCode OH_Drawing_PathToggleInverseFillType(OH_Drawing_Path* path)</a><td>切换路径的填充类型为取反类型。  取反类型即<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>中的PATH_FILL_TYPE_INVERSE_WINDING和PATH_FILL_TYPE_INVERSE_EVEN_ODD。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举类型说明>枚举类型说明<a href=#枚举类型说明 class=hash-link aria-label=枚举类型说明的直接链接 title=枚举类型说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathdirection>OH_Drawing_PathDirection<a href=#oh_drawing_pathdirection class=hash-link aria-label=OH_Drawing_PathDirection的直接链接 title=OH_Drawing_PathDirection的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum OH_Drawing_PathDirection</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>添加闭合轮廓方向枚举。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>PATH_DIRECTION_CW<td>顺时针方向添加闭合轮廓。<tr><td>PATH_DIRECTION_CCW<td>逆时针方向添加闭合轮廓。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathfilltype>OH_Drawing_PathFillType<a href=#oh_drawing_pathfilltype class=hash-link aria-label=OH_Drawing_PathFillType的直接链接 title=OH_Drawing_PathFillType的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum OH_Drawing_PathFillType</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>定义路径的填充类型枚举。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>PATH_FILL_TYPE_WINDING<td>绘制区域中的任意一点，向任意方向射出一条射线，对于射线和路径的所有交点，初始计数为0，  遇到每个顺时针的交点（路径从射线的左边向右穿过），计数加1，遇到每个逆时针的交点（路径从射线的右边向左穿过），计数减1，若最终的计数结果不为0，则认为这个点在路径内部，需要被涂色；若计数为0则不被涂色。<tr><td>PATH_FILL_TYPE_EVEN_ODD<td>绘制区域中的任意一点，向任意方向射出一条射线，若这条射线和路径相交的次数是奇数，则这个点被认为在路径内部，需要被涂色；若是偶数则不被涂色。<tr><td>PATH_FILL_TYPE_INVERSE_WINDING<td>PATH_FILL_TYPE_WINDING 涂色规则取反。<tr><td>PATH_FILL_TYPE_INVERSE_EVEN_ODD<td>PATH_FILL_TYPE_EVEN_ODD 涂色规则取反。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddmode>OH_Drawing_PathAddMode<a href=#oh_drawing_pathaddmode class=hash-link aria-label=OH_Drawing_PathAddMode的直接链接 title=OH_Drawing_PathAddMode的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum OH_Drawing_PathAddMode</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于指定路径添加模式的枚举类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>PATH_ADD_MODE_APPEND<td>以追加的方式添加路径。<tr><td>PATH_ADD_MODE_EXTEND<td>如果之前的路径未闭合，则添加直线闭合路径。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathopmode>OH_Drawing_PathOpMode<a href=#oh_drawing_pathopmode class=hash-link aria-label=OH_Drawing_PathOpMode的直接链接 title=OH_Drawing_PathOpMode的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum OH_Drawing_PathOpMode</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>路径操作类型枚举。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>PATH_OP_MODE_DIFFERENCE<td>差集操作。<tr><td>PATH_OP_MODE_INTERSECT<td>交集操作。<tr><td>PATH_OP_MODE_UNION<td>并集操作。<tr><td>PATH_OP_MODE_XOR<td>异或操作。<tr><td>PATH_OP_MODE_REVERSE_DIFFERENCE<td>反向差集操作。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathmeasurematrixflags>OH_Drawing_PathMeasureMatrixFlags<a href=#oh_drawing_pathmeasurematrixflags class=hash-link aria-label=OH_Drawing_PathMeasureMatrixFlags的直接链接 title=OH_Drawing_PathMeasureMatrixFlags的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum OH_Drawing_PathMeasureMatrixFlags</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>路径测量获取相应矩阵信息维度枚举。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>GET_POSITION_MATRIX<td>获取位置信息对应的矩阵。<tr><td>GET_TANGENT_MATRIX<td>获取切线信息对应的矩阵。<tr><td>GET_POSITION_AND_TANGENT_MATRIX<td>获取位置和切线信息对应的矩阵。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数说明>函数说明<a href=#函数说明 class=hash-link aria-label=函数说明的直接链接 title=函数说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathcreate>OH_Drawing_PathCreate()<a href=#oh_drawing_pathcreate class=hash-link aria-label=OH_Drawing_PathCreate()的直接链接 title=OH_Drawing_PathCreate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_Path* OH_Drawing_PathCreate(void)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于创建一个路径对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>*<td>函数会返回一个指针，指针指向创建的路径对象。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathcopy>OH_Drawing_PathCopy()<a href=#oh_drawing_pathcopy class=hash-link aria-label=OH_Drawing_PathCopy()的直接链接 title=OH_Drawing_PathCopy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_Path* OH_Drawing_PathCopy(OH_Drawing_Path* path)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建一个路径对象副本<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>，用于拷贝一个已有路径对象。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>*<td>函数返回一个指针，指针指向创建的路径对象副本<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathdestroy>OH_Drawing_PathDestroy()<a href=#oh_drawing_pathdestroy class=hash-link aria-label=OH_Drawing_PathDestroy()的直接链接 title=OH_Drawing_PathDestroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathDestroy(OH_Drawing_Path* path)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于销毁路径对象并回收该对象占有的内存。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathsetpath>OH_Drawing_PathSetPath()<a href=#oh_drawing_pathsetpath class=hash-link aria-label=OH_Drawing_PathSetPath()的直接链接 title=OH_Drawing_PathSetPath()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathSetPath(OH_Drawing_Path* path, OH_Drawing_Path* other)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将一个路径对象设置成当前的路径对象。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* other<td>用于设置的路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path或者other为空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathisempty>OH_Drawing_PathIsEmpty()<a href=#oh_drawing_pathisempty class=hash-link aria-label=OH_Drawing_PathIsEmpty()的直接链接 title=OH_Drawing_PathIsEmpty()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathIsEmpty(OH_Drawing_Path* path, bool* isEmpty)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>判断一个路径对象是否为空。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool* isEmpty<td>表示路径对象是否为空。true表示路径对象为空，false表示路径对象不为空。作为出参使用。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path或者isEmpty为空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathisrect>OH_Drawing_PathIsRect()<a href=#oh_drawing_pathisrect class=hash-link aria-label=OH_Drawing_PathIsRect()的直接链接 title=OH_Drawing_PathIsRect()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathIsRect(OH_Drawing_Path* path, OH_Drawing_Rect* rect, bool* isRect)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>判断路径对象是否构成一个矩形。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针，作为出参使用，可以为空。<tr><td>bool* isRect<td>表示路径是否构成矩形。true表示构成矩形，false表示不构成矩形。作为出参使用。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path或者isRect为空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathmoveto>OH_Drawing_PathMoveTo()<a href=#oh_drawing_pathmoveto class=hash-link aria-label=OH_Drawing_PathMoveTo()的直接链接 title=OH_Drawing_PathMoveTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathMoveTo(OH_Drawing_Path* path, float x, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于设置自定义路径的起始点位置。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。<tr><td>float x<td>起始点的横坐标。<tr><td>float y<td>起始点的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathlineto>OH_Drawing_PathLineTo()<a href=#oh_drawing_pathlineto class=hash-link aria-label=OH_Drawing_PathLineTo()的直接链接 title=OH_Drawing_PathLineTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathLineTo(OH_Drawing_Path* path, float x, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于添加一条从路径的最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。<tr><td>float x<td>目标点的横坐标。<tr><td>float y<td>目标点的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_patharcto>OH_Drawing_PathArcTo()<a href=#oh_drawing_patharcto class=hash-link aria-label=OH_Drawing_PathArcTo()的直接链接 title=OH_Drawing_PathArcTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathArcTo(OH_Drawing_Path* path,float x1, float y1, float x2, float y2, float startDeg, float sweepDeg)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于给路径添加一段弧线，绘制弧线的方式为角度弧，该方式首先会指定一个矩形边框，</p>
+<p>矩形边框的内切椭圆将会被用来截取弧线，然后会指定一个起始角度和扫描度数，</p>
+<p>从起始角度扫描截取的椭圆周长一部分即为绘制的弧线。若路径有内容则会默认添加一条从路径的最后点位置到弧线起始点位置的线段。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。<tr><td>float x1<td>包围椭圆的矩形左上角点位置的横坐标。<tr><td>float y1<td>包围椭圆的矩形左上角点位置的纵坐标。<tr><td>float x2<td>包围椭圆的矩形右下角点位置的横坐标。<tr><td>float y2<td>包围椭圆的矩形右下角点位置的纵坐标。<tr><td>float startDeg<td>起始的角度。角度的起始方向（0°）为x轴正方向。<tr><td>float sweepDeg<td>扫描的度数，为正数时顺时针扫描，为负数时逆时针扫描。实际扫描的度数为该入参对360取模的结果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathquadto>OH_Drawing_PathQuadTo()<a href=#oh_drawing_pathquadto class=hash-link aria-label=OH_Drawing_PathQuadTo()的直接链接 title=OH_Drawing_PathQuadTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。<tr><td>float ctrlX<td>控制点位置的横坐标。<tr><td>float ctrlY<td>控制点位置的纵坐标。<tr><td>float endX<td>目标点位置的横坐标。<tr><td>float endY<td>目标点位置的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathconicto>OH_Drawing_PathConicTo()<a href=#oh_drawing_pathconicto class=hash-link aria-label=OH_Drawing_PathConicTo()的直接链接 title=OH_Drawing_PathConicTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY, float weight)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段，其控制点为 (ctrlX, ctrlY)，结束点为 (endX, endY)。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float ctrlX<td>控制点位置的横坐标。<tr><td>float ctrlY<td>控制点位置的纵坐标。<tr><td>float endX<td>结束点位置的横坐标。<tr><td>float endY<td>结束点位置的纵坐标。<tr><td>float weight<td>表示曲线的权重，决定了曲线的形状，越大越接近控制点。  若小于等于0则等同于使用<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathlineto>OH_Drawing_PathLineTo</a>添加一条到结束点的线段，  若为1则等同于<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathquadto>OH_Drawing_PathQuadTo</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathcubicto>OH_Drawing_PathCubicTo()<a href=#oh_drawing_pathcubicto class=hash-link aria-label=OH_Drawing_PathCubicTo()的直接链接 title=OH_Drawing_PathCubicTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, float ctrlX2, float ctrlY2, float endX, float endY)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于添加一条从路径最后点位置（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。<tr><td>float ctrlX1<td>第一个控制点位置的横坐标。<tr><td>float ctrlY1<td>第一个控制点位置的纵坐标。<tr><td>float ctrlX2<td>第二个控制点位置的横坐标。<tr><td>float ctrlY2<td>第二个控制点位置的纵坐标。<tr><td>float endX<td>目标点位置的横坐标。<tr><td>float endY<td>目标点位置的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathrmoveto>OH_Drawing_PathRMoveTo()<a href=#oh_drawing_pathrmoveto class=hash-link aria-label=OH_Drawing_PathRMoveTo()的直接链接 title=OH_Drawing_PathRMoveTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathRMoveTo(OH_Drawing_Path* path, float x, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于设置一个相对于当前路径终点（若路径没有内容则默认为 (0, 0)）的路径起始点位置。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float x<td>相对于当前路径终点的x轴偏移量，正数往x轴正方向偏移，负数往x轴负方向偏移。<tr><td>float y<td>相对于当前路径终点的y轴偏移量，正数往y轴正方向偏移，负数往y轴负方向偏移。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathrlineto>OH_Drawing_PathRLineTo()<a href=#oh_drawing_pathrlineto class=hash-link aria-label=OH_Drawing_PathRLineTo()的直接链接 title=OH_Drawing_PathRLineTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathRLineTo(OH_Drawing_Path* path, float x, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的线段。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float x<td>相对于当前路径终点的x轴偏移量，用于指定目标点的横坐标。<tr><td>float y<td>相对于当前路径终点的y轴偏移量，用于指定目标点的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathrquadto>OH_Drawing_PathRQuadTo()<a href=#oh_drawing_pathrquadto class=hash-link aria-label=OH_Drawing_PathRQuadTo()的直接链接 title=OH_Drawing_PathRQuadTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathRQuadTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的二阶贝塞尔曲线。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float ctrlX<td>相对于路径终点的x轴偏移量，用于指定控制点的横坐标。<tr><td>float ctrlY<td>相对于路径终点的y轴偏移量，用于指定控制点的纵坐标。<tr><td>float endX<td>相对于路径终点的x轴偏移量，用于指定目标点的横坐标。<tr><td>float endY<td>相对于路径终点的y轴偏移量，用于指定目标点的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathrconicto>OH_Drawing_PathRConicTo()<a href=#oh_drawing_pathrconicto class=hash-link aria-label=OH_Drawing_PathRConicTo()的直接链接 title=OH_Drawing_PathRConicTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathRConicTo(OH_Drawing_Path* path, float ctrlX, float ctrlY, float endX, float endY, float weight)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>使用相对位置在当前路径上添加一条路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的圆锥曲线段。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float ctrlX<td>相对于路径终点的x轴偏移量，用于指定控制点的横坐标。<tr><td>float ctrlY<td>相对于路径终点的y轴偏移量，用于指定控制点的纵坐标。<tr><td>float endX<td>相对于路径终点的x轴偏移量，用于指定目标点的横坐标。<tr><td>float endY<td>相对于路径终点的y轴偏移量，用于指定目标点的纵坐标。<tr><td>float weight<td>表示曲线的权重，决定了曲线的形状，越大越接近控制点。  若小于等于0则等同于使用<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathrlineto>OH_Drawing_PathRLineTo</a>添加一条到结束点的线段，  若为1则等同于<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathrquadto>OH_Drawing_PathRQuadTo</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathrcubicto>OH_Drawing_PathRCubicTo()<a href=#oh_drawing_pathrcubicto class=hash-link aria-label=OH_Drawing_PathRCubicTo()的直接链接 title=OH_Drawing_PathRCubicTo()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathRCubicTo(OH_Drawing_Path* path, float ctrlX1, float ctrlY1, float ctrlX2, float ctrlY2,float endX, float endY)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>使用相对位置在当前路径上添加一条当前路径终点（若路径没有内容则默认为 (0, 0)）到目标点位置的三阶贝塞尔圆滑曲线。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float ctrlX1<td>相对于路径终点的x轴偏移量，用于指定第一个控制点的横坐标。<tr><td>float ctrlY1<td>相对于路径终点的y轴偏移量，用于指定第一个控制点的纵坐标。<tr><td>float ctrlX2<td>相对于路径终点的x轴偏移量，用于指定第二个控制点的横坐标。<tr><td>float ctrlY2<td>相对于路径终点的y轴偏移量，用于指定第二个控制点的纵坐标。<tr><td>float endX<td>相对于路径终点的x轴偏移量，用于指定目标点的横坐标。<tr><td>float endY<td>相对于路径终点的y轴偏移量，用于指定目标点的纵坐标。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddrect>OH_Drawing_PathAddRect()<a href=#oh_drawing_pathaddrect class=hash-link aria-label=OH_Drawing_PathAddRect()的直接链接 title=OH_Drawing_PathAddRect()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddRect(OH_Drawing_Path* path, float left, float top, float right, float bottom,OH_Drawing_PathDirection pathDirection)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按指定方向，将矩形添加到路径中，添加的路径的起始点为矩形左上角。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float left<td>矩形左上角的x轴坐标。<tr><td>float top<td>矩形左上角的y轴坐标。<tr><td>float right<td>矩形右下角的x轴坐标。<tr><td>float bottom<td>矩形右下角的y轴坐标。<tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a> pathDirection<td>路径方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddrectwithinitialcorner>OH_Drawing_PathAddRectWithInitialCorner()<a href=#oh_drawing_pathaddrectwithinitialcorner class=hash-link aria-label=OH_Drawing_PathAddRectWithInitialCorner()的直接链接 title=OH_Drawing_PathAddRectWithInitialCorner()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddRectWithInitialCorner(OH_Drawing_Path* path, const OH_Drawing_Rect* rect,OH_Drawing_PathDirection pathDirection, uint32_t start)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按指定方向，向路径添加矩形轮廓。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针。<tr><td>OH_Drawing_PathDirection<td>表示绘制方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。<tr><td>uint32_t start<td>起始点的位置，表示从矩形的哪个角开始绘制路径。0：左上角，1：右上角，2：右下角，3：左下角。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddroundrect>OH_Drawing_PathAddRoundRect()<a href=#oh_drawing_pathaddroundrect class=hash-link aria-label=OH_Drawing_PathAddRoundRect()的直接链接 title=OH_Drawing_PathAddRoundRect()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddRoundRect(OH_Drawing_Path* path,const OH_Drawing_RoundRect* roundRect, OH_Drawing_PathDirection pathDirection)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按指定方向，向路径添加圆角矩形轮廓。路径添加方向为顺时针时，起始点位于圆角矩形左下方圆角与左边界的交点；路径添加方向为逆时针时，起始点位于圆角矩形左上方圆角与左边界的交点。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、roundRect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathDirection不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-roundrect/capi-drawing-oh-drawing-roundrect>OH_Drawing_RoundRect</a>* roundRect<td>指向圆角矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-roundrect/capi-drawing-oh-drawing-roundrect>OH_Drawing_RoundRect</a>的指针。<tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a> pathDirection<td>路径方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddovalwithinitialpoint>OH_Drawing_PathAddOvalWithInitialPoint()<a href=#oh_drawing_pathaddovalwithinitialpoint class=hash-link aria-label=OH_Drawing_PathAddOvalWithInitialPoint()的直接链接 title=OH_Drawing_PathAddOvalWithInitialPoint()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddOvalWithInitialPoint(OH_Drawing_Path* path, const OH_Drawing_Rect* rect,uint32_t start, OH_Drawing_PathDirection pathDirection)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将椭圆添加到路径中，其中矩形对象作为椭圆的外切矩形区域，绘制方向用来指定绘制时是顺时针或者逆时针方向。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针。<tr><td>uint32_t start<td>表示椭圆初始点的索引。<tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a> pathDirection<td>表示绘制方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddoval>OH_Drawing_PathAddOval()<a href=#oh_drawing_pathaddoval class=hash-link aria-label=OH_Drawing_PathAddOval()的直接链接 title=OH_Drawing_PathAddOval()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddOval(OH_Drawing_Path* path,const OH_Drawing_Rect* rect, OH_Drawing_PathDirection pathDirection)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按指定方向，向路径添加椭圆。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针。<tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a> pathDirection<td>路径方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddarc>OH_Drawing_PathAddArc()<a href=#oh_drawing_pathaddarc class=hash-link aria-label=OH_Drawing_PathAddArc()的直接链接 title=OH_Drawing_PathAddArc()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddArc(OH_Drawing_Path* path, const OH_Drawing_Rect* rect, float startAngle, float sweepAngle)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将圆弧添加到路径中，作为新轮廓的起点。从起始角度到扫描角度添加弧，添加的弧是矩形内切椭圆的一部分，如果扫描角度&lt;= -360°，或>= 360°，并且起始角度对90取模接近于0，则添加椭圆而不是弧。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针。<tr><td>float startAngle<td>弧的起始角度，单位为度。<tr><td>float sweepAngle<td>扫描的度数，为正数时顺时针扫描，为负数时逆时针扫描。实际扫描的度数为该入参对360取模的结果。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddpath>OH_Drawing_PathAddPath()<a href=#oh_drawing_pathaddpath class=hash-link aria-label=OH_Drawing_PathAddPath()的直接链接 title=OH_Drawing_PathAddPath()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddPath(OH_Drawing_Path* path, const OH_Drawing_Path* src, const OH_Drawing_Matrix* matrix)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将源路径矩阵变换后，添加到当前路径中。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* src<td>指向源路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>* matrix<td>指向矩阵对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>的指针，为NULL时表示单位矩阵。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddpathwithmatrixandmode>OH_Drawing_PathAddPathWithMatrixAndMode()<a href=#oh_drawing_pathaddpathwithmatrixandmode class=hash-link aria-label=OH_Drawing_PathAddPathWithMatrixAndMode()的直接链接 title=OH_Drawing_PathAddPathWithMatrixAndMode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddPathWithMatrixAndMode(OH_Drawing_Path* path, const OH_Drawing_Path* src,const OH_Drawing_Matrix* matrix, OH_Drawing_PathAddMode pathAddMode)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将源路径矩阵变换后，以规定模式添加到当前路径中。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* src<td>指向源路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>* matrix<td>指向矩阵对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>的指针，为NULL表示单位矩阵。<tr><td><a href=#oh_drawing_pathaddmode class="">OH_Drawing_PathAddMode</a> pathAddMode<td>路径添加模式<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathaddmode>OH_Drawing_PathAddMode</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddpathwithmode>OH_Drawing_PathAddPathWithMode()<a href=#oh_drawing_pathaddpathwithmode class=hash-link aria-label=OH_Drawing_PathAddPathWithMode()的直接链接 title=OH_Drawing_PathAddPathWithMode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddPathWithMode(OH_Drawing_Path* path,const OH_Drawing_Path* src, OH_Drawing_PathAddMode pathAddMode)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将源路径以规定模式添加到当前路径中。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* src<td>指向源路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a href=#oh_drawing_pathaddmode class="">OH_Drawing_PathAddMode</a> pathAddMode<td>路径添加模式<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathaddmode>OH_Drawing_PathAddMode</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddpathwithoffsetandmode>OH_Drawing_PathAddPathWithOffsetAndMode()<a href=#oh_drawing_pathaddpathwithoffsetandmode class=hash-link aria-label=OH_Drawing_PathAddPathWithOffsetAndMode()的直接链接 title=OH_Drawing_PathAddPathWithOffsetAndMode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddPathWithOffsetAndMode(OH_Drawing_Path* path, const OH_Drawing_Path* src, float dx, float dy,OH_Drawing_PathAddMode pathAddMode)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将源路径偏移后，以规定模式添加到当前路径中。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、src任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathAddMode不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* src<td>指向源路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float dx<td>添加到目标路径横坐标的偏移量。<tr><td>float dy<td>添加到目标路径纵坐标的偏移量。<tr><td><a href=#oh_drawing_pathaddmode class="">OH_Drawing_PathAddMode</a> pathAddMode<td>路径添加模式<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathaddmode>OH_Drawing_PathAddMode</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddpolygon>OH_Drawing_PathAddPolygon()<a href=#oh_drawing_pathaddpolygon class=hash-link aria-label=OH_Drawing_PathAddPolygon()的直接链接 title=OH_Drawing_PathAddPolygon()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddPolygon(OH_Drawing_Path* path, const OH_Drawing_Point2D* points, uint32_t count, bool isClosed)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>向路径添加多边形。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、points任意一个为NULL或者count等于0时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-point2d/capi-drawing-oh-drawing-point2d>OH_Drawing_Point2D</a>* points<td>表示多边形的顶点坐标数组。<tr><td>uint32_t count<td>表示多边形顶点坐标数组的大小。<tr><td>bool isClosed<td>是否添加连接起始点和终止点的线，true表示添加，false表示不添加。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathaddcircle>OH_Drawing_PathAddCircle()<a href=#oh_drawing_pathaddcircle class=hash-link aria-label=OH_Drawing_PathAddCircle()的直接链接 title=OH_Drawing_PathAddCircle()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathAddCircle(OH_Drawing_Path* path,float x, float y, float radius, OH_Drawing_PathDirection pathDirection)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按指定方向，向路径添加圆形。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>radius小于等于0时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE；</p>
+<p>pathDirection不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float x<td>表示圆心的x轴坐标。<tr><td>float y<td>表示圆心的y轴坐标。<tr><td>float radius<td>表示圆形的半径。<tr><td><a href=#oh_drawing_pathdirection class="">OH_Drawing_PathDirection</a> pathDirection<td>路径方向<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathdirection>OH_Drawing_PathDirection</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathbuildfromsvgstring>OH_Drawing_PathBuildFromSvgString()<a href=#oh_drawing_pathbuildfromsvgstring class=hash-link aria-label=OH_Drawing_PathBuildFromSvgString()的直接链接 title=OH_Drawing_PathBuildFromSvgString()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathBuildFromSvgString(OH_Drawing_Path* path, const char* str)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>解析SVG字符串表示的路径。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、str任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const char* str<td>表示SVG字符串。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>函数返回解析SVG字符串是否成功。true表示成功，false表示不成功。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathcontains>OH_Drawing_PathContains()<a href=#oh_drawing_pathcontains class=hash-link aria-label=OH_Drawing_PathContains()的直接链接 title=OH_Drawing_PathContains()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathContains(OH_Drawing_Path* path, float x, float y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>判断指定坐标点是否被路径包含，判定是否被路径包含的规则参考<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float x<td>x轴上坐标点。<tr><td>float y<td>y轴上坐标点。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>函数返回true表示点在路径内，函数返回false表示点在路径外。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathtransform>OH_Drawing_PathTransform()<a href=#oh_drawing_pathtransform class=hash-link aria-label=OH_Drawing_PathTransform()的直接链接 title=OH_Drawing_PathTransform()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathTransform(OH_Drawing_Path* path, const OH_Drawing_Matrix* matrix)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>对路径进行矩阵变换。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>* matrix<td>指向矩阵对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>的指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathtransformwithperspectiveclip>OH_Drawing_PathTransformWithPerspectiveClip()<a href=#oh_drawing_pathtransformwithperspectiveclip class=hash-link aria-label=OH_Drawing_PathTransformWithPerspectiveClip()的直接链接 title=OH_Drawing_PathTransformWithPerspectiveClip()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathTransformWithPerspectiveClip(OH_Drawing_Path* src, const OH_Drawing_Matrix* matrix,OH_Drawing_Path* dst, bool applyPerspectiveClip)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>对路径进行矩阵变换。用转换后的路径替换目标路径，如果目标路径为NULL，则替换源路径。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>src、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* src<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>* matrix<td>指向矩阵对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* dst<td>指向目标路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool applyPerspectiveClip<td>表示变换路径是否应用透视裁剪。true表示应用透视裁剪，false表示不用透视裁剪。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathsetfilltype>OH_Drawing_PathSetFillType()<a href=#oh_drawing_pathsetfilltype class=hash-link aria-label=OH_Drawing_PathSetFillType()的直接链接 title=OH_Drawing_PathSetFillType()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathSetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType pathFillType)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置路径的填充类型，这个决定了路径内部区域的定义方式。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>pathFillType不在枚举范围内返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a href=#oh_drawing_pathfilltype class="">OH_Drawing_PathFillType</a> pathFillType<td>路径填充规则<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetfilltype>OH_Drawing_PathGetFillType()<a href=#oh_drawing_pathgetfilltype class=hash-link aria-label=OH_Drawing_PathGetFillType()的直接链接 title=OH_Drawing_PathGetFillType()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathGetFillType(OH_Drawing_Path* path, OH_Drawing_PathFillType* pathFillType)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取路径的填充类型。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a href=#oh_drawing_pathfilltype class="">OH_Drawing_PathFillType</a>* pathFillType<td>指向路径填充规则<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path或者pathFillType为空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetlength>OH_Drawing_PathGetLength()<a href=#oh_drawing_pathgetlength class=hash-link aria-label=OH_Drawing_PathGetLength()的直接链接 title=OH_Drawing_PathGetLength()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">float OH_Drawing_PathGetLength(OH_Drawing_Path* path, bool forceClosed)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取当前路径的长度。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool forceClosed<td>表示是否按照闭合路径测量。true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>float<td>函数返回当前路径的长度。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetbounds>OH_Drawing_PathGetBounds()<a href=#oh_drawing_pathgetbounds class=hash-link aria-label=OH_Drawing_PathGetBounds()的直接链接 title=OH_Drawing_PathGetBounds()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathGetBounds(OH_Drawing_Path* path, OH_Drawing_Rect* rect)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取包含路径的最小边界框。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、rect任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>* rect<td>指向矩形对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-rect/capi-drawing-oh-drawing-rect>OH_Drawing_Rect</a>的指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathclose>OH_Drawing_PathClose()<a href=#oh_drawing_pathclose class=hash-link aria-label=OH_Drawing_PathClose()的直接链接 title=OH_Drawing_PathClose()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathClose(OH_Drawing_Path* path)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于闭合路径，会添加一条从路径起点位置到最后点位置的线段。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathoffset>OH_Drawing_PathOffset()<a href=#oh_drawing_pathoffset class=hash-link aria-label=OH_Drawing_PathOffset()的直接链接 title=OH_Drawing_PathOffset()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathOffset(OH_Drawing_Path* path, OH_Drawing_Path* dst, float dx, float dy)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将路径中的所有点沿着x轴和y轴方向偏移一定距离，并将结果存储到目标路径对象中。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向当前路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* dst<td>指向目标路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针，为NULL时会将结果存储到当前路径对象中。<tr><td>float dx<td>x轴方向的偏移量。<tr><td>float dy<td>y轴方向的偏移量。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathreset>OH_Drawing_PathReset()<a href=#oh_drawing_pathreset class=hash-link aria-label=OH_Drawing_PathReset()的直接链接 title=OH_Drawing_PathReset()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_Drawing_PathReset(OH_Drawing_Path* path)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>用于重置自定义路径数据。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 8</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象的指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathisclosed>OH_Drawing_PathIsClosed()<a href=#oh_drawing_pathisclosed class=hash-link aria-label=OH_Drawing_PathIsClosed()的直接链接 title=OH_Drawing_PathIsClosed()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathIsClosed(OH_Drawing_Path* path, bool forceClosed)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取路径是否闭合。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool forceClosed<td>表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>返回路径是否闭合。true表示路径的测量结果为已闭合，false表示路径的测量结果为未闭合。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetpositiontangent>OH_Drawing_PathGetPositionTangent()<a href=#oh_drawing_pathgetpositiontangent class=hash-link aria-label=OH_Drawing_PathGetPositionTangent()的直接链接 title=OH_Drawing_PathGetPositionTangent()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathGetPositionTangent(OH_Drawing_Path* path, bool forceClosed,float distance, OH_Drawing_Point2D* position, OH_Drawing_Point2D* tangent)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取距路径起始点指定距离的坐标点和切线值。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、position、tangent任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool forceClosed<td>表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。<tr><td>float distance<td>表示距离起始点的距离，小于0时会被视为0处理，大于路径长度时会被视为路径长度处理。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-point2d/capi-drawing-oh-drawing-point2d>OH_Drawing_Point2D</a>* position<td>表示距路径起始点指定距离的坐标点。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-point2d/capi-drawing-oh-drawing-point2d>OH_Drawing_Point2D</a>* tangent<td>表示距路径起始点指定距离的切线值，tangent.x表示该点切线的余弦值，tangent.y表示该点切线的正弦值。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>返回测量是否成功。true表示成功，false表示失败。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetsegment>OH_Drawing_PathGetSegment()<a href=#oh_drawing_pathgetsegment class=hash-link aria-label=OH_Drawing_PathGetSegment()的直接链接 title=OH_Drawing_PathGetSegment()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathGetSegment(OH_Drawing_Path* path, bool forceClosed,float start, float stop, bool startWithMoveTo, OH_Drawing_Path* dst, bool* result)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>截取路径的片段并追加到目标路径上。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 18</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool forceClosed<td>表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。<tr><td>float start<td>表示与路径起始点的距离，距离路径起始点start距离的位置即为截取路径片段的起始点，小于0时会被视作0，大于等于stop时会截取失败。<tr><td>float stop<td>表示与路径起始点的距离，距离路径起始点stop距离的位置即为截取路径片段的终点，小于等于start时会截取失败，大于路径长度时会被视作路径长度。<tr><td>bool startWithMoveTo<td>表示是否在目标路径执行<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathmoveto>OH_Drawing_PathMoveTo</a>移动到截取路径片段的起始点位置。true表示执行，false表示不执行。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* dst<td>指向目标路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针，截取成功时会将得到的路径片段追加到目标路径上，截取失败时不做改变。<tr><td>bool* result<td>返回是否成功截取路径片段的结果。true表示截取成功，false表示截取失败。作为出参使用。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行错误码。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path、dst、result至少有一个为空指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathop>OH_Drawing_PathOp()<a href=#oh_drawing_pathop class=hash-link aria-label=OH_Drawing_PathOp()的直接链接 title=OH_Drawing_PathOp()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathOp(OH_Drawing_Path* path, const OH_Drawing_Path* other, OH_Drawing_PathOpMode op)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将两个路径按照指定的路径操作类型合并。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、srcPath任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>op不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针，操作完成后的路径结果将会保存在此路径对象中。<tr><td>const <a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* other<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a href=#oh_drawing_pathopmode class="">OH_Drawing_PathOpMode</a> op<td>路径操作枚举类型，支持可选的具体模式可见<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathopmode>OH_Drawing_PathOpMode</a>枚举。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>返回操作后的路径是否为空。true表示路径不为空，false表示路径为空。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathgetmatrix>OH_Drawing_PathGetMatrix()<a href=#oh_drawing_pathgetmatrix class=hash-link aria-label=OH_Drawing_PathGetMatrix()的直接链接 title=OH_Drawing_PathGetMatrix()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">bool OH_Drawing_PathGetMatrix(OH_Drawing_Path* path, bool forceClosed,float distance, OH_Drawing_Matrix* matrix, OH_Drawing_PathMeasureMatrixFlags flag)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取距路径起始点指定距离的相应变换矩阵。</p>
+<p>本接口会产生错误码，可以通过<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcodeget>OH_Drawing_ErrorCodeGet</a>查看错误码的取值。</p>
+<p>path、matrix任意一个为NULL时返回OH_DRAWING_ERROR_INVALID_PARAMETER；</p>
+<p>flag不在枚举范围内时返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool forceClosed<td>表示是否按照闭合路径测量，true表示测量时路径会被强制视为已闭合，false表示会根据路径的实际闭合状态测量。<tr><td>float distance<td>表示距离起始点的距离，小于0时会被视为0处理，大于路径长度时会被视为路径长度处理。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-matrix/capi-drawing-oh-drawing-matrix>OH_Drawing_Matrix</a>* matrix<td>表示要获取的变换矩阵。<tr><td><a href=#oh_drawing_pathmeasurematrixflags class="">OH_Drawing_PathMeasureMatrixFlags</a> flag<td>矩阵信息维度枚举，支持可选的具体模式可见<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathmeasurematrixflags>OH_Drawing_PathMeasureMatrixFlags</a>枚举。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>bool<td>返回获取变换矩阵是否成功。true表示获取成功，false表示获取失败，失败的原因可能是path为NULL或者长度为0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathapproximate>OH_Drawing_PathApproximate()<a href=#oh_drawing_pathapproximate class=hash-link aria-label=OH_Drawing_PathApproximate()的直接链接 title=OH_Drawing_PathApproximate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathApproximate(OH_Drawing_Path* path, float acceptableError, float* vals,uint32_t* count)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将当前路径转化为由连续直线段构成的近似路径。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float acceptableError<td>表示路径上每条线段的可接受误差，不能小于0。  1.当acceptableError为0时，曲线路径被极度细分，会严重影响性能和内存消耗，不建议设置误差值为0。  2.当acceptableError特别大时，路径会极度简化，保留少量关键点，可能会丢失原有形状。  3.对于椭圆等曲线，当acceptableError过大时，拟合结果通常只包含椭圆的分段贝塞尔曲线的起止点，椭圆形会被极度简化为多边形。<tr><td>float* vals<td>返回包含路径近似点的数组。  每个点由三个值组成，分别表示：  1.该点所在的位置距离路径起点的长度比例值。  2.点的x坐标。  3.点的y坐标。<tr><td>uint32_t* count<td>返回数组的大小，数组大小至少为6。vals为空指针时返回拟合后的点数数组的大小。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path或者count为空指针。  返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE，表示参数acceptableError小于0。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathinterpolate>OH_Drawing_PathInterpolate()<a href=#oh_drawing_pathinterpolate class=hash-link aria-label=OH_Drawing_PathInterpolate()的直接链接 title=OH_Drawing_PathInterpolate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathInterpolate(OH_Drawing_Path* path, OH_Drawing_Path* other,float weight, bool* success, OH_Drawing_Path* interpolatedPath)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>按照给定权重在当前路径与另一条路径之间进行插值，并将结果存储到目标路径对象中。</p>
+<p>两条路径点数相同即可插值成功，目标路径按照当前路径的结构进行创建。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* other<td>指向用于插值的另一条路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>float weight<td>表示插值权重，范围为[0, 1]。<tr><td>bool* success<td>表示插值是否成功。true表示插值成功，false表示插值失败。作为出参使用。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* interpolatedPath<td>指向用于存储插值结果的路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path、other、success或者interpolatedPath为空指针。  返回OH_DRAWING_ERROR_PARAMETER_OUT_OF_RANGE，表示参数weight不在[0, 1]范围内。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathisinterpolate>OH_Drawing_PathIsInterpolate()<a href=#oh_drawing_pathisinterpolate class=hash-link aria-label=OH_Drawing_PathIsInterpolate()的直接链接 title=OH_Drawing_PathIsInterpolate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathIsInterpolate(OH_Drawing_Path* path, OH_Drawing_Path* other, bool* result)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>检查当前路径与另一条路径（other）在结构和操作顺序上是否完全一致，以确定两条路径是否兼容插值。</p>
+<p>若路径中包含圆锥曲线（Conic）操作，则对应操作的权重值也必须一致，才能视为兼容插值。</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Graphic.Graphic2D.NativeDrawing</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* other<td>指向另一条路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool* result<td>表示当前路径与另一条路径是否兼容插值。作为出参使用。  如果路径兼容，则返回true，否则返回false。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INVALID_PARAMETER，表示参数path、other或者result为空指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathisinversefilltype>OH_Drawing_PathIsInverseFillType()<a href=#oh_drawing_pathisinversefilltype class=hash-link aria-label=OH_Drawing_PathIsInverseFillType()的直接链接 title=OH_Drawing_PathIsInverseFillType()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathIsInverseFillType(const OH_Drawing_Path* path, bool* isInverse)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>检查路径的填充类型是否是取反类型。</p>
+<p>取反类型即<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>中的PATH_FILL_TYPE_INVERSE_WINDING和PATH_FILL_TYPE_INVERSE_EVEN_ODD。</p>
+<p><strong><strong>起始版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>const OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。<tr><td>bool* isInverse<td>表示填充类型是否是取反类型。作为出参使用。true表示填充类型是取反类型，false表示填充类型不是取反类型。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示path或isInverse是空指针。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_drawing_pathtoggleinversefilltype>OH_Drawing_PathToggleInverseFillType()<a href=#oh_drawing_pathtoggleinversefilltype class=hash-link aria-label=OH_Drawing_PathToggleInverseFillType()的直接链接 title=OH_Drawing_PathToggleInverseFillType()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Drawing_ErrorCode OH_Drawing_PathToggleInverseFillType(OH_Drawing_Path* path)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>切换路径的填充类型为取反类型。</p>
+<p>取反类型即<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-h/capi-drawing-path-h#oh_drawing_pathfilltype>OH_Drawing_PathFillType</a>中的PATH_FILL_TYPE_INVERSE_WINDING和PATH_FILL_TYPE_INVERSE_EVEN_ODD。</p>
+<p><strong><strong>起始版本：</strong></strong> 23</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>* path<td>指向路径对象<a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-struct/capi-drawing-oh-drawing-path/capi-drawing-oh-drawing-path>OH_Drawing_Path</a>的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-error-code-h/capi-drawing-error-code-h#oh_drawing_errorcode>OH_Drawing_ErrorCode</a><td>函数返回执行结果。  返回OH_DRAWING_SUCCESS，表示执行成功。  返回OH_DRAWING_ERROR_INCORRECT_PARAMETER，表示path是空指针。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-memory-stream-h/capi-drawing-memory-stream-h><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>drawing_memory_stream.h</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/arkgraphics-api/arkgraphics-c/arkgraphics-headerfile/capi-drawing-path-effect-h/capi-drawing-path-effect-h><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>drawing_path_effect.h</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概述 class="table-of-contents__link toc-highlight">概述</a><li><a href=#汇总 class="table-of-contents__link toc-highlight">汇总</a><ul><li><a href=#枚举 class="table-of-contents__link toc-highlight">枚举</a><li><a href=#函数 class="table-of-contents__link toc-highlight">函数</a></ul><li><a href=#枚举类型说明 class="table-of-contents__link toc-highlight">枚举类型说明</a><ul><li><a href=#oh_drawing_pathdirection class="table-of-contents__link toc-highlight">OH_Drawing_PathDirection</a><li><a href=#oh_drawing_pathfilltype class="table-of-contents__link toc-highlight">OH_Drawing_PathFillType</a><li><a href=#oh_drawing_pathaddmode class="table-of-contents__link toc-highlight">OH_Drawing_PathAddMode</a><li><a href=#oh_drawing_pathopmode class="table-of-contents__link toc-highlight">OH_Drawing_PathOpMode</a><li><a href=#oh_drawing_pathmeasurematrixflags class="table-of-contents__link toc-highlight">OH_Drawing_PathMeasureMatrixFlags</a></ul><li><a href=#函数说明 class="table-of-contents__link toc-highlight">函数说明</a><ul><li><a href=#oh_drawing_pathcreate class="table-of-contents__link toc-highlight">OH_Drawing_PathCreate()</a><li><a href=#oh_drawing_pathcopy class="table-of-contents__link toc-highlight">OH_Drawing_PathCopy()</a><li><a href=#oh_drawing_pathdestroy class="table-of-contents__link toc-highlight">OH_Drawing_PathDestroy()</a><li><a href=#oh_drawing_pathsetpath class="table-of-contents__link toc-highlight">OH_Drawing_PathSetPath()</a><li><a href=#oh_drawing_pathisempty class="table-of-contents__link toc-highlight">OH_Drawing_PathIsEmpty()</a><li><a href=#oh_drawing_pathisrect class="table-of-contents__link toc-highlight">OH_Drawing_PathIsRect()</a><li><a href=#oh_drawing_pathmoveto class="table-of-contents__link toc-highlight">OH_Drawing_PathMoveTo()</a><li><a href=#oh_drawing_pathlineto class="table-of-contents__link toc-highlight">OH_Drawing_PathLineTo()</a><li><a href=#oh_drawing_patharcto class="table-of-contents__link toc-highlight">OH_Drawing_PathArcTo()</a><li><a href=#oh_drawing_pathquadto class="table-of-contents__link toc-highlight">OH_Drawing_PathQuadTo()</a><li><a href=#oh_drawing_pathconicto class="table-of-contents__link toc-highlight">OH_Drawing_PathConicTo()</a><li><a href=#oh_drawing_pathcubicto class="table-of-contents__link toc-highlight">OH_Drawing_PathCubicTo()</a><li><a href=#oh_drawing_pathrmoveto class="table-of-contents__link toc-highlight">OH_Drawing_PathRMoveTo()</a><li><a href=#oh_drawing_pathrlineto class="table-of-contents__link toc-highlight">OH_Drawing_PathRLineTo()</a><li><a href=#oh_drawing_pathrquadto class="table-of-contents__link toc-highlight">OH_Drawing_PathRQuadTo()</a><li><a href=#oh_drawing_pathrconicto class="table-of-contents__link toc-highlight">OH_Drawing_PathRConicTo()</a><li><a href=#oh_drawing_pathrcubicto class="table-of-contents__link toc-highlight">OH_Drawing_PathRCubicTo()</a><li><a href=#oh_drawing_pathaddrect class="table-of-contents__link toc-highlight">OH_Drawing_PathAddRect()</a><li><a href=#oh_drawing_pathaddrectwithinitialcorner class="table-of-contents__link toc-highlight">OH_Drawing_PathAddRectWithInitialCorner()</a><li><a href=#oh_drawing_pathaddroundrect class="table-of-contents__link toc-highlight">OH_Drawing_PathAddRoundRect()</a><li><a href=#oh_drawing_pathaddovalwithinitialpoint class="table-of-contents__link toc-highlight">OH_Drawing_PathAddOvalWithInitialPoint()</a><li><a href=#oh_drawing_pathaddoval class="table-of-contents__link toc-highlight">OH_Drawing_PathAddOval()</a><li><a href=#oh_drawing_pathaddarc class="table-of-contents__link toc-highlight">OH_Drawing_PathAddArc()</a><li><a href=#oh_drawing_pathaddpath class="table-of-contents__link toc-highlight">OH_Drawing_PathAddPath()</a><li><a href=#oh_drawing_pathaddpathwithmatrixandmode class="table-of-contents__link toc-highlight">OH_Drawing_PathAddPathWithMatrixAndMode()</a><li><a href=#oh_drawing_pathaddpathwithmode class="table-of-contents__link toc-highlight">OH_Drawing_PathAddPathWithMode()</a><li><a href=#oh_drawing_pathaddpathwithoffsetandmode class="table-of-contents__link toc-highlight">OH_Drawing_PathAddPathWithOffsetAndMode()</a><li><a href=#oh_drawing_pathaddpolygon class="table-of-contents__link toc-highlight">OH_Drawing_PathAddPolygon()</a><li><a href=#oh_drawing_pathaddcircle class="table-of-contents__link toc-highlight">OH_Drawing_PathAddCircle()</a><li><a href=#oh_drawing_pathbuildfromsvgstring class="table-of-contents__link toc-highlight">OH_Drawing_PathBuildFromSvgString()</a><li><a href=#oh_drawing_pathcontains class="table-of-contents__link toc-highlight">OH_Drawing_PathContains()</a><li><a href=#oh_drawing_pathtransform class="table-of-contents__link toc-highlight">OH_Drawing_PathTransform()</a><li><a href=#oh_drawing_pathtransformwithperspectiveclip class="table-of-contents__link toc-highlight">OH_Drawing_PathTransformWithPerspectiveClip()</a><li><a href=#oh_drawing_pathsetfilltype class="table-of-contents__link toc-highlight">OH_Drawing_PathSetFillType()</a><li><a href=#oh_drawing_pathgetfilltype class="table-of-contents__link toc-highlight">OH_Drawing_PathGetFillType()</a><li><a href=#oh_drawing_pathgetlength class="table-of-contents__link toc-highlight">OH_Drawing_PathGetLength()</a><li><a href=#oh_drawing_pathgetbounds class="table-of-contents__link toc-highlight">OH_Drawing_PathGetBounds()</a><li><a href=#oh_drawing_pathclose class="table-of-contents__link toc-highlight">OH_Drawing_PathClose()</a><li><a href=#oh_drawing_pathoffset class="table-of-contents__link toc-highlight">OH_Drawing_PathOffset()</a><li><a href=#oh_drawing_pathreset class="table-of-contents__link toc-highlight">OH_Drawing_PathReset()</a><li><a href=#oh_drawing_pathisclosed class="table-of-contents__link toc-highlight">OH_Drawing_PathIsClosed()</a><li><a href=#oh_drawing_pathgetpositiontangent class="table-of-contents__link toc-highlight">OH_Drawing_PathGetPositionTangent()</a><li><a href=#oh_drawing_pathgetsegment class="table-of-contents__link toc-highlight">OH_Drawing_PathGetSegment()</a><li><a href=#oh_drawing_pathop class="table-of-contents__link toc-highlight">OH_Drawing_PathOp()</a><li><a href=#oh_drawing_pathgetmatrix class="table-of-contents__link toc-highlight">OH_Drawing_PathGetMatrix()</a><li><a href=#oh_drawing_pathapproximate class="table-of-contents__link toc-highlight">OH_Drawing_PathApproximate()</a><li><a href=#oh_drawing_pathinterpolate class="table-of-contents__link toc-highlight">OH_Drawing_PathInterpolate()</a><li><a href=#oh_drawing_pathisinterpolate class="table-of-contents__link toc-highlight">OH_Drawing_PathIsInterpolate()</a><li><a href=#oh_drawing_pathisinversefilltype class="table-of-contents__link toc-highlight">OH_Drawing_PathIsInverseFillType()</a><li><a href=#oh_drawing_pathtoggleinversefilltype class="table-of-contents__link toc-highlight">OH_Drawing_PathToggleInverseFillType()</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

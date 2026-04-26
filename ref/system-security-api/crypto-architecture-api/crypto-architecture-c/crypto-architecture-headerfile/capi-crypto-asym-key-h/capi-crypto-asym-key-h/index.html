@@ -1,0 +1,1621 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>crypto_asym_key.h | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="crypto_asym_key.h | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content=概述 /><meta data-rh=true property=og:description content=概述 /><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h","name":"crypto_asym_key.h","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title="Asset Store Kit（关键资产存储服务）" class=categoryLinkLabel_W154>Asset Store Kit（关键资产存储服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="Crypto Architecture Kit（加解密算法框架服务）" class=categoryLinkLabel_W154>Crypto Architecture Kit（加解密算法框架服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts/js-apis-cryptoframework/js-apis-cryptoframework><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-module/capi-cryptoarchitecturekit/capi-cryptoarchitecturekit><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-module/capi-cryptoarchitecturekit/capi-cryptoarchitecturekit><span title=模块 class=categoryLinkLabel_W154>模块</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-architecture-kit-h/capi-crypto-architecture-kit-h><span title=头文件 class=categoryLinkLabel_W154>头文件</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-architecture-kit-h/capi-crypto-architecture-kit-h><span title=crypto_architecture_kit.h class=linkLabel_WmDU>crypto_architecture_kit.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-cipher-h/capi-crypto-asym-cipher-h><span title=crypto_asym_cipher.h class=linkLabel_WmDU>crypto_asym_cipher.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h><span title=crypto_asym_key.h class=linkLabel_WmDU>crypto_asym_key.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h><span title=crypto_common.h class=linkLabel_WmDU>crypto_common.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-digest-h/capi-crypto-digest-h><span title=crypto_digest.h class=linkLabel_WmDU>crypto_digest.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-kdf-h/capi-crypto-kdf-h><span title=crypto_kdf.h class=linkLabel_WmDU>crypto_kdf.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-key-agreement-h/capi-crypto-key-agreement-h><span title=crypto_key_agreement.h class=linkLabel_WmDU>crypto_key_agreement.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-mac-h/capi-crypto-mac-h><span title=crypto_mac.h class=linkLabel_WmDU>crypto_mac.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-rand-h/capi-crypto-rand-h><span title=crypto_rand.h class=linkLabel_WmDU>crypto_rand.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-signature-h/capi-crypto-signature-h><span title=crypto_signature.h class=linkLabel_WmDU>crypto_signature.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-sym-cipher-h/capi-crypto-sym-cipher-h><span title=crypto_sym_cipher.h class=linkLabel_WmDU>crypto_sym_cipher.h</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-6 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-sym-key-h/capi-crypto-sym-key-h><span title=crypto_sym_key.h class=linkLabel_WmDU>crypto_sym_key.h</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob><span title=结构体 class=categoryLinkLabel_W154>结构体</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-arkts-errcode/errorcode-crypto-framework/errorcode-crypto-framework><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-protection-api/data-protection-arkts/js-apis-dlppermission/js-apis-dlppermission><span title="Data Protection Kit（数据保护服务）" class=categoryLinkLabel_W154>Data Protection Kit（数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-security-api/devicesecurity-arktsapi/devicesecurity-deviceverify-api/devicesecurity-deviceverify-api><span title="Device Security Kit（设备安全服务）" class=categoryLinkLabel_W154>Device Security Kit（设备安全服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/data-guard-api/data-guard-arkts/dataguard-fileguard/dataguard-fileguard><span title="Enterprise Data Guard Kit（企业数据保护服务）" class=categoryLinkLabel_W154>Enterprise Data Guard Kit（企业数据保护服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/online-authentication-api/onlineauthentication_arkts/onlineauthentication-fido-api/onlineauthentication-fido-api><span title="Online Authentication Kit（在线认证服务）" class=categoryLinkLabel_W154>Online Authentication Kit（在线认证服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/device-certificate-api/device-certificate-arkts/js-apis-cert/js-apis-cert><span title="Device Certificate Kit（设备证书服务）" class=categoryLinkLabel_W154>Device Certificate Kit（设备证书服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/universal-keystore-api/universal-keystore-arkts/js-apis-huks/js-apis-huks><span title="Universal Keystore Kit（密钥管理服务）" class=categoryLinkLabel_W154>Universal Keystore Kit（密钥管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/user-authentication-api/user-authentication-arkts/js-apis-useriam-userauth/js-apis-useriam-userauth><span title="User Authentication Kit（用户认证服务）" class=categoryLinkLabel_W154>User Authentication Kit（用户认证服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>安全</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Crypto Architecture Kit（加解密算法框架服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>C API</span><li class=breadcrumbs__item><span class=breadcrumbs__link>头文件</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>crypto_asym_key.h</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>crypto_asym_key.h</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=概述>概述<a href=#概述 class=hash-link aria-label=概述的直接链接 title=概述的直接链接 translate=no>​</a></h2>
+<p>声明非对称密钥接口。</p>
+<p><strong><strong>引用文件：</strong></strong> &lt;CryptoArchitectureKit/crypto_asym_key.h></p>
+<p><strong><strong>库：</strong></strong> libohcrypto.so</p>
+<p><strong><strong>系统能力：</strong></strong> SystemCapability.Security.CryptoFramework</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>相关模块：</strong></strong> <a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-module/capi-cryptoasymkeyapi/capi-cryptoasymkeyapi>CryptoAsymKeyApi</a></p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=汇总>汇总<a href=#汇总 class=hash-link aria-label=汇总的直接链接 title=汇总的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=结构体>结构体<a href=#结构体 class=hash-link aria-label=结构体的直接链接 title=结构体的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a><td>OH_CryptoKeyPair<td>定义密钥对结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptopubkey/capi-cryptoasymkeyapi-oh-cryptopubkey>OH_CryptoPubKey</a><td>OH_CryptoPubKey<td>定义公钥结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoprivkey/capi-cryptoasymkeyapi-oh-cryptoprivkey>OH_CryptoPrivKey</a><td>OH_CryptoPrivKey<td>定义私钥结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a><td>OH_CryptoAsymKeyGenerator<td>定义非对称密钥生成器结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams>OH_CryptoPrivKeyEncodingParams</a><td>OH_CryptoPrivKeyEncodingParams<td>定义私钥编码参数结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a><td>OH_CryptoAsymKeySpec<td>定义非对称密钥规格结构体。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec>OH_CryptoAsymKeyGeneratorWithSpec</a><td>OH_CryptoAsymKeyGeneratorWithSpec<td>定义带规格的非对称密钥生成器。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a><td>OH_CryptoEcPoint<td>定义EC点结构体。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举>枚举<a href=#枚举 class=hash-link aria-label=枚举的直接链接 title=枚举的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>typedef关键字<th>描述<tbody><tr><td><a href=#cryptoasymkey_paramtype class="">CryptoAsymKey_ParamType</a><td>CryptoAsymKey_ParamType<td>定义非对称密钥参数类型。<tr><td><a href=#crypto_encodingtype class="">Crypto_EncodingType</a><td>Crypto_EncodingType<td>定义编码格式。<tr><td><a href=#cryptoprivkeyencoding_paramtype class="">CryptoPrivKeyEncoding_ParamType</a><td>CryptoPrivKeyEncoding_ParamType<td>定义私钥编码参数类型。<tr><td><a href=#cryptoasymkeyspec_type class="">CryptoAsymKeySpec_Type</a><td>CryptoAsymKeySpec_Type<td>定义非对称密钥规格类型。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数>函数<a href=#函数 class=hash-link aria-label=函数的直接链接 title=函数的直接链接 translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>描述<tbody><tr><td><a href=#oh_cryptoasymkeygenerator_create class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_CryptoAsymKeyGenerator **ctx)</a><td>通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。  注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_destroy>OH_CryptoAsymKeyGenerator_Destroy</a>销毁。<tr><td><a href=#oh_cryptoasymkeygenerator_generate class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *ctx, OH_CryptoKeyPair **keyCtx)</a><td>随机生成非对称密钥（密钥对）。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>销毁keyCtx内存。<tr><td><a href=#oh_cryptoasymkeygenerator_convert class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *ctx, Crypto_EncodingType type, Crypto_DataBlob *pubKeyData, Crypto_DataBlob *priKeyData, OH_CryptoKeyPair **keyCtx)</a><td>将非对称密钥数据转换为密钥对。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>销毁keyCtx内存。<tr><td><a href=#oh_cryptoasymkeygenerator_getalgoname class="">const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx)</a><td>获取非对称密钥算法名称。<tr><td><a href=#oh_cryptoasymkeygenerator_destroy class="">void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx)</a><td>销毁非对称密钥生成器实例。<tr><td><a href=#oh_cryptokeypair_destroy class="">void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx)</a><td>销毁非对称密钥对实例。<tr><td><a href=#oh_cryptokeypair_getpubkey class="">OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx)</a><td>从密钥对中获取公钥实例。<tr><td><a href=#oh_cryptokeypair_getprivkey class="">OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx)</a><td>获取密钥对的私钥。<tr><td><a href=#oh_cryptopubkey_encode class="">OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingType type, const char *encodingStandard, Crypto_DataBlob *out)</a><td>根据指定的编码格式输出公钥数据。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。<tr><td><a href=#oh_cryptopubkey_getparam class="">OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value)</a><td>从公钥实例获取指定参数。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。<tr><td><a href=#oh_cryptoasymkeygenerator_setpassword class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerator *ctx, const unsigned char *password, uint32_t passwordLen)</a><td>设置非对称密钥生成器上下文的密码。<tr><td><a href=#oh_cryptoprivkeyencodingparams_create class="">OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_Create(OH_CryptoPrivKeyEncodingParams **ctx)</a><td>创建私钥编码参数。  注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoprivkeyencodingparams_destroy>OH_CryptoPrivKeyEncodingParams_Destroy</a>销毁。<tr><td><a href=#oh_cryptoprivkeyencodingparams_setparam class="">OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_SetParam(OH_CryptoPrivKeyEncodingParams *ctx, CryptoPrivKeyEncoding_ParamType type, Crypto_DataBlob *value)</a><td>设置私钥编码参数。<tr><td><a href=#oh_cryptoprivkeyencodingparams_destroy class="">void OH_CryptoPrivKeyEncodingParams_Destroy(OH_CryptoPrivKeyEncodingParams *ctx)</a><td>销毁私钥编码参数。<tr><td><a href=#oh_cryptoprivkey_encode class="">OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_EncodingType type, const char *encodingStandard, OH_CryptoPrivKeyEncodingParams *params, Crypto_DataBlob *out)</a><td>从私钥实例获取指定参数。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。<tr><td><a href=#oh_cryptoprivkey_getparam class="">OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value)</a><td>获取私钥的指定参数。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。<tr><td><a href=#oh_cryptoasymkeyspec_geneccommonparamsspec class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenEcCommonParamsSpec(const char *curveName, OH_CryptoAsymKeySpec **spec)</a><td>生成EC通用参数规格。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁spec内存。<tr><td><a href=#oh_cryptoasymkeyspec_gendhcommonparamsspec class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen, OH_CryptoAsymKeySpec **spec)</a><td>生成DH通用参数规格。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁spec内存。<tr><td><a href=#oh_cryptoasymkeyspec_create class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKeySpec_Type type, OH_CryptoAsymKeySpec **spec)</a><td>根据给定的算法名称和规格类型创建非对称密钥规格。  注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁。<tr><td><a href=#oh_cryptoasymkeyspec_setparam class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value)</a><td>设置非对称密钥规格的指定参数。<tr><td><a href=#oh_cryptoasymkeyspec_setcommonparamsspec class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec *spec, OH_CryptoAsymKeySpec *commonParamsSpec)</a><td>设置非对称密钥规格的通用参数规格。<tr><td><a href=#oh_cryptoasymkeyspec_getparam class="">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value)</a><td>获取非对称密钥规格的指定参数。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。<tr><td><a href=#oh_cryptoasymkeyspec_destroy class="">void OH_CryptoAsymKeySpec_Destroy(OH_CryptoAsymKeySpec *spec)</a><td>销毁非对称密钥规格。<tr><td><a href=#oh_cryptoasymkeygeneratorwithspec_create class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec *keySpec, OH_CryptoAsymKeyGeneratorWithSpec **generator)</a><td>创建带规格的非对称密钥生成器。  注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeygeneratorwithspec_destroy>OH_CryptoAsymKeyGeneratorWithSpec_Destroy</a>销毁。<tr><td><a href=#oh_cryptoasymkeygeneratorwithspec_genkeypair class="">OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair(OH_CryptoAsymKeyGeneratorWithSpec *generator, OH_CryptoKeyPair **keyPair)</a><td>根据非对称密钥规格生成密钥对。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>释放keyPair内存。<tr><td><a href=#oh_cryptoasymkeygeneratorwithspec_destroy class="">void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec *generator)</a><td>销毁带规格的非对称密钥生成器。<tr><td><a href=#oh_cryptoecpoint_create class="">OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob *ecKeyData, OH_CryptoEcPoint **point)</a><td>创建EC点。  注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoecpoint_destroy>OH_CryptoEcPoint_Destroy</a>销毁。<tr><td><a href=#oh_cryptoecpoint_getcoordinate class="">OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y)</a><td>获取EC点的x和y坐标。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放x和y内存<tr><td><a href=#oh_cryptoecpoint_setcoordinate class="">OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y)</a><td>设置EC点的x和y坐标。<tr><td><a href=#oh_cryptoecpoint_encode class="">OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *format, Crypto_DataBlob *out)</a><td>将EC点编码为指定格式。  注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。<tr><td><a href=#oh_cryptoecpoint_destroy class="">void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point)</a><td>销毁EC点。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=枚举类型说明>枚举类型说明<a href=#枚举类型说明 class=hash-link aria-label=枚举类型说明的直接链接 title=枚举类型说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cryptoasymkey_paramtype>CryptoAsymKey_ParamType<a href=#cryptoasymkey_paramtype class=hash-link aria-label=CryptoAsymKey_ParamType的直接链接 title=CryptoAsymKey_ParamType的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum CryptoAsymKey_ParamType</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>定义非对称密钥参数类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>CRYPTO_DSA_P_DATABLOB = 101<td>DSA算法的素模数p。<tr><td>CRYPTO_DSA_Q_DATABLOB = 102<td>DSA算法中密钥参数q（p-1的素因子）。<tr><td>CRYPTO_DSA_G_DATABLOB = 103<td>DSA算法的参数g。<tr><td>CRYPTO_DSA_SK_DATABLOB = 104<td>DSA算法的私钥sk。<tr><td>CRYPTO_DSA_PK_DATABLOB = 105<td>DSA算法的公钥pk。<tr><td>CRYPTO_ECC_FP_P_DATABLOB = 201<td>ECC算法中表示椭圆曲线Fp域的素数p。<tr><td>CRYPTO_ECC_A_DATABLOB = 202<td>ECC算法中椭圆曲线的第一个系数a。<tr><td>CRYPTO_ECC_B_DATABLOB = 203<td>ECC算法中椭圆曲线的第二个系数b。<tr><td>CRYPTO_ECC_G_X_DATABLOB = 204<td>ECC算法中基点g的x坐标。<tr><td>CRYPTO_ECC_G_Y_DATABLOB = 205<td>ECC算法中基点g的y坐标。<tr><td>CRYPTO_ECC_N_DATABLOB = 206<td>ECC算法中基点g的阶n。<tr><td>CRYPTO_ECC_H_INT = 207<td>ECC算法中的余因子h。<tr><td>CRYPTO_ECC_SK_DATABLOB = 208<td>ECC算法中的私钥sk。<tr><td>CRYPTO_ECC_PK_X_DATABLOB = 209<td>ECC算法中，公钥pk（椭圆曲线上的一个点）的x坐标。<tr><td>CRYPTO_ECC_PK_Y_DATABLOB = 210<td>ECC算法中，公钥pk（椭圆曲线上的一个点）的y坐标。<tr><td>CRYPTO_ECC_FIELD_TYPE_STR = 211<td>ECC算法中，椭圆曲线的域类型（当前只支持Fp域）。<tr><td>CRYPTO_ECC_FIELD_SIZE_INT = 212<td>ECC算法中域的大小，单位为bits（注：对于Fp域，域的大小为素数p的bits长度）。<tr><td>CRYPTO_ECC_CURVE_NAME_STR = 213<td>ECC算法中的SECG（Standards for Efficient Cryptography Group）曲线名称。<tr><td>CRYPTO_RSA_N_DATABLOB = 301<td>RSA算法中的模数n。<tr><td>CRYPTO_RSA_D_DATABLOB = 302<td>RSA算法中的私钥sk（即私钥指数d）。<tr><td>CRYPTO_RSA_E_DATABLOB = 303<td>RSA算法中的公钥pk（即公钥指数e）。<tr><td>CRYPTO_DH_P_DATABLOB = 401<td>DH算法中的素数p。<tr><td>CRYPTO_DH_G_DATABLOB = 402<td>DH算法中的参数g。<tr><td>CRYPTO_DH_L_INT = 403<td>DH算法中私钥长度，单位为bit。<tr><td>CRYPTO_DH_SK_DATABLOB = 404<td>DH算法中的私钥sk。<tr><td>CRYPTO_DH_PK_DATABLOB = 405<td>DH算法中的公钥pk。<tr><td>CRYPTO_ED25519_SK_DATABLOB = 501<td>Ed25519算法中的私钥sk。<tr><td>CRYPTO_ED25519_PK_DATABLOB = 502<td>Ed25519算法中的公钥pk。<tr><td>CRYPTO_X25519_SK_DATABLOB = 601<td>X25519算法中的私钥sk。<tr><td>CRYPTO_X25519_PK_DATABLOB = 602<td>X25519算法中的公钥pk。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=crypto_encodingtype>Crypto_EncodingType<a href=#crypto_encodingtype class=hash-link aria-label=Crypto_EncodingType的直接链接 title=Crypto_EncodingType的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum Crypto_EncodingType</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>定义编码格式。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>CRYPTO_PEM = 0<td>PEM格式密钥类型。<tr><td>CRYPTO_DER = 1<td>DER格式密钥类型。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cryptoprivkeyencoding_paramtype>CryptoPrivKeyEncoding_ParamType<a href=#cryptoprivkeyencoding_paramtype class=hash-link aria-label=CryptoPrivKeyEncoding_ParamType的直接链接 title=CryptoPrivKeyEncoding_ParamType的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum CryptoPrivKeyEncoding_ParamType</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>定义私钥编码参数类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>CRYPTO_PRIVATE_KEY_ENCODING_PASSWORD_STR = 0<td>表示密码字符串。<tr><td>CRYPTO_PRIVATE_KEY_ENCODING_SYMMETRIC_CIPHER_STR = 1<td>表示对称加密字符串。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=cryptoasymkeyspec_type>CryptoAsymKeySpec_Type<a href=#cryptoasymkeyspec_type class=hash-link aria-label=CryptoAsymKeySpec_Type的直接链接 title=CryptoAsymKeySpec_Type的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">enum CryptoAsymKeySpec_Type</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>定义非对称密钥规格类型。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>枚举项<th>描述<tbody><tr><td>CRYPTO_ASYM_KEY_COMMON_PARAMS_SPEC = 0<td>通用参数规格。<tr><td>CRYPTO_ASYM_KEY_PRIVATE_KEY_SPEC = 1<td>私钥规格。<tr><td>CRYPTO_ASYM_KEY_PUBLIC_KEY_SPEC = 2<td>公钥规格。<tr><td>CRYPTO_ASYM_KEY_KEY_PAIR_SPEC = 3<td>密钥对规格。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=函数说明>函数说明<a href=#函数说明 class=hash-link aria-label=函数说明的直接链接 title=函数说明的直接链接 translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_create>OH_CryptoAsymKeyGenerator_Create()<a href=#oh_cryptoasymkeygenerator_create class=hash-link aria-label=OH_CryptoAsymKeyGenerator_Create()的直接链接 title=OH_CryptoAsymKeyGenerator_Create()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Create(const char *algoName, OH_CryptoAsymKeyGenerator **ctx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>通过指定算法名称的字符串，获取相应的非对称密钥生成器实例。</p>
+<p>注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeygenerator_destroy>OH_CryptoAsymKeyGenerator_Destroy</a>销毁。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>const char *algoName<td>用于生成生成器的算法名称。  例如"RSA1024<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> **ctx<td>指向非对称密钥生成器上下文的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_INVALID_PARAMS：参数无效。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_generate>OH_CryptoAsymKeyGenerator_Generate()<a href=#oh_cryptoasymkeygenerator_generate class=hash-link aria-label=OH_CryptoAsymKeyGenerator_Generate()的直接链接 title=OH_CryptoAsymKeyGenerator_Generate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Generate(OH_CryptoAsymKeyGenerator *ctx, OH_CryptoKeyPair **keyCtx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>随机生成非对称密钥（密钥对）。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>销毁keyCtx内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> *ctx<td>非对称密钥生成器实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> **keyCtx<td>指向非对称密钥对实例的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_INVALID_PARAMS：参数无效。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_convert>OH_CryptoAsymKeyGenerator_Convert()<a href=#oh_cryptoasymkeygenerator_convert class=hash-link aria-label=OH_CryptoAsymKeyGenerator_Convert()的直接链接 title=OH_CryptoAsymKeyGenerator_Convert()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_Convert(OH_CryptoAsymKeyGenerator *ctx, Crypto_EncodingType type, Crypto_DataBlob *pubKeyData, Crypto_DataBlob *priKeyData, OH_CryptoKeyPair **keyCtx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将非对称密钥数据转换为密钥对。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>销毁keyCtx内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> *ctx<td>非对称密钥生成器实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#crypto_encodingtype>Crypto_EncodingType</a> type<td>编码格式。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *pubKeyData<td>公钥数据。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *priKeyData<td>私钥数据。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> **keyCtx<td>指向非对称密钥对实例的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_INVALID_PARAMS：参数无效。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_getalgoname>OH_CryptoAsymKeyGenerator_GetAlgoName()<a href=#oh_cryptoasymkeygenerator_getalgoname class=hash-link aria-label=OH_CryptoAsymKeyGenerator_GetAlgoName()的直接链接 title=OH_CryptoAsymKeyGenerator_GetAlgoName()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">const char *OH_CryptoAsymKeyGenerator_GetAlgoName(OH_CryptoAsymKeyGenerator *ctx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取非对称密钥算法名称。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> *ctx<td>非对称密钥生成器实例。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>const char *<td>返回非对称密钥算法名称。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_destroy>OH_CryptoAsymKeyGenerator_Destroy()<a href=#oh_cryptoasymkeygenerator_destroy class=hash-link aria-label=OH_CryptoAsymKeyGenerator_Destroy()的直接链接 title=OH_CryptoAsymKeyGenerator_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoAsymKeyGenerator_Destroy(OH_CryptoAsymKeyGenerator *ctx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁非对称密钥生成器实例。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> *ctx<td>非对称密钥生成器实例。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy()<a href=#oh_cryptokeypair_destroy class=hash-link aria-label=OH_CryptoKeyPair_Destroy()的直接链接 title=OH_CryptoKeyPair_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoKeyPair_Destroy(OH_CryptoKeyPair *keyCtx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁非对称密钥对实例。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> *keyCtx<td>密钥对实例。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptokeypair_getpubkey>OH_CryptoKeyPair_GetPubKey()<a href=#oh_cryptokeypair_getpubkey class=hash-link aria-label=OH_CryptoKeyPair_GetPubKey()的直接链接 title=OH_CryptoKeyPair_GetPubKey()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_CryptoPubKey *OH_CryptoKeyPair_GetPubKey(OH_CryptoKeyPair *keyCtx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>从密钥对中获取公钥实例。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> *keyCtx<td>密钥对实例。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptopubkey/capi-cryptoasymkeyapi-oh-cryptopubkey>OH_CryptoPubKey</a> *<td>返回从密钥对中得到的公钥实例。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptokeypair_getprivkey>OH_CryptoKeyPair_GetPrivKey()<a href=#oh_cryptokeypair_getprivkey class=hash-link aria-label=OH_CryptoKeyPair_GetPrivKey()的直接链接 title=OH_CryptoKeyPair_GetPrivKey()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_CryptoPrivKey *OH_CryptoKeyPair_GetPrivKey(OH_CryptoKeyPair *keyCtx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取密钥对的私钥。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> *keyCtx<td>密钥对实例。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoprivkey/capi-cryptoasymkeyapi-oh-cryptoprivkey>OH_CryptoPrivKey</a> *<td>返回从密钥对中得到的私钥实例。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptopubkey_encode>OH_CryptoPubKey_Encode()<a href=#oh_cryptopubkey_encode class=hash-link aria-label=OH_CryptoPubKey_Encode()的直接链接 title=OH_CryptoPubKey_Encode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPubKey_Encode(OH_CryptoPubKey *key, Crypto_EncodingType type, const char *encodingStandard, Crypto_DataBlob *out)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>根据指定的编码格式输出公钥数据。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptopubkey/capi-cryptoasymkeyapi-oh-cryptopubkey>OH_CryptoPubKey</a> *key<td>公钥实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#crypto_encodingtype>Crypto_EncodingType</a> type<td>编码类型。<tr><td>const char *encodingStandard<td>编码格式。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *out<td>输出的公钥结果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_INVALID_PARAMS：参数无效。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptopubkey_getparam>OH_CryptoPubKey_GetParam()<a href=#oh_cryptopubkey_getparam class=hash-link aria-label=OH_CryptoPubKey_GetParam()的直接链接 title=OH_CryptoPubKey_GetParam()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPubKey_GetParam(OH_CryptoPubKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>从公钥实例获取指定参数。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 12</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptopubkey/capi-cryptoasymkeyapi-oh-cryptopubkey>OH_CryptoPubKey</a> *key<td>公钥实例。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoasymkey_paramtype>CryptoAsymKey_ParamType</a> item<td>非对称密钥参数类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *value<td>参数输出值。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_INVALID_PARAMS：参数无效。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygenerator_setpassword>OH_CryptoAsymKeyGenerator_SetPassword()<a href=#oh_cryptoasymkeygenerator_setpassword class=hash-link aria-label=OH_CryptoAsymKeyGenerator_SetPassword()的直接链接 title=OH_CryptoAsymKeyGenerator_SetPassword()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGenerator_SetPassword(OH_CryptoAsymKeyGenerator *ctx, const unsigned char *password, uint32_t passwordLen)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置非对称密钥生成器上下文的密码。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator/capi-cryptoasymkeyapi-oh-cryptoasymkeygenerator>OH_CryptoAsymKeyGenerator</a> *ctx<td>指向非对称加密上下文的指针。<tr><td>const unsigned char *password<td>表示密码。<tr><td>uint32_t passwordLen<td>表示密码长度。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoprivkeyencodingparams_create>OH_CryptoPrivKeyEncodingParams_Create()<a href=#oh_cryptoprivkeyencodingparams_create class=hash-link aria-label=OH_CryptoPrivKeyEncodingParams_Create()的直接链接 title=OH_CryptoPrivKeyEncodingParams_Create()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_Create(OH_CryptoPrivKeyEncodingParams **ctx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建私钥编码参数。</p>
+<p>注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoprivkeyencodingparams_destroy>OH_CryptoPrivKeyEncodingParams_Destroy</a>销毁。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams>OH_CryptoPrivKeyEncodingParams</a> **ctx<td>私钥编码参数。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoprivkeyencodingparams_setparam>OH_CryptoPrivKeyEncodingParams_SetParam()<a href=#oh_cryptoprivkeyencodingparams_setparam class=hash-link aria-label=OH_CryptoPrivKeyEncodingParams_SetParam()的直接链接 title=OH_CryptoPrivKeyEncodingParams_SetParam()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPrivKeyEncodingParams_SetParam(OH_CryptoPrivKeyEncodingParams *ctx, CryptoPrivKeyEncoding_ParamType type, Crypto_DataBlob *value)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置私钥编码参数。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams>OH_CryptoPrivKeyEncodingParams</a> *ctx<td>私钥编码参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoprivkeyencoding_paramtype>CryptoPrivKeyEncoding_ParamType</a> type<td>私钥编码参数类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *value<td>私钥编码参数值。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoprivkeyencodingparams_destroy>OH_CryptoPrivKeyEncodingParams_Destroy()<a href=#oh_cryptoprivkeyencodingparams_destroy class=hash-link aria-label=OH_CryptoPrivKeyEncodingParams_Destroy()的直接链接 title=OH_CryptoPrivKeyEncodingParams_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoPrivKeyEncodingParams_Destroy(OH_CryptoPrivKeyEncodingParams *ctx)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁私钥编码参数。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams>OH_CryptoPrivKeyEncodingParams</a> *ctx<td>私钥编码参数。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoprivkey_encode>OH_CryptoPrivKey_Encode()<a href=#oh_cryptoprivkey_encode class=hash-link aria-label=OH_CryptoPrivKey_Encode()的直接链接 title=OH_CryptoPrivKey_Encode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPrivKey_Encode(OH_CryptoPrivKey *key, Crypto_EncodingType type, const char *encodingStandard, OH_CryptoPrivKeyEncodingParams *params, Crypto_DataBlob *out)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>从私钥实例获取指定参数。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoprivkey/capi-cryptoasymkeyapi-oh-cryptoprivkey>OH_CryptoPrivKey</a> *key<td>私钥。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#crypto_encodingtype>Crypto_EncodingType</a> type<td>私钥编码类型。<tr><td>const char *encodingStandard<td>编码标准。  例如"PKCS8"。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams/pi-cryptoasymkeyapi-oh-cryptoprivkeyencodingparams>OH_CryptoPrivKeyEncodingParams</a> *params<td>私钥编码参数，可以为NULL，如果要加密私钥，则应设置此参数。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *out<td>编码结果。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoprivkey_getparam>OH_CryptoPrivKey_GetParam()<a href=#oh_cryptoprivkey_getparam class=hash-link aria-label=OH_CryptoPrivKey_GetParam()的直接链接 title=OH_CryptoPrivKey_GetParam()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoPrivKey_GetParam(OH_CryptoPrivKey *key, CryptoAsymKey_ParamType item, Crypto_DataBlob *value)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取私钥的指定参数。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoprivkey/capi-cryptoasymkeyapi-oh-cryptoprivkey>OH_CryptoPrivKey</a> *key<td>私钥。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoasymkey_paramtype>CryptoAsymKey_ParamType</a> item<td>非对称密钥参数类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *value<td>输出数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_geneccommonparamsspec>OH_CryptoAsymKeySpec_GenEcCommonParamsSpec()<a href=#oh_cryptoasymkeyspec_geneccommonparamsspec class=hash-link aria-label=OH_CryptoAsymKeySpec_GenEcCommonParamsSpec()的直接链接 title=OH_CryptoAsymKeySpec_GenEcCommonParamsSpec()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenEcCommonParamsSpec(const char *curveName, OH_CryptoAsymKeySpec **spec)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>生成EC通用参数规格。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁spec内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>const char *curveName<td>ECC曲线名称。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> **spec<td>指向EC通用参数规格的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_gendhcommonparamsspec>OH_CryptoAsymKeySpec_GenDhCommonParamsSpec()<a href=#oh_cryptoasymkeyspec_gendhcommonparamsspec class=hash-link aria-label=OH_CryptoAsymKeySpec_GenDhCommonParamsSpec()的直接链接 title=OH_CryptoAsymKeySpec_GenDhCommonParamsSpec()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GenDhCommonParamsSpec(int pLen, int skLen, OH_CryptoAsymKeySpec **spec)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>生成DH通用参数规格。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁spec内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>int pLen<td>素数p的字节长度。<tr><td>int skLen<td>私钥的字节长度。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> **spec<td>指向DH通用参数规格的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_create>OH_CryptoAsymKeySpec_Create()<a href=#oh_cryptoasymkeyspec_create class=hash-link aria-label=OH_CryptoAsymKeySpec_Create()的直接链接 title=OH_CryptoAsymKeySpec_Create()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_Create(const char *algoName, CryptoAsymKeySpec_Type type, OH_CryptoAsymKeySpec **spec)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>根据给定的算法名称和规格类型创建非对称密钥规格。</p>
+<p>注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy</a>销毁。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>const char *algoName<td>用于生成规格的算法名称。  例如"RSA"。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoasymkeyspec_type>CryptoAsymKeySpec_Type</a> type<td>非对称密钥规格类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> **spec<td>指向非对称密钥规格的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_setparam>OH_CryptoAsymKeySpec_SetParam()<a href=#oh_cryptoasymkeyspec_setparam class=hash-link aria-label=OH_CryptoAsymKeySpec_SetParam()的直接链接 title=OH_CryptoAsymKeySpec_SetParam()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置非对称密钥规格的指定参数。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *spec<td>非对称密钥规格。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoasymkey_paramtype>CryptoAsymKey_ParamType</a> type<td>非对称密钥参数类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *value<td>输入数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_setcommonparamsspec>OH_CryptoAsymKeySpec_SetCommonParamsSpec()<a href=#oh_cryptoasymkeyspec_setcommonparamsspec class=hash-link aria-label=OH_CryptoAsymKeySpec_SetCommonParamsSpec()的直接链接 title=OH_CryptoAsymKeySpec_SetCommonParamsSpec()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_SetCommonParamsSpec(OH_CryptoAsymKeySpec *spec, OH_CryptoAsymKeySpec *commonParamsSpec)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置非对称密钥规格的通用参数规格。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *spec<td>非对称密钥规格。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *commonParamsSpec<td>通用参数规格。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_getparam>OH_CryptoAsymKeySpec_GetParam()<a href=#oh_cryptoasymkeyspec_getparam class=hash-link aria-label=OH_CryptoAsymKeySpec_GetParam()的直接链接 title=OH_CryptoAsymKeySpec_GetParam()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeySpec_GetParam(OH_CryptoAsymKeySpec *spec, CryptoAsymKey_ParamType type, Crypto_DataBlob *value)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取非对称密钥规格的指定参数。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放value内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *spec<td>非对称密钥规格。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#cryptoasymkey_paramtype>CryptoAsymKey_ParamType</a> type<td>非对称密钥参数类型。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *value<td>输出数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeyspec_destroy>OH_CryptoAsymKeySpec_Destroy()<a href=#oh_cryptoasymkeyspec_destroy class=hash-link aria-label=OH_CryptoAsymKeySpec_Destroy()的直接链接 title=OH_CryptoAsymKeySpec_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoAsymKeySpec_Destroy(OH_CryptoAsymKeySpec *spec)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁非对称密钥规格。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *spec<td>非对称密钥规格。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygeneratorwithspec_create>OH_CryptoAsymKeyGeneratorWithSpec_Create()<a href=#oh_cryptoasymkeygeneratorwithspec_create class=hash-link aria-label=OH_CryptoAsymKeyGeneratorWithSpec_Create()的直接链接 title=OH_CryptoAsymKeyGeneratorWithSpec_Create()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_Create(OH_CryptoAsymKeySpec *keySpec, OH_CryptoAsymKeyGeneratorWithSpec **generator)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建带规格的非对称密钥生成器。</p>
+<p>注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoasymkeygeneratorwithspec_destroy>OH_CryptoAsymKeyGeneratorWithSpec_Destroy</a>销毁。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec/capi-cryptoasymkeyapi-oh-cryptoasymkeyspec>OH_CryptoAsymKeySpec</a> *keySpec<td>非对称密钥规格。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec>OH_CryptoAsymKeyGeneratorWithSpec</a> **generator<td>带规格的非对称密钥生成器。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygeneratorwithspec_genkeypair>OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair()<a href=#oh_cryptoasymkeygeneratorwithspec_genkeypair class=hash-link aria-label=OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair()的直接链接 title=OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair(OH_CryptoAsymKeyGeneratorWithSpec *generator, OH_CryptoKeyPair **keyPair)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>根据非对称密钥规格生成密钥对。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptokeypair_destroy>OH_CryptoKeyPair_Destroy</a>释放keyPair内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec>OH_CryptoAsymKeyGeneratorWithSpec</a> *generator<td>带规格的非对称密钥生成器。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptokeypair/capi-cryptoasymkeyapi-oh-cryptokeypair>OH_CryptoKeyPair</a> **keyPair<td>指向密钥对的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoasymkeygeneratorwithspec_destroy>OH_CryptoAsymKeyGeneratorWithSpec_Destroy()<a href=#oh_cryptoasymkeygeneratorwithspec_destroy class=hash-link aria-label=OH_CryptoAsymKeyGeneratorWithSpec_Destroy()的直接链接 title=OH_CryptoAsymKeyGeneratorWithSpec_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoAsymKeyGeneratorWithSpec_Destroy(OH_CryptoAsymKeyGeneratorWithSpec *generator)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁带规格的非对称密钥生成器。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec/cryptoasymkeyapi-oh-cryptoasymkeygeneratorwithspec>OH_CryptoAsymKeyGeneratorWithSpec</a> *generator<td>带规格的非对称密钥生成器。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoecpoint_create>OH_CryptoEcPoint_Create()<a href=#oh_cryptoecpoint_create class=hash-link aria-label=OH_CryptoEcPoint_Create()的直接链接 title=OH_CryptoEcPoint_Create()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoEcPoint_Create(const char *curveName, Crypto_DataBlob *ecKeyData, OH_CryptoEcPoint **point)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>创建EC点。</p>
+<p>注意：创建的资源必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-key-h/capi-crypto-asym-key-h#oh_cryptoecpoint_destroy>OH_CryptoEcPoint_Destroy</a>销毁。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td>const char *curveName<td>曲线名称。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *ecKeyData<td>EC点数据，支持"04<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a> **point<td>指向EC点的指针。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoecpoint_getcoordinate>OH_CryptoEcPoint_GetCoordinate()<a href=#oh_cryptoecpoint_getcoordinate class=hash-link aria-label=OH_CryptoEcPoint_GetCoordinate()的直接链接 title=OH_CryptoEcPoint_GetCoordinate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoEcPoint_GetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>获取EC点的x和y坐标。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放x和y内存</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a> *point<td>EC点。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *x<td>EC点的x坐标,可以为NULL。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *y<td>EC点的y坐标,可以为NULL。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoecpoint_setcoordinate>OH_CryptoEcPoint_SetCoordinate()<a href=#oh_cryptoecpoint_setcoordinate class=hash-link aria-label=OH_CryptoEcPoint_SetCoordinate()的直接链接 title=OH_CryptoEcPoint_SetCoordinate()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoEcPoint_SetCoordinate(OH_CryptoEcPoint *point, Crypto_DataBlob *x, Crypto_DataBlob *y)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>设置EC点的x和y坐标。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a> *point<td>EC点。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *x<td>EC点的x坐标。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *y<td>EC点的y坐标。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoecpoint_encode>OH_CryptoEcPoint_Encode()<a href=#oh_cryptoecpoint_encode class=hash-link aria-label=OH_CryptoEcPoint_Encode()的直接链接 title=OH_CryptoEcPoint_Encode()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">OH_Crypto_ErrCode OH_CryptoEcPoint_Encode(OH_CryptoEcPoint *point, const char *format, Crypto_DataBlob *out)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>将EC点编码为指定格式。</p>
+<p>注意：使用完成后必须通过<a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_freedatablob>OH_Crypto_FreeDataBlob</a>释放out内存。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a> *point<td>EC点。<tr><td>const char *format<td>编码格式,支持"UNCOMPRESSED"和"COMPRESSED"。<tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptocommonapi-crypto-datablob/capi-cryptocommonapi-crypto-datablob>Crypto_DataBlob</a> *out<td>编码后的EC点数据。</table>
+<p><strong><strong>返回：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h#oh_crypto_errcode>OH_Crypto_ErrCode</a><td>CRYPTO_SUCCESS：操作成功。  CRYPTO_NOT_SUPPORTED：操作不支持。  CRYPTO_MEMORY_ERROR：内存错误。  CRYPTO_PARAMETER_CHECK_FAILED：参数检查失败。  CRYPTO_OPERTION_ERROR：调用三方算法库API出错。</table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oh_cryptoecpoint_destroy>OH_CryptoEcPoint_Destroy()<a href=#oh_cryptoecpoint_destroy class=hash-link aria-label=OH_CryptoEcPoint_Destroy()的直接链接 title=OH_CryptoEcPoint_Destroy()的直接链接 translate=no>​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">void OH_CryptoEcPoint_Destroy(OH_CryptoEcPoint *point)</span><br/></div></code></pre></div></div>
+<p><strong><strong>描述</strong></strong></p>
+<p>销毁EC点。</p>
+<p><strong><strong>起始版本：</strong></strong> 20</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数项<th>描述<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-struct/capi-cryptoasymkeyapi-oh-cryptoecpoint/capi-cryptoasymkeyapi-oh-cryptoecpoint>OH_CryptoEcPoint</a> *point<td>EC点。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-asym-cipher-h/capi-crypto-asym-cipher-h><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>crypto_asym_cipher.h</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-security-api/crypto-architecture-api/crypto-architecture-c/crypto-architecture-headerfile/capi-crypto-common-h/capi-crypto-common-h><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>crypto_common.h</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#概述 class="table-of-contents__link toc-highlight">概述</a><li><a href=#汇总 class="table-of-contents__link toc-highlight">汇总</a><ul><li><a href=#结构体 class="table-of-contents__link toc-highlight">结构体</a><li><a href=#枚举 class="table-of-contents__link toc-highlight">枚举</a><li><a href=#函数 class="table-of-contents__link toc-highlight">函数</a></ul><li><a href=#枚举类型说明 class="table-of-contents__link toc-highlight">枚举类型说明</a><ul><li><a href=#cryptoasymkey_paramtype class="table-of-contents__link toc-highlight">CryptoAsymKey_ParamType</a><li><a href=#crypto_encodingtype class="table-of-contents__link toc-highlight">Crypto_EncodingType</a><li><a href=#cryptoprivkeyencoding_paramtype class="table-of-contents__link toc-highlight">CryptoPrivKeyEncoding_ParamType</a><li><a href=#cryptoasymkeyspec_type class="table-of-contents__link toc-highlight">CryptoAsymKeySpec_Type</a></ul><li><a href=#函数说明 class="table-of-contents__link toc-highlight">函数说明</a><ul><li><a href=#oh_cryptoasymkeygenerator_create class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_Create()</a><li><a href=#oh_cryptoasymkeygenerator_generate class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_Generate()</a><li><a href=#oh_cryptoasymkeygenerator_convert class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_Convert()</a><li><a href=#oh_cryptoasymkeygenerator_getalgoname class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_GetAlgoName()</a><li><a href=#oh_cryptoasymkeygenerator_destroy class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_Destroy()</a><li><a href=#oh_cryptokeypair_destroy class="table-of-contents__link toc-highlight">OH_CryptoKeyPair_Destroy()</a><li><a href=#oh_cryptokeypair_getpubkey class="table-of-contents__link toc-highlight">OH_CryptoKeyPair_GetPubKey()</a><li><a href=#oh_cryptokeypair_getprivkey class="table-of-contents__link toc-highlight">OH_CryptoKeyPair_GetPrivKey()</a><li><a href=#oh_cryptopubkey_encode class="table-of-contents__link toc-highlight">OH_CryptoPubKey_Encode()</a><li><a href=#oh_cryptopubkey_getparam class="table-of-contents__link toc-highlight">OH_CryptoPubKey_GetParam()</a><li><a href=#oh_cryptoasymkeygenerator_setpassword class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGenerator_SetPassword()</a><li><a href=#oh_cryptoprivkeyencodingparams_create class="table-of-contents__link toc-highlight">OH_CryptoPrivKeyEncodingParams_Create()</a><li><a href=#oh_cryptoprivkeyencodingparams_setparam class="table-of-contents__link toc-highlight">OH_CryptoPrivKeyEncodingParams_SetParam()</a><li><a href=#oh_cryptoprivkeyencodingparams_destroy class="table-of-contents__link toc-highlight">OH_CryptoPrivKeyEncodingParams_Destroy()</a><li><a href=#oh_cryptoprivkey_encode class="table-of-contents__link toc-highlight">OH_CryptoPrivKey_Encode()</a><li><a href=#oh_cryptoprivkey_getparam class="table-of-contents__link toc-highlight">OH_CryptoPrivKey_GetParam()</a><li><a href=#oh_cryptoasymkeyspec_geneccommonparamsspec class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_GenEcCommonParamsSpec()</a><li><a href=#oh_cryptoasymkeyspec_gendhcommonparamsspec class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_GenDhCommonParamsSpec()</a><li><a href=#oh_cryptoasymkeyspec_create class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_Create()</a><li><a href=#oh_cryptoasymkeyspec_setparam class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_SetParam()</a><li><a href=#oh_cryptoasymkeyspec_setcommonparamsspec class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_SetCommonParamsSpec()</a><li><a href=#oh_cryptoasymkeyspec_getparam class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_GetParam()</a><li><a href=#oh_cryptoasymkeyspec_destroy class="table-of-contents__link toc-highlight">OH_CryptoAsymKeySpec_Destroy()</a><li><a href=#oh_cryptoasymkeygeneratorwithspec_create class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGeneratorWithSpec_Create()</a><li><a href=#oh_cryptoasymkeygeneratorwithspec_genkeypair class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGeneratorWithSpec_GenKeyPair()</a><li><a href=#oh_cryptoasymkeygeneratorwithspec_destroy class="table-of-contents__link toc-highlight">OH_CryptoAsymKeyGeneratorWithSpec_Destroy()</a><li><a href=#oh_cryptoecpoint_create class="table-of-contents__link toc-highlight">OH_CryptoEcPoint_Create()</a><li><a href=#oh_cryptoecpoint_getcoordinate class="table-of-contents__link toc-highlight">OH_CryptoEcPoint_GetCoordinate()</a><li><a href=#oh_cryptoecpoint_setcoordinate class="table-of-contents__link toc-highlight">OH_CryptoEcPoint_SetCoordinate()</a><li><a href=#oh_cryptoecpoint_encode class="table-of-contents__link toc-highlight">OH_CryptoEcPoint_Encode()</a><li><a href=#oh_cryptoecpoint_destroy class="table-of-contents__link toc-highlight">OH_CryptoEcPoint_Destroy()</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>

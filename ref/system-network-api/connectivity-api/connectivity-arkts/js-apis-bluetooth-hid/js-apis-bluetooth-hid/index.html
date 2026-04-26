@@ -1,0 +1,1497 @@
+<!doctype html><html lang=zh-Hans dir=ltr class="docs-wrapper plugin-docs plugin-id-ref docs-version-current docs-doc-page docs-doc-id-system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.0"><title data-rh=true>@ohos.bluetooth.hid (蓝牙hid模块) | HarmonyOS 开发者文档镜像</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:url content=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid /><meta data-rh=true property=og:locale content=zh_Hans /><meta data-rh=true name=docusaurus_locale content=zh-Hans /><meta data-rh=true name=docsearch:language content=zh-Hans /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-ref-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-ref-current /><meta data-rh=true property=og:title content="@ohos.bluetooth.hid (蓝牙hid模块) | HarmonyOS 开发者文档镜像"/><meta data-rh=true name=description content="本模块提供基于人机接口协议（Human Interface Device Profile，HID）技术的蓝牙人机交互能力，支持获取连接状态等方法。"/><meta data-rh=true property=og:description content="本模块提供基于人机接口协议（Human Interface Device Profile，HID）技术的蓝牙人机交互能力，支持获取连接状态等方法。"/><link data-rh=true rel=icon href=/harmonyos-docs-site/img/favicon.ico /><link data-rh=true rel=canonical href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid hreflang=zh-Hans /><link data-rh=true rel=alternate href=https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://hmos-docsteam.github.io/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid","name":"@ohos.bluetooth.hid (蓝牙hid模块)","position":1}]}</script><link rel=stylesheet href=/harmonyos-docs-site/assets/css/styles.05b0e688.css /><script src=/harmonyos-docs-site/assets/js/runtime~main.af951f84.js defer></script><script src=/harmonyos-docs-site/assets/js/main.c4e2fe06.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-43d")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><div role=region aria-label=跳到主要内容><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>跳到主要内容</a></div><nav aria-label=主导航 class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label=切换导航栏 aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/harmonyos-docs-site/><b class="navbar__title text--truncate">HarmonyOS Docs</b></a><a class="navbar__item navbar__link" href=/harmonyos-docs-site/application-dev-guide/>开发指南</a><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api>API参考</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href=https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/application-dev-guide target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">官网<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="切换浅色/暗黑模式（当前为system mode）"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label=回到顶部 class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label=文档侧边栏 class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/development-intro-api/development-intro-api><span title=API参考概述 class=categoryLinkLabel_W154>API参考概述</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ability-api/ability-arkts/stage-model/js-apis-app-ability-ability/js-apis-app-ability-ability><span title=应用框架 class=categoryLinkLabel_W154>应用框架</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=系统 class=categoryLinkLabel_W154>系统</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-security-api/asset-store-api/asset-store-arkts/js-apis-asset/js-apis-asset><span title=安全 class=categoryLinkLabel_W154>安全</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title=网络 class=categoryLinkLabel_W154>网络</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="Connectivity Kit（短距通信服务）" class=categoryLinkLabel_W154>Connectivity Kit（短距通信服务）</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role=button aria-expanded=true tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="ArkTS API" class=categoryLinkLabel_W154>ArkTS API</span></a></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-a2dp/js-apis-bluetooth-a2dp><span title="@ohos.bluetooth.a2dp (蓝牙a2dp模块)" class=linkLabel_WmDU>@ohos.bluetooth.a2dp (蓝牙a2dp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-access/js-apis-bluetooth-access><span title="@ohos.bluetooth.access (蓝牙access模块)" class=linkLabel_WmDU>@ohos.bluetooth.access (蓝牙access模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-baseprofile/js-apis-bluetooth-baseprofile><span title="@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)" class=linkLabel_WmDU>@ohos.bluetooth.baseProfile (蓝牙baseProfile模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-ble/js-apis-bluetooth-ble><span title="@ohos.bluetooth.ble (蓝牙ble模块)" class=linkLabel_WmDU>@ohos.bluetooth.ble (蓝牙ble模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-connection/js-apis-bluetooth-connection><span title="@ohos.bluetooth.connection (蓝牙connection模块)" class=linkLabel_WmDU>@ohos.bluetooth.connection (蓝牙connection模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-constant/js-apis-bluetooth-constant><span title="@ohos.bluetooth.constant (蓝牙constant模块)" class=linkLabel_WmDU>@ohos.bluetooth.constant (蓝牙constant模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-common/js-apis-bluetooth-common><span title="@ohos.bluetooth.common (蓝牙common模块)" class=linkLabel_WmDU>@ohos.bluetooth.common (蓝牙common模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hfp/js-apis-bluetooth-hfp><span title="@ohos.bluetooth.hfp (蓝牙hfp模块)" class=linkLabel_WmDU>@ohos.bluetooth.hfp (蓝牙hfp模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hid/js-apis-bluetooth-hid><span title="@ohos.bluetooth.hid (蓝牙hid模块)" class=linkLabel_WmDU>@ohos.bluetooth.hid (蓝牙hid模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pan/js-apis-bluetooth-pan><span title="@ohos.bluetooth.pan (蓝牙pan模块)" class=linkLabel_WmDU>@ohos.bluetooth.pan (蓝牙pan模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-socket/js-apis-bluetooth-socket><span title="@ohos.bluetooth.socket (蓝牙socket模块)" class=linkLabel_WmDU>@ohos.bluetooth.socket (蓝牙socket模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pbap/js-apis-bluetooth-pbap><span title="@ohos.bluetooth.pbap (蓝牙pbap模块)" class=linkLabel_WmDU>@ohos.bluetooth.pbap (蓝牙pbap模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-map/js-apis-bluetooth-map><span title="@ohos.bluetooth.map (蓝牙map模块)" class=linkLabel_WmDU>@ohos.bluetooth.map (蓝牙map模块)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-connectedtag/js-apis-connectedtag><span title="@ohos.connectedTag (有源标签)" class=linkLabel_WmDU>@ohos.connectedTag (有源标签)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-cardemulation/js-apis-cardemulation><span title="@ohos.nfc.cardEmulation (标准NFC-cardEmulation)" class=linkLabel_WmDU>@ohos.nfc.cardEmulation (标准NFC-cardEmulation)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfccontroller/js-apis-nfccontroller><span title="@ohos.nfc.controller (标准NFC)" class=linkLabel_WmDU>@ohos.nfc.controller (标准NFC)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-nfctag/js-apis-nfctag><span title="@ohos.nfc.tag (标准NFC-Tag)" class=linkLabel_WmDU>@ohos.nfc.tag (标准NFC-Tag)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-secureelement/js-apis-secureelement><span title="@ohos.secureElement (安全单元的通道管理)" class=linkLabel_WmDU>@ohos.secureElement (安全单元的通道管理)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanager/js-apis-wifimanager><span title="@ohos.wifiManager (WLAN)" class=linkLabel_WmDU>@ohos.wifiManager (WLAN)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-wifimanagerext/js-apis-wifimanagerext><span title="@ohos.wifiManagerExt (WLAN扩展接口)" class=linkLabel_WmDU>@ohos.wifiManagerExt (WLAN扩展接口)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-fusionconnectivity-partneragent/js-apis-fusionconnectivity-partneragent><span title=@ohos.FusionConnectivity.partnerAgent（设备状态通知模块） class=linkLabel_WmDU>@ohos.FusionConnectivity.partnerAgent（设备状态通知模块）</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensioncontext/is-fusionconnectivity-partneragentextensioncontext><span title="@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionContext (设备状态通知能力上下文)</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-5 menu__list-item"><a class=menu__link tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/is-fusionconnectivity-partneragentextensionability/is-fusionconnectivity-partneragentextensionability><span title="@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)" class=linkLabel_WmDU>@ohos.FusionConnectivity.PartnerAgentExtensionAbility (支持设备状态通知的ExtensionAbility组件)</span></a><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-5 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/connectivity-nfc-tag-arkts/js-apis-nfctech/js-apis-nfctech><span title=tag class=categoryLinkLabel_W154>tag</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-c/connectivity-module/capi-bluetooth/capi-bluetooth><span title="C API" class=categoryLinkLabel_W154>C API</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager><span title=错误码 class=categoryLinkLabel_W154>错误码</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-4 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-dep/js-apis-bluetooth/js-apis-bluetooth><span title=已停止维护的接口 class=categoryLinkLabel_W154>已停止维护的接口</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/distributed-service-api/distributed-service-arkts/js-apis-distributeddevicemanager/js-apis-distributeddevicemanager><span title="Distributed Service Kit（分布式管理服务）" class=categoryLinkLabel_W154>Distributed Service Kit（分布式管理服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/nearlink-api/nearlink-arkts/nearlink-manager/nearlink-manager><span title="NearLink Kit（星闪服务）" class=categoryLinkLabel_W154>NearLink Kit（星闪服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-api/network-api-arkts/js-apis-net-connection/js-apis-net-connection><span title="Network Kit（网络服务）" class=categoryLinkLabel_W154>Network Kit（网络服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/network-boost-api/networkboost-arkts/networkboost-netquality/networkboost-netquality><span title="Network Boost Kit（网络加速服务）" class=categoryLinkLabel_W154>Network Boost Kit（网络加速服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/remote-communication-api/remote-communication-arkts/remote-communication-rcp/remote-communication-rcp><span title="Remote Communication Kit（远场通信服务）" class=categoryLinkLabel_W154>Remote Communication Kit（远场通信服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/service-collaboration-api/servicecollaboration-arkts/servicecollaboration-collaborationcamera/servicecollaboration-collaborationcamera><span title="Service Collaboration Kit（协同服务）" class=categoryLinkLabel_W154>Service Collaboration Kit（协同服务）</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-network-api/telephony-api/telephony-arkts/js-apis-call/js-apis-call><span title="Telephony Kit（蜂窝通信服务）" class=categoryLinkLabel_W154>Telephony Kit（蜂窝通信服务）</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-basicfun-api/basic-services-api/basic-services-arkts/account-management-arkts/js-apis-appaccount/js-apis-appaccount><span title=基础功能 class=categoryLinkLabel_W154>基础功能</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-hardware-api/car-api/car-api-references/car-navigationinfomgr/car-navigationinfomgr><span title=硬件 class=categoryLinkLabel_W154>硬件</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false tabindex=0 href=/harmonyos-docs-site/ref/system-debug-optimize-api/performance-analysis-api/performance-analysis-arkts/js-apis-hichecker/js-apis-hichecker><span title=调测调优 class=categoryLinkLabel_W154>调测调优</span></a></div></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/audio-api/audio-arkts/js-apis-audio/arkts-apis-audio/arkts-apis-audio><span title=媒体 class=categoryLinkLabel_W154>媒体</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/ar-engine-api/arengine-arkts-api/arengine-api-arengine/arengine-api-arengine><span title=图形 class=categoryLinkLabel_W154>图形</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/account-api/account-api-arkts/account-api-authentication/account-api-authentication><span title=应用服务 class=categoryLinkLabel_W154>应用服务</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/harmony-agent-framework-api/hmaf-arkts/hmaf-function-component/hmaf-function-component><span title=AI class=categoryLinkLabel_W154>AI</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/common-basic-arkts/js-apis-logs/js-apis-logs><span title=公共基础能力 class=categoryLinkLabel_W154>公共基础能力</span></a></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role=button aria-expanded=false href=/harmonyos-docs-site/ref/musl/musl><span title=标准库 class=categoryLinkLabel_W154>标准库</span></a></div></ul></nav><button type=button title=收起侧边栏 aria-label=收起侧边栏 class="button button--secondary button--outline collapseSidebarButton_PEFL"><svg width=20 height=20 aria-hidden=true class=collapseSidebarButtonIcon_kv0_><g fill=#7a7a7a><path d="M9.992 10.023c0 .2-.062.399-.172.547l-4.996 7.492a.982.982 0 01-.828.454H1c-.55 0-1-.453-1-1 0-.2.059-.403.168-.551l4.629-6.942L.168 3.078A.939.939 0 010 2.528c0-.548.45-.997 1-.997h2.996c.352 0 .649.18.828.45L9.82 9.472c.11.148.172.347.172.55zm0 0"/><path d="M19.98 10.023c0 .2-.058.399-.168.547l-4.996 7.492a.987.987 0 01-.828.454h-3c-.547 0-.996-.453-.996-1 0-.2.059-.403.168-.551l4.625-6.942-4.625-6.945a.939.939 0 01-.168-.55 1 1 0 01.996-.997h3c.348 0 .649.18.828.45l4.996 7.492c.11.148.168.347.168.55zm0 0"/></g></svg></button></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=页面路径><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label=主页面 class=breadcrumbs__link href=/harmonyos-docs-site/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><span class=breadcrumbs__link>系统</span><li class=breadcrumbs__item><span class=breadcrumbs__link>网络</span><li class=breadcrumbs__item><span class=breadcrumbs__link>Connectivity Kit（短距通信服务）</span><li class=breadcrumbs__item><span class=breadcrumbs__link>ArkTS API</span><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>@ohos.bluetooth.hid (蓝牙hid模块)</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">本页总览</button></div><div class="theme-doc-markdown markdown"><header><h1>@ohos.bluetooth.hid (蓝牙hid模块)</h1></header>
+<p>本模块提供基于人机接口协议（Human Interface Device Profile，<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>HID</a>）技术的蓝牙人机交互能力，支持获取连接状态等方法。</p>
+<p>当本端设备被注册为HID设备的角色时，可以使用<a href=#hiddeviceprofile23 class="">HidDeviceProfile</a>相关接口，且仅支持与传统蓝牙类型设备连接和交互。</p>
+<p><img decoding=async loading=lazy src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGYAAAAmCAYAAAA2h+4OAAAACXBIWXMAAA7DAAAOwwHHb6hkAAAD8UlEQVRo3u2aT2gcVRzHP09mZFes3ZyKRSUG9SKSlYhQsLgoevAPBiRHYS9NDoItbKQgCLnUQ5tALyJZEFuwiPVgIBU9RKwinmrdHrQ0oO7JPydTIwZcy7eH/Y19rrO7M9Mmxvi+sMzOe+/3ZjKf+b3f7/2yThJB2083hUcQwAQFMAFMUAATwAQFMEE7HoxzruqcezmlveKcm05pH3fOzWzXvycqaliO41FgEqgAtZQhLfssbXQ6ayn2k0B1gO2a2bYyQBkHTgF7nXNIOmbtM8ACcMXam57ZG8A+59wLkh5JmXMOWE97mSUdc859AOwZcFtnJM0VftGK7vzLcbwGtIElO7a97hqQgNsNnAQOWd8h7/tZD2ACr2LAqsBzwN0bnU47A5wV4HHgInBY0rK1LwPP2P09KGnNOdcA5oHLNnYxZb5zwETKpZqSZgb0J5qVtFDYZSTl/pSiqFKKIpWiqJZhbL0URW0br1IUrZWiqJ7jGpNZ7smAfg8I+NxrHwUuGfyGtX1t404MmO+cjVkGDttRwGJPf6OPXaPIs/1rngJQ6t5DruWwaxuUSg6b5DrHM8KZBj4Bxu1cGT+nB4BJYDa2EkyRGFMv6JwngFpavMmgakbvbwLNlK4v+5jsAe4AftkxwX+bZWSXvED9s6Sne4A91Mdu0bzsejTvnJsPYNJ1XwbvKKp9BnBvn/6LwO/e+b3AbQFMV08AUzfg7U/T80P63/SzrwzZ2v8HjKQV28swYMlK03iG6ZvAe5sIfkd7zDANe6AjA/pW+4BPnt1dti9KdEsAMzghmLQlDuB1i0OzdpwGVoEXrf+7ApcYs+NLwWOyQ1kA9kt62M43UhKDdUkrBed/FtjlLXU+2IPA7QHMNd3qZWgTSWETuNNiya9WlplIedBfARck1TNmZUlC8K2kmZ65pgKYdO0CfrOdeht4xdrPS2o75/ptYK9kzMrGvJh0Pq2MGJayv2t/8hYDrwI/2jIzZZvP3oLizRaHkgrxN0OyssQrD5jXrQNHzEvq9hKMAn/0ePC/AuZ4OY5bdkO9atOtHv+j7F+O4wrdynO1T7mlSNnmtC1bB4DHgKNWblkH3pZ0xsZ9bMcHgPc9+5965vvQYtIpSZ8ZgHeBp6z/I0kXnHNjwFtp2dx1xcm8Zf9yHJ8FHs15nZNcK+cv0a237c5h/+lGp1PLGaC/AO4BDkp6p6fvKPAk8KeXlb0mqTVkzhG6RdJY0v1e+w9eXFkFliXNbjWYJbr/J9lK5QazyVnfiKRNLXwWAVMhY7XXVAHmvF32ZfOYPMtVq2BV+r+b8offLm9PhV/JBDBBAUwAExTABDBBAUxQABPABN0QXQXAUtdXGlCCowAAAABJRU5ErkJggg==" width=102 height=38 class=img_ev3q /></p>
+<p>本模块首批接口从API version 10开始支持。后续版本的新增接口，采用上角标单独标记接口的起始版本。</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=导入模块>导入模块<a href=#导入模块 class=hash-link aria-label=导入模块的直接链接 title=导入模块的直接链接 translate=no>​</a></h2>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { hid } from '@kit.ConnectivityKit';</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=baseprofile>BaseProfile<a href=#baseprofile class=hash-link aria-label=BaseProfile的直接链接 title=BaseProfile的直接链接 translate=no>​</a></h2>
+<p>type BaseProfile = baseProfile.BaseProfile</p>
+<p>基础Profile接口定义，提供订阅连接状态和获取连接状态等公共能力。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-baseprofile/js-apis-bluetooth-baseprofile#baseprofile>baseProfile.BaseProfile</a><td>基础Profile接口定义。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=bluetoothaddress23>BluetoothAddress23+<a href=#bluetoothaddress23 class=hash-link aria-label=BluetoothAddress23+的直接链接 title=BluetoothAddress23+的直接链接 translate=no>​</a></h2>
+<p>type BluetoothAddress = common.BluetoothAddress</p>
+<p>描述蓝牙设备地址信息的参数结构，包括地址与地址类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-common/js-apis-bluetooth-common#bluetoothaddress>common.BluetoothAddress</a><td>蓝牙设备的地址信息。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hidcreatehidhostprofile>hid.createHidHostProfile<a href=#hidcreatehidhostprofile class=hash-link aria-label=hid.createHidHostProfile的直接链接 title=hid.createHidHostProfile的直接链接 translate=no>​</a></h2>
+<p>createHidHostProfile(): HidHostProfile</p>
+<p>创建蓝牙<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-host>HID Host</a>实例。通过该实例可使用本端作为HID Host的接口，如：获取和其他设备间的蓝牙HID连接状态。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td>HidHostProfile<td>返回HID Host实例。  - 该类继承于<a href=#baseprofile class="">BaseProfile</a>，因此可以使用其父类中的方法。  - 和该实例角色相对应的是<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-device>HID Device</a>角色。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>401<td>Invalid parameter. Possible causes: 1. Mandatory parameters are left unspecified. 2. Incorrect parameter types. 3. Parameter verification failed.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidHostProfile = hid.createHidHostProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('hidHost success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hidcreatehiddeviceprofile23>hid.createHidDeviceProfile23+<a href=#hidcreatehiddeviceprofile23 class=hash-link aria-label=hid.createHidDeviceProfile23+的直接链接 title=hid.createHidDeviceProfile23+的直接链接 translate=no>​</a></h2>
+<p>createHidDeviceProfile(): HidDeviceProfile</p>
+<p>创建蓝牙<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-device>HID Device</a>实例。通过该实例可使用本端作为HID Device的接口，如：获取和其他设备间的蓝牙HID连接状态。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>返回值：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>类型<th>说明<tbody><tr><td><a href=#hiddeviceprofile23 class="">HidDeviceProfile</a><td>返回HID Device实例。  - 该类继承于<a href=#baseprofile class="">BaseProfile</a>，因此可以使用其父类中的方法。  - 和该实例角色相对应的是<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-host>HID Host</a>角色。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info('hidDevice success');</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiddeviceprofile23>HidDeviceProfile23+<a href=#hiddeviceprofile23 class=hash-link aria-label=HidDeviceProfile23+的直接链接 title=HidDeviceProfile23+的直接链接 translate=no>​</a></h2>
+<p>该实例表示蓝牙HID通信中的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-device>HID Device</a>角色。</p>
+<ul>
+<li class="">该类继承于<a href=#baseprofile class="">BaseProfile</a>，因此可以使用其父类中的方法。</li>
+<li class="">使用该类的方法前，需通过<a href=#hidcreatehiddeviceprofile23 class="">createHidDeviceProfile</a>方法构造该类的实例。</li>
+<li class="">通过该实例可以操作设备端的行为，如注册HID设备(<a href=#registerhiddevice23 class="">registerHidDevice</a>)，发送报告(<a href=#sendreport23 class="">sendReport</a>)等。</li>
+<li class="">和该实例角色相对应的是<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid-host>HID Host</a>。</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=registerhiddevice23>registerHidDevice23+<a href=#registerhiddevice23 class=hash-link aria-label=registerHidDevice23+的直接链接 title=registerHidDevice23+的直接链接 translate=no>​</a></h3>
+<p>registerHidDevice(sdp: HidDeviceSdp, inQos: HidDeviceQos, outQos: HidDeviceQos, callback: Callback&lt;boolean>): void</p>
+<p>应用注册HID设备能力，以便与HID主机(如电脑、手机)进行通信。使用callback异步回调。</p>
+<ul>
+<li class="">当应用调用该接口并注册成功后，可以通过调用<a href=#connect23 class="">connect</a>接口连接HID主机。</li>
+<li class="">同一时间仅允许一个应用成功注册HID设备能力，同一应用重复注册将失败，注册成功后其他应用注册也将失败。</li>
+<li class="">当应用不再需要HID设备能力时，需要主动调用<a href=#unregisterhiddevice23 class="">unregisterHidDevice</a>接口解除注册HID设备能力。</li>
+<li class="">调用该接口时，应用必须处于前台，否则无法注册成功。</li>
+<li class="">应用注册成功之后，若切换到后台，HID设备会自动解除注册，注册状态变化将通过回调上报给上层应用。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>sdp<td><a href=#hiddevicesdp23 class="">HidDeviceSdp</a><td>是<td>HID设备的服务能力记录，定义了设备类型、描述符等具体信息。<tr><td>inQos<td><a href=#hiddeviceqos23 class="">HidDeviceQos</a><td>是<td>输入通道的Qos配置，用于定义对端到本端的数据流参数。<tr><td>outQos<td><a href=#hiddeviceqos23 class="">HidDeviceQos</a><td>是<td>输出通道的Qos配置，用于定义本端到对端的数据流参数。<tr><td>callback<td>Callback&lt;boolean><td>是<td>回调函数。返回true表示HID设备当前为注册状态；返回false表示HID设备当前为解注册状态。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.<tr><td>2903050<td>Application is not in the foreground.<tr><td>2903051<td>Any app has been registered.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let descriptors: Uint8Array = new Uint8Array([</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 描述符示例，需要遵循USB HID规范</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x05, 0x01,        // 指定设备类别为通用桌面控制</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x09, 0x06,        // 具体设备为键盘</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0xA1, 0x01,        // 应用集合开始</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    </span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 按键字段定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x05, 0x07,        // 切换到键盘/键区</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x19, 0x00,        // 定义最小按键码为0（无按键）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x29, 0x01,        // 定义最大按键码为1（只支持2个值）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x15, 0x00,        // 逻辑最小值0（数据范围下限）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x25, 0x01,        // 逻辑最大值1（数据范围上限）</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x75, 0x08,        // 每个字段八位</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x95, 0x01,        // 只有一个字段</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0x81, 0x00,        // 定义输入字段：数据字段，值为按键数组</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    </span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    // 结束设备定义</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    0xC0               // 应用集合结束</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">// 以键盘为例</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let sdp: hid.HidDeviceSdp = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "name": "testName",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "description": "testDescription",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "provider": "testProvider",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "subclass": hid.Subclass.SUBCLASS_KEYBOARD,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "descriptors": descriptors,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let inqos: hid.HidDeviceQos = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "serviceType": hid.ServiceType.SERVICE_BEST_EFFORT,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "tokenRate": 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "tokenBucketSize": 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "peakBandwidth": 0,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "latency": -1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "delayVariation": -1,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let outqos: hid.HidDeviceQos = {};</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">function registerStateCallback(callback: boolean) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`state: ${callback}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.registerHidDevice(sdp, inqos, outqos, registerStateCallback)</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=unregisterhiddevice23>unregisterHidDevice23+<a href=#unregisterhiddevice23 class=hash-link aria-label=unregisterHidDevice23+的直接链接 title=unregisterHidDevice23+的直接链接 translate=no>​</a></h3>
+<p>unregisterHidDevice(): void</p>
+<p>解除注册本端作为HID设备的能力，并释放所有相关资源。</p>
+<ul>
+<li class="">若调用该接口前，本端已通过调用<a href=#connect23 class="">connect</a>建立与HID主机的连接，调用后本端与HID主机的连接会被断开。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.unregisterHidDevice();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=connect23>connect23+<a href=#connect23 class=hash-link aria-label=connect23+的直接链接 title=connect23+的直接链接 translate=no>​</a></h3>
+<p>connect(deviceId: BluetoothAddress): void</p>
+<p>向指定的HID主机发起连接。</p>
+<ul>
+<li class="">调用该接口前需要先调用<a href=#registerhiddevice23 class="">registerHidDevice</a>完成HID设备能力注册。</li>
+<li class="">可通过订阅<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-baseprofile/js-apis-bluetooth-baseprofile#baseprofileonconnectionstatechange>on('connectionStateChange')</a>事件来感知连接是否成功。</li>
+<li class="">当不需要连接时需调用<a href=#disconnect23 class="">disconnect</a>断开连接。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>deviceId<td><a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-common/js-apis-bluetooth-common#bluetoothaddress>BluetoothAddress</a><td>是<td>需要连接的对端蓝牙设备地址信息，HID设备中不涉及rawAddressType，无需给定该参数。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900004<td>Remote Device profile not supported.<tr><td>2900099<td>Operation failed.<tr><td>2903052<td>App not register.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">import { common } from '@kit.ConnectivityKit';</span><br/></div><div class=token-line style=color:#393A34><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let device: common.BluetoothAddress = {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "address": "11:22:33:44:55:66",</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    "addressType": common.BluetoothAddressType.REAL,</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.connect(device);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=disconnect23>disconnect23+<a href=#disconnect23 class=hash-link aria-label=disconnect23+的直接链接 title=disconnect23+的直接链接 translate=no>​</a></h3>
+<p>disconnect(): void</p>
+<p>断开与当前HID主机的连接，并释放相关的资源。</p>
+<ul>
+<li class="">调用成功后不影响当前HID设备的注册状态，应用仍处于已注册状态，可以再次调用<a href=#connect23 class="">connect</a>连接新的HID主机。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.<tr><td>2903052<td>App not register.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.disconnect();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=sendreport23>sendReport23+<a href=#sendreport23 class=hash-link aria-label=sendReport23+的直接链接 title=sendReport23+的直接链接 translate=no>​</a></h3>
+<p>sendReport(id: number, reportData: Uint8Array): void</p>
+<p>向已连接的HID主机发送报告数据。</p>
+<ul>
+<li class="">调用该接口前必须已调用<a href=#registerhiddevice23 class="">registerHidDevice</a>完成注册，并通过<a href=#connect23 class="">connect</a>建立与HID主机的连接。</li>
+<li class="">报告数据的长度和内容必须与HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>所定义的规范保持一致，否则HID主机将无法正确解析。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>id<td>number<td>是<td>对应HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中定义的报告ID，用于标识报告类型，对于不带ID的简单设备，此参数应设置为0。对于定义了多个报告ID的设备，此处应传入对应的ID值，该ID值必须与描述符中定义的值保持一致。<tr><td>reportData<td>Uint8Array<td>是<td>报告数据。其内容长度和解析方式必须严格匹配描述符中为该报告ID定义的格式。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.<tr><td>2903052<td>App not register.<tr><td>2903053<td>Device not connected.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let reportData: Uint8Array = new Uint8Array([0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let id: number = 0;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.sendReport(id, reportData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=replyreport23>replyReport23+<a href=#replyreport23 class=hash-link aria-label=replyReport23+的直接链接 title=replyReport23+的直接链接 translate=no>​</a></h3>
+<p>replyReport(type: ReportType, id: number, reportData: Uint8Array): void</p>
+<p>回复已连接HID主机的特定请求。</p>
+<ul>
+<li class="">调用该接口前必须已调用<a href=#registerhiddevice23 class="">registerHidDevice</a>完成注册，并通过<a href=#connect23 class="">connect</a>建立与HID主机的连接。</li>
+<li class="">通过订阅<a href=#ongetreport23 class="">onGetReport</a>应用可以接收主机的请求。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>type<td><a href=#reporttype23 class="">ReportType</a><td>是<td>回复的报告类型。<tr><td>id<td>number<td>是<td>对应HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中定义的报告ID，用于标识报告类型，对于不带ID的简单设备，此参数应设置为0。对于定义了多个报告ID的设备，此处应传入对应的ID值，该ID值必须与描述符中定义的值保持一致。<tr><td>reportData<td>Uint8Array<td>是<td>报告数据。其内容长度和解析方式必须严格匹配描述符中为该报告ID定义的格式。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.<tr><td>2903052<td>App not register.<tr><td>2903053<td>Device not connected.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let type = hid.ReportType.REPORT_TYPE_INPUT;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let id: number = 0;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">let reportData: Uint8Array = new Uint8Array([0x00, 0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77]);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.replyReport(type, id, reportData);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=reporterror23>reportError23+<a href=#reporterror23 class=hash-link aria-label=reportError23+的直接链接 title=reportError23+的直接链接 translate=no>​</a></h3>
+<p>reportError(error: ErrorReason): void</p>
+<p>向已连接的HID主机报告特定的错误类型。</p>
+<ul>
+<li class="">调用该接口前必须已调用<a href=#registerhiddevice23 class="">registerHidDevice</a>完成注册，并通过<a href=#connect23 class="">connect</a>建立与HID主机的连接。</li>
+</ul>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>error<td><a href=#errorreason23 class="">ErrorReason</a><td>是<td>表示要报告给HID主机的具体错误类型。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>和<a class="" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts-errcode/errorcode-bluetoothmanager/errorcode-bluetoothmanager>蓝牙服务子系统错误码</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.<tr><td>2900003<td>Bluetooth disabled.<tr><td>2900099<td>Operation failed.<tr><td>2903052<td>App not register.<tr><td>2903053<td>Device not connected.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">let error = hid.ErrorReason.RSP_SUCCESS;</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.reportError(error);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ongetreport23>onGetReport23+<a href=#ongetreport23 class=hash-link aria-label=onGetReport23+的直接链接 title=onGetReport23+的直接链接 translate=no>​</a></h3>
+<p>onGetReport(callback: Callback&lt;GetReportData>): void</p>
+<p>订阅HID主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>GET_REPORT</a>传输请求事件，使用callback异步回调。收到回调后可以通过调用接口<a href=#replyreport23 class="">replyReport</a>进行回复。当收到的数据不符合预期时，可以通过调用接口<a href=#reporterror23 class="">reportError</a>进行回复。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#getreportdata23 class="">GetReportData</a>><td>是<td>回调函数，返回收到的报告数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.GetReportData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`type: ${callback.type}, id: ${callback.id}, bufferSize: ${callback.bufferSize}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onGetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offgetreport23>offGetReport23+<a href=#offgetreport23 class=hash-link aria-label=offGetReport23+的直接链接 title=offGetReport23+的直接链接 translate=no>​</a></h3>
+<p>offGetReport(callback?: Callback&lt;GetReportData>): void</p>
+<p>取消订阅主机向HID设备发出的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>GET_REPORT</a>传输请求事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#getreportdata23 class="">GetReportData</a>><td>否<td>指定取消订阅的回调函数通知。若传参，则需与<a href=#ongetreport23 class="">onGetReport</a>中的回调函数一致；若无传参，则取消订阅所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.GetReportData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`type: ${callback.type}, id: ${callback.id}, bufferSize: ${callback.bufferSize}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onGetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.offGetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onsetreport23>onSetReport23+<a href=#onsetreport23 class=hash-link aria-label=onSetReport23+的直接链接 title=onSetReport23+的直接链接 translate=no>​</a></h3>
+<p>onSetReport(callback: Callback&lt;SetReportData>): void</p>
+<p>订阅HID主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>SET_REPORT</a>传输请求事件，使用callback异步回调。当收到的数据不符合预期时，可以通过调用接口<a href=#reporterror23 class="">reportError</a>进行回复。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#setreportdata23 class="">SetReportData</a>><td>是<td>回调函数，返回收到的报告数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.SetReportData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`type: ${callback.type}, id: ${callback.id}, dataSize: ${callback.data.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onSetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offsetreport23>offSetReport23+<a href=#offsetreport23 class=hash-link aria-label=offSetReport23+的直接链接 title=offSetReport23+的直接链接 translate=no>​</a></h3>
+<p>offSetReport(callback?: Callback&lt;SetReportData>): void</p>
+<p>取消订阅主机向HID设备发出的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>SET_REPORT</a>传输请求事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#setreportdata23 class="">SetReportData</a>><td>否<td>指定取消订阅的回调函数通知。若传参，则需与<a href=#onsetreport23 class="">onSetReport</a>中的回调函数一致；若无传参，则取消订阅所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.SetReportData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`type: ${callback.type}, id: ${callback.id}, dataSize: ${callback.data.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onSetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.offSetReport(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=oninterruptdatareceived23>onInterruptDataReceived23+<a href=#oninterruptdatareceived23 class=hash-link aria-label=onInterruptDataReceived23+的直接链接 title=onInterruptDataReceived23+的直接链接 translate=no>​</a></h3>
+<p>onInterruptDataReceived(callback: Callback&lt;InterruptData>): void</p>
+<p>订阅HID主机通过中断传输通道发送数据的事件的回调，使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#interruptdata23 class="">InterruptData</a>><td>是<td>回调函数，返回收到的中断数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.InterruptData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`id: ${callback.id}, dataSize: ${callback.data.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onInterruptDataReceived(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offinterruptdatareceived23>offInterruptDataReceived23+<a href=#offinterruptdatareceived23 class=hash-link aria-label=offInterruptDataReceived23+的直接链接 title=offInterruptDataReceived23+的直接链接 translate=no>​</a></h3>
+<p>offInterruptDataReceived(callback?: Callback&lt;InterruptData>): void</p>
+<p>取消订阅主机通过中断传输通道发送数据事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#interruptdata23 class="">InterruptData</a>><td>否<td>指定取消订阅的回调函数通知。若传参，则需与<a href=#oninterruptdatareceived23 class="">onInterruptDataReceived</a>中的回调函数一致；若无传参，则取消订阅所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.InterruptData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`id: ${callback.id}, dataSize: ${callback.data.length}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onInterruptDataReceived(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.offInterruptDataReceived(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onsetprotocol23>onSetProtocol23+<a href=#onsetprotocol23 class=hash-link aria-label=onSetProtocol23+的直接链接 title=onSetProtocol23+的直接链接 translate=no>​</a></h3>
+<p>onSetProtocol(callback: Callback&lt;ProtocolData>): void</p>
+<p>订阅HID主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>SET_PROTOCOL</a>请求事件，使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#protocoldata23 class="">ProtocolData</a>><td>是<td>回调函数。返回收到的协议数据。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.ProtocolData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`protocol: ${callback.protocol}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onSetProtocol(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offsetprotocol23>offSetProtocol23+<a href=#offsetprotocol23 class=hash-link aria-label=offSetProtocol23+的直接链接 title=offSetProtocol23+的直接链接 translate=no>​</a></h3>
+<p>offSetProtocol(callback?: Callback&lt;ProtocolData>): void</p>
+<p>取消订阅主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>SET_PROTOCOL</a>请求事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;<a href=#protocoldata23 class="">ProtocolData</a>><td>否<td>指定取消订阅的回调函数通知。若传参，则需与<a href=#onsetprotocol23 class="">onSetProtocol</a>中的回调函数一致；若无传参，则取消订阅所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent(callback: hid.ProtocolData) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`protocol: ${callback.protocol}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onSetProtocol(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.offSetProtocol(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=onvirtualcableunplug23>onVirtualCableUnplug23+<a href=#onvirtualcableunplug23 class=hash-link aria-label=onVirtualCableUnplug23+的直接链接 title=onVirtualCableUnplug23+的直接链接 translate=no>​</a></h3>
+<p>onVirtualCableUnplug(callback: Callback&lt;void>): void</p>
+<p>订阅主机断开HID虚拟链路事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;void><td>是<td>回调函数。当主机断开虚拟链路时返回。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onVirtualCableUnplug`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onVirtualCableUnplug(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=offvirtualcableunplug23>offVirtualCableUnplug23+<a href=#offvirtualcableunplug23 class=hash-link aria-label=offVirtualCableUnplug23+的直接链接 title=offVirtualCableUnplug23+的直接链接 translate=no>​</a></h3>
+<p>offVirtualCableUnplug(callback?: Callback&lt;void>): void</p>
+<p>取消订阅主机断开HID虚拟链路事件的回调。使用callback异步回调。</p>
+<p><strong><strong>需要权限</strong></strong>：ohos.permission.ACCESS_BLUETOOTH</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+<p><strong><strong>参数：</strong></strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>参数名<th>类型<th>必填<th>说明<tbody><tr><td>callback<td>Callback&lt;void><td>否<td>指定取消订阅的回调函数通知。若传参，则需与<a href=#onvirtualcableunplug23 class="">onVirtualCableUnplug</a>中的回调函数一致；若无传参，则取消订阅所有回调函数通知。</table>
+<p><strong><strong>错误码</strong></strong>：</p>
+<p>以下错误码的详细介绍请参见<a class="" href=/harmonyos-docs-site/ref/errorcode-universal/errorcode-universal>通用错误码说明文档</a>。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>错误码ID<th>错误信息<tbody><tr><td>201<td>Permission denied.<tr><td>801<td>Capability not supported.</table>
+<p><strong><strong>示例：</strong></strong></p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#393A34;--prism-background-color:#f6f8fa><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-text codeBlock_bY9V thin-scrollbar" style=color:#393A34;background-color:#f6f8fa><code class=codeBlockLines_e6Vv><div class=token-line style=color:#393A34><span class="token plain">function onReceiveEvent() {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.info(`onVirtualCableUnplug`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">try {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    let hidDevice: hid.HidDeviceProfile = hid.createHidDeviceProfile();</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.onVirtualCableUnplug(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    hidDevice.offVirtualCableUnplug(onReceiveEvent);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">} catch (err) {</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">    console.error(`errCode: ${err.code}, errMessage: ${err.message}`);</span><br/></div><div class=token-line style=color:#393A34><span class="token plain">}</span><br/></div></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiddevicesdp23>HidDeviceSdp23+<a href=#hiddevicesdp23 class=hash-link aria-label=HidDeviceSdp23+的直接链接 title=HidDeviceSdp23+的直接链接 translate=no>​</a></h2>
+<p>描述HID设备在服务发现协议(<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#sdp>SDP</a>)中的服务注册配置。该结构定义了HID设备的身份标识、能力描述和协议特征，是HID主机发现、识别和连接HID设备的关键参数。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>name<td>string<td>否<td>否<td>HID设备的名称，要求长度范围：[1, 50]，单位：Byte。<tr><td>description<td>string<td>否<td>否<td>HID设备的描述信息，要求长度范围：[1, 50]，单位：Byte。<tr><td>provider<td>string<td>否<td>否<td>描述HID设备的制造商信息，要求长度范围：[1, 50]，单位：Byte。<tr><td>subclass<td><a href=#subclass23 class="">Subclass</a><td>否<td>否<td>表示HID设备具体类型。<tr><td>descriptors<td>Uint8Array<td>否<td>否<td>标识与蓝牙HID设备功能定义描述符。描述符会为每个支持的报告分配一个唯一的ID， 并详细定义该ID下报告的长度、结构与各字段含义。填写时需要遵循<a href=https://www.usb.org/hid target=_blank rel="noopener noreferrer" class="">USB HID</a>规范。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=hiddeviceqos23>HidDeviceQos23+<a href=#hiddeviceqos23 class=hash-link aria-label=HidDeviceQos23+的直接链接 title=HidDeviceQos23+的直接链接 translate=no>​</a></h2>
+<p>描述HID设备服务质量(Qos)参数。该结构定义了HID数据传输通道的流量控制、延迟保证和可靠性策略，用于优化蓝牙传输性能，确保设备的实时响应性。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>serviceType<td><a href=#servicetype23 class="">ServiceType</a><td>否<td>是<td>服务类型，默认为SERVICE_BEST_EFFORT。<tr><td>tokenRate<td>number<td>否<td>是<td>单位时间内允许传输的平均数据量，单位为Byte/s，默认为0，表示没有平均数据量限制。<tr><td>tokenBucketSize<td>number<td>否<td>是<td>允许短时间内超过tokenRate的最大数据量，默认为0，表示没有最大数据量限制。<tr><td>peakBandwidth<td>number<td>否<td>是<td>最大传输速率限制，单位为Byte/s，默认为0，表示没有传输速率限制。<tr><td>latency<td>number<td>否<td>是<td>最大允许延迟时间，单位为μs，默认为-1，表示没有延迟限制。<tr><td>delayVariation<td>number<td>否<td>是<td>允许的延迟波动范围，单位为μs，默认为-1，表示没有延迟波动范围限制。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=getreportdata23>GetReportData23+<a href=#getreportdata23 class=hash-link aria-label=GetReportData23+的直接链接 title=GetReportData23+的直接链接 translate=no>​</a></h2>
+<p>描述HID主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>GET_REPORT</a>传输请求事件的信息。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#reporttype23 class="">ReportType</a><td>否<td>否<td>报告类型。<tr><td>id<td>number<td>否<td>否<td>对应HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中定义的报告ID，用于标识报告类型，对于不带ID的简单设备，此参数应设置为0。对于定义了多个报告ID的设备，此处应传入对应的ID值，该ID值必须与描述符中定义的值保持一致。<tr><td>bufferSize<td>number<td>否<td>否<td>收到数据的长度，单位为Byte。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=setreportdata23>SetReportData23+<a href=#setreportdata23 class=hash-link aria-label=SetReportData23+的直接链接 title=SetReportData23+的直接链接 translate=no>​</a></h2>
+<p>描述HID主机向HID设备发送的<a class="" href=/harmonyos-docs-site/system-network/connectivity-kit/terminology#hid>SET_REPORT</a>传输请求事件的信息。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>type<td><a href=#reporttype23 class="">ReportType</a><td>否<td>否<td>报告类型。<tr><td>id<td>number<td>否<td>否<td>对应HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中定义的报告ID，用于标识报告类型，对于不带ID的简单设备，此参数应设置为0。对于定义了多个报告ID的设备，此处应传入对应的ID值，该ID值必须与描述符中定义的值保持一致。<tr><td>data<td>Uint8Array<td>否<td>否<td>配置数据。其内容长度和解析方式必须严格匹配描述符中为该报告ID定义的格式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=interruptdata23>InterruptData23+<a href=#interruptdata23 class=hash-link aria-label=InterruptData23+的直接链接 title=InterruptData23+的直接链接 translate=no>​</a></h2>
+<p>描述从主机收到的中断数据。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>id<td>number<td>否<td>否<td>对应HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中定义的报告ID，用于标识报告类型，对于不带ID的简单设备，此参数应设置为0。对于定义了多个报告ID的设备，此处应传入对应的ID值，该ID值必须与描述符中定义的值保持一致。<tr><td>data<td>Uint8Array<td>否<td>否<td>中断数据。其内容长度和解析方式必须严格匹配HID设备注册时通过<a href=#hiddevicesdp23 class="">HidDeviceSdp</a>提供的描述符中为该报告ID定义的格式。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=protocoldata23>ProtocolData23+<a href=#protocoldata23 class=hash-link aria-label=ProtocolData23+的直接链接 title=ProtocolData23+的直接链接 translate=no>​</a></h2>
+<p>描述从HID主机接收的通信协议数据。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>类型<th>只读<th>可选<th>说明<tbody><tr><td>protocol<td><a href=#protocoltype23 class="">ProtocolType</a><td>否<td>否<td>主机的不同通信协议类型。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=subclass23>Subclass23+<a href=#subclass23 class=hash-link aria-label=Subclass23+的直接链接 title=Subclass23+的直接链接 translate=no>​</a></h2>
+<p>枚举，HID设备的具体类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SUBCLASS_UNCATEGORIZED<td>0<td>未分类HID设备。<tr><td>SUBCLASS_JOYSTICK<td>1<td>摇杆设备。<tr><td>SUBCLASS_GAMEPAD<td>2<td>游戏手柄设备。<tr><td>SUBCLASS_REMOTE_CONTROL<td>3<td>遥控器设备。<tr><td>SUBCLASS_SENSING_DEVICE<td>4<td>传感设备。<tr><td>SUBCLASS_DIGITIZER_TABLET<td>5<td>数位板设备。<tr><td>SUBCLASS_CARD_READER<td>6<td>读卡器设备。<tr><td>SUBCLASS_KEYBOARD<td>64<td>标准键盘设备。<tr><td>SUBCLASS_MOUSE<td>128<td>标准鼠标设备。<tr><td>SUBCLASS_COMBO<td>192<td>组合输入设备。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=reporttype23>ReportType23+<a href=#reporttype23 class=hash-link aria-label=ReportType23+的直接链接 title=ReportType23+的直接链接 translate=no>​</a></h2>
+<p>枚举，报告类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>REPORT_TYPE_INPUT<td>1<td>输入报告，表示由本端向HID主机发送的数据。<tr><td>REPORT_TYPE_OUTPUT<td>2<td>输出报告，表示HID这几向本端发送的数据。<tr><td>REPORT_TYPE_FEATURE<td>3<td>特征报告，表示双向传输的配置数据。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=servicetype23>ServiceType23+<a href=#servicetype23 class=hash-link aria-label=ServiceType23+的直接链接 title=ServiceType23+的直接链接 translate=no>​</a></h2>
+<p>枚举，描述HID设备与主机之间连接的服务类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>SERVICE_NO_TRAFFIC<td>0<td>低功耗模式，仅维持连接，不传输应用数据，功耗最低。<tr><td>SERVICE_BEST_EFFORT<td>1<td>高速模式，传输速率最快，但是数据包可能丢失或乱序，适用于对延迟敏感但对丢包不敏感的场景。<tr><td>SERVICE_GUARANTEED<td>2<td>可靠模式，传输速度稍慢，但是保证数据正确送达，适用于文件传输等场景。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=errorreason23>ErrorReason23+<a href=#errorreason23 class=hash-link aria-label=ErrorReason23+的直接链接 title=ErrorReason23+的直接链接 translate=no>​</a></h2>
+<p>枚举，描述错误原因。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>RSP_SUCCESS<td>0<td>成功无异常。<tr><td>RSP_NOT_READY<td>1<td>设备未准备好处理请求。建议主机稍后重试。<tr><td>RSP_INVALID_REPORT_ID<td>2<td>无效的报告ID。建议主机确认当前支持的ID列表，并使用正确的ID重发消息。<tr><td>RSP_UNSUPPORTED_REQ<td>3<td>当前请求不支持，建议主机检查当前请求类型或报告类型是否在当前协议模式下被本端支持。<tr><td>RSP_INVALID_PARAM<td>4<td>无效参数。建议主机检查请求中的参数是否超出本端声明的范围或不符合报告描述符的定义。<tr><td>RSP_UNKNOWN<td>14<td>未知错误原因。建议主机记录错误上下文并重试。</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=protocoltype23>ProtocolType23+<a href=#protocoltype23 class=hash-link aria-label=ProtocolType23+的直接链接 title=ProtocolType23+的直接链接 translate=no>​</a></h2>
+<p>枚举，HID设备与主机的通信协议类型。</p>
+<p><strong><strong>系统能力</strong></strong>：SystemCapability.Communication.Bluetooth.Core</p>
+<p><strong><strong>模型约束</strong></strong>：此接口仅可在Stage模型下使用。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>名称<th>值<th>说明<tbody><tr><td>PROTOCOL_BOOT_MODE<td>0<td>兼容模式，确保设备在系统启动阶段和所有平台都能被识别为基本输入设备，兼容性最好但功能有限，适用于如键盘鼠标简单外设开发。<tr><td>PROTOCOL_REPORT_MODE<td>1<td>完整的报告协议模式，允许设备使用完整的HID描述符和所有报告类型，适用于如游戏手柄、触摸屏等需要丰富功能与自定义数据格式的复杂外设。</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label=文件选项卡><a class="pagination-nav__link pagination-nav__link--prev" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-hfp/js-apis-bluetooth-hfp><div class=pagination-nav__sublabel>上一页</div><div class=pagination-nav__label>@ohos.bluetooth.hfp (蓝牙hfp模块)</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/harmonyos-docs-site/ref/system-network-api/connectivity-api/connectivity-arkts/js-apis-bluetooth-pan/js-apis-bluetooth-pan><div class=pagination-nav__sublabel>下一页</div><div class=pagination-nav__label>@ohos.bluetooth.pan (蓝牙pan模块)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#导入模块 class="table-of-contents__link toc-highlight">导入模块</a><li><a href=#baseprofile class="table-of-contents__link toc-highlight">BaseProfile</a><li><a href=#bluetoothaddress23 class="table-of-contents__link toc-highlight">BluetoothAddress23+</a><li><a href=#hidcreatehidhostprofile class="table-of-contents__link toc-highlight">hid.createHidHostProfile</a><li><a href=#hidcreatehiddeviceprofile23 class="table-of-contents__link toc-highlight">hid.createHidDeviceProfile23+</a><li><a href=#hiddeviceprofile23 class="table-of-contents__link toc-highlight">HidDeviceProfile23+</a><ul><li><a href=#registerhiddevice23 class="table-of-contents__link toc-highlight">registerHidDevice23+</a><li><a href=#unregisterhiddevice23 class="table-of-contents__link toc-highlight">unregisterHidDevice23+</a><li><a href=#connect23 class="table-of-contents__link toc-highlight">connect23+</a><li><a href=#disconnect23 class="table-of-contents__link toc-highlight">disconnect23+</a><li><a href=#sendreport23 class="table-of-contents__link toc-highlight">sendReport23+</a><li><a href=#replyreport23 class="table-of-contents__link toc-highlight">replyReport23+</a><li><a href=#reporterror23 class="table-of-contents__link toc-highlight">reportError23+</a><li><a href=#ongetreport23 class="table-of-contents__link toc-highlight">onGetReport23+</a><li><a href=#offgetreport23 class="table-of-contents__link toc-highlight">offGetReport23+</a><li><a href=#onsetreport23 class="table-of-contents__link toc-highlight">onSetReport23+</a><li><a href=#offsetreport23 class="table-of-contents__link toc-highlight">offSetReport23+</a><li><a href=#oninterruptdatareceived23 class="table-of-contents__link toc-highlight">onInterruptDataReceived23+</a><li><a href=#offinterruptdatareceived23 class="table-of-contents__link toc-highlight">offInterruptDataReceived23+</a><li><a href=#onsetprotocol23 class="table-of-contents__link toc-highlight">onSetProtocol23+</a><li><a href=#offsetprotocol23 class="table-of-contents__link toc-highlight">offSetProtocol23+</a><li><a href=#onvirtualcableunplug23 class="table-of-contents__link toc-highlight">onVirtualCableUnplug23+</a><li><a href=#offvirtualcableunplug23 class="table-of-contents__link toc-highlight">offVirtualCableUnplug23+</a></ul><li><a href=#hiddevicesdp23 class="table-of-contents__link toc-highlight">HidDeviceSdp23+</a><li><a href=#hiddeviceqos23 class="table-of-contents__link toc-highlight">HidDeviceQos23+</a><li><a href=#getreportdata23 class="table-of-contents__link toc-highlight">GetReportData23+</a><li><a href=#setreportdata23 class="table-of-contents__link toc-highlight">SetReportData23+</a><li><a href=#interruptdata23 class="table-of-contents__link toc-highlight">InterruptData23+</a><li><a href=#protocoldata23 class="table-of-contents__link toc-highlight">ProtocolData23+</a><li><a href=#subclass23 class="table-of-contents__link toc-highlight">Subclass23+</a><li><a href=#reporttype23 class="table-of-contents__link toc-highlight">ReportType23+</a><li><a href=#servicetype23 class="table-of-contents__link toc-highlight">ServiceType23+</a><li><a href=#errorreason23 class="table-of-contents__link toc-highlight">ErrorReason23+</a><li><a href=#protocoltype23 class="table-of-contents__link toc-highlight">ProtocolType23+</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>文档</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/harmonyos-docs-site/application-dev-guide>开发指南</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>更多</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://developer.huawei.com target=_blank rel="noopener noreferrer" class=footer__link-item>华为开发者<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>HarmonyOS 开发者文档镜像 · 数据来源：华为开发者官网 · 2026</div></div></div></footer></div></body>
