@@ -11,8 +11,8 @@ const config = {
     v4: true,
   },
 
-  url: 'http://localhost',
-  baseUrl: '/',
+  url: 'https://hmos-docsteam.github.io',
+  baseUrl: '/harmonyos-docs-site/',
 
   onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
